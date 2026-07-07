@@ -1,0 +1,33 @@
+experiment_id: regression_split_tail_smoke_cps_wages_v0
+purpose: "Smoke-test tail-specific one-sided split conformal allocations on the audited CPS wages log1p target."
+random_seeds: [42]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_cps_85_wages
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - split_tail_0.25
+  - split_tail_0.50
+  - split_tail_0.75
+  - cqr
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+
+logging:
+  ledger: experiments/regression/results/split_tail_smoke_cps_wages/ledger.jsonl
+  checkpoint_root: experiments/regression/results/split_tail_smoke_cps_wages/checkpoints
+  prediction_cache_root: experiments/regression/results/split_tail_smoke_cps_wages/checkpoints/predictions

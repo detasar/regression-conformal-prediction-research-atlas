@@ -1,0 +1,99 @@
+experiment_id: regression_method_selection_post_selection_validation_openml_analcatdata_chlamydia_v1
+purpose: Independent post-selection validation batch for openml_analcatdata_chlamydia.
+  The config clones audited preprocessing, split, target-transform, and runtime settings
+  from the completed alpha-expansion support config, fixes an independent seed set
+  and common alpha grid, and keeps claims limited to validation-work-queue evidence
+  until the runs are executed and re-audited.
+random_seeds: &id001
+- 101
+- 211
+- 307
+alphas:
+- 0.01
+- 0.05
+- 0.1
+- 0.15
+- 0.2
+target_transform: log1p
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+  duplicate_cluster_scope: model_visible_features_plus_target
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 500
+  jackknife_plus_max_train_rows: 500
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+- openml_analcatdata_chlamydia
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 0.1
+cp_methods:
+- cqr
+- cv_plus
+- mondrian_abs
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  note_seed_aggregate_count: 2
+  focused_on_model_visible_duplicate_caveat_seeds: true
+  include_tail_specific_split_variants_for_right_skewed_count_target: true
+  include_plus_minmax_and_jackknife_after_bootstrap_for_tiny_n: true
+  treat_log1p_as_first_pass_transform_only: true
+  require_raw_log_target_sensitivity_followup: true
+  gender_primary_group_diagnostic: true
+  retain_age_race_secondary_audit_context: true
+  aggregate_stratum_rows_not_individuals: true
+  no_exposure_denominator_or_rate_model: true
+  forbid_public_health_claims: true
+  forbid_population_disease_burden_claims: true
+  forbid_sex_race_age_fairness_claims: true
+  forbid_causal_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+  method_selection_alpha_expansion_batch: true
+  support_expansion_only_no_final_selection: true
+  no_final_method_selection_claim: true
+  candidate_methods_restricted_to_current_shortlist: true
+  target_alphas_from_alpha_expansion_plan: true
+  representative_source_model_only: true
+  full_model_family_sweep_not_rerun: true
+  requires_post_batch_resynthesis_and_reaudit: true
+  method_selection_post_selection_validation_batch: true
+  post_selection_validation_only_no_final_selection: true
+  validation_seeds_independent_from_selection_surface: true
+  fixed_common_alpha_grid_for_validation: true
+  requires_post_validation_resynthesis_and_reaudit: true
+  forbid_fairness_population_claims_without_population_gate: true
+  forbid_bounded_support_claims_without_endpoint_gate: true
+post_selection_validation_provenance:
+  schema: cpfi_regression_method_selection_post_selection_validation_batch_v1
+  batch_id: method_selection_post_selection_validation_v1
+  source_alpha_expansion_batch: experiments/regression/reports/methodology_sanity_audit_20260627/method_selection_alpha_expansion_batch.json
+  source_alpha_expansion_config: experiments/regression/configs/method_selection_alpha_expansion_openml_analcatdata_chlamydia.yaml
+  source_alpha_expansion_experiment_id: regression_method_selection_alpha_expansion_openml_analcatdata_chlamydia_v1
+  source_alpha_expansion_generated_config_index: 3
+  source_selection_seeds:
+  - 42
+  - 71
+  validation_seeds: *id001
+  seed_overlap: []
+  claim_boundary: post_selection_validation_only_no_final_selection
+logging:
+  ledger: experiments/regression/results/method_selection_post_selection_validation_openml_analcatdata_chlamydia/ledger.jsonl
+  checkpoint_root: experiments/regression/results/method_selection_post_selection_validation_openml_analcatdata_chlamydia/checkpoints
+  prediction_cache_root: experiments/regression/results/method_selection_post_selection_validation_openml_analcatdata_chlamydia/checkpoints/predictions

@@ -1,0 +1,143 @@
+experiment_id: regression_duplicate_cluster_sensitivity_openml_chlamydia_count_log1p_gender_v0
+purpose: "Duplicate-cluster sensitivity follow-up for the model-visible feature-plus-target duplicate caveat in the OpenML AnalCatData Chlamydia aggregate-count model-family sweep. This reruns the same model-family and conformal-method grid on the two affected seeds (42 and 71) with model-visible feature-plus-target duplicate clusters assigned to a single split. Rows are Age/Gender/Race strata, not individuals. This is split-methodology sensitivity evidence only, not public-health rate modeling, population disease-burden inference, sex/race/age fairness evidence, causal evidence, production evidence, final model selection, bounded-support evidence, or validated Venn-Abers regression evidence."
+random_seeds: [42, 71]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  duplicate_cluster_scope: model_visible_features_plus_target
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 500
+  jackknife_plus_max_train_rows: 500
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_analcatdata_chlamydia
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0]
+  - model_id: elasticnet
+    family: sparse_linear
+    grid:
+      alpha: [0.001, 0.01, 0.1]
+      l1_ratio: [0.25, 0.75]
+  - model_id: bayesian_ridge
+    family: linear_bayesian
+    grid:
+      alpha_1: [0.000001]
+      alpha_2: [0.000001]
+      lambda_1: [0.000001]
+      lambda_2: [0.000001]
+  - model_id: svr
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      C: [0.3, 1.0]
+      gamma: ["scale", 0.01]
+      epsilon: [0.03, 0.1]
+  - model_id: kernel_ridge
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      alpha: [0.1, 1.0]
+      gamma: [0.001, 0.01]
+  - model_id: knn
+    family: instance_based
+    grid:
+      n_neighbors: [5, 15]
+      weights: ["uniform", "distance"]
+      p: [2]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: extra_trees
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15, 31]
+      l2_regularization: [0.0]
+  - model_id: xgboost
+    family: boosting
+    grid:
+      n_estimators: [120]
+      max_depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: lightgbm
+    family: boosting
+    grid:
+      n_estimators: [120]
+      num_leaves: [15, 31]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: catboost
+    family: boosting
+    grid:
+      iterations: [120]
+      depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      l2_leaf_reg: [3.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - split_tail_0.25
+  - split_tail_0.50
+  - split_tail_0.75
+  - cqr
+  - cv_plus
+  - cv_minmax
+  - jackknife_plus
+  - jackknife_minmax
+  - jackknife_plus_after_bootstrap
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  note_seed_aggregate_count: 2
+  focused_on_model_visible_duplicate_caveat_seeds: true
+  include_tail_specific_split_variants_for_right_skewed_count_target: true
+  include_plus_minmax_and_jackknife_after_bootstrap_for_tiny_n: true
+  treat_log1p_as_first_pass_transform_only: true
+  require_raw_log_target_sensitivity_followup: true
+  gender_primary_group_diagnostic: true
+  retain_age_race_secondary_audit_context: true
+  aggregate_stratum_rows_not_individuals: true
+  no_exposure_denominator_or_rate_model: true
+  forbid_public_health_claims: true
+  forbid_population_disease_burden_claims: true
+  forbid_sex_race_age_fairness_claims: true
+  forbid_causal_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/duplicate_cluster_sensitivity_openml_chlamydia_count_log1p_gender/ledger.jsonl
+  checkpoint_root: experiments/regression/results/duplicate_cluster_sensitivity_openml_chlamydia_count_log1p_gender/checkpoints
+  prediction_cache_root: experiments/regression/results/duplicate_cluster_sensitivity_openml_chlamydia_count_log1p_gender/checkpoints/predictions

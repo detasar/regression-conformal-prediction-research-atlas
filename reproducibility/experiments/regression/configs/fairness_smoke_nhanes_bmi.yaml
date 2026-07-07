@@ -1,0 +1,34 @@
+experiment_id: regression_fairness_smoke_nhanes_bmi_demographic_v0
+purpose: "Smoke-test audited NHANES 2017-2018 BMI regression with race/ethnicity-group conformal diagnostics. This is an unweighted demographic-only runner smoke, not a population-weighted NHANES health estimate."
+random_seeds: [42]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - nhanes_2017_2018_bmi
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_nhanes_bmi_demographic/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_nhanes_bmi_demographic/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_nhanes_bmi_demographic/checkpoints/predictions

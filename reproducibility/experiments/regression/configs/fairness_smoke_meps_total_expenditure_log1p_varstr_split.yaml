@@ -1,0 +1,36 @@
+experiment_id: regression_fairness_smoke_meps_2023_total_expenditure_log1p_varstr_split_v0
+purpose: "Smoke-test audited AHRQ MEPS HC-251 2023 total health-care expenditure regression with race/ethnicity diagnostics and survey-stratum grouped splits. This is an unweighted engineering smoke, not a population-weighted MEPS expenditure estimate or clinical fairness conclusion."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  group_col: VARSTR
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - meps_2023_total_expenditure
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_meps_total_expenditure_log1p_varstr_split/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_meps_total_expenditure_log1p_varstr_split/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_meps_total_expenditure_log1p_varstr_split/checkpoints/predictions

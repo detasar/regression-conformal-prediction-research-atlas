@@ -1,0 +1,42 @@
+experiment_id: regression_fairness_smoke_uci_student_performance_prior_grade_sensitivity_v0
+purpose: "Three-seed UCI Student Performance prior-grade sensitivity smoke. This compares the official Portuguese-course final-grade regression target with G1/G2 retained versus G1/G2 removed, because UCI notes G1 and G2 are strongly correlated prior period grades. Uses sex as the diagnostic group and is a small education benchmark, not a student-level policy conclusion."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - uci_student_performance_with_prior_grades
+  - uci_student_performance_no_prior_grades
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  compare_with_and_without_prior_grades: true
+  treat_g1_g2_as_prior_period_grade_sensitivity_not_causal_feature_claim: true
+  treat_sex_as_diagnostic_group_only: true
+  forbid_student_level_policy_claims: true
+  forbid_causal_or_intervention_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/fairness_smoke_uci_student_performance_prior_grade_sensitivity/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_uci_student_performance_prior_grade_sensitivity/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_uci_student_performance_prior_grade_sensitivity/checkpoints/predictions

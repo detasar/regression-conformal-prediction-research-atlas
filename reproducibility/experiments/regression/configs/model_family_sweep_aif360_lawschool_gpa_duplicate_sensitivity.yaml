@@ -1,0 +1,124 @@
+experiment_id: regression_model_family_sweep_aif360_lawschool_gpa_duplicate_sensitivity_v0
+purpose: "Controlled large-tabular model-family and hyperparameter sweep for the policy-gated AIF360 Law School GPA raw-vs-exact-deduplicated duplicate-sensitivity benchmark. This extends the ridge duplicate-sensitivity smoke to regularized linear, Bayesian linear, RBF SVR, instance-based, tree-ensemble, histogram boosting, and installed gradient-boosting libraries while preserving AIF360 sklearn loader provenance, identity-scale target modeling for zfygpa, race-primary protected-group diagnostics, existing-loader feature policy, raw/dedup variant pairing, train-fitted preprocessing, resumable ledger, and Venn-Abers diagnostic-only boundary. The raw frame has exact duplicate rows and duplicate signature overlap across random split partitions, so raw and dedup results are duplicate-sensitivity evidence rather than independent benchmark replications. The existing runner drops target zfygpa and primary group race from model features but retains gender as a model feature; therefore this is race-primary under the historical loader policy, not a dual-protected-attribute drop study. LSAT and UGPA are retained as predictive covariates and encode upstream selection pipeline effects, so this is interval calibration and race-group diagnostic evidence under that benchmark feature policy, not a causal, admissions-policy, merit, or intervention analysis. CQR rows use the runner's fixed GradientBoostingRegressor quantile backend and are repeated per outer model configuration, so they are fixed-backend CQR baseline evidence rather than model-family-sensitive CQR evidence. Exact RBF KernelRidge is intentionally excluded from this large-tabular sweep because the runner has no model-level training-row cap for exact kernel solvers and train splits exceed 12k rows; RBF SVR remains the kernel-family representative. This is controlled benchmark triage only, not publication-ready law-school fairness evidence, legal/admissions guidance, final model selection, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 15000
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - aif360_lawschool_gpa
+  - aif360_lawschool_gpa_dedup
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0]
+  - model_id: elasticnet
+    family: sparse_linear
+    grid:
+      alpha: [0.001, 0.01, 0.1]
+      l1_ratio: [0.25, 0.75]
+  - model_id: bayesian_ridge
+    family: linear_bayesian
+    grid:
+      alpha_1: [0.000001]
+      alpha_2: [0.000001]
+      lambda_1: [0.000001]
+      lambda_2: [0.000001]
+  - model_id: svr
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      C: [0.3, 1.0]
+      gamma: ["scale", 0.01]
+      epsilon: [0.03, 0.1]
+  - model_id: knn
+    family: instance_based
+    grid:
+      n_neighbors: [5, 15]
+      weights: ["uniform", "distance"]
+      p: [2]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: extra_trees
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15, 31]
+      l2_regularization: [0.0]
+  - model_id: xgboost
+    family: boosting
+    grid:
+      n_estimators: [120]
+      max_depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: lightgbm
+    family: boosting
+    grid:
+      n_estimators: [120]
+      num_leaves: [15, 31]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: catboost
+    family: boosting
+    grid:
+      iterations: [120]
+      depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      l2_leaf_reg: [3.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 2
+  keep_raw_and_dedup_variants_paired: true
+  treat_raw_frame_as_duplicate_contaminated_sensitivity: true
+  treat_dedup_variant_as_duplicate_sensitivity_variant: true
+  race_primary_protected_group_diagnostic: true
+  gender_retained_as_feature_under_existing_loader_policy: true
+  require_gender_drop_or_dual_protected_drop_followup: true
+  retain_lsat_and_ugpa_as_upstream_selection_pipeline_covariates: true
+  omit_exact_kernel_ridge_due_large_n_exact_kernel_solver_risk: true
+  forbid_publication_ready_fairness_claims: true
+  forbid_legal_or_admissions_policy_claims: true
+  forbid_causal_or_intervention_claims: true
+  forbid_merit_or_selection_pipeline_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+  forbid_final_model_selection_claims: true
+logging:
+  ledger: experiments/regression/results/model_family_sweep_aif360_lawschool_gpa_duplicate_sensitivity/ledger.jsonl
+  checkpoint_root: experiments/regression/results/model_family_sweep_aif360_lawschool_gpa_duplicate_sensitivity/checkpoints
+  prediction_cache_root: experiments/regression/results/model_family_sweep_aif360_lawschool_gpa_duplicate_sensitivity/checkpoints/predictions

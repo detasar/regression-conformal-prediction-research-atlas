@@ -1,0 +1,61 @@
+experiment_id: regression_method_selection_alpha_expansion_stackoverflow_2025_compensation_v1
+purpose: Method-selection alpha-support expansion batch for stackoverflow_2025_compensation.
+  The config clones audited split/preprocessing/runtime settings from a traced source
+  config, restricts methods to the current shortlist, and expands target alpha support
+  only. It is support evidence, not final model or conformal-method selection evidence.
+random_seeds:
+- 11
+- 23
+- 47
+alphas:
+- 0.01
+- 0.05
+- 0.15
+target_transform: log1p
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+- stackoverflow_2025_compensation
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 1.0
+cp_methods:
+- cqr
+- cv_plus
+- mondrian_abs
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+  method_selection_alpha_expansion_batch: true
+  support_expansion_only_no_final_selection: true
+  no_final_method_selection_claim: true
+  candidate_methods_restricted_to_current_shortlist: true
+  target_alphas_from_alpha_expansion_plan: true
+  representative_source_model_only: true
+  full_model_family_sweep_not_rerun: true
+  requires_post_batch_resynthesis_and_reaudit: true
+  forbid_final_model_selection_claims: true
+alpha_expansion_provenance:
+  schema: cpfi_regression_method_selection_alpha_expansion_batch_v1
+  batch_id: method_selection_alpha_expansion_next_batch_v1
+  source_plan: experiments/regression/reports/methodology_sanity_audit_20260627/method_selection_alpha_expansion_plan.json
+  source_config: experiments/regression/configs/fairness_smoke_stackoverflow_compensation_repeated.yaml
+  source_experiment_id: regression_fairness_smoke_stackoverflow_compensation_repeated_v0
+  dataset_alpha_task_ids:
+  - method_selection_alpha_expansion::stackoverflow_2025_compensation::alpha_0_01
+  - method_selection_alpha_expansion::stackoverflow_2025_compensation::alpha_0_05
+  - method_selection_alpha_expansion::stackoverflow_2025_compensation::alpha_0_15
+  claim_boundary: support_expansion_only_no_final_selection
+logging:
+  ledger: experiments/regression/results/method_selection_alpha_expansion_stackoverflow_2025_compensation/ledger.jsonl
+  checkpoint_root: experiments/regression/results/method_selection_alpha_expansion_stackoverflow_2025_compensation/checkpoints
+  prediction_cache_root: experiments/regression/results/method_selection_alpha_expansion_stackoverflow_2025_compensation/checkpoints/predictions

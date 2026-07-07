@@ -1,0 +1,85 @@
+experiment_id: regression_cqr_backend_sweep_openml_cholesterol_sex_log1p_age_diagnosis_drop_v0
+purpose: "Controlled CQR quantile-backend sweep for the policy-gated OpenML cholesterol benchmark. This varies the internal GradientBoostingRegressor quantile backend used by CQR while preserving the same sex diagnostics, age-bin audit/drop policy, diagnosis/status drop, log1p target modeling, resumable ledger, and Venn-Abers diagnostic-only boundary. This is not clinical inference, medical decision support evidence, population health evidence, sex/gender fairness evidence, final CQR backend selection, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+  - openml_cholesterol_chol
+models:
+  - model_id: ridge
+    family: cqr_carrier_linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - normalized_abs
+  - cv_plus
+  - cqr_gb_default_n300_d3_lr010
+  - cqr_gb_shallow_n120_d2_lr003
+  - cqr_gb_shallow_n240_d2_lr005
+  - cqr_gb_deep_n200_d4_lr003
+  - cqr_gb_leaf5_n300_d3_lr005
+  - cqr_gb_subsample_n300_d3_lr005_sub08
+cp_method_configs:
+  cqr_gb_default_n300_d3_lr010:
+    method_id: cqr
+    params:
+      backend: gradient_boosting
+      n_estimators: 300
+      max_depth: 3
+      learning_rate: 0.10
+  cqr_gb_shallow_n120_d2_lr003:
+    method_id: cqr
+    params:
+      backend: gradient_boosting
+      n_estimators: 120
+      max_depth: 2
+      learning_rate: 0.03
+  cqr_gb_shallow_n240_d2_lr005:
+    method_id: cqr
+    params:
+      backend: gradient_boosting
+      n_estimators: 240
+      max_depth: 2
+      learning_rate: 0.05
+  cqr_gb_deep_n200_d4_lr003:
+    method_id: cqr
+    params:
+      backend: gradient_boosting
+      n_estimators: 200
+      max_depth: 4
+      learning_rate: 0.03
+  cqr_gb_leaf5_n300_d3_lr005:
+    method_id: cqr
+    params:
+      backend: gradient_boosting
+      n_estimators: 300
+      max_depth: 3
+      learning_rate: 0.05
+      min_samples_leaf: 5
+  cqr_gb_subsample_n300_d3_lr005_sub08:
+    method_id: cqr
+    params:
+      backend: gradient_boosting
+      n_estimators: 300
+      max_depth: 3
+      learning_rate: 0.05
+      subsample: 0.80
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_cp_method_params_in_run_context: true
+  interpret_ridge_as_prediction_bundle_carrier_for_cqr: true
+logging:
+  ledger: experiments/regression/results/cqr_backend_sweep_openml_cholesterol_sex_log1p_age_diagnosis_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/cqr_backend_sweep_openml_cholesterol_sex_log1p_age_diagnosis_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/cqr_backend_sweep_openml_cholesterol_sex_log1p_age_diagnosis_drop/checkpoints/predictions

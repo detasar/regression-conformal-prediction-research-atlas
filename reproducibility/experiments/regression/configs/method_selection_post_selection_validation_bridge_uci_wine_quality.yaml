@@ -1,0 +1,113 @@
+experiment_id: regression_dataset_final_gate_post_selection_validation_bridge_uci_wine_quality_v1
+purpose: Dataset final-gate post-selection validation bridge for raw UCI Wine Quality.
+  The config clones audited preprocessing, split, target-transform, and conformal
+  runtime settings from the completed duplicate-sensitivity model-family sweep, then
+  applies independent validation seeds, a common alpha grid, one representative ridge
+  model, and the CQR/CV+/Mondrian_abs shortlist. It is validation work-queue evidence
+  only.
+random_seeds:
+- 101
+- 211
+- 307
+alphas:
+- 0.01
+- 0.05
+- 0.1
+- 0.15
+- 0.2
+target_transform: identity
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 5000
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+- uci_wine_quality
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 0.1
+cp_methods:
+- cqr
+- cv_plus
+- mondrian_abs
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 2
+  keep_raw_and_dedup_variants_paired: true
+  treat_wine_color_as_source_file_diagnostic_only: true
+  treat_quality_as_bounded_ordinal_numeric_target: true
+  quality_observed_min: 3
+  quality_observed_max: 9
+  do_not_posthoc_clip_interval_endpoints: true
+  track_out_of_quality_range_interval_endpoints: true
+  treat_raw_frame_as_duplicate_contaminated_sensitivity: true
+  treat_dedup_variant_as_duplicate_sensitivity_variant: true
+  forbid_protected_class_fairness_claims: true
+  forbid_wine_science_or_product_ranking_claims: true
+  forbid_bounded_ordinal_validity_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+  forbid_final_model_selection_claims: true
+  dataset_final_gate_post_selection_validation_bridge: true
+  post_selection_validation_only_no_final_selection: true
+  uci_wine_quality_source_model_family_sweep_bridge: true
+  bridge_dataset_was_not_in_alpha_expansion_batch: true
+  raw_uci_wine_variant_only: true
+  dedup_variant_not_rerun_in_bridge: true
+  candidate_methods_restricted_to_current_shortlist: true
+  validation_seeds_independent_from_source_sweep: true
+  fixed_common_alpha_grid_for_validation: true
+  representative_source_model_only: true
+  full_model_family_sweep_not_rerun: true
+  requires_bridge_execution_and_post_run_audit: true
+  no_final_method_selection_claim: true
+  forbid_fairness_population_claims_without_population_gate: true
+  forbid_bounded_support_claims_without_endpoint_gate: true
+post_selection_validation_bridge_provenance:
+  schema: cpfi_regression_dataset_final_gate_post_selection_validation_bridge_v1
+  batch_id: dataset_final_gate_post_selection_validation_bridge_v1
+  source_model_family_sweep_config: experiments/regression/configs/model_family_sweep_uci_wine_quality_duplicate_sensitivity.yaml
+  source_model_family_sweep_report: experiments/regression/reports/model_family_sweep_uci_wine_quality_duplicate_sensitivity/pilot_summary.json
+  source_feature_leakage_audit: experiments/regression/reports/model_family_sweep_uci_wine_quality_duplicate_sensitivity/feature_leakage_audit.json
+  source_dataset_final_gate_remediation_plan: experiments/regression/reports/methodology_sanity_audit_20260627/dataset_final_gate_remediation_plan.json
+  source_experiment_id: regression_model_family_sweep_uci_wine_quality_duplicate_sensitivity_v0
+  source_datasets:
+  - uci_wine_quality
+  - uci_wine_quality_dedup
+  source_random_seeds:
+  - 11
+  - 23
+  validation_seeds:
+  - 101
+  - 211
+  - 307
+  seed_overlap: []
+  source_alphas:
+  - '0.1'
+  target_alphas:
+  - '0.01'
+  - '0.05'
+  - '0.1'
+  - '0.15'
+  - '0.2'
+  source_ledger: experiments/regression/results/model_family_sweep_uci_wine_quality_duplicate_sensitivity/ledger.jsonl
+  source_ledger_row_count: 1428
+  source_report_ledger_rows: 1428
+  source_feature_leakage_violations: 0
+  representative_model_rule: prefer ridge and keep the first grid value per hyperparameter
+  claim_boundary: post_selection_validation_bridge_only_no_final_selection
+logging:
+  ledger: experiments/regression/results/method_selection_post_selection_validation_uci_wine_quality/ledger.jsonl
+  checkpoint_root: experiments/regression/results/method_selection_post_selection_validation_uci_wine_quality/checkpoints
+  prediction_cache_root: experiments/regression/results/method_selection_post_selection_validation_uci_wine_quality/checkpoints/predictions

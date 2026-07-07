@@ -1,0 +1,29 @@
+experiment_id: regression_plus_minmax_smoke_v0
+purpose: "Smoke-test jackknife+/CV+ minmax variants on the audited Auto MPG benchmark without changing completed pilot artifacts."
+random_seeds: [42]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - uci_auto_mpg
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - jackknife_plus
+  - jackknife_minmax
+  - cv_plus
+  - cv_minmax
+logging:
+  ledger: experiments/regression/results/plus_minmax_smoke/ledger.jsonl
+  checkpoint_root: experiments/regression/results/plus_minmax_smoke/checkpoints
+  prediction_cache_root: experiments/regression/results/plus_minmax_smoke/checkpoints/predictions

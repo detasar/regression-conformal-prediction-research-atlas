@@ -1,0 +1,67 @@
+experiment_id: regression_feature_reduction_sensitivity_openml_mtp2_oz1143_pca50_oz2bin_identity_descriptor_drop_v0
+purpose: "Train-only PCA(50) descriptor-representation sensitivity panel for the policy-gated OpenML mtp2 high-dimensional QSAR benchmark. The goal is to test whether the ec62e94 all-descriptor frontier is stable to a leakage-safe dimensionality-reduction layer. Target oz1143 is modeled on the identity scale; oz2_bin is a descriptor-derived diagnostic group; raw oz2 is excluded from model features. This is model-selection triage and interval-machinery evidence only, not molecular-design guidance, pharmacological inference, fairness evidence, final QSAR model selection, or validated Venn-Abers regression evidence. CQR rows use the runner's fixed GradientBoostingRegressor quantile backend and are repeated per outer model configuration, so they are fixed-backend CQR baseline evidence rather than model-family-sensitive CQR evidence."
+random_seeds: [11, 23, 47, 71, 89]
+alphas: [0.10]
+target_transform: identity
+feature_reducer:
+  method: pca
+  n_components: 50
+  svd_solver: auto
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 250
+  jackknife_plus_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+  - openml_mtp2_oz1143
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0]
+  - model_id: kernel_ridge
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      alpha: [0.1, 1.0]
+      gamma: [0.001, 0.01]
+  - model_id: svr
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      C: [1.0]
+      gamma: ["scale", 0.01]
+      epsilon: [0.03, 0.1]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15]
+      l2_regularization: [0.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  require_train_only_feature_reducer: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 5
+  treat_oz2_bin_as_descriptor_diagnostic_only: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/feature_reduction_sensitivity_openml_mtp2_oz1143_pca50_oz2bin_identity_descriptor_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/feature_reduction_sensitivity_openml_mtp2_oz1143_pca50_oz2bin_identity_descriptor_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/feature_reduction_sensitivity_openml_mtp2_oz1143_pca50_oz2bin_identity_descriptor_drop/checkpoints/predictions

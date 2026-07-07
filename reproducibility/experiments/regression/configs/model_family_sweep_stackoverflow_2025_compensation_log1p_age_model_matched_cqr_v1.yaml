@@ -1,0 +1,236 @@
+experiment_id: regression_model_family_sweep_stackoverflow_2025_compensation_log1p_age_model_matched_cqr_v1
+purpose: Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_stackoverflow_2025_compensation_log1p_age.yaml.
+  Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun
+  tests whether the CQR backend confounded the original model-family sweep surface.
+  The output is descriptive pipeline-level evidence only and does not authorize a
+  method winner or production recommendation.
+random_seeds:
+- 11
+- 23
+- 47
+alphas:
+- 0.1
+target_transform: log1p
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 5000
+  jackknife_plus_max_train_rows: 250
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+- stackoverflow_2025_compensation
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 0.1
+    - 1.0
+    - 10.0
+    - 100.0
+    - 1000.0
+- model_id: elasticnet
+  family: sparse_linear
+  grid:
+    alpha:
+    - 0.001
+    - 0.01
+    - 0.1
+    l1_ratio:
+    - 0.25
+    - 0.75
+- model_id: bayesian_ridge
+  family: linear_bayesian
+  grid:
+    alpha_1:
+    - 1.0e-06
+    alpha_2:
+    - 1.0e-06
+    lambda_1:
+    - 1.0e-06
+    lambda_2:
+    - 1.0e-06
+- model_id: knn
+  family: instance_based
+  grid:
+    n_neighbors:
+    - 15
+    - 50
+    weights:
+    - uniform
+    - distance
+    p:
+    - 2
+- model_id: random_forest
+  family: tree_ensemble
+  grid:
+    n_estimators:
+    - 120
+    max_depth:
+    - 8
+    - 16
+    min_samples_leaf:
+    - 5
+    - 20
+    max_features:
+    - sqrt
+- model_id: extra_trees
+  family: tree_ensemble
+  grid:
+    n_estimators:
+    - 120
+    max_depth:
+    - 8
+    - 16
+    min_samples_leaf:
+    - 5
+    - 20
+    max_features:
+    - sqrt
+- model_id: hist_gradient_boosting
+  family: boosting
+  grid:
+    learning_rate:
+    - 0.03
+    - 0.1
+    max_leaf_nodes:
+    - 15
+    - 31
+    l2_regularization:
+    - 0.0
+    - 1.0
+- model_id: xgboost
+  family: boosting
+  grid:
+    n_estimators:
+    - 120
+    max_depth:
+    - 2
+    - 4
+    learning_rate:
+    - 0.03
+    - 0.1
+    subsample:
+    - 0.8
+    colsample_bytree:
+    - 0.5
+    - 1.0
+- model_id: lightgbm
+  family: boosting
+  grid:
+    n_estimators:
+    - 120
+    num_leaves:
+    - 15
+    - 31
+    learning_rate:
+    - 0.03
+    - 0.1
+    subsample:
+    - 0.8
+    colsample_bytree:
+    - 0.5
+    - 1.0
+- model_id: catboost
+  family: boosting
+  grid:
+    iterations:
+    - 120
+    depth:
+    - 2
+    - 4
+    learning_rate:
+    - 0.03
+    - 0.1
+    l2_leaf_reg:
+    - 3.0
+cp_methods:
+- split_abs
+- mondrian_abs
+- normalized_abs
+- split_tail_0.25
+- split_tail_0.50
+- split_tail_0.75
+- cqr_model_matched
+- cv_plus
+- cv_minmax
+- jackknife_plus
+- jackknife_minmax
+- jackknife_plus_after_bootstrap
+- venn_abers_quantile
+- venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 3
+  include_tail_specific_split_variants_for_log1p_endpoint_stress: true
+  include_plus_minmax_and_jackknife_after_bootstrap_with_runtime_caps: true
+  treat_log1p_as_first_pass_transform_only: true
+  require_raw_winsor_target_sensitivity_followup: true
+  require_country_aware_reporting_followup: true
+  require_missing_compensation_analysis_followup: true
+  require_sparse_age_group_policy_followup: true
+  report_age_cells_with_test_n_below_10_as_sparse_diagnostics_only: true
+  require_endpoint_audit_for_nonnegative_target_lower_bounds_extreme_upper_tails_nonfinite_crossing_and_inverse_saturation: true
+  primary_group_age_diagnostic_only: true
+  self_selected_developer_survey_diagnostic_only: true
+  iid_row_split_method_engineering_only: true
+  document_official_stackoverflow_2025_archive_source: true
+  document_odbl_dbcl_license_context: true
+  document_target_missing_drop_51_32_percent: true
+  document_positive_compensation_filter: true
+  document_comp_total_currency_target_construction_exclusions: true
+  document_public_file_lacks_gender_race_disability: true
+  document_extreme_right_tail_and_log1p_first_pass: true
+  document_kernel_methods_deferred_for_large_survey_subsample_sensitivity: true
+  cv_plus_runtime_bounded_not_full_data_guarantee: true
+  jackknife_runtime_bounded_not_full_data_guarantee: true
+  forbid_developer_population_compensation_claims: true
+  forbid_wage_gap_estimation_claims: true
+  forbid_sex_gender_race_disability_fairness_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_demographic_parity_claims: true
+  forbid_country_adjusted_compensation_claims: true
+  forbid_labor_market_guidance_claims: true
+  forbid_career_advice_claims: true
+  forbid_causal_claims: true
+  forbid_production_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_raw_winsor_robustness_claims_without_sensitivity: true
+  forbid_nonnegative_interval_validity_claims_without_endpoint_policy: true
+  forbid_validated_venn_abers_regression_claims: true
+  interpret_cqr_as_model_matched_quantile_backend: true
+  historical_fixed_gbm_cqr_preserved_as_comparator: true
+  requires_cqr_fixed_vs_model_matched_synthesis: true
+  no_method_winner_claim: true
+logging:
+  ledger: experiments/regression/results/model_family_sweep_stackoverflow_2025_compensation_log1p_age_model_matched_cqr_v1/ledger.jsonl
+  checkpoint_root: experiments/regression/results/model_family_sweep_stackoverflow_2025_compensation_log1p_age_model_matched_cqr_v1/checkpoints
+  prediction_cache_root: experiments/regression/results/model_family_sweep_stackoverflow_2025_compensation_log1p_age_model_matched_cqr_v1/checkpoints/predictions
+cp_method_configs:
+  cqr_model_matched:
+    method_id: cqr_model_matched
+    params:
+      quantile_regressor_alpha: 0.0001
+      quantile_solver: highs
+      nystroem_components: 200
+rerun_metadata:
+  schema: cpfi_regression_model_matched_cqr_rerun_config_v1
+  source_config: experiments/regression/configs/model_family_sweep_stackoverflow_2025_compensation_log1p_age.yaml
+  source_experiment_id: regression_model_family_sweep_stackoverflow_2025_compensation_log1p_age_v0
+  generated_from_method: replace_cqr_with_cqr_model_matched
+  historical_cqr_method_id: cqr
+  new_method_id: cqr_model_matched
+  config_suffix: _model_matched_cqr_v1
+  fixed_gbm_cqr_rows_preserved: true
+  final_prose_boundary: pipeline_level_descriptive_signal_only

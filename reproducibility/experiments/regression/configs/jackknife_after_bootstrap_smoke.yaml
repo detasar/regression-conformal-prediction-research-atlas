@@ -1,0 +1,33 @@
+experiment_id: regression_jackknife_after_bootstrap_smoke_v0
+purpose: "Smoke-test jackknife+-after-bootstrap against split, jackknife+, and CV+ controls on audited Auto MPG."
+random_seeds: [42]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - uci_auto_mpg
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - jackknife_plus
+  - jackknife_plus_after_bootstrap
+  - cv_plus
+logging:
+  ledger: experiments/regression/results/jackknife_after_bootstrap_smoke/ledger.jsonl
+  checkpoint_root: experiments/regression/results/jackknife_after_bootstrap_smoke/checkpoints
+  prediction_cache_root: experiments/regression/results/jackknife_after_bootstrap_smoke/checkpoints/predictions

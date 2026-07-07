@@ -1,0 +1,94 @@
+experiment_id: regression_main_result_candidate_duplicate_sensitivity_nhanes_2017_2018_systolic_bp_row_signature_v1
+purpose: Seed-matched row-signature duplicate-cluster split sensitivity for the
+  fresh-seed main-result candidate bundle on nhanes_2017_2018_systolic_bp. This
+  reruns the candidate ridge/CQR/CV+/Mondrian grid on seeds 401, 503, and 701
+  with exact full-row duplicate signatures assigned to one split before
+  train/cal/test allocation. It preserves the candidate bundle target
+  transform, common alpha grid, train-fitted preprocessing, model
+  hyperparameters, conformal methods, and no-promotion claim boundary. This is
+  diagnostic split-methodology sensitivity for the candidate duplicate-signature
+  caveat only; it is not a final method, model, dataset, bounded-support,
+  fairness, population, clinical, Venn-Abers, or production claim.
+random_seeds: &candidate_seeds
+- 401
+- 503
+- 701
+alphas:
+- 0.01
+- 0.05
+- 0.1
+- 0.15
+- 0.2
+target_transform: identity
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+  duplicate_cluster_scope: row_signature
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+- nhanes_2017_2018_systolic_bp
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 1.0
+cp_methods:
+- cqr
+- cv_plus
+- mondrian_abs
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+  main_result_candidate_duplicate_sensitivity: true
+  seed_matched_main_result_candidate_duplicate_sensitivity: true
+  row_signature_duplicate_caveat_followup: true
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  preserve_baseline_grid_for_paired_comparison: true
+  candidate_methods_restricted_to_current_shortlist: true
+  target_alphas_from_alpha_expansion_plan: true
+  representative_source_model_only: true
+  full_model_family_sweep_not_rerun: true
+  main_result_candidate_bundle_batch: true
+  candidate_main_result_work_queue_only: true
+  no_main_result_promotion: true
+  no_final_method_selection_claim: true
+  diagnostic_primary_method_carried_forward: cqr
+  challenger_methods_retained_for_multiplicity: true
+  fixed_common_alpha_grid_for_main_result_candidate: true
+  requires_post_sensitivity_resynthesis_and_reaudit: true
+  requires_dataset_specific_final_gate_before_claim: true
+  requires_endpoint_bounded_support_gate_before_claim: true
+  requires_fairness_population_gate_before_claim: true
+  requires_validated_venn_abers_gate_before_claim: true
+  forbid_final_method_selection_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_main_result_claims_until_all_paper_gates_pass: true
+  forbid_fairness_population_claims_without_population_gate: true
+  forbid_bounded_support_claims_without_endpoint_gate: true
+  forbid_clinical_guidance_claims: true
+  forbid_medical_decision_support_claims: true
+  forbid_health_disparity_claims: true
+  forbid_race_ethnicity_fairness_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_policy_guidance_claims: true
+  forbid_causal_claims: true
+  forbid_production_claims: true
+main_result_candidate_duplicate_sensitivity_provenance:
+  schema: cpfi_regression_main_result_candidate_duplicate_sensitivity_v1
+  source_candidate_config: experiments/regression/configs/main_result_candidate_bundle_nhanes_2017_2018_systolic_bp.yaml
+  source_candidate_experiment_id: regression_main_result_candidate_bundle_nhanes_2017_2018_systolic_bp_v1
+  source_candidate_ledger: experiments/regression/results/main_result_candidate_bundle_nhanes_2017_2018_systolic_bp/ledger.jsonl
+  source_candidate_report_dir: experiments/regression/reports/main_result_candidate_bundle_nhanes_2017_2018_systolic_bp
+  source_candidate_split_profile: experiments/regression/reports/main_result_candidate_bundle_nhanes_2017_2018_systolic_bp/split_profile.json
+  candidate_seeds: *candidate_seeds
+  duplicate_scope: row_signature
+  claim_boundary: duplicate_sensitivity_diagnostic_only_no_main_result_promotion
+logging:
+  ledger: experiments/regression/results/main_result_candidate_duplicate_sensitivity_nhanes_2017_2018_systolic_bp_row_signature/ledger.jsonl
+  checkpoint_root: experiments/regression/results/main_result_candidate_duplicate_sensitivity_nhanes_2017_2018_systolic_bp_row_signature/checkpoints
+  prediction_cache_root: experiments/regression/results/main_result_candidate_duplicate_sensitivity_nhanes_2017_2018_systolic_bp_row_signature/checkpoints/predictions

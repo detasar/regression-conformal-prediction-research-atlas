@@ -1,0 +1,47 @@
+experiment_id: regression_venn_abers_fairness_panel_diagnostic_v0
+purpose: "Extend Venn-Abers and IVAPD diagnostics from toy benchmark datasets to audited fairness-regression smoke datasets with dataset-specific target transforms."
+random_seeds: [42]
+alphas: [0.10]
+target_transform: identity
+dataset_target_transforms:
+  openml_cps_85_wages: log1p
+  openml_analcatdata_chlamydia: log1p
+  fairlearn_acs_income_wy: log1p
+  aif360_lawschool_gpa: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  venn_abers_m: 1
+  ivapd_grid_size: 31
+  ivapd_max_test_rows: 15
+  venn_abers_grid_size: 25
+  venn_abers_grid_max_test_rows: 5
+  venn_abers_m_sensitivity: [1, 2, 4, 8]
+  venn_abers_bridge_inflation_factors: [1.0, 1.5, 2.0, 2.5]
+datasets:
+  - openml_cps_85_wages
+  - openml_analcatdata_chlamydia
+  - aif360_lawschool_gpa
+  - fairlearn_acs_income_wy
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+methods_under_diagnostic:
+  interval_method: venn_abers_quantile
+  distribution_method: ivapd_threshold_grid
+  reference_method: venn_abers_quantile_grid
+baseline_interval_methods:
+  - split_abs
+  - venn_abers_split_fallback
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+logging:
+  ledger: experiments/regression/results/venn_abers_fairness_panel_diagnostic/ledger.jsonl
+  checkpoint_root: experiments/regression/results/venn_abers_fairness_panel_diagnostic/checkpoints
+  prediction_cache_root: experiments/regression/results/venn_abers_fairness_panel_diagnostic/checkpoints/predictions
+  report_dir: experiments/regression/reports/venn_abers_fairness_panel_diagnostic

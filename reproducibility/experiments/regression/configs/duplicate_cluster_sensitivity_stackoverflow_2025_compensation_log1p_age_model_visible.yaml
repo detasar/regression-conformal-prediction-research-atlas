@@ -1,0 +1,153 @@
+experiment_id: regression_duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible_v0
+purpose: "Model-visible feature-plus-target duplicate-cluster split sensitivity for the policy-gated Stack Overflow Developer Survey 2025 compensation benchmark. This follows the row-signature duplicate-cluster sensitivity report, which cleared exact full-row duplicate signatures but still carried model-visible repeat diagnostics, including one seed-23 model-visible feature-plus-target overlap across train/cal splits. The run preserves the baseline and row-signature 52-model grid, 14-method conformal grid, Age diagnostic grouping, log1p target modeling for ConvertedCompYearly, CompTotal/Currency target-construction exclusions, train-fitted preprocessing, runtime caps, resumable ledger, prediction-bundle cache, fixed-backend CQR boundary, and diagnostic-only Venn-Abers boundary, but assigns duplicate clusters using model-visible fitted features plus target before train/cal/test allocation. This is split-methodology sensitivity evidence for the refreshed model_visible_signature_cross_split_caveat only. It is not developer-population compensation inference, wage-gap estimation, sex/gender/race/disability fairness evidence, protected-class fairness evidence, demographic parity evidence, country-adjusted compensation analysis, labor-market guidance, career advice, causal evidence, production evidence, final model selection, raw/winsor robustness evidence, nonnegative interval validity evidence, full-data plus/jackknife evidence, or Venn-Abers regression validation evidence."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  duplicate_cluster_scope: model_visible_features_plus_target
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 5000
+  jackknife_plus_max_train_rows: 250
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+  - stackoverflow_2025_compensation
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0, 1000.0]
+  - model_id: elasticnet
+    family: sparse_linear
+    grid:
+      alpha: [0.001, 0.01, 0.1]
+      l1_ratio: [0.25, 0.75]
+  - model_id: bayesian_ridge
+    family: linear_bayesian
+    grid:
+      alpha_1: [0.000001]
+      alpha_2: [0.000001]
+      lambda_1: [0.000001]
+      lambda_2: [0.000001]
+  - model_id: knn
+    family: instance_based
+    grid:
+      n_neighbors: [15, 50]
+      weights: ["uniform", "distance"]
+      p: [2]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [8, 16]
+      min_samples_leaf: [5, 20]
+      max_features: ["sqrt"]
+  - model_id: extra_trees
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [8, 16]
+      min_samples_leaf: [5, 20]
+      max_features: ["sqrt"]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15, 31]
+      l2_regularization: [0.0, 1.0]
+  - model_id: xgboost
+    family: boosting
+    grid:
+      n_estimators: [120]
+      max_depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5, 1.0]
+  - model_id: lightgbm
+    family: boosting
+    grid:
+      n_estimators: [120]
+      num_leaves: [15, 31]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5, 1.0]
+  - model_id: catboost
+    family: boosting
+    grid:
+      iterations: [120]
+      depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      l2_leaf_reg: [3.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - split_tail_0.25
+  - split_tail_0.50
+  - split_tail_0.75
+  - cqr
+  - cv_plus
+  - cv_minmax
+  - jackknife_plus
+  - jackknife_minmax
+  - jackknife_plus_after_bootstrap
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 3
+  model_visible_duplicate_caveat_followup: true
+  row_signature_duplicate_caveat_already_closed_by_prior_sensitivity: true
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  include_tail_specific_split_variants_for_log1p_endpoint_stress: true
+  include_plus_minmax_and_jackknife_after_bootstrap_with_runtime_caps: true
+  treat_log1p_as_first_pass_transform_only: true
+  require_raw_winsor_target_sensitivity_followup: true
+  require_country_aware_reporting_followup: true
+  require_missing_compensation_analysis_followup: true
+  require_sparse_age_group_policy_followup: true
+  report_age_cells_with_test_n_below_10_as_sparse_diagnostics_only: true
+  require_endpoint_audit_for_nonnegative_target_lower_bounds_extreme_upper_tails_nonfinite_crossing_and_inverse_saturation: true
+  primary_group_age_diagnostic_only: true
+  self_selected_developer_survey_diagnostic_only: true
+  iid_row_split_method_engineering_only: true
+  document_official_stackoverflow_2025_archive_source: true
+  document_odbl_dbcl_license_context: true
+  document_target_missing_drop_51_32_percent: true
+  document_positive_compensation_filter: true
+  document_comp_total_currency_target_construction_exclusions: true
+  document_public_file_lacks_gender_race_disability: true
+  document_extreme_right_tail_and_log1p_first_pass: true
+  document_kernel_methods_deferred_for_large_survey_subsample_sensitivity: true
+  cv_plus_runtime_bounded_not_full_data_guarantee: true
+  jackknife_runtime_bounded_not_full_data_guarantee: true
+  forbid_developer_population_compensation_claims: true
+  forbid_wage_gap_estimation_claims: true
+  forbid_sex_gender_race_disability_fairness_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_demographic_parity_claims: true
+  forbid_country_adjusted_compensation_claims: true
+  forbid_labor_market_guidance_claims: true
+  forbid_career_advice_claims: true
+  forbid_causal_claims: true
+  forbid_production_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_raw_winsor_robustness_claims_without_sensitivity: true
+  forbid_nonnegative_interval_validity_claims_without_endpoint_policy: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible/ledger.jsonl
+  checkpoint_root: experiments/regression/results/duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible/checkpoints
+  prediction_cache_root: experiments/regression/results/duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible/checkpoints/predictions

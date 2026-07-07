@@ -1,0 +1,76 @@
+experiment_id: regression_duplicate_cluster_sensitivity_acs_income_log1p_row_signature_v0
+purpose: "Row-signature duplicate-cluster split sensitivity for the Fairlearn ACS Income WY log1p regression full literature sweep. This reruns the same 10-seed, 5-alpha, 71-model-parameter, 10-conformal-method grid as full_literature_sweep_acs_income_log1p while assigning exact full-row duplicate signatures to a single train/cal/test split before allocation. The paired comparison is split-methodology evidence for the historical duplicate_signature_cross_split_caveat only. It is not population-weighted ACS inference, protected-class fairness evidence, policy evidence, causal evidence, production evidence, final model selection, or validated Venn-Abers regression evidence. CQR rows remain fixed GradientBoostingRegressor quantile-backend evidence rather than outer model-family-sensitive CQR evidence."
+stage_gate: "Approved as an unweighted duplicate-split methodology sensitivity; do not use for population-weighted ACS fairness claims."
+population_weight_policy: "No survey weights are used by this runner. Interpret as method diagnostics on the WY sample only."
+random_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+alphas: [0.01, 0.05, 0.10, 0.15, 0.20]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  duplicate_cluster_scope: row_signature
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 1000
+datasets:
+  - fairlearn_acs_income_wy
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.001, 0.01, 0.1, 1.0, 10.0, 100.0]
+  - model_id: elasticnet
+    family: linear
+    grid:
+      alpha: [0.001, 0.01, 0.1, 1.0]
+      l1_ratio: [0.05, 0.25, 0.50, 0.75, 0.95]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [300, 800]
+      max_depth: [null, 8, 16]
+      min_samples_leaf: [1, 5, 20]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.06, 0.1]
+      max_leaf_nodes: [15, 31, 63]
+      l2_regularization: [0.0, 0.1, 1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - shrink_0.00
+  - shrink_0.25
+  - shrink_0.50
+  - shrink_0.75
+  - shrink_1.00
+  - cv_plus
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_group_min_calibration_n: 20
+  require_git_clean_before_long_run: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 10
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  full_row_duplicate_signature_caveat_followup: true
+  preserve_baseline_grid_for_paired_comparison: true
+  document_row_signature_duplicate_cluster_scope: true
+  document_unweighted_acs_method_engineering_benchmark_only: true
+  forbid_population_weighted_acs_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_policy_claims: true
+  forbid_causal_claims: true
+  forbid_production_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/duplicate_cluster_sensitivity_acs_income_log1p_row_signature/ledger.jsonl
+  checkpoint_root: experiments/regression/results/duplicate_cluster_sensitivity_acs_income_log1p_row_signature/checkpoints
+  prediction_cache_root: experiments/regression/results/duplicate_cluster_sensitivity_acs_income_log1p_row_signature/checkpoints/predictions

@@ -1,0 +1,36 @@
+experiment_id: regression_fairness_smoke_openml_sensory_score_method_judges_grouped_v0
+purpose: "Policy-gated OpenML sensory evaluation score interval benchmark smoke with Method diagnostics and Judges grouped splitting. This is not protected-class fairness evidence, sensory-science inference, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47, 71, 89]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.50
+  calibration: 0.25
+  test: 0.25
+  group_col: Judges
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_sensory_score
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_openml_sensory_score_method_judges_grouped/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_openml_sensory_score_method_judges_grouped/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_openml_sensory_score_method_judges_grouped/checkpoints/predictions

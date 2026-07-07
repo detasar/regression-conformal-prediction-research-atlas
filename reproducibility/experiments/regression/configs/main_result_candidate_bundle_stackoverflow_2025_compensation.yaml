@@ -1,0 +1,93 @@
+experiment_id: regression_main_result_candidate_bundle_stackoverflow_2025_compensation_v1
+purpose: Fresh-seed main-result candidate bundle for stackoverflow_2025_compensation.
+  This config reuses the audited post-selection validation preprocessing/split/model
+  scaffold, carries CQR only as a diagnostic primary candidate, retains challenger
+  methods for multiplicity, and forbids any final main-result claim until the candidate
+  batch is executed and all paper gates pass.
+random_seeds: &id001
+- 401
+- 503
+- 701
+alphas:
+- 0.01
+- 0.05
+- 0.1
+- 0.15
+- 0.2
+target_transform: log1p
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+- stackoverflow_2025_compensation
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 1.0
+cp_methods:
+- cqr
+- cv_plus
+- mondrian_abs
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+  method_selection_alpha_expansion_batch: true
+  support_expansion_only_no_final_selection: true
+  no_final_method_selection_claim: true
+  candidate_methods_restricted_to_current_shortlist: true
+  target_alphas_from_alpha_expansion_plan: true
+  representative_source_model_only: true
+  full_model_family_sweep_not_rerun: true
+  requires_post_batch_resynthesis_and_reaudit: true
+  forbid_final_model_selection_claims: true
+  method_selection_post_selection_validation_batch: true
+  post_selection_validation_only_no_final_selection: true
+  validation_seeds_independent_from_selection_surface: true
+  fixed_common_alpha_grid_for_validation: true
+  requires_post_validation_resynthesis_and_reaudit: true
+  forbid_fairness_population_claims_without_population_gate: true
+  forbid_bounded_support_claims_without_endpoint_gate: true
+  main_result_candidate_bundle_batch: true
+  candidate_main_result_work_queue_only: true
+  no_main_result_promotion: true
+  diagnostic_primary_method_carried_forward: cqr
+  challenger_methods_retained_for_multiplicity: true
+  main_result_candidate_seeds_independent_from_selection_and_validation: true
+  fixed_common_alpha_grid_for_main_result_candidate: true
+  requires_completed_candidate_runs_before_manifest_promotion: true
+  requires_dataset_specific_final_gate_before_claim: true
+  requires_endpoint_bounded_support_gate_before_claim: true
+  requires_fairness_population_gate_before_claim: true
+  requires_validated_venn_abers_gate_before_claim: true
+  forbid_final_method_selection_claims: true
+  forbid_main_result_claims_until_all_paper_gates_pass: true
+main_result_candidate_provenance:
+  schema: cpfi_regression_main_result_candidate_bundle_plan_v1
+  batch_id: main_result_candidate_bundle_v1
+  source_validation_kind: standard_post_selection_validation
+  source_validation_config: experiments/regression/configs/method_selection_post_selection_validation_stackoverflow_2025_compensation.yaml
+  source_validation_experiment_id: regression_method_selection_post_selection_validation_stackoverflow_2025_compensation_v1
+  source_validation_ledger: experiments/regression/results/method_selection_post_selection_validation_stackoverflow_2025_compensation/ledger.jsonl
+  source_validation_pilot_summary: experiments/regression/reports/method_selection_post_selection_validation_stackoverflow_2025_compensation/pilot_summary.json
+  source_selection_and_validation_seeds:
+  - 101
+  - 211
+  - 307
+  - 11
+  - 23
+  - 47
+  main_result_candidate_seeds: *id001
+  seed_overlap: []
+  primary_candidate_method: cqr
+  claim_boundary: candidate_work_queue_only_no_main_result_promotion
+logging:
+  ledger: experiments/regression/results/main_result_candidate_bundle_stackoverflow_2025_compensation/ledger.jsonl
+  checkpoint_root: experiments/regression/results/main_result_candidate_bundle_stackoverflow_2025_compensation/checkpoints
+  prediction_cache_root: experiments/regression/results/main_result_candidate_bundle_stackoverflow_2025_compensation/checkpoints/predictions

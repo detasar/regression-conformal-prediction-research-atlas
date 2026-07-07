@@ -1,0 +1,112 @@
+experiment_id: regression_method_selection_alpha_expansion_nhanes_2017_2018_bmi_v1
+purpose: Method-selection alpha-support expansion batch for nhanes_2017_2018_bmi.
+  The config clones audited split/preprocessing/runtime settings from a traced source
+  config, restricts methods to the current shortlist, and expands target alpha support
+  only. It is support evidence, not final model or conformal-method selection evidence.
+random_seeds:
+- 11
+- 23
+- 47
+alphas:
+- 0.01
+- 0.05
+- 0.15
+- 0.2
+target_transform: identity
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+  duplicate_cluster_scope: model_visible_features_plus_target
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 5000
+  jackknife_plus_max_train_rows: 250
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+- nhanes_2017_2018_bmi
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 0.1
+cp_methods:
+- cqr
+- cv_plus
+- mondrian_abs
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 3
+  model_visible_duplicate_caveat_followup: true
+  row_signature_duplicate_caveat_already_investigated_by_prior_sensitivity: true
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  include_kernel_sensitivity_on_full_frame: true
+  include_tail_specific_split_variants_for_identity_endpoint_stress: true
+  include_plus_minmax_and_jackknife_after_bootstrap_with_runtime_caps: true
+  treat_identity_target_as_first_pass_only: true
+  require_log1p_target_sensitivity_followup: true
+  require_endpoint_audit_for_positive_bmi_target_lower_bounds_upper_bounds_nonfinite_crossing_and_inverse_saturation: true
+  primary_group_ridreth3_diagnostic_only: true
+  iid_row_split_method_engineering_only: true
+  document_official_cdc_demo_j_and_bmx_j_sources: true
+  document_bmxbmi_observed_rows_and_missing_rows: true
+  document_bmi_target_component_exclusions_bmxwt_bmxht: true
+  document_body_measurement_proxy_exclusions_bmxwaist_bmxhip: true
+  document_mec_sample_weights_strata_psu_excluded: true
+  document_unweighted_method_engineering_benchmark_only: true
+  document_bmi_scale_and_right_tail: true
+  cv_plus_runtime_bounded_not_full_data_guarantee: true
+  jackknife_runtime_bounded_not_full_data_guarantee: true
+  health_survey_proxy_diagnostics_only: true
+  forbid_population_weighted_nhanes_claims: true
+  forbid_bmi_prevalence_estimation_claims: true
+  forbid_obesity_screening_or_diagnosis_claims: true
+  forbid_clinical_guidance_claims: true
+  forbid_medical_decision_support_claims: true
+  forbid_health_disparity_claims: true
+  forbid_race_ethnicity_fairness_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_demographic_parity_claims: true
+  forbid_policy_guidance_claims: true
+  forbid_causal_claims: true
+  forbid_production_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_raw_log_robustness_claims_without_sensitivity: true
+  forbid_survey_design_claims_without_weight_variance_integration: true
+  forbid_item_nonresponse_adjusted_claims_without_weighting_or_sensitivity: true
+  forbid_bounded_interval_validity_claims_without_endpoint_policy: true
+  forbid_validated_venn_abers_regression_claims: true
+  method_selection_alpha_expansion_batch: true
+  support_expansion_only_no_final_selection: true
+  no_final_method_selection_claim: true
+  candidate_methods_restricted_to_current_shortlist: true
+  target_alphas_from_alpha_expansion_plan: true
+  representative_source_model_only: true
+  full_model_family_sweep_not_rerun: true
+  requires_post_batch_resynthesis_and_reaudit: true
+alpha_expansion_provenance:
+  schema: cpfi_regression_method_selection_alpha_expansion_batch_v1
+  batch_id: method_selection_alpha_expansion_next_batch_v1
+  source_plan: experiments/regression/reports/methodology_sanity_audit_20260627/method_selection_alpha_expansion_plan.json
+  source_config: experiments/regression/configs/duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible.yaml
+  source_experiment_id: regression_duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible_v0
+  dataset_alpha_task_ids:
+  - method_selection_alpha_expansion::nhanes_2017_2018_bmi::alpha_0_01
+  - method_selection_alpha_expansion::nhanes_2017_2018_bmi::alpha_0_05
+  - method_selection_alpha_expansion::nhanes_2017_2018_bmi::alpha_0_15
+  - method_selection_alpha_expansion::nhanes_2017_2018_bmi::alpha_0_2
+  claim_boundary: support_expansion_only_no_final_selection
+logging:
+  ledger: experiments/regression/results/method_selection_alpha_expansion_nhanes_2017_2018_bmi/ledger.jsonl
+  checkpoint_root: experiments/regression/results/method_selection_alpha_expansion_nhanes_2017_2018_bmi/checkpoints
+  prediction_cache_root: experiments/regression/results/method_selection_alpha_expansion_nhanes_2017_2018_bmi/checkpoints/predictions

@@ -1,0 +1,74 @@
+experiment_id: regression_method_selection_post_selection_validation_nhanes_2017_2018_systolic_bp_v1
+purpose: Independent post-selection validation batch for nhanes_2017_2018_systolic_bp.
+  The config clones audited preprocessing, split, target-transform, and runtime settings
+  from the completed alpha-expansion support config, fixes an independent seed set
+  and common alpha grid, and keeps claims limited to validation-work-queue evidence
+  until the runs are executed and re-audited.
+random_seeds: &id001
+- 101
+- 211
+- 307
+alphas:
+- 0.01
+- 0.05
+- 0.1
+- 0.15
+- 0.2
+target_transform: identity
+splits:
+  train: 0.6
+  calibration: 0.2
+  test: 0.2
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+- nhanes_2017_2018_systolic_bp
+models:
+- model_id: ridge
+  family: linear
+  grid:
+    alpha:
+    - 1.0
+cp_methods:
+- cqr
+- cv_plus
+- mondrian_abs
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+  method_selection_alpha_expansion_batch: true
+  support_expansion_only_no_final_selection: true
+  no_final_method_selection_claim: true
+  candidate_methods_restricted_to_current_shortlist: true
+  target_alphas_from_alpha_expansion_plan: true
+  representative_source_model_only: true
+  full_model_family_sweep_not_rerun: true
+  requires_post_batch_resynthesis_and_reaudit: true
+  forbid_final_model_selection_claims: true
+  method_selection_post_selection_validation_batch: true
+  post_selection_validation_only_no_final_selection: true
+  validation_seeds_independent_from_selection_surface: true
+  fixed_common_alpha_grid_for_validation: true
+  requires_post_validation_resynthesis_and_reaudit: true
+  forbid_fairness_population_claims_without_population_gate: true
+  forbid_bounded_support_claims_without_endpoint_gate: true
+post_selection_validation_provenance:
+  schema: cpfi_regression_method_selection_post_selection_validation_batch_v1
+  batch_id: method_selection_post_selection_validation_v1
+  source_alpha_expansion_batch: experiments/regression/reports/methodology_sanity_audit_20260627/method_selection_alpha_expansion_batch.json
+  source_alpha_expansion_config: experiments/regression/configs/method_selection_alpha_expansion_nhanes_2017_2018_systolic_bp.yaml
+  source_alpha_expansion_experiment_id: regression_method_selection_alpha_expansion_nhanes_2017_2018_systolic_bp_v1
+  source_alpha_expansion_generated_config_index: 2
+  source_selection_seeds:
+  - 11
+  - 23
+  - 47
+  validation_seeds: *id001
+  seed_overlap: []
+  claim_boundary: post_selection_validation_only_no_final_selection
+logging:
+  ledger: experiments/regression/results/method_selection_post_selection_validation_nhanes_2017_2018_systolic_bp/ledger.jsonl
+  checkpoint_root: experiments/regression/results/method_selection_post_selection_validation_nhanes_2017_2018_systolic_bp/checkpoints
+  prediction_cache_root: experiments/regression/results/method_selection_post_selection_validation_nhanes_2017_2018_systolic_bp/checkpoints/predictions

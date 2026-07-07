@@ -1,0 +1,60 @@
+experiment_id: regression_venn_abers_biomarker_clinical_panel_diagnostic_v0
+purpose: "Extend Venn-Abers and IVAPD regression diagnostics to the policy-gated OpenML Cholesterol and Plasma Retinol clinical/biomarker benchmarks. The panel reuses the current diagnostic-only Venn-Abers boundary, dataset-specific log1p target modeling, exact selected-row grid reference, IVAPD threshold-grid scoring, and baseline interval comparisons. This is not clinical inference, medical decision support evidence, biomarker inference, population health evidence, sex/gender fairness evidence, final model selection, or validated Venn-Abers regression coverage evidence."
+random_seeds: [42]
+alphas: [0.10]
+target_transform: identity
+dataset_target_transforms:
+  openml_cholesterol_chol: log1p
+  openml_plasma_retinol: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  venn_abers_m: 1
+  ivapd_grid_size: 31
+  ivapd_max_test_rows: 15
+  venn_abers_grid_size: 25
+  venn_abers_grid_max_test_rows: 5
+  venn_abers_m_sensitivity: [1, 2, 4, 8]
+  venn_abers_bridge_inflation_factors: [1.0, 1.5, 2.0, 2.5]
+datasets:
+  - openml_cholesterol_chol
+  - openml_plasma_retinol
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+  - model_id: elasticnet
+    family: linear
+    grid:
+      alpha: [0.01]
+      l1_ratio: [0.25]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03]
+      max_leaf_nodes: [15]
+      l2_regularization: [0.0]
+methods_under_diagnostic:
+  interval_method: venn_abers_quantile
+  distribution_method: ivapd_threshold_grid
+  reference_method: venn_abers_quantile_grid
+baseline_interval_methods:
+  - split_abs
+  - venn_abers_split_fallback
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_dataset_target_transforms: true
+  keep_venn_abers_diagnostic_only: true
+logging:
+  ledger: experiments/regression/results/venn_abers_biomarker_clinical_panel_diagnostic/ledger.jsonl
+  checkpoint_root: experiments/regression/results/venn_abers_biomarker_clinical_panel_diagnostic/checkpoints
+  prediction_cache_root: experiments/regression/results/venn_abers_biomarker_clinical_panel_diagnostic/checkpoints/predictions
+  report_dir: experiments/regression/reports/venn_abers_biomarker_clinical_panel_diagnostic

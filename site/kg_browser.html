@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regression CP Evidence Map</title>
+  <style>
+    :root { --paper:#f8f5ee; --ink:#151922; --muted:#596273; --line:#d9d1c2; --panel:#fffdf8; --teal:#0f766e; --amber:#996515; --red:#a0442f; --blue:#245f9f; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
+    a { color:#145ea8; font-weight:720; }
+    header { padding:24px 28px 18px; border-bottom:1px solid var(--line); background:rgba(255,253,248,.94); }
+    .kicker { color:var(--teal); font-size:12px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { margin:6px 0 8px; font-family:Georgia, 'Times New Roman', serif; font-size:clamp(32px,4vw,56px); line-height:1; }
+    .sub { margin:0; color:var(--muted); max-width:1080px; line-height:1.55; }
+    .layout { display:grid; grid-template-columns:320px minmax(420px,1fr) 360px; height:calc(100vh - 142px); min-height:620px; overflow:hidden; }
+    aside { min-height:0; padding:18px; background:rgba(255,253,248,.86); border-right:1px solid var(--line); overflow:auto; }
+    aside.right { border-right:0; border-left:1px solid var(--line); }
+    .route, .result, .edge { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:11px; margin-bottom:10px; cursor:pointer; }
+    .route:hover, .result:hover, .result.active { border-color:var(--teal); box-shadow:inset 3px 0 0 var(--teal); }
+    .route b, .result b { display:block; line-height:1.25; }
+    .route span, .result span, .muted { color:var(--muted); font-size:12px; line-height:1.45; }
+    .route span, .result span { display:block; }
+    label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; margin:14px 0 10px; }
+    input, select { width:100%; border:1px solid var(--line); border-radius:7px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
+    .stage { min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr) auto; background:#f2ebdf; }
+    .toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 16px; background:rgba(255,253,248,.9); border-bottom:1px solid var(--line); }
+    .toolbar b { font-size:14px; }
+    button { border:1px solid var(--line); border-radius:7px; background:#fffdf8; padding:8px 10px; font-weight:760; cursor:pointer; }
+    button:hover { border-color:var(--teal); color:var(--teal); }
+    .canvas-wrap { position:relative; min-height:0; overflow:hidden; background:radial-gradient(circle at 50% 42%, #fffdf8, #ece3d3); }
+    canvas { position:absolute; inset:0; width:100%; height:100%; }
+    .footer { display:flex; flex-wrap:wrap; gap:14px; padding:12px 16px; color:var(--muted); font-size:13px; background:rgba(255,253,248,.9); border-top:1px solid var(--line); }
+    .detail { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:15px; margin-bottom:14px; }
+    .detail h2 { font-family:Georgia, 'Times New Roman', serif; font-size:24px; margin:4px 0 8px; line-height:1.1; }
+    .pill { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px 8px; color:var(--muted); font-size:12px; margin:0 6px 6px 0; }
+    code { background:#f5efe3; border:1px solid #e5dccb; border-radius:4px; padding:2px 4px; overflow-wrap:anywhere; }
+    table { width:100%; border-collapse:collapse; font-size:12px; table-layout:fixed; background:#fffdf8; }
+    th, td { border-bottom:1px solid var(--line); padding:7px; vertical-align:top; overflow-wrap:anywhere; text-align:left; }
+    th { color:#4e3d1c; background:#f5eddd; }
+    @media (max-width:1050px) { .layout { grid-template-columns:1fr; height:auto; min-height:0; overflow:visible; } aside, aside.right { border:0; border-bottom:1px solid var(--line); max-height:none; } .stage { order:-1; min-height:620px; } .canvas-wrap { min-height:480px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="kicker">Regression CP Research Atlas</div>
+    <h1>Evidence Map</h1>
+    <p class="sub">A guided knowledge graph for tracing methods, datasets, reports, and evidence scope. The graph opens with readable research routes; source hashes are available in the detail panel.</p>
+    <p class="sub"><a href="index.html">Back to project page</a> · <a href="../paper/research_document.md">Research Document</a></p>
+  </header>
+  <main class="layout">
+    <aside>
+      <h2>Research Routes</h2>
+      <div id="routes"></div>
+      <label>Search<input id="search" placeholder="CQR, Venn-Abers, NHANES, coverage..."></label>
+      <label>Node type<select id="typeFilter"><option value="">All types</option></select></label>
+      <div id="results"></div>
+    </aside>
+    <section class="stage" aria-label="Evidence map canvas">
+      <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop">One hop</button> <button id="twoHop">Two hops</button></div></div>
+      <div class="canvas-wrap"><canvas id="mapCanvas" aria-label="Knowledge graph canvas"></canvas></div>
+      <div class="footer"><span id="status">Loading graph...</span><span>Click a labeled node or route to traverse.</span></div>
+    </section>
+    <aside class="right">
+      <div class="detail" id="detail"><h2>What is in this graph?</h2><p class="muted">This is a reader-facing index over the experiment evidence: methods, dataset audits, result reports, claim boundaries, and provenance links. Start with a route, then drill into a node only when you want the underlying audit trail.</p></div>
+      <h2>Neighborhood</h2>
+      <div id="edges"></div>
+      <h2>Accessible Table</h2>
+      <div id="table"></div>
+    </aside>
+  </main>
+  <script>
+    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[] };
+    const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
+    function addIndex(edge){ for(const id of [edge.source,edge.target]){ if(!state.edgeByNode.has(id)) state.edgeByNode.set(id,[]); state.edgeByNode.get(id).push(edge); } }
+    function neighbors(root){
+      const seen = new Set(), edges = [], q = [{id:root,d:0}];
+      while(q.length && seen.size < 70){
+        const cur=q.shift(); if(!cur || seen.has(cur.id)) continue; seen.add(cur.id);
+        if(cur.d >= state.depth) continue;
+        for(const e of state.edgeByNode.get(cur.id)||[]){
+          edges.push(e); const other=e.source===cur.id?e.target:e.source;
+          if(!seen.has(other)) q.push({id:other,d:cur.d+1});
+        }
+      }
+      return {nodes:[...seen].map(id=>state.nodeById.get(id)).filter(Boolean), edges:edges.slice(0,120)};
+    }
+    function routeNodes(route){ return (route.node_ids||[]).map(id=>state.nodeById.get(id)).filter(Boolean); }
+    function uniqueNodes(list){ const out=[], seen=new Set(); for(const n of list){ if(n && !seen.has(n.id)){ seen.add(n.id); out.push(n); } } return out; }
+    function selectedRoute(){ return (state.data.research_map||[]).find(r=>r.route_id===state.routeId) || null; }
+    function select(id){ if(!state.nodeById.has(id)) return; state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); }
+    function selectRoute(routeId){
+      const route=(state.data.research_map||[]).find(r=>r.route_id===routeId);
+      if(!route) return;
+      state.selected=null; state.routeId=routeId; renderAll();
+      history.replaceState(null,'','?preset='+encodeURIComponent(routeId));
+    }
+    function renderRoutes(){
+      document.getElementById('routes').innerHTML=(state.data.research_map||[]).map(r=>`<div class="route" data-route="${esc(r.route_id)}" style="border-left:4px solid ${esc(r.accent)}"><b>${esc(r.title)}</b><span>${esc(r.summary)}</span><span>${(r.node_ids||[]).length} anchor nodes</span></div>`).join('');
+      document.querySelectorAll('.route').forEach(el=>el.onclick=()=>selectRoute(el.dataset.route));
+    }
+    function renderFilters(){
+      const selectEl=document.getElementById('typeFilter');
+      Object.entries(state.data.type_counts||{}).forEach(([type,count])=>{ const o=document.createElement('option'); o.value=type; o.textContent=`${type} (${count})`; selectEl.appendChild(o); });
+    }
+    function resultNodes(){
+      const q=document.getElementById('search').value.toLowerCase().trim();
+      const type=document.getElementById('typeFilter').value;
+      if(!q && !type) return [];
+      return state.data.nodes.filter(n=>(!type||n.type===type)&&(!q||`${n.label} ${n.summary} ${n.id}`.toLowerCase().includes(q))).slice(0,80);
+    }
+    function renderResults(){
+      const nodes=resultNodes();
+      document.getElementById('results').innerHTML=nodes.length
+        ? nodes.map(n=>`<div class="result ${n.id===state.selected?'active':''}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></div>`).join('')
+        : '<p class="muted">Search or choose a node type to inspect the full audit graph. The default canvas stays at reader overview level.</p>';
+      document.querySelectorAll('.result').forEach(el=>el.onclick=()=>select(el.dataset.id));
+    }
+    function renderDetail(){
+      const n=state.nodeById.get(state.selected);
+      if(!n){
+        const route=selectedRoute();
+        const routes=route?[route]:(state.data.research_map||[]);
+        const routeRows=routes.map(r=>`<tr><td>${esc(r.title)}</td><td>${esc(short(r.summary,140))}</td><td>${esc((r.node_ids||[]).length)} anchors</td></tr>`).join('');
+        const anchorRows=route ? routeNodes(route).map(row=>`<tr><td>${esc(row.label)}</td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
+        document.getElementById('detail').innerHTML=route
+          ? `<span class="pill">guided route</span><h2>${esc(route.title)}</h2><p class="muted">${esc(route.summary)}</p><p class="muted">This view shows the curated anchors first. Click an anchor node to open its one-hop or two-hop evidence neighborhood.</p>`
+          : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, claim boundaries, and provenance records. It is an evidence navigation layer, not a recommendation engine.</p>`;
+        document.getElementById('edges').innerHTML=route ? '<p class="muted">Route anchors are shown in the table below. Select one to inspect edge provenance.</p>' : '<p class="muted">Select a route or search for a node to see edge provenance.</p>';
+        document.getElementById('table').innerHTML=route
+          ? `<table><thead><tr><th>Anchor</th><th>Type</th><th>Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`
+          : `<table><thead><tr><th>Route</th><th>Meaning</th><th>Size</th></tr></thead><tbody>${routeRows}</tbody></table>`;
+        return;
+      }
+      const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
+      document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(n.id)}</code></p>${n.source_key_hash?`<p class="muted"><strong>Source hash:</strong> <code>${esc(n.source_key_hash)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
+      const es=(state.edgeByNode.get(n.id)||[]).slice(0,14);
+      document.getElementById('edges').innerHTML=es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('');
+      document.getElementById('table').innerHTML=`<table><thead><tr><th>Node</th><th>Type</th><th>Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td>${esc(row.label)}</td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;
+    }
+    function draw(){
+      const canvas=document.getElementById('mapCanvas'), wrap=canvas.parentElement, r=wrap.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
+      canvas.width=Math.floor(r.width*dpr); canvas.height=Math.floor(r.height*dpr); canvas.style.width=r.width+'px'; canvas.style.height=r.height+'px';
+      const ctx=canvas.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,r.width,r.height);
+      const selected=state.nodeById.get(state.selected);
+      let nodes=[], edges=[];
+      if(selected){ const sub=neighbors(selected.id); nodes=sub.nodes; edges=sub.edges; document.getElementById('mapTitle').textContent=selected.label; }
+      else {
+        const route=selectedRoute();
+        nodes=uniqueNodes((route?[route]:(state.data.research_map||[])).flatMap(routeNodes));
+        const ids=new Set(nodes.map(n=>n.id));
+        edges=(state.data.edges||[]).filter(e=>ids.has(e.source)&&ids.has(e.target)).slice(0,80);
+        if(route && edges.length < Math.max(0,nodes.length-1)){
+          for(let i=1;i<nodes.length;i++) edges.push({source:nodes[i-1].id,target:nodes[i].id,relation:'ROUTE_STEP',confidence:1});
+        }
+        document.getElementById('mapTitle').textContent=route ? route.title : 'Reader overview';
+      }
+      nodes=nodes.slice(0,44);
+      const cx=r.width/2, cy=r.height/2, radius=Math.min(r.width,r.height)*0.34;
+      const pos=new Map();
+      nodes.forEach((n,i)=>{ const angle=-Math.PI/2 + i*(Math.PI*2/Math.max(1,nodes.length)); const rr=n.id===state.selected?0:radius*(0.72+((i%5)*0.07)); pos.set(n.id,{x:cx+Math.cos(angle)*rr,y:cy+Math.sin(angle)*rr}); });
+      edges.forEach(e=>{ const a=pos.get(e.source), b=pos.get(e.target); if(!a||!b) return; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=e.relation==='BLOCKED_BY'?'rgba(160,68,47,.38)':(e.relation==='ROUTE_STEP'?'rgba(153,101,21,.30)':'rgba(42,72,86,.22)'); ctx.lineWidth=e.relation==='ROUTE_STEP'?1.6:1; ctx.stroke(); });
+      state.points=[];
+      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const overview=!state.selected; const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(is || overview || nodes.length<=12 || i%10===0){ ctx.fillStyle='#151922'; ctx.font=(is?'700 15px ':'700 12px ')+'Inter, sans-serif'; ctx.textAlign='center'; const label=short(n.label,is?38:(overview?30:22)); ctx.fillText(label,p.x, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
+      document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes`;
+    }
+    function renderAll(){ renderResults(); renderDetail(); draw(); }
+    fetch('kg_browser_data.json').then(r=>r.json()).then(data=>{
+      state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); data.edges.forEach(addIndex);
+      renderRoutes(); renderFilters(); document.getElementById('search').oninput=renderResults; document.getElementById('typeFilter').onchange=renderResults;
+      document.getElementById('oneHop').onclick=()=>{state.depth=1; renderAll();}; document.getElementById('twoHop').onclick=()=>{state.depth=2; renderAll();};
+      document.getElementById('mapCanvas').onclick=e=>{ const rect=e.currentTarget.getBoundingClientRect(); const x=e.clientX-rect.left,y=e.clientY-rect.top; const hit=state.points.find(p=>Math.hypot(p.x-x,p.y-y)<p.r); if(hit) select(hit.id); };
+      const params=new URLSearchParams(location.search); const start=params.get('node'); const preset=params.get('preset'); if(start) select(start); else if(preset) selectRoute(preset); else renderAll();
+      addEventListener('resize',draw);
+    });
+  </script>
+</body>
+</html>

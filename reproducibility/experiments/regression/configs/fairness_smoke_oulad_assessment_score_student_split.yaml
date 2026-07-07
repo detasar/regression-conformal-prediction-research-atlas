@@ -1,0 +1,37 @@
+experiment_id: regression_fairness_smoke_oulad_assessment_score_student_split_v0
+purpose: "Smoke-test audited OULAD assessment-score regression with disability diagnostics and id_student grouped splits. This uses assessment metadata and student demographics only; it excludes VLE clickstream fields plus post-assessment submission fields and is not a student-level learning-analytics conclusion."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  group_col: id_student
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 100000
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - oulad_assessment_score
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_oulad_assessment_score_student_split/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_oulad_assessment_score_student_split/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_oulad_assessment_score_student_split/checkpoints/predictions

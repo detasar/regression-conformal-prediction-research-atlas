@@ -1,0 +1,36 @@
+experiment_id: regression_fairness_smoke_openml_space_ga_income_xcoord_group_split_v0
+purpose: "Policy-gated OpenML space_ga county-level aggregate smoke with income-bin diagnostics and x-coordinate-bin grouped holdouts across seeds. The target is already log(VOTES/POP); this is not individual fairness, election-inference, or spatial-generalization evidence."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  group_col: xcoord_bin
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_space_ga_log_votes_pop
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_openml_space_ga_income_xcoord_group_split/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_openml_space_ga_income_xcoord_group_split/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_openml_space_ga_income_xcoord_group_split/checkpoints/predictions

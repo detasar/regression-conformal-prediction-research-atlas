@@ -1,0 +1,153 @@
+experiment_id: regression_model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split_v0
+purpose: "Controlled lender-holdout model-family and conformal-variant sweep for the policy-gated HMDA 2025 Wyoming originated-loan interest-rate benchmark. This extends the completed ridge county/LEI grouped smokes to regularized linear, Bayesian linear, instance-based, tree-ensemble, histogram boosting, and installed gradient-boosting libraries while preserving derived_race as the primary diagnostic group, LEI lender-grouped splitting, identity target modeling for interest_rate, train-fitted preprocessing, resumable ledger, prediction-bundle cache, CV+/CV-minmax evidence where train-row caps permit, and Venn-Abers diagnostic-only boundary. The source is the official FFIEC/CFPB HMDA 2025 public modified LAR subset from the Data Browser API for Wyoming originated loans (actions_taken=1); this is a single-state lender-holdout method-engineering benchmark, not a fair-lending conclusion, mortgage-market estimate, pricing guidance, or population-inferential HMDA analysis. The model frame keeps 11,876 positive numeric interest_rate rows after dropping Exempt, blank/non-numeric, and zero interest-rate records; excludes rate_spread as a target-adjacent pricing spread; excludes HOEPA status, loan costs, points, fees, lender credits, purchaser type, denial reasons, action/year/state constants, and other pricing/post-outcome co-fields according to the audit builder; and drops derived_race and lei from model features. Whole LEI groups are held out so the same lender cannot cross train/calibration/test in a seed. Row counts vary by seed because lender groups are unequal. CV+/CV-minmax are enabled with an 8,000-row train cap, which covers the profiled LEI grouped seeds; jackknife-family methods remain runtime-bounded by 250-row caps and must not be described as empirical full-data plus/jackknife evidence when skipped. CQR rows use the runner's fixed GradientBoostingRegressor quantile backend and are repeated per outer model configuration, so they are fixed-backend CQR baseline evidence rather than model-family-sensitive CQR evidence. Rankings are exploratory interval-calibration triage only. This is not fair-lending evidence, protected-class fairness evidence, race/sex/age fairness evidence, demographic parity evidence, lending-discrimination evidence, lender ranking, borrower pricing guidance, policy guidance, causal evidence, production evidence, final model selection, regulatory-compliance evidence, raw/alternative-target robustness evidence, nonnegative/bounded interval validity evidence, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  group_col: lei
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 8000
+  jackknife_plus_max_train_rows: 250
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+  - hmda_2025_wy_interest_rate
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0, 1000.0]
+  - model_id: elasticnet
+    family: sparse_linear
+    grid:
+      alpha: [0.001, 0.01, 0.1]
+      l1_ratio: [0.25, 0.75]
+  - model_id: bayesian_ridge
+    family: linear_bayesian
+    grid:
+      alpha_1: [0.000001]
+      alpha_2: [0.000001]
+      lambda_1: [0.000001]
+      lambda_2: [0.000001]
+  - model_id: knn
+    family: instance_based
+    grid:
+      n_neighbors: [15, 50]
+      weights: ["uniform", "distance"]
+      p: [2]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [8, 16]
+      min_samples_leaf: [5, 20]
+      max_features: ["sqrt"]
+  - model_id: extra_trees
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [8, 16]
+      min_samples_leaf: [5, 20]
+      max_features: ["sqrt"]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15, 31]
+      l2_regularization: [0.0, 1.0]
+  - model_id: xgboost
+    family: boosting
+    grid:
+      n_estimators: [120]
+      max_depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5, 1.0]
+  - model_id: lightgbm
+    family: boosting
+    grid:
+      n_estimators: [120]
+      num_leaves: [15, 31]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5, 1.0]
+  - model_id: catboost
+    family: boosting
+    grid:
+      iterations: [120]
+      depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      l2_leaf_reg: [3.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - split_tail_0.25
+  - split_tail_0.50
+  - split_tail_0.75
+  - cqr
+  - cv_plus
+  - cv_minmax
+  - jackknife_plus
+  - jackknife_minmax
+  - jackknife_plus_after_bootstrap
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 3
+  include_tail_specific_split_variants_for_raw_scale_endpoint_stress: true
+  include_cv_plus_and_cv_minmax_when_train_cap_permits: true
+  include_jackknife_family_with_runtime_caps: true
+  treat_identity_target_as_first_pass_only: true
+  require_rate_spread_and_pricing_cooutcome_policy_documentation: true
+  require_exempt_and_nonpositive_target_policy_documentation: true
+  require_endpoint_audit_for_lower_below_zero_upper_outliers_nonfinite_crossing_and_nonnegative_support: true
+  primary_group_derived_race_diagnostic_only: true
+  split_group_lei_lender_holdout: true
+  not_iid_row_split_evidence: true
+  document_official_ffiec_cfpb_hmda_2025_public_lar_source: true
+  document_single_state_wyoming_engineering_benchmark_only: true
+  document_originated_loans_actions_taken_1_universe: true
+  document_positive_numeric_interest_rate_target_filter: true
+  document_lei_grouped_split_zero_overlap_per_seed: true
+  document_unequal_lender_group_row_counts: true
+  document_sparse_group_pooling_not_integrated: true
+  document_product_loan_purpose_conditioning_not_integrated: true
+  document_broader_geography_state_sensitivity_not_integrated: true
+  document_kernel_methods_deferred_for_lender_holdout_subsample_sensitivity: true
+  cv_plus_runtime_bounded_not_full_data_guarantee: true
+  jackknife_runtime_bounded_not_full_data_guarantee: true
+  mortgage_pricing_proxy_diagnostics_only: true
+  forbid_fair_lending_claims: true
+  forbid_lending_discrimination_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_race_sex_age_fairness_claims: true
+  forbid_demographic_parity_claims: true
+  forbid_lender_ranking_claims: true
+  forbid_borrower_pricing_guidance_claims: true
+  forbid_policy_guidance_claims: true
+  forbid_causal_claims: true
+  forbid_regulatory_compliance_claims: true
+  forbid_population_inferential_claims: true
+  forbid_production_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_raw_alternative_target_robustness_claims_without_sensitivity: true
+  forbid_nonnegative_interval_validity_claims_without_endpoint_policy: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split/ledger.jsonl
+  checkpoint_root: experiments/regression/results/model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split/checkpoints
+  prediction_cache_root: experiments/regression/results/model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split/checkpoints/predictions

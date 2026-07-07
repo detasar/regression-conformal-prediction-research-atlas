@@ -1,0 +1,35 @@
+experiment_id: regression_fairness_smoke_openml_faculty_salaries_cic_identity_leakage_drop_v0
+purpose: "Policy-gated OpenML FacultySalaries aggregate salary leakage-control smoke with assistant professor salary target, CIC institution diagnostics, average/full/associate professor salary co-outcomes dropped, and University identity excluded from model features when present. This is a no-feature dummy-mean interval machinery smoke, not protected-class fairness evidence, salary-policy inference, institution ranking, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47, 71, 89]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_faculty_salaries_asst_prof
+models:
+  - model_id: dummy_mean
+    family: baseline
+    grid:
+      strategy: ["mean"]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_openml_faculty_salaries_cic_identity_leakage_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_openml_faculty_salaries_cic_identity_leakage_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_openml_faculty_salaries_cic_identity_leakage_drop/checkpoints/predictions

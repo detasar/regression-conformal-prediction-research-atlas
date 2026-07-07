@@ -1,0 +1,35 @@
+experiment_id: regression_fairness_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop_v0
+purpose: "Policy-gated OpenML Statistical Sleuth case1201 aggregate state education-rank smoke with income-bin diagnostics and raw income dropped. The frame has only 50 aggregate state rows and unclear source semantics, so this is an aggregate benchmark diagnostic only, not individual fairness evidence, education-policy inference, state ranking evidence, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47, 71, 89]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_sleuth_case1201_rank
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop/checkpoints/predictions

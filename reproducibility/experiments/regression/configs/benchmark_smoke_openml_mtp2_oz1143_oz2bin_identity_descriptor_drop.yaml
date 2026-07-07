@@ -1,0 +1,36 @@
+experiment_id: regression_benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop_v0
+purpose: "Policy-gated OpenML mtp2 high-dimensional QSAR descriptor benchmark smoke. Target oz1143 is modeled on the identity scale; oz2_bin is a descriptor-derived diagnostic group; raw oz2 is excluded from model features. This is interval-machinery evidence for high-dimensional drug-design descriptors only, not molecular-design guidance, pharmacological inference, fairness evidence, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_mtp2_oz1143
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop/checkpoints/predictions

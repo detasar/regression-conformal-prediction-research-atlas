@@ -1,0 +1,35 @@
+experiment_id: regression_fairness_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop_v0
+purpose: "Policy-gated OpenML AnalCatData/GSS-derived sensitive survey smoke with AIDS_know as a bounded zero-inflated ordinal/count-like target, Male diagnostics, age-bin audit context, and conservative exclusion of Age, Income, Sex_partners, Same_sex_relations, Drug_use, Religious, and Married. This is diagnostic interval machinery evidence only, not public-health knowledge inference, sexual-health behavior inference, religion or sexual-orientation inference, sex/gender fairness evidence, GSS population evidence, causal evidence, individual risk scoring, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47, 71, 89]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_analcatdata_gsssexsurvey
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop/checkpoints/predictions

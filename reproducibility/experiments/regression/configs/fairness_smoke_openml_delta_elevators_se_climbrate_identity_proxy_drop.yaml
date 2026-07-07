@@ -1,0 +1,35 @@
+experiment_id: regression_fairness_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop_v0
+purpose: "Policy-gated OpenML delta_elevators control benchmark smoke with Se target, identity target modeling, climbRate_bin diagnostics, and raw climbRate excluded from model features. This is tabular flight/control benchmark interval evidence only, not protected-class fairness evidence, aircraft-control guidance, safety validation, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47, 71, 89]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_delta_elevators_se
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop/checkpoints/predictions

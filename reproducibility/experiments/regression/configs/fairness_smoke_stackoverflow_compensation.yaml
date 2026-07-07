@@ -1,0 +1,34 @@
+experiment_id: regression_fairness_smoke_stackoverflow_compensation_log1p_v0
+purpose: "Smoke-test audited Stack Overflow Developer Survey 2025 compensation regression with Age-group conformal diagnostics. This is a self-selected developer-survey log1p smoke, not a population compensation estimate."
+random_seeds: [42]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - stackoverflow_2025_compensation
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_stackoverflow_compensation_log1p/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_stackoverflow_compensation_log1p/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_stackoverflow_compensation_log1p/checkpoints/predictions

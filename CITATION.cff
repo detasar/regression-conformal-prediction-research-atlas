@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite this repository."
+title: "Regression Conformal Prediction Study: Neutral Empirical Research Document"
+authors:
+  - family-names: "Tasar"
+    given-names: "Emre"
+    email: "detasar@gmail.com"
+date-released: "2026-07-07"
+url: "https://github.com/detasar/regression-conformal-prediction-research-atlas"

@@ -1,0 +1,120 @@
+experiment_id: regression_model_family_sweep_uci_auto_mpg_origin_identity_v0
+purpose: "Controlled model-family and hyperparameter sweep for the policy-gated UCI Auto MPG vehicle fuel-economy benchmark. This extends the five-seed ridge smoke to regularized linear, Bayesian linear, kernel, instance-based, tree-ensemble, histogram boosting, and installed gradient-boosting libraries while preserving origin diagnostics, identity target modeling, train-fitted preprocessing, resumable ledger, and Venn-Abers diagnostic-only boundary. CQR rows use the runner's fixed GradientBoostingRegressor quantile backend and are repeated per outer model configuration, so they are fixed-backend CQR baseline evidence rather than model-family-sensitive CQR evidence. This is vehicle fuel-economy interval-machinery evidence only, not protected-class fairness evidence, emissions-regulatory evidence, vehicle engineering validation, final model selection, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 500
+  jackknife_plus_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+  - uci_auto_mpg
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0]
+  - model_id: elasticnet
+    family: sparse_linear
+    grid:
+      alpha: [0.001, 0.01, 0.1]
+      l1_ratio: [0.25, 0.75]
+  - model_id: bayesian_ridge
+    family: linear_bayesian
+    grid:
+      alpha_1: [0.000001]
+      alpha_2: [0.000001]
+      lambda_1: [0.000001]
+      lambda_2: [0.000001]
+  - model_id: svr
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      C: [0.3, 1.0]
+      gamma: ["scale", 0.01]
+      epsilon: [0.03, 0.1]
+  - model_id: kernel_ridge
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      alpha: [0.1, 1.0]
+      gamma: [0.001, 0.01]
+  - model_id: knn
+    family: instance_based
+    grid:
+      n_neighbors: [5, 15]
+      weights: ["uniform", "distance"]
+      p: [2]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: extra_trees
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15, 31]
+      l2_regularization: [0.0]
+  - model_id: xgboost
+    family: boosting
+    grid:
+      n_estimators: [120]
+      max_depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: lightgbm
+    family: boosting
+    grid:
+      n_estimators: [120]
+      num_leaves: [15, 31]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: catboost
+    family: boosting
+    grid:
+      iterations: [120]
+      depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      l2_leaf_reg: [3.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 2
+  treat_origin_as_vehicle_source_diagnostic_only: true
+  document_horsepower_train_imputation: true
+  forbid_protected_class_fairness_claims: true
+  forbid_emissions_regulatory_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/model_family_sweep_uci_auto_mpg_origin_identity/ledger.jsonl
+  checkpoint_root: experiments/regression/results/model_family_sweep_uci_auto_mpg_origin_identity/checkpoints
+  prediction_cache_root: experiments/regression/results/model_family_sweep_uci_auto_mpg_origin_identity/checkpoints/predictions

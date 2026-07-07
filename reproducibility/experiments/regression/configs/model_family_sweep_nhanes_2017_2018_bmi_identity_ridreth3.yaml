@@ -1,0 +1,162 @@
+experiment_id: regression_model_family_sweep_nhanes_2017_2018_bmi_identity_ridreth3_v0
+purpose: "Controlled model-family, hyperparameter, kernel-sensitivity, and conformal-variant sweep for the policy-gated CDC NHANES 2017-2018 body mass index benchmark. This extends the completed one-seed ridge smoke to regularized linear, Bayesian linear, RBF kernel, instance-based, tree-ensemble, histogram boosting, and installed gradient-boosting libraries while preserving RIDRETH3 as the primary race/ethnicity diagnostic group, identity target modeling for BMXBMI, train-fitted preprocessing, resumable ledger, prediction-bundle cache, CV+/CV-minmax evidence where train-row caps permit, jackknife-family runtime caps, and the Venn-Abers diagnostic-only boundary. The runner frame joins official CDC DEMO_J and BMX_J files, keeps 8,005 observed BMXBMI rows from 8,704 joined rows, excludes BMI target components BMXWT and BMXHT, excludes body-measurement proxies BMXWAIST and BMXHIP from the model-visible runner frame, excludes MEC sample weights WTMEC2YR, SDMVSTRA, and SDMVPSU from unweighted benchmark features and metrics, and drops RIDRETH3 from model features because it is the primary diagnostic group. This is an unweighted method-engineering benchmark, not a population-weighted NHANES health estimate, BMI prevalence estimate, obesity screening or diagnosis result, clinical decision support result, health-disparity result, race/ethnicity fairness result, protected-class fairness result, policy guidance, causal evidence, production evidence, final model selection, raw/log robustness evidence, survey-design evidence, item-nonresponse-adjusted evidence, bounded-interval validity evidence, or validated Venn-Abers regression evidence. CQR rows use the runner's fixed GradientBoostingRegressor quantile backend and are repeated per outer model configuration, so they are fixed-backend CQR baseline evidence rather than model-family-sensitive CQR evidence. Rankings are exploratory interval-calibration triage only."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 5000
+  jackknife_plus_max_train_rows: 250
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+  - nhanes_2017_2018_bmi
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0]
+  - model_id: elasticnet
+    family: sparse_linear
+    grid:
+      alpha: [0.001, 0.01, 0.1]
+      l1_ratio: [0.25, 0.75]
+  - model_id: bayesian_ridge
+    family: linear_bayesian
+    grid:
+      alpha_1: [0.000001]
+      alpha_2: [0.000001]
+      lambda_1: [0.000001]
+      lambda_2: [0.000001]
+  - model_id: svr
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      C: [0.3, 1.0]
+      gamma: ["scale", 0.01]
+      epsilon: [0.03, 0.1]
+  - model_id: kernel_ridge
+    family: kernel
+    grid:
+      kernel: ["rbf"]
+      alpha: [0.1, 1.0]
+      gamma: [0.001, 0.01]
+  - model_id: knn
+    family: instance_based
+    grid:
+      n_neighbors: [5, 15]
+      weights: ["uniform", "distance"]
+      p: [2]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: extra_trees
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [null, 8]
+      min_samples_leaf: [1, 5]
+      max_features: ["sqrt"]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15, 31]
+      l2_regularization: [0.0]
+  - model_id: xgboost
+    family: boosting
+    grid:
+      n_estimators: [120]
+      max_depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: lightgbm
+    family: boosting
+    grid:
+      n_estimators: [120]
+      num_leaves: [15, 31]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5]
+  - model_id: catboost
+    family: boosting
+    grid:
+      iterations: [120]
+      depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      l2_leaf_reg: [3.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - split_tail_0.25
+  - split_tail_0.50
+  - split_tail_0.75
+  - cqr
+  - cv_plus
+  - cv_minmax
+  - jackknife_plus
+  - jackknife_minmax
+  - jackknife_plus_after_bootstrap
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  note_seed_aggregate_count: 3
+  include_kernel_sensitivity_on_full_frame: true
+  include_tail_specific_split_variants_for_identity_endpoint_stress: true
+  include_plus_minmax_and_jackknife_after_bootstrap_with_runtime_caps: true
+  treat_identity_target_as_first_pass_only: true
+  require_log1p_target_sensitivity_followup: true
+  require_endpoint_audit_for_positive_bmi_target_lower_bounds_upper_bounds_nonfinite_crossing_and_inverse_saturation: true
+  primary_group_ridreth3_diagnostic_only: true
+  iid_row_split_method_engineering_only: true
+  document_official_cdc_demo_j_and_bmx_j_sources: true
+  document_bmxbmi_observed_rows_and_missing_rows: true
+  document_bmi_target_component_exclusions_bmxwt_bmxht: true
+  document_body_measurement_proxy_exclusions_bmxwaist_bmxhip: true
+  document_mec_sample_weights_strata_psu_excluded: true
+  document_unweighted_method_engineering_benchmark_only: true
+  document_bmi_scale_and_right_tail: true
+  cv_plus_runtime_bounded_not_full_data_guarantee: true
+  jackknife_runtime_bounded_not_full_data_guarantee: true
+  health_survey_proxy_diagnostics_only: true
+  forbid_population_weighted_nhanes_claims: true
+  forbid_bmi_prevalence_estimation_claims: true
+  forbid_obesity_screening_or_diagnosis_claims: true
+  forbid_clinical_guidance_claims: true
+  forbid_medical_decision_support_claims: true
+  forbid_health_disparity_claims: true
+  forbid_race_ethnicity_fairness_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_demographic_parity_claims: true
+  forbid_policy_guidance_claims: true
+  forbid_causal_claims: true
+  forbid_production_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_raw_log_robustness_claims_without_sensitivity: true
+  forbid_survey_design_claims_without_weight_variance_integration: true
+  forbid_item_nonresponse_adjusted_claims_without_weighting_or_sensitivity: true
+  forbid_bounded_interval_validity_claims_without_endpoint_policy: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/model_family_sweep_nhanes_2017_2018_bmi_identity_ridreth3/ledger.jsonl
+  checkpoint_root: experiments/regression/results/model_family_sweep_nhanes_2017_2018_bmi_identity_ridreth3/checkpoints
+  prediction_cache_root: experiments/regression/results/model_family_sweep_nhanes_2017_2018_bmi_identity_ridreth3/checkpoints/predictions

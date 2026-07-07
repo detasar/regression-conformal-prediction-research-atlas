@@ -1,0 +1,36 @@
+experiment_id: regression_fairness_smoke_scf_2022_networth_signed_log1p_family_split_v0
+purpose: "Smoke-test audited Federal Reserve SCF 2022 family net-worth regression with race-class diagnostics, signed-log target modeling, and YY1 family-grouped splits. This is an unweighted engineering smoke, not a population-weighted SCF wealth-distribution estimate."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: signed_log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  group_col: YY1
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - scf_2022_networth
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_scf_networth_signed_log1p_family_split/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_scf_networth_signed_log1p_family_split/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_scf_networth_signed_log1p_family_split/checkpoints/predictions

@@ -1,0 +1,156 @@
+experiment_id: regression_duplicate_cluster_sensitivity_meps_2023_total_expenditure_log1p_varstr_split_v0
+purpose: "Duplicate-cluster sensitivity follow-up for the model-visible feature-plus-target duplicate caveat in the policy-gated AHRQ MEPS HC-251 2023 total annual health-care expenditure model-family sweep. This reruns the same model-family and conformal-method grid on the three affected seeds (11, 23, and 47) with model-visible feature-plus-target duplicate clusters assigned to a single split while preserving the VARSTR survey-stratum grouped split components. The source is the official AHRQ MEPS HC-251 2023 Full Year Consolidated public-use file released in August 2025; this is an unweighted method-engineering benchmark, not a population-weighted MEPS health-expenditure estimate, clinical conclusion, health-policy conclusion, or fairness conclusion. This sensitivity is split-methodology evidence only, not population-weighted MEPS inference, national expenditure estimation, clinical guidance, healthcare disparity evidence, insurance/race/sex fairness evidence, protected-class fairness evidence, demographic parity evidence, health-policy guidance, causal evidence, production evidence, final model selection, raw/log robustness evidence, zero-mass or two-part-model evidence, nonnegative interval validity evidence, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  group_col: VARSTR
+  duplicate_cluster_scope: model_visible_features_plus_target
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 5000
+  jackknife_plus_max_train_rows: 250
+  jackknife_after_bootstrap_n_resamples: 40
+  jackknife_after_bootstrap_sample_fraction: 1.0
+  jackknife_after_bootstrap_min_oob: 5
+  jackknife_after_bootstrap_max_train_rows: 250
+  venn_abers_m: 1
+datasets:
+  - meps_2023_total_expenditure
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [0.1, 1.0, 10.0, 100.0, 1000.0]
+  - model_id: elasticnet
+    family: sparse_linear
+    grid:
+      alpha: [0.001, 0.01, 0.1]
+      l1_ratio: [0.25, 0.75]
+  - model_id: bayesian_ridge
+    family: linear_bayesian
+    grid:
+      alpha_1: [0.000001]
+      alpha_2: [0.000001]
+      lambda_1: [0.000001]
+      lambda_2: [0.000001]
+  - model_id: knn
+    family: instance_based
+    grid:
+      n_neighbors: [15, 50]
+      weights: ["uniform", "distance"]
+      p: [2]
+  - model_id: random_forest
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [8, 16]
+      min_samples_leaf: [5, 20]
+      max_features: ["sqrt"]
+  - model_id: extra_trees
+    family: tree_ensemble
+    grid:
+      n_estimators: [120]
+      max_depth: [8, 16]
+      min_samples_leaf: [5, 20]
+      max_features: ["sqrt"]
+  - model_id: hist_gradient_boosting
+    family: boosting
+    grid:
+      learning_rate: [0.03, 0.1]
+      max_leaf_nodes: [15, 31]
+      l2_regularization: [0.0, 1.0]
+  - model_id: xgboost
+    family: boosting
+    grid:
+      n_estimators: [120]
+      max_depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5, 1.0]
+  - model_id: lightgbm
+    family: boosting
+    grid:
+      n_estimators: [120]
+      num_leaves: [15, 31]
+      learning_rate: [0.03, 0.1]
+      subsample: [0.8]
+      colsample_bytree: [0.5, 1.0]
+  - model_id: catboost
+    family: boosting
+    grid:
+      iterations: [120]
+      depth: [2, 4]
+      learning_rate: [0.03, 0.1]
+      l2_leaf_reg: [3.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - split_tail_0.25
+  - split_tail_0.50
+  - split_tail_0.75
+  - cqr
+  - cv_plus
+  - cv_minmax
+  - jackknife_plus
+  - jackknife_minmax
+  - jackknife_plus_after_bootstrap
+  - venn_abers_quantile
+  - venn_abers_split_fallback
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  note_seed_aggregate_count: 3
+  focused_on_model_visible_duplicate_caveat_seeds: true
+  preserve_varstr_survey_stratum_group_components: true
+  include_tail_specific_split_variants_for_log1p_endpoint_stress: true
+  include_plus_minmax_and_jackknife_after_bootstrap_with_runtime_caps: true
+  treat_log1p_as_first_pass_transform_only: true
+  require_raw_log_target_sensitivity_followup: true
+  require_zero_mass_or_two_part_followup: true
+  require_endpoint_audit_for_nonnegative_target_lower_bounds_extreme_upper_tails_nonfinite_crossing_and_inverse_saturation: true
+  primary_group_racethx_diagnostic_only: true
+  split_group_varstr_survey_stratum_holdout: true
+  duplicate_cluster_augmented_grouped_split_not_iid_row_split_evidence: true
+  not_iid_row_split_evidence: true
+  document_official_ahrq_hc251_public_use_source: true
+  document_unweighted_method_engineering_benchmark_only: true
+  document_weight_and_variance_design_exclusion: true
+  document_zero_target_retention: true
+  document_negative_special_feature_codes_as_missing: true
+  document_structural_missingness_semantics_unresolved_for_publication_claims: true
+  document_expenditure_components_and_utilization_cooutcomes_excluded: true
+  document_kernel_methods_deferred_for_large_survey_subsample_sensitivity: true
+  document_varstr_grouped_split_zero_overlap_per_seed: true
+  document_model_visible_feature_plus_target_duplicate_caveat: true
+  cv_plus_runtime_bounded_not_full_data_guarantee: true
+  jackknife_runtime_bounded_not_full_data_guarantee: true
+  health_survey_proxy_diagnostics_only: true
+  forbid_population_weighted_meps_claims: true
+  forbid_national_expenditure_estimation_claims: true
+  forbid_clinical_guidance_claims: true
+  forbid_healthcare_disparity_claims: true
+  forbid_insurance_race_sex_fairness_claims: true
+  forbid_protected_class_fairness_claims: true
+  forbid_demographic_parity_claims: true
+  forbid_health_policy_guidance_claims: true
+  forbid_causal_claims: true
+  forbid_production_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_raw_log_robustness_claims_without_sensitivity: true
+  forbid_zero_mass_or_two_part_claims_without_followup: true
+  forbid_nonnegative_interval_validity_claims_without_endpoint_policy: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/duplicate_cluster_sensitivity_meps_2023_total_expenditure_log1p_varstr_split/ledger.jsonl
+  checkpoint_root: experiments/regression/results/duplicate_cluster_sensitivity_meps_2023_total_expenditure_log1p_varstr_split/checkpoints
+  prediction_cache_root: experiments/regression/results/duplicate_cluster_sensitivity_meps_2023_total_expenditure_log1p_varstr_split/checkpoints/predictions

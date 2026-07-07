@@ -1,0 +1,47 @@
+experiment_id: regression_duplicate_cluster_smoke_openml_chlamydia_count_log1p_gender_v0
+purpose: "Smoke-test model-visible feature-plus-target duplicate-cluster splitting on the OpenML AnalCatData Chlamydia aggregate-count benchmark. This is a split-methodology diagnostic only, not public-health, population, fairness, causal, final-selection, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23]
+alphas: [0.10]
+target_transform: log1p
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  duplicate_cluster_scope: model_visible_features_plus_target
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_analcatdata_chlamydia
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0, 10.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - venn_abers_quantile
+quality_controls:
+  require_atomic_checkpoints: true
+  require_prediction_bundle_cache: true
+  require_dataset_audit: true
+  require_model_params_summary_key: true
+  interpret_cqr_as_fixed_quantile_backend: true
+  interpret_rankings_as_triage_only: true
+  duplicate_cluster_scope_is_split_methodology_diagnostic_only: true
+  aggregate_stratum_rows_not_individuals: true
+  no_exposure_denominator_or_rate_model: true
+  forbid_public_health_claims: true
+  forbid_population_disease_burden_claims: true
+  forbid_sex_race_age_fairness_claims: true
+  forbid_causal_claims: true
+  forbid_final_model_selection_claims: true
+  forbid_validated_venn_abers_regression_claims: true
+logging:
+  ledger: experiments/regression/results/duplicate_cluster_smoke_openml_chlamydia_count_log1p_gender/ledger.jsonl
+  checkpoint_root: experiments/regression/results/duplicate_cluster_smoke_openml_chlamydia_count_log1p_gender/checkpoints
+  prediction_cache_root: experiments/regression/results/duplicate_cluster_smoke_openml_chlamydia_count_log1p_gender/checkpoints/predictions

@@ -1,0 +1,35 @@
+experiment_id: regression_fairness_smoke_openml_kin8nm_y_theta3_identity_proxy_drop_v0
+purpose: "Policy-gated OpenML kin8nm synthetic robot-arm benchmark smoke with y target, identity target modeling, theta3_bin diagnostics, and raw theta3 excluded from model features. This is synthetic benchmark interval evidence only, not protected-class fairness evidence, robotics control guidance, physical-system validation, or validated Venn-Abers regression evidence."
+random_seeds: [11, 23, 47, 71, 89]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - openml_kin8nm_y
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_openml_kin8nm_y_theta3_identity_proxy_drop/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_openml_kin8nm_y_theta3_identity_proxy_drop/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_openml_kin8nm_y_theta3_identity_proxy_drop/checkpoints/predictions

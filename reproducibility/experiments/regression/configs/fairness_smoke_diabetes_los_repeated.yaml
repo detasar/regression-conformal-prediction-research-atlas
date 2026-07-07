@@ -1,0 +1,36 @@
+experiment_id: regression_fairness_smoke_diabetes_los_repeated_v0
+purpose: "Three-seed engineering smoke for Fairlearn/UCI Diabetes 130-Hospitals length-of-stay regression with race-group conformal diagnostics. This repeats the earlier single-seed smoke with CQR and CV+ added; it remains clinical leakage and bounded-target policy gated."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 100000
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - fairlearn_diabetes_hospital_los
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_diabetes_los_repeated/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_diabetes_los_repeated/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_diabetes_los_repeated/checkpoints/predictions

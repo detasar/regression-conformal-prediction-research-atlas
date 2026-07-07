@@ -1,0 +1,37 @@
+experiment_id: regression_fairness_smoke_pisa_2022_math_pv_mean_school_split_v0
+purpose: "Deterministic country-balanced benchmark smoke for the audited OECD PISA 2022 mathematics plausible-value mean frame. This uses MATH_PV_MEAN only for conformal-regression method prototyping, samples up to 75 students per country/economy, holds out whole CNTSCHID school groups, uses ST004D01T diagnostics, and remains non-inferential until plausible-value pooling, final/replicate weights, country/school policy, and code-label documentation are implemented."
+random_seeds: [11, 23, 47]
+alphas: [0.10]
+target_transform: identity
+splits:
+  train: 0.60
+  calibration: 0.20
+  test: 0.20
+  group_col: CNTSCHID
+conformal:
+  cv_plus_folds: 5
+  cv_plus_max_train_rows: 10000
+  jackknife_plus_max_train_rows: 500
+  venn_abers_m: 1
+datasets:
+  - pisa_2022_math_pv_mean
+models:
+  - model_id: ridge
+    family: linear
+    grid:
+      alpha: [1.0]
+cp_methods:
+  - split_abs
+  - mondrian_abs
+  - normalized_abs
+  - cqr
+  - cv_plus
+  - venn_abers_quantile
+quality_controls:
+  interpret_cqr_as_fixed_quantile_backend: true
+  forbid_validated_venn_abers_regression_claims: true
+
+logging:
+  ledger: experiments/regression/results/fairness_smoke_pisa_2022_math_pv_mean_school_split/ledger.jsonl
+  checkpoint_root: experiments/regression/results/fairness_smoke_pisa_2022_math_pv_mean_school_split/checkpoints
+  prediction_cache_root: experiments/regression/results/fairness_smoke_pisa_2022_math_pv_mean_school_split/checkpoints/predictions
