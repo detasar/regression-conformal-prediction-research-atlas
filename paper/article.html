@@ -15,23 +15,23 @@
   </style>
 </head>
 <body>
-  <div class="boundary"><strong>Research Document render.</strong> Research Document release render, not a public release, and not a method recommendation.</div>
+
 <h1>Regression Conformal Prediction Under Neutral Claim Boundaries</h1>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
-<p>Email: detasar@gmail.com</p>
-<blockquote>Document status: Research Document release render, part of the public Research Atlas, and not a method recommendation.</blockquote>
+<p>Contact: detasar@gmail.com</p>
+
 <h2>Abstract</h2>
-<p>This report summarizes a regression conformal prediction study assembled from 145,839 publication-scoped completed rows, 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The largest descriptive frontier pattern is CQR, with 56 frontier cells, followed by Mondrian absolute-residual calibration with 15 and CV+ with 13. These results are interpreted as diagnostic evidence only. The current evidence does not establish a final method recommendation, a bounded-support validity claim, a population-level group inference claim, or a validated Venn-Abers regression interval claim.</p>
+<p>This report summarizes a regression conformal prediction study assembled from 145,839 publication-scoped completed rows, 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The largest descriptive frontier pattern is CQR, with 56 frontier cells, followed by Mondrian absolute-residual calibration with 15 and CV+ with 13. These results are interpreted as diagnostic evidence only. The current evidence does not establish a final method guidance, a bounded-support validity claim, a population-level group inference claim, or a validated Venn-Abers regression interval claim.</p>
 <h2>Introduction</h2>
 <p>Regression conformal prediction provides a way to wrap predictive models with prediction intervals calibrated for marginal coverage under exchangeability [<a href="https://arxiv.org/abs/1604.04173">@lei2017distribution_free_regression</a>]. This study asks how a broad set of regression conformal methods behaves across audited tabular datasets while preserving source traceability, resumability, leakage checks, duplicate-split caveats, and explicit claim boundaries.</p>
-<p>The article deliberately separates empirical diagnostics from final claims. A method can appear frequently on the descriptive frontier without becoming a universal recommendation. A group coverage table can be useful without becoming a population-level group inference claim. A Venn-Abers bridge can be scientifically important even when the observed evidence is negative.</p>
+<p>The article deliberately separates empirical diagnostics from final claims. A method can appear frequently on the descriptive frontier without becoming a universal deployment rule. A group coverage table can be useful without becoming a population-level group inference claim. A Venn-Abers bridge can be scientifically important even when the observed evidence is negative.</p>
 <h3>Reader Orientation</h3>
 <p>A prediction interval is a range-valued prediction. Instead of saying that the model predicts one number, the procedure returns a lower and an upper endpoint. The target <code>1 - alpha</code> is the nominal coverage level: when <code>alpha = 0.10</code>, the interval procedure aims at 90% coverage under the assumptions required by the conformal method. Coverage and interval width must be read together, because a very wide interval can cover often without being informative.</p>
-<p>This article therefore treats the empirical output as a controlled measurement exercise. The central question is not &#x27;Which method can we promote?&#x27; but &#x27;Which patterns are supported by the completed evidence, and which stronger claims remain closed?&#x27; That framing is important for readers who are new to conformal prediction: the coverage target explains what the interval is trying to guarantee, while the claim gates explain what this particular experiment does not prove.</p>
+<p>This article therefore treats the empirical output as a controlled measurement exercise. The central question is not &#x27;Which method can we promote?&#x27; but &#x27;Which patterns are supported by the completed evidence, and which stronger claims remain outside the current evidence?&#x27; That framing is important for readers who are new to conformal prediction: the coverage target explains what the interval is trying to guarantee, while the interpretation boundaries explain what this particular experiment does not prove.</p>
 <h3>Guarantee And Claim Boundary Snapshot</h3>
-<p>The snapshot below is the main article version of the Research Document&#x27;s guarantee boundary ledger. It separates conformal prediction&#x27;s theorem-level language from the empirical audit language used in this study, and it marks readings that remain closed in the article.</p>
+<p>The snapshot below is the main article version of the Research Document&#x27;s guarantee boundary ledger. It separates conformal prediction&#x27;s theorem-level language from the empirical audit language used in this study, and it marks readings that remain outside the current evidence in the article.</p>
 <table>
-<thead><tr><th>Topic</th><th>Article statement</th><th>Closed reading</th></tr></thead>
+<thead><tr><th>Topic</th><th>Article statement</th><th>Outside current evidence reading</th></tr></thead>
 <tbody>
 <tr><td>Marginal conformal coverage</td><td>The conformal guarantee is a marginal coverage statement under exchangeability and the stated calibration protocol.</td><td>It is not conditional, subgroup, endpoint, or deployment coverage.</td></tr>
 <tr><td>Empirical coverage</td><td>Coverage values in this article summarize observed held-out behavior inside the audited dataset-alpha-method scope.</td><td>They are not theorem claims and not general product recommendations.</td></tr>
@@ -43,45 +43,45 @@
 <h3>Contributions And Boundaries</h3>
 <ul>
 <li>The study consolidates a large audited regression conformal-prediction evidence base under resumable, source-traceable execution records.</li>
-<li>It reports CQR/CV+ as strong practical candidates observed in these experiments, without converting that observation into a universal recommendation.</li>
+<li>It reports CQR/CV+ as strong practical candidates observed in these experiments, without converting that observation into a universal deployment rule.</li>
 <li>It reports the evaluated Venn-Abers regression bridge as negative/failure-mode evidence, without rejecting the broader Venn-Abers literature.</li>
-<li>It keeps population-level group inference, bounded-support validity, final method selection, public release, and citable web-artifact claims closed unless their explicit evidence gates are opened later.</li>
+<li>It keeps population-level group inference, bounded-support validity, final method selection, public release, and citable web-artifact claims outside current evidence unless their explicit evidence gates are opened later.</li>
 </ul>
 <h3>Paper Architecture And Review Contract</h3>
-<p>The paper is organized as a small article, a broad supplement, and private navigation artifacts. This structure follows the source-backed publication exemplar review: the article carries the central claim-evidence narrative, while the supplement and KG carry the detailed audit trail. The contract below tells a reader where to look and what each surface must not claim.</p>
+<p>The paper is organized as a small article, a broad supplement, and working navigation artifacts. This structure follows the source-backed publication exemplar review: the article carries the central claim-evidence narrative, while the supplement and KG carry the detailed audit trail. The contract below tells a reader where to look and what each surface must not claim.</p>
 <table>
 <thead><tr><th>Surface</th><th>Reader job</th><th>Boundary</th><th>Source basis</th></tr></thead>
 <tbody>
-<tr><td>Minimal main article</td><td>Use the article for the study question, non-specialist primer, claim-evidence map, headline diagnostics, and closed-claim summary.</td><td>Do not read the article as a final method recommendation or release artifact.</td><td>Use a minimal main article and a broad supplementary document.</td></tr>
+<tr><td>Minimal main article</td><td>Use the article for the study question, non-specialist primer, claim-evidence map, headline diagnostics, and interpretation-boundary summary.</td><td>Do not read the article as a final method guidance or release artifact.</td><td>Use a minimal main article and a broad supplementary document.</td></tr>
 <tr><td>Broad supplementary document</td><td>Use the supplement for method detail, robustness diagnostics, post-selection checks, bounded-support policy, group diagnostics, duplicate caveats, and Venn-Abers negative evidence.</td><td>Supplementary diagnostics do not open final selection, group inference, or validity claims.</td><td>Use a minimal main article and a broad supplementary document.</td></tr>
 <tr><td>README review router</td><td>Use the README to choose the review path, locate artifacts, and check status before interpreting results.</td><td>README navigation does not establish stronger scientific claims or citable status.</td><td>Make the README a review router, not a dense methods dump.</td></tr>
 <tr><td>Research Atlas site and KG browser</td><td>Use the site and KG browser to trace claims to source artifacts, citation gates, quality checks, nodes, edges, and provenance.</td><td>The KG and GitHub Pages site are public Research Atlas navigation artifacts.</td><td>Use the site as a reader review portal with explicit lanes.</td></tr>
-<tr><td>Claim-evidence contract</td><td>Use the claim matrix to keep each reader-facing sentence tied to evidence, citation requirements, and an explicit blocked overclaim.</td><td>No prose may convert a blocked claim into a positive conclusion.</td><td>claim_boundary_for_every_surface</td></tr>
+<tr><td>Claim-evidence contract</td><td>Use the claim matrix to keep each reader-facing sentence tied to evidence, citation requirements, and an explicit outside current evidence overclaim.</td><td>No prose may convert a outside current evidence claim into a positive conclusion.</td><td>claim_boundary_for_every_surface</td></tr>
 </tbody>
 </table>
 <h2>Research Questions</h2>
-<p>The article is organized around five research questions. The answers below are intentionally scoped: each answer states what the audited evidence supports and the stronger reading that remains closed.</p>
+<p>The article is organized around five research questions. The answers below are intentionally scoped: each answer states what the audited evidence supports and the stronger reading that remains outside the current evidence.</p>
 <table>
-<thead><tr><th>Research question</th><th>Article answer</th><th>Evidence anchor</th><th>Closed reading</th></tr></thead>
+<thead><tr><th>Research question</th><th>Article answer</th><th>Evidence anchor</th><th>Outside current evidence reading</th></tr></thead>
 <tbody>
 <tr><td>What empirical object is being audited?</td><td>A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels.</td><td>Completed-row accounting and individual experiment report facts.</td><td>Do not read the scope as exhaustive internet coverage or deployment generality.</td></tr>
 <tr><td>Which practical method pattern is supported descriptively?</td><td>CQR/CV+ were observed as strong practical candidates in these experiments, with CQR carrying the largest descriptive frontier count (56) and CV+ contributing 13 frontier cells.</td><td>Frontier counts, coverage-width diagnostics, and claim/evidence matrix.</td><td>Do not turn the pattern into a selected method, best-method statement, or recommendation.</td></tr>
 <tr><td>Was the CQR signal only a fixed-GBM backend artifact?</td><td>A completed model-matched CQR rerun produced 4,564 model-matched rows and 224 paired comparison cells. Fixed-GBM CQR was selected in 116 coverage-eligible interval-score cells, model-matched CQR in 71, and neither variant in 37.</td><td>Fixed-GBM CQR vs model-matched CQR synthesis.</td><td>Do not treat the sensitivity check as a universal CQR recommendation.</td></tr>
 <tr><td>What did the evaluated Venn-Abers regression bridge show?</td><td>The evaluated bridge is negative/failure-mode evidence in this study, including 14 undercoverage runs.</td><td>Bridge diagnostics and Venn-Abers claim-boundary rows.</td><td>Do not reject the broader Venn-Abers predictive-distribution or generalized-calibration literature.</td></tr>
-<tr><td>Which stronger positive claims remain closed?</td><td>Bounded-support validity and population-level group inference remain closed: 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles.</td><td>Paper gate map, bounded-support audit, group-diagnostic audit, and claim matrix.</td><td>Do not convert diagnostic endpoint or group evidence into validity or group-inference conclusions.</td></tr>
+<tr><td>Which stronger positive claims remain outside the current evidence?</td><td>Bounded-support validity and population-level group inference remain outside the current evidence: 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles.</td><td>Paper gate map, bounded-support audit, group-diagnostic audit, and claim matrix.</td><td>Keep diagnostic endpoint and group evidence separate from validity or group-inference conclusions.</td></tr>
 <tr><td>How can the evidence be audited without opening release?</td><td>The KG and Research Atlas package provide traceability infrastructure with 3,643 KG nodes and 21,019 KG edges.</td><td>Knowledge-graph quality audit and sterile package metadata.</td><td>Use the KG and site as public Research Atlas navigation artifacts, not as independent scientific claims.</td></tr>
 </tbody>
 </table>
 <h2>Concept Bridge For Non-Specialist Readers</h2>
 <p>This bridge links the main technical concepts to the sources and claim boundaries used in the article. It is intentionally compact: the supplement carries the longer method discussion, while this article keeps only the definitions needed to avoid over-reading the results.</p>
 <table>
-<thead><tr><th>Concept</th><th>Source or evidence anchor</th><th>Article use</th><th>Safe sentence</th><th>Blocked sentence</th></tr></thead>
+<thead><tr><th>Concept</th><th>Source or evidence anchor</th><th>Article use</th><th>Safe sentence</th><th>Outside current evidence sentence</th></tr></thead>
 <tbody>
 <tr><td>Conformal prediction target</td><td>Distribution-free regression conformal prediction [<a href="https://arxiv.org/abs/1604.04173">@lei2017distribution_free_regression</a>]</td><td><code>1 - alpha</code> is the nominal marginal coverage target under the stated calibration assumptions.</td><td>The article may report target and observed coverage separately.</td><td>Do not write that the nominal target proves subgroup, endpoint, or future-deployment coverage.</td></tr>
 <tr><td>Conformalized Quantile Regression</td><td>CQR lower/upper quantile calibration [<a href="https://arxiv.org/abs/1905.03222">@romano2019conformalized_quantile_regression</a>]</td><td>CQR starts with lower and upper quantile models, then applies conformal calibration to the interval.</td><td>CQR can be described as a strong practical candidate observed in these experiments.</td><td>Do not write that CQR is the selected, best, or recommended regression conformal method.</td></tr>
 <tr><td>CV+ and jackknife-style intervals</td><td>Jackknife+/CV+ resampling evidence [<a href="https://arxiv.org/abs/1905.02928">@barber2020jackknife_plus</a>; <a href="https://arxiv.org/abs/2002.09025">@kim2020jackknife_after_bootstrap</a>]</td><td>CV+ uses out-of-fold prediction evidence so interval construction reflects fitted-model variability.</td><td>CV+ can be described as another strong practical candidate observed in these experiments.</td><td>Do not write that cross-validation evidence removes all model, split, or dataset caveats.</td></tr>
 <tr><td>Venn-Abers regression bridge</td><td>Venn-Abers predictive-distribution and generalized-calibration literature [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>]</td><td>The study evaluates a bridge from Venn-Abers-style calibration evidence into regression interval diagnostics.</td><td>The evaluated bridge produced bridge-specific negative evidence in these experiments.</td><td>Do not write that the result rejects the broader Venn-Abers literature.</td></tr>
-<tr><td>Claim-gated empirical wording</td><td>Publication claim-evidence matrix and section-boundary audit</td><td>Every empirical sentence is paired with evidence, an allowed reading, and a blocked stronger reading.</td><td>Closed gates are part of the scientific result and should remain visible.</td><td>Do not promote a diagnostic pattern into a method recommendation, group-inference conclusion, endpoint-validity claim, or public-release claim.</td></tr>
+<tr><td>Claim-gated empirical wording</td><td>Publication claim-evidence matrix and section-boundary audit</td><td>Every empirical sentence is paired with evidence, an allowed reading, and a outside current evidence stronger reading.</td><td>Outside current evidence gates are part of the scientific result and should remain visible.</td><td>Keep diagnostic patterns separate from deployment, group-inference, endpoint-validity, and release-scope conclusions.</td></tr>
 </tbody>
 </table>
 <h2>Claim-Evidence Map</h2>
@@ -89,9 +89,9 @@
 <table>
 <thead><tr><th>Claim surface</th><th>Evidence</th><th>Supported reading</th><th>Boundary</th></tr></thead>
 <tbody>
-<tr><td>Audited empirical scope</td><td>145,839 publication-scoped rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels.</td><td>The study has a broad audited regression-CP accounting base.</td><td>Scope does not by itself authorize external validity or a general method recommendation.</td></tr>
+<tr><td>Audited empirical scope</td><td>145,839 publication-scoped rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels.</td><td>The study has a broad audited regression-CP accounting base.</td><td>Scope does not by itself authorize external validity or a general method guidance.</td></tr>
 <tr><td>CQR/CV+ descriptive performance</td><td>CQR appears in 56 frontier cells; CV+ appears in 13 frontier cells.</td><td>CQR/CV+ were observed in these experiments as strong practical candidates.</td><td>This is not a claim that either method is universally best for regression conformal prediction.</td></tr>
-<tr><td>CQR backend sensitivity check</td><td>4,564 model-matched CQR rows paired against 4,564 fixed-GBM CQR rows across 224 dataset-alpha-model-family cells; selected-cell counts are fixed-GBM CQR=116, model-matched CQR=71, neither=37.</td><td>The CQR signal was stress-tested against model-matched quantile backends and remains experiment-scoped.</td><td>The backend check does not establish a CQR method-selection or production recommendation claim.</td></tr>
+<tr><td>CQR backend sensitivity check</td><td>4,564 model-matched CQR rows paired against 4,564 fixed-GBM CQR rows across 224 dataset-alpha-model-family cells; selected-cell counts are fixed-GBM CQR=116, model-matched CQR=71, neither=37.</td><td>The CQR signal was stress-tested against model-matched quantile backends and remains experiment-scoped.</td><td>The backend check does not establish a CQR method-selection or deployment guidance claim.</td></tr>
 <tr><td>Venn-Abers regression bridge</td><td>The evaluated bridge has 14 undercoverage runs in the current evidence base.</td><td>The expected strong Venn-Abers regression solution did not emerge in these experiments.</td><td>This is not a rejection of the Venn-Abers literature or of future bridge designs.</td></tr>
 <tr><td>Bounded-support validity</td><td>0 validity-ready bounded-support bundles.</td><td>Endpoint/bounded-support diagnostics remain useful audit signals.</td><td>No bounded-support validity claim is established.</td></tr>
 <tr><td>Population-level group inference</td><td>0 population-group-inference-ready bundles.</td><td>Group diagnostics can guide supplementary inspection.</td><td>No population-level group inference claim is established.</td></tr>
@@ -99,18 +99,18 @@
 </tbody>
 </table>
 <h2>Study Design Summary</h2>
-<p>The empirical system was designed to survive long execution, partial completion, and later review. Completed rows are counted only after they pass the publication-scoped accounting layer. Dataset-alpha cells preserve the calibration target being evaluated. Method labels preserve the conformal wrapper or calibration family being compared. Claim gates then decide which interpretations are allowed in the article.</p>
-<p>This separation is deliberate. Model training, interval construction, diagnostic aggregation, literature-aware method description, and release authorization are treated as different objects. As a result, a useful empirical pattern can be reported without becoming a deployment recommendation, and a negative result can be retained without being softened into a positive story.</p>
+<p>The empirical system was designed to survive long execution, partial completion, and later review. Completed rows are counted only after they pass the publication-scoped accounting layer. Dataset-alpha cells preserve the calibration target being evaluated. Method labels preserve the conformal wrapper or calibration family being compared. Interpretation boundaries then decide which interpretations are allowed in the article.</p>
+<p>This separation is deliberate. Model training, interval construction, diagnostic aggregation, literature-aware method description, and release scope are treated as different objects. As a result, a useful empirical pattern can be reported without becoming a deployment recommendation, and a negative result can be retained without being softened into a positive story.</p>
 <h2>Evidence-To-Claim Ladder</h2>
-<p>The table below shows how a raw experimental object becomes a reader-facing statement in this article. Each step has an allowed claim and a blocked upgrade. The purpose is to make the scientific method visible: evidence can support a scoped statement only after the relevant accounting, diagnostic, claim-boundary, and release checks are kept attached.</p>
+<p>The table below shows how a raw experimental object becomes a reader-facing statement in this article. Each step has an allowed claim and a outside current evidence upgrade. The purpose is to make the scientific method visible: evidence can support a scoped statement only after the relevant accounting, diagnostic, claim-boundary, and release checks are kept attached.</p>
 <table>
-<thead><tr><th>Stage</th><th>Reader question</th><th>Evidence object</th><th>Allowed claim</th><th>Blocked upgrade</th></tr></thead>
+<thead><tr><th>Stage</th><th>Reader question</th><th>Evidence object</th><th>Allowed claim</th><th>Outside current evidence upgrade</th></tr></thead>
 <tbody>
 <tr><td>Completed row</td><td>What was counted?</td><td>145,839 publication-scoped completed rows.</td><td>The empirical accounting base is broad and auditable.</td><td>A completed row is not, by itself, external validity.</td></tr>
 <tr><td>Dataset-alpha cell</td><td>What comparison unit was preserved?</td><td>95 dataset-alpha cells across 67 datasets.</td><td>Coverage behavior is read inside recorded calibration targets.</td><td>A dataset-alpha cell is not a population claim.</td></tr>
 <tr><td>Method diagnostic</td><td>What pattern was observed?</td><td>CQR=56, CV+=13, Mondrian=15 frontier cells.</td><td>CQR/CV+ can be described as strong practical candidates observed here.</td><td>Frontier counts do not select a final or universal best method.</td></tr>
 <tr><td>Failure-mode diagnostic</td><td>What did not work as expected?</td><td>14 Venn-Abers bridge undercoverage runs.</td><td>The evaluated bridge is reportable as negative evidence.</td><td>The result does not reject the broader Venn-Abers literature.</td></tr>
-<tr><td>Closed positive gate</td><td>Which stronger claims stay absent?</td><td>0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles.</td><td>Closed gates are reported as scientific results.</td><td>Zero-ready gates cannot be converted into validity or group-inference claims.</td></tr>
+<tr><td>Outside current evidence positive gate</td><td>Which stronger claims stay absent?</td><td>0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles.</td><td>Outside current evidence gates are reported as scientific results.</td><td>Zero-ready gates cannot be converted into validity or group-inference claims.</td></tr>
 <tr><td>Release and citation gate</td><td>When can artifacts be cited or published?</td><td>Reader review package and KG navigation artifacts.</td><td>The artifacts support reader review and traceability.</td><td>The public release includes the KG and site as navigation and traceability artifacts.</td></tr>
 </tbody>
 </table>
@@ -122,12 +122,12 @@
 <p>CQR means Conformalized Quantile Regression. It starts from lower and upper quantile models, then uses calibration data to correct the interval so the final set can be judged against the nominal coverage target [<a href="https://arxiv.org/abs/1905.03222">@romano2019conformalized_quantile_regression</a>]. CV+ belongs to the cross-validation-plus family: it uses out-of-fold prediction evidence rather than one fixed calibration split [<a href="https://arxiv.org/abs/1905.02928">@barber2020jackknife_plus</a>; <a href="https://arxiv.org/abs/2002.09025">@kim2020jackknife_after_bootstrap</a>]. In this article, both families are reported only as observed practical candidates in the completed experiment.</p>
 <p>The evaluated Venn-Abers regression bridge has a different status. Venn-Abers regression work is closer to predictive distributions and generalized calibration than to a single ordinary interval recipe [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>]. The experiment therefore tests a bridge from that calibration evidence into interval diagnostics. The observed undercoverage is evidence against this bridge in this study, not evidence against the whole Venn-Abers research program.</p>
 <h3>Reader Safety Checklist</h3>
-<p>The checklist below is intentionally conservative. It translates the method primer into claim boundaries so a reader can tell which parts are conformal-method background, which parts are empirical findings from this study, and which stronger readings remain closed.</p>
+<p>The checklist below is intentionally conservative. It translates the method primer into claim boundaries so a reader can tell which parts are conformal-method background, which parts are empirical findings from this study, and which stronger readings remain outside the current evidence.</p>
 <table>
-<thead><tr><th>Concept</th><th>Reader-safe meaning</th><th>Not authorized reading</th></tr></thead>
+<thead><tr><th>Concept</th><th>Reader-safe meaning</th><th>Outside scope reading</th></tr></thead>
 <tbody>
 <tr><td><code>1 - alpha</code> target</td><td>A nominal design target for marginal coverage under the stated calibration protocol.</td><td>It is not proof that every subgroup, endpoint region, or future deployment slice is covered at that rate.</td></tr>
-<tr><td>CQR</td><td>Lower and upper quantile models are conformalized with calibration evidence so intervals can adapt to heterogeneous noise.</td><td>It is not a final selected method, universal best method, or production recommendation.</td></tr>
+<tr><td>CQR</td><td>Lower and upper quantile models are conformalized with calibration evidence so intervals can adapt to heterogeneous noise.</td><td>It is not a final selected method, universal best method, or deployment guidance.</td></tr>
 <tr><td>CV+</td><td>Out-of-fold prediction evidence is used to build intervals that reflect fitted-model variability.</td><td>It is not caveat-free evidence and does not open final method selection.</td></tr>
 <tr><td>Mondrian/group calibration</td><td>Calibration can be stratified by groups when the comparison is intended to expose heterogeneity.</td><td>It is not a population-level group inference claim while the group-inference-ready bundle count is zero.</td></tr>
 <tr><td>Venn-Abers bridge</td><td>The experiment evaluates a bridge from Venn-Abers-style calibration evidence into interval diagnostics.</td><td>The observed undercoverage is not a rejection of predictive distribution or generalized Venn-Abers research.</td></tr>
@@ -137,7 +137,7 @@
 <thead><tr><th>Reader question</th><th>Short answer</th><th>Boundary</th></tr></thead>
 <tbody>
 <tr><td>What is <code>1 - alpha</code>?</td><td>The nominal target coverage level used to design or calibrate the interval.</td><td>It is not the realized empirical coverage of every subgroup or future dataset.</td></tr>
-<tr><td>What is CQR?</td><td>Conformalized Quantile Regression: quantile models plus conformal calibration.</td><td>It is an observed strong practical candidate here, not a universal recommendation.</td></tr>
+<tr><td>What is CQR?</td><td>Conformalized Quantile Regression: quantile models plus conformal calibration.</td><td>It is an observed strong practical candidate here, not a universal deployment rule.</td></tr>
 <tr><td>What is CV+?</td><td>A cross-validation-plus interval family using out-of-fold prediction evidence.</td><td>Its frontier signal remains diagnostic and experiment-scoped.</td></tr>
 <tr><td>What is the Venn-Abers bridge result?</td><td>The evaluated bridge did not behave as the expected strong regression solution.</td><td>This is bridge-specific negative evidence, not a literature-wide rejection.</td></tr>
 </tbody>
@@ -161,7 +161,7 @@
 <thead><tr><th>Method family</th><th>Interval mechanism</th><th>Boundary in this article</th></tr></thead>
 <tbody>
 <tr><td>Split conformal</td><td>Residual-score quantile on a calibration set</td><td>Baseline mechanism; not a complete endpoint or heterogeneity solution</td></tr>
-<tr><td>CQR</td><td>Lower/upper quantile models plus conformal calibration</td><td>Strong practical candidate observed here; not a universal recommendation</td></tr>
+<tr><td>CQR</td><td>Lower/upper quantile models plus conformal calibration</td><td>Strong practical candidate observed here; not a universal deployment rule</td></tr>
 <tr><td>CV+ / jackknife+</td><td>Out-of-fold or leave-one-out conformity evidence</td><td>Strong practical candidate observed here; no final method selection</td></tr>
 <tr><td>Mondrian calibration</td><td>Group- or stratum-specific calibration</td><td>Diagnostic comparator; not a population-level group inference claim</td></tr>
 <tr><td>Venn-Abers bridge</td><td>Bridge from Venn-Abers-style calibration evidence to interval diagnostics</td><td>Negative evidence for the evaluated bridge only</td></tr>
@@ -169,7 +169,7 @@
 </table>
 <h2>Results</h2>
 <h3>How To Read The Results Table</h3>
-<p>The results table mixes scope counts, descriptive method signals, and closed claim gates. Frontier cells summarize observed coverage/width trade-offs; row-weighted coverage summarizes empirical coverage across completed result blocks; undercoverage runs flag failure modes; and zero-ready gates record claims the article must not make. These quantities support interpretation, not final method selection.</p>
+<p>The results table mixes scope counts, descriptive method signals, and outside current evidence interpretation boundaries. Frontier cells summarize observed coverage/width trade-offs; row-weighted coverage summarizes empirical coverage across completed result blocks; undercoverage runs flag failure modes; and zero-ready gates record claims the article must not make. These quantities support interpretation, not final method selection.</p>
 <table>
 <thead><tr><th>Evidence area</th><th>Result</th><th>Interpretation</th></tr></thead>
 <tbody>
@@ -186,7 +186,7 @@
 <tr><td>Population-group-inference-ready bundles</td><td>0</td><td>No population-level group inference claim</td></tr>
 </tbody>
 </table>
-<p>The descriptive method result is internally consistent with the individual experiment report: CQR has the largest current frontier share, but the final selection claim remains blocked. The correct claim is not that CQR is the best regression conformal method in general; the supported claim is that CQR is the largest current diagnostic frontier pattern in this audited study.</p>
+<p>The descriptive method result is internally consistent with the individual experiment report: CQR has the largest current frontier share, but the final selection claim remains outside current evidence. The correct claim is not that CQR is the best regression conformal method in general; the supported claim is that CQR is the largest current diagnostic frontier pattern in this audited study.</p>
 <h3>CQR Backend Sensitivity Check</h3>
 <p>A completed model-matched CQR rerun tests whether the historical fixed-GBM CQR pipeline alone explains the CQR signal. The rerun completed 4,564 model-matched CQR rows and pairs them with 4,564 fixed-GBM CQR rows across 224 dataset-alpha-model-family cells.</p>
 <table>
@@ -197,23 +197,23 @@
 <tr><td>Neither coverage-eligible variant</td><td>37</td></tr>
 </tbody>
 </table>
-<p>This check keeps the interpretation conservative. It supports a pipeline-level backend sensitivity statement and does not convert CQR into a universal method-selection, best-method claim, or production recommendation.</p>
+<p>This check keeps the interpretation conservative. It supports a pipeline-level backend sensitivity statement and does not convert CQR into a universal method-selection, best-method claim, or deployment guidance.</p>
 <h2>Discussion</h2>
 <p>The study&#x27;s main scientific value is the combination of broad empirical accounting and explicit negative evidence. Venn-Abers is not forced into a positive result: the current bridge shows 14 undercoverage runs and is therefore reported as a failure mode. This is compatible with the broader Venn-Abers literature because the bridge design is part of the empirical object being tested.</p>
-<p>The blocked claims are also results. Zero bounded-support validity-ready bundles and zero population-group-inference-ready bundles mean the article should not claim endpoint validity or group inference. Those boundaries prevent useful diagnostics from becoming stronger claims than the evidence supports.</p>
+<p>The outside current evidence claims are also results. Zero bounded-support validity-ready bundles and zero population-group-inference-ready bundles mean the article should not claim endpoint validity or group inference. Those boundaries prevent useful diagnostics from becoming stronger claims than the evidence supports.</p>
 <h2>Reproducibility And Traceability</h2>
 <p>The knowledge graph snapshot used by this draft has 3,643 nodes and 21,019 edges. The graph links report sections, source artifacts, citation keys, claim boundaries, and quality checks. It is evidence infrastructure for the article and will become citable only after the sterile repository and release review are complete.</p>
 <h2>Limitations</h2>
 <ul>
-<li>This is a public research report, not a journal submission package.</li>
-<li>The method evidence is descriptive and diagnostic; it is not a general recommendation.</li>
+
+<li>The method evidence is descriptive and diagnostic; it is not a general deployment rule.</li>
 <li>Venn-Abers evidence is negative for the current bridge; it is not a rejection of the entire literature.</li>
 <li>Group metrics are diagnostic and do not establish population-level group inference.</li>
 <li>Endpoint audits currently block bounded-support validity claims.</li>
 </ul>
 <h2>Conclusion</h2>
-<p>This report closes with a descriptive, not prescriptive, interpretation of the completed regression conformal-prediction evidence. The audited evidence base supports reporting CQR/CV+ as strong practical candidates observed in these experiments and the evaluated Venn-Abers regression bridge as bridge-specific negative evidence. It does not support final method selection, a general method recommendation, a bounded-support validity claim, a population-level group inference claim, public release, or a citable KG/site claim.</p>
-<p>The scientific contribution is therefore the audited measurement and boundary record itself: useful empirical patterns are retained, negative evidence is not rewritten as success, and blocked claims remain visible until later evidence explicitly opens them.</p>
+<p>This report closes with a descriptive, not prescriptive, interpretation of the completed regression conformal-prediction evidence. The audited evidence base supports reporting CQR/CV+ as strong practical candidates observed in these experiments and the evaluated Venn-Abers regression bridge as bridge-specific negative evidence. It does not support final method selection, a general method guidance, a bounded-support validity claim, a population-level group inference claim, public release, or a citable KG/site claim.</p>
+<p>The scientific contribution is therefore the audited measurement and boundary record itself: useful empirical patterns are retained, negative evidence is not rewritten as success, and outside current evidence claims remain visible until later evidence explicitly opens them.</p>
 <h2>References</h2>
 <ul>
 <li><code>@barber2020jackknife_plus</code>: <a href="https://arxiv.org/abs/1905.02928">https://arxiv.org/abs/1905.02928</a></li>

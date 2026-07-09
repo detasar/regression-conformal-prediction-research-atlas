@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dataset Catalog</title>
+  <style>
+:root { --paper:#f8f5ee; --ink:#141821; --muted:#596273; --line:#d8cfbe; --panel:#fffdf8; --teal:#0f766e; --amber:#95640f; --red:#a0442f; --blue:#245f9f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height:1.55; }
+a { color:#145ea8; font-weight:740; text-decoration-thickness:1px; text-underline-offset:3px; }
+.shell { max-width:1280px; margin:0 auto; padding:24px 22px 68px; }
+.top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; border-bottom:1px solid var(--line); padding-bottom:18px; color:var(--muted); }
+.brand { color:var(--ink); font-weight:860; }
+.hero { display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:40px; align-items:end; padding:42px 0 32px; border-bottom:1px solid var(--line); }
+.kicker { color:var(--teal); text-transform:uppercase; font-weight:860; font-size:12px; letter-spacing:0; margin-bottom:12px; }
+h1 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:clamp(42px,6vw,86px); line-height:.96; margin:0 0 18px; letter-spacing:0; }
+h2 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:30px; line-height:1.05; margin:0 0 14px; letter-spacing:0; }
+h3 { font-size:17px; margin:0 0 8px; }
+.lede { font-size:clamp(18px,1.7vw,23px); color:#354052; max-width:820px; margin:0; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.button { min-height:42px; display:inline-flex; align-items:center; border:1px solid var(--line); border-radius:6px; padding:9px 13px; background:#fffdf8; color:var(--ink); text-decoration:none; }
+.button.primary { background:var(--ink); color:#fffdf8; border-color:var(--ink); }
+.button:hover { border-color:var(--teal); color:var(--teal); }
+.button.primary:hover { background:var(--teal); color:#fffdf8; }
+.metric-board { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.metric { background:var(--panel); padding:15px; min-height:88px; }
+.metric b { display:block; font-family:Charter, Georgia, 'Times New Roman', serif; font-size:30px; line-height:1; }
+.metric span { display:block; color:var(--muted); font-size:12px; text-transform:uppercase; margin-top:8px; }
+.nav { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 0; }
+.nav a { border:1px solid var(--line); border-radius:999px; background:#fffdf8; color:var(--ink); padding:6px 11px; text-decoration:none; font-size:13px; }
+.nav a:hover { border-color:var(--teal); color:var(--teal); }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:30px 0; }
+.tile { border-top:2px solid var(--ink); padding-top:13px; min-width:0; }
+.tile p, .muted { color:var(--muted); margin:0 0 12px; }
+.panel-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:24px; margin:28px 0; }
+.panel { background:var(--panel); border:1px solid var(--line); padding:18px; min-width:0; }
+.callout { border-left:4px solid var(--teal); background:#fffdf8; padding:15px 17px; margin:24px 0; }
+.callout.red { border-color:var(--red); }
+.table-wrap { overflow:auto; border:1px solid var(--line); background:var(--panel); margin:16px 0 26px; }
+table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:14px; }
+th,td { border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+th { background:#f3ead9; color:#4d3b1b; font-size:12px; text-transform:uppercase; letter-spacing:0; }
+tr:last-child td { border-bottom:0; }
+.path-list { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.path-list a { border:1px solid var(--line); background:#fffdf8; padding:11px; border-radius:6px; text-decoration:none; color:var(--ink); }
+.footer { border-top:1px solid var(--line); color:var(--muted); padding-top:18px; margin-top:40px; font-size:13px; }
+@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
+</style>
+</head>
+<body>
+  <main class="shell">
+    <div class="top">
+      <div><span class="brand">Regression CP Research Atlas</span> · evidence atlas</div>
+      <div>Emre Tasar, Data Scientist<br><a href="mailto:detasar@gmail.com">detasar@gmail.com</a></div>
+    </div>
+    <section class="hero">
+      <div>
+        <div class="kicker">Evidence Surface</div>
+        <h1>Dataset Catalog</h1>
+        <p class="lede">Public aggregate dataset entries used by the publication-scoped synthesis.</p>
+        <nav class="nav"><a href="../index.html">Overview</a><a href="../scope/index.html">Scope</a><a href="../datasets/index.html">Datasets</a><a href="../methods/index.html">Methods</a><a href="../results/index.html">Results</a><a href="../claims/index.html">Interpretation</a><a href="../provenance/index.html">Provenance</a><a href="../../paper/research_document.html">Research Document</a><a href="../../site/kg_browser.html">Evidence Map</a></nav>
+      </div>
+    </section>
+    
+    <section class="callout"><p>The dataset catalog is public aggregate metadata. Raw data, credentials, caches, and nonredistributable source files are intentionally excluded.</p></section>
+    <p class="muted">Showing 40 of 68 rows. Use the CSV/JSON artifacts for the complete table.</p><div class="table-wrap"><table><thead><tr><th>Dataset</th><th>Family</th><th>Completed rows</th><th>Alpha levels</th><th>Methods</th><th>Selected cells</th><th>CQR paired cells</th></tr></thead><tbody><tr><td>fairlearn_acs_income_wy</td><td>fairlearn</td><td>71000</td><td>5</td><td>10</td><td>5</td><td>0</td></tr><tr><td>nhanes_2017_2018_glycohemoglobin</td><td>nhanes</td><td>5238</td><td>5</td><td>11</td><td>5</td><td>7</td></tr><tr><td>nhanes_2017_2018_systolic_bp</td><td>nhanes</td><td>5238</td><td>5</td><td>11</td><td>5</td><td>7</td></tr><tr><td>nhanes_2017_2018_bmi</td><td>nhanes</td><td>5180</td><td>5</td><td>11</td><td>5</td><td>7</td></tr><tr><td>openml_analcatdata_chlamydia</td><td>openml</td><td>5142</td><td>5</td><td>14</td><td>5</td><td>7</td></tr><tr><td>stackoverflow_2025_compensation</td><td>stackoverflow</td><td>4397</td><td>5</td><td>10</td><td>5</td><td>6</td></tr><tr><td>openml_auto_price</td><td>openml</td><td>3600</td><td>1</td><td>14</td><td>1</td><td>7</td></tr><tr><td>openml_bodyfat_percentage</td><td>openml</td><td>3600</td><td>1</td><td>14</td><td>1</td><td>7</td></tr><tr><td>openml_fishcatch_weight</td><td>openml</td><td>3600</td><td>1</td><td>14</td><td>1</td><td>7</td></tr><tr><td>openml_sensory_score</td><td>openml</td><td>3600</td><td>1</td><td>14</td><td>1</td><td>7</td></tr><tr><td>meps_2023_total_expenditure</td><td>meps</td><td>2826</td><td>1</td><td>10</td><td>1</td><td>6</td></tr><tr><td>college_scorecard_2026_median_earnings</td><td>college_scorecard</td><td>2772</td><td>1</td><td>10</td><td>1</td><td>7</td></tr><tr><td>aif360_lawschool_gpa</td><td>aif360</td><td>2368</td><td>1</td><td>9</td><td>1</td><td>7</td></tr><tr><td>uci_wine_quality</td><td>uci</td><td>2250</td><td>5</td><td>7</td><td>5</td><td>7</td></tr><tr><td>openml_arsenic_event_rate_panel</td><td>openml</td><td>2172</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>openml_delta_elevators_se</td><td>openml</td><td>2172</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>uci_wine_quality_dedup</td><td>uci</td><td>2160</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>openml_mtp2_oz1143</td><td>openml</td><td>1778</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>hmda_2025_wy_interest_rate</td><td>hmda</td><td>1776</td><td>1</td><td>11</td><td>1</td><td>6</td></tr><tr><td>openml_california_housing_spatial_cell</td><td>openml</td><td>1716</td><td>1</td><td>11</td><td>1</td><td>6</td></tr><tr><td>pisa_2022_math_pv_mean</td><td>pisa</td><td>1701</td><td>1</td><td>11</td><td>1</td><td>7</td></tr><tr><td>openml_analcatdata_hiroshima_rate</td><td>openml</td><td>1458</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>scf_2022_networth</td><td>scf</td><td>1422</td><td>1</td><td>10</td><td>1</td><td>6</td></tr><tr><td>openml_cps_85_wages</td><td>openml</td><td>1035</td><td>1</td><td>10</td><td>1</td><td>7</td></tr><tr><td>uci_auto_mpg</td><td>uci</td><td>754</td><td>1</td><td>12</td><td>1</td><td>7</td></tr><tr><td>uci_student_performance_no_prior_grades</td><td>uci</td><td>747</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>openml_analcatdata_hiroshima_rate_dedup</td><td>openml</td><td>744</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>openml_kin8nm_y</td><td>openml</td><td>744</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>uci_bike_sharing</td><td>uci</td><td>732</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>uci_communities_crime</td><td>uci</td><td>732</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>uci_student_performance_with_prior_grades</td><td>uci</td><td>732</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>aif360_lawschool_gpa_dedup</td><td>aif360</td><td>676</td><td>1</td><td>7</td><td>1</td><td>7</td></tr><tr><td>openml_cholesterol_chol</td><td>openml</td><td>441</td><td>1</td><td>12</td><td>1</td><td>6</td></tr><tr><td>openml_plasma_retinol</td><td>openml</td><td>441</td><td>1</td><td>12</td><td>1</td><td>6</td></tr><tr><td>openml_analcatdata_galapagos</td><td>openml</td><td>30</td><td>1</td><td>6</td><td>1</td><td>0</td></tr><tr><td>openml_analcatdata_gsssexsurvey</td><td>openml</td><td>30</td><td>1</td><td>6</td><td>1</td><td>0</td></tr><tr><td>openml_analcatdata_runshoes</td><td>openml</td><td>30</td><td>1</td><td>6</td><td>1</td><td>0</td></tr><tr><td>openml_analcatdata_seropositive</td><td>openml</td><td>30</td><td>1</td><td>6</td><td>1</td><td>0</td></tr><tr><td>openml_analcatdata_vehicle_count</td><td>openml</td><td>30</td><td>1</td><td>6</td><td>1</td><td>0</td></tr><tr><td>openml_baseball_hitter_salary</td><td>openml</td><td>30</td><td>1</td><td>6</td><td>1</td><td>0</td></tr></tbody></table></div>
+    
+    <div class="footer">The atlas separates observed experimental patterns from broader deployment conclusions. It is designed for navigation, traceability, and careful reading of the evidence.</div>
+  </main>
+</body>
+</html>

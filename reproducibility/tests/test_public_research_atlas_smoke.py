@@ -46,6 +46,8 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
 
 def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     root = repo_root()
+    assert (root / "paper/research_document.html").exists()
+    assert (root / "atlas/index.html").exists()
     scope = json.loads((root / "atlas/scope/experiment_scope.json").read_text(encoding="utf-8"))
     dataset_catalog = json.loads((root / "atlas/datasets/dataset_catalog.json").read_text(encoding="utf-8"))
     method_ontology = json.loads((root / "atlas/methods/method_ontology.json").read_text(encoding="utf-8"))

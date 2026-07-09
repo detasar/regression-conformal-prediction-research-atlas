@@ -15,16 +15,16 @@
       "id": "paper_method_scope_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row permits a careful description of what looked useful in the experiment, not a recommendation for every regression problem.",
-      "scope_limit": "Do not call CQR, CV+, or any method a final recommendation.",
+      "scope_limit": "Do not call CQR, CV+, or any method a final deployment rule.",
       "statement": "CQR/CV+ were observed as strong practical candidates in these experiments.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "No citation can open this claim; it needs a later release/selection authorization if the scientific state changes.",
-      "id": "paper_main_results_blocked_evidence",
+      "evidence_gate": "This reading would require a separate pre-specified validation protocol.",
+      "id": "paper_main_results_outside current evidence_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
-      "scope_limit": "Do not present a final main-results table, selected method, or positive method conclusion.",
+      "scope_limit": "Keep method-selection conclusions outside the current evidence.",
       "statement": "The current evidence does not establish a final method selection, final main result, or deployment recommendation.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
@@ -51,7 +51,7 @@
       "id": "supplement_methodology_records_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row explains the guardrails around the study rather than claiming the guardrails make every result final.",
-      "scope_limit": "Do not treat control presence as proof of validity or production readiness.",
+      "scope_limit": "Treat controls as traceability evidence, not validity proof.",
       "statement": "The study includes audit controls for traceability, neutrality, and reproducibility.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },

@@ -1,6 +1,6 @@
 # Regression CP Research Atlas
 
-This atlas makes the experiment universe visible: scope, datasets, methods, result cube, claims, and provenance.
+This atlas makes the experiment universe visible: scope, datasets, methods, result cube, interpretation boundaries, and provenance.
 
 ## At A Glance
 
@@ -18,8 +18,8 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 - `datasets/` records public aggregate dataset catalog entries and cards.
 - `methods/` records method labels, families, ontology, and cards.
 - `results/` records the public aggregate result cube and selected result surfaces.
-- `claims/` records claim gates and overclaim blocks.
+- `claims/` records interpretation boundaries and reader-safe evidence statements.
 - `provenance/` records source status, hashes, RO-Crate metadata, and PROV traces.
 - `ui_data/` contains compact JSON used by the public website.
 
-The atlas is public and citable as a navigation/traceability artifact. Stronger scientific claims remain controlled by the claim registry.
+The atlas is public and citable as a navigation and traceability artifact. Broader conclusions require separate validation beyond this experiment.

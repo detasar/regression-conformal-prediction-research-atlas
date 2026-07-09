@@ -46,7 +46,7 @@
     <div class="kicker">Regression CP Research Atlas</div>
     <h1>Evidence Map</h1>
     <p class="sub">A guided knowledge graph for tracing methods, datasets, reports, and evidence scope. The graph opens with readable research routes; source hashes are available in the detail panel.</p>
-    <p class="sub"><a href="index.html">Back to project page</a> · <a href="../paper/research_document.md">Research Document</a></p>
+    <p class="sub"><a href="index.html">Back to project page</a> · <a href="../paper/research_document.html">Research Document</a> · <a href="../atlas/index.html">Research Atlas</a></p>
   </header>
   <main class="layout">
     <aside>
@@ -126,7 +126,7 @@
         const anchorRows=route ? routeNodes(route).map(row=>`<tr><td>${esc(row.label)}</td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
         document.getElementById('detail').innerHTML=route
           ? `<span class="pill">guided route</span><h2>${esc(route.title)}</h2><p class="muted">${esc(route.summary)}</p><p class="muted">This view shows the curated anchors first. Click an anchor node to open its one-hop or two-hop evidence neighborhood.</p>`
-          : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, claim boundaries, and provenance records. It is an evidence navigation layer, not a recommendation engine.</p>`;
+          : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, claim boundaries, and provenance records. It is an evidence navigation layer for source tracing.</p>`;
         document.getElementById('edges').innerHTML=route ? '<p class="muted">Route anchors are shown in the table below. Select one to inspect edge provenance.</p>' : '<p class="muted">Select a route or search for a node to see edge provenance.</p>';
         document.getElementById('table').innerHTML=route
           ? `<table><thead><tr><th>Anchor</th><th>Type</th><th>Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`

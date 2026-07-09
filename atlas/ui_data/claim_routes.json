@@ -31,7 +31,7 @@
     {
       "atlas_paths": [
         "atlas/results/venn_abers_negative_evidence.csv",
-        "atlas/results/closed_claim_gates.csv"
+        "atlas/results/interpretation_boundaries.csv"
       ],
       "description": "Bridge-specific negative and diagnostic evidence, especially for the evaluated Venn-Abers regression bridge.",
       "route_id": "negative_evidence",
@@ -40,11 +40,11 @@
     {
       "atlas_paths": [
         "atlas/claims/claim_registry.json",
-        "atlas/claims/overclaim_blocklist.md"
+        "atlas/claims/interpretation_boundaries.md"
       ],
-      "description": "Stronger claims that remain closed under the evidence policy.",
+      "description": "Broader readings that remain outside the current evidence surface.",
       "route_id": "closed_gates",
-      "title": "Closed Gates"
+      "title": "Interpretation Boundaries"
     }
   ],
   "schema": "regression_cp_claim_routes_v1"

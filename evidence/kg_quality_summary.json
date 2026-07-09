@@ -31,9 +31,9 @@
       "title": "Negative Evidence"
     },
     {
-      "anchor_node_count": 8,
-      "route_id": "closed_gates",
-      "title": "Closed Claim Gates"
+      "anchor_node_count": 10,
+      "route_id": "outside current evidence_gates",
+      "title": "Interpretation Boundaries"
     },
     {
       "anchor_node_count": 8,

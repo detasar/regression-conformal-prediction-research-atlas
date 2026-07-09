@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Provenance</title>
+  <style>
+:root { --paper:#f8f5ee; --ink:#141821; --muted:#596273; --line:#d8cfbe; --panel:#fffdf8; --teal:#0f766e; --amber:#95640f; --red:#a0442f; --blue:#245f9f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height:1.55; }
+a { color:#145ea8; font-weight:740; text-decoration-thickness:1px; text-underline-offset:3px; }
+.shell { max-width:1280px; margin:0 auto; padding:24px 22px 68px; }
+.top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; border-bottom:1px solid var(--line); padding-bottom:18px; color:var(--muted); }
+.brand { color:var(--ink); font-weight:860; }
+.hero { display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:40px; align-items:end; padding:42px 0 32px; border-bottom:1px solid var(--line); }
+.kicker { color:var(--teal); text-transform:uppercase; font-weight:860; font-size:12px; letter-spacing:0; margin-bottom:12px; }
+h1 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:clamp(42px,6vw,86px); line-height:.96; margin:0 0 18px; letter-spacing:0; }
+h2 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:30px; line-height:1.05; margin:0 0 14px; letter-spacing:0; }
+h3 { font-size:17px; margin:0 0 8px; }
+.lede { font-size:clamp(18px,1.7vw,23px); color:#354052; max-width:820px; margin:0; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.button { min-height:42px; display:inline-flex; align-items:center; border:1px solid var(--line); border-radius:6px; padding:9px 13px; background:#fffdf8; color:var(--ink); text-decoration:none; }
+.button.primary { background:var(--ink); color:#fffdf8; border-color:var(--ink); }
+.button:hover { border-color:var(--teal); color:var(--teal); }
+.button.primary:hover { background:var(--teal); color:#fffdf8; }
+.metric-board { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.metric { background:var(--panel); padding:15px; min-height:88px; }
+.metric b { display:block; font-family:Charter, Georgia, 'Times New Roman', serif; font-size:30px; line-height:1; }
+.metric span { display:block; color:var(--muted); font-size:12px; text-transform:uppercase; margin-top:8px; }
+.nav { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 0; }
+.nav a { border:1px solid var(--line); border-radius:999px; background:#fffdf8; color:var(--ink); padding:6px 11px; text-decoration:none; font-size:13px; }
+.nav a:hover { border-color:var(--teal); color:var(--teal); }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:30px 0; }
+.tile { border-top:2px solid var(--ink); padding-top:13px; min-width:0; }
+.tile p, .muted { color:var(--muted); margin:0 0 12px; }
+.panel-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:24px; margin:28px 0; }
+.panel { background:var(--panel); border:1px solid var(--line); padding:18px; min-width:0; }
+.callout { border-left:4px solid var(--teal); background:#fffdf8; padding:15px 17px; margin:24px 0; }
+.callout.red { border-color:var(--red); }
+.table-wrap { overflow:auto; border:1px solid var(--line); background:var(--panel); margin:16px 0 26px; }
+table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:14px; }
+th,td { border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+th { background:#f3ead9; color:#4d3b1b; font-size:12px; text-transform:uppercase; letter-spacing:0; }
+tr:last-child td { border-bottom:0; }
+.path-list { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.path-list a { border:1px solid var(--line); background:#fffdf8; padding:11px; border-radius:6px; text-decoration:none; color:var(--ink); }
+.footer { border-top:1px solid var(--line); color:var(--muted); padding-top:18px; margin-top:40px; font-size:13px; }
+@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
+</style>
+</head>
+<body>
+  <main class="shell">
+    <div class="top">
+      <div><span class="brand">Regression CP Research Atlas</span> · evidence atlas</div>
+      <div>Emre Tasar, Data Scientist<br><a href="mailto:detasar@gmail.com">detasar@gmail.com</a></div>
+    </div>
+    <section class="hero">
+      <div>
+        <div class="kicker">Traceability</div>
+        <h1>Provenance</h1>
+        <p class="lede">Source status, hash receipts, and public artifact strategy for the Research Atlas.</p>
+        <nav class="nav"><a href="../index.html">Overview</a><a href="../scope/index.html">Scope</a><a href="../datasets/index.html">Datasets</a><a href="../methods/index.html">Methods</a><a href="../results/index.html">Results</a><a href="../claims/index.html">Interpretation</a><a href="../provenance/index.html">Provenance</a><a href="../../paper/research_document.html">Research Document</a><a href="../../site/kg_browser.html">Evidence Map</a></nav>
+      </div>
+    </section>
+    
+    <section class="callout"><p>Provenance is recorded as public aggregate manifests, source hashes, and rebuild notes. The public package uses manifest-plus-summary rather than copying raw ledgers or nonredistributable data.</p></section>
+    <div class="table-wrap"><table><thead><tr><th>Artifact</th><th>Public status</th><th>Included</th><th>SHA-256</th><th>Summary</th></tr></thead><tbody><tr><td>research_document</td><td>included_public_aggregate</td><td>True</td><td>a666b048e1d90a1c379c36b290c9404a8e85261fb78b39eef83e26b28f227187</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>individual_report</td><td>included_public_aggregate</td><td>True</td><td>0c95ec8605e92eb656d84e1b0a19d34a52daf6a7923b7c79254594cf62f9d017</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>method_performance</td><td>included_public_aggregate</td><td>True</td><td>3ade1faebd6df3f5a5642be168a6dd14d5d86b260caa640ca6da7c4e013b3c67</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>experiment_accounting</td><td>included_public_aggregate</td><td>True</td><td>19b0608a47a25469235b39bb5f7b6ea336acc5855316ab7ab14074317038eac7</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>claim_matrix</td><td>included_public_aggregate</td><td>True</td><td>b99a10cab0dac7681e9c9d934976bcb54a9a2098b322699d9366a3a8fa4efb61</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>neutral_result_ledger</td><td>included_public_aggregate</td><td>True</td><td>44302886a315090027ea4c453d2a8172c0409172bc7c947433211785f2c1b167</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>cqr_backend_sensitivity</td><td>included_public_aggregate</td><td>True</td><td>8d69004af9579d2d973c7c5a058a403365c3f9b2ec1808685d92943538b80fe1</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>knowledge_graph</td><td>included_public_hash_receipt</td><td>True</td><td>d74b05225b84a2578edca2a8a5e0fc536030ba2bcf80a06f9a4f75c87b40b173</td><td>Audited source artifact summarized into the public atlas.</td></tr></tbody></table></div>
+    
+    <div class="footer">The atlas separates observed experimental patterns from broader deployment conclusions. It is designed for navigation, traceability, and careful reading of the evidence.</div>
+  </main>
+</body>
+</html>

@@ -3,17 +3,17 @@
 ## Regression Conformal Prediction Under Neutral Claim Boundaries
 
 Author: Emre Tasar, Data Scientist
-Email: detasar@gmail.com
+Contact: detasar@gmail.com
 
-> Research Atlas status: public-facing wording is descriptive and experiment-scoped; no universal method selection or production recommendation is claimed.
+> Reading note: public-facing wording is descriptive and tied to this experiment.
 
 ## Abstract
 
-This Research Document reports a neutral empirical study of regression conformal prediction. The study aggregates 145,839 publication-scoped completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The purpose is not to name a universal final selected method. The purpose is to document what the audited experiment observed, what the evidence can support, and what claims remain closed.
+This Research Document reports a neutral empirical study of regression conformal prediction. The study aggregates 145,839 publication-scoped completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The purpose is not to name a universal final selected method. The purpose is to document what the audited experiment observed, what the evidence can support, and what claims remain outside the current evidence.
 
-CQR/CV+ were observed as strong practical candidates in these experiments. CQR has the largest current descriptive frontier count (56 cells), while CV+ contributes 13 frontier cells. The evaluated backend-confound check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells; it supports a backend-sensitivity reading but not a method-selection claim. The evaluated Venn-Abers regression bridge did not behave as the expected strong regression solution: it produced 14 undercoverage runs and a low quantile-coverage mean in the current diagnostic bridge. These statements are descriptive. They are not method recommendations.
+CQR/CV+ were observed as strong practical candidates in these experiments. CQR has the largest current descriptive frontier count (56 cells), while CV+ contributes 13 frontier cells. The evaluated backend-confound check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells; it supports a backend-sensitivity reading but not a method-selection claim. The evaluated Venn-Abers regression bridge did not behave as the expected strong regression solution: it produced 14 undercoverage runs and a low quantile-coverage mean in the current diagnostic bridge. These statements are descriptive. They are not method guidances.
 
-Read this document in four layers. First, identify the empirical object that was audited. Second, separate observed practical-candidate patterns from recommendations. Third, keep negative Venn-Abers bridge evidence separate from the broader Venn-Abers literature. Fourth, treat the package, KG, and site as private traceability surfaces until the public release scope exists.
+Read this document in four layers. First, identify the empirical object that was audited. Second, separate observed practical-candidate patterns from recommendations. Third, keep negative Venn-Abers bridge evidence separate from the broader Venn-Abers literature. Fourth, treat the package, KG, and site as traceability surfaces for navigating the public evidence.
 
 | Reading layer | Reader question | Safe reading | Boundary |
 |---|---|---|---|
@@ -28,7 +28,7 @@ This synthesis states the document's position before the detailed tables. It is 
 
 ### What this document is
 
-This Research Document is a private, evidence-linked synthesis of a regression conformal prediction audit. It summarizes 145,839 completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The unit of evidence is therefore an audited result surface, not a single showcase run.
+This Research Document is an evidence-linked synthesis of a regression conformal prediction audit. It summarizes 145,839 completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The unit of evidence is therefore an audited result surface, not a single showcase run.
 
 Boundary: Do not read the study identity as exhaustive internet coverage, deployment validation, or a final public release.
 
@@ -42,7 +42,7 @@ Boundary: Do not turn observed practical-candidate evidence into a universal bes
 
 The completed backend-confound check adds a model-matched CQR rerun rather than a new method-selection claim. It completed 4,564 model-matched CQR rows and paired 224 dataset-alpha-model-family cells against the historical fixed-GBM CQR pipeline. Coverage-eligible interval-score selections were fixed-GBM CQR=116, model-matched CQR=71, and neither=37.
 
-Boundary: The check keeps CQR as an experiment-scoped practical signal; it does not establish a method-selection or production recommendation claim.
+Boundary: The check keeps CQR as an experiment-scoped practical signal; it does not establish a method-selection or deployment guidance claim.
 
 ### What the evidence does not support
 
@@ -50,61 +50,60 @@ The evaluated Venn-Abers regression bridge did not become the expected strong in
 
 Boundary: Do not generalize this bridge-specific negative evidence into a rejection of predictive-distribution or generalized Venn-Abers research.
 
-### Which claims remain closed
+### Which claims remain outside the current evidence
 
-Several attractive positive claims remain explicitly closed. The current record contains 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. These zeros are not gaps to hide; they are part of the scientific result.
+Several attractive positive claims remain outside the current evidence. The current record contains 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. These zeros are not gaps to hide; they are part of the scientific result.
 
 Boundary: Do not soften zero-ready validity or group inference gates into positive endpoint, group inference, or deployment claims.
 
 ### How a reviewer should inspect it
 
-The review path is intentionally traceable. The Research Atlas package and KG connect the Research Document to source artifacts, scripts, claim gates, and citation boundaries. The current KG has 3,643 nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000.
+The review path is intentionally traceable. The Research Atlas package and KG connect the Research Document to source artifacts, scripts, interpretation boundaries, and citation boundaries. The current KG has 3,643 nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000.
 
 Boundary: Treat the KG as Research Atlas navigation and traceability, not as a standalone scientific result.
 
-
 ## Plain-Language Summary
 
-This section gives the shortest reader-safe interpretation before the technical tables. It is written for a reader who may not know conformal prediction. Each answer is paired with the evidence that supports it and the stronger reading that remains closed.
+This section gives the shortest reader-safe interpretation before the technical tables. It is written for a reader who may not know conformal prediction. Each answer is paired with the evidence that supports it and the stronger reading that remains outside the current evidence.
 
 | Reader question | Plain-language answer | Evidence anchor | Boundary |
 |---|---|---|---|
 | What is the shortest correct reading of the study? | This is an audited measurement record for regression conformal prediction, not a recommendation list. | 145,839 completed rows across 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Do not read the study as exhaustive internet coverage, a product benchmark, or deployment advice. |
-| What does the CQR/CV+ finding mean? | CQR/CV+ looked practically useful in these experiments, with CQR carrying the largest descriptive frontier signal and a completed backend-sensitivity check. | CQR has 56 frontier cells and CV+ has 13 frontier cells; the model-matched CQR rerun completed 4,564 rows and 224 paired cells. | Do not turn the observed pattern into a final selected method, universal best-method statement, or production recommendation. |
+| What does the CQR/CV+ finding mean? | CQR/CV+ looked practically useful in these experiments, with CQR carrying the largest descriptive frontier signal and a completed backend-sensitivity check. | CQR has 56 frontier cells and CV+ has 13 frontier cells; the model-matched CQR rerun completed 4,564 rows and 224 paired cells. | Do not turn the observed pattern into a final selected method, universal best-method statement, or deployment guidance. |
 | What does `1 - alpha` mean here? | `1 - alpha` is the target coverage level; observed coverage still has to be measured in the audited cells. | The document reports coverage means, near-nominal hit rates, frontier cells, and undercoverage runs after the target is fixed. | Do not treat the nominal target as proof that every dataset, endpoint, or subgroup achieved that target. |
 | How should the Venn-Abers bridge result be read? | The evaluated regression bridge produced negative failure-mode evidence in this experiment. | 14 undercoverage runs, quantile-coverage mean 0.6503, and validated-regression support flag `False`. | Do not reject predictive-distribution or generalized Venn-Abers research from this bridge-specific result. |
-| Why keep the KG and Research Atlas package in the review path? | They let a reviewer trace claims to reports, scripts, citations, quality gates, and release boundaries. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Do not cite, publish, or deploy the KG/site before explicit public release authorization. |
+| Why keep the KG and Research Atlas package in the review path? | They let a reviewer trace claims to reports, scripts, citations, quality gates, and release boundaries. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Do not cite, publish, or deploy the KG/site before explicit public release scope. |
 
 ## Research Questions And Answers
 
-The table below gives the reader a compact map of the study's research questions, the answer currently supported by the evidence, the artifact family that supports the answer, and the stronger interpretation that remains closed. It is a writing and review map, not a new experiment.
+The table below gives the reader a compact map of the study's research questions, the answer currently supported by the evidence, the artifact family that supports the answer, and the stronger interpretation that remains outside the current evidence. It is a writing and review map, not a new experiment.
 
-| Research question | Evidence-supported answer | Evidence anchor | Closed reading |
+| Research question | Evidence-supported answer | Evidence anchor | Outside current evidence reading |
 |---|---|---|---|
 | What empirical object does this Research Document evaluate? | It evaluates a publication-scoped regression conformal prediction audit over 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Experimental scope table, individual experiment report facts, completed-row accounting, and dataset/source audit lineage. | Do not read the scope as exhaustive internet coverage or as deployment generality. |
-| Which conformal approaches looked practically useful in the audited experiments? | CQR/CV+ were observed as strong practical candidates in these experiments; CQR has 56 descriptive frontier cells and CV+ has 13. | Observed method behavior table, result reading guide, row-weighted coverage summaries, and robustness diagnostics. | Do not present CQR, CV+, or any method as the selected method, best method, or general recommendation. |
+| Which conformal approaches looked practically useful in the audited experiments? | CQR/CV+ were observed as strong practical candidates in these experiments; CQR has 56 descriptive frontier cells and CV+ has 13. | Observed method behavior table, result reading guide, row-weighted coverage summaries, and robustness diagnostics. | Do not present CQR, CV+, or any method as the selected method, best method, or general deployment rule. |
 | Was the observed CQR signal robust to matching the CQR backend to the model-family sweep? | The backend sensitivity check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells. Selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | CQR fixed-vs-model-matched synthesis, rerun manifest, article backend-sensitivity section, and supplement S1b. | Do not read the check as resolving a universal CQR selection claim. |
 | What was learned from the evaluated Venn-Abers regression bridge? | The evaluated bridge produced negative failure-mode evidence: 14 undercoverage runs, quantile-coverage mean 0.6503, and validated-regression support flag `False`. | Venn-Abers bridge diagnostics, undercoverage accounting, negative-evidence section, and Venn-Abers citation boundary. | Do not reject predictive-distribution or generalized Venn-Abers research from this bridge result. |
-| Which stronger scientific claims remain closed? | Bounded-support validity and population-group-inference claims remain closed, with 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. | Paper gate map, bounded-support audit, group diagnostic scope, and publication claim/evidence matrix. | Do not turn diagnostic bounded-support, endpoint, or group rows into positive validity or group-inference claims. |
-| How can a reviewer audit or navigate the evidence? | The private KG and publication package provide a traceability surface with 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Knowledge-graph quality audit, Research Atlas package manifest, README review router, and KG browser. | Use the KG and site as public Research Atlas navigation artifacts; cite the public Research Atlas repository rather than the working source repository. |
+| Which stronger scientific claims remain outside the current evidence? | Bounded-support validity and population-group-inference claims remain outside the current evidence, with 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. | Paper gate map, bounded-support audit, group diagnostic scope, and publication claim/evidence matrix. | Do not turn diagnostic bounded-support, endpoint, or group rows into positive validity or group-inference claims. |
+| How can a reviewer audit or navigate the evidence? | The working KG and publication package provide a traceability surface with 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Knowledge-graph quality audit, Research Atlas package manifest, README review router, and KG browser. | Use the KG and site as public Research Atlas navigation artifacts; cite the public Research Atlas repository rather than the working source repository. |
 
 ## Contribution And Finding Map
 
-This map states the document's contribution and core empirical findings in a form that can be read before the technical sections. Each row includes the evidence anchor and the stronger reading that remains closed.
+This map states the document's contribution and core empirical findings in a form that can be read before the technical sections. Each row includes the evidence anchor and the stronger reading that remains outside the current evidence.
 
-| Contribution or finding | Reader-safe statement | Evidence anchor | Closed reading |
+| Contribution or finding | Reader-safe statement | Evidence anchor | Outside current evidence reading |
 |---|---|---|---|
 | Audited regression-CP experiment scope | The study reports a publication-scoped regression conformal prediction audit over 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Individual experiment report facts, main article scope summary, and completed-row accounting. | This is not a claim of exhaustive internet dataset coverage or deployment generality. |
 | Practical candidate pattern | CQR/CV+ were observed as strong practical candidates in these experiments, with CQR carrying the largest descriptive frontier count (56) and CV+ contributing 13 frontier cells. | Main article claim-evidence map, result reading guide, and supplementary robustness diagnostics. | This is not a final selected method, global superiority claim, or recommendation. |
 | CQR backend sensitivity check | The completed model-matched CQR rerun tested whether the CQR signal was only a fixed-GBM pipeline artifact. It produced 4,564 model-matched CQR rows and 224 paired dataset-alpha-model-family cells. | Fixed-vs-model-matched CQR synthesis and model-matched CQR rerun manifest. | This check does not establish a universal CQR recommendation or a final method-selection claim. |
 | Venn-Abers bridge negative evidence | The evaluated Venn-Abers regression bridge produced negative failure-mode evidence, including 14 undercoverage runs and quantile-coverage mean 0.6503. | Bridge diagnostics, undercoverage accounting, and Venn-Abers citation boundary rows. | This is not a rejection of predictive-distribution or generalized Venn-Abers research. |
-| Closed positive claims are part of the result | Bounded-support validity and population-group-inference positive claims remain closed, with 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. | Paper gate map, publication claim/evidence matrix, bounded-support audit, and group diagnostic scope. | The document must not fill these gaps with optimistic prose. |
-| Traceability and reproducibility surface | The knowledge graph is usable as a private traceability surface with 3,643 nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Knowledge-graph quality audit and private sterile package manifest. | This does not yet make the KG a public citable component. |
-| Publication package architecture | The package separates a minimal main article, broad supplement, integrated Research Document, README review router, Research Atlas site, and evidence-scope checks. | Publication exemplar review, sterile README draft, Research Atlas site manifest, and final-output authorization protocol. | This is the public Research Atlas architecture. |
+| Outside current evidence positive claims are part of the result | Bounded-support validity and population-group-inference positive claims remain outside the current evidence, with 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. | Paper gate map, publication claim/evidence matrix, bounded-support audit, and group diagnostic scope. | The document must not fill these gaps with optimistic prose. |
+| Traceability and reproducibility surface | The knowledge graph is usable as a working traceability surface with 3,643 nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Knowledge-graph quality audit and working sterile package manifest. | This does not yet make the KG a public citable component. |
+| Publication package architecture | The package separates a minimal main article, broad supplement, integrated Research Document, README review router, Research Atlas site, and evidence-scope checks. | Publication exemplar review, README draft, Research Atlas site manifest, and final-output scope protocol. | This is the public Research Atlas architecture. |
 
 ## Scientific Method Audit Trail
 
-This table rewrites the study as a scientific-method chain: question, measurement, comparison, falsification, closed positive claims, and reproducibility. It is included so a reader can see why the document reports both strong practical candidate patterns and negative or blocked conclusions.
+This table rewrites the study as a scientific-method chain: question, measurement, comparison, falsification, outside current evidence positive claims, and reproducibility. It is included so a reader can see why the document reports both strong practical candidate patterns and negative or outside current evidence conclusions.
 
 | Stage | Reader question | Evidence anchor | Scientific boundary |
 |---|---|---|---|
@@ -113,20 +112,20 @@ This table rewrites the study as a scientific-method chain: question, measuremen
 | Candidate-method comparison | Which practical patterns survived the audited comparison? | CQR has 56 frontier cells and CV+ has 13; CQR row-weighted coverage mean is 0.9059. | This supports the wording 'observed as strong practical candidates in these experiments', not a selected-method or best-method claim. |
 | CQR backend sensitivity control | Was the CQR signal only an artifact of the fixed-GBM CQR backend? | The model-matched CQR rerun completed 4,564 rows and formed 224 paired dataset-alpha-model-family cells. Coverage-eligible interval-score selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | The check supports a backend-sensitivity reading only; it does not open a CQR selection, CQR recommendation, or universal method claim. |
 | Falsification and negative evidence | Which attractive claims failed to close under the current evidence? | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | The negative result is bridge-specific and does not reject predictive-distribution or generalized Venn-Abers research. |
-| Closed positive-claim gates | Which stronger conclusions must remain absent from the prose? | 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. | A zero-ready gate is reported as a result; prose cannot convert it into bounded-support validity or population-level group inference. |
+| Outside current evidence positive-interpretation boundaries | Which stronger conclusions must remain absent from the prose? | 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. | A zero-ready gate is reported as a result; prose cannot convert it into bounded-support validity or population-level group inference. |
 | Reproducibility and traceability | How can a reviewer trace the evidence without opening release? | 3,643 KG nodes, 21,019 KG edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | The KG and Research Atlas package are review infrastructure; public navigation and traceability are provided through the Research Atlas site. |
 
-## Private Review Decision Protocol
+## Review Protocol
 
-This protocol states what a reader reviewer may accept at this stage and which decisions remain closed. It is deliberately stricter than a normal Research Document checklist because the same artifact set can look publication-ready while method recommendation and stronger claim upgrades remain unsupported by this evidence.
+This protocol states what a reader reviewer may accept at this stage and which decisions remain outside the current evidence. It is deliberately stricter than a normal Research Document checklist because the same artifact set can look publication-ready while method guidance and stronger claim upgrades remain unsupported by this evidence.
 
-| Decision point | Accept reader review if | Evidence to check | Still closed |
+| Decision point | Accept reader review if | Evidence to check | Still outside current evidence |
 |---|---|---|---|
-| Reader review readability | The Research Document, main article, supplement, README, and Research Atlas site keep the empirical wording scoped and readable. | 6 of 6 reader review surfaces pass required phrase and boundary checks. | Reader-facing readability does not establish stronger scientific claims or a method recommendation. |
-| Empirical result wording | CQR/CV+ are written only as strong practical candidates observed in these experiments. | CQR frontier cells 56; CV+ frontier cells 13; claim/evidence matrix status pass. | No final selected method, best-method statement, production recommendation, or universal superiority claim. |
-| CQR backend sensitivity wording | The model-matched CQR rerun is reported as a backend-confound diagnostic and not as a selection-making experiment. | Completed fixed-GBM rows 4,564; completed model-matched rows 4,564; paired cells 224; coverage-eligible interval-score selections fixed-GBM=116, model-matched=71, neither=37. | No method-selection claim and no production recommendation. |
+| Reader review readability | The Research Document, main article, supplement, README, and Research Atlas site keep the empirical wording scoped and readable. | 6 of 6 reader review surfaces pass required phrase and boundary checks. | Reader-facing readability does not establish stronger scientific claims or a method guidance. |
+| Empirical result wording | CQR/CV+ are written only as strong practical candidates observed in these experiments. | CQR frontier cells 56; CV+ frontier cells 13; claim/evidence matrix status pass. | No final selected method, best-method statement, deployment guidance, or universal superiority claim. |
+| CQR backend sensitivity wording | The model-matched CQR rerun is reported as a backend-confound diagnostic and not as a selection-making experiment. | Completed fixed-GBM rows 4,564; completed model-matched rows 4,564; paired cells 224; coverage-eligible interval-score selections fixed-GBM=116, model-matched=71, neither=37. | No method-selection claim and no deployment guidance. |
 | Venn-Abers negative evidence | The evaluated bridge is reported as bridge-specific negative or failure-mode evidence. | 14 undercoverage runs and validated-regression support flag `False`. | No validated Venn-Abers regression interval claim and no literature-wide rejection of Venn-Abers research. |
-| Closed positive scientific claims | Bounded-support validity and population-group-inference claims are reported as closed rather than softened into optimistic prose. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0. | No bounded-support validity, endpoint validity, population-level group inference, or deployment-group-inference conclusion. |
+| Outside current evidence positive scientific claims | Bounded-support validity and population-group-inference claims are reported as outside current evidence rather than softened into optimistic prose. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0. | No bounded-support validity, endpoint validity, population-level group inference, or deployment-group-inference conclusion. |
 | KG and site publication | The KG and Research Atlas site are useful for review navigation and claim tracing. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | No public KG citation, GitHub Pages deployment, public site, or public repository release before the public release scope. |
 
 ## 1. Reader Primer
@@ -137,18 +136,18 @@ Venn-Abers methods belong to a related but distinct calibration family. The lite
 
 ### Citation-Backed Concept Map
 
-The concept map below links the plain-language idea, its literature basis, the experiment anchor in this study, and the reading that remains closed. It is included so non-specialist readers can see which parts are conformal prediction background, which parts are empirical observations, and which parts are governance boundaries.
+The concept map below links the plain-language idea, its literature basis, the experiment anchor in this study, and the reading that remains outside the current evidence. It is included so non-specialist readers can see which parts are conformal prediction background, which parts are empirical observations, and which parts are governance boundaries.
 
-| Concept | Reader question | Literature basis | Experiment anchor | Closed reading |
+| Concept | Reader question | Literature basis | Experiment anchor | Outside current evidence reading |
 |---|---|---|---|---|
 | Regression conformal prediction | What kind of uncertainty statement is being audited? | Distribution-free predictive inference for regression motivates calibrated prediction intervals under stated assumptions. [@lei2017distribution_free_regression] | Coverage, width, interval score, and target `1 - alpha` are reported inside audited dataset-alpha-method cells. | Do not read marginal interval calibration as conditional, endpoint, subgroup, or deployment validity. |
 | `1 - alpha` and `alpha` | Is the nominal target the same as observed coverage? | `1 - alpha` is the target coverage level and `alpha` is the target miscoverage rate used by the calibration rule. [@lei2017distribution_free_regression; @romano2019conformalized_quantile_regression] | The experiment evaluates observed coverage and near-nominal behavior after the target level is fixed. | Do not treat a nominal target as proof that every audited cell or subgroup achieved that target. |
 | Calibration data and conformity scores | Where does the interval correction come from? | Conformal regression uses held-out calibration evidence to map model errors or scores into interval adjustments. [@lei2017distribution_free_regression] | Split, normalized, Mondrian, and related rows differ partly by how calibration scores are pooled or stratified. | Do not infer that a calibration mechanism alone solves covariate shift, bounded support, or group inference validity. |
-| Conformalized Quantile Regression (CQR) | Why does CQR use two quantile models before calibration? | CQR starts from lower and upper quantile estimates and then conformalizes the interval using calibration residual evidence. [@romano2019conformalized_quantile_regression] | CQR has 56 descriptive frontier cells and is written only as a strong practical candidate observed in these experiments. | Do not convert the observed CQR pattern into a universal best-method or production recommendation. |
+| Conformalized Quantile Regression (CQR) | Why does CQR use two quantile models before calibration? | CQR starts from lower and upper quantile estimates and then conformalizes the interval using calibration residual evidence. [@romano2019conformalized_quantile_regression] | CQR has 56 descriptive frontier cells and is written only as a strong practical candidate observed in these experiments. | Do not convert the observed CQR pattern into a universal best-method or deployment guidance. |
 | CV+ and jackknife-style resampling | Why do CV+ rows use out-of-fold predictions? | Jackknife+ and related cross-validation conformal methods use resampling predictions to account for model-fitting variability. [@barber2020jackknife_plus; @kim2020jackknife_after_bootstrap] | CV+ has 13 descriptive frontier cells and is written as a strong practical candidate observed in these experiments. | Do not treat CV+ evidence as a final selected method or a claim that resampling always improves interval quality. |
 | Group and Mondrian diagnostics | Why are group-calibrated rows not group-inference claims? | Group or stratified calibration changes how calibration evidence is pooled; it is separate from a population-group-inference estimand. [@lei2017distribution_free_regression] | Mondrian absolute-residual calibration has 15 frontier cells and 187 pairwise group comparisons are retained as diagnostics. | Do not state that group inference is solved while the population-group-inference ready bundle count is zero. |
 | Venn-Abers predictive distributions | Why is the Venn-Abers result described narrowly? | Venn-Abers predictive distributions and generalized Venn-Abers calibration are broader than the interval bridge evaluated here. [@nouretdinov2018ivapd; @nouretdinov2024ivapd_applications; @vanderlaan2025generalized_venn_abers; @petej2026inductive_venn_abers_regressors] | The evaluated bridge has 14 undercoverage runs and validated regression support flag `False`. | Do not reject predictive-distribution or generalized Venn-Abers research from this bridge-specific negative evidence. |
-| Claim gates and release gates | Why does the document report closed claims as results? | The literature citations support method definitions; the release and claim gates are project evidence controls, not new theory. [@lei2017distribution_free_regression; @romano2019conformalized_quantile_regression] | Final method selection, bounded-support validity, population-level group inference, KG citation, and public release remain explicitly closed. | Do not open a closed scientific or release claim by wording it more optimistically in prose. |
+| Interpretation boundaries and release gates | Why does the document report outside current evidence claims as results? | The literature citations support method definitions; the release and interpretation boundaries are project evidence controls, not new theory. [@lei2017distribution_free_regression; @romano2019conformalized_quantile_regression] | Final method selection, bounded-support validity, population-level group inference, KG citation, and public release remain outside the current evidence. | Do not open a outside current evidence scientific or release claim by wording it more optimistically in prose. |
 
 ### Terminology Compass
 
@@ -161,21 +160,21 @@ The following table fixes the meaning of recurring terms before the results are 
 | `1 - alpha` | The target coverage level; alpha is the target miscoverage rate. | Dataset-alpha cells define the main calibration comparison unit. | Near-target behavior is reported within the audited scope only. |
 | `calibration set` | Data reserved to tune interval size after the base model is fit. | Calibration is the mechanism that turns model errors into interval adjustments. | Calibration diagnostics do not establish claims about deployment. |
 | `CQR` | Conformalized Quantile Regression: quantile models plus conformal calibration. | CQR is reported as a strong practical candidate observed in these experiments. | The document does not claim CQR is the best method in general. |
-| `CV+` | A cross-validation-style conformal method using out-of-fold predictions. | CV+ is reported as a strong practical candidate observed in these experiments. | The document does not issue a method recommendation. |
+| `CV+` | A cross-validation-style conformal method using out-of-fold predictions. | CV+ is reported as a strong practical candidate observed in these experiments. | The document does not issue a method guidance. |
 | `frontier cell` | A dataset-alpha comparison where a method appears on the descriptive trade-off frontier. | Frontier counts summarize observed coverage/width trade-offs. | A frontier count is descriptive evidence, not a final-selection claim. |
 | `Venn-Abers regression bridge` | The evaluated bridge from Venn-Abers-style calibration evidence to regression intervals. | It is reported as negative/failure-mode evidence in this study. | This does not invalidate the broader Venn-Abers literature. |
 
 ### How To Interpret `1 - alpha`
 
-`1 - alpha` is the target coverage level, not an observed success rate. For example, if `alpha = 0.10`, the target coverage is 0.90. A conformal method can be judged against that target only after specifying the dataset, split policy, calibration method, and scoring rule. This Research Document therefore reports coverage, near-nominal behavior, frontier membership, and closed gates as scoped empirical diagnostics rather than theorem claims [@lei2017distribution_free_regression; @romano2019conformalized_quantile_regression].
+`1 - alpha` is the target coverage level, not an observed success rate. For example, if `alpha = 0.10`, the target coverage is 0.90. A conformal method can be judged against that target only after specifying the dataset, split policy, calibration method, and scoring rule. This Research Document therefore reports coverage, near-nominal behavior, frontier membership, and outside current evidence gates as scoped empirical diagnostics rather than theorem claims [@lei2017distribution_free_regression; @romano2019conformalized_quantile_regression].
 
-This distinction matters for non-specialist readers. A method can show attractive empirical coverage in this study and still remain inappropriate as a general recommendation. Conversely, a failure mode for one evaluated bridge does not reject an entire research family. The document keeps both sides visible so the later article, supplement, and KG can cite exactly what was observed.
+This distinction matters for non-specialist readers. A method can show attractive empirical coverage in this study and still remain inappropriate as a general deployment rule. Conversely, a failure mode for one evaluated bridge does not reject an entire research family. The document keeps both sides visible so the later article, supplement, and KG can cite exactly what was observed.
 
 ### Guarantee Boundary Ledger
 
-The ledger below separates three layers that are easy to confuse: the conformal prediction theorem layer, the empirical audit layer, and the closed-claim layer. It is a reader-safety device, not a new theorem and not a new experiment. The marginal coverage language follows the regression conformal prediction sources [@lei2017distribution_free_regression; @romano2019conformalized_quantile_regression], while the Venn-Abers row is bounded by the predictive-distribution and generalized-calibration sources [@nouretdinov2018ivapd; @nouretdinov2024ivapd_applications; @vanderlaan2025generalized_venn_abers; @petej2026inductive_venn_abers_regressors].
+The ledger below separates three layers that are easy to confuse: the conformal prediction theorem layer, the empirical audit layer, and the interpretation-boundary layer. It is a reader-safety device, not a new theorem and not a new experiment. The marginal coverage language follows the regression conformal prediction sources [@lei2017distribution_free_regression; @romano2019conformalized_quantile_regression], while the Venn-Abers row is bounded by the predictive-distribution and generalized-calibration sources [@nouretdinov2018ivapd; @nouretdinov2024ivapd_applications; @vanderlaan2025generalized_venn_abers; @petej2026inductive_venn_abers_regressors].
 
-| Topic | Reader-safe statement | Required condition or evidence | Closed reading |
+| Topic | Reader-safe statement | Required condition or evidence | Outside current evidence reading |
 |---|---|---|---|
 | Marginal conformal coverage | The conformal regression guarantee is a marginal coverage statement for future exchangeable draws, not a pointwise promise for every individual row. | Exchangeability, a fixed calibration protocol, and a stated `1 - alpha` target. | Do not read marginal coverage as conditional, subgroup, endpoint, or deployment coverage. |
 | Empirical coverage in this study | Observed coverage summarizes held-out behavior inside the audited dataset, split, method, and alpha scope. | Completed-row accounting, dataset-alpha cells, split policy, and result audits. | Do not convert an empirical coverage mean into a theorem or a general product recommendation. |
@@ -191,7 +190,7 @@ The table below explains how each method family creates or adjusts prediction in
 |---|---|---|---|
 | Split conformal regression | Fits a regression model, measures held-out calibration errors, and expands future predictions by a calibration quantile. | The split policy, the residual score, and the empirical score quantile tied to `1 - alpha`. | It is a baseline calibration mechanism, not a complete answer to heterogeneity or endpoint validity. |
 | CQR | Fits lower and upper quantile models, then conformalizes the two-sided quantile interval with calibration scores. | Quantile-model quality, lower/upper quantile levels, calibration scores, and the target miscoverage rate. | Observed here as a strong practical candidate; not stated as a universal regression-CP recommendation. |
-| CV+ / jackknife-style methods | Uses out-of-fold or leave-one-out predictions so interval construction reflects model-fitting variability. | Fold design, base-model stability, conformity scores, and the cross-validated aggregation rule. | Observed here as a strong practical candidate; final method selection remains closed. |
+| CV+ / jackknife-style methods | Uses out-of-fold or leave-one-out predictions so interval construction reflects model-fitting variability. | Fold design, base-model stability, conformity scores, and the cross-validated aggregation rule. | Observed here as a strong practical candidate; final method selection remains outside the current evidence. |
 | Mondrian calibration | Calibrates scores within groups or strata rather than using a single pooled calibration quantile. | The grouping rule, group sample sizes, residual scores, and the same `1 - alpha` coverage target. | Useful as a diagnostic comparator; group diagnostics do not become population-level group inference claims. |
 | Venn-Abers regression bridge | Maps Venn-Abers-style calibration evidence into interval-style regression diagnostics for this experiment. | The bridge design, its calibration object, and the diagnostic conversion into coverage/interval evidence. | The evaluated bridge produced negative evidence here; this does not reject the broader Venn-Abers literature. |
 
@@ -205,12 +204,12 @@ Before the Research Document, supplement, README, and site are treated as review
 | Make the README a review router, not a dense methods dump. | The README starts with status, plain-language summary, review path, evidence snapshot, repository map, KG entry, and citation surface. |
 | Use the site as a reader review portal with explicit lanes. | The Research Atlas site should expose the handoff, Research Document, rendered article/supplement, KG browser, and governance checks. |
 | Pair every reader-facing claim with evidence and a boundary. | The article, Research Document, and README retain neutral language: observed practical candidates are not recommendations, and bridge-specific failures are not literature-wide rejections. |
-| Give the Research Document a checklist-like transparency spine. | The Research Document should visibly cover claims, limitations, assumptions, reproducibility route, compute, license and source provenance, and closed release gates. |
+| Give the Research Document a checklist-like transparency spine. | The Research Document should visibly cover claims, limitations, assumptions, reproducibility route, compute, license and source provenance, and documented interpretation boundaries. |
 | Expose reproduction structure while excluding raw data and secrets. | The Research Atlas package copies source, configs, tests, reports, and metadata, while excluding raw data, caches, local databases, and secret-like material. |
-| Treat the knowledge graph as a browsable supplementary/web artifact. | The KG browser becomes part of the review path when its quality and provenance checks pass; it remains private until release is explicitly authorized. |
-| Make result verification commands and expected outputs explicit. | The sterile README should connect headline results to exact commands, manifest paths, and expected pass/fail statuses rather than relying on prose-only reproducibility claims. |
+| Treat the knowledge graph as a browsable supplementary/web artifact. | The KG browser is part of the evidence path when its quality and provenance checks pass. |
+| Make result verification commands and expected outputs explicit. | The README should connect headline results to exact commands, manifest paths, and expected pass/fail statuses rather than relying on prose-only reproducibility claims. |
 | Keep Venn-Abers wording bridge-specific and conservative. | The Research Document reports that the evaluated bridge did not emerge as the expected strong regression solution in these experiments. |
-| Keep reader review and public release as separate states. | The sterile package can be reviewed privately; public release, public site deployment, and citable status stay blocked until explicit user approval. |
+| Keep reader review and public evidence navigation explicit. | The Research Atlas package is the public review surface for the Research Document, article, supplement, evidence map, and reproducibility materials. |
 
 ## 2. Experimental Scope
 
@@ -224,7 +223,7 @@ Before the Research Document, supplement, README, and site are treated as review
 | CQR fixed-vs-model-matched paired cells | 224 | Dataset-alpha-model-family comparison cells |
 | Supplement sections | 6 | Broad supplementary evidence plan |
 
-The design emphasizes resumability, source traceability, duplicate and leakage controls, and conservative claim boundaries. The study therefore treats blocked claims as part of the result rather than as missing decoration. If an endpoint, group inference, or validation gate does not close, the Research Document reports that gate as closed against the positive claim.
+The design emphasizes resumability, source traceability, duplicate and leakage controls, and conservative claim boundaries. The study therefore treats outside current evidence claims as part of the result rather than as missing decoration. If an endpoint, group inference, or validation gate does not close, the Research Document reports that gate as outside current evidence against the positive claim.
 
 ### Audit Controls
 
@@ -242,10 +241,10 @@ The result tables combine several diagnostic quantities. The guide below states 
 |---|---|---|---|
 | `row-weighted coverage mean` | Average empirical coverage after giving larger completed-result blocks proportionally more influence. | Use it as a broad descriptive coverage summary within the audited experiment scope. | It is not a theorem-level coverage guarantee and not a deployment claim. |
 | `95% interval around coverage` | A quantified uncertainty band around the observed aggregate coverage estimate. | Use it to judge the precision of the descriptive aggregate, not only the point estimate. | It does not remove split, dataset, endpoint, or selection caveats. |
-| `frontier cell` | A dataset-alpha comparison where a method sits on the observed coverage/width trade-off frontier. | Use frontier counts as a compact map of practical trade-offs seen in the study. | A frontier count is descriptive evidence, not a final selection or general recommendation. |
+| `frontier cell` | A dataset-alpha comparison where a method sits on the observed coverage/width trade-off frontier. | Use frontier counts as a compact map of practical trade-offs seen in the study. | A frontier count is descriptive evidence, not a final selection or general deployment rule. |
 | `near-nominal hit rate` | The share of comparison cells where empirical coverage is close to the target `1 - alpha` level. | Use it to separate approximate calibration behavior from raw coverage averages. | Near-nominal behavior remains scoped to the audited cells. |
 | `undercoverage run` | A run where empirical coverage falls below the target coverage level by the audit rule. | Use it as failure-mode evidence, especially for methods or bridges that do not close validation gates. | It is bridge- or run-specific evidence, not a rejection of a whole research literature. |
-| `closed claim gate` | An explicit record that the current evidence cannot support a stronger claim. | Use closed gates as results: they say what the article must not claim. | Closed gates can be revised only by later evidence and the public release scope, not by prose. |
+| `outside current evidence claim gate` | An explicit record that the current evidence cannot support a stronger claim. | Use outside current evidence gates as results: they say what the article must not claim. | Outside current evidence gates can be revised only by later evidence and the public release scope, not by prose. |
 
 ### Evidence-To-Claim Interpretation Ladder
 
@@ -256,27 +255,27 @@ The ladder below connects each result type to the strongest claim it can support
 | Nominal target | `1 - alpha` states the coverage target that a method is evaluated against. | 95 dataset-alpha cells define the main target/coverage comparison surface. | It cannot prove that every dataset, endpoint, or group achieved the nominal target. | Compare observed coverage and near-nominal rates after reading the target. |
 | Observed aggregate coverage | Coverage means and uncertainty intervals summarize empirical interval behavior inside the audited scope. | CQR row-weighted coverage mean is 0.9059; CV+ row-weighted coverage mean is 0.8997. | It cannot be rewritten as theorem-level conditional coverage or deployment validity. | Use coverage as one descriptive axis, not as a standalone recommendation. |
 | Coverage-width trade-off | Frontier cells identify methods that looked practically efficient under the audited comparison policy. | CQR has 56 frontier cells; CV+ has 13. | Frontier evidence cannot be promoted to a universal best-method claim. | Read CQR/CV+ as strong practical candidates observed in these experiments. |
-| Robustness retention | Bootstrap and leave-one diagnostics test whether the practical candidate pattern is fragile. | Bootstrap selection counts are cqr=1,000; leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. | Robustness retention cannot open final method selection or production recommendation gates. | Use robustness as support for cautious wording, not for a final selection sentence. |
-| CQR backend sensitivity | The model-matched rerun tests whether the fixed-GBM CQR signal was only a backend artifact. | 4,564 model-matched CQR rows, 224 paired cells, selected cells fixed-GBM CQR=116, model-matched CQR=71, neither=37. | It cannot promote CQR from experiment-scoped practical signal to universal method-selection or production recommendation. | Read the check as backend-confound evidence and keep the final claim descriptive. |
-| Negative bridge evidence | Undercoverage and a closed validation flag support a narrow failure-mode reading for the evaluated bridge. | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | It cannot reject predictive-distribution or generalized Venn-Abers research. | Report the bridge result as negative evidence exactly at the evaluated bridge scope. |
-| Closed gates | Closed gates identify claims that the current evidence is not allowed to make. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0; KG citable component authorized `False`. | Closed gates cannot be reopened by optimistic prose, README wording, or site polish. | Treat closed gates as scientific results and release boundaries. |
+| Robustness retention | Bootstrap and leave-one diagnostics test whether the practical candidate pattern is fragile. | Bootstrap selection counts are cqr=1,000; leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. | Robustness retention cannot open final method selection or deployment guidance gates. | Use robustness as support for cautious wording, not for a final selection sentence. |
+| CQR backend sensitivity | The model-matched rerun tests whether the fixed-GBM CQR signal was only a backend artifact. | 4,564 model-matched CQR rows, 224 paired cells, selected cells fixed-GBM CQR=116, model-matched CQR=71, neither=37. | It cannot promote CQR from experiment-scoped practical signal to universal method-selection or deployment guidance. | Read the check as backend-confound evidence and keep the final claim descriptive. |
+| Negative bridge evidence | Undercoverage and a outside current evidence validation flag support a narrow failure-mode reading for the evaluated bridge. | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | It cannot reject predictive-distribution or generalized Venn-Abers research. | Report the bridge result as negative evidence exactly at the evaluated bridge scope. |
+| Outside current evidence gates | Outside current evidence gates identify claims that the current evidence is not allowed to make. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0; KG citable component in scope `False`. | Outside current evidence gates cannot be reopened by optimistic prose, README wording, or site polish. | Treat outside current evidence gates as scientific results and release boundaries. |
 
 ### Claim Language Guardrails
 
-The rows below are writing controls derived from the claim/evidence verification matrix. They are not final prose. They state the safe sentence currently allowed, the source or citation gate that must stay attached to it, the overclaim that remains blocked, and the plain-language reason a non-specialist reader should not read more into the evidence than the study can support.
+The rows below are writing controls derived from the claim/evidence verification matrix. They are not final prose. They state the safe sentence currently allowed, the source or citation gate that must stay attached to it, the overclaim that remains outside current evidence, and the plain-language reason a non-specialist reader should not read more into the evidence than the study can support.
 
-| Target | Claim type | Allowed sentence | Source/citation gate | Overclaim blocked | Plain-language note |
+| Target | Claim type | Allowed sentence | Source/citation gate | Overclaim outside current evidence | Plain-language note |
 |---|---|---|---|---|---|
 | `main_article` | `scope_claim` | The dataset/source audit defines the studied scope under the recorded review policy. | Dataset/source descriptions need source citations before final prose; the matrix does not certify exhaustive internet coverage. | Do not imply exhaustive internet coverage or final dataset-level result promotion. | This row tells a reader what data sources were inspected; it does not turn the dataset list into a final result. |
-| `main_article` | `descriptive_empirical_claim` | CQR/CV+ were observed as strong practical candidates in these experiments. | Method descriptions need literature citations; empirical language must stay limited to these experiments. | Do not call CQR, CV+, or any method a final recommendation. | This row permits a careful description of what looked useful in the experiment, not a recommendation for every regression problem. |
-| `main_article` | `blocked_positive_claim` | The current evidence does not establish a final selected method, final main result, or deployment recommendation. | No citation can open this claim; it needs a later release/selection authorization if the scientific state changes. | Do not present a final main-results table, selected method, or positive method conclusion. | This row prevents a reader from mistaking promising diagnostic patterns for a final answer. |
+| `main_article` | `descriptive_empirical_claim` | CQR/CV+ were observed as strong practical candidates in these experiments. | Method descriptions need literature citations; empirical language must stay limited to these experiments. | Report CQR/CV+ as experiment-scoped evidence only. | This row permits a careful description of what looked useful in the experiment, not a recommendation for every regression problem. |
+| `main_article` | `outside current evidence_positive_claim` | The current evidence does not establish a final selected method, final main result, or deployment recommendation. | This reading would require a separate pre-specified validation protocol. | Keep method-selection conclusions outside the current evidence. | This row prevents a reader from mistaking promising diagnostic patterns for a final answer. |
 | `supplementary_document` | `caveated_diagnostic_claim` | Robustness rows are post-selection diagnostics and should be read with their multiplicity caveats. | Statistical or robustness interpretations need the documented audit context; they are not confirmatory superiority claims. | Do not convert robustness diagnostics into confirmatory superiority. | This row says the extra checks are useful diagnostics, not proof that one method is definitively preferred. |
 | `supplementary_document` | `negative_failure_mode_claim` | In these experiments, the evaluated fast Venn-Abers regression bridge did not validate as the expected strong regression interval solution. | The claim is bridge-specific negative evidence; it must not be written as a rejection of the broader Venn-Abers literature. | Do not state or imply validated Venn-Abers regression. | This row records that one tested bridge behaved poorly; it does not say every Venn-Abers idea is wrong. |
-| `supplementary_document` | `methodology_record_claim` | The study includes audit controls for traceability, neutrality, and reproducibility. | Control descriptions can support reproducibility claims only; they do not establish scientific validity by themselves. | Do not treat control presence as proof of validity or production readiness. | This row explains the guardrails around the study rather than claiming the guardrails make every result final. |
+| `supplementary_document` | `methodology_record_claim` | The study includes audit controls for traceability, neutrality, and reproducibility. | Control descriptions can support reproducibility claims only; they do not establish scientific validity by themselves. | Treat controls as traceability evidence, not validity proof. | This row explains the guardrails around the study rather than claiming the guardrails make every result final. |
 | `supplementary_document` | `reproducibility_traceability_claim` | The Research Atlas package records completed-row accounting, resume-safety controls, and knowledge-graph traceability. | The working repository is evidence infrastructure; it is not yet the final public citable repository. | Do not cite the working repository as the final public artifact. | This row tells a reader how the work can be audited and resumed, not that the current repository is the final released artifact. |
 | `individual_experiment_report` | `authoring_blueprint_claim` | The individual report blueprint records the author-stamped section map for later review. | This is an authoring blueprint, not a final report or citable output. | Do not generate final LaTeX, HTML, Markdown, release, or citable report output. | This row preserves the report plan and author metadata without pretending the final report is finished. |
 
-| Method family | Key observed evidence | Authorized interpretation |
+| Method family | Key observed evidence | In scope interpretation |
 |---|---:|---|
 | CQR | 56 descriptive frontier cells; row-weighted coverage mean 0.9059 | Strong practical candidate observed in this experiment |
 | Model-matched CQR check | 4,564 completed model-matched rows; 224 paired cells; selected cells fixed-GBM=116, model-matched=71, neither=37 | Backend sensitivity evidence; no method-selection claim |
@@ -284,25 +283,25 @@ The rows below are writing controls derived from the claim/evidence verification
 | Mondrian absolute-residual calibration | 15 descriptive frontier cells; row-weighted coverage mean 0.9073 | Useful diagnostic comparator |
 | Venn-Abers regression bridge | 14 undercoverage runs; quantile-coverage mean 0.6503 | Negative/failure-mode evidence for the evaluated bridge |
 
-The CQR row-weighted coverage mean is 0.9059, with an audited 95% interval from 0.9050 to 0.9068. This is evidence of strong empirical behavior inside the audited scope. It is not a proof that CQR is generally best, and it is not a production recommendation.
+The CQR row-weighted coverage mean is 0.9059, with an audited 95% interval from 0.9050 to 0.9068. This is evidence of strong empirical behavior inside the audited scope. It is not a proof that CQR is generally best, and it is not a deployment guidance.
 
 Robustness diagnostics are aligned with that descriptive reading. The common-cell selected method is `cqr`; common-cell counts are CQR=58, CV+=15, and Mondrian=21. Bootstrap selection counts are cqr=1,000. Leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. These numbers support a practical-candidate description; they do not establish final selection language.
 
 Coverage summaries provide additional context. CQR has nominal and near-nominal hit rates of 0.6118 and 0.8076; CV+ has near-nominal hit rate 0.8136; Mondrian absolute-residual calibration has near-nominal hit rate 0.8586. The document reports these values as diagnostics at the audited scope.
 
-## 4. Negative And Closed Claims
+## 4. Negative And Outside current evidence Claims
 
-The Research Document keeps three high-risk claims closed. First, bounded-support validity is not supported: 0 bundles are validity-ready, despite 15 bounded-support bundles and 11 raw endpoint-excursion bundles being recorded. Second, population-level group inference is not supported: 0 bundles are population-group-inference-ready, even though 15 group inference bundles and 187 pairwise group comparisons are available as diagnostics. Third, the evaluated Venn-Abers bridge is reported as negative evidence rather than as a validated regression solution.
+The Research Document keeps three high-risk claims outside current evidence. First, bounded-support validity is not supported: 0 bundles are validity-ready, despite 15 bounded-support bundles and 11 raw endpoint-excursion bundles being recorded. Second, population-level group inference is not supported: 0 bundles are population-group-inference-ready, even though 15 group inference bundles and 187 pairwise group comparisons are available as diagnostics. Third, the evaluated Venn-Abers bridge is reported as negative evidence rather than as a validated regression solution.
 
 The Venn-Abers result is intentionally narrow. The evaluated bridge has quantile-coverage mean 0.6503, near-nominal hit rate 0.0337, and validated-regression support flag `False`. This does not reject Venn-Abers research. It only records that the current regression interval bridge did not close the validation gate in this experiment.
 
 ## 5. Knowledge Graph And Reproducibility
 
-The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes. Average edge confidence is 0.9917, and edge selector provenance coverage is 1.0000. In the private publication package, the KG browser exposes 3,643 nodes, 21,019 edges, 39 node types, and 58 relation types. The browser is intended to let reviewers move from claims to source reports, tables, scripts, and quality gates. It is not yet a public citable component; public citation waits for article, supplement, site, README, and release review.
+The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes. Average edge confidence is 0.9917, and edge selector provenance coverage is 1.0000. In the working publication package, the KG browser exposes 3,643 nodes, 21,019 edges, 39 node types, and 58 relation types. The browser is intended to let reviewers move from claims to source reports, tables, scripts, and quality gates. It is not yet a public citable component; public citation waits for article, supplement, site, README, and release review.
 
 ## 6. How To Read The Artifact Set
 
-The review order is deliberately simple. Read this Research Document first, then inspect the rendered main article and broad supplement, then use the individual experiment report for the author-stamped experiment summary. The KG browser should be used when a reader wants to trace a claim to reports, source artifacts, scripts, or quality gates. Governance files should be checked before any release decision because they encode the closed claims.
+The review order is deliberately simple. Read this Research Document first, then inspect the rendered main article and broad supplement, then use the individual experiment report for the author-stamped experiment summary. The KG browser should be used when a reader wants to trace a claim to reports, source artifacts, scripts, or quality gates. Governance files should be checked before any release decision because they encode the outside current evidence claims.
 
 | Artifact | Role | Release boundary |
 |---|---|---|
@@ -316,11 +315,10 @@ The review order is deliberately simple. Read this Research Document first, then
 
 This document is intentionally strict about what it does not claim:
 
-- This Research Document is a Research Atlas narrative, not a method recommendation.
 - CQR/CV+ are described as strong practical candidates observed in this experiment, not as recommended methods.
 - The model-matched CQR rerun is a backend-sensitivity check, not a method-selection claim.
 - The evaluated Venn-Abers regression bridge is described as negative/failure-mode evidence.
-- Positive group inference, bounded-support validity, validated Venn-Abers regression, production, and best-method claims remain closed.
+- Positive group inference, bounded-support validity, validated Venn-Abers regression, production, and best-method claims remain outside the current evidence.
 - The KG is prepared as a browsable supplementary/web traceability artifact; it is not an independent scientific claim.
 - No new experiments are established or required for this document.
 - Publication-package design examples are used only to improve navigation and source traceability.

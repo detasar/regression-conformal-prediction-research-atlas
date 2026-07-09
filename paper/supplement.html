@@ -15,15 +15,15 @@
   </style>
 </head>
 <body>
-  <div class="boundary"><strong>Research Document render.</strong> Research Document release render, not a public release, and not a method recommendation.</div>
+
 <h1>Supplementary Document Draft</h1>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
-<p>Email: detasar@gmail.com</p>
-<blockquote>Document status: public supplementary Research Atlas render, part of the public Research Atlas, and not a method recommendation.</blockquote>
+<p>Contact: detasar@gmail.com</p>
+
 <h2>Supplement Reader Crosswalk</h2>
-<p>This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains closed. The table is a navigation aid; it does not add experiments or promote a method.</p>
+<p>This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains outside the current evidence. The table is a navigation aid; it does not add experiments or promote a method.</p>
 <table>
-<thead><tr><th>Main article surface</th><th>Supplement support</th><th>Primary source artifact</th><th>Closed claim</th></tr></thead>
+<thead><tr><th>Main article surface</th><th>Supplement support</th><th>Primary source artifact</th><th>Outside current evidence claim</th></tr></thead>
 <tbody>
 <tr><td>CQR/CV+ descriptive performance</td><td>S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis</code></td><td>No final method selection, global best method, or deployment recommendation.</td></tr>
 <tr><td>Venn-Abers bridge negative evidence</td><td>S2 bridge validation slice and S6 release-state boundary</td><td><code>dataset_final_gate_post_selection_validation_bridge_results</code></td><td>No validated Venn-Abers regression interval claim.</td></tr>
@@ -34,12 +34,12 @@
 </tbody>
 </table>
 <h2>Supplement Reading Protocol</h2>
-<p>The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains closed.</p>
+<p>The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains outside the current evidence.</p>
 <table>
-<thead><tr><th>Section</th><th>Reviewer check</th><th>Evidence metric</th><th>Allowed use</th><th>Blocked use</th></tr></thead>
+<thead><tr><th>Section</th><th>Reviewer check</th><th>Evidence metric</th><th>Allowed use</th><th>Outside current evidence use</th></tr></thead>
 <tbody>
-<tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Report CQR/CV+ as strong practical candidates observed in these experiments.</td><td>Do not call CQR the final selected method or a universal recommendation.</td></tr>
-<tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>Do not upgrade the check into a universal CQR method recommendation.</td></tr>
+<tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Report CQR/CV+ as strong practical candidates observed in these experiments.</td><td>Do not call CQR the final selected method or a universal deployment rule.</td></tr>
+<tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>Do not upgrade the check into a universal CQR method guidance.</td></tr>
 <tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>Do not upgrade the slice into final method selection or validated Venn-Abers regression intervals.</td></tr>
 <tr><td>S3</td><td>Check whether bounded-support endpoint behavior authorizes a validity claim.</td><td>0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles.</td><td>Report endpoint policy closure and retained domain caveats.</td><td>Do not state bounded-support or endpoint validity.</td></tr>
 <tr><td>S4</td><td>Check whether group diagnostics define a population-group-inference estimand.</td><td>187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles.</td><td>Use group rows as heterogeneity diagnostics.</td><td>Do not state population-level group inference or deployment group inference.</td></tr>
@@ -57,20 +57,20 @@
 <tr><td>Common-cell selected diagnostic method</td><td><code>cqr</code></td><td>Not a final method selection</td></tr>
 <tr><td>Common-cell counts</td><td>cqr=58; cv_plus=15; mondrian_abs=21</td><td>Descriptive counts only</td></tr>
 <tr><td>Bootstrap replicates</td><td>1,000</td><td>Selection stability diagnostic</td></tr>
-<tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>No method recommendation</td></tr>
+<tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>No method guidance</td></tr>
 <tr><td>Bootstrap primary selection rate</td><td>1.0000</td><td>Stability estimate, not final selection</td></tr>
 <tr><td>Bootstrap primary selection-rate 95% interval</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
 <tr><td>Leave-one-dataset retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
 <tr><td>Leave-one-alpha retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
-<tr><td>Final selection claim</td><td><code>blocked</code></td><td>Final selection remains blocked</td></tr>
+<tr><td>Final selection claim</td><td><code>outside current evidence</code></td><td>Final selection remains outside current evidence</td></tr>
 <tr><td>Pairwise shared cells</td><td>94</td><td>Inferential support, not a claim upgrade</td></tr>
-<tr><td>Main-result primary win rate</td><td>0.6778</td><td>Descriptive rate with final claim blocked</td></tr>
+<tr><td>Main-result primary win rate</td><td>0.6778</td><td>Descriptive rate with final claim outside current evidence</td></tr>
 <tr><td>Main-result primary win-rate 95% interval</td><td>0.5757 to 0.7653</td><td>Uncertainty around the descriptive rate</td></tr>
 <tr><td>Robustness common-cell primary win rate</td><td>0.6170</td><td>Common-cell diagnostic only</td></tr>
 <tr><td>Robustness common-cell 95% interval</td><td>0.5160 to 0.7089</td><td>Precision check, not claim scope</td></tr>
 </tbody>
 </table>
-<p>Reader note: this section explains why CQR/CV+ can be reported as strong practical candidates observed in these experiments while the final-selection gate remains closed. The confidence intervals quantify diagnostic uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
+<p>Reader note: this section explains why CQR/CV+ can be reported as strong practical candidates observed in these experiments while the final-selection gate remains outside the current evidence. The confidence intervals quantify diagnostic uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
 <h3>S1b. CQR Backend Sensitivity Check</h3>
 <p>The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not create a method-selection claim.</p>
 <table>
@@ -82,7 +82,7 @@
 <tr><td>Fixed-GBM CQR selected cells</td><td>116</td><td>Coverage-eligible interval-score selections</td></tr>
 <tr><td>Model-matched CQR selected cells</td><td>71</td><td>Coverage-eligible interval-score selections</td></tr>
 <tr><td>Neither coverage-eligible variant</td><td>37</td><td>Cells where both CQR variants fail the coverage-eligibility rule</td></tr>
-<tr><td>Method-selection claim supported</td><td><code>False</code></td><td>No method recommendation opens</td></tr>
+<tr><td>Method-selection claim supported</td><td><code>False</code></td><td>No method guidance opens</td></tr>
 </tbody>
 </table>
 <h2>S2. Post-Selection Validation Diagnostics</h2>
@@ -116,8 +116,8 @@
 <tr><td>Post-handling validated bundles</td><td>15</td><td>Policy triage complete</td></tr>
 <tr><td>Clean or not-applicable bundles</td><td>4</td><td>Not enough for global validity</td></tr>
 <tr><td>Validity-ready bundles</td><td>0</td><td>No bounded-support validity claim</td></tr>
-<tr><td>Positive-claim-ready bundles</td><td>0</td><td>Positive endpoint claim blocked</td></tr>
-<tr><td>Endpoint support status counts</td><td>blocked_natural_domain_endpoint_excursions=11; clean_no_natural_domain_endpoint_excursions=3; not_applicable_unbounded_target_endpoint_hygiene_recorded=1</td><td>Support-status inventory, not a validity upgrade</td></tr>
+<tr><td>Positive-claim-ready bundles</td><td>0</td><td>Positive endpoint claim outside current evidence</td></tr>
+<tr><td>Endpoint support status counts</td><td>outside current evidence_natural_domain_endpoint_excursions=11; clean_no_natural_domain_endpoint_excursions=3; not_applicable_unbounded_target_endpoint_hygiene_recorded=1</td><td>Support-status inventory, not a validity upgrade</td></tr>
 </tbody>
 </table>
 <p>Reader note: bounded-support evidence is stricter than ordinary coverage evidence. A method can have acceptable empirical coverage and still fail a natural-domain endpoint gate. The supplement therefore reports endpoint closure as a limitation, not as a post-processing success story.</p>
@@ -150,7 +150,7 @@
 <tr><td>Duplicate actions</td><td>29</td><td>Caveat inventory scope</td></tr>
 <tr><td>Open duplicate actions</td><td>0</td><td>Closure evidence only</td></tr>
 <tr><td>Paired duplicate comparison rows</td><td>1,043</td><td>Sensitivity evidence</td></tr>
-<tr><td>Quarantined actions</td><td>46</td><td>Main-claim promotion blocked</td></tr>
+<tr><td>Quarantined actions</td><td>46</td><td>Main-claim promotion outside current evidence</td></tr>
 <tr><td>Unquarantined actions</td><td>0</td><td>No untracked duplicate action</td></tr>
 <tr><td>Cross-run leakage status</td><td><code>hard_leakage_not_detected_in_scanned_artifacts</code></td><td>Hard leakage not detected in scanned artifacts</td></tr>
 <tr><td>Unsupported claim hits</td><td>0</td><td>Claim scan clean for this audit</td></tr>
@@ -164,7 +164,7 @@
 <p>Venn-Abers evidence is retained as part of the negative and boundary evidence for this study [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>]. The supplement does not claim that the current interval bridge validates Venn-Abers regression intervals.</p>
 <h2>Claim Boundaries</h2>
 <ul>
-<li>This is a public supplementary Research Atlas render.</li>
+<li>This supplement summarizes the public evidence artifacts.</li>
 <li>Method evidence is diagnostic; no final method selection or recommendation is established.</li>
 <li>Bounded-support endpoint results block validity claims.</li>
 <li>Group diagnostics do not establish population-level group inference.</li>

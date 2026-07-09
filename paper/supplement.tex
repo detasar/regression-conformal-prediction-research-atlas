@@ -15,20 +15,16 @@
 \usepackage{lmodern}
 \title{Supplementary Document Draft}
 \author{Emre Tasar, Data Scientist}
-\date{Research Document release render}
+\date{2026}
 \begin{document}
 \maketitle
 \noindent\textbf{Evidence scope:} This output summarizes the public Research Atlas evidence scope.
 
-Email: detasar@gmail.com
-
-
-\begin{quote}Document status: public supplementary Research Atlas render, part of the public Research Atlas, and not a method recommendation.\end{quote}
+Contact: detasar@gmail.com
 
 \section{Supplement Reader Crosswalk}
 
-This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains closed. The table is a navigation aid; it does not add experiments or promote a method.
-
+This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains outside the current evidence. The table is a navigation aid; it does not add experiments or promote a method.
 
 \begingroup
 \small
@@ -36,7 +32,7 @@ This crosswalk explains how the supplement should be read with the main article.
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
-Main article surface & Supplement support & Primary source artifact & Closed claim \\
+Main article surface & Supplement support & Primary source artifact & Outside current evidence claim \\
 \midrule
 CQR/CV+ descriptive performance & S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics & \texttt{method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit; cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis} & No final method selection, global best method, or deployment recommendation. \\
 Venn-Abers bridge negative evidence & S2 bridge validation slice and S6 release-state boundary & \texttt{dataset\_\allowbreak{}final\_\allowbreak{}gate\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}bridge\_\allowbreak{}results} & No validated Venn-Abers regression interval claim. \\
@@ -50,8 +46,7 @@ Knowledge-graph traceability and release state & S6 traceability and release sta
 
 \section{Supplement Reading Protocol}
 
-The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains closed.
-
+The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains outside the current evidence.
 
 \begingroup
 \small
@@ -59,10 +54,10 @@ The supplement is intentionally broader than the main article. Each section adds
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
 \toprule
-Section & Reviewer check & Evidence metric & Allowed use & Blocked use \\
+Section & Reviewer check & Evidence metric & Allowed use & Outside current evidence use \\
 \midrule
-S1 & Check whether the method-selection signal is robust enough to describe, but not promote. & CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000. & Report CQR/CV+ as strong practical candidates observed in these experiments. & Do not call CQR the final selected method or a universal recommendation. \\
-S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & Do not upgrade the check into a universal CQR method recommendation. \\
+S1 & Check whether the method-selection signal is robust enough to describe, but not promote. & CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000. & Report CQR/CV+ as strong practical candidates observed in these experiments. & Do not call CQR the final selected method or a universal deployment rule. \\
+S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & Do not upgrade the check into a universal CQR method guidance. \\
 S2 & Check whether post-selection and bridge diagnostics preserve the same boundary. & Post-selection diagnostic counts are cqr=18 and mondrian\_\allowbreak{}abs=7; the bridge slice has 45 completed atomic runs. & Use the slice as diagnostic stress-test evidence. & Do not upgrade the slice into final method selection or validated Venn-Abers regression intervals. \\
 S3 & Check whether bounded-support endpoint behavior authorizes a validity claim. & 0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles. & Report endpoint policy closure and retained domain caveats. & Do not state bounded-support or endpoint validity. \\
 S4 & Check whether group diagnostics define a population-group-inference estimand. & 187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles. & Use group rows as heterogeneity diagnostics. & Do not state population-level group inference or deployment group inference. \\
@@ -75,7 +70,6 @@ S6 & Check whether traceability artifacts are review infrastructure or public ou
 \section{S1. Method Selection Robustness Diagnostics}
 
 This section supports the main article by separating descriptive method behavior from final method selection. In conformal prediction, \texttt{1 - alpha} is the target coverage level and \texttt{alpha} is the target miscoverage rate \cite{lei2017distribution_free_regression}. CQR builds an interval from lower and upper quantile models before calibration \cite{romano2019conformalized_quantile_regression}, while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions \cite{barber2020jackknife_plus,kim2020jackknife_after_bootstrap}.
-
 
 \begingroup
 \small
@@ -90,14 +84,14 @@ Common dataset-alpha cells & 94 & Shared comparison cells \\
 Common-cell selected diagnostic method & \texttt{cqr} & Not a final method selection \\
 Common-cell counts & cqr=58; cv\_\allowbreak{}plus=15; mondrian\_\allowbreak{}abs=21 & Descriptive counts only \\
 Bootstrap replicates & 1,000 & Selection stability diagnostic \\
-Bootstrap counts & cqr=1,000 & No method recommendation \\
+Bootstrap counts & cqr=1,000 & No method guidance \\
 Bootstrap primary selection rate & 1.0000 & Stability estimate, not final selection \\
 Bootstrap primary selection-rate 95\% interval & 0.9962 to 1.0000 & Precision check for the diagnostic rate \\
 Leave-one-dataset retention & 1.0000 & Diagnostic robustness \\
 Leave-one-alpha retention & 1.0000 & Diagnostic robustness \\
-Final selection claim & \texttt{blocked} & Final selection remains blocked \\
+Final selection claim & \texttt{outside current evidence} & Final selection remains outside current evidence \\
 Pairwise shared cells & 94 & Inferential support, not a claim upgrade \\
-Main-result primary win rate & 0.6778 & Descriptive rate with final claim blocked \\
+Main-result primary win rate & 0.6778 & Descriptive rate with final claim outside current evidence \\
 Main-result primary win-rate 95\% interval & 0.5757 to 0.7653 & Uncertainty around the descriptive rate \\
 Robustness common-cell primary win rate & 0.6170 & Common-cell diagnostic only \\
 Robustness common-cell 95\% interval & 0.5160 to 0.7089 & Precision check, not claim scope \\
@@ -105,13 +99,11 @@ Robustness common-cell 95\% interval & 0.5160 to 0.7089 & Precision check, not c
 \end{longtable}
 \endgroup
 
-Reader note: this section explains why CQR/CV+ can be reported as strong practical candidates observed in these experiments while the final-selection gate remains closed. The confidence intervals quantify diagnostic uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.
-
+Reader note: this section explains why CQR/CV+ can be reported as strong practical candidates observed in these experiments while the final-selection gate remains outside the current evidence. The confidence intervals quantify diagnostic uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.
 
 \subsection{S1b. CQR Backend Sensitivity Check}
 
 The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not create a method-selection claim.
-
 
 \begingroup
 \small
@@ -127,7 +119,7 @@ Paired dataset-alpha-model-family cells & 224 & Direct CQR backend comparison ce
 Fixed-GBM CQR selected cells & 116 & Coverage-eligible interval-score selections \\
 Model-matched CQR selected cells & 71 & Coverage-eligible interval-score selections \\
 Neither coverage-eligible variant & 37 & Cells where both CQR variants fail the coverage-eligibility rule \\
-Method-selection claim supported & \texttt{False} & No method recommendation opens \\
+Method-selection claim supported & \texttt{False} & No method guidance opens \\
 \bottomrule
 \end{longtable}
 \endgroup
@@ -135,7 +127,6 @@ Method-selection claim supported & \texttt{False} & No method recommendation ope
 \section{S2. Post-Selection Validation Diagnostics}
 
 Post-selection validation asks whether the descriptive pattern persists in a held-out validation-style slice after the candidate methods have already been identified. The supplement treats this as a diagnostic stress test. It does not convert the observed counts into a final method selection.
-
 
 \begingroup
 \small
@@ -163,11 +154,9 @@ Venn-Abers bridge undercoverage runs & 14 & Negative bridge evidence \\
 
 Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as final method selection, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects \cite{nouretdinov2018ivapd,nouretdinov2024ivapd_applications,vanderlaan2025generalized_venn_abers,petej2026inductive_venn_abers_regressors}.
 
-
 \section{S3. Bounded-Support Endpoint Policy}
 
 Bounded-support checks ask whether prediction interval endpoints respect the natural domain of the target. This is different from ordinary marginal coverage. Weighted conformal ideas can address some covariate-shift settings \cite{tibshirani2020covariate_shift}, but the present endpoint policy is an empirical domain-validity gate. The current gate blocks bounded-support validity claims.
-
 
 \begingroup
 \small
@@ -183,19 +172,17 @@ Raw endpoint-excursion bundles & 11 & Domain blocker retained \\
 Post-handling validated bundles & 15 & Policy triage complete \\
 Clean or not-applicable bundles & 4 & Not enough for global validity \\
 Validity-ready bundles & 0 & No bounded-support validity claim \\
-Positive-claim-ready bundles & 0 & Positive endpoint claim blocked \\
-Endpoint support status counts & blocked\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=11; clean\_\allowbreak{}no\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=3; not\_\allowbreak{}applicable\_\allowbreak{}unbounded\_\allowbreak{}target\_\allowbreak{}endpoint\_\allowbreak{}hygiene\_\allowbreak{}recorded=1 & Support-status inventory, not a validity upgrade \\
+Positive-claim-ready bundles & 0 & Positive endpoint claim outside current evidence \\
+Endpoint support status counts & outside current evidence\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=11; clean\_\allowbreak{}no\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=3; not\_\allowbreak{}applicable\_\allowbreak{}unbounded\_\allowbreak{}target\_\allowbreak{}endpoint\_\allowbreak{}hygiene\_\allowbreak{}recorded=1 & Support-status inventory, not a validity upgrade \\
 \bottomrule
 \end{longtable}
 \endgroup
 
 Reader note: bounded-support evidence is stricter than ordinary coverage evidence. A method can have acceptable empirical coverage and still fail a natural-domain endpoint gate. The supplement therefore reports endpoint closure as a limitation, not as a post-processing success story.
 
-
 \section{S4. Group Diagnostics}
 
 Group coverage diagnostics compare interval behavior across observed groups. They are useful for auditing heterogeneity, but they are not population-level group inference claims unless the population estimand, protected-attribute scope, sampling design, and multiplicity treatment support that claim.
-
 
 \begingroup
 \small
@@ -224,11 +211,9 @@ Population-group-inference-ready bundles & 0 & No population-level group inferen
 
 Reader note: group rows can show where interval behavior differs, but group inference is an estimand-level claim. Because the current population estimand and protected-attribute scope are not declared at the bundle level, the correct supplement reading is diagnostic heterogeneity, not population-level group inference.
 
-
 \section{S5. Duplicate And Integrity Caveats}
 
 Duplicate and split-integrity checks protect the interpretation of model comparisons. If repeated rows, row signatures, or model-visible duplicates can affect train/calibration/test separation, the result must retain the caveat rather than become stronger prose.
-
 
 \begingroup
 \small
@@ -241,7 +226,7 @@ Diagnostic item & Value & Boundary \\
 Duplicate actions & 29 & Caveat inventory scope \\
 Open duplicate actions & 0 & Closure evidence only \\
 Paired duplicate comparison rows & 1,043 & Sensitivity evidence \\
-Quarantined actions & 46 & Main-claim promotion blocked \\
+Quarantined actions & 46 & Main-claim promotion outside current evidence \\
 Unquarantined actions & 0 & No untracked duplicate action \\
 Cross-run leakage status & \texttt{hard\_\allowbreak{}leakage\_\allowbreak{}not\_\allowbreak{}detected\_\allowbreak{}in\_\allowbreak{}scanned\_\allowbreak{}artifacts} & Hard leakage not detected in scanned artifacts \\
 Unsupported claim hits & 0 & Claim scan clean for this audit \\
@@ -253,19 +238,16 @@ Cross-run caveat counts & duplicate\_\allowbreak{}cluster\_\allowbreak{}plus\_\a
 
 Reader note: the clean unsupported-claim scan does not erase duplicate or split caveats. It means the scanned artifacts did not contain unsupported claim language; the caveats still travel with the empirical interpretation.
 
-
 \section{S6. Traceability And Release State}
 
 The supplement is linked to a knowledge graph snapshot with 3,643 nodes, 21,019 edges, and 0 isolated nodes. The graph connects report sections, source artifacts, citations, claim boundaries, and quality checks. It remains an internal evidence artifact until the sterile repository and release review are complete.
 
-
 Venn-Abers evidence is retained as part of the negative and boundary evidence for this study \cite{nouretdinov2018ivapd}. The supplement does not claim that the current interval bridge validates Venn-Abers regression intervals.
-
 
 \section{Claim Boundaries}
 
 \begin{itemize}
-\item This is a public supplementary Research Atlas render.
+\item This supplement summarizes the public evidence artifacts.
 \item Method evidence is diagnostic; no final method selection or recommendation is established.
 \item Bounded-support endpoint results block validity claims.
 \item Group diagnostics do not establish population-level group inference.

@@ -13,4 +13,4 @@
 
 ## Reading Note
 
-Method cards are evidence-navigation entries. They do not convert empirical observations into production advice or universal method recommendations.
+Method cards describe how each method appeared in this experiment. Broader deployment conclusions require separate validation.
