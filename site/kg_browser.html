@@ -7,11 +7,11 @@
   <style>
     :root { --paper:#f8f5ee; --ink:#151922; --muted:#596273; --line:#d9d1c2; --panel:#fffdf8; --teal:#0f766e; --amber:#996515; --red:#a0442f; --blue:#245f9f; }
     * { box-sizing:border-box; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
+    body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
     a { color:#145ea8; font-weight:720; }
     header { padding:24px 28px 18px; border-bottom:1px solid var(--line); background:rgba(255,253,248,.94); }
-    .kicker { color:var(--teal); font-size:12px; font-weight:850; letter-spacing:.08em; text-transform:uppercase; }
-    h1 { margin:6px 0 8px; font-family:Georgia, 'Times New Roman', serif; font-size:clamp(32px,4vw,56px); line-height:1; }
+    .kicker { color:var(--teal); font-size:12px; font-weight:850; letter-spacing:0; text-transform:uppercase; }
+    h1 { margin:6px 0 8px; font-family:Charter, Georgia, 'Times New Roman', serif; font-size:clamp(32px,4vw,56px); line-height:1; }
     .sub { margin:0; color:var(--muted); max-width:1080px; line-height:1.55; }
     .layout { display:grid; grid-template-columns:320px minmax(420px,1fr) 360px; height:calc(100vh - 142px); min-height:620px; overflow:hidden; }
     aside { min-height:0; padding:18px; background:rgba(255,253,248,.86); border-right:1px solid var(--line); overflow:auto; }
@@ -21,7 +21,7 @@
     .route b, .result b { display:block; line-height:1.25; }
     .route span, .result span, .muted { color:var(--muted); font-size:12px; line-height:1.45; }
     .route span, .result span { display:block; }
-    label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; margin:14px 0 10px; }
+    label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:0; text-transform:uppercase; margin:14px 0 10px; }
     input, select { width:100%; border:1px solid var(--line); border-radius:7px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
     .stage { min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr) auto; background:#f2ebdf; }
     .toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:12px 16px; background:rgba(255,253,248,.9); border-bottom:1px solid var(--line); }
@@ -32,7 +32,7 @@
     canvas { position:absolute; inset:0; width:100%; height:100%; }
     .footer { display:flex; flex-wrap:wrap; gap:14px; padding:12px 16px; color:var(--muted); font-size:13px; background:rgba(255,253,248,.9); border-top:1px solid var(--line); }
     .detail { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:15px; margin-bottom:14px; }
-    .detail h2 { font-family:Georgia, 'Times New Roman', serif; font-size:24px; margin:4px 0 8px; line-height:1.1; }
+    .detail h2 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:24px; margin:4px 0 8px; line-height:1.1; }
     .pill { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px 8px; color:var(--muted); font-size:12px; margin:0 6px 6px 0; }
     code { background:#f5efe3; border:1px solid #e5dccb; border-radius:4px; padding:2px 4px; overflow-wrap:anywhere; }
     table { width:100%; border-collapse:collapse; font-size:12px; table-layout:fixed; background:#fffdf8; }
@@ -162,7 +162,7 @@
       nodes.forEach((n,i)=>{ const angle=-Math.PI/2 + i*(Math.PI*2/Math.max(1,nodes.length)); const rr=n.id===state.selected?0:radius*(0.72+((i%5)*0.07)); pos.set(n.id,{x:cx+Math.cos(angle)*rr,y:cy+Math.sin(angle)*rr}); });
       edges.forEach(e=>{ const a=pos.get(e.source), b=pos.get(e.target); if(!a||!b) return; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=e.relation==='BLOCKED_BY'?'rgba(160,68,47,.38)':(e.relation==='ROUTE_STEP'?'rgba(153,101,21,.30)':'rgba(42,72,86,.22)'); ctx.lineWidth=e.relation==='ROUTE_STEP'?1.6:1; ctx.stroke(); });
       state.points=[];
-      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const overview=!state.selected; const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(is || overview || nodes.length<=12 || i%10===0){ ctx.fillStyle='#151922'; ctx.font=(is?'700 15px ':'700 12px ')+'Inter, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(r.width<520?24:38):(overview?(r.width<520?20:30):22); const label=short(n.label,maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
+      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const overview=!state.selected; const route=selectedRoute(); const sparseLabel=(!route && (r.width<520 ? i%14===0 : i%10===0)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(is || nodes.length<=12 || sparseLabel){ ctx.fillStyle='#151922'; ctx.font=(is?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(r.width<520?24:38):(overview?(r.width<520?20:30):22); const label=short(n.label,maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
       document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes`;
     }
     function renderAll(){ renderResults(); renderDetail(); draw(); }

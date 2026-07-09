@@ -1,0 +1,84 @@
+{
+  "artifacts": [
+    {
+      "artifact_id": "research_document",
+      "included": true,
+      "original_path": "experiments/regression/manuscript/research_document.json",
+      "public_status": "included_public_aggregate",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "a666b048e1d90a1c379c36b290c9404a8e85261fb78b39eef83e26b28f227187"
+    },
+    {
+      "artifact_id": "individual_report",
+      "included": true,
+      "original_path": "experiments/regression/manuscript/individual_experiment_report_draft.json",
+      "public_status": "included_public_aggregate",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "0c95ec8605e92eb656d84e1b0a19d34a52daf6a7923b7c79254594cf62f9d017"
+    },
+    {
+      "artifact_id": "method_performance",
+      "included": true,
+      "original_path": "experiments/regression/reports/methodology_sanity_audit_20260627/method_performance_synthesis.json",
+      "public_status": "included_public_aggregate",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "3ade1faebd6df3f5a5642be168a6dd14d5d86b260caa640ca6da7c4e013b3c67"
+    },
+    {
+      "artifact_id": "experiment_accounting",
+      "included": true,
+      "original_path": "experiments/regression/reports/methodology_sanity_audit_20260627/experiment_accounting_audit.json",
+      "public_status": "included_public_aggregate",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "19b0608a47a25469235b39bb5f7b6ea336acc5855316ab7ab14074317038eac7"
+    },
+    {
+      "artifact_id": "claim_matrix",
+      "included": true,
+      "original_path": "experiments/regression/manuscript/publication_claim_evidence_verification_matrix.json",
+      "public_status": "included_public_aggregate",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "b99a10cab0dac7681e9c9d934976bcb54a9a2098b322699d9366a3a8fa4efb61"
+    },
+    {
+      "artifact_id": "neutral_result_ledger",
+      "included": true,
+      "original_path": "experiments/regression/manuscript/neutral_result_ledger.json",
+      "public_status": "included_public_aggregate",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "44302886a315090027ea4c453d2a8172c0409172bc7c947433211785f2c1b167"
+    },
+    {
+      "artifact_id": "cqr_backend_sensitivity",
+      "included": true,
+      "original_path": "experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json",
+      "public_status": "included_public_aggregate",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "8d69004af9579d2d973c7c5a058a403365c3f9b2ec1808685d92943538b80fe1"
+    },
+    {
+      "artifact_id": "knowledge_graph",
+      "included": true,
+      "original_path": "experiments/regression/catalogs/knowledge_graph.json",
+      "public_status": "included_public_hash_receipt",
+      "public_summary": "Audited source artifact summarized into the public atlas.",
+      "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
+      "source_hash": "d74b05225b84a2578edca2a8a5e0fc536030ba2bcf80a06f9a4f75c87b40b173"
+    }
+  ],
+  "schema": "regression_cp_atlas_artifact_manifest_v1",
+  "summary": {
+    "source_artifact_count": 8,
+    "status_counts": {
+      "included_public_aggregate": 7,
+      "included_public_hash_receipt": 1
+    }
+  }
+}

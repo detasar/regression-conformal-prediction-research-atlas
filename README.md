@@ -1,9 +1,22 @@
-# Regression Conformal Prediction Study
+# Regression Conformal Prediction Research Atlas
 
 Author: Emre Tasar, Data Scientist  
 Contact: detasar@gmail.com
 
-This repository is a public Research Atlas for a neutral empirical study of regression conformal prediction. It contains the Research Document, compact report, broad supplement, individual experiment report, browsable knowledge graph, citation metadata, and reproducibility materials.
+This repository is a public, claim-governed scientific evidence atlas for a neutral empirical study of regression conformal prediction. It contains the Research Document, compact report, broad supplement, browsable knowledge graph, public aggregate result cube, claim registry, provenance receipts, and reproducibility materials.
+
+## Atlas At A Glance
+
+| Surface | Public Count |
+|---|---:|
+| Publication-scoped completed rows | 145,839 |
+| Canonical completed rows | 156,233 |
+| Publication datasets | 67 |
+| Dataset-alpha cells | 95 |
+| Publication conformal-method labels | 28 |
+| KG nodes | 3,643 |
+| KG edges | 21,019 |
+| KG isolated nodes | 0 |
 
 ## Short Result
 
@@ -15,21 +28,24 @@ The expected strong regression solution did not emerge in these experiments. The
 
 ## Artifacts
 
-1. `paper/research_document.md` is the primary Research Document.
-2. `paper/article.html` is the compact report.
-3. `paper/article.pdf` is the compiled PDF of the report.
-4. `paper/supplement.html` is the broad supplementary document.
-5. `paper/supplement.pdf` is the compiled supplementary PDF.
-6. `site/index.html` is the public web entry point.
-7. `site/kg_browser.html` is the browsable knowledge graph.
-8. `evidence/claim_evidence_matrix.md` summarizes the claim-evidence map.
+1. `atlas/README.md` is the entry point for the public evidence atlas.
+2. `atlas/scope/experiment_scope.json` records the experiment accounting boundary.
+3. `atlas/results/result_cube_public.csv` is the public aggregate result cube.
+4. `atlas/datasets/dataset_catalog.csv` and `atlas/methods/method_catalog.csv` expose the dataset and method universes.
+5. `atlas/claims/claim_registry.json` records claim gates and overclaim blocks.
+6. `paper/research_document.md` is the primary Research Document.
+7. `paper/article.html` and `paper/article.pdf` are the compact report.
+8. `paper/supplement.html` and `paper/supplement.pdf` are the broad supplementary document.
+9. `site/index.html` is the public web entry point.
+10. `site/kg_browser.html` is the browsable evidence graph.
+11. `evidence/public_artifact_manifest.json` resolves public KG source/evidence references.
 
 GitHub Pages: <https://detasar.github.io/regression-conformal-prediction-research-atlas/>  
 Public repository: <https://github.com/detasar/regression-conformal-prediction-research-atlas>
 
 ## What This Repository Establishes
 
-The repository establishes that a large, audited regression conformal prediction experiment was run and reported under neutral scientific boundaries. It reports observed coverage, width, robustness, negative evidence, and claim gates.
+The repository establishes that a large, audited regression conformal prediction experiment was run and reported under neutral scientific boundaries. It exposes the experiment universe as public aggregate evidence: scope accounting, dataset and method catalogs, result cube, backend sensitivity analysis, negative evidence, closed claim gates, and provenance receipts.
 
 ## What This Study Does Not Establish
 
@@ -38,7 +54,6 @@ The repository establishes that a large, audited regression conformal prediction
 - Bounded-support validity claims.
 - Validated Venn-Abers regression interval claims.
 - Production or deployment advice.
-- Citation of the original working repository as the final public artifact.
 
 ## Reproducibility
 

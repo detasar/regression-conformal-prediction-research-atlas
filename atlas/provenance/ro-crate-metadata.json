@@ -1,0 +1,32 @@
+{
+  "@context": "https://w3id.org/ro/crate/1.1/context",
+  "@graph": [
+    {
+      "@id": "./",
+      "@type": "Dataset",
+      "author": {
+        "@id": "#emre-tasar"
+      },
+      "datePublished": "2026-07-09",
+      "description": "Public aggregate evidence atlas for regression conformal prediction experiments.",
+      "hasPart": [
+        {
+          "@id": "scope/experiment_scope.json"
+        },
+        {
+          "@id": "results/result_cube_public.csv"
+        },
+        {
+          "@id": "claims/claim_registry.json"
+        }
+      ],
+      "name": "Regression Conformal Prediction Research Atlas"
+    },
+    {
+      "@id": "#emre-tasar",
+      "@type": "Person",
+      "email": "mailto:detasar@gmail.com",
+      "name": "Emre Tasar"
+    }
+  ]
+}

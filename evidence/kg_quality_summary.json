@@ -6,32 +6,47 @@
   "reader_note": "The browser exposes curated routes first and keeps raw source keys as provenance detail.",
   "routes": [
     {
-      "anchor_node_count": 2,
+      "anchor_node_count": 3,
+      "route_id": "experiment_scope",
+      "title": "Experiment Scope"
+    },
+    {
+      "anchor_node_count": 7,
+      "route_id": "method_universe",
+      "title": "Method Universe"
+    },
+    {
+      "anchor_node_count": 6,
       "route_id": "cqr_cvplus_signal",
       "title": "CQR / CV+ Practical Signal"
     },
     {
-      "anchor_node_count": 4,
+      "anchor_node_count": 6,
       "route_id": "cqr_backend_sensitivity",
       "title": "CQR Backend Sensitivity Check"
     },
     {
-      "anchor_node_count": 4,
+      "anchor_node_count": 7,
       "route_id": "venn_abers_bridge",
-      "title": "Venn-Abers Bridge Outcome"
+      "title": "Negative Evidence"
     },
     {
-      "anchor_node_count": 5,
+      "anchor_node_count": 8,
+      "route_id": "closed_gates",
+      "title": "Closed Claim Gates"
+    },
+    {
+      "anchor_node_count": 8,
       "route_id": "dataset_audits",
       "title": "Dataset Audits"
     },
     {
-      "anchor_node_count": 4,
+      "anchor_node_count": 8,
       "route_id": "claim_scope",
       "title": "Evidence Scope"
     },
     {
-      "anchor_node_count": 4,
+      "anchor_node_count": 7,
       "route_id": "reproducibility",
       "title": "Reproducibility Trail"
     }

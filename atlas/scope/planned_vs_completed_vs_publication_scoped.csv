@@ -1,0 +1,4 @@
+scope,row_count,interpretation
+configured_run_cell_estimate,25012478,deterministic estimate from public YAML configuration grids
+canonical_completed_rows,156233,broader canonical completed ledger accounting
+publication_scoped_completed_rows,145839,rows used by the publication-scoped public synthesis

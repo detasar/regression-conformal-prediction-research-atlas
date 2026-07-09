@@ -1,0 +1,51 @@
+{
+  "routes": [
+    {
+      "atlas_paths": [
+        "atlas/scope/experiment_scope.json",
+        "atlas/scope/run_accounting_summary.json",
+        "atlas/scope/row_unit_definition.md"
+      ],
+      "description": "Counts, row-unit definition, planned-vs-completed accounting, and publication scope.",
+      "route_id": "experiment_scope",
+      "title": "Experiment Scope"
+    },
+    {
+      "atlas_paths": [
+        "atlas/methods/method_catalog.csv",
+        "atlas/methods/method_ontology.json"
+      ],
+      "description": "Method catalog, method ontology, and method cards.",
+      "route_id": "method_universe",
+      "title": "Method Universe"
+    },
+    {
+      "atlas_paths": [
+        "atlas/results/frontier_cells.csv",
+        "atlas/results/result_cube_public.csv"
+      ],
+      "description": "CQR/CV+ were observed as strong practical candidates in these experiments.",
+      "route_id": "cqr_cvplus_signal",
+      "title": "CQR/CV+ Signal"
+    },
+    {
+      "atlas_paths": [
+        "atlas/results/venn_abers_negative_evidence.csv",
+        "atlas/results/closed_claim_gates.csv"
+      ],
+      "description": "Bridge-specific negative and diagnostic evidence, especially for the evaluated Venn-Abers regression bridge.",
+      "route_id": "negative_evidence",
+      "title": "Negative Evidence"
+    },
+    {
+      "atlas_paths": [
+        "atlas/claims/claim_registry.json",
+        "atlas/claims/overclaim_blocklist.md"
+      ],
+      "description": "Stronger claims that remain closed under the evidence policy.",
+      "route_id": "closed_gates",
+      "title": "Closed Gates"
+    }
+  ],
+  "schema": "regression_cp_claim_routes_v1"
+}

@@ -1,0 +1,22 @@
+{
+  "@context": "https://www.w3.org/ns/prov#",
+  "@type": "Activity",
+  "generated": [
+    "atlas/scope/experiment_scope.json",
+    "atlas/results/result_cube_public.csv",
+    "atlas/claims/claim_registry.json"
+  ],
+  "generatedAtTime": "2026-07-09T18:16:06.823185+00:00",
+  "id": "build_public_research_atlas",
+  "used": [
+    "experiments/regression/manuscript/research_document.json",
+    "experiments/regression/manuscript/individual_experiment_report_draft.json",
+    "experiments/regression/reports/methodology_sanity_audit_20260627/method_performance_synthesis.json",
+    "experiments/regression/reports/methodology_sanity_audit_20260627/experiment_accounting_audit.json",
+    "experiments/regression/manuscript/publication_claim_evidence_verification_matrix.json",
+    "experiments/regression/manuscript/neutral_result_ledger.json",
+    "experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json",
+    "experiments/regression/catalogs/knowledge_graph.json"
+  ],
+  "wasAssociatedWith": "Emre Tasar"
+}

@@ -1,0 +1,5774 @@
+{
+  "rows": [
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8972785015265983,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.8323007227138186,
+      "method_label": "cqr",
+      "row_count": 285,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9093471907347822,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.856395754800249,
+      "method_label": "cv_minmax_grouped",
+      "row_count": 188,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8989347441044345,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.834235140387051,
+      "method_label": "cv_plus",
+      "row_count": 285,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8984623985612114,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.8393678394710173,
+      "method_label": "cv_plus_grouped",
+      "row_count": 188,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8983382418294716,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.8251180165487955,
+      "method_label": "mondrian_abs",
+      "row_count": 285,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8967168764155536,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.8709721093874503,
+      "method_label": "normalized_abs",
+      "row_count": 285,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8969968034460224,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.8463850143163953,
+      "method_label": "split_abs",
+      "row_count": 285,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5730021727591619,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 5.971273070291964,
+      "method_label": "venn_abers_quantile",
+      "row_count": 285,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.897003182713173,
+      "dataset_id": "aif360_lawschool_gpa",
+      "interval_score_mean": 3.847647144269331,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 282,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.90247598074562,
+      "dataset_id": "aif360_lawschool_gpa_dedup",
+      "interval_score_mean": 3.827653361970321,
+      "method_label": "cqr",
+      "row_count": 97,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9023590513125329,
+      "dataset_id": "aif360_lawschool_gpa_dedup",
+      "interval_score_mean": 3.840444913680188,
+      "method_label": "cv_plus",
+      "row_count": 97,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9051312532886403,
+      "dataset_id": "aif360_lawschool_gpa_dedup",
+      "interval_score_mean": 3.835754042216564,
+      "method_label": "mondrian_abs",
+      "row_count": 97,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9026732991639546,
+      "dataset_id": "aif360_lawschool_gpa_dedup",
+      "interval_score_mean": 3.87822049349705,
+      "method_label": "normalized_abs",
+      "row_count": 97,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9035210375538363,
+      "dataset_id": "aif360_lawschool_gpa_dedup",
+      "interval_score_mean": 3.852750272477879,
+      "method_label": "split_abs",
+      "row_count": 97,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5779651355407012,
+      "dataset_id": "aif360_lawschool_gpa_dedup",
+      "interval_score_mean": 5.959235273565019,
+      "method_label": "venn_abers_quantile",
+      "row_count": 97,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.903629389052005,
+      "dataset_id": "aif360_lawschool_gpa_dedup",
+      "interval_score_mean": 3.855274381800195,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 94,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8888704101600035,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 31878.51802849529,
+      "method_label": "cqr",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8938467615108132,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 34089.54320445089,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8963052536025521,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 61595.043181485045,
+      "method_label": "mondrian_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8879229393522978,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 45368.78430636077,
+      "method_label": "normalized_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8895959352769597,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 56260.64338242937,
+      "method_label": "split_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8962580405861625,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 64303.136209503115,
+      "method_label": "split_tail_0.25",
+      "row_count": 306,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8776852465423663,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 91511.40028182782,
+      "method_label": "split_tail_0.50",
+      "row_count": 306,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8649306685996768,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 310886.6288861526,
+      "method_label": "split_tail_0.75",
+      "row_count": 306,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6282589033157534,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 60962.68585753281,
+      "method_label": "venn_abers_quantile",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8934979488933261,
+      "dataset_id": "college_scorecard_2026_median_earnings",
+      "interval_score_mean": 63429.49021360174,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 306,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9911894932025089,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 745883.479449795,
+      "method_label": "cqr",
+      "row_count": 1420,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.989275229647929,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 737346.0315218015,
+      "method_label": "cv_plus",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9936324755009518,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 1143526.0593012033,
+      "method_label": "mondrian_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9916080372523951,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 107041921.78170994,
+      "method_label": "normalized_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9912990516999451,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 836313.1776626977,
+      "method_label": "shrink_0.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9923199035647804,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 885625.3959594002,
+      "method_label": "shrink_0.25",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9930036934465278,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 949770.8107793668,
+      "method_label": "shrink_0.50",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9933702842870645,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 1033612.8744344085,
+      "method_label": "shrink_0.75",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9936324755009518,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 1143526.0593012033,
+      "method_label": "shrink_1.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9912990516999451,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 836313.1776626977,
+      "method_label": "split_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9519467558518415,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 297791.81592720473,
+      "method_label": "cqr",
+      "row_count": 1420,
+      "selected": true
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9507974805420042,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 341535.4833676556,
+      "method_label": "cv_plus",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9523531540497845,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 354063.28987540584,
+      "method_label": "mondrian_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.950527785607693,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 391680.5520253012,
+      "method_label": "normalized_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9505259107099071,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 344404.67304011725,
+      "method_label": "shrink_0.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9513351798455468,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 346280.678450684,
+      "method_label": "shrink_0.25",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.951786890190191,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 348495.2048906912,
+      "method_label": "shrink_0.50",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9521551064849465,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 351062.8113260804,
+      "method_label": "shrink_0.75",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9523531540497845,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 354063.28987540584,
+      "method_label": "shrink_1.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9505259107099071,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 344404.67304011725,
+      "method_label": "split_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9002299674106917,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 209203.67136383723,
+      "method_label": "cqr",
+      "row_count": 1420,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9052036005488104,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 233378.52091992364,
+      "method_label": "cv_plus",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9047662381498499,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 237554.95791632147,
+      "method_label": "mondrian_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9010171497597039,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 239899.37319338345,
+      "method_label": "normalized_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9027233279051393,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 234712.90934371765,
+      "method_label": "shrink_0.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.90342771090699,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 235248.93627774558,
+      "method_label": "shrink_0.25",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.904009341912634,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 235905.87683274635,
+      "method_label": "shrink_0.50",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9044582960353876,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 236675.87231788208,
+      "method_label": "shrink_0.75",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9047662381498499,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 237554.95791632147,
+      "method_label": "shrink_1.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9027233279051393,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 234712.90934371765,
+      "method_label": "split_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.853407524250623,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 169542.8081693185,
+      "method_label": "cqr",
+      "row_count": 1420,
+      "selected": true
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8589723079959092,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 186058.4016427816,
+      "method_label": "cv_plus",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.85968385012458,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 188140.35370015577,
+      "method_label": "mondrian_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8539295647529357,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 188890.5184691167,
+      "method_label": "normalized_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.857455995959697,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 187227.8256907166,
+      "method_label": "shrink_0.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8581720065030586,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 187383.64208977428,
+      "method_label": "shrink_0.25",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8588326519466046,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 187588.85477495875,
+      "method_label": "shrink_0.50",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8593896918019658,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 187841.22642994384,
+      "method_label": "shrink_0.75",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.85968385012458,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 188140.35370015577,
+      "method_label": "shrink_1.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.857455995959697,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 187227.8256907166,
+      "method_label": "split_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8024172153333694,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 146602.96631033247,
+      "method_label": "cqr",
+      "row_count": 1420,
+      "selected": true
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8139438455852311,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 158234.06804947226,
+      "method_label": "cv_plus",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8133747061986861,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159323.56546778535,
+      "method_label": "mondrian_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8074451734035651,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159958.2573295725,
+      "method_label": "normalized_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8118635021666006,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159226.89946682422,
+      "method_label": "shrink_0.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8125163082582675,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159201.18448022148,
+      "method_label": "shrink_0.25",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8130048830696226,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159209.1605020341,
+      "method_label": "shrink_0.50",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8131920893716997,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159250.72471383744,
+      "method_label": "shrink_0.75",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8133747061986861,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159323.56546778535,
+      "method_label": "shrink_1.00",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8118635021666006,
+      "dataset_id": "fairlearn_acs_income_wy",
+      "interval_score_mean": 159226.89946682422,
+      "method_label": "split_abs",
+      "row_count": 1420,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9466771478169729,
+      "dataset_id": "fairlearn_diabetes_hospital_los",
+      "interval_score_mean": 9.42674126337776,
+      "method_label": "cqr",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.899659362615047,
+      "dataset_id": "fairlearn_diabetes_hospital_los",
+      "interval_score_mean": 11.0540520695512,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8999213913727031,
+      "dataset_id": "fairlearn_diabetes_hospital_los",
+      "interval_score_mean": 11.028369330414405,
+      "method_label": "mondrian_abs",
+      "row_count": 4,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.900191608529036,
+      "dataset_id": "fairlearn_diabetes_hospital_los",
+      "interval_score_mean": 10.438865776240613,
+      "method_label": "normalized_abs",
+      "row_count": 4,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8992335658838557,
+      "dataset_id": "fairlearn_diabetes_hospital_los",
+      "interval_score_mean": 11.027131456275383,
+      "method_label": "split_abs",
+      "row_count": 4,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5831286233664145,
+      "dataset_id": "fairlearn_diabetes_hospital_los",
+      "interval_score_mean": 14.781394744789175,
+      "method_label": "venn_abers_quantile",
+      "row_count": 4,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9312931293129313,
+      "dataset_id": "folktables_acs_poverty_ratio_wy",
+      "interval_score_mean": 441.8537018055162,
+      "method_label": "cqr",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.903090309030903,
+      "dataset_id": "folktables_acs_poverty_ratio_wy",
+      "interval_score_mean": 523.1629086389615,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9138913891389139,
+      "dataset_id": "folktables_acs_poverty_ratio_wy",
+      "interval_score_mean": 526.7041577984537,
+      "method_label": "mondrian_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9081908190819081,
+      "dataset_id": "folktables_acs_poverty_ratio_wy",
+      "interval_score_mean": 530.6510669217732,
+      "method_label": "normalized_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9096909690969097,
+      "dataset_id": "folktables_acs_poverty_ratio_wy",
+      "interval_score_mean": 523.292246361438,
+      "method_label": "split_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5607560756075607,
+      "dataset_id": "folktables_acs_poverty_ratio_wy",
+      "interval_score_mean": 784.1301116446065,
+      "method_label": "venn_abers_quantile",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9150066401062417,
+      "dataset_id": "folktables_acs_travel_time_wy",
+      "interval_score_mean": 72.34397065926917,
+      "method_label": "cqr",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9043824701195219,
+      "dataset_id": "folktables_acs_travel_time_wy",
+      "interval_score_mean": 76.63211038755587,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9150066401062417,
+      "dataset_id": "folktables_acs_travel_time_wy",
+      "interval_score_mean": 76.32252176311924,
+      "method_label": "mondrian_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9023904382470119,
+      "dataset_id": "folktables_acs_travel_time_wy",
+      "interval_score_mean": 82.90168222900479,
+      "method_label": "normalized_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9103585657370518,
+      "dataset_id": "folktables_acs_travel_time_wy",
+      "interval_score_mean": 76.4001907866531,
+      "method_label": "split_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5783532536520585,
+      "dataset_id": "folktables_acs_travel_time_wy",
+      "interval_score_mean": 106.67129618664171,
+      "method_label": "venn_abers_quantile",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8675739119707884,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 3.9814506370908553,
+      "method_label": "cqr",
+      "row_count": 168,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8477393261572186,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.154229730246132,
+      "method_label": "cv_minmax",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8261584781134403,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.420944157754889,
+      "method_label": "cv_plus",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8628311319261747,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.327261876433033,
+      "method_label": "mondrian_abs",
+      "row_count": 168,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8817664491977499,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 4.36997709684263,
+      "method_label": "normalized_abs",
+      "row_count": 168,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8612003907661278,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.306897098068457,
+      "method_label": "split_abs",
+      "row_count": 168,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8670934172571082,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.521117648449173,
+      "method_label": "split_tail_0.25",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8548946345955923,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.426891657502386,
+      "method_label": "split_tail_0.50",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.850831237011992,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.791906305239695,
+      "method_label": "split_tail_0.75",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6119117111607152,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.710079267331368,
+      "method_label": "venn_abers_quantile",
+      "row_count": 168,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8705279137143942,
+      "dataset_id": "hmda_2025_wy_interest_rate",
+      "interval_score_mean": 5.069861741170509,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9358420363873454,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 64015.1143585126,
+      "method_label": "cqr",
+      "row_count": 315,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9011874259971802,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 400413.2873112819,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9038452263773069,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 208130.8088479452,
+      "method_label": "mondrian_abs",
+      "row_count": 315,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.902193164326394,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 113743.3216510849,
+      "method_label": "normalized_abs",
+      "row_count": 315,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9051716784016437,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 309917.479335755,
+      "method_label": "split_abs",
+      "row_count": 315,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9021393140398896,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 89825.02792175126,
+      "method_label": "split_tail_0.25",
+      "row_count": 312,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9037478341659754,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 116062.33540234978,
+      "method_label": "split_tail_0.50",
+      "row_count": 312,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9056150322626041,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 208365.46920111662,
+      "method_label": "split_tail_0.75",
+      "row_count": 312,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6219761329708428,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 89918.93330028708,
+      "method_label": "venn_abers_quantile",
+      "row_count": 315,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9053089099556224,
+      "dataset_id": "meps_2023_total_expenditure",
+      "interval_score_mean": 311957.5688771264,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 312,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.990773889897026,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 42.94577913711043,
+      "method_label": "cqr",
+      "row_count": 9,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.988970585386357,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 61.61854909220434,
+      "method_label": "cv_plus",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9923698572549545,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 63.319230933097494,
+      "method_label": "mondrian_abs",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9492136407583504,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 31.11741505173889,
+      "method_label": "cqr",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9506747423462849,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 40.075601753703445,
+      "method_label": "cv_plus",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9552563047479775,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 39.89436461548875,
+      "method_label": "mondrian_abs",
+      "row_count": 9,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9043642690908672,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 25.995027995719024,
+      "method_label": "cqr",
+      "row_count": 466,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9119743170674631,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 30.83873382817567,
+      "method_label": "cv_minmax",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.900569725575877,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 30.795265127905637,
+      "method_label": "cv_plus",
+      "row_count": 465,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.906335247500935,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 30.648182394130327,
+      "method_label": "mondrian_abs",
+      "row_count": 466,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8992859131163766,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 9170805.686707715,
+      "method_label": "normalized_abs",
+      "row_count": 460,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9004925532766214,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 30.937831615400537,
+      "method_label": "split_abs",
+      "row_count": 460,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9014991835787524,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 30.55619792312602,
+      "method_label": "split_tail_0.25",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9036054563780711,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 29.491785634848622,
+      "method_label": "split_tail_0.50",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9054893904976614,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 30.87555200369414,
+      "method_label": "split_tail_0.75",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6351664248745427,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 39.43378179737275,
+      "method_label": "venn_abers_quantile",
+      "row_count": 460,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9011601538743431,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 30.97275145105913,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8547818340496701,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 23.61448859947578,
+      "method_label": "cqr",
+      "row_count": 9,
+      "selected": true
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8514636527243169,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 28.225882008262207,
+      "method_label": "cv_plus",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8488182656470662,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 28.071685140382023,
+      "method_label": "mondrian_abs",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8010096207560494,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 21.63673025995166,
+      "method_label": "cqr",
+      "row_count": 9,
+      "selected": true
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8037306369856331,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 25.359336843609714,
+      "method_label": "cv_plus",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8019182862147306,
+      "dataset_id": "nhanes_2017_2018_bmi",
+      "interval_score_mean": 25.273245961102365,
+      "method_label": "mondrian_abs",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9914537867965973,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 8.132829965534306,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.989386416266544,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 11.79434318999745,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9940732018705416,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 13.578208317483533,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9512782107394107,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 5.101668399176435,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9499655175277859,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 6.683168384015443,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9565136874827891,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 6.858941944475095,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8984095506541917,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.053378326270731,
+      "method_label": "cqr",
+      "row_count": 471,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9152960547965371,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.782809580569548,
+      "method_label": "cv_minmax",
+      "row_count": 459,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9041619597076315,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.783302013315646,
+      "method_label": "cv_plus",
+      "row_count": 471,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9033754148999472,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.869048345418199,
+      "method_label": "mondrian_abs",
+      "row_count": 471,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8998023469711032,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 79415.74385403347,
+      "method_label": "normalized_abs",
+      "row_count": 462,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8973722174701191,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.842102859208964,
+      "method_label": "split_abs",
+      "row_count": 462,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8988453005166227,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.860511165597905,
+      "method_label": "split_tail_0.25",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8984486284597598,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.6429728007267075,
+      "method_label": "split_tail_0.50",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9018392076489504,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 5.017729474658706,
+      "method_label": "split_tail_0.75",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7306335479358199,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 5.141099031323311,
+      "method_label": "venn_abers_quantile",
+      "row_count": 462,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8995969510410082,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 4.848435437434193,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8550094212967697,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 3.3589511474695097,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8543823001508063,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 3.722849815800625,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8593478150391441,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 3.7323989786205183,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8102828125587174,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 2.960481212172304,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8071083335106898,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 3.183809140233847,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8106281900718281,
+      "dataset_id": "nhanes_2017_2018_glycohemoglobin",
+      "interval_score_mean": 3.186300238802564,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9910644104460249,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 107.63154861818012,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9892647253019188,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 129.69720325822797,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9924915635857617,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 139.87883976831677,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9506045773211282,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 76.51688232349153,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9483719283332945,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 89.19944348356898,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9553215898595097,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 89.63884943782826,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9019927131715789,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 65.28921980909809,
+      "method_label": "cqr",
+      "row_count": 471,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9137479667521536,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 73.70586575786835,
+      "method_label": "cv_minmax",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9013305647021174,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 73.79971424636825,
+      "method_label": "cv_plus",
+      "row_count": 471,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9066727283973952,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 74.17371099496454,
+      "method_label": "mondrian_abs",
+      "row_count": 471,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.899637920335289,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 20677299.094327804,
+      "method_label": "normalized_abs",
+      "row_count": 462,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9011660826149273,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 74.21317824530328,
+      "method_label": "split_abs",
+      "row_count": 462,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9031753147964139,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 75.71926756895593,
+      "method_label": "split_tail_0.25",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9034457062782778,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 72.94982357052459,
+      "method_label": "split_tail_0.50",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9035339848670668,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 77.2291032220289,
+      "method_label": "split_tail_0.75",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6242990933263005,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 94.1005816857809,
+      "method_label": "venn_abers_quantile",
+      "row_count": 462,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9020388984525185,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 74.15122320314282,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 459,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8524344182767336,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 58.84328575921785,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8499540311134736,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 63.789277797322576,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8573384134917525,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 63.76422389989152,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.7988196787892844,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 54.04770534672731,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.7973326024178654,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 57.73661578243351,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8081293724077192,
+      "dataset_id": "nhanes_2017_2018_systolic_bp",
+      "interval_score_mean": 57.685494229328455,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9517857142857142,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 80576.32136347034,
+      "method_label": "cqr",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9875,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 462027.9201468419,
+      "method_label": "cv_plus",
+      "row_count": 8,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9264880952380953,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 190952.0222390824,
+      "method_label": "mondrian_abs",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9636904761904762,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 35727.50821948727,
+      "method_label": "cqr",
+      "row_count": 8,
+      "selected": true
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9508928571428571,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 88777.56931092382,
+      "method_label": "cv_plus",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9264880952380953,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 154884.247708394,
+      "method_label": "mondrian_abs",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9508968899212802,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 64680.87323616474,
+      "method_label": "cqr",
+      "row_count": 369,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9235427504335068,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 37354.10248918421,
+      "method_label": "cv_minmax",
+      "row_count": 357,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8802439984258166,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 30563.772035409023,
+      "method_label": "cv_plus",
+      "row_count": 363,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9192677070828331,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 33275.144614092525,
+      "method_label": "jackknife_minmax",
+      "row_count": 357,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8696478591436575,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 28660.630623298508,
+      "method_label": "jackknife_plus",
+      "row_count": 357,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8718687474989996,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 27695.07056831716,
+      "method_label": "jackknife_plus_after_bootstrap",
+      "row_count": 357,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9297522260936895,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 72457.45740069712,
+      "method_label": "mondrian_abs",
+      "row_count": 369,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9402531811622721,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 3.771937393642579e+301,
+      "method_label": "normalized_abs",
+      "row_count": 363,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9302112029384757,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 72872.72940064178,
+      "method_label": "split_abs",
+      "row_count": 363,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8765906362545018,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 39682.83631067254,
+      "method_label": "split_tail_0.25",
+      "row_count": 357,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8765906362545018,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 39682.83631067254,
+      "method_label": "split_tail_0.50",
+      "row_count": 357,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8765906362545018,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 39682.83631067254,
+      "method_label": "split_tail_0.75",
+      "row_count": 357,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6778564869473961,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 46372.00851387034,
+      "method_label": "venn_abers_quantile",
+      "row_count": 363,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9295985060690943,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 70832.76575634119,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 357,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8348214285714286,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 21281.025970095143,
+      "method_label": "cqr",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8232142857142857,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 21262.588442707685,
+      "method_label": "cv_plus",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8726190476190476,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 31976.61729836214,
+      "method_label": "mondrian_abs",
+      "row_count": 8,
+      "selected": true
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8095238095238095,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 18593.098710590177,
+      "method_label": "cqr",
+      "row_count": 8,
+      "selected": true
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.7744047619047619,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 18140.721636744227,
+      "method_label": "cv_plus",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.7675595238095237,
+      "dataset_id": "openml_analcatdata_chlamydia",
+      "interval_score_mean": 19252.3672661501,
+      "method_label": "mondrian_abs",
+      "row_count": 8,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8,
+      "dataset_id": "openml_analcatdata_galapagos",
+      "interval_score_mean": 528.4708774322331,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 1.0,
+      "dataset_id": "openml_analcatdata_galapagos",
+      "interval_score_mean": 710.0857491507105,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8333333333333334,
+      "dataset_id": "openml_analcatdata_galapagos",
+      "interval_score_mean": 542.0457863879658,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8333333333333334,
+      "dataset_id": "openml_analcatdata_galapagos",
+      "interval_score_mean": 542.0457863879658,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8333333333333334,
+      "dataset_id": "openml_analcatdata_galapagos",
+      "interval_score_mean": 542.0457863879658,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6666666666666666,
+      "dataset_id": "openml_analcatdata_galapagos",
+      "interval_score_mean": 506.68046452057683,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.96875,
+      "dataset_id": "openml_analcatdata_gsssexsurvey",
+      "interval_score_mean": 3.4255968352499955,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.90625,
+      "dataset_id": "openml_analcatdata_gsssexsurvey",
+      "interval_score_mean": 3.5890438128640794,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9375,
+      "dataset_id": "openml_analcatdata_gsssexsurvey",
+      "interval_score_mean": 4.570404115793229,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.91875,
+      "dataset_id": "openml_analcatdata_gsssexsurvey",
+      "interval_score_mean": 4.392399345727778,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.93125,
+      "dataset_id": "openml_analcatdata_gsssexsurvey",
+      "interval_score_mean": 4.596166839274956,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7625,
+      "dataset_id": "openml_analcatdata_gsssexsurvey",
+      "interval_score_mean": 4.056383901590292,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8987307002125602,
+      "dataset_id": "openml_analcatdata_hiroshima_rate",
+      "interval_score_mean": 18.251319603229643,
+      "method_label": "cqr",
+      "row_count": 209,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8513818795372193,
+      "dataset_id": "openml_analcatdata_hiroshima_rate",
+      "interval_score_mean": 20.503735615490275,
+      "method_label": "cv_plus",
+      "row_count": 209,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9049175154097655,
+      "dataset_id": "openml_analcatdata_hiroshima_rate",
+      "interval_score_mean": 30.994408834498657,
+      "method_label": "mondrian_abs",
+      "row_count": 209,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8709790320078176,
+      "dataset_id": "openml_analcatdata_hiroshima_rate",
+      "interval_score_mean": 8.041137827058713e+232,
+      "method_label": "normalized_abs",
+      "row_count": 209,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9223586263783845,
+      "dataset_id": "openml_analcatdata_hiroshima_rate",
+      "interval_score_mean": 20.71723488596261,
+      "method_label": "split_abs",
+      "row_count": 209,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5826110772968208,
+      "dataset_id": "openml_analcatdata_hiroshima_rate",
+      "interval_score_mean": 27.99403519499262,
+      "method_label": "venn_abers_quantile",
+      "row_count": 209,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9229820467081715,
+      "dataset_id": "openml_analcatdata_hiroshima_rate",
+      "interval_score_mean": 20.663445799482087,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 204,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.979361370716511,
+      "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
+      "interval_score_mean": 72.66630063993776,
+      "method_label": "cqr",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9190031152647975,
+      "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
+      "interval_score_mean": 40.64966298375109,
+      "method_label": "cv_plus",
+      "row_count": 107,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9727414330218068,
+      "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
+      "interval_score_mean": 86.72093456889576,
+      "method_label": "mondrian_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9704049844236761,
+      "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
+      "interval_score_mean": 159.52046547425704,
+      "method_label": "normalized_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9727414330218068,
+      "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
+      "interval_score_mean": 86.72093456889576,
+      "method_label": "split_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5404984423676013,
+      "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
+      "interval_score_mean": 59.12463473076484,
+      "method_label": "venn_abers_quantile",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9726307189542484,
+      "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
+      "interval_score_mean": 87.29445033736894,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9666666666666667,
+      "dataset_id": "openml_analcatdata_runshoes",
+      "interval_score_mean": 6.236921612640448,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.85,
+      "dataset_id": "openml_analcatdata_runshoes",
+      "interval_score_mean": 5.97961734675913,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8166666666666667,
+      "dataset_id": "openml_analcatdata_runshoes",
+      "interval_score_mean": 7.25133670066396,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8166666666666667,
+      "dataset_id": "openml_analcatdata_runshoes",
+      "interval_score_mean": 7.25133670066396,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8166666666666667,
+      "dataset_id": "openml_analcatdata_runshoes",
+      "interval_score_mean": 7.25133670066396,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5666666666666667,
+      "dataset_id": "openml_analcatdata_runshoes",
+      "interval_score_mean": 9.90413297267183,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9629629629629629,
+      "dataset_id": "openml_analcatdata_seropositive",
+      "interval_score_mean": 186.65629849067747,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8814814814814814,
+      "dataset_id": "openml_analcatdata_seropositive",
+      "interval_score_mean": 217.89880536987818,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9777777777777777,
+      "dataset_id": "openml_analcatdata_seropositive",
+      "interval_score_mean": 369.16803680419133,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9407407407407408,
+      "dataset_id": "openml_analcatdata_seropositive",
+      "interval_score_mean": 361.1998919559745,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9777777777777777,
+      "dataset_id": "openml_analcatdata_seropositive",
+      "interval_score_mean": 369.16803680419133,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6074074074074074,
+      "dataset_id": "openml_analcatdata_seropositive",
+      "interval_score_mean": 353.26227605275176,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.92,
+      "dataset_id": "openml_analcatdata_vehicle_count",
+      "interval_score_mean": 852.8567954419459,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.84,
+      "dataset_id": "openml_analcatdata_vehicle_count",
+      "interval_score_mean": 978.2580277046759,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_analcatdata_vehicle_count",
+      "interval_score_mean": 891.8681124705273,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_analcatdata_vehicle_count",
+      "interval_score_mean": 891.8681124705273,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_analcatdata_vehicle_count",
+      "interval_score_mean": 891.8681124705273,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.62,
+      "dataset_id": "openml_analcatdata_vehicle_count",
+      "interval_score_mean": 1103.509232800278,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9483422210348796,
+      "dataset_id": "openml_arsenic_event_rate_panel",
+      "interval_score_mean": 1008.0548437030612,
+      "method_label": "cqr",
+      "row_count": 311,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8949723225582586,
+      "dataset_id": "openml_arsenic_event_rate_panel",
+      "interval_score_mean": 2658.421725273211,
+      "method_label": "cv_plus",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9056578006145498,
+      "dataset_id": "openml_arsenic_event_rate_panel",
+      "interval_score_mean": 3976.6808641326775,
+      "method_label": "mondrian_abs",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.90693094267599,
+      "dataset_id": "openml_arsenic_event_rate_panel",
+      "interval_score_mean": 1.9850540482756577e+301,
+      "method_label": "normalized_abs",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9028722267006902,
+      "dataset_id": "openml_arsenic_event_rate_panel",
+      "interval_score_mean": 3839.296720017519,
+      "method_label": "split_abs",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7802939075346094,
+      "dataset_id": "openml_arsenic_event_rate_panel",
+      "interval_score_mean": 2797.1984674721566,
+      "method_label": "venn_abers_quantile",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9037982019261732,
+      "dataset_id": "openml_arsenic_event_rate_panel",
+      "interval_score_mean": 4152.703917078615,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 306,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.99375,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 10888.799251834793,
+      "method_label": "cqr",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9495098039215686,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 10653.76274142649,
+      "method_label": "cv_minmax",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9169471153846154,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 10827.60835201412,
+      "method_label": "cv_plus",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9476715686274509,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 10469.076865503515,
+      "method_label": "jackknife_minmax",
+      "row_count": 255,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9069852941176471,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 10580.754445261438,
+      "method_label": "jackknife_plus",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9053921568627451,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11174.63780581188,
+      "method_label": "jackknife_plus_after_bootstrap",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9716346153846154,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11291.077605849885,
+      "method_label": "mondrian_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.95625,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11729.909415836386,
+      "method_label": "normalized_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9716346153846154,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11291.077605849885,
+      "method_label": "split_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.972671568627451,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11824.241921472001,
+      "method_label": "split_tail_0.25",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.972671568627451,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11824.241921472001,
+      "method_label": "split_tail_0.50",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.972671568627451,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11824.241921472001,
+      "method_label": "split_tail_0.75",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7746394230769231,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 10605.180611017733,
+      "method_label": "venn_abers_quantile",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9769607843137255,
+      "dataset_id": "openml_auto_price",
+      "interval_score_mean": 11152.972113801341,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9132075471698113,
+      "dataset_id": "openml_baseball_hitter_salary",
+      "interval_score_mean": 1486.5260615835596,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9245283018867925,
+      "dataset_id": "openml_baseball_hitter_salary",
+      "interval_score_mean": 1328.9088939754197,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9660377358490566,
+      "dataset_id": "openml_baseball_hitter_salary",
+      "interval_score_mean": 3993.837057583854,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9433962264150944,
+      "dataset_id": "openml_baseball_hitter_salary",
+      "interval_score_mean": 1924.2098758538682,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9584905660377359,
+      "dataset_id": "openml_baseball_hitter_salary",
+      "interval_score_mean": 1703.9779426416903,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7169811320754716,
+      "dataset_id": "openml_baseball_hitter_salary",
+      "interval_score_mean": 1639.1311330461654,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9722222222222222,
+      "dataset_id": "openml_baseball_pitcher_salary",
+      "interval_score_mean": 1737.314915152311,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9277777777777778,
+      "dataset_id": "openml_baseball_pitcher_salary",
+      "interval_score_mean": 1319.3546845442386,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.95,
+      "dataset_id": "openml_baseball_pitcher_salary",
+      "interval_score_mean": 1775.3647020703336,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9444444444444444,
+      "dataset_id": "openml_baseball_pitcher_salary",
+      "interval_score_mean": 2300.4833664431244,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.95,
+      "dataset_id": "openml_baseball_pitcher_salary",
+      "interval_score_mean": 1517.094456724079,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6333333333333333,
+      "dataset_id": "openml_baseball_pitcher_salary",
+      "interval_score_mean": 1645.5746236013265,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9,
+      "dataset_id": "openml_baseball_team_salary",
+      "interval_score_mean": 435163.5777850118,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9666666666666667,
+      "dataset_id": "openml_baseball_team_salary",
+      "interval_score_mean": 486579.11382472527,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7333333333333333,
+      "dataset_id": "openml_baseball_team_salary",
+      "interval_score_mean": 397857.93988093495,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7333333333333333,
+      "dataset_id": "openml_baseball_team_salary",
+      "interval_score_mean": 397857.93988093495,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7333333333333333,
+      "dataset_id": "openml_baseball_team_salary",
+      "interval_score_mean": 397857.93988093495,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.4666666666666667,
+      "dataset_id": "openml_baseball_team_salary",
+      "interval_score_mean": 577715.5752388166,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.96,
+      "dataset_id": "openml_basketball_points_per_minute",
+      "interval_score_mean": 0.5341824878218415,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9,
+      "dataset_id": "openml_basketball_points_per_minute",
+      "interval_score_mean": 0.3585668339104341,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 1.0,
+      "dataset_id": "openml_basketball_points_per_minute",
+      "interval_score_mean": 0.5106231123499704,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 1.0,
+      "dataset_id": "openml_basketball_points_per_minute",
+      "interval_score_mean": 0.7127988552368019,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 1.0,
+      "dataset_id": "openml_basketball_points_per_minute",
+      "interval_score_mean": 0.5106231123499704,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7,
+      "dataset_id": "openml_basketball_points_per_minute",
+      "interval_score_mean": 0.46407481764687525,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9019607843137255,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 24.067357669313076,
+      "method_label": "cqr",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.944482891195694,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 21.609204744709697,
+      "method_label": "cv_minmax",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.902790346907994,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 20.664258661691612,
+      "method_label": "cv_plus",
+      "row_count": 260,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9378700499807766,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 21.213883691740826,
+      "method_label": "jackknife_minmax",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8905036524413686,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 20.503351297977876,
+      "method_label": "jackknife_plus",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8918877354863514,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 20.429725572336647,
+      "method_label": "jackknife_plus_after_bootstrap",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9172699849170437,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 20.806244340993175,
+      "method_label": "mondrian_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9046757164404223,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 23.663845037656117,
+      "method_label": "normalized_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9172699849170437,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 20.806244340993175,
+      "method_label": "split_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9390234525182622,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 22.232873611841903,
+      "method_label": "split_tail_0.25",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9582468281430219,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 23.890231694914807,
+      "method_label": "split_tail_0.50",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9371780084582852,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 23.108958890105733,
+      "method_label": "split_tail_0.75",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5868778280542987,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 31.611111524936476,
+      "method_label": "venn_abers_quantile",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9188773548635141,
+      "dataset_id": "openml_bodyfat_percentage",
+      "interval_score_mean": 20.84996435224596,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9029392764857881,
+      "dataset_id": "openml_california_housing",
+      "interval_score_mean": 249689.4129819236,
+      "method_label": "cqr",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8964793281653747,
+      "dataset_id": "openml_california_housing",
+      "interval_score_mean": 312070.69310688775,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9002745478036176,
+      "dataset_id": "openml_california_housing",
+      "interval_score_mean": 307349.4693613912,
+      "method_label": "mondrian_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9029392764857882,
+      "dataset_id": "openml_california_housing",
+      "interval_score_mean": 266337.19485180103,
+      "method_label": "normalized_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9034237726098191,
+      "dataset_id": "openml_california_housing",
+      "interval_score_mean": 312014.71577950456,
+      "method_label": "split_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5997254521963824,
+      "dataset_id": "openml_california_housing",
+      "interval_score_mean": 367945.8205577431,
+      "method_label": "venn_abers_quantile",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8566890940064837,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 349738.19078809087,
+      "method_label": "cqr",
+      "row_count": 156,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8270664225878112,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 401277.18613277754,
+      "method_label": "cv_minmax",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7990208266056765,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 415911.01258211397,
+      "method_label": "cv_plus",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8439559290302159,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 401285.3185164368,
+      "method_label": "mondrian_abs",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8516587660639192,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 374403.64936712646,
+      "method_label": "normalized_abs",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8370251535940139,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 407476.53470849694,
+      "method_label": "split_abs",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8266825689169728,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 420127.68220963486,
+      "method_label": "split_tail_0.25",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8416750995249241,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 384296.3803732369,
+      "method_label": "split_tail_0.50",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8613671706330015,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 358738.7676132658,
+      "method_label": "split_tail_0.75",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.547840488334399,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 535719.5035517027,
+      "method_label": "venn_abers_quantile",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8408858895327096,
+      "dataset_id": "openml_california_housing_spatial_cell",
+      "interval_score_mean": 401430.2648686727,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9187455452601567,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 239.24813762901852,
+      "method_label": "cqr",
+      "row_count": 69,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.907103825136612,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 225.2086833041144,
+      "method_label": "cqr_gb_deep_n200_d4_lr003",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9234972677595629,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 226.6985322068213,
+      "method_label": "cqr_gb_default_n300_d3_lr010",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9289617486338797,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 227.5119535875568,
+      "method_label": "cqr_gb_leaf5_n300_d3_lr005",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8907103825136612,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 231.39044984048175,
+      "method_label": "cqr_gb_shallow_n120_d2_lr003",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8852459016393442,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 234.39066559276708,
+      "method_label": "cqr_gb_shallow_n240_d2_lr005",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9562841530054644,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 225.25247409961136,
+      "method_label": "cqr_gb_subsample_n300_d3_lr005_sub08",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9271402550091075,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 278.33115245088857,
+      "method_label": "cv_plus",
+      "row_count": 72,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9261107151342362,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 287.75061543339575,
+      "method_label": "mondrian_abs",
+      "row_count": 69,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9146174863387978,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 293.641329135823,
+      "method_label": "normalized_abs",
+      "row_count": 72,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9112021857923497,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 278.28007613566143,
+      "method_label": "split_abs",
+      "row_count": 72,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6310287479211214,
+      "dataset_id": "openml_cholesterol_chol",
+      "interval_score_mean": 369.93688879003844,
+      "method_label": "venn_abers_quantile",
+      "row_count": 69,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9214953271028037,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 20.022710556700673,
+      "method_label": "cqr",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8989371449514385,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 19.305862573433398,
+      "method_label": "cv_plus",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9303558590941768,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 19.262687774014065,
+      "method_label": "mondrian_abs",
+      "row_count": 104,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9213695183321351,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 22.252282913083178,
+      "method_label": "normalized_abs",
+      "row_count": 104,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9201602136181576,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 19.331997770050425,
+      "method_label": "split_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.94773614009618,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 20.472678329919805,
+      "method_label": "split_tail_0.25",
+      "row_count": 103,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.909808547318755,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 19.99647305630838,
+      "method_label": "split_tail_0.50",
+      "row_count": 103,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.89483712911714,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 26.433159986170526,
+      "method_label": "split_tail_0.75",
+      "row_count": 103,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6256290438533428,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 26.429746956149454,
+      "method_label": "venn_abers_quantile",
+      "row_count": 104,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9205607476635513,
+      "dataset_id": "openml_cps_85_wages",
+      "interval_score_mean": 19.659172920678447,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8996849165153651,
+      "dataset_id": "openml_delta_elevators_se",
+      "interval_score_mean": 0.007443272943829261,
+      "method_label": "cqr",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9116583676497172,
+      "dataset_id": "openml_delta_elevators_se",
+      "interval_score_mean": 0.008125859212254657,
+      "method_label": "cv_plus",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9077919214147148,
+      "dataset_id": "openml_delta_elevators_se",
+      "interval_score_mean": 0.008080675934588265,
+      "method_label": "mondrian_abs",
+      "row_count": 311,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8977163676062407,
+      "dataset_id": "openml_delta_elevators_se",
+      "interval_score_mean": 0.008210748259463262,
+      "method_label": "normalized_abs",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9057628991199536,
+      "dataset_id": "openml_delta_elevators_se",
+      "interval_score_mean": 0.008146473290279668,
+      "method_label": "split_abs",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6041917135242414,
+      "dataset_id": "openml_delta_elevators_se",
+      "interval_score_mean": 0.011442214763970861,
+      "method_label": "venn_abers_quantile",
+      "row_count": 311,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9071791522231176,
+      "dataset_id": "openml_delta_elevators_se",
+      "interval_score_mean": 0.008134192335240719,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 306,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.881203007518797,
+      "dataset_id": "openml_disclosure_x_bias",
+      "interval_score_mean": 116064.36231155827,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8857142857142857,
+      "dataset_id": "openml_disclosure_x_bias",
+      "interval_score_mean": 106517.6760906662,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9082706766917293,
+      "dataset_id": "openml_disclosure_x_bias",
+      "interval_score_mean": 156530.5115923225,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8932330827067669,
+      "dataset_id": "openml_disclosure_x_bias",
+      "interval_score_mean": 120200.13583987505,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8857142857142857,
+      "dataset_id": "openml_disclosure_x_bias",
+      "interval_score_mean": 107356.43115191237,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6541353383458647,
+      "dataset_id": "openml_disclosure_x_bias",
+      "interval_score_mean": 146887.16035441952,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8902255639097744,
+      "dataset_id": "openml_disclosure_x_noise",
+      "interval_score_mean": 142872.69071300008,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8796992481203008,
+      "dataset_id": "openml_disclosure_x_noise",
+      "interval_score_mean": 140719.07279264368,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9263157894736842,
+      "dataset_id": "openml_disclosure_x_noise",
+      "interval_score_mean": 185797.28227787337,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8977443609022556,
+      "dataset_id": "openml_disclosure_x_noise",
+      "interval_score_mean": 159267.3693685487,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8932330827067669,
+      "dataset_id": "openml_disclosure_x_noise",
+      "interval_score_mean": 141347.25418266468,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7894736842105263,
+      "dataset_id": "openml_disclosure_x_noise",
+      "interval_score_mean": 755745656997.745,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8992481203007519,
+      "dataset_id": "openml_disclosure_x_tampered",
+      "interval_score_mean": 140240.32998025438,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8796992481203008,
+      "dataset_id": "openml_disclosure_x_tampered",
+      "interval_score_mean": 142507.2064582623,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.924812030075188,
+      "dataset_id": "openml_disclosure_x_tampered",
+      "interval_score_mean": 196956.69385645344,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8902255639097744,
+      "dataset_id": "openml_disclosure_x_tampered",
+      "interval_score_mean": 174123.299666605,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8962406015037594,
+      "dataset_id": "openml_disclosure_x_tampered",
+      "interval_score_mean": 147064.3151465322,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8090225563909774,
+      "dataset_id": "openml_disclosure_x_tampered",
+      "interval_score_mean": 1347601.1947778882,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8857142857142857,
+      "dataset_id": "openml_disclosure_z",
+      "interval_score_mean": 112983.5747130903,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8827067669172932,
+      "dataset_id": "openml_disclosure_z",
+      "interval_score_mean": 105181.99344521125,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9082706766917293,
+      "dataset_id": "openml_disclosure_z",
+      "interval_score_mean": 137507.1865843188,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8962406015037594,
+      "dataset_id": "openml_disclosure_z",
+      "interval_score_mean": 121855.28321574109,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8857142857142857,
+      "dataset_id": "openml_disclosure_z",
+      "interval_score_mean": 105557.46084000422,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6421052631578947,
+      "dataset_id": "openml_disclosure_z",
+      "interval_score_mean": 147113.02813934183,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_faculty_salaries_asst_prof",
+      "interval_score_mean": 23.476000000000003,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_faculty_salaries_asst_prof",
+      "interval_score_mean": 22.922333333333345,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_faculty_salaries_asst_prof",
+      "interval_score_mean": 25.14346666666667,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_faculty_salaries_asst_prof",
+      "interval_score_mean": 25.14346666666667,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_faculty_salaries_asst_prof",
+      "interval_score_mean": 25.14346666666667,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.64,
+      "dataset_id": "openml_faculty_salaries_asst_prof",
+      "interval_score_mean": 34.0482424242424,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.925,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 487.9859633034378,
+      "method_label": "cqr",
+      "row_count": 260,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9542892156862746,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 673.436633178412,
+      "method_label": "cv_minmax",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9206730769230769,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 569.2107052566846,
+      "method_label": "cv_plus",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9420343137254902,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 611.8164337213408,
+      "method_label": "jackknife_minmax",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9061274509803922,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 534.1465910053266,
+      "method_label": "jackknife_plus",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9028186274509804,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 536.3058219696155,
+      "method_label": "jackknife_plus_after_bootstrap",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9592548076923076,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 1240.893405100295,
+      "method_label": "mondrian_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9573317307692307,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 981.4942183426315,
+      "method_label": "normalized_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9592548076923076,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 1240.893405100295,
+      "method_label": "split_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9553921568627451,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 1049.7081262102995,
+      "method_label": "split_tail_0.25",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9553921568627451,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 1049.7081262102995,
+      "method_label": "split_tail_0.50",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9553921568627451,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 1049.7081262102995,
+      "method_label": "split_tail_0.75",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8991586538461539,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 977.7179928666753,
+      "method_label": "venn_abers_quantile",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9776960784313725,
+      "dataset_id": "openml_fishcatch_weight",
+      "interval_score_mean": 1792.84071137108,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.875,
+      "dataset_id": "openml_gascons_consumption",
+      "interval_score_mean": 184.75000000000014,
+      "method_label": "cqr",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.25,
+      "dataset_id": "openml_gascons_consumption",
+      "interval_score_mean": 309.5044793619024,
+      "method_label": "cv_plus",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.875,
+      "dataset_id": "openml_gascons_consumption",
+      "interval_score_mean": 103.90774872363798,
+      "method_label": "mondrian_abs",
+      "row_count": 1,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.875,
+      "dataset_id": "openml_gascons_consumption",
+      "interval_score_mean": 103.90774872363798,
+      "method_label": "normalized_abs",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.875,
+      "dataset_id": "openml_gascons_consumption",
+      "interval_score_mean": 103.90774872363798,
+      "method_label": "split_abs",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.625,
+      "dataset_id": "openml_gascons_consumption",
+      "interval_score_mean": 122.86489158078085,
+      "method_label": "venn_abers_quantile",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7970594689488698,
+      "dataset_id": "openml_house_16h_price",
+      "interval_score_mean": 106789.58175904241,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9004608294930876,
+      "dataset_id": "openml_house_16h_price",
+      "interval_score_mean": 169091.53065761138,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9030941408821593,
+      "dataset_id": "openml_house_16h_price",
+      "interval_score_mean": 164688.3487546152,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9007241606319947,
+      "dataset_id": "openml_house_16h_price",
+      "interval_score_mean": 131740.6627926088,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9001974983541804,
+      "dataset_id": "openml_house_16h_price",
+      "interval_score_mean": 169192.17963834974,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6254992319508449,
+      "dataset_id": "openml_house_16h_price",
+      "interval_score_mean": 555687.8921260919,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8428571428571429,
+      "dataset_id": "openml_hutsof99_quality",
+      "interval_score_mean": 53.610449344415,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9,
+      "dataset_id": "openml_hutsof99_quality",
+      "interval_score_mean": 41.7246946403866,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8285714285714286,
+      "dataset_id": "openml_hutsof99_quality",
+      "interval_score_mean": 46.39886977170085,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9285714285714286,
+      "dataset_id": "openml_hutsof99_quality",
+      "interval_score_mean": 67.61628805388234,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8285714285714286,
+      "dataset_id": "openml_hutsof99_quality",
+      "interval_score_mean": 46.39886977170085,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.4857142857142857,
+      "dataset_id": "openml_hutsof99_quality",
+      "interval_score_mean": 80.24005967616417,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.965,
+      "dataset_id": "openml_icu_loc",
+      "interval_score_mean": 1.9601719503152117,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.905,
+      "dataset_id": "openml_icu_loc",
+      "interval_score_mean": 2.588910292875393,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9199999999999999,
+      "dataset_id": "openml_icu_loc",
+      "interval_score_mean": 2.8044750944480374,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.905,
+      "dataset_id": "openml_icu_loc",
+      "interval_score_mean": 2.71589582628407,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9199999999999999,
+      "dataset_id": "openml_icu_loc",
+      "interval_score_mean": 2.5408420008734685,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.835,
+      "dataset_id": "openml_icu_loc",
+      "interval_score_mean": 2.1438247343161674,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9079048656292588,
+      "dataset_id": "openml_kin8nm_y",
+      "interval_score_mean": 0.8257768662072233,
+      "method_label": "cqr",
+      "row_count": 107,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9123867414026104,
+      "dataset_id": "openml_kin8nm_y",
+      "interval_score_mean": 0.8812606712243287,
+      "method_label": "cv_plus",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9116739748992149,
+      "dataset_id": "openml_kin8nm_y",
+      "interval_score_mean": 0.8686170367022875,
+      "method_label": "mondrian_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.910505037833646,
+      "dataset_id": "openml_kin8nm_y",
+      "interval_score_mean": 0.836717168979128,
+      "method_label": "normalized_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9093189943719957,
+      "dataset_id": "openml_kin8nm_y",
+      "interval_score_mean": 0.8843381343411312,
+      "method_label": "split_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.574752099810119,
+      "dataset_id": "openml_kin8nm_y",
+      "interval_score_mean": 1.3040230715494072,
+      "method_label": "venn_abers_quantile",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9102633121582984,
+      "dataset_id": "openml_kin8nm_y",
+      "interval_score_mean": 0.8786894125288226,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9076923076923077,
+      "dataset_id": "openml_mba_grade_gpa",
+      "interval_score_mean": 1.4668988702492618,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8461538461538461,
+      "dataset_id": "openml_mba_grade_gpa",
+      "interval_score_mean": 1.4132628014931738,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9384615384615385,
+      "dataset_id": "openml_mba_grade_gpa",
+      "interval_score_mean": 1.5422543493951526,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9384615384615385,
+      "dataset_id": "openml_mba_grade_gpa",
+      "interval_score_mean": 1.5422543493951526,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9384615384615385,
+      "dataset_id": "openml_mba_grade_gpa",
+      "interval_score_mean": 1.5422543493951526,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7076923076923077,
+      "dataset_id": "openml_mba_grade_gpa",
+      "interval_score_mean": 1.7100726564840725,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9666666666666667,
+      "dataset_id": "openml_mba_grade_gpa_dedup",
+      "interval_score_mean": 1.4793526971834408,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8166666666666667,
+      "dataset_id": "openml_mba_grade_gpa_dedup",
+      "interval_score_mean": 1.5132765212454005,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9333333333333333,
+      "dataset_id": "openml_mba_grade_gpa_dedup",
+      "interval_score_mean": 1.5271602557583686,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9333333333333333,
+      "dataset_id": "openml_mba_grade_gpa_dedup",
+      "interval_score_mean": 1.5271602557583686,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9333333333333333,
+      "dataset_id": "openml_mba_grade_gpa_dedup",
+      "interval_score_mean": 1.5271602557583686,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6666666666666667,
+      "dataset_id": "openml_mba_grade_gpa_dedup",
+      "interval_score_mean": 1.8842028074918702,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9272727272727272,
+      "dataset_id": "openml_mercury_in_bass",
+      "interval_score_mean": 1.4544392624574238,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8181818181818181,
+      "dataset_id": "openml_mercury_in_bass",
+      "interval_score_mean": 1.1452964039098683,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6363636363636364,
+      "dataset_id": "openml_mercury_in_bass",
+      "interval_score_mean": 1.4102575178426784,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6363636363636364,
+      "dataset_id": "openml_mercury_in_bass",
+      "interval_score_mean": 1.4102575178426784,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6363636363636364,
+      "dataset_id": "openml_mercury_in_bass",
+      "interval_score_mean": 1.4102575178426784,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.36363636363636365,
+      "dataset_id": "openml_mercury_in_bass",
+      "interval_score_mean": 2.075444538655458,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9183249821045096,
+      "dataset_id": "openml_mtp2_oz1143",
+      "interval_score_mean": 0.8030082368441458,
+      "method_label": "cqr",
+      "row_count": 254,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.90773085182534,
+      "dataset_id": "openml_mtp2_oz1143",
+      "interval_score_mean": 0.817071241797118,
+      "method_label": "cv_plus",
+      "row_count": 254,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9136721546170364,
+      "dataset_id": "openml_mtp2_oz1143",
+      "interval_score_mean": 0.8018726418348892,
+      "method_label": "mondrian_abs",
+      "row_count": 254,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9236936292054402,
+      "dataset_id": "openml_mtp2_oz1143",
+      "interval_score_mean": 0.9463730393350542,
+      "method_label": "normalized_abs",
+      "row_count": 254,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9133142448103078,
+      "dataset_id": "openml_mtp2_oz1143",
+      "interval_score_mean": 0.8025080581613248,
+      "method_label": "split_abs",
+      "row_count": 254,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6355046528274875,
+      "dataset_id": "openml_mtp2_oz1143",
+      "interval_score_mean": 1.0959445103028311,
+      "method_label": "venn_abers_quantile",
+      "row_count": 254,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9163206871868289,
+      "dataset_id": "openml_mtp2_oz1143",
+      "interval_score_mean": 0.8018359084257541,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 254,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9176494427558257,
+      "dataset_id": "openml_newton_hema_cells",
+      "interval_score_mean": 99.63405966961581,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8330279844879992,
+      "dataset_id": "openml_newton_hema_cells",
+      "interval_score_mean": 83.46573772694349,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.94,
+      "dataset_id": "openml_newton_hema_cells",
+      "interval_score_mean": 88.83102409036944,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8807832861684659,
+      "dataset_id": "openml_newton_hema_cells",
+      "interval_score_mean": 92.84586606991327,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.94,
+      "dataset_id": "openml_newton_hema_cells",
+      "interval_score_mean": 88.83102409036944,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6725395660832197,
+      "dataset_id": "openml_newton_hema_cells",
+      "interval_score_mean": 104.3430455221168,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9452495974235104,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 967.3811083162674,
+      "method_label": "cqr",
+      "row_count": 69,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9576719576719577,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1019.1503094470868,
+      "method_label": "cqr_gb_deep_n200_d4_lr003",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9523809523809523,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1002.093728205225,
+      "method_label": "cqr_gb_default_n300_d3_lr010",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9629629629629629,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1042.4274860203836,
+      "method_label": "cqr_gb_leaf5_n300_d3_lr005",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9629629629629629,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 976.700474006141,
+      "method_label": "cqr_gb_shallow_n120_d2_lr003",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9523809523809523,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 971.792010484675,
+      "method_label": "cqr_gb_shallow_n240_d2_lr005",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9523809523809523,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1004.6550269474934,
+      "method_label": "cqr_gb_subsample_n300_d3_lr005_sub08",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9144620811287478,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1056.140025752767,
+      "method_label": "cv_plus",
+      "row_count": 72,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9392684610075914,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1115.8028033968933,
+      "method_label": "mondrian_abs",
+      "row_count": 69,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9056437389770723,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1300.608009888879,
+      "method_label": "normalized_abs",
+      "row_count": 72,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9389329805996472,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1095.4133541569372,
+      "method_label": "split_abs",
+      "row_count": 72,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6581550494593973,
+      "dataset_id": "openml_plasma_retinol",
+      "interval_score_mean": 1245.0456707595745,
+      "method_label": "venn_abers_quantile",
+      "row_count": 69,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9080128205128205,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.7084563687484033,
+      "method_label": "cqr",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9162785947712418,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.5150876241506626,
+      "method_label": "cv_minmax",
+      "row_count": 255,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.882011217948718,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.5246913651958423,
+      "method_label": "cv_plus",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9108455882352942,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.517578713283554,
+      "method_label": "jackknife_minmax",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.87453022875817,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.558802405320689,
+      "method_label": "jackknife_plus",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8767361111111112,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.519811827624392,
+      "method_label": "jackknife_plus_after_bootstrap",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9345152243589744,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.646450761518984,
+      "method_label": "mondrian_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9118589743589743,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 1761.0146656024897,
+      "method_label": "normalized_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.917207532051282,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.568920771291125,
+      "method_label": "split_abs",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9088031045751634,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.578210109546864,
+      "method_label": "split_tail_0.25",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.896875,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.652886032784758,
+      "method_label": "split_tail_0.50",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8886642156862745,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 4.027609125531705,
+      "method_label": "split_tail_0.75",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6259014423076923,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 5.1810231014744295,
+      "method_label": "venn_abers_quantile",
+      "row_count": 260,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9197099673202614,
+      "dataset_id": "openml_sensory_score",
+      "interval_score_mean": 3.5967375703487363,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 255,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9400000000000001,
+      "dataset_id": "openml_sleuth_case1201_rank",
+      "interval_score_mean": 19.722727869331372,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9400000000000001,
+      "dataset_id": "openml_sleuth_case1201_rank",
+      "interval_score_mean": 8.995182474102126,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8200000000000001,
+      "dataset_id": "openml_sleuth_case1201_rank",
+      "interval_score_mean": 8.60169908736928,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8200000000000001,
+      "dataset_id": "openml_sleuth_case1201_rank",
+      "interval_score_mean": 8.60169908736928,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8200000000000001,
+      "dataset_id": "openml_sleuth_case1201_rank",
+      "interval_score_mean": 8.60169908736928,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.62,
+      "dataset_id": "openml_sleuth_case1201_rank",
+      "interval_score_mean": 11.469544486236755,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9263157894736842,
+      "dataset_id": "openml_sleuth_case1202_experience",
+      "interval_score_mean": 1278.9101053116729,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9263157894736842,
+      "dataset_id": "openml_sleuth_case1202_experience",
+      "interval_score_mean": 556.4685736167374,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9473684210526315,
+      "dataset_id": "openml_sleuth_case1202_experience",
+      "interval_score_mean": 1528.9736038161423,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9368421052631579,
+      "dataset_id": "openml_sleuth_case1202_experience",
+      "interval_score_mean": 2030.4057089771293,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9473684210526315,
+      "dataset_id": "openml_sleuth_case1202_experience",
+      "interval_score_mean": 1528.9736038161423,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.631578947368421,
+      "dataset_id": "openml_sleuth_case1202_experience",
+      "interval_score_mean": 627.9263351334101,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.94,
+      "dataset_id": "openml_sleuth_ex1714_invol",
+      "interval_score_mean": 3.3210772259594274,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_sleuth_ex1714_invol",
+      "interval_score_mean": 2.4260640033277623,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_sleuth_ex1714_invol",
+      "interval_score_mean": 3.0443208759154796,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_sleuth_ex1714_invol",
+      "interval_score_mean": 3.0443208759154796,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.88,
+      "dataset_id": "openml_sleuth_ex1714_invol",
+      "interval_score_mean": 3.0443208759154796,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8,
+      "dataset_id": "openml_sleuth_ex1714_invol",
+      "interval_score_mean": 2.7287795958697103,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9166666666666666,
+      "dataset_id": "openml_smsa_nox",
+      "interval_score_mean": 214.54091698794127,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.95,
+      "dataset_id": "openml_smsa_nox",
+      "interval_score_mean": 116.05590234890644,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9333333333333333,
+      "dataset_id": "openml_smsa_nox",
+      "interval_score_mean": 111.35691649055642,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9333333333333333,
+      "dataset_id": "openml_smsa_nox",
+      "interval_score_mean": 111.35691649055642,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9333333333333333,
+      "dataset_id": "openml_smsa_nox",
+      "interval_score_mean": 111.35691649055642,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8,
+      "dataset_id": "openml_smsa_nox",
+      "interval_score_mean": 154.48330225409268,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9224137931034483,
+      "dataset_id": "openml_socmob_sons_occupation",
+      "interval_score_mean": 85.06921894577134,
+      "method_label": "cqr",
+      "row_count": 5,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9043103448275862,
+      "dataset_id": "openml_socmob_sons_occupation",
+      "interval_score_mean": 124.29278468875829,
+      "method_label": "cv_plus",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9198275862068965,
+      "dataset_id": "openml_socmob_sons_occupation",
+      "interval_score_mean": 117.54164043102188,
+      "method_label": "mondrian_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9094827586206896,
+      "dataset_id": "openml_socmob_sons_occupation",
+      "interval_score_mean": 136.33514665401012,
+      "method_label": "normalized_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9215517241379311,
+      "dataset_id": "openml_socmob_sons_occupation",
+      "interval_score_mean": 121.16847796663298,
+      "method_label": "split_abs",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5508620689655173,
+      "dataset_id": "openml_socmob_sons_occupation",
+      "interval_score_mean": 157.81464638383125,
+      "method_label": "venn_abers_quantile",
+      "row_count": 5,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9195882587466538,
+      "dataset_id": "openml_space_ga_log_votes_pop",
+      "interval_score_mean": 0.6797692938490889,
+      "method_label": "cqr",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8696817186262175,
+      "dataset_id": "openml_space_ga_log_votes_pop",
+      "interval_score_mean": 0.6185130409311126,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9308267445412699,
+      "dataset_id": "openml_space_ga_log_votes_pop",
+      "interval_score_mean": 0.5995077757933104,
+      "method_label": "mondrian_abs",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9131453089699048,
+      "dataset_id": "openml_space_ga_log_votes_pop",
+      "interval_score_mean": 0.6084334100249298,
+      "method_label": "normalized_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9039986675710614,
+      "dataset_id": "openml_space_ga_log_votes_pop",
+      "interval_score_mean": 0.6134183156095872,
+      "method_label": "split_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6225092467461637,
+      "dataset_id": "openml_space_ga_log_votes_pop",
+      "interval_score_mean": 0.8046089450249131,
+      "method_label": "venn_abers_quantile",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9059510531213617,
+      "dataset_id": "oulad_assessment_score",
+      "interval_score_mean": 63.59375195843049,
+      "method_label": "cqr",
+      "row_count": 3,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8975437519636751,
+      "dataset_id": "oulad_assessment_score",
+      "interval_score_mean": 78.54045346256476,
+      "method_label": "mondrian_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8988211618183216,
+      "dataset_id": "oulad_assessment_score",
+      "interval_score_mean": 75.9061252675408,
+      "method_label": "normalized_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8974580586141289,
+      "dataset_id": "oulad_assessment_score",
+      "interval_score_mean": 78.58644043945199,
+      "method_label": "split_abs",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5479855366414055,
+      "dataset_id": "oulad_assessment_score",
+      "interval_score_mean": 108.91101539765852,
+      "method_label": "venn_abers_quantile",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.905584442270345,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 286.8327459904134,
+      "method_label": "cqr",
+      "row_count": 156,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.918335006449065,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 320.12824397430154,
+      "method_label": "cv_minmax",
+      "row_count": 153,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9002465935689349,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 318.12258572472365,
+      "method_label": "cv_plus",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9063857757180098,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 318.6104486369196,
+      "method_label": "mondrian_abs",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9044375866304968,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 313.37120187318254,
+      "method_label": "normalized_abs",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9043460599519957,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 319.13264889220443,
+      "method_label": "split_abs",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9042207030180456,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 326.9462551865478,
+      "method_label": "split_tail_0.25",
+      "row_count": 153,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9048345928710606,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 316.02232124931214,
+      "method_label": "split_tail_0.50",
+      "row_count": 153,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9051527511834966,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 327.8619006737259,
+      "method_label": "split_tail_0.75",
+      "row_count": 153,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5777336162744242,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 469.2068723768668,
+      "method_label": "venn_abers_quantile",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9057718042248375,
+      "dataset_id": "pisa_2022_math_pv_mean",
+      "interval_score_mean": 317.16359777226006,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 153,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8984403336960464,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 66102650.867006764,
+      "method_label": "cqr",
+      "row_count": 159,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8961915125136017,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 118399933656.96053,
+      "method_label": "cv_plus",
+      "row_count": 3,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8991192231096147,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 92063189451.24283,
+      "method_label": "mondrian_abs",
+      "row_count": 159,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.901073767630936,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 5.020669844501971e+302,
+      "method_label": "normalized_abs",
+      "row_count": 159,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8999226668309142,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 45601317867.83755,
+      "method_label": "split_abs",
+      "row_count": 159,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8959041321391702,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 9074072967.82558,
+      "method_label": "split_tail_0.25",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9003180714823805,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 12543365711.285318,
+      "method_label": "split_tail_0.50",
+      "row_count": 156,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9003041209787673,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 48779393580.48181,
+      "method_label": "split_tail_0.75",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6942999295104741,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 1649409767208.6963,
+      "method_label": "venn_abers_quantile",
+      "row_count": 159,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9096467732485143,
+      "dataset_id": "scf_2022_networth",
+      "interval_score_mean": 1722525561107.5188,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 156,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9908312266875798,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 2021027.59984194,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9901353578929212,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 43499237.18766917,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9916141185879901,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 216511322.4255289,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.950015573702958,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 623483.5853505749,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9491980868939243,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 1155285.062220006,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.951303126961244,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 3189164.0453270944,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8993358768377584,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 433784.66981780203,
+      "method_label": "cqr",
+      "row_count": 481,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8988135613785535,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 552679.0301408991,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.900103133904492,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 548499.2844840111,
+      "method_label": "mondrian_abs",
+      "row_count": 481,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8983426309840876,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 489011.3604269034,
+      "method_label": "normalized_abs",
+      "row_count": 472,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.899108322056292,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 546860.2243890873,
+      "method_label": "split_abs",
+      "row_count": 472,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9001713367419878,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 498204.72583336395,
+      "method_label": "split_tail_0.25",
+      "row_count": 468,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8995443830416128,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 504743.88851712685,
+      "method_label": "split_tail_0.50",
+      "row_count": 468,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8997306819788412,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 559648.8562002471,
+      "method_label": "split_tail_0.75",
+      "row_count": 468,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.68507635643563,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 676494.8327300865,
+      "method_label": "venn_abers_quantile",
+      "row_count": 472,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9063492452734558,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 681476.3723142854,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 468,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8511255969192912,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 305279.7186781018,
+      "method_label": "cqr",
+      "row_count": 12,
+      "selected": true
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.847941906273554,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 411750.21524011367,
+      "method_label": "cv_plus",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8520129601398938,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 411758.790470546,
+      "method_label": "mondrian_abs",
+      "row_count": 12,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8000140661016686,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 262600.11541993136,
+      "method_label": "cqr",
+      "row_count": 9,
+      "selected": true
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.7985059223180161,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 352115.9586104537,
+      "method_label": "cv_plus",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.8009186026567979,
+      "dataset_id": "stackoverflow_2025_compensation",
+      "interval_score_mean": 349608.93566208,
+      "method_label": "mondrian_abs",
+      "row_count": 9,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9252336448598131,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 12.791389650219118,
+      "method_label": "cqr",
+      "row_count": 107,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.95,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.745682727355808,
+      "method_label": "cv_minmax",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9288990825688074,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.257380882282565,
+      "method_label": "cv_plus",
+      "row_count": 109,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.925,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.683467125543682,
+      "method_label": "jackknife_minmax",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.925,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.350017973960172,
+      "method_label": "jackknife_plus",
+      "row_count": 2,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.925,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.31500587899016,
+      "method_label": "jackknife_plus_after_bootstrap",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9216121495327103,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.403406264622244,
+      "method_label": "mondrian_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9276869158878505,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 45251.61897606762,
+      "method_label": "normalized_abs",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9380733944954128,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.27870760858546,
+      "method_label": "split_abs",
+      "row_count": 109,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7282710280373832,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 15.393206039024692,
+      "method_label": "venn_abers_quantile",
+      "row_count": 107,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9412990196078431,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.412919761317353,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.925,
+      "dataset_id": "uci_auto_mpg",
+      "interval_score_mean": 14.33501336840608,
+      "method_label": "weighted_abs_covariate_shift",
+      "row_count": 1,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8504696373962429,
+      "dataset_id": "uci_bike_sharing",
+      "interval_score_mean": 315.9450274789452,
+      "method_label": "cqr",
+      "row_count": 105,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8371941896024465,
+      "dataset_id": "uci_bike_sharing",
+      "interval_score_mean": 817.4730036474483,
+      "method_label": "cv_plus",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8739132809086938,
+      "dataset_id": "uci_bike_sharing",
+      "interval_score_mean": 815.5015051936309,
+      "method_label": "mondrian_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8744975972040192,
+      "dataset_id": "uci_bike_sharing",
+      "interval_score_mean": 5073.293439594373,
+      "method_label": "normalized_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.874563128003495,
+      "dataset_id": "uci_bike_sharing",
+      "interval_score_mean": 817.8978554547098,
+      "method_label": "split_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.5041612057667103,
+      "dataset_id": "uci_bike_sharing",
+      "interval_score_mean": 1055.3338327982526,
+      "method_label": "venn_abers_quantile",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8855150431732326,
+      "dataset_id": "uci_bike_sharing",
+      "interval_score_mean": 792.3681324715632,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8998209810239884,
+      "dataset_id": "uci_communities_crime",
+      "interval_score_mean": 0.5840605975004342,
+      "method_label": "cqr",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.890344909893782,
+      "dataset_id": "uci_communities_crime",
+      "interval_score_mean": 0.7344160225894392,
+      "method_label": "cv_plus",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9116839718343478,
+      "dataset_id": "uci_communities_crime",
+      "interval_score_mean": 0.6588632391866902,
+      "method_label": "mondrian_abs",
+      "row_count": 105,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8978159684926602,
+      "dataset_id": "uci_communities_crime",
+      "interval_score_mean": 0.6380520195693629,
+      "method_label": "normalized_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9059314954051796,
+      "dataset_id": "uci_communities_crime",
+      "interval_score_mean": 0.7391880439356202,
+      "method_label": "split_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.7030194533953932,
+      "dataset_id": "uci_communities_crime",
+      "interval_score_mean": 0.7845053891369128,
+      "method_label": "venn_abers_quantile",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9111504250823136,
+      "dataset_id": "uci_communities_crime",
+      "interval_score_mean": 0.7314290195354198,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.906980056980057,
+      "dataset_id": "uci_student_performance_no_prior_grades",
+      "interval_score_mean": 12.648730389819663,
+      "method_label": "cqr",
+      "row_count": 108,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8992673992673993,
+      "dataset_id": "uci_student_performance_no_prior_grades",
+      "interval_score_mean": 14.205455805197,
+      "method_label": "cv_plus",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9037362637362637,
+      "dataset_id": "uci_student_performance_no_prior_grades",
+      "interval_score_mean": 14.413136237678417,
+      "method_label": "mondrian_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8794871794871795,
+      "dataset_id": "uci_student_performance_no_prior_grades",
+      "interval_score_mean": 14.046035438566241,
+      "method_label": "normalized_abs",
+      "row_count": 108,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8941595441595441,
+      "dataset_id": "uci_student_performance_no_prior_grades",
+      "interval_score_mean": 14.26346684170972,
+      "method_label": "split_abs",
+      "row_count": 108,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6386039886039886,
+      "dataset_id": "uci_student_performance_no_prior_grades",
+      "interval_score_mean": 17.40509192633432,
+      "method_label": "venn_abers_quantile",
+      "row_count": 108,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9037362637362637,
+      "dataset_id": "uci_student_performance_no_prior_grades",
+      "interval_score_mean": 13.759864793349658,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8965567765567766,
+      "dataset_id": "uci_student_performance_with_prior_grades",
+      "interval_score_mean": 6.597213280009048,
+      "method_label": "cqr",
+      "row_count": 105,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.884102564102564,
+      "dataset_id": "uci_student_performance_with_prior_grades",
+      "interval_score_mean": 8.581918967034758,
+      "method_label": "cv_plus",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8629304029304029,
+      "dataset_id": "uci_student_performance_with_prior_grades",
+      "interval_score_mean": 8.729631341032828,
+      "method_label": "mondrian_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8591941391941392,
+      "dataset_id": "uci_student_performance_with_prior_grades",
+      "interval_score_mean": 7.602062939274363,
+      "method_label": "normalized_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8444688644688645,
+      "dataset_id": "uci_student_performance_with_prior_grades",
+      "interval_score_mean": 8.719080712457542,
+      "method_label": "split_abs",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.655018315018315,
+      "dataset_id": "uci_student_performance_with_prior_grades",
+      "interval_score_mean": 8.34084556353124,
+      "method_label": "venn_abers_quantile",
+      "row_count": 105,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8710407239819005,
+      "dataset_id": "uci_student_performance_with_prior_grades",
+      "interval_score_mean": 6.917078206387637,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 102,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9948717948717949,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 5.164824534668288,
+      "method_label": "cqr",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.9906410256410256,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 4.864508013980177,
+      "method_label": "cv_plus",
+      "row_count": 6,
+      "selected": true
+    },
+    {
+      "alpha": "0.01",
+      "coverage_mean": 0.992948717948718,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 4.9463498804403665,
+      "method_label": "mondrian_abs",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9902564102564102,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.8096333232498516,
+      "method_label": "cqr",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9547435897435897,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.717168860444302,
+      "method_label": "cv_plus",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.05",
+      "coverage_mean": 0.9558974358974359,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.707600178631312,
+      "method_label": "mondrian_abs",
+      "row_count": 6,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9063143353442759,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 2.937965562211608,
+      "method_label": "cqr",
+      "row_count": 315,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9021676497961889,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.068210386713008,
+      "method_label": "cv_plus",
+      "row_count": 315,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8996328798401426,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.070292973821474,
+      "method_label": "mondrian_abs",
+      "row_count": 315,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9011615315718725,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.1211173420010816,
+      "method_label": "normalized_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8976469547373368,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.0692481372721008,
+      "method_label": "split_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.597123697871412,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 4.307122699165721,
+      "method_label": "venn_abers_quantile",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.8986663181920003,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 3.0552555142220927,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 306,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.9085897435897435,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 2.616928820185174,
+      "method_label": "cqr",
+      "row_count": 6,
+      "selected": true
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8502564102564103,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 2.8252589066006197,
+      "method_label": "cv_plus",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.15",
+      "coverage_mean": 0.8496153846153847,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 2.824070892893612,
+      "method_label": "mondrian_abs",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.9002564102564102,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 2.4036644093935133,
+      "method_label": "cqr",
+      "row_count": 6,
+      "selected": true
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.7985897435897436,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 2.5850869124460356,
+      "method_label": "cv_plus",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.2",
+      "coverage_mean": 0.7978205128205128,
+      "dataset_id": "uci_wine_quality",
+      "interval_score_mean": 2.584352466477349,
+      "method_label": "mondrian_abs",
+      "row_count": 6,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9074891094298388,
+      "dataset_id": "uci_wine_quality_dedup",
+      "interval_score_mean": 2.9848625865522913,
+      "method_label": "cqr",
+      "row_count": 309,
+      "selected": true
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9099703475649814,
+      "dataset_id": "uci_wine_quality_dedup",
+      "interval_score_mean": 3.0571818318214623,
+      "method_label": "cv_plus",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.907587831464127,
+      "dataset_id": "uci_wine_quality_dedup",
+      "interval_score_mean": 3.0592207594142256,
+      "method_label": "mondrian_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.904075255867113,
+      "dataset_id": "uci_wine_quality_dedup",
+      "interval_score_mean": 3.134280607625209,
+      "method_label": "normalized_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9052618042933003,
+      "dataset_id": "uci_wine_quality_dedup",
+      "interval_score_mean": 3.0610899176932267,
+      "method_label": "split_abs",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.6083448585513858,
+      "dataset_id": "uci_wine_quality_dedup",
+      "interval_score_mean": 4.234181141583199,
+      "method_label": "venn_abers_quantile",
+      "row_count": 309,
+      "selected": false
+    },
+    {
+      "alpha": "0.1",
+      "coverage_mean": 0.9059175143473333,
+      "dataset_id": "uci_wine_quality_dedup",
+      "interval_score_mean": 3.0579583852646257,
+      "method_label": "venn_abers_split_fallback",
+      "row_count": 306,
+      "selected": false
+    }
+  ],
+  "schema": "regression_cp_dataset_method_heatmap_v1"
+}

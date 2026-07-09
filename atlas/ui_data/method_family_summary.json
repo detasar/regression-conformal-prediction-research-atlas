@@ -1,0 +1,109 @@
+{
+  "rows": [
+    {
+      "completed_rows": 17454,
+      "method_count": 4,
+      "method_family": "cross_validation_plus",
+      "method_labels": [
+        "cv_minmax",
+        "cv_minmax_grouped",
+        "cv_plus",
+        "cv_plus_grouped"
+      ],
+      "selected_cell_count": 16
+    },
+    {
+      "completed_rows": 15118,
+      "method_count": 1,
+      "method_family": "group_stratified_residual",
+      "method_labels": [
+        "mondrian_abs"
+      ],
+      "selected_cell_count": 15
+    },
+    {
+      "completed_rows": 4135,
+      "method_count": 3,
+      "method_family": "jackknife_plus",
+      "method_labels": [
+        "jackknife_minmax",
+        "jackknife_plus",
+        "jackknife_plus_after_bootstrap"
+      ],
+      "selected_cell_count": 2
+    },
+    {
+      "completed_rows": 14849,
+      "method_count": 1,
+      "method_family": "normalized_residual",
+      "method_labels": [
+        "normalized_abs"
+      ],
+      "selected_cell_count": 1
+    },
+    {
+      "completed_rows": 1,
+      "method_count": 1,
+      "method_family": "other_conformal",
+      "method_labels": [
+        "weighted_abs_covariate_shift"
+      ],
+      "selected_cell_count": 0
+    },
+    {
+      "completed_rows": 19721,
+      "method_count": 8,
+      "method_family": "quantile_conformal",
+      "method_labels": [
+        "cqr",
+        "cqr_gb_deep_n200_d4_lr003",
+        "cqr_gb_default_n300_d3_lr010",
+        "cqr_gb_leaf5_n300_d3_lr005",
+        "cqr_gb_shallow_n120_d2_lr003",
+        "cqr_gb_shallow_n240_d2_lr005",
+        "cqr_gb_subsample_n300_d3_lr005_sub08",
+        "cqr_model_matched"
+      ],
+      "selected_cell_count": 128
+    },
+    {
+      "completed_rows": 35500,
+      "method_count": 7,
+      "method_family": "shrinkage_split",
+      "method_labels": [
+        "shrink_0.00",
+        "shrink_0.10",
+        "shrink_0.25",
+        "shrink_0.50",
+        "shrink_0.75",
+        "shrink_0.90",
+        "shrink_1.00"
+      ],
+      "selected_cell_count": 0
+    },
+    {
+      "completed_rows": 28544,
+      "method_count": 5,
+      "method_family": "split_conformal",
+      "method_labels": [
+        "split_abs",
+        "split_tail_0.25",
+        "split_tail_0.50",
+        "split_tail_0.75",
+        "split_tail_grid_shortest"
+      ],
+      "selected_cell_count": 2
+    },
+    {
+      "completed_rows": 15081,
+      "method_count": 2,
+      "method_family": "venn_abers_or_inductive_distributional_bridge",
+      "method_labels": [
+        "venn_abers_quantile",
+        "venn_abers_split_fallback"
+      ],
+      "selected_cell_count": 2
+    }
+  ],
+  "schema": "regression_cp_method_family_summary_v1"
+}

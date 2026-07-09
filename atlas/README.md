@@ -1,0 +1,25 @@
+# Regression CP Research Atlas
+
+This atlas makes the experiment universe visible: scope, datasets, methods, result cube, claims, and provenance.
+
+## At A Glance
+
+- Publication-scoped completed rows: 145,839
+- Canonical completed rows: 156,233
+- Publication datasets: 67
+- Dataset-alpha cells: 95
+- Publication method labels: 28
+- Result cube rows: 641
+- Knowledge graph: 3,643 nodes / 21,019 edges / 0 isolated nodes
+
+## Directory Map
+
+- `scope/` records the accounting boundary and row-unit definition.
+- `datasets/` records public aggregate dataset catalog entries and cards.
+- `methods/` records method labels, families, ontology, and cards.
+- `results/` records the public aggregate result cube and selected result surfaces.
+- `claims/` records claim gates and overclaim blocks.
+- `provenance/` records source status, hashes, RO-Crate metadata, and PROV traces.
+- `ui_data/` contains compact JSON used by the public website.
+
+The atlas is public and citable as a navigation/traceability artifact. Stronger scientific claims remain controlled by the claim registry.
