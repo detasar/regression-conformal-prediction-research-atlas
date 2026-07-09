@@ -157,9 +157,13 @@ def test_public_release_site_uses_research_atlas_shell():
     assert data["schema"] == "regression_cp_evidence_graph_v2"
     assert data["summary"]["node_count"] == load_manifest()["summary"]["kg_node_count"]
     assert data["summary"]["edge_count"] == load_manifest()["summary"]["kg_edge_count"]
-    assert len(data["research_map"]) == 5
+    assert len(data["research_map"]) == 6
+    assert "cqr_backend_sensitivity" in {
+        route["route_id"] for route in data["research_map"]
+    }
     assert {route["title"] for route in data["research_map"]} == {
         "CQR / CV+ Practical Signal",
+        "CQR Backend Sensitivity Check",
         "Venn-Abers Bridge Outcome",
         "Dataset Audits",
         "Evidence Scope",

@@ -114,9 +114,10 @@ Research question & Article answer & Evidence anchor & Closed reading \\
 \midrule
 What empirical object is being audited? & A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. & Completed-row accounting and individual experiment report facts. & Do not read the scope as exhaustive internet coverage or deployment generality. \\
 Which practical method pattern is supported descriptively? & CQR/CV+ were observed as strong practical candidates in these experiments, with CQR carrying the largest descriptive frontier count (56) and CV+ contributing 13 frontier cells. & Frontier counts, coverage-width diagnostics, and claim/evidence matrix. & Do not turn the pattern into a selected method, best-method statement, or recommendation. \\
+Was the CQR signal only a fixed-GBM backend artifact? & A completed model-matched CQR rerun produced 4,564 model-matched rows and 224 paired comparison cells. Fixed-GBM CQR was selected in 116 coverage-eligible interval-score cells, model-matched CQR in 71, and neither variant in 37. & Fixed-GBM CQR vs model-matched CQR synthesis. & Do not treat the sensitivity check as a universal CQR recommendation. \\
 What did the evaluated Venn-Abers regression bridge show? & The evaluated bridge is negative/failure-mode evidence in this study, including 14 undercoverage runs. & Bridge diagnostics and Venn-Abers claim-boundary rows. & Do not reject the broader Venn-Abers predictive-distribution or generalized-calibration literature. \\
 Which stronger positive claims remain closed? & Bounded-support validity and population-level group inference remain closed: 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. & Paper gate map, bounded-support audit, group-diagnostic audit, and claim matrix. & Do not convert diagnostic endpoint or group evidence into validity or group-inference conclusions. \\
-How can the evidence be audited without opening release? & The KG and Research Atlas package provide traceability infrastructure with 3,638 KG nodes and 21,009 KG edges. & Knowledge-graph quality audit and sterile package metadata. & Use the KG and site as public Research Atlas navigation artifacts, not as independent scientific claims. \\
+How can the evidence be audited without opening release? & The KG and Research Atlas package provide traceability infrastructure with 3,643 KG nodes and 21,019 KG edges. & Knowledge-graph quality audit and sterile package metadata. & Use the KG and site as public Research Atlas navigation artifacts, not as independent scientific claims. \\
 \bottomrule
 \end{longtable}
 \endgroup
@@ -158,10 +159,11 @@ Claim surface & Evidence & Supported reading & Boundary \\
 \midrule
 Audited empirical scope & 145,839 publication-scoped rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. & The study has a broad audited regression-CP accounting base. & Scope does not by itself authorize external validity or a general method recommendation. \\
 CQR/CV+ descriptive performance & CQR appears in 56 frontier cells; CV+ appears in 13 frontier cells. & CQR/CV+ were observed in these experiments as strong practical candidates. & This is not a claim that either method is universally best for regression conformal prediction. \\
+CQR backend sensitivity check & 4,564 model-matched CQR rows paired against 4,564 fixed-GBM CQR rows across 224 dataset-alpha-model-family cells; selected-cell counts are fixed-GBM CQR=116, model-matched CQR=71, neither=37. & The CQR signal was stress-tested against model-matched quantile backends and remains experiment-scoped. & The backend check does not establish a CQR method-selection or production recommendation claim. \\
 Venn-Abers regression bridge & The evaluated bridge has 14 undercoverage runs in the current evidence base. & The expected strong Venn-Abers regression solution did not emerge in these experiments. & This is not a rejection of the Venn-Abers literature or of future bridge designs. \\
 Bounded-support validity & 0 validity-ready bounded-support bundles. & Endpoint/bounded-support diagnostics remain useful audit signals. & No bounded-support validity claim is established. \\
 Population-level group inference & 0 population-group-inference-ready bundles. & Group diagnostics can guide supplementary inspection. & No population-level group inference claim is established. \\
-Knowledge-graph traceability & 3,638 KG nodes and 21,009 KG edges. & The KG is evidence infrastructure linking artifacts, sections, citations, claims, and quality checks. & The KG becomes a citable web artifact only after sterile-repository review and release. \\
+Knowledge-graph traceability & 3,643 KG nodes and 21,019 KG edges. & The KG is evidence infrastructure linking artifacts, sections, citations, claims, and quality checks. & The KG becomes a citable web artifact only after sterile-repository review and release. \\
 \bottomrule
 \end{longtable}
 \endgroup
@@ -322,6 +324,8 @@ Dataset-alpha cells & 95 & Calibration/coverage comparison scope \\
 CQR frontier cells & 56 & Largest descriptive frontier pattern \\
 Mondrian frontier cells & 15 & Secondary descriptive pattern \\
 CV+ frontier cells & 13 & Secondary descriptive pattern \\
+Model-matched CQR completed rows & 4,564 & Backend sensitivity check completed \\
+CQR fixed-vs-matched paired cells & 224 & Direct fixed-GBM versus model-matched CQR comparison \\
 Venn-Abers bridge undercoverage runs & 14 & Negative/failure-mode evidence \\
 Bounded-support validity-ready bundles & 0 & No bounded-support validity claim \\
 Population-group-inference-ready bundles & 0 & No population-level group inference claim \\
@@ -330,6 +334,29 @@ Population-group-inference-ready bundles & 0 & No population-level group inferen
 \endgroup
 
 The descriptive method result is internally consistent with the individual experiment report: CQR has the largest current frontier share, but the final selection claim remains blocked. The correct claim is not that CQR is the best regression conformal method in general; the supported claim is that CQR is the largest current diagnostic frontier pattern in this audited study.
+
+
+\subsection{CQR Backend Sensitivity Check}
+
+A completed model-matched CQR rerun tests whether the historical fixed-GBM CQR pipeline alone explains the CQR signal. The rerun completed 4,564 model-matched CQR rows and pairs them with 4,564 fixed-GBM CQR rows across 224 dataset-alpha-model-family cells.
+
+
+\begingroup
+\small
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.300\linewidth}>{\RaggedRight\arraybackslash}p{0.640\linewidth}@{}}
+\toprule
+CQR variant outcome & Coverage-eligible interval-score selected cells \\
+\midrule
+Fixed-GBM CQR & 116 \\
+Model-matched CQR & 71 \\
+Neither coverage-eligible variant & 37 \\
+\bottomrule
+\end{longtable}
+\endgroup
+
+This check keeps the interpretation conservative. It supports a pipeline-level backend sensitivity statement and does not convert CQR into a universal method-selection, best-method claim, or production recommendation.
 
 
 \section{Discussion}
@@ -342,7 +369,7 @@ The blocked claims are also results. Zero bounded-support validity-ready bundles
 
 \section{Reproducibility And Traceability}
 
-The knowledge graph snapshot used by this draft has 3,638 nodes and 21,009 edges. The graph links report sections, source artifacts, citation keys, claim boundaries, and quality checks. It is evidence infrastructure for the article and will become citable only after the sterile repository and release review are complete.
+The knowledge graph snapshot used by this draft has 3,643 nodes and 21,019 edges. The graph links report sections, source artifacts, citation keys, claim boundaries, and quality checks. It is evidence infrastructure for the article and will become citable only after the sterile repository and release review are complete.
 
 
 \section{Limitations}
@@ -387,6 +414,7 @@ The scientific contribution is therefore the audited measurement and boundary re
 \item \texttt{publication\_\allowbreak{}citation\_\allowbreak{}registry}: \texttt{experiments/\allowbreak{}regression/\allowbreak{}Research Document/\allowbreak{}publication\_\allowbreak{}citation\_\allowbreak{}registry.\allowbreak{}json}
 \item \texttt{publication\_\allowbreak{}exemplar\_\allowbreak{}review}: \texttt{experiments/\allowbreak{}regression/\allowbreak{}Research Document/\allowbreak{}publication\_\allowbreak{}exemplar\_\allowbreak{}review.\allowbreak{}json}
 \item \texttt{knowledge\_\allowbreak{}graph\_\allowbreak{}quality\_\allowbreak{}summary}: \texttt{experiments/\allowbreak{}regression/\allowbreak{}reports/\allowbreak{}knowledge\_\allowbreak{}graph\_\allowbreak{}quality/\allowbreak{}quality\_\allowbreak{}summary.\allowbreak{}json}
+\item \texttt{cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis}: \texttt{experiments/\allowbreak{}regression/\allowbreak{}reports/\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}cqr\_\allowbreak{}rerun\_\allowbreak{}plan/\allowbreak{}cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis.\allowbreak{}json}
 \end{itemize}
 
 \bibliographystyle{plain}

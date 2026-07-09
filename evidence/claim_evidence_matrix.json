@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-07T00:17:12.529694+00:00",
+  "generated_at_utc": "2026-07-09T14:29:22.101931+00:00",
   "rows": [
     {
       "evidence_gate": "Dataset/source descriptions need source citations before final prose; the matrix does not certify exhaustive internet coverage.",
@@ -24,8 +24,8 @@
       "id": "paper_main_results_blocked_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
-      "scope_limit": "Do not present a final main-results table, winner, or positive method conclusion.",
-      "statement": "The current evidence does not establish a final winner, final main result, or deployment recommendation.",
+      "scope_limit": "Do not present a final main-results table, selected method, or positive method conclusion.",
+      "statement": "The current evidence does not establish a final method selection, final main result, or deployment recommendation.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {

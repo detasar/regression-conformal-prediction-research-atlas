@@ -62,8 +62,8 @@ def test_private_sterile_package_builder_creates_clean_private_package(tmp_path)
     assert summary["reviewer_acceptance_row_count"] == 5
     assert summary["result_verification_command_row_count"] == 5
     assert summary["environment_data_access_row_count"] == 5
-    assert summary["research_question_row_count"] == 5
-    assert summary["contribution_finding_row_count"] == 6
+    assert summary["research_question_row_count"] == 6
+    assert summary["contribution_finding_row_count"] == 7
     assert summary["paper_architecture_row_count"] == 5
     assert summary["claim_safe_reading_row_count"] == 8
     assert summary["claim_evidence_review_row_count"] == 8
@@ -276,7 +276,10 @@ def test_private_sterile_package_builder_creates_clean_private_package(tmp_path)
     assert "Empirical object" in index
     assert "Observed pattern" in index
     assert "Traceability and release" in index
-    assert "Do not cite, publish, or make the repository public before the explicit release gate opens" in index
+    assert (
+        "The KG is a navigation and traceability artifact, not an independent scientific claim."
+        in index
+    )
     assert "Article / Supplement / Knowledge Graph review triad" in index
     assert "Minimal main article" in index
     assert "Broad supplementary document" in index
@@ -635,8 +638,8 @@ def test_checked_in_private_sterile_package_manifest_records_ready_state():
     assert summary["review_at_a_glance_row_count"] == 6
     assert summary["first_ten_minute_review_row_count"] == 5
     assert summary["reviewer_acceptance_row_count"] == 5
-    assert summary["research_question_row_count"] == 5
-    assert summary["contribution_finding_row_count"] == 6
+    assert summary["research_question_row_count"] == 6
+    assert summary["contribution_finding_row_count"] == 7
     assert summary["paper_architecture_row_count"] == 5
     assert summary["claim_safe_reading_row_count"] == 8
     assert summary["claim_evidence_review_row_count"] == 8
@@ -656,9 +659,8 @@ def test_checked_in_private_sterile_package_manifest_records_ready_state():
     assert len(payload["paper_architecture_rows"]) == 5
     assert summary["kg_browser_node_type_count"] > 0
     assert summary["kg_browser_relation_type_count"] > 0
-    assert summary["local_git_initialized"] is True
-    assert isinstance(summary["local_git_commit"], str)
-    assert len(summary["local_git_commit"]) == 40
+    assert summary["local_git_initialized"] is False
+    assert summary["local_git_commit"] is None
     assert summary["failed_check_count"] == 0
     rows = {
         row["surface_id"]: row

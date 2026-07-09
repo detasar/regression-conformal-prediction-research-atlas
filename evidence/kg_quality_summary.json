@@ -1,17 +1,22 @@
 {
-  "edge_count": 21009,
+  "edge_count": 21019,
   "isolated_node_count": 0,
-  "node_count": 3638,
+  "node_count": 3643,
   "provenance_coverage": 1.0,
   "reader_note": "The browser exposes curated routes first and keeps raw source keys as provenance detail.",
   "routes": [
     {
-      "anchor_node_count": 5,
+      "anchor_node_count": 2,
       "route_id": "cqr_cvplus_signal",
       "title": "CQR / CV+ Practical Signal"
     },
     {
-      "anchor_node_count": 5,
+      "anchor_node_count": 4,
+      "route_id": "cqr_backend_sensitivity",
+      "title": "CQR Backend Sensitivity Check"
+    },
+    {
+      "anchor_node_count": 4,
       "route_id": "venn_abers_bridge",
       "title": "Venn-Abers Bridge Outcome"
     },
@@ -21,12 +26,12 @@
       "title": "Dataset Audits"
     },
     {
-      "anchor_node_count": 5,
+      "anchor_node_count": 4,
       "route_id": "claim_scope",
       "title": "Evidence Scope"
     },
     {
-      "anchor_node_count": 5,
+      "anchor_node_count": 4,
       "route_id": "reproducibility",
       "title": "Reproducibility Trail"
     }

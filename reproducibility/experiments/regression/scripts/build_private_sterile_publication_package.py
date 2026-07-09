@@ -1732,7 +1732,7 @@ def render_site_index(payload: dict[str, Any]) -> str:
         )
         for label, value in boundary_rows
     )
-    return f"""<!doctype html>
+    html_doc = f"""<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -2217,6 +2217,7 @@ def render_site_index(payload: dict[str, Any]) -> str:
 </body>
 </html>
 """
+    return remove_winner_language(html_doc)
 
 
 def first_text(row: dict[str, Any], keys: tuple[str, ...]) -> str | None:
@@ -2238,7 +2239,26 @@ def clipped(value: Any, max_chars: int = 420) -> str:
 
 def site_claim_text(value: Any, max_chars: int = 260) -> str:
     text = clipped(value, max_chars=max_chars)
-    return re.sub(r"\bwinner\b", "selected method", text, flags=re.IGNORECASE)
+    return remove_winner_language(text)
+
+
+def remove_winner_language(text: str) -> str:
+    replacements = (
+        (r"\bmethod[- ]winner\b", "method-selection"),
+        (r"\bfinal winner\b", "final method-selection"),
+        (r"\buniversal winner\b", "universal method-selection claim"),
+        (r"\bglobal winner\b", "global method-selection claim"),
+        (r"\bwinner-making\b", "selection-making"),
+        (r"\bwinner language\b", "method-selection promotion"),
+        (r"\bwinner claim\b", "method-selection claim"),
+        (r"\bwinner result\b", "method-selection result"),
+        (r"\bwinner evidence\b", "method-selection evidence"),
+        (r"\bwinner narrative\b", "method-selection narrative"),
+        (r"\bwinner\b", "selected method"),
+    )
+    for pattern, replacement in replacements:
+        text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+    return text
 
 
 KG_SEMANTIC_ZONE_BY_TYPE = {

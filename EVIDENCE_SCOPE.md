@@ -12,6 +12,7 @@ This repository is the public Research Atlas for the regression conformal predic
 ## How To Read The Results
 
 - CQR/CV+ are reported as strong practical candidates observed in these experiments.
+- The completed model-matched CQR rerun is reported as backend-sensitivity evidence, not as a method-selection result.
 - The Venn-Abers statement is a bridge-specific negative result for the evaluated regression construction.
 - The study does not establish deployment guidance, a universal winning method, population-level group inference, bounded-support validity, or a validated Venn-Abers regression interval result.
 - Raw data, local caches, credentials, and nonredistributable source files are not included.
@@ -19,4 +20,5 @@ This repository is the public Research Atlas for the regression conformal predic
 ## Locked Wording
 
 - CQR/CV+ were observed as strong practical candidates in these experiments.
+- The model-matched CQR backend check is descriptive and experiment-scoped.
 - The expected strong regression solution did not emerge in these experiments.

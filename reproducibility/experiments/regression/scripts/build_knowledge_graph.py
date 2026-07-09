@@ -15513,6 +15513,219 @@ def main() -> None:
             method_configs_by_label=method_configs_by_label,
         )
 
+    cqr_model_matched_root = Path(
+        "experiments/regression/reports/model_matched_cqr_rerun_plan"
+    )
+    cqr_model_matched_manifest_json = (
+        cqr_model_matched_root / "model_matched_cqr_rerun_manifest.json"
+    )
+    cqr_model_matched_manifest_md = cqr_model_matched_manifest_json.with_suffix(".md")
+    cqr_fixed_vs_model_matched_json = (
+        cqr_model_matched_root / "cqr_fixed_vs_model_matched_synthesis.json"
+    )
+    cqr_fixed_vs_model_matched_md = (
+        cqr_fixed_vs_model_matched_json.with_suffix(".md")
+    )
+    if cqr_model_matched_manifest_json.exists():
+        try:
+            cqr_manifest_payload = json.loads(
+                cqr_model_matched_manifest_json.read_text(encoding="utf-8")
+            )
+        except json.JSONDecodeError:
+            cqr_manifest_payload = {}
+        cqr_manifest_summary = cqr_manifest_payload.get("summary") or {}
+        cqr_manifest_id = "report:model_matched_cqr_rerun_manifest"
+        add_node(
+            nodes,
+            cqr_manifest_id,
+            "method_report",
+            path=(
+                str(cqr_model_matched_manifest_md)
+                if cqr_model_matched_manifest_md.exists()
+                else None
+            ),
+            json_path=str(cqr_model_matched_manifest_json),
+            generated_config_count=cqr_manifest_summary.get("generated_config_count"),
+            expected_cqr_model_matched_run_count=cqr_manifest_summary.get(
+                "expected_cqr_model_matched_run_count"
+            ),
+            expected_atomic_run_count=cqr_manifest_summary.get(
+                "expected_atomic_run_count"
+            ),
+            method_boundary=cqr_manifest_summary.get("method_boundary"),
+            summary=(
+                "Model-matched CQR rerun manifest. It records generated configs, "
+                "run commands, and expected model-matched CQR accounting for the "
+                "backend-confound check."
+            ),
+        )
+        add_node(
+            nodes,
+            "method:cqr_model_matched",
+            "method",
+            name="cqr_model_matched",
+            summary=(
+                "Model-matched CQR method variant used to test whether the fixed-GBM "
+                "CQR signal was backend-specific."
+            ),
+        )
+        add_edge(
+            edges,
+            cqr_manifest_id,
+            "method:cqr_model_matched",
+            "EVALUATES_METHOD",
+            evidence_path=str(cqr_model_matched_manifest_json),
+            evidence="$.summary.expected_cqr_model_matched_run_count",
+        )
+        add_edge(
+            edges,
+            "method:cqr_model_matched",
+            "method:cqr",
+            "VARIANT_OF_METHOD",
+            evidence_path=str(cqr_model_matched_manifest_json),
+            evidence="$.summary.fixed_gbm_cqr_rows_preserved",
+        )
+
+    if cqr_fixed_vs_model_matched_json.exists():
+        try:
+            cqr_synthesis_payload = json.loads(
+                cqr_fixed_vs_model_matched_json.read_text(encoding="utf-8")
+            )
+        except json.JSONDecodeError:
+            cqr_synthesis_payload = {}
+        cqr_synthesis_summary = cqr_synthesis_payload.get("summary") or {}
+        selected_counts = (
+            cqr_synthesis_summary.get(
+                "coverage_eligible_interval_score_selected_counts"
+            )
+            or {}
+        )
+        cqr_synthesis_id = "report:cqr_fixed_vs_model_matched_synthesis"
+        cqr_control_id = "methodology_control:cqr_backend_sensitivity_check"
+        cqr_claim_id = "manuscript_claim:cqr_backend_sensitivity_no_method_winner"
+        add_node(
+            nodes,
+            cqr_synthesis_id,
+            "method_report",
+            path=(
+                str(cqr_fixed_vs_model_matched_md)
+                if cqr_fixed_vs_model_matched_md.exists()
+                else None
+            ),
+            json_path=str(cqr_fixed_vs_model_matched_json),
+            fixed_gbm_cqr_completed_rows=cqr_synthesis_summary.get(
+                "fixed_gbm_cqr_completed_rows"
+            ),
+            model_matched_cqr_completed_rows=cqr_synthesis_summary.get(
+                "model_matched_cqr_completed_rows"
+            ),
+            paired_cell_count=cqr_synthesis_summary.get("paired_cell_count"),
+            fixed_gbm_cqr_selected_cells=selected_counts.get("fixed_gbm_cqr"),
+            model_matched_cqr_selected_cells=selected_counts.get(
+                "model_matched_cqr"
+            ),
+            no_coverage_eligible_variant_cells=selected_counts.get(
+                "no_coverage_eligible_variant"
+            ),
+            can_support_method_winner_claim=cqr_synthesis_summary.get(
+                "can_support_method_winner_claim"
+            ),
+            method_boundary=cqr_synthesis_summary.get("method_boundary"),
+            summary=(
+                "Fixed-GBM CQR versus model-matched CQR synthesis. It completed "
+                f"{cqr_synthesis_summary.get('model_matched_cqr_completed_rows')} "
+                "model-matched CQR rows, paired "
+                f"{cqr_synthesis_summary.get('paired_cell_count')} cells, and "
+                "keeps the interpretation at pipeline-level descriptive signal."
+            ),
+        )
+        add_node(
+            nodes,
+            cqr_control_id,
+            "methodology_control",
+            name="CQR backend sensitivity check",
+            status=cqr_synthesis_summary.get("status"),
+            can_support_method_winner_claim=cqr_synthesis_summary.get(
+                "can_support_method_winner_claim"
+            ),
+            method_boundary=cqr_synthesis_summary.get("method_boundary"),
+            summary=(
+                "Backend-confound control for CQR. It compares fixed-GBM and "
+                "model-matched CQR selected cells and preserves a descriptive, "
+                "experiment-scoped interpretation."
+            ),
+        )
+        add_node(
+            nodes,
+            cqr_claim_id,
+            "manuscript_claim",
+            claim_text=(
+                "The completed model-matched CQR rerun supports backend-sensitivity "
+                "analysis but does not authorize a method-winner claim."
+            ),
+            claim_status="closed_to_method_winner_claim",
+            public_reading=(
+                "CQR remains an experiment-scoped practical signal; no universal "
+                "best-method or production guidance is claimed."
+            ),
+            summary=(
+                "Claim-boundary node for the completed fixed-vs-model-matched "
+                "CQR synthesis."
+            ),
+        )
+        if cqr_model_matched_manifest_json.exists():
+            add_edge(
+                edges,
+                "report:model_matched_cqr_rerun_manifest",
+                cqr_synthesis_id,
+                "SUPPORTS_REPORT",
+                evidence_path=str(cqr_fixed_vs_model_matched_json),
+                evidence="$.source_artifacts",
+            )
+        for method_id in ("cqr", "cqr_model_matched"):
+            add_edge(
+                edges,
+                cqr_synthesis_id,
+                method_node_id(method_id),
+                "EVALUATES_METHOD",
+                evidence_path=str(cqr_fixed_vs_model_matched_json),
+                evidence="$.summary.coverage_eligible_interval_score_selected_counts",
+            )
+        add_edge(
+            edges,
+            cqr_claim_id,
+            cqr_synthesis_id,
+            "SUPPORTED_BY",
+            evidence_path=str(cqr_fixed_vs_model_matched_json),
+            evidence="$.summary.can_support_method_winner_claim",
+        )
+        add_edge(
+            edges,
+            cqr_claim_id,
+            cqr_control_id,
+            "SUPPORTED_BY",
+            evidence_path=str(cqr_fixed_vs_model_matched_json),
+            evidence="$.claim_boundaries",
+        )
+        if "report:method_selection_inferential_audit" in nodes:
+            add_edge(
+                edges,
+                cqr_synthesis_id,
+                "report:method_selection_inferential_audit",
+                "SUPPORTS_REPORT",
+                evidence_path=str(cqr_fixed_vs_model_matched_json),
+                evidence="$.summary",
+            )
+        if "report:final_selection_claim_boundary_audit" in nodes:
+            add_edge(
+                edges,
+                cqr_claim_id,
+                "report:final_selection_claim_boundary_audit",
+                "SUPPORTED_BY",
+                evidence_path=str(cqr_fixed_vs_model_matched_json),
+                evidence="$.claim_boundaries",
+            )
+
     add_manuscript_claim_register(
         nodes,
         edges,

@@ -52,6 +52,10 @@ SOURCE_PATHS = {
     "claim_evidence_matrix": Path(
         "experiments/regression/manuscript/publication_claim_evidence_verification_matrix.json"
     ),
+    "cqr_model_matched_synthesis": Path(
+        "experiments/regression/reports/model_matched_cqr_rerun_plan/"
+        "cqr_fixed_vs_model_matched_synthesis.json"
+    ),
     "neutral_language_audit": REPORT_DIR / "neutral_reporting_language_audit.json",
     "kg_quality": Path("experiments/regression/reports/knowledge_graph_quality/quality_summary.json"),
     "kg_publication_audit": REPORT_DIR / "kg_publication_quality_audit.json",
@@ -366,16 +370,37 @@ def compile_package_pdfs(package_root: Path) -> list[dict[str, Any]]:
 
 
 def pdf_output_rows(package_root: Path) -> list[dict[str, Any]]:
+    public_fallbacks = {
+        "main_article_pdf": {
+            "tex_path": Path("paper/article.tex"),
+            "pdf_path": Path("paper/article.pdf"),
+        },
+        "supplementary_document_pdf": {
+            "tex_path": Path("paper/supplement.tex"),
+            "pdf_path": Path("paper/supplement.pdf"),
+        },
+    }
     rows = []
     for spec in PDF_OUTPUT_SPECS:
-        pdf_path = package_root / spec["pdf_path"]
-        tex_path = package_root / spec["tex_path"]
+        tex_rel = spec["tex_path"]
+        pdf_rel = spec["pdf_path"]
+        pdf_path = package_root / pdf_rel
+        tex_path = package_root / tex_rel
+        fallback = public_fallbacks.get(str(spec["component_id"])) or {}
+        if (not pdf_path.exists() or not tex_path.exists()) and fallback:
+            fallback_pdf = package_root / fallback["pdf_path"]
+            fallback_tex = package_root / fallback["tex_path"]
+            if fallback_pdf.exists() and fallback_tex.exists():
+                pdf_path = fallback_pdf
+                tex_path = fallback_tex
+                pdf_rel = fallback["pdf_path"]
+                tex_rel = fallback["tex_path"]
         rows.append(
             {
                 "component_id": spec["component_id"],
                 "title": spec["title"],
-                "tex_path": spec["tex_path"].as_posix(),
-                "pdf_path": spec["pdf_path"].as_posix(),
+                "tex_path": tex_rel.as_posix(),
+                "pdf_path": pdf_rel.as_posix(),
                 "tex_exists": tex_path.exists(),
                 "pdf_exists": pdf_path.exists(),
                 "pdf_bytes": pdf_path.stat().st_size if pdf_path.exists() else 0,
@@ -540,6 +565,13 @@ def build_payloads(root: Path, package_root: Path, remote_repo: str, pages_url: 
     traceability = kg_quality.get("traceability") or {}
     gh_state = gh_repo_state(remote_repo, root)
     pdf_rows = pdf_output_rows(package_root)
+    cqr_model_matched_summary = summaries.get("cqr_model_matched_synthesis") or {}
+    cqr_model_matched_selected_counts = (
+        cqr_model_matched_summary.get(
+            "coverage_eligible_interval_score_selected_counts"
+        )
+        or {}
+    )
 
     authorization = {
         "schema": SCHEMA_AUTH,
@@ -580,7 +612,7 @@ def build_payloads(root: Path, package_root: Path, remote_repo: str, pages_url: 
             "interpretation": (
                 "The approval opens public release, GitHub Pages, KG citation, and final "
                 "neutral article/supplement packaging. It does not open method recommendation, "
-                "winner language, bounded-support validity, population fairness, or positive "
+                "method-selection promotion, bounded-support validity, population fairness, or positive "
                 "Venn-Abers regression claims."
             ),
         },
@@ -610,6 +642,35 @@ def build_payloads(root: Path, package_root: Path, remote_repo: str, pages_url: 
             "kg_average_edge_confidence": traceability.get("average_edge_confidence"),
             "kg_edge_selector_provenance_coverage": traceability.get(
                 "edge_selector_provenance_coverage"
+            ),
+            "cqr_model_matched_completed_rows": cqr_model_matched_summary.get(
+                "model_matched_cqr_completed_rows"
+            ),
+            "cqr_fixed_gbm_completed_rows": cqr_model_matched_summary.get(
+                "fixed_gbm_cqr_completed_rows"
+            ),
+            "cqr_backend_sensitivity_paired_cell_count": cqr_model_matched_summary.get(
+                "paired_cell_count"
+            ),
+            "cqr_backend_sensitivity_cell_count": cqr_model_matched_summary.get(
+                "cell_count"
+            ),
+            "cqr_backend_sensitivity_fixed_gbm_selected_count": (
+                cqr_model_matched_selected_counts.get("fixed_gbm_cqr")
+            ),
+            "cqr_backend_sensitivity_model_matched_selected_count": (
+                cqr_model_matched_selected_counts.get("model_matched_cqr")
+            ),
+            "cqr_backend_sensitivity_neither_selected_count": (
+                cqr_model_matched_selected_counts.get(
+                    "no_coverage_eligible_variant"
+                )
+            ),
+            "cqr_backend_sensitivity_method_selection_claim_supported": (
+                cqr_model_matched_summary.get("can_support_method_winner_claim")
+            ),
+            "cqr_backend_sensitivity_method_boundary": cqr_model_matched_summary.get(
+                "method_boundary"
             ),
             "pdf_output_count": len(pdf_rows),
             "pdf_output_pass_count": sum(row["status"] == "pass" for row in pdf_rows),
@@ -702,7 +763,7 @@ def render_authorization_markdown(payload: dict[str, Any]) -> str:
             "",
             f"- {s['locked_empirical_wording']}",
             f"- {s['locked_venn_abers_wording']}",
-            "- The public release reports what the experiments observed; it does not convert those observations into deployment advice or a universal winner claim.",
+            "- The public release reports what the experiments observed; it does not convert those observations into deployment advice or a universal method-selection claim.",
             "",
             "## Release Note",
             "",
@@ -730,6 +791,9 @@ def render_manifest_markdown(payload: dict[str, Any]) -> str:
         f"- Stronger positive claim upgrade: `{s['positive_claim_promotion_authorized']}`",
         f"- Original working repository as citation target: `{s['working_repository_final_citable']}`",
         f"- KG snapshot: {s['kg_node_count']:,} nodes / {s['kg_edge_count']:,} edges / {s['kg_isolated_node_count']} isolated",
+        f"- Model-matched CQR rerun: {safe_int(s.get('cqr_model_matched_completed_rows')):,} completed rows",
+        f"- CQR fixed-vs-model-matched paired cells: {safe_int(s.get('cqr_backend_sensitivity_paired_cell_count')):,}",
+        f"- Coverage-eligible interval-score selections: fixed-GBM CQR {safe_int(s.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}, model-matched CQR {safe_int(s.get('cqr_backend_sensitivity_model_matched_selected_count'))}, neither {safe_int(s.get('cqr_backend_sensitivity_neither_selected_count'))}",
         f"- PDF outputs: {s['pdf_output_pass_count']} / {s['pdf_output_count']} ready",
         f"- Failed checks: {s['failed_check_count']}",
         "",
@@ -762,6 +826,8 @@ This repository is a public Research Atlas for a neutral empirical study of regr
 
 {LOCKED_EMPIRICAL_WORDING} This means CQR and CV+ behaved as strong practical candidates inside this audited experiment surface. It is experiment-scoped evidence, not a universal best-method claim or production recipe.
 
+The completed backend-confound check added `{safe_int(s.get('cqr_model_matched_completed_rows')):,}` model-matched CQR runs and `{safe_int(s.get('cqr_backend_sensitivity_paired_cell_count')):,}` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `{safe_int(s.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}`, model-matched CQR `{safe_int(s.get('cqr_backend_sensitivity_model_matched_selected_count'))}`, and neither `{safe_int(s.get('cqr_backend_sensitivity_neither_selected_count'))}`. This keeps CQR as a pipeline-level descriptive signal rather than a method-selection claim.
+
 {LOCKED_VENN_ABERS_WORDING} The Venn-Abers statement is bridge-specific negative evidence for the evaluated regression bridge, not a rejection of the broader Venn-Abers, predictive-distribution, or generalized-calibration literature.
 
 ## Artifacts
@@ -784,7 +850,7 @@ The repository establishes that a large, audited regression conformal prediction
 
 ## What This Study Does Not Establish
 
-- A general best-method recommendation or global winner.
+- A general best-method recommendation or global method-selection claim.
 - Population-level group inference claims.
 - Bounded-support validity claims.
 - Validated Venn-Abers regression interval claims.
@@ -987,6 +1053,7 @@ This repository is the public Research Atlas for the regression conformal predic
 ## How To Read The Results
 
 - CQR/CV+ are reported as strong practical candidates observed in these experiments.
+- The completed model-matched CQR rerun is reported as backend-sensitivity evidence, not as a method-selection result.
 - The Venn-Abers statement is a bridge-specific negative result for the evaluated regression construction.
 - The study does not establish deployment guidance, a universal winning method, population-level group inference, bounded-support validity, or a validated Venn-Abers regression interval result.
 - Raw data, local caches, credentials, and nonredistributable source files are not included.
@@ -994,6 +1061,7 @@ This repository is the public Research Atlas for the regression conformal predic
 ## Locked Wording
 
 - {LOCKED_EMPIRICAL_WORDING}
+- The model-matched CQR backend check is descriptive and experiment-scoped.
 - {LOCKED_VENN_ABERS_WORDING}
 """
 
@@ -1008,6 +1076,7 @@ This checklist summarizes the completed public Research Atlas build.
 - [x] GitHub Pages site generated.
 - [x] KG browser accepted as a supplementary/web artifact.
 - [x] Neutral Research Document, compact report, supplement, and individual report included.
+- [x] Completed model-matched CQR backend-sensitivity synthesis included.
 - [x] General method recommendation is not claimed.
 - [x] Stronger positive claim upgrade is not claimed.
 - [x] Raw data, cache files, and secrets remain excluded.
@@ -1120,6 +1189,12 @@ PUBLIC_TEXT_REPLACEMENTS = {
     "Public release and final manuscript claims remain blocked.": (
         "The public release reports experiment-scoped evidence."
     ),
+    "public release blocked": "public release scope recorded",
+    "Public release blocked": "Public release scope recorded",
+    "final prose and public release blocked": (
+        "article and supplement render scope recorded"
+    ),
+    "final/final": "final",
     "Public release and method recommendation remain closed.": (
         "The public release is experiment-scoped and non-prescriptive."
     ),
@@ -1183,6 +1258,34 @@ PUBLIC_TEXT_REPLACEMENTS = {
     ),
     "positive claim promotion": "stronger positive claim upgrade",
     "Positive claim promotion": "Stronger positive claim upgrade",
+    "no-method-winner": "no-method-selection",
+    "no_method_winner": "no_method_selection",
+    "method-winner": "method-selection",
+    "Method-winner": "Method-selection",
+    "method winner": "method selection",
+    "Method winner": "Method selection",
+    "final winner claims": "final method-selection claims",
+    "Final winner claims": "Final method-selection claims",
+    "final winner claim": "final method-selection claim",
+    "Final winner claim": "Final method-selection claim",
+    "final winner": "final method selection",
+    "Final winner": "Final method selection",
+    "winner-making": "selection-making",
+    "Winner-making": "Selection-making",
+    "winner language": "method-selection promotion",
+    "Winner language": "Method-selection promotion",
+    "winner claims": "method-selection claims",
+    "Winner claims": "Method-selection claims",
+    "winner claim": "method-selection claim",
+    "Winner claim": "Method-selection claim",
+    "winner result": "method-selection result",
+    "Winner result": "Method-selection result",
+    "global winner": "global method-selection claim",
+    "Global winner": "Global method-selection claim",
+    "universal winner": "universal method-selection claim",
+    "Universal winner": "Universal method-selection claim",
+    " winner": " selected method",
+    " Winner": " Selected method",
     "release authorization false": "release scope recorded in the manifest",
     "claim authorization": "claim scope",
     "authorization state": "claim scope",
@@ -1241,6 +1344,19 @@ def sanitize_public_text(text: str) -> str:
     return text
 
 
+def sanitize_public_json_value(value: Any) -> Any:
+    if isinstance(value, str):
+        return sanitize_public_text(value)
+    if isinstance(value, list):
+        return [sanitize_public_json_value(item) for item in value]
+    if isinstance(value, dict):
+        return {
+            key: sanitize_public_json_value(item)
+            for key, item in value.items()
+        }
+    return value
+
+
 PUBLIC_ARTIFACT_MANIFEST_REL = Path("evidence/public_artifact_manifest.json")
 PUBLIC_ARTIFACT_MANIFEST_MD_REL = Path("evidence/public_artifact_manifest.md")
 
@@ -1249,6 +1365,7 @@ def sanitize_public_json_for_browser(path: Path) -> None:
     if not path.exists():
         return
     payload = json.loads(path.read_text(encoding="utf-8"))
+    payload = sanitize_public_json_value(payload)
     for node in payload.get("nodes", []) or []:
         if not isinstance(node, dict):
             continue
@@ -1345,7 +1462,12 @@ SPECIAL_KG_LABELS = {
     "methodology_control:publication_claim_evidence_draft_artifact:research_document": "Research Document Guardrail",
     "report:private_sterile_publication_package_manifest": "Research Atlas Package Manifest",
     "report:knowledge_graph_quality_summary": "Knowledge Graph Quality Summary",
+    "report:model_matched_cqr_rerun_manifest": "Model-Matched CQR Rerun Manifest",
+    "report:cqr_fixed_vs_model_matched_synthesis": "CQR Backend Sensitivity Synthesis",
+    "methodology_control:cqr_backend_sensitivity_check": "CQR Backend Sensitivity Check",
+    "manuscript_claim:cqr_backend_sensitivity_no_method_winner": "CQR Backend Claim Boundary",
     "method:cqr": "CQR",
+    "method:cqr_model_matched": "Model-Matched CQR",
     "method:cv_plus": "CV+",
     "method:venn_abers_split_fallback": "Venn-Abers Bridge",
 }
@@ -1450,6 +1572,23 @@ def add_research_map(payload: dict[str, Any]) -> None:
             "accent": "#0f766e",
         },
         {
+            "route_id": "cqr_backend_sensitivity",
+            "title": "CQR Backend Sensitivity Check",
+            "summary": "Completed fixed-GBM versus model-matched CQR evidence; supports a sensitivity reading but not a method-selection claim.",
+            "node_ids": existing(
+                [
+                    "method:cqr",
+                    "method:cqr_model_matched",
+                    "report:model_matched_cqr_rerun_manifest",
+                    "report:cqr_fixed_vs_model_matched_synthesis",
+                    "methodology_control:cqr_backend_sensitivity_check",
+                    "manuscript_claim:cqr_backend_sensitivity_no_method_winner",
+                    "paper_gate:final_method_model_selection_gate",
+                ]
+            ),
+            "accent": "#0f766e",
+        },
+        {
             "route_id": "venn_abers_bridge",
             "title": "Venn-Abers Bridge Outcome",
             "summary": "Bridge-specific negative evidence for the evaluated regression construction.",
@@ -1520,6 +1659,7 @@ def enhance_public_kg_data(path: Path) -> None:
         return
     payload = json.loads(path.read_text(encoding="utf-8"))
     if payload.get("schema") == "regression_cp_evidence_graph_v2":
+        payload = sanitize_public_json_value(payload)
         atomic_write_json(path, payload)
         return
     payload["schema"] = "regression_cp_evidence_graph_v2"
@@ -1602,6 +1742,7 @@ def enhance_public_kg_data(path: Path) -> None:
             Counter(node.get("type", "node") for node in payload.get("nodes", [])).items()
         )
     )
+    payload = sanitize_public_json_value(payload)
     atomic_write_json(path, payload)
 
 
@@ -1876,6 +2017,7 @@ def public_site_index(manifest: dict[str, Any]) -> str:
         </div>
         <div class="tldr">
           <div class="tldr-row"><b>Main empirical signal</b><p>{LOCKED_EMPIRICAL_WORDING}</p></div>
+          <div class="tldr-row"><b>CQR backend check</b><p>{safe_int(s.get('cqr_model_matched_completed_rows')):,} model-matched CQR runs; {safe_int(s.get('cqr_backend_sensitivity_paired_cell_count')):,} paired cells; selected cells fixed-GBM {safe_int(s.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}, model-matched {safe_int(s.get('cqr_backend_sensitivity_model_matched_selected_count'))}, neither {safe_int(s.get('cqr_backend_sensitivity_neither_selected_count'))}. This is sensitivity evidence, not a method-selection claim.</p></div>
           <div class="tldr-row"><b>Venn-Abers bridge</b><p>{LOCKED_VENN_ABERS_WORDING}</p></div>
           <div class="tldr-row"><b>How to read it</b><p>These are experiment-scoped observations, not deployment guidance or a universal best-method prescription.</p></div>
         </div>
@@ -1891,7 +2033,7 @@ def public_site_index(manifest: dict[str, Any]) -> str:
           </svg>
           <div class="node-card n1"><b>CQR / CV+ Signal</b><span>observed practical candidates</span></div>
           <div class="node-card n2"><b>Venn-Abers Outcome</b><span>bridge-specific negative evidence</span></div>
-          <div class="node-card n3"><b>Claim-Evidence Matrix</b><span>reader-safe statements and support</span></div>
+          <div class="node-card n3"><b>CQR Backend Check</b><span>model-matched sensitivity evidence</span></div>
           <div class="node-card n4"><b>Dataset Audits</b><span>source, leakage, duplicates</span></div>
           <div class="node-card n5"><b>Reproducibility Trail</b><span>KG quality and build record</span></div>
         </div>
@@ -1912,7 +2054,7 @@ def public_site_index(manifest: dict[str, Any]) -> str:
       <h2>Evidence Scope</h2>
       <ul>
         <li>The study reports empirical observations from this audited experiment surface.</li>
-        <li>It does not establish production advice, a universal winner, population-level group inference, or bounded-support validity.</li>
+        <li>It does not establish production advice, a universal method-selection claim, population-level group inference, or bounded-support validity.</li>
         <li>The Venn-Abers result is about the evaluated regression bridge, not the broader Venn-Abers literature.</li>
       </ul>
     </section>

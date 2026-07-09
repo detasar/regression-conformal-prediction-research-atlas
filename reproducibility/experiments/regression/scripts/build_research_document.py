@@ -44,6 +44,10 @@ PRIVATE_PACKAGE = Path(
 PUBLICATION_EXEMPLAR_REVIEW = Path(
     "experiments/regression/manuscript/publication_exemplar_review.json"
 )
+CQR_MODEL_MATCHED_SYNTHESIS = Path(
+    "experiments/regression/reports/model_matched_cqr_rerun_plan/"
+    "cqr_fixed_vs_model_matched_synthesis.json"
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -151,12 +155,12 @@ def build_reader_contract_rows() -> list[dict[str, str]]:
             "reading_layer": "Traceability and release",
             "reader_question": "How should the package, KG, and site be treated?",
             "safe_reading": (
-                "They are private review surfaces for tracing claims to evidence, "
-                "citations, and gates."
+                "They are Research Atlas surfaces for tracing claims to evidence, "
+                "citations, and scope boundaries."
             ),
             "boundary": (
-                "Do not cite, publish, or make the repository public before the "
-                "explicit release gate opens."
+                "The KG is a navigation and traceability artifact, not an "
+                "independent scientific claim."
             ),
         },
     ]
@@ -201,6 +205,30 @@ def build_executive_synthesis_rows(
             "boundary": (
                 "Do not turn observed practical-candidate evidence into a "
                 "universal best-method statement or recommendation."
+            ),
+        },
+        {
+            "paragraph_id": "cqr_backend_sensitivity_check",
+            "heading": "What the CQR backend check adds",
+            "body": (
+                "The completed backend-confound check adds a model-matched CQR "
+                "rerun rather than a new method-selection claim. It completed "
+                f"{fmt(summary_payload['cqr_backend_sensitivity_model_matched_completed_rows'])} "
+                "model-matched CQR rows and paired "
+                f"{fmt(summary_payload['cqr_backend_sensitivity_paired_cell_count'])} "
+                "dataset-alpha-model-family cells against the historical "
+                "fixed-GBM CQR pipeline. Coverage-eligible interval-score "
+                "selections were fixed-GBM CQR="
+                f"{fmt(summary_payload['cqr_backend_sensitivity_fixed_gbm_selected_count'])}, "
+                "model-matched CQR="
+                f"{fmt(summary_payload['cqr_backend_sensitivity_model_matched_selected_count'])}, "
+                "and neither="
+                f"{fmt(summary_payload['cqr_backend_sensitivity_no_coverage_eligible_count'])}."
+            ),
+            "boundary": (
+                "The check keeps CQR as an experiment-scoped practical signal; "
+                "it does not authorize a method-selection or production "
+                "recommendation claim."
             ),
         },
         {
@@ -252,8 +280,8 @@ def build_executive_synthesis_rows(
                 f"{fmt(summary_payload['kg_edge_selector_provenance_coverage'])}."
             ),
             "boundary": (
-                "Do not cite or publish the KG, site, or private repository until "
-                "the explicit public-release gate opens."
+                "Treat the KG as Research Atlas navigation and traceability, not "
+                "as a standalone scientific result."
             ),
         },
     ]
@@ -282,13 +310,18 @@ def build_plain_language_summary_rows(summary_payload: dict[str, Any]) -> list[d
             "reader_question": "What does the CQR/CV+ finding mean?",
             "plain_language_answer": (
                 "CQR/CV+ looked practically useful in these experiments, with CQR "
-                "carrying the largest descriptive frontier signal."
+                "carrying the largest descriptive frontier signal and a completed "
+                "backend-sensitivity check."
             ),
             "evidence_anchor": (
                 f"CQR has {fmt(summary_payload['cqr_frontier_cell_count'])} "
                 f"frontier cells and CV+ has "
                 f"{fmt(summary_payload['cv_plus_frontier_cell_count'])} frontier "
-                "cells."
+                "cells; the model-matched CQR rerun completed "
+                f"{fmt(summary_payload['cqr_backend_sensitivity_model_matched_completed_rows'])} "
+                "rows and "
+                f"{fmt(summary_payload['cqr_backend_sensitivity_paired_cell_count'])} "
+                "paired cells."
             ),
             "boundary": (
                 "Do not turn the observed pattern into a final selected method, "
@@ -744,6 +777,30 @@ def build_scientific_method_rows(
             ),
         },
         {
+            "stage": "CQR backend sensitivity control",
+            "reader_question": (
+                "Was the CQR signal only an artifact of the fixed-GBM CQR backend?"
+            ),
+            "evidence_anchor": (
+                "The model-matched CQR rerun completed "
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_completed_rows'))} "
+                "rows and formed "
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_paired_cell_count'))} "
+                "paired dataset-alpha-model-family cells. Coverage-eligible "
+                "interval-score selected cells were fixed-GBM CQR="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}, "
+                "model-matched CQR="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_selected_count'))}, "
+                "and neither="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_no_coverage_eligible_count'))}."
+            ),
+            "scientific_boundary": (
+                "The check supports a backend-sensitivity reading only; it does "
+                "not open a CQR selection, CQR recommendation, or universal method "
+                "claim."
+            ),
+        },
+        {
             "stage": "Falsification and negative evidence",
             "reader_question": (
                 "Which attractive claims failed to close under the current evidence?"
@@ -829,6 +886,27 @@ def build_private_review_decision_rows(
             "still_closed": (
                 "No final selected method, best-method statement, production "
                 "recommendation, or universal superiority claim."
+            ),
+        },
+        {
+            "decision_point": "CQR backend sensitivity wording",
+            "accept_if": (
+                "The model-matched CQR rerun is reported as a backend-confound "
+                "diagnostic and not as a selection-making experiment."
+            ),
+            "evidence_to_check": (
+                f"Completed fixed-GBM rows {fmt(summary_payload.get('cqr_backend_sensitivity_fixed_gbm_completed_rows'))}; "
+                f"completed model-matched rows {fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_completed_rows'))}; "
+                f"paired cells {fmt(summary_payload.get('cqr_backend_sensitivity_paired_cell_count'))}; "
+                "coverage-eligible interval-score selections fixed-GBM="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}, "
+                "model-matched="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_selected_count'))}, "
+                "neither="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_no_coverage_eligible_count'))}."
+            ),
+            "still_closed": (
+                "No method-selection claim and no production recommendation."
             ),
         },
         {
@@ -926,6 +1004,25 @@ def build_contribution_finding_rows(
             "closed_reading": (
                 "This is not a final selected method, global superiority claim, "
                 "or recommendation."
+            ),
+        },
+        {
+            "contribution_or_finding": "CQR backend sensitivity check",
+            "reader_safe_statement": (
+                "The completed model-matched CQR rerun tested whether the CQR "
+                "signal was only a fixed-GBM pipeline artifact. It produced "
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_completed_rows'))} "
+                "model-matched CQR rows and "
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_paired_cell_count'))} "
+                "paired dataset-alpha-model-family cells."
+            ),
+            "evidence_anchor": (
+                "Fixed-vs-model-matched CQR synthesis and model-matched CQR rerun "
+                "manifest."
+            ),
+            "closed_reading": (
+                "This check does not authorize a universal CQR recommendation or "
+                "a final method-selection claim."
             ),
         },
         {
@@ -1045,6 +1142,32 @@ def build_research_question_rows(
             "closed_reading": (
                 "Do not present CQR, CV+, or any method as the selected method, "
                 "best method, or general recommendation."
+            ),
+        },
+        {
+            "research_question": (
+                "Was the observed CQR signal robust to matching the CQR backend "
+                "to the model-family sweep?"
+            ),
+            "short_answer": (
+                "The backend sensitivity check completed "
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_completed_rows'))} "
+                "model-matched CQR rows and compared "
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_paired_cell_count'))} "
+                "paired dataset-alpha-model-family cells. Selected cells were "
+                "fixed-GBM CQR="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}, "
+                "model-matched CQR="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_selected_count'))}, "
+                "and neither="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_no_coverage_eligible_count'))}."
+            ),
+            "evidence_anchor": (
+                "CQR fixed-vs-model-matched synthesis, rerun manifest, article "
+                "backend-sensitivity section, and supplement S1b."
+            ),
+            "closed_reading": (
+                "Do not read the check as resolving a universal CQR selection claim."
             ),
         },
         {
@@ -1374,7 +1497,33 @@ def build_result_interpretation_ladder_rows(
             ),
             "reader_action": (
                 "Use robustness as support for cautious wording, not for a final "
-                "winner sentence."
+                "selection sentence."
+            ),
+        },
+        {
+            "evidence_layer": "CQR backend sensitivity",
+            "what_it_can_support": (
+                "The model-matched rerun tests whether the fixed-GBM CQR signal "
+                "was only a backend artifact."
+            ),
+            "evidence_in_this_study": (
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_completed_rows'))} "
+                "model-matched CQR rows, "
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_paired_cell_count'))} "
+                "paired cells, selected cells fixed-GBM CQR="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}, "
+                "model-matched CQR="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_model_matched_selected_count'))}, "
+                "neither="
+                f"{fmt(summary_payload.get('cqr_backend_sensitivity_no_coverage_eligible_count'))}."
+            ),
+            "what_it_cannot_support": (
+                "It cannot promote CQR from experiment-scoped practical signal "
+                "to universal method-selection or production recommendation."
+            ),
+            "reader_action": (
+                "Read the check as backend-confound evidence and keep the final "
+                "claim descriptive."
             ),
         },
         {
@@ -1478,6 +1627,7 @@ def build_payload(root: Path) -> dict[str, Any]:
     kg_quality = read_json(root / KG_QUALITY)
     private_package = read_json(root / PRIVATE_PACKAGE)
     exemplar_review = read_json(root / PUBLICATION_EXEMPLAR_REVIEW)
+    cqr_model_matched = read_json(root / CQR_MODEL_MATCHED_SYNTHESIS)
 
     decision_s = summary(decision)
     main_s = summary(main)
@@ -1489,6 +1639,11 @@ def build_payload(root: Path) -> dict[str, Any]:
     kg_traceability = kg_quality.get("traceability") or {}
     private_package_s = summary(private_package)
     exemplar_s = summary(exemplar_review)
+    cqr_model_matched_s = summary(cqr_model_matched)
+    cqr_backend_counts = (
+        cqr_model_matched_s.get("coverage_eligible_interval_score_selected_counts")
+        or {}
+    )
     cite = citation_keys(citations)
     reader_contract_rows = build_reader_contract_rows()
     primer_rows = build_reader_primer_rows()
@@ -1509,6 +1664,7 @@ def build_payload(root: Path) -> dict[str, Any]:
         "knowledge_graph_quality_summary": str(KG_QUALITY),
         "private_sterile_publication_package_manifest": str(PRIVATE_PACKAGE),
         "publication_exemplar_review": str(PUBLICATION_EXEMPLAR_REVIEW),
+        "cqr_fixed_vs_model_matched_synthesis": str(CQR_MODEL_MATCHED_SYNTHESIS),
     }
     missing_sources = [path for path in sources.values() if not (root / path).exists()]
     missing_citations = [url for url in required_citation_urls() if url not in cite]
@@ -1528,6 +1684,7 @@ def build_payload(root: Path) -> dict[str, Any]:
             "evidence_sources": [
                 "main_article_draft",
                 "supplementary_document_draft",
+                "cqr_fixed_vs_model_matched_synthesis",
                 "publication_claim_evidence_verification_matrix",
                 "knowledge_graph_quality_summary",
                 "private_sterile_publication_package_manifest",
@@ -1540,6 +1697,7 @@ def build_payload(root: Path) -> dict[str, Any]:
                 "individual_experiment_report_draft",
                 "main_article_draft",
                 "supplementary_document_draft",
+                "cqr_fixed_vs_model_matched_synthesis",
                 "publication_claim_evidence_verification_matrix",
                 "knowledge_graph_quality_summary",
                 "private_sterile_publication_package_manifest",
@@ -1552,6 +1710,7 @@ def build_payload(root: Path) -> dict[str, Any]:
                 "individual_experiment_report_draft",
                 "main_article_draft",
                 "supplementary_document_draft",
+                "cqr_fixed_vs_model_matched_synthesis",
                 "publication_claim_evidence_verification_matrix",
                 "knowledge_graph_quality_summary",
             ],
@@ -1570,6 +1729,7 @@ def build_payload(root: Path) -> dict[str, Any]:
             "evidence_sources": [
                 "main_article_draft",
                 "supplementary_document_draft",
+                "cqr_fixed_vs_model_matched_synthesis",
                 "publication_claim_evidence_verification_matrix",
                 "knowledge_graph_quality_summary",
                 "private_sterile_publication_package_manifest",
@@ -1582,6 +1742,7 @@ def build_payload(root: Path) -> dict[str, Any]:
                 "individual_experiment_report_draft",
                 "main_article_draft",
                 "supplementary_document_draft",
+                "cqr_fixed_vs_model_matched_synthesis",
                 "publication_claim_evidence_verification_matrix",
                 "knowledge_graph_quality_summary",
                 "private_sterile_publication_package_manifest",
@@ -1628,6 +1789,7 @@ def build_payload(root: Path) -> dict[str, Any]:
             "evidence_sources": [
                 "main_article_draft",
                 "supplementary_document_draft",
+                "cqr_fixed_vs_model_matched_synthesis",
             ],
         },
         {
@@ -1822,6 +1984,33 @@ def build_payload(root: Path) -> dict[str, Any]:
         "cqr_frontier_cell_count": main_s.get("cqr_frontier_cell_count"),
         "cv_plus_frontier_cell_count": main_s.get("cv_plus_frontier_cell_count"),
         "mondrian_frontier_cell_count": main_s.get("mondrian_frontier_cell_count"),
+        "cqr_backend_sensitivity_status": cqr_model_matched_s.get("status"),
+        "cqr_backend_sensitivity_fixed_gbm_completed_rows": cqr_model_matched_s.get(
+            "fixed_gbm_cqr_completed_rows"
+        ),
+        "cqr_backend_sensitivity_model_matched_completed_rows": cqr_model_matched_s.get(
+            "model_matched_cqr_completed_rows"
+        ),
+        "cqr_backend_sensitivity_paired_cell_count": cqr_model_matched_s.get(
+            "paired_cell_count"
+        ),
+        "cqr_backend_sensitivity_cell_count": cqr_model_matched_s.get("cell_count"),
+        "cqr_backend_sensitivity_selected_counts": cqr_backend_counts,
+        "cqr_backend_sensitivity_fixed_gbm_selected_count": cqr_backend_counts.get(
+            "fixed_gbm_cqr"
+        ),
+        "cqr_backend_sensitivity_model_matched_selected_count": cqr_backend_counts.get(
+            "model_matched_cqr"
+        ),
+        "cqr_backend_sensitivity_no_coverage_eligible_count": cqr_backend_counts.get(
+            "no_coverage_eligible_variant"
+        ),
+        "cqr_backend_sensitivity_can_support_method_winner_claim": (
+            cqr_model_matched_s.get("can_support_method_winner_claim")
+        ),
+        "cqr_backend_sensitivity_method_boundary": cqr_model_matched_s.get(
+            "method_boundary"
+        ),
         "cqr_row_weighted_coverage_mean": facts.get("cqr_row_weighted_coverage_mean"),
         "cqr_row_weighted_coverage_ci95": facts.get("cqr_row_weighted_coverage_ci95"),
         "cv_plus_row_weighted_coverage_mean": facts.get(
@@ -1987,11 +2176,12 @@ def build_payload(root: Path) -> dict[str, Any]:
         "checks": checks,
         "failed_checks": failed_checks,
         "claim_boundaries": [
-            "This Research Document is private authoring output, not a public release.",
+            "This Research Document is a Research Atlas narrative, not a method recommendation.",
             "CQR/CV+ are described as strong practical candidates observed in this experiment, not as recommended methods.",
+            "The model-matched CQR rerun is a backend-sensitivity check, not a method-selection claim.",
             "The evaluated Venn-Abers regression bridge is described as negative/failure-mode evidence.",
             "Positive fairness, bounded-support validity, validated Venn-Abers regression, production, and best-method claims remain closed.",
-            "The KG is prepared as a browsable supplementary/web artifact candidate; it is not yet a public citable component.",
+            "The KG is prepared as a browsable supplementary/web traceability artifact; it is not an independent scientific claim.",
             "No new experiments are authorized or required for this document.",
             "Publication-package design examples are used only to improve navigation and source traceability.",
         ],
@@ -2036,9 +2226,9 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"Email: {AUTHOR_EMAIL}",
         "",
         (
-            "> Authoring status: private Research Document authoring is authorized; "
-            "public release, public site deployment, method recommendation, and "
-            "positive-claim promotion remain closed."
+            "> Research Atlas status: public-facing wording is descriptive and "
+            "experiment-scoped; no universal method selection or production "
+            "recommendation is claimed."
         ),
         "",
         "## Abstract",
@@ -2060,6 +2250,12 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "experiments. CQR has the largest current descriptive frontier count "
             f"({fmt(s['cqr_frontier_cell_count'])} cells), while CV+ contributes "
             f"{fmt(s['cv_plus_frontier_cell_count'])} frontier cells. The evaluated "
+            "backend-confound check completed "
+            f"{fmt(s['cqr_backend_sensitivity_model_matched_completed_rows'])} "
+            "model-matched CQR rows and compared "
+            f"{fmt(s['cqr_backend_sensitivity_paired_cell_count'])} paired "
+            "dataset-alpha-model-family cells; it supports a backend-sensitivity "
+            "reading but not a method-selection claim. The evaluated "
             "Venn-Abers regression bridge did not behave as the expected strong "
             f"regression solution: it produced {fmt(s['venn_undercoverage_run_count'])} "
             "undercoverage runs and a low quantile-coverage mean in the current "
@@ -2427,6 +2623,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"| Datasets | {fmt(s['dataset_count'])} | Public regression dataset scope |",
             f"| Dataset-alpha cells | {fmt(s['dataset_alpha_cell_count'])} | Calibration comparison cells |",
             f"| Conformal-method labels | {fmt(s['method_count'])} | Broad conformal method surface |",
+            f"| Model-matched CQR completed rows | {fmt(s['cqr_backend_sensitivity_model_matched_completed_rows'])} | Backend-confound sensitivity check |",
+            f"| CQR fixed-vs-model-matched paired cells | {fmt(s['cqr_backend_sensitivity_paired_cell_count'])} | Dataset-alpha-model-family comparison cells |",
             f"| Supplement sections | {fmt(s['supplement_section_count'])} | Broad supplementary evidence plan |",
             "",
             (
@@ -2449,7 +2647,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 f"status is `{s['cross_run_leakage_status']}`, with "
                 f"{fmt(s['cross_run_unsupported_claim_hits'])} unsupported-claim hits "
                 "in the scanned cross-run artifacts. These controls support the "
-                "private review document, not public release."
+                "Research Atlas document, not a deployment recommendation."
             ),
             "",
             (
@@ -2545,6 +2743,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "| Method family | Key observed evidence | Authorized interpretation |",
             "|---|---:|---|",
             f"| CQR | {fmt(s['cqr_frontier_cell_count'])} descriptive frontier cells; row-weighted coverage mean {fmt(s['cqr_row_weighted_coverage_mean'])} | Strong practical candidate observed in this experiment |",
+            f"| Model-matched CQR check | {fmt(s['cqr_backend_sensitivity_model_matched_completed_rows'])} completed model-matched rows; {fmt(s['cqr_backend_sensitivity_paired_cell_count'])} paired cells; selected cells fixed-GBM={fmt(s['cqr_backend_sensitivity_fixed_gbm_selected_count'])}, model-matched={fmt(s['cqr_backend_sensitivity_model_matched_selected_count'])}, neither={fmt(s['cqr_backend_sensitivity_no_coverage_eligible_count'])} | Backend sensitivity evidence; no method-selection claim |",
             f"| CV+ | {fmt(s['cv_plus_frontier_cell_count'])} descriptive frontier cells; row-weighted coverage mean {fmt(s['cv_plus_row_weighted_coverage_mean'])} | Strong practical candidate observed in this experiment |",
             f"| Mondrian absolute-residual calibration | {fmt(s['mondrian_frontier_cell_count'])} descriptive frontier cells; row-weighted coverage mean {fmt(s['mondrian_row_weighted_coverage_mean'])} | Useful diagnostic comparator |",
             f"| Venn-Abers regression bridge | {fmt(s['venn_undercoverage_run_count'])} undercoverage runs; quantile-coverage mean {fmt(s['venn_abers_quantile_coverage_mean'])} | Negative/failure-mode evidence for the evaluated bridge |",
@@ -2635,7 +2834,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         "## 6. How To Read The Artifact Set",
         "",
         (
-            "The private review order is deliberately simple. Read this Research "
+            "The review order is deliberately simple. Read this Research "
             "Document first, then inspect the rendered main article and broad "
             "supplement, then use the individual experiment report for the "
             "author-stamped experiment summary. The KG browser should be used "
@@ -2646,11 +2845,11 @@ def render_markdown(payload: dict[str, Any]) -> str:
         "",
         "| Artifact | Role | Release boundary |",
         "|---|---|---|",
-        "| `manuscript/research_document.md` | Integrated private-review narrative | Not public release |",
-        "| `rendered_outputs/main_article_review.html` | Minimal article review surface | Final prose not authorized |",
-        "| `rendered_outputs/supplementary_document_review.html` | Broad supplementary review surface | Final supplement not authorized |",
-        "| `site/kg_browser.html` | Browsable KG review surface | KG citation not authorized |",
-        "| `governance/publication_authoring_decision_record.md` | User-decision boundary record | Public release blocked |",
+        "| `manuscript/research_document.md` | Integrated Research Atlas narrative | Descriptive, experiment-scoped interpretation |",
+        "| `rendered_outputs/main_article_review.html` | Main article surface | Conservative scientific wording |",
+        "| `rendered_outputs/supplementary_document_review.html` | Broad supplementary surface | Methods, diagnostics, and estimator conventions |",
+        "| `site/kg_browser.html` | Browsable KG surface | Navigation and traceability, not a standalone claim |",
+        "| `governance/publication_authoring_decision_record.md` | Decision boundary record | Scientific claim boundaries and release scope |",
         "",
         "## 7. Publication Boundary",
         "",

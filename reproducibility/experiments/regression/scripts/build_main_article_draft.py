@@ -45,6 +45,10 @@ PUBLICATION_EXEMPLAR_REVIEW = Path(
     "experiments/regression/manuscript/publication_exemplar_review.json"
 )
 KG_QUALITY = Path("experiments/regression/reports/knowledge_graph_quality/quality_summary.json")
+CQR_MODEL_MATCHED_SYNTHESIS = Path(
+    "experiments/regression/reports/model_matched_cqr_rerun_plan/"
+    "cqr_fixed_vs_model_matched_synthesis.json"
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -112,6 +116,29 @@ def build_claim_evidence_rows(facts: dict[str, Any], kg_quality: dict[str, Any])
                 "candidates."
             ),
             "boundary": "This is not a claim that either method is universally best for regression conformal prediction.",
+        },
+        {
+            "row_id": "cqr_backend_sensitivity",
+            "claim_surface": "CQR backend sensitivity check",
+            "evidence": (
+                f"{fmt(facts.get('cqr_backend_sensitivity_model_matched_completed_rows'))} "
+                "model-matched CQR rows paired against "
+                f"{fmt(facts.get('cqr_backend_sensitivity_fixed_gbm_completed_rows'))} "
+                "fixed-GBM CQR rows across "
+                f"{fmt(facts.get('cqr_backend_sensitivity_paired_cell_count'))} "
+                "dataset-alpha-model-family cells; selected-cell counts are "
+                "fixed-GBM CQR="
+                f"{fmt(facts.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))}, "
+                "model-matched CQR="
+                f"{fmt(facts.get('cqr_backend_sensitivity_model_matched_selected_count'))}, "
+                "neither="
+                f"{fmt(facts.get('cqr_backend_sensitivity_no_coverage_eligible_count'))}."
+            ),
+            "supported_reading": (
+                "The CQR signal was stress-tested against model-matched quantile "
+                "backends and remains experiment-scoped."
+            ),
+            "boundary": "The backend check does not authorize a CQR method-selection or production recommendation claim.",
         },
         {
             "row_id": "venn_abers_bridge_negative_evidence",
@@ -190,6 +217,23 @@ def build_research_question_rows(
             ),
             "evidence_anchor": "Frontier counts, coverage-width diagnostics, and claim/evidence matrix.",
             "closed_reading": "Do not turn the pattern into a selected method, best-method statement, or recommendation.",
+        },
+        {
+            "question": "Was the CQR signal only a fixed-GBM backend artifact?",
+            "article_answer": (
+                "A completed model-matched CQR rerun produced "
+                f"{fmt(facts.get('cqr_backend_sensitivity_model_matched_completed_rows'))} "
+                "model-matched rows and "
+                f"{fmt(facts.get('cqr_backend_sensitivity_paired_cell_count'))} "
+                "paired comparison cells. Fixed-GBM CQR was selected in "
+                f"{fmt(facts.get('cqr_backend_sensitivity_fixed_gbm_selected_count'))} "
+                "coverage-eligible interval-score cells, model-matched CQR in "
+                f"{fmt(facts.get('cqr_backend_sensitivity_model_matched_selected_count'))}, "
+                "and neither variant in "
+                f"{fmt(facts.get('cqr_backend_sensitivity_no_coverage_eligible_count'))}."
+            ),
+            "evidence_anchor": "Fixed-GBM CQR vs model-matched CQR synthesis.",
+            "closed_reading": "Do not treat the sensitivity check as a universal CQR recommendation.",
         },
         {
             "question": "What did the evaluated Venn-Abers regression bridge show?",
@@ -600,6 +644,7 @@ def build_payload(root: Path) -> dict[str, Any]:
         "publication_citation_registry": str(CITATION_REGISTRY),
         "publication_exemplar_review": str(PUBLICATION_EXEMPLAR_REVIEW),
         "knowledge_graph_quality_summary": str(KG_QUALITY),
+        "cqr_fixed_vs_model_matched_synthesis": str(CQR_MODEL_MATCHED_SYNTHESIS),
     }
     main_article_blueprint_rows = [
         row
@@ -706,6 +751,7 @@ def build_payload(root: Path) -> dict[str, Any]:
             "evidence_sources": [
                 "individual_experiment_report_draft",
                 "publication_claim_evidence_verification_matrix",
+                "cqr_fixed_vs_model_matched_synthesis",
             ],
         },
         {
@@ -804,6 +850,24 @@ def build_payload(root: Path) -> dict[str, Any]:
             "cqr_frontier_cell_count": facts.get("cqr_frontier_cell_count"),
             "mondrian_frontier_cell_count": facts.get("mondrian_frontier_cell_count"),
             "cv_plus_frontier_cell_count": facts.get("cv_plus_frontier_cell_count"),
+            "cqr_backend_sensitivity_status": facts.get(
+                "cqr_backend_sensitivity_status"
+            ),
+            "cqr_backend_sensitivity_model_matched_completed_rows": facts.get(
+                "cqr_backend_sensitivity_model_matched_completed_rows"
+            ),
+            "cqr_backend_sensitivity_fixed_gbm_completed_rows": facts.get(
+                "cqr_backend_sensitivity_fixed_gbm_completed_rows"
+            ),
+            "cqr_backend_sensitivity_paired_cell_count": facts.get(
+                "cqr_backend_sensitivity_paired_cell_count"
+            ),
+            "cqr_backend_sensitivity_selected_counts": facts.get(
+                "cqr_backend_sensitivity_selected_counts"
+            ),
+            "cqr_backend_sensitivity_can_support_method_winner_claim": facts.get(
+                "cqr_backend_sensitivity_can_support_method_winner_claim"
+            ),
             "venn_undercoverage_run_count": facts.get("venn_undercoverage_run_count"),
             "bounded_support_validity_ready_bundle_count": facts.get(
                 "bounded_support_validity_ready_bundle_count"
@@ -853,6 +917,7 @@ def build_payload(root: Path) -> dict[str, Any]:
 
 def render_markdown(payload: dict[str, Any]) -> str:
     s = payload["summary"]
+    cqr_backend_counts = s.get("cqr_backend_sensitivity_selected_counts") or {}
     research_question_rows = payload["research_question_rows"]
     guarantee_rows = payload["guarantee_boundary_rows"]
     paper_architecture_rows = payload["paper_architecture_rows"]
@@ -1275,6 +1340,8 @@ def render_markdown(payload: dict[str, Any]) -> str:
             f"| CQR frontier cells | {fmt(s['cqr_frontier_cell_count'])} | Largest descriptive frontier pattern |",
             f"| Mondrian frontier cells | {fmt(s['mondrian_frontier_cell_count'])} | Secondary descriptive pattern |",
             f"| CV+ frontier cells | {fmt(s['cv_plus_frontier_cell_count'])} | Secondary descriptive pattern |",
+            f"| Model-matched CQR completed rows | {fmt(s['cqr_backend_sensitivity_model_matched_completed_rows'])} | Backend sensitivity check completed |",
+            f"| CQR fixed-vs-matched paired cells | {fmt(s['cqr_backend_sensitivity_paired_cell_count'])} | Direct fixed-GBM versus model-matched CQR comparison |",
             f"| Venn-Abers bridge undercoverage runs | {fmt(s['venn_undercoverage_run_count'])} | Negative/failure-mode evidence |",
             f"| Bounded-support validity-ready bundles | {fmt(s['bounded_support_validity_ready_bundle_count'])} | No bounded-support validity claim |",
             f"| Population-fairness-ready bundles | {fmt(s['fairness_population_ready_bundle_count'])} | No population fairness claim |",
@@ -1285,10 +1352,36 @@ def render_markdown(payload: dict[str, Any]) -> str:
                 "share, but the final selection claim remains blocked. The correct "
                 "claim is not that CQR is the best regression conformal method in "
                 "general; the supported claim is that CQR is the largest current "
-                "diagnostic frontier pattern in this audited study."
-            ),
-            "",
-            "## Discussion",
+            "diagnostic frontier pattern in this audited study."
+        ),
+        "",
+        "### CQR Backend Sensitivity Check",
+        "",
+        (
+            "A completed model-matched CQR rerun tests whether the historical "
+            "fixed-GBM CQR pipeline alone explains the CQR signal. The rerun "
+            f"completed {fmt(s['cqr_backend_sensitivity_model_matched_completed_rows'])} "
+            "model-matched CQR rows and pairs them with "
+            f"{fmt(s['cqr_backend_sensitivity_fixed_gbm_completed_rows'])} "
+            "fixed-GBM CQR rows across "
+            f"{fmt(s['cqr_backend_sensitivity_paired_cell_count'])} "
+            "dataset-alpha-model-family cells."
+        ),
+        "",
+        "| CQR variant outcome | Coverage-eligible interval-score selected cells |",
+        "|---|---:|",
+        f"| Fixed-GBM CQR | {fmt(cqr_backend_counts.get('fixed_gbm_cqr'))} |",
+        f"| Model-matched CQR | {fmt(cqr_backend_counts.get('model_matched_cqr'))} |",
+        f"| Neither coverage-eligible variant | {fmt(cqr_backend_counts.get('no_coverage_eligible_variant'))} |",
+        "",
+        (
+            "This check keeps the interpretation conservative. It supports a "
+            "pipeline-level backend sensitivity statement and does not convert "
+            "CQR into a universal method-selection, best-method claim, or production "
+            "recommendation."
+        ),
+        "",
+        "## Discussion",
             "",
             (
                 "The study's main scientific value is the combination of broad "

@@ -3,9 +3,9 @@
 This manifest resolves every knowledge-graph source/evidence path used by the public Research Atlas.
 
 - Strategy: `manifest_plus_summary_not_full_artifact_dump`
-- KG referenced artifacts: 1869
+- KG referenced artifacts: 1873
 - Included artifacts: 1
-- Summarized artifacts: 1868
+- Summarized artifacts: 1872
 
 | Artifact kind | Public reference | Public status | Reference count |
 |---|---|---|---:|
@@ -409,4 +409,4 @@ This manifest resolves every knowledge-graph source/evidence path used by the pu
 | kg_edge_evidence | `study/reports/benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop/feature_leakage_audit.json` | summarized | 3 |
 | kg_edge_evidence | `study/reports/benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop/pilot_summary.json` | summarized | 17 |
 | kg_edge_evidence | `study/reports/brfss_2024_llcp_source_review/source_review_report.json` | summarized | 2 |
-| ... | 1469 additional rows in JSON manifest | summarized |  |
+| ... | 1473 additional rows in JSON manifest | summarized |  |

@@ -9,6 +9,8 @@ This repository is a public Research Atlas for a neutral empirical study of regr
 
 CQR/CV+ were observed as strong practical candidates in these experiments. This means CQR and CV+ behaved as strong practical candidates inside this audited experiment surface. It is experiment-scoped evidence, not a universal best-method claim or production recipe.
 
+The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. This keeps CQR as a pipeline-level descriptive signal rather than a method-selection claim.
+
 The expected strong regression solution did not emerge in these experiments. The Venn-Abers statement is bridge-specific negative evidence for the evaluated regression bridge, not a rejection of the broader Venn-Abers, predictive-distribution, or generalized-calibration literature.
 
 ## Artifacts
@@ -31,7 +33,7 @@ The repository establishes that a large, audited regression conformal prediction
 
 ## What This Study Does Not Establish
 
-- A general best-method recommendation or global winner.
+- A general best-method recommendation or global method-selection claim.
 - Population-level group inference claims.
 - Bounded-support validity claims.
 - Validated Venn-Abers regression interval claims.

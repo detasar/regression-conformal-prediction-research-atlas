@@ -25,7 +25,7 @@
 <table>
 <thead><tr><th>Main article surface</th><th>Supplement support</th><th>Primary source artifact</th><th>Closed claim</th></tr></thead>
 <tbody>
-<tr><td>CQR/CV+ descriptive performance</td><td>S1 robustness diagnostics and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit</code></td><td>No final winner, global best method, or deployment recommendation.</td></tr>
+<tr><td>CQR/CV+ descriptive performance</td><td>S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis</code></td><td>No final method selection, global best method, or deployment recommendation.</td></tr>
 <tr><td>Venn-Abers bridge negative evidence</td><td>S2 bridge validation slice and S6 release-state boundary</td><td><code>dataset_final_gate_post_selection_validation_bridge_results</code></td><td>No validated Venn-Abers regression interval claim.</td></tr>
 <tr><td>Bounded-support validity</td><td>S3 bounded-support endpoint policy</td><td><code>bounded_support_endpoint_closure_audit</code></td><td>No endpoint or bounded-support validity claim.</td></tr>
 <tr><td>Population-level group inference</td><td>S4 group diagnostics</td><td><code>group inference_population_readiness_audit</code></td><td>No population-level group inference claim.</td></tr>
@@ -39,11 +39,12 @@
 <thead><tr><th>Section</th><th>Reviewer check</th><th>Evidence metric</th><th>Allowed use</th><th>Blocked use</th></tr></thead>
 <tbody>
 <tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Report CQR/CV+ as strong practical candidates observed in these experiments.</td><td>Do not call CQR the final selected method or a universal recommendation.</td></tr>
+<tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>Do not upgrade the check into a universal CQR method recommendation.</td></tr>
 <tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>Do not upgrade the slice into final method selection or validated Venn-Abers regression intervals.</td></tr>
 <tr><td>S3</td><td>Check whether bounded-support endpoint behavior authorizes a validity claim.</td><td>0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles.</td><td>Report endpoint policy closure and retained domain caveats.</td><td>Do not state bounded-support or endpoint validity.</td></tr>
 <tr><td>S4</td><td>Check whether group diagnostics define a population-group-inference estimand.</td><td>187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles.</td><td>Use group rows as heterogeneity diagnostics.</td><td>Do not state population-level group inference or deployment group inference.</td></tr>
 <tr><td>S5</td><td>Check whether duplicate and leakage controls strengthen or limit interpretation.</td><td>29 duplicate actions, 46 quarantined actions, 0 unquarantined actions, and hard leakage not detected in scanned artifacts.</td><td>Retain integrity caveats as part of the scientific record.</td><td>Do not hide caveats to make the empirical result look cleaner.</td></tr>
-<tr><td>S6</td><td>Check whether traceability artifacts are review infrastructure or public outputs.</td><td>3,638 KG nodes, 21,009 edges, 0 isolated nodes, and release scope recorded in the manifest.</td><td>Use the KG and package for evidence tracing.</td><td>Use the KG and site as public Research Atlas navigation artifacts, not as independent scientific claims.</td></tr>
+<tr><td>S6</td><td>Check whether traceability artifacts are review infrastructure or public outputs.</td><td>3,643 KG nodes, 21,019 edges, 0 isolated nodes, and release scope recorded in the manifest.</td><td>Use the KG and package for evidence tracing.</td><td>Use the KG and site as public Research Atlas navigation artifacts, not as independent scientific claims.</td></tr>
 </tbody>
 </table>
 <h2>S1. Method Selection Robustness Diagnostics</h2>
@@ -53,7 +54,7 @@
 <tbody>
 <tr><td>Candidate methods</td><td>3</td><td>CQR, CV+, and Mondrian absolute-residual calibration only</td></tr>
 <tr><td>Common dataset-alpha cells</td><td>94</td><td>Shared comparison cells</td></tr>
-<tr><td>Common-cell selected diagnostic method</td><td><code>cqr</code></td><td>Not a final winner</td></tr>
+<tr><td>Common-cell selected diagnostic method</td><td><code>cqr</code></td><td>Not a final method selection</td></tr>
 <tr><td>Common-cell counts</td><td>cqr=58; cv_plus=15; mondrian_abs=21</td><td>Descriptive counts only</td></tr>
 <tr><td>Bootstrap replicates</td><td>1,000</td><td>Selection stability diagnostic</td></tr>
 <tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>No method recommendation</td></tr>
@@ -70,6 +71,20 @@
 </tbody>
 </table>
 <p>Reader note: this section explains why CQR/CV+ can be reported as strong practical candidates observed in these experiments while the final-selection gate remains closed. The confidence intervals quantify diagnostic uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
+<h3>S1b. CQR Backend Sensitivity Check</h3>
+<p>The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not create a method-selection claim.</p>
+<table>
+<thead><tr><th>Backend diagnostic item</th><th>Value</th><th>Boundary</th></tr></thead>
+<tbody>
+<tr><td>Fixed-GBM CQR completed rows</td><td>4,564</td><td>Historical comparator rows</td></tr>
+<tr><td>Model-matched CQR completed rows</td><td>4,564</td><td>Completed rerun rows</td></tr>
+<tr><td>Paired dataset-alpha-model-family cells</td><td>224</td><td>Direct CQR backend comparison cells</td></tr>
+<tr><td>Fixed-GBM CQR selected cells</td><td>116</td><td>Coverage-eligible interval-score selections</td></tr>
+<tr><td>Model-matched CQR selected cells</td><td>71</td><td>Coverage-eligible interval-score selections</td></tr>
+<tr><td>Neither coverage-eligible variant</td><td>37</td><td>Cells where both CQR variants fail the coverage-eligibility rule</td></tr>
+<tr><td>Method-selection claim supported</td><td><code>False</code></td><td>No method recommendation opens</td></tr>
+</tbody>
+</table>
 <h2>S2. Post-Selection Validation Diagnostics</h2>
 <p>Post-selection validation asks whether the descriptive pattern persists in a held-out validation-style slice after the candidate methods have already been identified. The supplement treats this as a diagnostic stress test. It does not convert the observed counts into a final method selection.</p>
 <table>
@@ -78,7 +93,7 @@
 <tr><td>Validation datasets</td><td>5</td><td>Narrow validation scope</td></tr>
 <tr><td>Validation dataset-alpha cells</td><td>25</td><td>Shared cells only</td></tr>
 <tr><td>Completed validation atomic runs</td><td>225</td><td>Completed diagnostic rows</td></tr>
-<tr><td>Validation diagnostic counts</td><td>cqr=18; mondrian_abs=7</td><td>No final winner</td></tr>
+<tr><td>Validation diagnostic counts</td><td>cqr=18; mondrian_abs=7</td><td>No final method selection</td></tr>
 <tr><td>Validation primary win rate</td><td>0.7200</td><td>Post-selection diagnostic rate</td></tr>
 <tr><td>Validation primary win-rate 95% interval</td><td>0.5242 to 0.8572</td><td>Wide uncertainty remains visible</td></tr>
 <tr><td>Feature leakage violations</td><td>0</td><td>Leakage sidecars clean in this slice</td></tr>
@@ -89,7 +104,7 @@
 <tr><td>Venn-Abers bridge undercoverage runs</td><td>14</td><td>Negative bridge evidence</td></tr>
 </tbody>
 </table>
-<p>Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as final winner, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>].</p>
+<p>Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as final method selection, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>].</p>
 <h2>S3. Bounded-Support Endpoint Policy</h2>
 <p>Bounded-support checks ask whether prediction interval endpoints respect the natural domain of the target. This is different from ordinary marginal coverage. Weighted conformal ideas can address some covariate-shift settings [<a href="https://arxiv.org/abs/1904.06019">@tibshirani2020covariate_shift</a>], but the present endpoint policy is an empirical domain-validity gate. The current gate blocks bounded-support validity claims.</p>
 <table>
@@ -145,12 +160,12 @@
 </table>
 <p>Reader note: the clean unsupported-claim scan does not erase duplicate or split caveats. It means the scanned artifacts did not contain unsupported claim language; the caveats still travel with the empirical interpretation.</p>
 <h2>S6. Traceability And Release State</h2>
-<p>The supplement is linked to a knowledge graph snapshot with 3,638 nodes, 21,009 edges, and 0 isolated nodes. The graph connects report sections, source artifacts, citations, claim boundaries, and quality checks. It remains an internal evidence artifact until the sterile repository and release review are complete.</p>
+<p>The supplement is linked to a knowledge graph snapshot with 3,643 nodes, 21,019 edges, and 0 isolated nodes. The graph connects report sections, source artifacts, citations, claim boundaries, and quality checks. It remains an internal evidence artifact until the sterile repository and release review are complete.</p>
 <p>Venn-Abers evidence is retained as part of the negative and boundary evidence for this study [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>]. The supplement does not claim that the current interval bridge validates Venn-Abers regression intervals.</p>
 <h2>Claim Boundaries</h2>
 <ul>
 <li>This is a public supplementary Research Atlas render.</li>
-<li>Method evidence is diagnostic; no final winner or recommendation is established.</li>
+<li>Method evidence is diagnostic; no final method selection or recommendation is established.</li>
 <li>Bounded-support endpoint results block validity claims.</li>
 <li>Group diagnostics do not establish population-level group inference.</li>
 <li>Duplicate and integrity caveats are retained rather than hidden.</li>
@@ -186,6 +201,7 @@
 <li><code>cross_run_integrity_audit</code>: <code>experiments/regression/reports/methodology_sanity_audit_20260627/cross_run_integrity_audit.json</code></li>
 <li><code>publication_citation_registry</code>: <code>experiments/regression/Research Document/publication_citation_registry.json</code></li>
 <li><code>knowledge_graph_quality_summary</code>: <code>experiments/regression/reports/knowledge_graph_quality/quality_summary.json</code></li>
+<li><code>cqr_fixed_vs_model_matched_synthesis</code>: <code>experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json</code></li>
 </ul>
 </body>
 </html>

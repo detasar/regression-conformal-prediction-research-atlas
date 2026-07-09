@@ -32,6 +32,10 @@ METHOD_SYNTHESIS = Path(
     "experiments/regression/reports/methodology_sanity_audit_20260627/"
     "method_performance_synthesis.json"
 )
+CQR_MODEL_MATCHED_SYNTHESIS = Path(
+    "experiments/regression/reports/model_matched_cqr_rerun_plan/"
+    "cqr_fixed_vs_model_matched_synthesis.json"
+)
 ROBUSTNESS = Path(
     "experiments/regression/reports/methodology_sanity_audit_20260627/"
     "method_selection_robustness_audit.json"
@@ -115,6 +119,7 @@ def cite_keys(payload: dict[str, Any]) -> dict[str, str]:
 def build_payload(root: Path) -> dict[str, Any]:
     accounting = read_json(root, ACCOUNTING)
     method_synthesis = read_json(root, METHOD_SYNTHESIS)
+    cqr_model_matched = read_json(root, CQR_MODEL_MATCHED_SYNTHESIS)
     robustness = read_json(root, ROBUSTNESS)
     venn_disposition = read_json(root, VENN_DISPOSITION)
     venn_failures = read_json(root, VENN_FAILURES)
@@ -132,10 +137,16 @@ def build_payload(root: Path) -> dict[str, Any]:
     mondrian = by_method(method_rows, "mondrian_abs")
     venn_quantile = by_method(method_rows, "venn_abers_quantile")
     venn_fallback = by_method(method_rows, "venn_abers_split_fallback")
+    cqr_model_matched_s = cqr_model_matched.get("summary", {})
+    cqr_selected_counts = (
+        cqr_model_matched_s.get("coverage_eligible_interval_score_selected_counts")
+        or {}
+    )
     cite = cite_keys(citations)
     source_paths = {
         "experiment_accounting_audit": str(ACCOUNTING),
         "method_performance_synthesis": str(METHOD_SYNTHESIS),
+        "cqr_fixed_vs_model_matched_synthesis": str(CQR_MODEL_MATCHED_SYNTHESIS),
         "method_selection_robustness_audit": str(ROBUSTNESS),
         "venn_abers_negative_evidence_disposition_audit": str(VENN_DISPOSITION),
         "venn_abers_grid_failure_mode_decomposition": str(VENN_FAILURES),
@@ -174,6 +185,33 @@ def build_payload(root: Path) -> dict[str, Any]:
         ),
         "cqr_near_nominal_hit_rate": cqr.get("row_weighted_near_nominal_hit_rate"),
         "cqr_nominal_hit_rate": cqr.get("row_weighted_nominal_hit_rate"),
+        "cqr_backend_sensitivity_status": cqr_model_matched_s.get("status"),
+        "cqr_backend_sensitivity_fixed_gbm_completed_rows": (
+            cqr_model_matched_s.get("fixed_gbm_cqr_completed_rows")
+        ),
+        "cqr_backend_sensitivity_model_matched_completed_rows": (
+            cqr_model_matched_s.get("model_matched_cqr_completed_rows")
+        ),
+        "cqr_backend_sensitivity_paired_cell_count": (
+            cqr_model_matched_s.get("paired_cell_count")
+        ),
+        "cqr_backend_sensitivity_cell_count": cqr_model_matched_s.get("cell_count"),
+        "cqr_backend_sensitivity_selected_counts": cqr_selected_counts,
+        "cqr_backend_sensitivity_fixed_gbm_selected_count": (
+            cqr_selected_counts.get("fixed_gbm_cqr")
+        ),
+        "cqr_backend_sensitivity_model_matched_selected_count": (
+            cqr_selected_counts.get("model_matched_cqr")
+        ),
+        "cqr_backend_sensitivity_no_coverage_eligible_count": (
+            cqr_selected_counts.get("no_coverage_eligible_variant")
+        ),
+        "cqr_backend_sensitivity_can_support_method_winner_claim": (
+            cqr_model_matched_s.get("can_support_method_winner_claim")
+        ),
+        "cqr_backend_sensitivity_method_boundary": (
+            cqr_model_matched_s.get("method_boundary")
+        ),
         "mondrian_frontier_cell_count": mondrian.get("frontier_cell_count"),
         "mondrian_row_weighted_coverage_mean": mondrian.get(
             "row_weighted_coverage_mean"
@@ -277,7 +315,15 @@ def build_payload(root: Path) -> dict[str, Any]:
         },
         {
             "section_id": "method_findings",
-            "evidence_sources": ["method_performance_synthesis", "method_selection_robustness_audit"],
+            "evidence_sources": [
+                "method_performance_synthesis",
+                "method_selection_robustness_audit",
+                "cqr_fixed_vs_model_matched_synthesis",
+            ],
+        },
+        {
+            "section_id": "cqr_backend_sensitivity_check",
+            "evidence_sources": ["cqr_fixed_vs_model_matched_synthesis"],
         },
         {
             "section_id": "negative_and_blocked_claims",
@@ -358,6 +404,21 @@ def build_payload(root: Path) -> dict[str, Any]:
             "final_selection_claim_status": report_facts[
                 "final_selection_claim_status"
             ],
+            "cqr_backend_sensitivity_status": report_facts[
+                "cqr_backend_sensitivity_status"
+            ],
+            "cqr_backend_sensitivity_model_matched_completed_rows": report_facts[
+                "cqr_backend_sensitivity_model_matched_completed_rows"
+            ],
+            "cqr_backend_sensitivity_paired_cell_count": report_facts[
+                "cqr_backend_sensitivity_paired_cell_count"
+            ],
+            "cqr_backend_sensitivity_selected_counts": report_facts[
+                "cqr_backend_sensitivity_selected_counts"
+            ],
+            "cqr_backend_sensitivity_can_support_method_winner_claim": report_facts[
+                "cqr_backend_sensitivity_can_support_method_winner_claim"
+            ],
             "venn_abers_positive_validation_ready": report_facts[
                 "venn_can_support_validated_regression"
             ],
@@ -436,7 +497,7 @@ def render_report(payload: dict[str, Any]) -> str:
             f"absolute-residual calibration and {fmt(facts['cv_plus_frontier_cell_count'])} "
             "for CV+. The robustness audit also retains CQR under common-cell, "
             "leave-one-dataset, leave-one-alpha, and bootstrap views; this is "
-            "diagnostic robustness evidence, not a final winner claim."
+            "diagnostic robustness evidence, not a final method-selection claim."
         ),
         "",
         (
@@ -501,6 +562,24 @@ def render_report(payload: dict[str, Any]) -> str:
         f"| Mondrian absolute residual | {fmt(facts['mondrian_frontier_cell_count'])} | {fmt(facts['mondrian_row_weighted_coverage_mean'])} | {fmt(facts['mondrian_nominal_hit_rate'])} | {fmt(facts['mondrian_near_nominal_hit_rate'])} | descriptive diagnostic only |",
         f"| CV+ | {fmt(facts['cv_plus_frontier_cell_count'])} | {fmt(facts['cv_plus_row_weighted_coverage_mean'])} | {fmt(facts['cv_plus_nominal_hit_rate'])} | {fmt(facts['cv_plus_near_nominal_hit_rate'])} | descriptive diagnostic only |",
         "",
+        "### CQR Backend Sensitivity Check",
+        "",
+        (
+            "After the broad method synthesis, a model-matched CQR rerun checked "
+            "whether the historical fixed-GBM CQR pipeline was driving the CQR "
+            "signal. This is a backend-confound diagnostic, not a new method "
+            "recommendation."
+        ),
+        "",
+        "| Quantity | Value | Interpretation |",
+        "|---|---:|---|",
+        f"| Fixed-GBM CQR completed rows | {fmt(facts['cqr_backend_sensitivity_fixed_gbm_completed_rows'])} | Historical CQR comparator rows |",
+        f"| Model-matched CQR completed rows | {fmt(facts['cqr_backend_sensitivity_model_matched_completed_rows'])} | Completed backend-matched rerun rows |",
+        f"| Paired dataset-alpha-model-family cells | {fmt(facts['cqr_backend_sensitivity_paired_cell_count'])} | Direct fixed-vs-matched comparison cells |",
+        f"| Fixed-GBM CQR selected cells | {fmt(facts['cqr_backend_sensitivity_fixed_gbm_selected_count'])} | Coverage-eligible lower interval-score cells |",
+        f"| Model-matched CQR selected cells | {fmt(facts['cqr_backend_sensitivity_model_matched_selected_count'])} | Coverage-eligible lower interval-score cells |",
+        f"| Neither coverage-eligible variant | {fmt(facts['cqr_backend_sensitivity_no_coverage_eligible_count'])} | Cells where both CQR variants fail the coverage-eligibility rule |",
+        "",
         (
             "For CQR, the row-weighted coverage mean is "
             f"{fmt(facts['cqr_row_weighted_coverage_mean'])}, with a 95% interval "
@@ -518,9 +597,9 @@ def render_report(payload: dict[str, Any]) -> str:
         "| Diagnostic | Result | Source |",
         "|---|---:|---|",
         f"| Common-cell selected method | `{facts['robustness_common_cell_selected_method']}` | `method_selection_robustness_audit.json` |",
-        f"| Common-cell CQR wins | {fmt(winner_counts.get('cqr'))} | `method_selection_robustness_audit.json` |",
-        f"| Common-cell CV+ wins | {fmt(winner_counts.get('cv_plus'))} | `method_selection_robustness_audit.json` |",
-        f"| Common-cell Mondrian wins | {fmt(winner_counts.get('mondrian_abs'))} | `method_selection_robustness_audit.json` |",
+        f"| Common-cell CQR selected diagnostic cells | {fmt(winner_counts.get('cqr'))} | `method_selection_robustness_audit.json` |",
+        f"| Common-cell CV+ selected diagnostic cells | {fmt(winner_counts.get('cv_plus'))} | `method_selection_robustness_audit.json` |",
+        f"| Common-cell Mondrian selected diagnostic cells | {fmt(winner_counts.get('mondrian_abs'))} | `method_selection_robustness_audit.json` |",
         f"| Bootstrap CQR selections | {fmt(bootstrap_counts.get('cqr'))} | `method_selection_robustness_audit.json` |",
         f"| Leave-one-dataset CQR retention rate | {fmt(facts['robustness_leave_one_dataset_retention_rate'])} | `method_selection_robustness_audit.json` |",
         f"| Leave-one-alpha CQR retention rate | {fmt(facts['robustness_leave_one_alpha_retention_rate'])} | `method_selection_robustness_audit.json` |",

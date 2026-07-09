@@ -256,7 +256,7 @@ CLAIM_REVIEW_PROFILES = {
             "authorization if the scientific state changes."
         ),
         "allowed_publication_sentence": (
-            "The current evidence does not authorize a final winner, final main "
+            "The current evidence does not authorize a final method selection, final main "
             "result, or deployment recommendation."
         ),
         "non_specialist_explanation": (

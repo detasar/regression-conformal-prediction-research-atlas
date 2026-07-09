@@ -52,7 +52,7 @@
     .scope { margin-top:34px; border-top:1px solid var(--line); padding-top:24px; display:grid; grid-template-columns:220px minmax(0,1fr); gap:24px; }
     .scope h2 { margin:0; font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--amber); }
     .scope ul { margin:0; padding-left:18px; color:var(--muted); }
-    @media (max-width:900px) { main { width:100%; max-width:100%; padding:18px 14px 44px; overflow:hidden; } .topbar,.hero,.sections,.scope { grid-template-columns:minmax(0,1fr); } .hero { min-height:0; gap:28px; width:100%; } h1,.dek,.authors,.cta,.tldr,.figure { max-width:100%; overflow-wrap:anywhere; } .eyebrow { max-width:100%; white-space:normal; } .tldr-row { grid-template-columns:1fr; } .map { min-height:360px; } .node-card { width:132px; padding:9px; } }
+    @media (max-width:900px) { main { width:100%; max-width:100%; padding:18px 14px 44px; overflow:hidden; } .topbar,.hero,.sections,.scope { grid-template-columns:minmax(0,1fr); } .hero { min-height:0; gap:28px; width:100%; } h1,.dek,.authors,.cta,.tldr,.figure { max-width:100%; overflow-wrap:anywhere; } .eyebrow { max-width:100%; white-space:normal; } .tldr-row { grid-template-columns:1fr; } .map { display:grid; grid-template-columns:1fr 1fr; gap:10px; min-height:0; padding:14px; aspect-ratio:auto; } .map svg { display:none; } .node-card,.n1,.n2,.n3,.n4,.n5 { position:static; width:auto; min-width:0; padding:9px; } .node-card b { font-size:11px; } .node-card span { font-size:10px; } }
   </style>
 </head>
 <body>
@@ -75,6 +75,7 @@
         </div>
         <div class="tldr">
           <div class="tldr-row"><b>Main empirical signal</b><p>CQR/CV+ were observed as strong practical candidates in these experiments.</p></div>
+          <div class="tldr-row"><b>CQR backend check</b><p>4,564 model-matched CQR runs; 224 paired cells; selected cells fixed-GBM 116, model-matched 71, neither 37. This is sensitivity evidence, not a method-selection claim.</p></div>
           <div class="tldr-row"><b>Venn-Abers bridge</b><p>The expected strong regression solution did not emerge in these experiments.</p></div>
           <div class="tldr-row"><b>How to read it</b><p>These are experiment-scoped observations, not deployment guidance or a universal best-method prescription.</p></div>
         </div>
@@ -90,14 +91,14 @@
           </svg>
           <div class="node-card n1"><b>CQR / CV+ Signal</b><span>observed practical candidates</span></div>
           <div class="node-card n2"><b>Venn-Abers Outcome</b><span>bridge-specific negative evidence</span></div>
-          <div class="node-card n3"><b>Claim-Evidence Matrix</b><span>reader-safe statements and support</span></div>
+          <div class="node-card n3"><b>CQR Backend Check</b><span>model-matched sensitivity evidence</span></div>
           <div class="node-card n4"><b>Dataset Audits</b><span>source, leakage, duplicates</span></div>
           <div class="node-card n5"><b>Reproducibility Trail</b><span>KG quality and build record</span></div>
         </div>
         <p class="caption">The map opens curated routes first; source hashes are available in details.</p>
         <div class="stats">
-          <div class="stat"><b>3,638</b><span>KG nodes</span></div>
-          <div class="stat"><b>21,009</b><span>KG edges</span></div>
+          <div class="stat"><b>3,643</b><span>KG nodes</span></div>
+          <div class="stat"><b>21,019</b><span>KG edges</span></div>
           <div class="stat"><b>0</b><span>isolated</span></div>
         </div>
       </div>
@@ -111,7 +112,7 @@
       <h2>Evidence Scope</h2>
       <ul>
         <li>The study reports empirical observations from this audited experiment surface.</li>
-        <li>It does not establish production advice, a universal winner, population-level group inference, or bounded-support validity.</li>
+        <li>It does not establish production advice, a universal method-selection claim, population-level group inference, or bounded-support validity.</li>
         <li>The Venn-Abers result is about the evaluated regression bridge, not the broader Venn-Abers literature.</li>
       </ul>
     </section>

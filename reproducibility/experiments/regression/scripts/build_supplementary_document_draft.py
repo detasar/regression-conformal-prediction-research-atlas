@@ -84,6 +84,10 @@ CITATION_REGISTRY = Path(
     "experiments/regression/manuscript/publication_citation_registry.json"
 )
 KG_QUALITY = Path("experiments/regression/reports/knowledge_graph_quality/quality_summary.json")
+CQR_MODEL_MATCHED_SYNTHESIS = Path(
+    "experiments/regression/reports/model_matched_cqr_rerun_plan/"
+    "cqr_fixed_vs_model_matched_synthesis.json"
+)
 
 
 def parse_args() -> argparse.Namespace:
@@ -174,6 +178,7 @@ def build_payload(root: Path) -> dict[str, Any]:
     cross_run = read_json(root, CROSS_RUN)
     citations = read_json(root, CITATION_REGISTRY)
     kg_quality = read_json(root, KG_QUALITY)
+    cqr_model_matched = read_json(root, CQR_MODEL_MATCHED_SYNTHESIS)
 
     sources = {
         "main_article_draft": str(MAIN_ARTICLE),
@@ -195,6 +200,7 @@ def build_payload(root: Path) -> dict[str, Any]:
         "cross_run_integrity_audit": str(CROSS_RUN),
         "publication_citation_registry": str(CITATION_REGISTRY),
         "knowledge_graph_quality_summary": str(KG_QUALITY),
+        "cqr_fixed_vs_model_matched_synthesis": str(CQR_MODEL_MATCHED_SYNTHESIS),
     }
 
     supplement_rows = [
@@ -224,6 +230,11 @@ def build_payload(root: Path) -> dict[str, Any]:
     duplicate_s = duplicate_closure.get("summary") or {}
     quarantine_s = duplicate_quarantine.get("summary") or {}
     cross_s = cross_run.get("summary") or {}
+    cqr_model_matched_s = cqr_model_matched.get("summary") or {}
+    cqr_backend_counts = (
+        cqr_model_matched_s.get("coverage_eligible_interval_score_selected_counts")
+        or {}
+    )
     main_s = main_article.get("summary") or {}
     individual_s = individual.get("summary") or {}
     kg_graph = kg_quality.get("graph") or {}
@@ -232,18 +243,19 @@ def build_payload(root: Path) -> dict[str, Any]:
         {
             "section_id": "method_selection_robustness",
             "heading": "S1. Method Selection Robustness Diagnostics",
-            "role": "selection_robustness_diagnostic_no_final_winner",
+            "role": "selection_robustness_diagnostic_no_final_selection",
             "claim_boundary": "Robustness diagnostic only; final selection remains blocked.",
             "evidence_sources": [
                 "method_selection_robustness_audit",
                 "method_selection_inferential_audit",
                 "publication_citation_registry",
+                "cqr_fixed_vs_model_matched_synthesis",
             ],
         },
         {
             "section_id": "post_selection_validation",
             "heading": "S2. Post-Selection Validation Diagnostics",
-            "role": "post_selection_diagnostic_no_final_winner",
+            "role": "post_selection_diagnostic_no_final_selection",
             "claim_boundary": "Post-selection validation evidence is no-final-selection evidence.",
             "evidence_sources": [
                 "method_selection_post_selection_validation_results",
@@ -299,9 +311,9 @@ def build_payload(root: Path) -> dict[str, Any]:
     supplement_reader_crosswalk = [
         {
             "main_article_surface": "CQR/CV+ descriptive performance",
-            "supplement_support": "S1 robustness diagnostics and S2 post-selection diagnostics",
-            "primary_evidence_source": "method_selection_robustness_audit",
-            "closed_claim": "No final winner, global best method, or deployment recommendation.",
+            "supplement_support": "S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics",
+            "primary_evidence_source": "method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis",
+            "closed_claim": "No final method selection, global best method, or deployment recommendation.",
         },
         {
             "main_article_surface": "Venn-Abers bridge negative evidence",
@@ -344,6 +356,24 @@ def build_payload(root: Path) -> dict[str, Any]:
             ),
             "allowed_use": "Report CQR/CV+ as strong practical candidates observed in these experiments.",
             "blocked_use": "Do not call CQR the final selected method or a universal recommendation.",
+        },
+        {
+            "section_id": "S1b",
+            "reader_check": "Check whether CQR's signal survives a backend-confound diagnostic.",
+            "evidence_metric": (
+                "Model-matched CQR completed "
+                f"{fmt(cqr_model_matched_s.get('model_matched_cqr_completed_rows'))} "
+                "rows; paired cells="
+                f"{fmt(cqr_model_matched_s.get('paired_cell_count'))}; selected "
+                "cells are fixed_gbm_cqr="
+                f"{fmt(cqr_backend_counts.get('fixed_gbm_cqr'))}, "
+                "model_matched_cqr="
+                f"{fmt(cqr_backend_counts.get('model_matched_cqr'))}, "
+                "neither="
+                f"{fmt(cqr_backend_counts.get('no_coverage_eligible_variant'))}."
+            ),
+            "allowed_use": "Use as a backend sensitivity check for the experiment-scoped CQR signal.",
+            "blocked_use": "Do not upgrade the check into a universal CQR method recommendation.",
         },
         {
             "section_id": "S2",
@@ -482,6 +512,20 @@ def build_payload(root: Path) -> dict[str, Any]:
             "leave_one_alpha_primary_retention_rate"
         ),
         "final_selection_claim_status": robust_s.get("final_selection_claim_status"),
+        "cqr_backend_sensitivity_status": cqr_model_matched_s.get("status"),
+        "cqr_backend_sensitivity_fixed_gbm_completed_rows": (
+            cqr_model_matched_s.get("fixed_gbm_cqr_completed_rows")
+        ),
+        "cqr_backend_sensitivity_model_matched_completed_rows": (
+            cqr_model_matched_s.get("model_matched_cqr_completed_rows")
+        ),
+        "cqr_backend_sensitivity_paired_cell_count": (
+            cqr_model_matched_s.get("paired_cell_count")
+        ),
+        "cqr_backend_sensitivity_selected_counts": cqr_backend_counts,
+        "cqr_backend_sensitivity_can_support_method_winner_claim": (
+            cqr_model_matched_s.get("can_support_method_winner_claim")
+        ),
         "inferential_candidate_min_shared_pairwise_cell_count": inferential_s.get(
             "candidate_min_shared_pairwise_cell_count"
         ),
@@ -640,7 +684,7 @@ def build_payload(root: Path) -> dict[str, Any]:
         "failed_checks": failed_checks,
         "claim_boundaries": [
             "This is a private final-prose supplementary review draft, not final manuscript prose for public submission.",
-            "Method evidence is diagnostic; no final winner or recommendation is authorized.",
+            "Method evidence is diagnostic; no final method selection or recommendation is authorized.",
             "Bounded-support endpoint results block validity claims.",
             "Group diagnostics do not establish population fairness.",
             "Duplicate and integrity caveats are retained rather than hidden.",
@@ -650,6 +694,7 @@ def build_payload(root: Path) -> dict[str, Any]:
 
 def render_markdown(payload: dict[str, Any]) -> str:
     s = payload["summary"]
+    cqr_backend_counts = s.get("cqr_backend_sensitivity_selected_counts") or {}
     cite = payload["citation_keys"]
     split_key = cite["https://arxiv.org/abs/1604.04173"]
     weighted_key = cite["https://arxiv.org/abs/1904.06019"]
@@ -734,7 +779,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         "|---|---:|---|",
         f"| Candidate methods | {fmt(s['candidate_method_count'])} | CQR, CV+, and Mondrian absolute-residual calibration only |",
         f"| Common dataset-alpha cells | {fmt(s['common_dataset_alpha_cell_count'])} | Shared comparison cells |",
-        f"| Common-cell selected diagnostic method | `{s['common_cell_selected_method']}` | Not a final winner |",
+        f"| Common-cell selected diagnostic method | `{s['common_cell_selected_method']}` | Not a final method selection |",
         f"| Common-cell counts | {count_text(s['common_cell_winner_counts'])} | Descriptive counts only |",
         f"| Bootstrap replicates | {fmt(s['bootstrap_replicates'])} | Selection stability diagnostic |",
         f"| Bootstrap counts | {count_text(s['bootstrap_selection_counts'])} | No method recommendation |",
@@ -757,6 +802,25 @@ def render_markdown(payload: dict[str, Any]) -> str:
             "the authorization state of the final-selection claim."
         ),
         "",
+        "### S1b. CQR Backend Sensitivity Check",
+        "",
+        (
+            "The completed model-matched CQR rerun checks whether the historical "
+            "fixed-GBM CQR backend explains the CQR signal. It preserves the "
+            "experiment-scoped interpretation and does not create a method-selection "
+            "claim."
+        ),
+        "",
+        "| Backend diagnostic item | Value | Boundary |",
+        "|---|---:|---|",
+        f"| Fixed-GBM CQR completed rows | {fmt(s['cqr_backend_sensitivity_fixed_gbm_completed_rows'])} | Historical comparator rows |",
+        f"| Model-matched CQR completed rows | {fmt(s['cqr_backend_sensitivity_model_matched_completed_rows'])} | Completed rerun rows |",
+        f"| Paired dataset-alpha-model-family cells | {fmt(s['cqr_backend_sensitivity_paired_cell_count'])} | Direct CQR backend comparison cells |",
+        f"| Fixed-GBM CQR selected cells | {fmt(cqr_backend_counts.get('fixed_gbm_cqr'))} | Coverage-eligible interval-score selections |",
+        f"| Model-matched CQR selected cells | {fmt(cqr_backend_counts.get('model_matched_cqr'))} | Coverage-eligible interval-score selections |",
+        f"| Neither coverage-eligible variant | {fmt(cqr_backend_counts.get('no_coverage_eligible_variant'))} | Cells where both CQR variants fail the coverage-eligibility rule |",
+        f"| Method-selection claim supported | `{s['cqr_backend_sensitivity_can_support_method_winner_claim']}` | No method recommendation opens |",
+        "",
         "## S2. Post-Selection Validation Diagnostics",
         "",
         (
@@ -772,7 +836,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         f"| Validation datasets | {fmt(s['post_selection_dataset_count'])} | Narrow validation scope |",
         f"| Validation dataset-alpha cells | {fmt(s['post_selection_common_dataset_alpha_cell_count'])} | Shared cells only |",
         f"| Completed validation atomic runs | {fmt(s['post_selection_completed_atomic_run_count'])} | Completed diagnostic rows |",
-        f"| Validation diagnostic counts | {count_text(s['post_selection_diagnostic_winner_counts'])} | No final winner |",
+        f"| Validation diagnostic counts | {count_text(s['post_selection_diagnostic_winner_counts'])} | No final method selection |",
         f"| Validation primary win rate | {fmt(s['post_selection_validation_primary_win_rate'])} | Post-selection diagnostic rate |",
         f"| Validation primary win-rate 95% interval | {ci_text(s['post_selection_validation_primary_win_rate_ci95'])} | Wide uncertainty remains visible |",
         f"| Feature leakage violations | {fmt(s['post_selection_feature_leakage_violation_count'])} | Leakage sidecars clean in this slice |",
@@ -785,7 +849,7 @@ def render_markdown(payload: dict[str, Any]) -> str:
         (
             "Reader note: post-selection diagnostics are stress tests of a "
             "descriptive pattern. They do not license language such as final "
-            "winner, globally best conformal method, or validated Venn-Abers "
+            "method selection, globally best conformal method, or validated Venn-Abers "
             "regression interval. The Venn-Abers rows are especially narrow: "
             f"they concern the evaluated bridge, while predictive-distribution "
             f"and generalized Venn-Abers work remain separate literature objects "
