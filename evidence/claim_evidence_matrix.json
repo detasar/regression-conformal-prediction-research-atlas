@@ -21,10 +21,10 @@
     },
     {
       "evidence_gate": "This reading would require a separate pre-specified validation protocol.",
-      "id": "paper_main_results_outside current evidence_evidence",
+      "id": "paper_main_results_beyond_current_study_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
-      "scope_limit": "Keep method-selection conclusions outside the current evidence.",
+      "scope_limit": "Keep method-selection conclusions beyond this study.",
       "statement": "The current evidence does not establish a final method selection, final main result, or deployment deployment rule.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
@@ -56,11 +56,11 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this release.",
+      "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this study.",
       "id": "supplement_reproducibility_traceability_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row tells a reader how the work can be audited and resumed while keeping the working source separate from the public Research Atlas.",
-      "scope_limit": "Cite the public Research Atlas repository for this release.",
+      "scope_limit": "Cite the public Research Atlas repository for this study.",
       "statement": "The Research Atlas package records completed-row accounting, resume-safety controls, and knowledge-graph traceability.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },

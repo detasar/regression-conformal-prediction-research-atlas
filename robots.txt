@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://detasar.github.io/regression-conformal-prediction-research-atlas/sitemap.xml

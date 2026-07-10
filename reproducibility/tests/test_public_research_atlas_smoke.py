@@ -42,6 +42,14 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("recommendation", "engine"),
         ("claim", "generator"),
         ("public", "release", "remains", "closed"),
+        ("public", "release"),
+        ("release", "gate"),
+        ("outside", "current", "evidence"),
+        ("method", "recommendation"),
+        ("method", "guidance"),
+        ("positive", "claim", "promotion"),
+        ("positive-claim", "promotion"),
+        ("part", "of", "the", "public", "Research", "Atlas"),
         ("GitHub", "Pages", "remain", "closed"),
     )
 )
@@ -340,6 +348,8 @@ def test_public_html_metadata_and_accessibility_basics() -> None:
     pages = [
         root / "site/index.html",
         root / "paper/research_document.html",
+        root / "paper/article.html",
+        root / "paper/supplement.html",
         root / "atlas/index.html",
         root / "atlas/results/index.html",
         root / "site/kg_browser.html",
@@ -351,10 +361,50 @@ def test_public_html_metadata_and_accessibility_basics() -> None:
         assert 'type="application/ld+json"' in text
         assert "skip-link" in text
         assert ":focus-visible" in text
+        assert 'rel="icon"' in text
     assert "<caption>" in (root / "atlas/results/index.html").read_text(encoding="utf-8")
     kg_text = (root / "site/kg_browser.html").read_text(encoding="utf-8")
     assert "aria-live" in kg_text
     assert "fallback" in kg_text.lower()
+
+
+def test_public_seo_and_citation_discovery_files() -> None:
+    root = repo_root()
+    robots = (root / "robots.txt").read_text(encoding="utf-8")
+    sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
+    favicon = (root / "favicon.svg").read_text(encoding="utf-8")
+    citation_cff = (root / "CITATION.cff").read_text(encoding="utf-8")
+    citation_bib = (root / "paper/citation.bib").read_text(encoding="utf-8")
+    citation_ris = (root / "paper/citation.ris").read_text(encoding="utf-8")
+    assert "Sitemap: https://detasar.github.io/regression-conformal-prediction-research-atlas/sitemap.xml" in robots
+    for url in [
+        "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/index.html",
+        "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/article.html",
+        "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.html",
+        "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html",
+        "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/results/index.html",
+    ]:
+        assert f"<loc>{url}</loc>" in sitemap
+    assert "<svg" in favicon and "#151922" in favicon
+    assert "preferred-citation:" in citation_cff
+    assert "repository-code:" in citation_cff
+    assert "@misc{tasar2026regression_cp_research_atlas" in citation_bib
+    assert "TY  - GEN" in citation_ris
+    for page, pdf in [
+        ("paper/article.html", "paper/article.pdf"),
+        ("paper/supplement.html", "paper/supplement.pdf"),
+        ("paper/research_document.html", "paper/article.pdf"),
+    ]:
+        text = (root / page).read_text(encoding="utf-8")
+        assert 'name="citation_title"' in text
+        assert 'name="citation_author" content="Tasar, Emre"' in text
+        assert 'name="citation_publication_date" content="2026/07/10"' in text
+        assert 'name="citation_keywords"' in text
+        assert 'name="DC.title"' in text
+        assert 'type="application/ld+json"' in text
+        assert 'type="application/x-bibtex"' in text
+        assert 'type="application/x-research-info-systems"' in text
+        assert pdf in text
 
 
 def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:

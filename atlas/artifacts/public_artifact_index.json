@@ -1,5 +1,5 @@
 {
-  "artifact_count": 159,
+  "artifact_count": 161,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -150,6 +150,16 @@
       "artifact_kind": "atlas source",
       "artifact_path": "atlas/README.md",
       "reader_use": "Research Atlas source README."
+    },
+    {
+      "artifact_kind": "bibliography",
+      "artifact_path": "paper/citation.bib",
+      "reader_use": "Citation metadata in BibTeX format."
+    },
+    {
+      "artifact_kind": "bibliography",
+      "artifact_path": "paper/citation.ris",
+      "reader_use": "Citation metadata in RIS format."
     },
     {
       "artifact_kind": "bibliography",
@@ -797,6 +807,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-10T21:44:24.219914+00:00",
+  "generated_at_utc": "2026-07-10T22:14:43.031409+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

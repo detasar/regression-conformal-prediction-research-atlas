@@ -68,4 +68,4 @@ The public CI uses the same marker-selected smoke path. Full working ledgers, lo
 
 ## Citation
 
-Use this repository and its `CITATION.cff` as the citation surface. The integrated Research Document and supplementary knowledge graph are part of the release.
+Use this repository and its `CITATION.cff` as the citation surface. The integrated Research Document and supplementary knowledge graph are part of the Research Atlas.

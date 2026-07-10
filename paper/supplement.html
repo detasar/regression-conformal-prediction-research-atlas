@@ -3,6 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/x-bibtex" title="BibTeX citation" href="citation.bib">
+  <link rel="alternate" type="application/x-research-info-systems" title="RIS citation" href="citation.ris">
+  <meta name="description" content="Supplementary document for the Regression CP Research Atlas, covering robustness diagnostics, backend sensitivity, negative evidence, bounded-support scope, group diagnostics, and provenance.">
+  <link rel="canonical" href="https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Supplementary Document for the Regression CP Research Atlas">
+  <meta property="og:description" content="Supplementary document for the Regression CP Research Atlas, covering robustness diagnostics, backend sensitivity, negative evidence, bounded-support scope, group diagnostics, and provenance.">
+  <meta property="og:url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="citation_title" content="Supplementary Document for the Regression CP Research Atlas">
+  <meta name="citation_author" content="Tasar, Emre">
+  <meta name="citation_publication_date" content="2026/07/10">
+  <meta name="citation_online_date" content="2026/07/10">
+  <meta name="citation_abstract_html_url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.html">
+  <meta name="citation_pdf_url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.pdf">
+  <meta name="citation_keywords" content="conformal prediction; regression; prediction intervals; research atlas">
+  <meta name="DC.title" content="Supplementary Document for the Regression CP Research Atlas">
+  <meta name="DC.creator" content="Emre Tasar">
+  <meta name="DC.date" content="2026-07-10">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ScholarlyArticle", "headline": "Supplementary Document for the Regression CP Research Atlas", "description": "Supplementary document for the Regression CP Research Atlas, covering robustness diagnostics, backend sensitivity, negative evidence, bounded-support scope, group diagnostics, and provenance.", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.html", "datePublished": "2026-07-10", "dateModified": "2026-07-10", "author": {"@type": "Person", "name": "Emre Tasar", "email": "detasar@gmail.com"}, "keywords": ["conformal prediction", "regression", "prediction intervals", "research atlas"], "isPartOf": {"@type": "Dataset", "name": "Regression Conformal Prediction Research Atlas", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/index.html"}, "encoding": {"@type": "MediaObject", "encodingFormat": "application/pdf", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.pdf"}}</script>
   <title>Supplementary Document Draft</title>
   <style>
     body { font-family: system-ui, sans-serif; max-width: 980px; margin: 40px auto; padding: 0 24px; line-height: 1.55; color: #18181b; }
@@ -12,18 +33,23 @@
     code { background: #f4f4f5; padding: 2px 4px; border-radius: 4px; }
     blockquote { border-left: 4px solid #2563eb; padding-left: 16px; color: #3f3f46; }
     .boundary { border: 1px solid #d4d4d8; padding: 12px 14px; background: #fafafa; }
-  </style>
+      a:focus-visible { outline: 3px solid rgba(15,118,110,.35); outline-offset: 3px; }
+    .skip-link { position:absolute; left:14px; top:-60px; background:#18181b; color:#fff; padding:8px 12px; border-radius:6px; z-index:20; }
+    .skip-link:focus { top:12px; }
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<main id="main-content">
 
 <h1>Supplementary Document Draft</h1>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
 <p>Contact: detasar@gmail.com</p>
 
 <h2>Supplement Reader Crosswalk</h2>
-<p>This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains outside the current evidence. The table is a navigation aid; it does not add experiments or promote a method.</p>
+<p>This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains beyond this study. The table is a navigation aid; it does not add experiments or promote a method.</p>
 <table>
-<thead><tr><th>Main article surface</th><th>Supplement support</th><th>Primary source artifact</th><th>Outside current evidence claim</th></tr></thead>
+<thead><tr><th>Main article surface</th><th>Supplement support</th><th>Primary source artifact</th><th>Stronger claim requiring validation</th></tr></thead>
 <tbody>
 <tr><td>CQR/CV+ descriptive performance</td><td>S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis</code></td><td>No final method selection, global best method, or deployment deployment rule.</td></tr>
 <tr><td>Venn-Abers bridge negative evidence</td><td>S2 bridge validation slice and S6 release-state boundary</td><td><code>dataset_final_gate_post_selection_validation_bridge_results</code></td><td>No validated Venn-Abers regression interval claim.</td></tr>
@@ -34,9 +60,9 @@
 </tbody>
 </table>
 <h2>Supplement Reading Protocol</h2>
-<p>The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains outside the current evidence.</p>
+<p>The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains beyond this study.</p>
 <table>
-<thead><tr><th>Section</th><th>Reviewer check</th><th>Evidence metric</th><th>Allowed use</th><th>Outside current evidence use</th></tr></thead>
+<thead><tr><th>Section</th><th>Reviewer check</th><th>Evidence metric</th><th>Allowed use</th><th>Beyond this study use</th></tr></thead>
 <tbody>
 <tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates.</td><td>CQR final-selection and universal-deployment readings require separate validation.</td></tr>
 <tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>The check remains backend-sensitivity evidence for the CQR pipeline signal.</td></tr>
@@ -62,15 +88,15 @@
 <tr><td>Bootstrap primary selection-rate diagnostic band</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
 <tr><td>Leave-one-dataset retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
 <tr><td>Leave-one-alpha retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
-<tr><td>Final selection claim</td><td><code>outside current evidence</code></td><td>Final selection remains outside current evidence</td></tr>
+<tr><td>Final selection claim</td><td><code>beyond this study</code></td><td>Final selection remains beyond this study</td></tr>
 <tr><td>Pairwise shared cells</td><td>94</td><td>Inferential support, not a claim upgrade</td></tr>
-<tr><td>Main-result primary win rate</td><td>0.6778</td><td>Descriptive rate with final claim outside current evidence</td></tr>
+<tr><td>Main-result primary win rate</td><td>0.6778</td><td>Descriptive rate with final claim beyond this study</td></tr>
 <tr><td>Main-result primary win-rate diagnostic band</td><td>0.5757 to 0.7653</td><td>Uncertainty around the descriptive rate</td></tr>
 <tr><td>Robustness common-cell primary win rate</td><td>0.6170</td><td>Common-cell diagnostic only</td></tr>
 <tr><td>Robustness common-cell diagnostic band</td><td>0.5160 to 0.7089</td><td>Precision check, not claim scope</td></tr>
 </tbody>
 </table>
-<p>Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains outside the current evidence. The diagnostic bands summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
+<p>Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains beyond this study. The diagnostic bands summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
 <h3>S1b. CQR Backend Sensitivity Check</h3>
 <p>The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not create a method-selection claim.</p>
 <table>
@@ -116,8 +142,8 @@
 <tr><td>Post-handling validated bundles</td><td>15</td><td>Policy triage complete</td></tr>
 <tr><td>Clean or not-applicable bundles</td><td>4</td><td>Not enough for global validity</td></tr>
 <tr><td>Validity-ready bundles</td><td>0</td><td>No bounded-support validity claim</td></tr>
-<tr><td>Positive-claim-ready bundles</td><td>0</td><td>Positive endpoint claim outside current evidence</td></tr>
-<tr><td>Endpoint support status counts</td><td>outside current evidence_natural_domain_endpoint_excursions=11; clean_no_natural_domain_endpoint_excursions=3; not_applicable_unbounded_target_endpoint_hygiene_recorded=1</td><td>Support-status inventory, not a validity upgrade</td></tr>
+<tr><td>Positive-claim-ready bundles</td><td>0</td><td>Positive endpoint claim beyond this study</td></tr>
+<tr><td>Endpoint support status counts</td><td>beyond_current_study_natural_domain_endpoint_excursions=11; clean_no_natural_domain_endpoint_excursions=3; not_applicable_unbounded_target_endpoint_hygiene_recorded=1</td><td>Support-status inventory, not a validity upgrade</td></tr>
 </tbody>
 </table>
 <p>Reader note: bounded-support evidence is stricter than ordinary coverage evidence. A method can have acceptable empirical coverage and still fail a natural-domain endpoint gate. The supplement therefore reports endpoint closure as a limitation, not as a post-processing success story.</p>
@@ -150,7 +176,7 @@
 <tr><td>Duplicate actions</td><td>29</td><td>Caveat inventory scope</td></tr>
 <tr><td>Open duplicate actions</td><td>0</td><td>Closure evidence only</td></tr>
 <tr><td>Paired duplicate comparison rows</td><td>1,043</td><td>Sensitivity evidence</td></tr>
-<tr><td>Quarantined actions</td><td>46</td><td>Main-claim promotion outside current evidence</td></tr>
+<tr><td>Quarantined actions</td><td>46</td><td>Main-claim promotion beyond this study</td></tr>
 <tr><td>Unquarantined actions</td><td>0</td><td>No untracked duplicate action</td></tr>
 <tr><td>Cross-run leakage status</td><td><code>hard_leakage_not_detected_in_scanned_artifacts</code></td><td>Hard leakage not detected in scanned artifacts</td></tr>
 <tr><td>Unsupported claim hits</td><td>0</td><td>Claim scan clean for this audit</td></tr>
@@ -203,5 +229,6 @@
 <li><code>knowledge_graph_quality_summary</code>: <code>experiments/regression/reports/knowledge_graph_quality/quality_summary.json</code></li>
 <li><code>cqr_fixed_vs_model_matched_synthesis</code>: <code>experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json</code></li>
 </ul>
+</main>
 </body>
 </html>

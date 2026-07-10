@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Regression CP Research Atlas">
+  <rect width="64" height="64" rx="12" fill="#151922"/>
+  <path d="M14 42c8-16 18-24 36-25" fill="none" stroke="#0f766e" stroke-width="5" stroke-linecap="round"/>
+  <path d="M14 48c10-8 23-11 36-9" fill="none" stroke="#d6a33d" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="21" cy="24" r="4" fill="#fffdf8"/>
+  <circle cx="43" cy="30" r="4" fill="#fffdf8"/>
+</svg>

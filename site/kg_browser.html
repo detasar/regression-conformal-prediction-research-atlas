@@ -6,6 +6,9 @@
   <title>Regression CP Evidence Map</title>
   <meta name="description" content="Traversable knowledge graph browser for the Regression CP Research Atlas, with guided evidence routes, search, filters, source details, and fallback tables.">
   <link rel="canonical" href="https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/x-bibtex" title="BibTeX citation" href="../paper/citation.bib">
+  <link rel="alternate" type="application/x-research-info-systems" title="RIS citation" href="../paper/citation.ris">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Regression CP Evidence Map">
   <meta property="og:description" content="Traversable knowledge graph browser for the Regression CP Research Atlas, with guided evidence routes, search, filters, source details, and fallback tables.">
@@ -77,7 +80,7 @@
     <section class="stage" aria-labelledby="mapTitle">
       <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" aria-pressed="true">One hop</button> <button id="twoHop" aria-pressed="false">Two hops</button></div></div>
       <div class="canvas-wrap"><canvas id="mapCanvas" aria-label="Knowledge graph canvas visual overview"></canvas></div>
-      <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>outside current evidence edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
+      <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>evidence-limit edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
     </section>
     <aside class="right">
       <div class="detail" id="detail"><h2>What is in this graph?</h2><p class="muted">This is a reader-facing index over the experiment evidence: methods, dataset audits, result reports, interpretation scope, and provenance links. Start with a route, then drill into a node only when you want the underlying audit trail.</p></div>

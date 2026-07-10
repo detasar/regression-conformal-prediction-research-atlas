@@ -24,7 +24,7 @@ Contact: detasar@gmail.com
 
 \section{Supplement Reader Crosswalk}
 
-This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains outside the current evidence. The table is a navigation aid; it does not add experiments or promote a method.
+This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains beyond this study. The table is a navigation aid; it does not add experiments or promote a method.
 
 \begingroup
 \small
@@ -32,7 +32,7 @@ This crosswalk explains how the supplement should be read with the main article.
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
-Main article surface & Supplement support & Primary source artifact & Outside current evidence claim \\
+Main article surface & Supplement support & Primary source artifact & Stronger claim requiring validation \\
 \midrule
 CQR/CV+ descriptive performance & S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics & \texttt{method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit; cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis} & No final method selection, global best method, or deployment deployment rule. \\
 Venn-Abers bridge negative evidence & S2 bridge validation slice and S6 release-state boundary & \texttt{dataset\_\allowbreak{}final\_\allowbreak{}gate\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}bridge\_\allowbreak{}results} & No validated Venn-Abers regression interval claim. \\
@@ -46,7 +46,7 @@ Knowledge-graph traceability and release state & S6 traceability and release sta
 
 \section{Supplement Reading Protocol}
 
-The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains outside the current evidence.
+The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains beyond this study.
 
 \begingroup
 \small
@@ -54,7 +54,7 @@ The supplement is intentionally broader than the main article. Each section adds
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
 \toprule
-Section & Reviewer check & Evidence metric & Allowed use & Outside current evidence use \\
+Section & Reviewer check & Evidence metric & Allowed use & Beyond this study use \\
 \midrule
 S1 & Check whether the method-selection signal is robust enough to describe, but not promote. & CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000. & Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates. & CQR final-selection and universal-deployment readings require separate validation. \\
 S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & The check remains backend-sensitivity evidence for the CQR pipeline signal. \\
@@ -89,9 +89,9 @@ Bootstrap primary selection rate & 1.0000 & Stability estimate, not final select
 Bootstrap primary selection-rate diagnostic band & 0.9962 to 1.0000 & Precision check for the diagnostic rate \\
 Leave-one-dataset retention & 1.0000 & Diagnostic robustness \\
 Leave-one-alpha retention & 1.0000 & Diagnostic robustness \\
-Final selection claim & \texttt{outside current evidence} & Final selection remains outside current evidence \\
+Final selection claim & \texttt{beyond this study} & Final selection remains beyond this study \\
 Pairwise shared cells & 94 & Inferential support, not a claim upgrade \\
-Main-result primary win rate & 0.6778 & Descriptive rate with final claim outside current evidence \\
+Main-result primary win rate & 0.6778 & Descriptive rate with final claim beyond this study \\
 Main-result primary win-rate diagnostic band & 0.5757 to 0.7653 & Uncertainty around the descriptive rate \\
 Robustness common-cell primary win rate & 0.6170 & Common-cell diagnostic only \\
 Robustness common-cell diagnostic band & 0.5160 to 0.7089 & Precision check, not claim scope \\
@@ -99,7 +99,7 @@ Robustness common-cell diagnostic band & 0.5160 to 0.7089 & Precision check, not
 \end{longtable}
 \endgroup
 
-Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains outside the current evidence. The diagnostic bands summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.
+Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains beyond this study. The diagnostic bands summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.
 
 \subsection{S1b. CQR Backend Sensitivity Check}
 
@@ -172,8 +172,8 @@ Raw endpoint-excursion bundles & 11 & Domain blocker retained \\
 Post-handling validated bundles & 15 & Policy triage complete \\
 Clean or not-applicable bundles & 4 & Not enough for global validity \\
 Validity-ready bundles & 0 & No bounded-support validity claim \\
-Positive-claim-ready bundles & 0 & Positive endpoint claim outside current evidence \\
-Endpoint support status counts & outside current evidence\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=11; clean\_\allowbreak{}no\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=3; not\_\allowbreak{}applicable\_\allowbreak{}unbounded\_\allowbreak{}target\_\allowbreak{}endpoint\_\allowbreak{}hygiene\_\allowbreak{}recorded=1 & Support-status inventory, not a validity upgrade \\
+Positive-claim-ready bundles & 0 & Positive endpoint claim beyond this study \\
+Endpoint support status counts & beyond this study\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=11; clean\_\allowbreak{}no\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=3; not\_\allowbreak{}applicable\_\allowbreak{}unbounded\_\allowbreak{}target\_\allowbreak{}endpoint\_\allowbreak{}hygiene\_\allowbreak{}recorded=1 & Support-status inventory, not a validity upgrade \\
 \bottomrule
 \end{longtable}
 \endgroup
@@ -226,7 +226,7 @@ Diagnostic item & Value & Boundary \\
 Duplicate actions & 29 & Caveat inventory scope \\
 Open duplicate actions & 0 & Closure evidence only \\
 Paired duplicate comparison rows & 1,043 & Sensitivity evidence \\
-Quarantined actions & 46 & Main-claim promotion outside current evidence \\
+Quarantined actions & 46 & Main-claim promotion beyond this study \\
 Unquarantined actions & 0 & No untracked duplicate action \\
 Cross-run leakage status & \texttt{hard\_\allowbreak{}leakage\_\allowbreak{}not\_\allowbreak{}detected\_\allowbreak{}in\_\allowbreak{}scanned\_\allowbreak{}artifacts} & Hard leakage not detected in scanned artifacts \\
 Unsupported claim hits & 0 & Claim scan clean for this audit \\

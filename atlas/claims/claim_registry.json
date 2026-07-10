@@ -70,11 +70,11 @@
       "claim_id": "supplement_reproducibility_traceability_evidence",
       "claim_status": "open_for_experiment_scoped_reporting",
       "claim_type": "reproducibility_traceability_claim",
-      "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this release.",
+      "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this study.",
       "kg_reference_node_count": 9,
       "plain_language": "This row tells a reader how the work can be audited and resumed while keeping the working source separate from the public Research Atlas.",
       "reader_safe_statement": "The Research Atlas package records completed-row accounting, resume-safety controls, and knowledge-graph traceability.",
-      "scope_limit": "Cite the public Research Atlas repository for this release.",
+      "scope_limit": "Cite the public Research Atlas repository for this study.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
@@ -91,7 +91,7 @@
     {
       "claim_id": "closed_gate:universal_best_method",
       "claim_status": "requires_separate_validation",
-      "claim_type": "closed_claim_gate",
+      "claim_type": "evidence_limit",
       "evidence_gate": "method_performance_synthesis and claim_evidence_matrix",
       "kg_reference_node_count": "",
       "plain_language": "The synthesis is descriptive and experiment-scoped.",
@@ -102,7 +102,7 @@
     {
       "claim_id": "closed_gate:production_guidance",
       "claim_status": "requires_separate_validation",
-      "claim_type": "closed_claim_gate",
+      "claim_type": "evidence_limit",
       "evidence_gate": "claim_evidence_matrix",
       "kg_reference_node_count": "",
       "plain_language": "The release evaluates empirical behavior; operational risk, monitoring, and deployment constraints require a separate study.",
@@ -113,7 +113,7 @@
     {
       "claim_id": "closed_gate:population_group_inference",
       "claim_status": "requires_separate_validation",
-      "claim_type": "closed_claim_gate",
+      "claim_type": "evidence_limit",
       "evidence_gate": "ready bundles=0",
       "kg_reference_node_count": "",
       "plain_language": "Population-level group inference requires a pre-specified inference design.",
@@ -124,7 +124,7 @@
     {
       "claim_id": "closed_gate:bounded_support_validity",
       "claim_status": "requires_separate_validation",
-      "claim_type": "closed_claim_gate",
+      "claim_type": "evidence_limit",
       "evidence_gate": "ready bundles=0",
       "kg_reference_node_count": "",
       "plain_language": "A ready bounded-support validity bundle was not recorded.",
@@ -135,7 +135,7 @@
     {
       "claim_id": "closed_gate:validated_venn_abers_regression_interval",
       "claim_status": "requires_separate_validation",
-      "claim_type": "closed_claim_gate",
+      "claim_type": "evidence_limit",
       "evidence_gate": "The expected strong regression solution did not emerge in these experiments.",
       "kg_reference_node_count": "",
       "plain_language": "The evaluated bridge produced negative or diagnostic evidence rather than a validated interval result.",
@@ -146,7 +146,7 @@
     {
       "claim_id": "closed_gate:cqr_backend_method_selection",
       "claim_status": "requires_separate_validation",
-      "claim_type": "closed_claim_gate",
+      "claim_type": "evidence_limit",
       "evidence_gate": "cqr_fixed_vs_model_matched_synthesis",
       "kg_reference_node_count": "",
       "plain_language": "pipeline_level_descriptive_signal_only",
