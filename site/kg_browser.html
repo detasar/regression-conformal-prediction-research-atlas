@@ -27,11 +27,14 @@
     .layout { display:grid; grid-template-columns:320px minmax(420px,1fr) 360px; height:calc(100vh - 142px); min-height:620px; overflow:hidden; }
     aside { min-height:0; padding:18px; background:rgba(255,253,248,.86); border-right:1px solid var(--line); overflow:auto; }
     aside.right { border-right:0; border-left:1px solid var(--line); }
-    .route, .result, .edge { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:11px; margin-bottom:10px; cursor:pointer; }
-    .route:hover, .result:hover, .result.active { border-color:var(--teal); box-shadow:inset 3px 0 0 var(--teal); }
+    .route, .result, .edge { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:11px; margin-bottom:10px; }
+    .route, .result { width:100%; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
+    .route:hover, .route[aria-current="true"], .result:hover, .result.active, .result[aria-current="true"] { border-color:var(--teal); box-shadow:inset 3px 0 0 var(--teal); }
     .route b, .result b { display:block; line-height:1.25; }
     .route span, .result span, .muted { color:var(--muted); font-size:12px; line-height:1.45; }
     .route span, .result span { display:block; }
+    .table-action { border:0; background:transparent; color:#145ea8; padding:0; font:inherit; font-weight:720; text-align:left; text-decoration:underline; text-underline-offset:3px; }
+    .graph-notice { color:var(--amber); font-weight:760; }
     label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:0; text-transform:uppercase; margin:14px 0 10px; }
     input, select { width:100%; border:1px solid var(--line); border-radius:7px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
     .stage { min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr) auto; background:#f2ebdf; }
@@ -42,6 +45,8 @@
     .canvas-wrap { position:relative; min-height:0; overflow:hidden; background:radial-gradient(circle at 50% 42%, #fffdf8, #ece3d3); }
     canvas { position:absolute; inset:0; width:100%; height:100%; }
     .footer { display:flex; flex-wrap:wrap; gap:14px; padding:12px 16px; color:var(--muted); font-size:13px; background:rgba(255,253,248,.9); border-top:1px solid var(--line); }
+    .map-legend { display:flex; flex-wrap:wrap; gap:8px; color:var(--muted); font-size:12px; }
+    .legend-mark { width:12px; height:12px; display:inline-block; border:1px solid var(--line); vertical-align:-2px; margin-right:4px; }
     .detail { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:15px; margin-bottom:14px; }
     .detail h2 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:24px; margin:4px 0 8px; line-height:1.1; }
     .pill { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px 8px; color:var(--muted); font-size:12px; margin:0 6px 6px 0; }
@@ -63,15 +68,16 @@
   <main id="main-content" class="layout">
     <aside>
       <h2>Research Routes</h2>
-      <div id="routes"></div>
-      <label>Search<input id="search" placeholder="CQR, Venn-Abers, NHANES, coverage..."></label>
-      <label>Node type<select id="typeFilter"><option value="">All types</option></select></label>
-      <div id="results"></div>
+      <div id="routes" role="list" aria-label="Guided research routes"></div>
+      <label for="search">Search</label><input id="search" placeholder="CQR, Venn-Abers, NHANES, coverage...">
+      <label for="typeFilter">Node type</label><select id="typeFilter"><option value="">All types</option></select>
+      <p class="muted" id="resultCount" role="status" aria-live="polite"></p>
+      <div id="results" role="list" aria-label="Search results"></div>
     </aside>
-    <section class="stage" aria-label="Evidence map canvas">
-      <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop">One hop</button> <button id="twoHop">Two hops</button></div></div>
-      <div class="canvas-wrap"><canvas id="mapCanvas" aria-label="Knowledge graph canvas"></canvas></div>
-      <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span>Click a labeled node or route to traverse.</span></div>
+    <section class="stage" aria-labelledby="mapTitle">
+      <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" aria-pressed="true">One hop</button> <button id="twoHop" aria-pressed="false">Two hops</button></div></div>
+      <div class="canvas-wrap"><canvas id="mapCanvas" aria-label="Knowledge graph canvas visual overview"></canvas></div>
+      <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>outside current evidence edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
     </section>
     <aside class="right">
       <div class="detail" id="detail"><h2>What is in this graph?</h2><p class="muted">This is a reader-facing index over the experiment evidence: methods, dataset audits, result reports, interpretation scope, and provenance links. Start with a route, then drill into a node only when you want the underlying audit trail.</p></div>
@@ -85,6 +91,7 @@
     const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[] };
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
+    const graphNotice = message => { document.getElementById('graphNotice').textContent = message || ''; };
     function addIndex(edge){ for(const id of [edge.source,edge.target]){ if(!state.edgeByNode.has(id)) state.edgeByNode.set(id,[]); state.edgeByNode.get(id).push(edge); } }
     function neighbors(root){
       const seen = new Set(), edges = [], q = [{id:root,d:0}];
@@ -101,15 +108,23 @@
     function routeNodes(route){ return (route.node_ids||[]).map(id=>state.nodeById.get(id)).filter(Boolean); }
     function uniqueNodes(list){ const out=[], seen=new Set(); for(const n of list){ if(n && !seen.has(n.id)){ seen.add(n.id); out.push(n); } } return out; }
     function selectedRoute(){ return (state.data.research_map||[]).find(r=>r.route_id===state.routeId) || null; }
-    function select(id){ if(!state.nodeById.has(id)) return; state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); }
+    function updateDepthButtons(){
+      document.getElementById('oneHop').setAttribute('aria-pressed', state.depth===1 ? 'true' : 'false');
+      document.getElementById('twoHop').setAttribute('aria-pressed', state.depth===2 ? 'true' : 'false');
+    }
+    function select(id){
+      if(!state.nodeById.has(id)){ graphNotice(`Node not found: ${id}`); return false; }
+      graphNotice(''); state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); return true;
+    }
     function selectRoute(routeId){
       const route=(state.data.research_map||[]).find(r=>r.route_id===routeId);
-      if(!route) return;
-      state.selected=null; state.routeId=routeId; renderAll();
+      if(!route){ graphNotice(`Route not found: ${routeId}`); return false; }
+      graphNotice(''); state.selected=null; state.routeId=routeId; renderAll();
       history.replaceState(null,'','?preset='+encodeURIComponent(routeId));
+      return true;
     }
     function renderRoutes(){
-      document.getElementById('routes').innerHTML=(state.data.research_map||[]).map(r=>`<div class="route" data-route="${esc(r.route_id)}" style="border-left:4px solid ${esc(r.accent)}"><b>${esc(r.title)}</b><span>${esc(r.summary)}</span><span>${(r.node_ids||[]).length} anchor nodes</span></div>`).join('');
+      document.getElementById('routes').innerHTML=(state.data.research_map||[]).map(r=>`<button type="button" class="route" role="listitem" data-route="${esc(r.route_id)}" aria-current="${r.route_id===state.routeId?'true':'false'}" style="border-left:4px solid ${esc(r.accent)}"><b>${esc(r.title)}</b><span>${esc(r.summary)}</span><span>${(r.node_ids||[]).length} anchor nodes</span></button>`).join('');
       document.querySelectorAll('.route').forEach(el=>el.onclick=()=>selectRoute(el.dataset.route));
     }
     function renderFilters(){
@@ -120,14 +135,19 @@
       const q=document.getElementById('search').value.toLowerCase().trim();
       const type=document.getElementById('typeFilter').value;
       if(!q && !type) return [];
-      return state.data.nodes.filter(n=>(!type||n.type===type)&&(!q||`${n.label} ${n.summary} ${n.id}`.toLowerCase().includes(q))).slice(0,80);
+      return state.data.nodes.filter(n=>(!type||n.type===type)&&(!q||`${n.label} ${n.summary} ${n.id}`.toLowerCase().includes(q)));
     }
     function renderResults(){
-      const nodes=resultNodes();
+      const allNodes=resultNodes();
+      const nodes=allNodes.slice(0,80);
+      document.getElementById('resultCount').textContent=allNodes.length ? `Showing ${nodes.length.toLocaleString()} of ${allNodes.length.toLocaleString()} matching nodes.` : '';
       document.getElementById('results').innerHTML=nodes.length
-        ? nodes.map(n=>`<div class="result ${n.id===state.selected?'active':''}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></div>`).join('')
+        ? nodes.map(n=>`<button type="button" class="result ${n.id===state.selected?'active':''}" role="listitem" aria-current="${n.id===state.selected?'true':'false'}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></button>`).join('')
         : '<p class="muted">Search or choose a node type to inspect the full audit graph. The default canvas stays at reader overview level.</p>';
       document.querySelectorAll('.result').forEach(el=>el.onclick=()=>select(el.dataset.id));
+    }
+    function activateNodeButtons(){
+      document.querySelectorAll('[data-node]').forEach(el=>el.onclick=()=>select(el.dataset.node));
     }
     function renderDetail(){
       const n=state.nodeById.get(state.selected);
@@ -135,7 +155,7 @@
         const route=selectedRoute();
         const routes=route?[route]:(state.data.research_map||[]);
         const routeRows=routes.map(r=>`<tr><td>${esc(r.title)}</td><td>${esc(short(r.summary,140))}</td><td>${esc((r.node_ids||[]).length)} anchors</td></tr>`).join('');
-        const anchorRows=route ? routeNodes(route).map(row=>`<tr><td>${esc(row.label)}</td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
+        const anchorRows=route ? routeNodes(route).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
         document.getElementById('detail').innerHTML=route
           ? `<span class="pill">guided route</span><h2>${esc(route.title)}</h2><p class="muted">${esc(route.summary)}</p><p class="muted">This view shows the curated anchors first. Click an anchor node to open its one-hop or two-hop evidence neighborhood.</p>`
         : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, interpretation scope, and provenance records. It is an evidence map for inspecting the study.</p>`;
@@ -143,13 +163,15 @@
         document.getElementById('table').innerHTML=route
           ? `<table><thead><tr><th>Anchor</th><th>Type</th><th>Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`
           : `<table><thead><tr><th>Route</th><th>Meaning</th><th>Size</th></tr></thead><tbody>${routeRows}</tbody></table>`;
+        activateNodeButtons();
         return;
       }
       const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
       document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(n.id)}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
       const es=(state.edgeByNode.get(n.id)||[]).slice(0,14);
       document.getElementById('edges').innerHTML=es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('');
-      document.getElementById('table').innerHTML=`<table><thead><tr><th>Node</th><th>Type</th><th>Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td>${esc(row.label)}</td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;
+      document.getElementById('table').innerHTML=`<table><thead><tr><th>Node</th><th>Type</th><th>Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;
+      activateNodeButtons();
     }
     function draw(){
       const canvas=document.getElementById('mapCanvas'), wrap=canvas.parentElement, r=wrap.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
@@ -177,14 +199,19 @@
       nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const overview=!state.selected; const route=selectedRoute(); const sparseLabel=(!route && (r.width<520 ? i%14===0 : i%10===0)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(is || nodes.length<=12 || sparseLabel){ ctx.fillStyle='#151922'; ctx.font=(is?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(r.width<520?24:38):(overview?(r.width<520?20:30):22); const label=short(n.label,maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
       document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes`;
     }
-    function renderAll(){ renderResults(); renderDetail(); draw(); }
-    fetch('kg_browser_data.json').then(r=>r.json()).then(data=>{
+    function renderAll(){ renderRoutes(); renderResults(); renderDetail(); updateDepthButtons(); draw(); }
+    fetch('kg_browser_data.json').then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then(data=>{
       state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); data.edges.forEach(addIndex);
-      renderRoutes(); renderFilters(); document.getElementById('search').oninput=renderResults; document.getElementById('typeFilter').onchange=renderResults;
+      renderFilters(); document.getElementById('search').oninput=renderAll; document.getElementById('typeFilter').onchange=renderAll;
       document.getElementById('oneHop').onclick=()=>{state.depth=1; renderAll();}; document.getElementById('twoHop').onclick=()=>{state.depth=2; renderAll();};
       document.getElementById('mapCanvas').onclick=e=>{ const rect=e.currentTarget.getBoundingClientRect(); const x=e.clientX-rect.left,y=e.clientY-rect.top; const hit=state.points.find(p=>Math.hypot(p.x-x,p.y-y)<p.r); if(hit) select(hit.id); };
-      const params=new URLSearchParams(location.search); const start=params.get('node'); const preset=params.get('preset'); if(start) select(start); else if(preset) selectRoute(preset); else renderAll();
+      const params=new URLSearchParams(location.search); const start=params.get('node'); const preset=params.get('preset'); if(start){ if(!select(start)) renderAll(); } else if(preset){ if(!selectRoute(preset)) renderAll(); } else renderAll();
       addEventListener('resize',draw);
+    }).catch(error=>{
+      document.getElementById('status').textContent='Graph data could not be loaded.';
+      graphNotice(error.message || 'Unknown loading error');
+      document.getElementById('detail').innerHTML='<h2>Graph data unavailable</h2><p class="muted">The static HTML shell loaded, but the graph data file could not be fetched. The public Research Atlas artifacts remain available from the project page.</p>';
+      document.getElementById('table').innerHTML='<table><caption>Graph loading status</caption><thead><tr><th scope="col">File</th><th scope="col">Status</th></tr></thead><tbody><tr><td>kg_browser_data.json</td><td>unavailable</td></tr></tbody></table>';
     });
   </script>
 </body>

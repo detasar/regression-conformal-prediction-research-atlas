@@ -140,6 +140,20 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
         "venn_abers_bridge",
         "closed_gates",
     }
+    browser = (root / "site/kg_browser.html").read_text(encoding="utf-8")
+    assert 'role="list" aria-label="Guided research routes"' in browser
+    assert '<button type="button" class="route"' in browser
+    assert '<button type="button" class="result' in browser
+    assert 'aria-current="' in browser
+    assert 'aria-pressed="true"' in browser
+    assert 'id="resultCount" role="status" aria-live="polite"' in browser
+    assert 'id="graphNotice" class="graph-notice" role="status" aria-live="polite"' in browser
+    assert "if(!r.ok) throw new Error" in browser
+    assert ".catch(error=>" in browser
+    assert "Node not found:" in browser
+    assert "Route not found:" in browser
+    assert "data-node=" in browser
+    assert "map-legend" in browser
 
 
 def test_public_root_command_help_runs() -> None:
