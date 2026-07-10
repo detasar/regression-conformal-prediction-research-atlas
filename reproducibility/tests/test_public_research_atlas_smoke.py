@@ -7,6 +7,7 @@ import importlib.resources as resources
 import csv
 import json
 import os
+import shutil
 import subprocess
 import sys
 from html.parser import HTMLParser
@@ -405,6 +406,41 @@ def test_public_seo_and_citation_discovery_files() -> None:
         assert 'type="application/x-bibtex"' in text
         assert 'type="application/x-research-info-systems"' in text
         assert pdf in text
+
+
+def test_public_pdfs_include_scholarly_metadata() -> None:
+    root = repo_root()
+    expected = {
+        "paper/article": [
+            "Regression Conformal Prediction Under Neutral Interpretation Scope",
+            "Emre Tasar, Data Scientist",
+            "conformal prediction, regression, prediction intervals",
+        ],
+        "paper/supplement": [
+            "Supplementary Document for the Regression CP Research Atlas",
+            "Emre Tasar, Data Scientist",
+            "conformal prediction, regression, prediction intervals",
+        ],
+    }
+    for stem, tokens in expected.items():
+        tex = (root / f"{stem}.tex").read_text(encoding="utf-8")
+        assert "% public-pdf-metadata-v1" in tex
+        assert "\\hypersetup{%" in tex
+        assert "pdftitle={" in tex
+        assert "pdfauthor={Emre Tasar, Data Scientist}" in tex
+        assert "pdfsubject={Audited regression conformal prediction Research Atlas" in tex
+        assert "pdfkeywords={conformal prediction, regression, prediction intervals" in tex
+        assert "pdflang={en-US}" in tex
+        pdfinfo = shutil.which("pdfinfo")
+        if pdfinfo:
+            result = subprocess.run(
+                [pdfinfo, str(root / f"{stem}.pdf")],
+                check=True,
+                capture_output=True,
+                text=True,
+            )
+            for token in tokens:
+                assert token in result.stdout
 
 
 def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
