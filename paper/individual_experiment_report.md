@@ -52,7 +52,7 @@ After the broad method synthesis, a model-matched CQR rerun checked whether the 
 | Model-matched CQR selected cells | 71 | Coverage-eligible lower interval-score cells |
 | Neither coverage-eligible variant | 37 | Cells where both CQR variants fail the coverage-eligibility rule |
 
-For CQR, the row-weighted coverage mean is 0.9059, with a 95% interval from 0.9050 to 0.9068. The row-weighted absolute coverage error mean is 0.0210. These values support a descriptive statement that CQR has the largest current coverage-gated selected-cell share in this study; they do not support a general deployment rule that all regression conformal prediction users should choose CQR.
+For CQR, the row-weighted coverage mean is 0.9059, with a diagnostic row-weighted band from 0.9050 to 0.9068. The row-weighted absolute coverage error mean is 0.0210. These values support a descriptive statement that CQR has the largest current coverage-gated selected-cell share in this study; they do not support a general deployment rule that all regression conformal prediction users should choose CQR.
 
 ## Selection Robustness Diagnostics
 

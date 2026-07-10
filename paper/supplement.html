@@ -59,18 +59,18 @@
 <tr><td>Bootstrap replicates</td><td>1,000</td><td>Selection stability diagnostic</td></tr>
 <tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>Experiment-scoped interpretation</td></tr>
 <tr><td>Bootstrap primary selection rate</td><td>1.0000</td><td>Stability estimate, not final selection</td></tr>
-<tr><td>Bootstrap primary selection-rate 95% interval</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
+<tr><td>Bootstrap primary selection-rate diagnostic band</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
 <tr><td>Leave-one-dataset retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
 <tr><td>Leave-one-alpha retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
 <tr><td>Final selection claim</td><td><code>outside current evidence</code></td><td>Final selection remains outside current evidence</td></tr>
 <tr><td>Pairwise shared cells</td><td>94</td><td>Inferential support, not a claim upgrade</td></tr>
 <tr><td>Main-result primary win rate</td><td>0.6778</td><td>Descriptive rate with final claim outside current evidence</td></tr>
-<tr><td>Main-result primary win-rate 95% interval</td><td>0.5757 to 0.7653</td><td>Uncertainty around the descriptive rate</td></tr>
+<tr><td>Main-result primary win-rate diagnostic band</td><td>0.5757 to 0.7653</td><td>Uncertainty around the descriptive rate</td></tr>
 <tr><td>Robustness common-cell primary win rate</td><td>0.6170</td><td>Common-cell diagnostic only</td></tr>
-<tr><td>Robustness common-cell 95% interval</td><td>0.5160 to 0.7089</td><td>Precision check, not claim scope</td></tr>
+<tr><td>Robustness common-cell diagnostic band</td><td>0.5160 to 0.7089</td><td>Precision check, not claim scope</td></tr>
 </tbody>
 </table>
-<p>Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains outside the current evidence. The confidence intervals quantify diagnostic uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
+<p>Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains outside the current evidence. The diagnostic bands summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
 <h3>S1b. CQR Backend Sensitivity Check</h3>
 <p>The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not create a method-selection claim.</p>
 <table>
@@ -95,7 +95,7 @@
 <tr><td>Completed validation atomic runs</td><td>225</td><td>Completed diagnostic rows</td></tr>
 <tr><td>Validation diagnostic counts</td><td>cqr=18; mondrian_abs=7</td><td>No final method selection</td></tr>
 <tr><td>Validation primary win rate</td><td>0.7200</td><td>Post-selection diagnostic rate</td></tr>
-<tr><td>Validation primary win-rate 95% interval</td><td>0.5242 to 0.8572</td><td>Wide uncertainty remains visible</td></tr>
+<tr><td>Validation primary win-rate diagnostic band</td><td>0.5242 to 0.8572</td><td>Wide uncertainty remains visible</td></tr>
 <tr><td>Feature leakage violations</td><td>0</td><td>Leakage sidecars clean in this slice</td></tr>
 <tr><td>Width pathology rows</td><td>6</td><td>Retained caveat evidence</td></tr>
 <tr><td>Bridge validation datasets</td><td>1</td><td>Dataset-final-gate bridge slice</td></tr>

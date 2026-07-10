@@ -408,6 +408,34 @@ def test_public_reader_surfaces_avoid_legacy_frontier_language() -> None:
     assert not violations
 
 
+def test_public_reader_surfaces_label_intervals_as_diagnostic_bands() -> None:
+    root = repo_root()
+    pages = [
+        root / "paper/research_document.md",
+        root / "paper/research_document.html",
+        root / "paper/individual_experiment_report.md",
+        root / "paper/article.tex",
+        root / "paper/article.html",
+        root / "paper/supplement.tex",
+        root / "paper/supplement.html",
+    ]
+    violations = []
+    for path in pages:
+        text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in (
+            "95% interval",
+            "95\\% interval",
+            "95% ci",
+            "95\\% ci",
+            "audited 95%",
+            "confidence intervals",
+            "uncertainty intervals",
+        ):
+            if phrase in text:
+                violations.append((str(path.relative_to(root)), phrase))
+    assert not violations
+
+
 def test_public_repository_text_has_no_private_review_boilerplate() -> None:
     root = repo_root()
     checked_suffixes = {".md", ".html", ".tex", ".py", ".toml", ".yml", ".yaml", ".cff"}
