@@ -232,6 +232,29 @@ def test_public_result_cube_schema_preserves_scientific_labels() -> None:
     assert "coverage_lower_bound_fail" in statuses
 
 
+def test_public_results_page_exposes_interactive_atlas_layers() -> None:
+    root = repo_root()
+    results = (root / "atlas/results/index.html").read_text(encoding="utf-8")
+    for fragment in [
+        "Result Explorer",
+        "Method-Family Selection Density",
+        "Coverage-Width Map",
+        "CQR Backend Sensitivity Map",
+        'id="explorer-summary"',
+        'id="coverage-width-map"',
+        'id="cqr-delta-wrap"',
+        "window.history.replaceState",
+        "new URLSearchParams",
+        "nondominatedKeys",
+        "const cqrRows = [",
+        "coverage-width nondominated",
+    ]:
+        assert fragment in results
+    assert "__RESULT_ROWS__" not in results
+    assert "__CQR_ROWS__" not in results
+    assert "{{row.dataset_id}}" not in results
+
+
 def test_public_html_links_and_artifact_index_are_complete() -> None:
     root = repo_root()
     html_paths = [path for path in root.rglob("*.html") if ".git" not in path.parts]
