@@ -1,0 +1,46 @@
+{
+  "excluded_surfaces": [
+    "Raw datasets",
+    "Local caches",
+    "Credentials",
+    "Full private ledgers",
+    "Prediction bundles",
+    "Nonredistributable source artifacts"
+  ],
+  "generated_for_release_date": "2026-07-10",
+  "install_commands": [
+    "python -m pip install --upgrade pip",
+    "python -m pip install -e \".[test]\"",
+    "python -m pytest -m \"unit or artifact_public or smoke\" -q",
+    "python -m experiments.regression.scripts.run_regression_pilot --help"
+  ],
+  "lock_status": "public_smoke_reproducibility_environment",
+  "locked_dependencies": {
+    "PyYAML": "6.0.3",
+    "loguru": "0.7.3",
+    "matplotlib": "3.11.0",
+    "numpy": "2.3.5",
+    "pandas": "3.0.3",
+    "pytest": "8.4.2",
+    "scikit-learn": "1.9.0",
+    "scipy": "1.16.3",
+    "setuptools": "80.9.0",
+    "wheel": "0.45.1"
+  },
+  "optional_model_dependencies": {
+    "catboost": ">=1.2",
+    "lightgbm": ">=4.0",
+    "xgboost": ">=2.0"
+  },
+  "platform": {
+    "execution_mode": "CPU",
+    "gpu_required": false,
+    "supported_notes": [
+      "The public smoke package is expected to run on Linux and standard Python environments.",
+      "Long-running private experiment reruns and external data pulls are outside this public lock."
+    ]
+  },
+  "python_requires": ">=3.10",
+  "recommended_python": "3.11",
+  "schema": "regression_cp_public_environment_lock_v1"
+}

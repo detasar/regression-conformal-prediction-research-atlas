@@ -59,9 +59,24 @@
       "exists": true,
       "path": "pytest.ini",
       "role": "public test config"
+    },
+    {
+      "exists": true,
+      "path": "reproducibility/environment/public_environment_lock.json",
+      "role": "public smoke environment lock"
+    },
+    {
+      "exists": true,
+      "path": "reproducibility/environment/public_environment_lock.md",
+      "role": "public smoke environment lock documentation"
+    },
+    {
+      "exists": true,
+      "path": "reproducibility/environment/requirements-public-lock.txt",
+      "role": "public smoke dependency pins"
     }
   ],
-  "generated_at_utc": "2026-07-10T23:21:34.589623+00:00",
+  "generated_at_utc": "2026-07-10T23:30:02.036224+00:00",
   "missing": [],
   "rebuild_commands": [
     "python -m experiments.regression.scripts.build_public_release_scope --package-root .",
@@ -69,7 +84,7 @@
     "python -m experiments.regression.scripts.build_research_atlas_package --package-root .",
     "python -m pytest -m \"unit or artifact_public or smoke\""
   ],
-  "required_file_count": 12,
+  "required_file_count": 15,
   "schema": "regression_cp_public_research_atlas_package_v1",
   "status": "pass"
 }

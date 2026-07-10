@@ -55,6 +55,8 @@ The public artifacts support experiment-scoped empirical reading. Production use
 
 Reproducibility materials are under `reproducibility/`. Raw data, local caches, credentials, and nonredistributable files are excluded from the repository.
 
+The public smoke environment is recorded in `reproducibility/environment/public_environment_lock.md`, with exact package pins in `reproducibility/environment/requirements-public-lock.txt`.
+
 From the repository root:
 
 ```bash

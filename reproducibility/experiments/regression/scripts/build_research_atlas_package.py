@@ -29,6 +29,9 @@ def validate_package(package_root: Path) -> dict:
         "atlas/index.html": "Research Atlas site",
         "pyproject.toml": "install metadata",
         "pytest.ini": "public test config",
+        "reproducibility/environment/public_environment_lock.json": "public smoke environment lock",
+        "reproducibility/environment/public_environment_lock.md": "public smoke environment lock documentation",
+        "reproducibility/environment/requirements-public-lock.txt": "public smoke dependency pins",
     }
     rows = []
     for rel, role in required.items():

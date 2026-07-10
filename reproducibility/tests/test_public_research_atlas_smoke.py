@@ -253,6 +253,52 @@ def test_public_root_command_default_config_resolves() -> None:
     assert result.returncode == 0, result.stderr
 
 
+def test_public_environment_lock_documents_install_surface() -> None:
+    root = repo_root()
+    lock_path = root / "reproducibility/environment/public_environment_lock.json"
+    md_path = root / "reproducibility/environment/public_environment_lock.md"
+    req_path = root / "reproducibility/environment/requirements-public-lock.txt"
+    assert lock_path.exists()
+    assert md_path.exists()
+    assert req_path.exists()
+
+    lock = json.loads(lock_path.read_text(encoding="utf-8"))
+    assert lock["schema"] == "regression_cp_public_environment_lock_v1"
+    assert lock["python_requires"] == ">=3.10"
+    assert lock["recommended_python"] == "3.11"
+    assert lock["platform"]["gpu_required"] is False
+    assert "python -m pip install -e \".[test]\"" in lock["install_commands"]
+    assert "python -m pytest -m \"unit or artifact_public or smoke\" -q" in lock["install_commands"]
+
+    locked = lock["locked_dependencies"]
+    for name in [
+        "numpy",
+        "pandas",
+        "scipy",
+        "scikit-learn",
+        "PyYAML",
+        "matplotlib",
+        "loguru",
+        "pytest",
+    ]:
+        assert name in locked
+        assert locked[name]
+    assert lock["optional_model_dependencies"]["xgboost"] == ">=2.0"
+
+    req_text = req_path.read_text(encoding="utf-8")
+    assert "numpy==2.3.5" in req_text
+    assert "scikit-learn==1.9.0" in req_text
+    assert "pytest==8.4.2" in req_text
+    assert "pyyaml==6.0.3" in req_text
+
+    md_text = md_path.read_text(encoding="utf-8")
+    assert "# Public Environment Lock" in md_text
+    assert "Locked Public Smoke Dependencies" in md_text
+    readme = (root / "README.md").read_text(encoding="utf-8")
+    assert "reproducibility/environment/public_environment_lock.md" in readme
+    assert "reproducibility/environment/requirements-public-lock.txt" in readme
+
+
 def test_public_rebuild_commands_run() -> None:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root() / "reproducibility")
