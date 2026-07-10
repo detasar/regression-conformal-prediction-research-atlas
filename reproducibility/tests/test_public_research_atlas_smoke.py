@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib
+import importlib.resources as resources
 import csv
 import json
 import os
@@ -70,6 +71,18 @@ def test_public_research_atlas_core_imports() -> None:
     assert importlib.import_module("experiments.regression.scripts.build_public_release_scope")
     assert importlib.import_module("experiments.regression.scripts.build_public_research_atlas")
     assert importlib.import_module("experiments.regression.scripts.build_research_atlas_package")
+
+
+def test_public_package_data_includes_experiment_configs() -> None:
+    config_root = resources.files("experiments.regression").joinpath("configs")
+    config_names = sorted(
+        path.name
+        for path in config_root.iterdir()
+        if path.name.endswith((".yaml", ".yml"))
+    )
+    assert "pilot.yaml" in config_names
+    assert len(config_names) == 184
+    assert any(name.endswith("_model_matched_cqr_v1.yaml") for name in config_names)
 
 
 def test_public_kg_and_artifact_manifest_are_consistent() -> None:

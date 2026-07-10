@@ -45,7 +45,7 @@ namespaces = true
 
 [tool.pytest.ini_options]
 addopts = "-ra"
-testpaths = ["reproducibility/tests/test_public_research_atlas_smoke.py"]
+testpaths = ["reproducibility/tests"]
 markers = [
   "unit: fast deterministic tests for local code paths",
   "artifact_public: tests for public Research Atlas artifacts",
