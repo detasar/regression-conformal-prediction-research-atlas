@@ -56,20 +56,20 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "The working repository is evidence infrastructure; it is not yet the final public citable repository.",
+      "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this release.",
       "id": "supplement_reproducibility_traceability_evidence",
       "knowledge_graph_reference_count": 9,
-      "plain_language": "This row tells a reader how the work can be audited and resumed, not that the current repository is the final released artifact.",
-      "scope_limit": "Do not cite the working repository as the final public artifact.",
+      "plain_language": "This row tells a reader how the work can be audited and resumed while keeping the working source separate from the public Research Atlas.",
+      "scope_limit": "Cite the public Research Atlas repository for this release.",
       "statement": "The Research Atlas package records completed-row accounting, resume-safety controls, and knowledge-graph traceability.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "This is an authoring blueprint, not a final report or citable output.",
+      "evidence_gate": "This is an authoring map for the individual experiment report.",
       "id": "individual_report_blueprint_evidence",
       "knowledge_graph_reference_count": 9,
-      "plain_language": "This row preserves the report plan and author metadata without pretending the final report is finished.",
-      "scope_limit": "Do not generate final LaTeX, HTML, Markdown, release, or citable report output.",
+      "plain_language": "This row preserves the report plan and author metadata for traceable review.",
+      "scope_limit": "Keep the individual-report blueprint separate from generated publication outputs.",
       "statement": "The individual report blueprint records the author-stamped section map for later review.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     }

@@ -25,6 +25,8 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("not", "a", "method", "recommendation"),
         ("not", "method", "recommendations"),
         ("not", "an", "independent", "scientific", "claim"),
+        ("Do", "not", "cite"),
+        ("not", "yet", "the", "final", "public", "citable", "repository"),
         ("recommendation", "engine"),
         ("claim", "generator"),
         ("public", "release", "remains", "closed"),
