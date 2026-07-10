@@ -96,8 +96,8 @@ This map states the document's contribution and core empirical findings in a for
 | CQR backend sensitivity check | The completed model-matched CQR rerun tested whether the CQR signal was only a fixed-GBM pipeline artifact. It produced 4,564 model-matched CQR rows and 224 paired dataset-alpha-model-family cells. | Fixed-vs-model-matched CQR synthesis and model-matched CQR rerun manifest. | This check gives backend-sensitivity context for the CQR pipeline signal. |
 | Venn-Abers bridge negative evidence | The evaluated Venn-Abers regression bridge produced negative failure-mode evidence, including 14 undercoverage runs and quantile-coverage mean 0.6503. | Bridge diagnostics, undercoverage accounting, and Venn-Abers citation boundary rows. | The broader predictive-distribution and generalized Venn-Abers literature remains separate. |
 | Stronger claims requiring validation are part of the result | Bounded-support validity and population-group-inference positive claims remain beyond this study, with 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. | Paper gate map, publication claim/evidence matrix, bounded-support audit, and group diagnostic scope. | These gaps are reported as part of the scientific result. |
-| Traceability and reproducibility surface | The knowledge graph is usable as a working traceability surface with 3,643 nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Knowledge-graph quality audit and working sterile package manifest. | This does not yet make the KG a public citable component. |
-| Publication package architecture | The package separates a minimal main article, broad supplement, integrated Research Document, README review router, Research Atlas site, and evidence-scope checks. | Publication exemplar review, README draft, Research Atlas site manifest, and final-output scope protocol. | This is the public Research Atlas architecture. |
+| Traceability and reproducibility surface | The knowledge graph is usable as a working traceability surface with 3,643 nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Knowledge-graph quality audit and Research Atlas package manifest. | The KG supports navigation and traceability; scientific claims remain anchored in the underlying evidence. |
+| Publication package architecture | The package separates a minimal main article, broad supplement, integrated Research Document, README review router, Research Atlas site, and evidence-scope checks. | Publication exemplar review, README, Research Atlas site manifest, and final-output scope protocol. | This is the Research Atlas architecture. |
 
 ## Scientific Method Audit Trail
 
@@ -225,7 +225,7 @@ The design emphasizes resumability, source traceability, duplicate and leakage c
 
 ### Audit Controls
 
-The publication-scoped accounting separates empirical observations from release claims. The current source artifacts record 6 of 6 reader review surfaces passing their required phrase and boundary checks. Cross-run leakage status is `hard_leakage_not_detected_in_scanned_artifacts`, with 0 unsupported-claim hits in the scanned cross-run artifacts. These controls support the Research Atlas document, not a deployment rule.
+The publication-scoped accounting separates empirical observations from unsupported scope-expansion claims. The current source artifacts record 6 of 6 reader review surfaces passing their required phrase and boundary checks. Cross-run leakage status is `hard_leakage_not_detected_in_scanned_artifacts`, with 0 unsupported-claim hits in the scanned cross-run artifacts. These controls support the Research Atlas document, not a deployment rule.
 
 Duplicate handling is also reported as evidence rather than hidden. The supplement records 29 duplicate actions, 46 quarantined actions, and 0 unquarantined actions. The Research Document therefore keeps the interpretation conditional on the audited data-integrity state.
 
@@ -333,9 +333,9 @@ This document is intentionally strict about which broader readings require separ
 ## Source Artifacts
 
 - `publication_authoring_decision_record`: `experiments/regression/Research Document/publication_authoring_decision_record.json`
-- `main_article_draft`: `experiments/regression/Research Document/main_article_draft.json`
-- `supplementary_document_draft`: `experiments/regression/Research Document/supplementary_document_draft.json`
-- `individual_experiment_report_draft`: `experiments/regression/Research Document/individual_experiment_report_draft.json`
+- `main_article_source`: `experiments/regression/Research Document/main_article_source.json`
+- `supplement_source`: `experiments/regression/Research Document/supplement_source.json`
+- `individual_experiment_report_source`: `experiments/regression/Research Document/individual_experiment_report_source.json`
 - `claim_evidence_verification_matrix`: `experiments/regression/Research Document/claim_evidence_verification_matrix.json`
 - `publication_citation_registry`: `experiments/regression/Research Document/publication_citation_registry.json`
 - `knowledge_graph_quality_summary`: `experiments/regression/reports/knowledge_graph_quality/quality_summary.json`

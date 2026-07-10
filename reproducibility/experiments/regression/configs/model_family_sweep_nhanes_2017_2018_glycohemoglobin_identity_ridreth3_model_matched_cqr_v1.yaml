@@ -2,8 +2,8 @@ experiment_id: regression_model_family_sweep_nhanes_2017_2018_glycohemoglobin_id
 purpose: Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_nhanes_2017_2018_glycohemoglobin_identity_ridreth3.yaml.
   Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun
   tests whether the CQR backend confounded the original model-family sweep surface.
-  The output is descriptive pipeline-level evidence only and does not authorize a
-  method winner or production recommendation.
+  The output records backend-sensitivity evidence for this experiment; method
+  selection and deployment use require separate validation.
 random_seeds:
 - 11
 - 23
