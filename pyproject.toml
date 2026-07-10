@@ -40,6 +40,9 @@ where = ["reproducibility"]
 include = ["cpfi*", "experiments*"]
 namespaces = true
 
+[tool.setuptools.package-data]
+"experiments.regression" = ["configs/*.yaml", "configs/*.yml", "policies/*.md"]
+
 [tool.pytest.ini_options]
 addopts = "-ra"
 testpaths = ["reproducibility/tests/test_public_research_atlas_smoke.py"]

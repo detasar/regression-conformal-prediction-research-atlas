@@ -14,6 +14,24 @@ import pytest
 
 pytestmark = [pytest.mark.smoke, pytest.mark.artifact_public]
 
+FORBIDDEN_PUBLIC_PHRASES = tuple(
+    " ".join(parts)
+    for parts in (
+        ("Document", "status"),
+        ("Research", "Document", "release", "render"),
+        ("private", "final-prose"),
+        ("not", "final", "manuscript", "prose"),
+        ("not", "a", "release", "artifact"),
+        ("not", "a", "method", "recommendation"),
+        ("not", "method", "recommendations"),
+        ("not", "an", "independent", "scientific", "claim"),
+        ("recommendation", "engine"),
+        ("claim", "generator"),
+        ("public", "release", "remains", "closed"),
+        ("GitHub", "Pages", "remain", "closed"),
+    )
+)
+
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
@@ -25,6 +43,9 @@ def test_public_research_atlas_core_imports() -> None:
     assert importlib.import_module("cpfi.models.trainers")
     assert importlib.import_module("cpfi.regression.conformal")
     assert importlib.import_module("experiments.regression.scripts.run_regression_pilot")
+    assert importlib.import_module("experiments.regression.scripts.build_public_release_scope")
+    assert importlib.import_module("experiments.regression.scripts.build_public_research_atlas")
+    assert importlib.import_module("experiments.regression.scripts.build_research_atlas_package")
 
 
 def test_public_kg_and_artifact_manifest_are_consistent() -> None:
@@ -101,3 +122,43 @@ def test_public_root_command_help_runs() -> None:
     assert "usage: run_regression_pilot.py" in result.stdout
     assert "--config CONFIG" in result.stdout
     assert "--max-runs MAX_RUNS" in result.stdout
+
+
+def test_public_rebuild_commands_run() -> None:
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(repo_root() / "reproducibility")
+    modules = [
+        "experiments.regression.scripts.build_public_release_scope",
+        "experiments.regression.scripts.build_public_research_atlas",
+        "experiments.regression.scripts.build_research_atlas_package",
+    ]
+    for module in modules:
+        result = subprocess.run(
+            [sys.executable, "-m", module, "--package-root", str(repo_root())],
+            cwd=repo_root(),
+            env=env,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        assert result.returncode == 0, result.stderr
+        assert "\"status\": \"pass\"" in result.stdout
+
+
+def test_public_repository_text_has_no_private_review_boilerplate() -> None:
+    root = repo_root()
+    checked_suffixes = {".md", ".html", ".tex", ".py", ".toml", ".yml", ".yaml", ".cff"}
+    skipped = {
+        root / "site" / "kg_browser_data.json",
+    }
+    violations = []
+    for path in root.rglob("*"):
+        if ".git" in path.parts or path in skipped or not path.is_file():
+            continue
+        if path.suffix.lower() not in checked_suffixes:
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for phrase in FORBIDDEN_PUBLIC_PHRASES:
+            if phrase in text:
+                violations.append((str(path.relative_to(root)), phrase))
+    assert not violations

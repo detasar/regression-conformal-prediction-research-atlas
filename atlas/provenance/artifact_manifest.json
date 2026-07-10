@@ -7,7 +7,7 @@
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
       "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
-      "source_hash": "a666b048e1d90a1c379c36b290c9404a8e85261fb78b39eef83e26b28f227187"
+      "source_hash": "f12044505c57afabc693b824c0cf65bdad177b7770a55525745b4ca206686bde"
     },
     {
       "artifact_id": "individual_report",

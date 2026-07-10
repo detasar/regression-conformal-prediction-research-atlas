@@ -1,0 +1,75 @@
+{
+  "files": [
+    {
+      "exists": true,
+      "path": "README.md",
+      "role": "reader entry point"
+    },
+    {
+      "exists": true,
+      "path": "CITATION.cff",
+      "role": "citation metadata"
+    },
+    {
+      "exists": true,
+      "path": "paper/research_document.html",
+      "role": "integrated Research Document"
+    },
+    {
+      "exists": true,
+      "path": "paper/article.pdf",
+      "role": "compact report PDF"
+    },
+    {
+      "exists": true,
+      "path": "paper/supplement.pdf",
+      "role": "supplement PDF"
+    },
+    {
+      "exists": true,
+      "path": "site/kg_browser.html",
+      "role": "knowledge graph browser"
+    },
+    {
+      "exists": true,
+      "path": "site/kg_browser_data.json",
+      "role": "knowledge graph data"
+    },
+    {
+      "exists": true,
+      "path": "evidence/claim_evidence_matrix.md",
+      "role": "claim-evidence matrix"
+    },
+    {
+      "exists": true,
+      "path": "evidence/public_artifact_manifest.json",
+      "role": "artifact manifest"
+    },
+    {
+      "exists": true,
+      "path": "atlas/index.html",
+      "role": "Research Atlas site"
+    },
+    {
+      "exists": true,
+      "path": "pyproject.toml",
+      "role": "install metadata"
+    },
+    {
+      "exists": true,
+      "path": "pytest.ini",
+      "role": "public test config"
+    }
+  ],
+  "generated_at_utc": "2026-07-10T18:59:24.515543+00:00",
+  "missing": [],
+  "rebuild_commands": [
+    "python -m experiments.regression.scripts.build_public_release_scope --package-root .",
+    "python -m experiments.regression.scripts.build_public_research_atlas --package-root .",
+    "python -m experiments.regression.scripts.build_research_atlas_package --package-root .",
+    "python -m pytest -m \"unit or artifact_public or smoke\""
+  ],
+  "required_file_count": 12,
+  "schema": "regression_cp_public_research_atlas_package_v1",
+  "status": "pass"
+}

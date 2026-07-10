@@ -1,0 +1,19 @@
+{
+  "generated_at_utc": "2026-07-10T18:59:24.361496+00:00",
+  "public_paths": {
+    "artifact_manifest": "evidence/public_artifact_manifest.json",
+    "kg": "site/kg_browser_data.json",
+    "scope": "atlas/scope/experiment_scope.json"
+  },
+  "schema": "regression_cp_public_release_scope_v1",
+  "scope": {
+    "artifact_manifest_coverage": 1.0,
+    "completed_rows": 145839,
+    "dataset_alpha_cell_count": 95,
+    "dataset_count": 67,
+    "kg_edge_count": 21019,
+    "kg_node_count": 3643,
+    "method_label_count": 28
+  },
+  "status": "pass"
+}

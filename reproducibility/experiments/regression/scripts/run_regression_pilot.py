@@ -818,11 +818,21 @@ class PredictionBundle:
         }
 
 
+def default_config_path() -> str:
+    """Return a config path that works in both source and public package layouts."""
+
+    source_layout = Path("experiments/regression/configs/pilot.yaml")
+    if source_layout.exists():
+        return source_layout.as_posix()
+    packaged_layout = Path(__file__).resolve().parents[1] / "configs" / "pilot.yaml"
+    return packaged_layout.as_posix()
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--config",
-        default="experiments/regression/configs/pilot.yaml",
+        default=default_config_path(),
         help="Regression experiment YAML config.",
     )
     parser.add_argument("--max-runs", type=int, default=None)
