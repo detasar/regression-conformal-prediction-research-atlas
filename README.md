@@ -20,16 +20,16 @@ This repository is a public scientific evidence atlas for a neutral empirical st
 
 ## Short Result
 
-CQR/CV+ were observed as strong practical candidates in these experiments. This means CQR and CV+ behaved as strong practical candidates inside this audited experiment surface. Broader use would require validation beyond this experiment.
+Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates. Broader use would require validation beyond this experiment.
 
-The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. The comparison is reported as a backend-sensitivity result, not as a ranking rule.
+The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. This comparison is the backend-sensitivity context for the CQR signal.
 
 The expected strong regression solution did not emerge in these experiments. The Venn-Abers statement is bridge-specific negative evidence for the evaluated regression bridge. It should be read separately from the broader Venn-Abers, predictive-distribution, and generalized-calibration literatures.
 
 ## Artifacts
 
 1. `atlas/index.html` is the HTML entry point for the public evidence atlas.
-2. `atlas/scope/experiment_scope.json` records the experiment accounting boundary.
+2. `atlas/scope/experiment_scope.json` records the experiment accounting scope.
 3. `atlas/results/result_cube_public.csv` is the public aggregate result cube.
 4. `atlas/datasets/dataset_catalog.csv` and `atlas/methods/method_catalog.csv` expose the dataset and method universes.
 5. `atlas/claims/claim_registry.json` records interpretation boundaries and reader-safe evidence statements.

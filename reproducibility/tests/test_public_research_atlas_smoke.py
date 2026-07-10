@@ -29,6 +29,8 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("not", "method", "recommendations"),
         ("not", "a", "method-selection", "claim"),
         ("not", "as", "recommended", "methods"),
+        ("not", "as", "a", "ranking", "rule"),
+        ("CQR/CV+", "were", "observed", "as", "strong", "practical", "candidates"),
         ("Reading", "note"),
         ("Boundary:", "Do", "not"),
         ("not", "an", "independent", "scientific", "claim"),
@@ -286,6 +288,30 @@ def test_public_html_metadata_and_accessibility_basics() -> None:
     kg_text = (root / "site/kg_browser.html").read_text(encoding="utf-8")
     assert "aria-live" in kg_text
     assert "fallback" in kg_text.lower()
+
+
+def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
+    root = repo_root()
+    headline = (
+        "Within this retrospective and imbalanced experiment surface, the fixed-GBM "
+        "CQR pipeline was selected most often under the coverage-gated interval-score "
+        "rule; Mondrian calibration and CV+ were secondary practical candidates."
+    )
+    pages = [
+        root / "README.md",
+        root / "site/index.html",
+        root / "paper/research_document.html",
+        root / "paper/article.html",
+        root / "paper/supplement.html",
+        root / "atlas/index.html",
+        root / "atlas/results/index.html",
+    ]
+    missing = [
+        str(path.relative_to(root))
+        for path in pages
+        if headline not in path.read_text(encoding="utf-8")
+    ]
+    assert not missing
 
 
 def test_public_repository_text_has_no_private_review_boilerplate() -> None:
