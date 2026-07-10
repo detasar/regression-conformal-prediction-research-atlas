@@ -11,6 +11,6 @@
 | Coverage-gated selected cells | `2` |
 | Claim status | `bridge_specific_negative_or_diagnostic_evidence` |
 
-## Reading Note
+## Scope
 
 Method cards describe how each method appeared in this experiment. Broader deployment conclusions require separate validation.

@@ -11,6 +11,6 @@
 | Coverage-gated selected cells | `15` |
 | Claim status | `diagnostic_comparator` |
 
-## Reading Note
+## Scope
 
 Method cards describe how each method appeared in this experiment. Broader deployment conclusions require separate validation.

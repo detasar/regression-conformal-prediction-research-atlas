@@ -11,6 +11,6 @@
 | Coverage-gated selected cells | `5` |
 | CQR backend paired cells | `6` |
 
-## Reading Note
+## Scope
 
 This card is a public aggregate index. It does not include raw data, local caches, credentials, or nonredistributable source files.

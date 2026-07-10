@@ -1,66 +1,64 @@
 # Research Document
 
-## Regression Conformal Prediction Under Neutral Claim Boundaries
+## Regression Conformal Prediction Under Neutral Interpretation Scope
 
 Author: Emre Tasar, Data Scientist
 Contact: detasar@gmail.com
 
-> Reading note: public-facing wording is descriptive and tied to this experiment.
-
 ## Abstract
 
-This Research Document reports a neutral empirical study of regression conformal prediction. The study aggregates 145,839 publication-scoped completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The purpose is not to name a universal final selected method. The purpose is to document what the audited experiment observed, what the evidence can support, and what claims remain outside the current evidence.
+This Research Document reports a neutral empirical study of regression conformal prediction. The study aggregates 145,839 publication-scoped completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The document focuses on what the audited experiment observed, what the evidence supports, and which broader readings would require separate validation.
 
-CQR/CV+ were observed as strong practical candidates in these experiments. CQR has the largest current coverage-gated selected-cell count (56 cells), while CV+ contributes 13 coverage-gated selected cells. The evaluated backend-confound check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells; it supports a backend-sensitivity reading but not a method-selection claim. The evaluated Venn-Abers regression bridge did not behave as the expected strong regression solution: it produced 14 undercoverage runs and a low quantile-coverage mean in the current diagnostic bridge. These statements are descriptive and tied to the audited experiment.
+CQR/CV+ were observed as strong practical candidates in these experiments. CQR has the largest current coverage-gated selected-cell count (56 cells), while CV+ contributes 13 coverage-gated selected cells. The evaluated backend-confound check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells; it is reported as backend-sensitivity evidence. The evaluated Venn-Abers regression bridge did not behave as the expected strong regression solution: it produced 14 undercoverage runs and a low quantile-coverage mean in the current diagnostic bridge. These statements are descriptive and tied to the audited experiment.
 
 Read this document in four layers. First, identify the empirical object that was audited. Second, separate observed practical-candidate patterns from deployment rules. Third, keep negative Venn-Abers bridge evidence separate from the broader Venn-Abers literature. Fourth, treat the package, KG, and site as traceability surfaces for navigating the public evidence.
 
-| Reading layer | Reader question | Safe reading | Boundary |
+| Reading layer | Reader question | Safe reading | Scope |
 |---|---|---|---|
-| Empirical object | What was actually measured? | A publication-scoped regression conformal prediction audit over completed dataset-alpha-method result rows. | Do not read the scope as exhaustive internet coverage, a product benchmark, or a deployment claim. |
-| Observed pattern | Which methods looked practically useful here? | CQR/CV+ were observed as strong practical candidates in these experiments. | Do not convert that observation into a selected method, a universal best-method statement, or a deployment rule. |
-| Negative evidence | What happened to the Venn-Abers regression bridge? | The evaluated bridge did not emerge as the expected strong regression interval solution in this experiment. | Do not reject predictive-distribution or generalized Venn-Abers research from this bridge-specific result. |
-| Traceability and release | How should the package, KG, and site be treated? | They are Research Atlas surfaces for tracing claims to evidence, citations, and scope boundaries. | The KG is a navigation and traceability layer for source inspection. |
+| Empirical object | What was actually measured? | A publication-scoped regression conformal prediction audit over completed dataset-alpha-method result rows. | The scope is an audited experiment surface rather than exhaustive internet coverage, a product benchmark, or a deployment claim. |
+| Observed pattern | Which methods looked practically useful here? | CQR/CV+ were observed as strong practical candidates in these experiments. | Universal method selection or deployment use would require separate validation. |
+| Negative evidence | What happened to the Venn-Abers regression bridge? | The evaluated bridge did not emerge as the expected strong regression interval solution in this experiment. | The bridge-specific result should be read separately from predictive-distribution and generalized Venn-Abers research. |
+| Traceability and release | How should the package, KG, and site be treated? | They are Research Atlas surfaces for tracing claims to evidence, citations, and study scope. | The KG is a navigation and traceability layer for source inspection. |
 
 ## Executive Synthesis
 
-This synthesis states the document's position before the detailed tables. It is written for a reviewer who needs to understand the scientific result, the negative evidence, and the scope boundary without first reading every audit artifact.
+This synthesis states the document's position before the detailed tables. It is written for a reviewer who needs to understand the scientific result, the negative evidence, and the study scope without first reading every audit artifact.
 
 ### What this document is
 
 This Research Document is an evidence-linked synthesis of a regression conformal prediction audit. It summarizes 145,839 completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The unit of evidence is therefore an audited result surface, not a single showcase run.
 
-Boundary: Do not read the study identity as exhaustive internet coverage or deployment validation.
+Scope: The study identity describes the audited experiment surface rather than exhaustive internet coverage or deployment validation.
 
 ### What the evidence supports
 
-The central supported wording is deliberately narrow: CQR/CV+ were observed as strong practical candidates in these experiments. CQR has 56 descriptive coverage-gated selected cells, and CV+ has 13. These counts support a practical-candidate reading, not a selected method claim.
+The central supported wording is deliberately narrow: CQR/CV+ were observed as strong practical candidates in these experiments. CQR has 56 descriptive coverage-gated selected cells, and CV+ has 13. These counts support a practical-candidate reading within the audited experiment.
 
-Boundary: Do not turn observed practical-candidate evidence into a universal best-method statement or deployment rule.
+Scope: Universal method selection or deployment use would require separate validation.
 
 ### What the CQR backend check adds
 
 The completed backend-confound check adds a model-matched CQR rerun rather than a new method-selection claim. It completed 4,564 model-matched CQR rows and paired 224 dataset-alpha-model-family cells against the historical fixed-GBM CQR pipeline. Coverage-eligible interval-score selections were fixed-GBM CQR=116, model-matched CQR=71, and neither=37.
 
-Boundary: The check keeps CQR as an experiment-scoped practical signal; it does not establish a method-selection or deployment guidance claim.
+Scope: The check keeps CQR as an experiment-scoped practical signal; method selection or deployment use would require separate validation.
 
-### What the evidence does not support
+### Which broader readings require separate validation
 
 The evaluated Venn-Abers regression bridge did not become the expected strong interval solution in this experiment. The bridge has 14 undercoverage runs, a quantile-coverage mean of 0.6503, and validated-regression support flag `False`.
 
-Boundary: Do not generalize this bridge-specific negative evidence into a rejection of predictive-distribution or generalized Venn-Abers research.
+Scope: This bridge-specific negative evidence should be read separately from predictive-distribution and generalized Venn-Abers research.
 
 ### Which claims remain outside the current evidence
 
 Several attractive positive claims remain outside the current evidence. The current record contains 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. These zeros are not gaps to hide; they are part of the scientific result.
 
-Boundary: Do not soften zero-ready validity or group inference gates into positive endpoint, group inference, or deployment claims.
+Scope: Endpoint-validity, group-inference, and deployment readings require separate validation.
 
 ### How a reviewer should inspect it
 
 The review path is intentionally traceable. The Research Atlas package and KG connect the Research Document to source artifacts, scripts, interpretation boundaries, and citation boundaries. The current KG has 3,643 nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000.
 
-Boundary: Treat the KG as Research Atlas navigation and traceability, not as a standalone scientific result.
+Scope: Treat the KG as Research Atlas navigation and traceability for source inspection.
 
 ## Plain-Language Summary
 
@@ -71,8 +69,8 @@ This section gives the shortest reader-safe interpretation before the technical 
 | What is the shortest correct reading of the study? | This is an audited measurement record for regression conformal prediction, an audited measurement record. | 145,839 completed rows across 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Do not read the study as exhaustive internet coverage, a product benchmark, or deployment advice. |
 | What does the CQR/CV+ finding mean? | CQR/CV+ looked practically useful in these experiments, with CQR carrying the largest coverage-gated selected-cell signal and a completed backend-sensitivity check. | CQR has 56 coverage-gated selected cells and CV+ has 13 coverage-gated selected cells; the model-matched CQR rerun completed 4,564 rows and 224 paired cells. | Do not turn the observed pattern into a final selected method, universal best-method statement, or deployment guidance. |
 | What does `1 - alpha` mean here? | `1 - alpha` is the target coverage level; observed coverage still has to be measured in the audited cells. | The document reports coverage means, coverage lower-bound pass rates, coverage-gated selected cells, and undercoverage runs after the target is fixed. | Do not treat the nominal target as proof that every dataset, endpoint, or subgroup achieved that target. |
-| How should the Venn-Abers bridge result be read? | The evaluated regression bridge produced negative failure-mode evidence in this experiment. | 14 undercoverage runs, quantile-coverage mean 0.6503, and validated-regression support flag `False`. | Do not reject predictive-distribution or generalized Venn-Abers research from this bridge-specific result. |
-| Why keep the KG and Research Atlas package in the review path? | They let a reviewer trace claims to reports, scripts, citations, quality gates, and scope boundaries. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Use the KG and site to inspect how claims connect to evidence. |
+| How should the Venn-Abers bridge result be read? | The evaluated regression bridge produced negative failure-mode evidence in this experiment. | 14 undercoverage runs, quantile-coverage mean 0.6503, and validated-regression support flag `False`. | The bridge-specific result should be read separately from predictive-distribution and generalized Venn-Abers research. |
+| Why keep the KG and Research Atlas package in the review path? | They let a reviewer trace claims to reports, scripts, citations, quality gates, and study scope. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and edge selector provenance coverage 1.0000. | Use the KG and site to inspect how claims connect to evidence. |
 
 ## Research Questions And Answers
 
@@ -223,7 +221,7 @@ Before the Research Document, supplement, README, and site are treated as review
 | CQR fixed-vs-model-matched paired cells | 224 | Dataset-alpha-model-family comparison cells |
 | Supplement sections | 6 | Broad supplementary evidence plan |
 
-The design emphasizes resumability, source traceability, duplicate and leakage controls, and conservative claim boundaries. The study therefore treats outside current evidence claims as part of the result rather than as missing decoration. If an endpoint, group inference, or validation gate does not close, the Research Document reports that gate as outside current evidence against the positive claim.
+The design emphasizes resumability, source traceability, duplicate and leakage controls, and conservative interpretation scope. The study therefore treats outside current evidence claims as part of the result rather than as missing decoration. If an endpoint, group inference, or validation gate does not close, the Research Document reports that gate as outside current evidence against the positive claim.
 
 ### Audit Controls
 
@@ -258,7 +256,7 @@ The ladder below connects each result type to the strongest claim it can support
 | Robustness retention | Bootstrap and leave-one diagnostics test whether the practical candidate pattern is fragile. | Bootstrap selection counts are cqr=1,000; leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. | Robustness retention cannot open final method selection or deployment guidance gates. | Use robustness as support for cautious wording, not for a final selection sentence. |
 | CQR backend sensitivity | The model-matched rerun tests whether the fixed-GBM CQR signal was only a backend artifact. | 4,564 model-matched CQR rows, 224 paired cells, selected cells fixed-GBM CQR=116, model-matched CQR=71, neither=37. | It cannot promote CQR from experiment-scoped practical signal to universal method-selection or deployment guidance. | Read the check as backend-confound evidence and keep the final claim descriptive. |
 | Negative bridge evidence | Undercoverage and a outside current evidence validation flag support a narrow failure-mode reading for the evaluated bridge. | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | It cannot reject predictive-distribution or generalized Venn-Abers research. | Report the bridge result as negative evidence exactly at the evaluated bridge scope. |
-| Outside current evidence gates | Outside current evidence gates identify claims that the current evidence is not allowed to make. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0; KG citable component in scope `False`. | Outside current evidence gates cannot be reopened by optimistic prose, README wording, or site polish. | Treat outside current evidence gates as scientific results and scope boundaries. |
+| Outside current evidence gates | Outside current evidence gates identify claims that the current evidence is not allowed to make. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0; KG citable component in scope `False`. | Outside current evidence gates cannot be reopened by optimistic prose, README wording, or site polish. | Treat outside current evidence gates as scientific results and study scope. |
 
 ### Claim Language Guardrails
 
@@ -303,20 +301,20 @@ The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes.
 
 The review order is deliberately simple. Read this Research Document first, then inspect the rendered main article and broad supplement, then use the individual experiment report for the author-stamped experiment summary. The KG browser should be used when a reader wants to trace a claim to reports, source artifacts, scripts, or quality gates. Governance files should be checked before any release decision because they encode the outside current evidence claims.
 
-| Artifact | Role | Scope boundary |
+| Artifact | Role | Study scope |
 |---|---|---|
 | `Research Document/research_document.md` | Integrated Research Atlas narrative | Descriptive, experiment-scoped interpretation |
 | `rendered_outputs/main_article_review.html` | Main article surface | Conservative scientific wording |
 | `rendered_outputs/supplementary_document_review.html` | Broad supplementary surface | Methods, diagnostics, and estimator conventions |
 | `site/kg_browser.html` | Browsable KG surface | Navigation and traceability, not a standalone claim |
-| `governance/publication_authoring_decision_record.md` | Decision boundary record | Scientific claim boundaries and release scope |
+| `governance/publication_authoring_decision_record.md` | Decision scope record | Scientific interpretation scope and release scope |
 
-## 7. Publication Boundary
+## 7. Publication Scope
 
-This document is intentionally strict about what it does not claim:
+This document is intentionally strict about which broader readings require separate validation:
 
-- CQR/CV+ are described as strong practical candidates observed in this experiment, not as recommended methods.
-- The model-matched CQR rerun is a backend-sensitivity check, not a method-selection claim.
+- CQR/CV+ are described as strong practical candidates observed in this experiment.
+- The model-matched CQR rerun is reported as a backend-sensitivity check.
 - The evaluated Venn-Abers regression bridge is described as negative/failure-mode evidence.
 - Positive group inference, bounded-support validity, validated Venn-Abers regression, production, and best-method claims remain outside the current evidence.
 - The KG is a browsable supplementary traceability layer for source inspection.

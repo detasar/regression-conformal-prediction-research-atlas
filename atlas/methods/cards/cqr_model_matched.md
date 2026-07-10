@@ -11,6 +11,6 @@
 | Coverage-gated selected cells | `71` |
 | Claim status | `backend_sensitivity_evidence` |
 
-## Reading Note
+## Scope
 
 Method cards describe how each method appeared in this experiment. Broader deployment conclusions require separate validation.

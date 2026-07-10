@@ -4,11 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Experiment Scope</title>
+  <meta name="description" content="Completed-row accounting, configured scope, publication scope, and row-unit definition.">
+  <link rel="canonical" href="https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/scope/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Experiment Scope">
+  <meta property="og:description" content="Completed-row accounting, configured scope, publication scope, and row-unit definition.">
+  <meta property="og:url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/scope/index.html">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Regression CP Research Atlas: Experiment Scope", "description": "Completed-row accounting, configured scope, publication scope, and row-unit definition.", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/scope/index.html", "creator": {"@type": "Person", "name": "Emre Tasar", "email": "detasar@gmail.com"}, "keywords": ["conformal prediction", "regression", "prediction intervals", "research atlas"]}</script>
   <style>
 :root { --paper:#f8f5ee; --ink:#141821; --muted:#596273; --line:#d8cfbe; --panel:#fffdf8; --teal:#0f766e; --amber:#95640f; --red:#a0442f; --blue:#245f9f; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height:1.55; }
 a { color:#145ea8; font-weight:740; text-decoration-thickness:1px; text-underline-offset:3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid rgba(15,118,110,.35); outline-offset:3px; }
+.skip-link { position:absolute; left:14px; top:-60px; background:var(--ink); color:#fffdf8; padding:8px 12px; border-radius:6px; z-index:20; }
+.skip-link:focus { top:12px; }
 .shell { max-width:1280px; margin:0 auto; padding:24px 22px 68px; }
 .top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; border-bottom:1px solid var(--line); padding-bottom:18px; color:var(--muted); }
 .brand { color:var(--ink); font-weight:860; }
@@ -39,17 +50,32 @@ h3 { font-size:17px; margin:0 0 8px; }
 .callout.red { border-color:var(--red); }
 .table-wrap { overflow:auto; border:1px solid var(--line); background:var(--panel); margin:16px 0 26px; }
 table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:14px; }
+caption { text-align:left; padding:10px; color:var(--muted); font-weight:760; background:#fffdf8; border-bottom:1px solid var(--line); }
 th,td { border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
 th { background:#f3ead9; color:#4d3b1b; font-size:12px; text-transform:uppercase; letter-spacing:0; }
 tr:last-child td { border-bottom:0; }
+.controls { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0; }
+.controls label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; text-transform:uppercase; }
+.controls input, .controls select { width:100%; border:1px solid var(--line); border-radius:6px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
+.heatmap-grid { display:grid; grid-template-columns:220px repeat(var(--method-count, 8), minmax(88px,1fr)); min-width:960px; border:1px solid var(--line); background:var(--line); gap:1px; margin:12px 0 20px; }
+.heatmap-cell { min-height:54px; background:#fffdf8; padding:7px 8px; font-size:12px; overflow-wrap:anywhere; }
+.heatmap-cell.head { background:#f3ead9; color:#4d3b1b; font-weight:850; text-transform:uppercase; }
+.heatmap-cell.dataset { font-weight:760; color:#243247; }
+.heatmap-cell.selected { box-shadow:inset 0 0 0 3px rgba(15,118,110,.28); }
+.heatmap-cell.under { background:#fff2ec; }
+.heatmap-cell.pathology { background:#fff6ce; }
+.legend { display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:13px; margin:8px 0 16px; }
+.legend span { display:inline-flex; align-items:center; gap:6px; }
+.swatch { width:14px; height:14px; border:1px solid var(--line); display:inline-block; }
 .path-list { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
 .path-list a { border:1px solid var(--line); background:#fffdf8; padding:11px; border-radius:6px; text-decoration:none; color:var(--ink); }
 .footer { border-top:1px solid var(--line); color:var(--muted); padding-top:18px; margin-top:40px; font-size:13px; }
-@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
+@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid,.controls { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
 </style>
 </head>
 <body>
-  <main class="shell">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content" class="shell">
     <div class="top">
       <div><span class="brand">Regression CP Research Atlas</span> · evidence atlas</div>
       <div>Emre Tasar, Data Scientist<br><a href="mailto:detasar@gmail.com">detasar@gmail.com</a></div>
@@ -59,7 +85,7 @@ tr:last-child td { border-bottom:0; }
         <div class="kicker">Accounting</div>
         <h1>Experiment Scope</h1>
         <p class="lede">Completed-row accounting, configured scope, publication scope, and row-unit definition.</p>
-        <nav class="nav"><a href="../index.html">Overview</a><a href="../scope/index.html">Scope</a><a href="../datasets/index.html">Datasets</a><a href="../methods/index.html">Methods</a><a href="../results/index.html">Results</a><a href="../claims/index.html">Interpretation</a><a href="../provenance/index.html">Provenance</a><a href="../artifacts/index.html">Artifacts</a><a href="../../paper/research_document.html">Research Document</a><a href="../../site/kg_browser.html">Evidence Map</a></nav>
+        <nav class="nav" aria-label="Atlas sections"><a href="../index.html">Overview</a><a href="../scope/index.html">Scope</a><a href="../datasets/index.html">Datasets</a><a href="../methods/index.html">Methods</a><a href="../results/index.html">Results</a><a href="../claims/index.html">Interpretation</a><a href="../provenance/index.html">Provenance</a><a href="../artifacts/index.html">Artifacts</a><a href="../../paper/research_document.html">Research Document</a><a href="../../site/kg_browser.html">Evidence Map</a></nav>
       </div>
     </section>
     
@@ -71,7 +97,7 @@ tr:last-child td { border-bottom:0; }
         <p class="muted">Rows are accounting units for the result surface; aggregate summaries are descriptive unless a separate inferential analysis is explicitly stated.</p>
       </div>
     </section>
-    <div class="table-wrap"><table><thead><tr><th>Quantity</th><th>Value</th></tr></thead><tbody><tr><td>Publication-scoped completed rows</td><td>145,839</td></tr><tr><td>Canonical completed rows</td><td>156,233</td></tr><tr><td>Configured run-cell estimate</td><td>25,012,478</td></tr><tr><td>Dataset-alpha cells</td><td>95</td></tr><tr><td>Alpha levels</td><td>5</td></tr></tbody></table></div>
+    <div class="table-wrap"><table><caption>Experiment scope summary</caption><thead><tr><th scope="col">Quantity</th><th scope="col">Value</th></tr></thead><tbody><tr><td>Publication-scoped completed rows</td><td>145,839</td></tr><tr><td>Canonical completed rows</td><td>156,233</td></tr><tr><td>Configured run-cell estimate</td><td>25,012,478</td></tr><tr><td>Dataset-alpha cells</td><td>95</td></tr><tr><td>Alpha levels</td><td>5</td></tr></tbody></table></div>
     
     <div class="footer">The atlas separates observed experimental patterns from broader deployment conclusions. It is designed for navigation, traceability, and careful reading of the evidence.</div>
   </main>

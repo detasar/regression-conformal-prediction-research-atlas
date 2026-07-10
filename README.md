@@ -20,11 +20,11 @@ This repository is a public scientific evidence atlas for a neutral empirical st
 
 ## Short Result
 
-CQR/CV+ were observed as strong practical candidates in these experiments. This means CQR and CV+ behaved as strong practical candidates inside this audited experiment surface. It is experiment-scoped evidence, not a universal best-method claim or production recipe.
+CQR/CV+ were observed as strong practical candidates in these experiments. This means CQR and CV+ behaved as strong practical candidates inside this audited experiment surface. Broader use would require validation beyond this experiment.
 
-The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. This keeps CQR as a pipeline-level descriptive signal rather than a method-selection claim.
+The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. The comparison is reported as a backend-sensitivity result, not as a ranking rule.
 
-The expected strong regression solution did not emerge in these experiments. The Venn-Abers statement is bridge-specific negative evidence for the evaluated regression bridge, not a rejection of the broader Venn-Abers, predictive-distribution, or generalized-calibration literature.
+The expected strong regression solution did not emerge in these experiments. The Venn-Abers statement is bridge-specific negative evidence for the evaluated regression bridge. It should be read separately from the broader Venn-Abers, predictive-distribution, and generalized-calibration literatures.
 
 ## Artifacts
 
@@ -47,17 +47,13 @@ Public repository: <https://github.com/detasar/regression-conformal-prediction-r
 
 The repository establishes that a large, audited regression conformal prediction experiment was run and reported under neutral scientific boundaries. It exposes the experiment universe as public aggregate evidence: scope accounting, dataset and method catalogs, result cube, backend sensitivity analysis, negative evidence, interpretation boundaries, and provenance receipts.
 
-## What This Study Does Not Establish
+## Interpretation Scope
 
-- A general best-deployment guidance or global method-selection claim.
-- Population-level group inference claims.
-- Bounded-support validity claims.
-- Validated Venn-Abers regression interval claims.
-- Production or deployment advice.
+The public artifacts support experiment-scoped empirical reading. Production use, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would require separate, pre-specified validation work.
 
 ## Reproducibility
 
-Reproducibility materials are under `reproducibility/`. Raw data, local caches, credentials, and nonredistributable files are excluded from this public release.
+Reproducibility materials are under `reproducibility/`. Raw data, local caches, credentials, and nonredistributable files are excluded from the repository.
 
 From the repository root:
 

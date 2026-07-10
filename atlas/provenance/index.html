@@ -4,11 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Provenance</title>
+  <meta name="description" content="Source status, hash receipts, and public artifact strategy for the Research Atlas.">
+  <link rel="canonical" href="https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/provenance/index.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Provenance">
+  <meta property="og:description" content="Source status, hash receipts, and public artifact strategy for the Research Atlas.">
+  <meta property="og:url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/provenance/index.html">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Regression CP Research Atlas: Provenance", "description": "Source status, hash receipts, and public artifact strategy for the Research Atlas.", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/provenance/index.html", "creator": {"@type": "Person", "name": "Emre Tasar", "email": "detasar@gmail.com"}, "keywords": ["conformal prediction", "regression", "prediction intervals", "research atlas"]}</script>
   <style>
 :root { --paper:#f8f5ee; --ink:#141821; --muted:#596273; --line:#d8cfbe; --panel:#fffdf8; --teal:#0f766e; --amber:#95640f; --red:#a0442f; --blue:#245f9f; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height:1.55; }
 a { color:#145ea8; font-weight:740; text-decoration-thickness:1px; text-underline-offset:3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid rgba(15,118,110,.35); outline-offset:3px; }
+.skip-link { position:absolute; left:14px; top:-60px; background:var(--ink); color:#fffdf8; padding:8px 12px; border-radius:6px; z-index:20; }
+.skip-link:focus { top:12px; }
 .shell { max-width:1280px; margin:0 auto; padding:24px 22px 68px; }
 .top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; border-bottom:1px solid var(--line); padding-bottom:18px; color:var(--muted); }
 .brand { color:var(--ink); font-weight:860; }
@@ -39,17 +50,32 @@ h3 { font-size:17px; margin:0 0 8px; }
 .callout.red { border-color:var(--red); }
 .table-wrap { overflow:auto; border:1px solid var(--line); background:var(--panel); margin:16px 0 26px; }
 table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:14px; }
+caption { text-align:left; padding:10px; color:var(--muted); font-weight:760; background:#fffdf8; border-bottom:1px solid var(--line); }
 th,td { border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
 th { background:#f3ead9; color:#4d3b1b; font-size:12px; text-transform:uppercase; letter-spacing:0; }
 tr:last-child td { border-bottom:0; }
+.controls { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0; }
+.controls label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; text-transform:uppercase; }
+.controls input, .controls select { width:100%; border:1px solid var(--line); border-radius:6px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
+.heatmap-grid { display:grid; grid-template-columns:220px repeat(var(--method-count, 8), minmax(88px,1fr)); min-width:960px; border:1px solid var(--line); background:var(--line); gap:1px; margin:12px 0 20px; }
+.heatmap-cell { min-height:54px; background:#fffdf8; padding:7px 8px; font-size:12px; overflow-wrap:anywhere; }
+.heatmap-cell.head { background:#f3ead9; color:#4d3b1b; font-weight:850; text-transform:uppercase; }
+.heatmap-cell.dataset { font-weight:760; color:#243247; }
+.heatmap-cell.selected { box-shadow:inset 0 0 0 3px rgba(15,118,110,.28); }
+.heatmap-cell.under { background:#fff2ec; }
+.heatmap-cell.pathology { background:#fff6ce; }
+.legend { display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:13px; margin:8px 0 16px; }
+.legend span { display:inline-flex; align-items:center; gap:6px; }
+.swatch { width:14px; height:14px; border:1px solid var(--line); display:inline-block; }
 .path-list { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
 .path-list a { border:1px solid var(--line); background:#fffdf8; padding:11px; border-radius:6px; text-decoration:none; color:var(--ink); }
 .footer { border-top:1px solid var(--line); color:var(--muted); padding-top:18px; margin-top:40px; font-size:13px; }
-@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
+@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid,.controls { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
 </style>
 </head>
 <body>
-  <main class="shell">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content" class="shell">
     <div class="top">
       <div><span class="brand">Regression CP Research Atlas</span> · evidence atlas</div>
       <div>Emre Tasar, Data Scientist<br><a href="mailto:detasar@gmail.com">detasar@gmail.com</a></div>
@@ -59,12 +85,12 @@ tr:last-child td { border-bottom:0; }
         <div class="kicker">Traceability</div>
         <h1>Provenance</h1>
         <p class="lede">Source status, hash receipts, and public artifact strategy for the Research Atlas.</p>
-        <nav class="nav"><a href="../index.html">Overview</a><a href="../scope/index.html">Scope</a><a href="../datasets/index.html">Datasets</a><a href="../methods/index.html">Methods</a><a href="../results/index.html">Results</a><a href="../claims/index.html">Interpretation</a><a href="../provenance/index.html">Provenance</a><a href="../artifacts/index.html">Artifacts</a><a href="../../paper/research_document.html">Research Document</a><a href="../../site/kg_browser.html">Evidence Map</a></nav>
+        <nav class="nav" aria-label="Atlas sections"><a href="../index.html">Overview</a><a href="../scope/index.html">Scope</a><a href="../datasets/index.html">Datasets</a><a href="../methods/index.html">Methods</a><a href="../results/index.html">Results</a><a href="../claims/index.html">Interpretation</a><a href="../provenance/index.html">Provenance</a><a href="../artifacts/index.html">Artifacts</a><a href="../../paper/research_document.html">Research Document</a><a href="../../site/kg_browser.html">Evidence Map</a></nav>
       </div>
     </section>
     
     <section class="callout"><p>Provenance is recorded as public aggregate manifests, source fingerprints, and rebuild notes. The public package uses manifest-plus-summary rather than copying raw ledgers or nonredistributable data.</p></section>
-    <div class="table-wrap"><table><thead><tr><th>Artifact</th><th>Public status</th><th>File included</th><th>SHA-256</th><th>Summary</th></tr></thead><tbody><tr><td>research_document</td><td>included_public_aggregate</td><td>True</td><td>f12044505c57afabc693b824c0cf65bdad177b7770a55525745b4ca206686bde</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>individual_report</td><td>included_public_aggregate</td><td>True</td><td>0c95ec8605e92eb656d84e1b0a19d34a52daf6a7923b7c79254594cf62f9d017</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>method_performance</td><td>included_public_aggregate</td><td>True</td><td>3ade1faebd6df3f5a5642be168a6dd14d5d86b260caa640ca6da7c4e013b3c67</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>experiment_accounting</td><td>included_public_aggregate</td><td>True</td><td>19b0608a47a25469235b39bb5f7b6ea336acc5855316ab7ab14074317038eac7</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>claim_matrix</td><td>included_public_aggregate</td><td>True</td><td>b99a10cab0dac7681e9c9d934976bcb54a9a2098b322699d9366a3a8fa4efb61</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>neutral_result_ledger</td><td>included_public_aggregate</td><td>True</td><td>44302886a315090027ea4c453d2a8172c0409172bc7c947433211785f2c1b167</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>cqr_backend_sensitivity</td><td>included_public_aggregate</td><td>True</td><td>8d69004af9579d2d973c7c5a058a403365c3f9b2ec1808685d92943538b80fe1</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>knowledge_graph</td><td>included_public_hash_receipt</td><td>True</td><td>d74b05225b84a2578edca2a8a5e0fc536030ba2bcf80a06f9a4f75c87b40b173</td><td>Audited source artifact summarized into the public atlas.</td></tr></tbody></table></div>
+    <div class="table-wrap"><table><caption>Public provenance source rows</caption><thead><tr><th scope="col">Artifact</th><th scope="col">Public status</th><th scope="col">File included</th><th scope="col">SHA-256</th><th scope="col">Summary</th></tr></thead><tbody><tr><td>research_document</td><td>included_public_aggregate</td><td>True</td><td>f12044505c57afabc693b824c0cf65bdad177b7770a55525745b4ca206686bde</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>individual_report</td><td>included_public_aggregate</td><td>True</td><td>0c95ec8605e92eb656d84e1b0a19d34a52daf6a7923b7c79254594cf62f9d017</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>method_performance</td><td>included_public_aggregate</td><td>True</td><td>3ade1faebd6df3f5a5642be168a6dd14d5d86b260caa640ca6da7c4e013b3c67</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>experiment_accounting</td><td>included_public_aggregate</td><td>True</td><td>19b0608a47a25469235b39bb5f7b6ea336acc5855316ab7ab14074317038eac7</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>claim_matrix</td><td>included_public_aggregate</td><td>True</td><td>b99a10cab0dac7681e9c9d934976bcb54a9a2098b322699d9366a3a8fa4efb61</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>neutral_result_ledger</td><td>included_public_aggregate</td><td>True</td><td>44302886a315090027ea4c453d2a8172c0409172bc7c947433211785f2c1b167</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>cqr_backend_sensitivity</td><td>included_public_aggregate</td><td>True</td><td>8d69004af9579d2d973c7c5a058a403365c3f9b2ec1808685d92943538b80fe1</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>knowledge_graph</td><td>included_public_hash_receipt</td><td>True</td><td>d74b05225b84a2578edca2a8a5e0fc536030ba2bcf80a06f9a4f75c87b40b173</td><td>Audited source artifact summarized into the public atlas.</td></tr></tbody></table></div>
     
     <div class="footer">The atlas separates observed experimental patterns from broader deployment conclusions. It is designed for navigation, traceability, and careful reading of the evidence.</div>
   </main>

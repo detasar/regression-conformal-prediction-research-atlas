@@ -11,6 +11,6 @@
 | Coverage-gated selected cells | `0` |
 | Claim status | `configured_but_not_publication_result_label` |
 
-## Reading Note
+## Scope
 
 Method cards describe how each method appeared in this experiment. Broader deployment conclusions require separate validation.
