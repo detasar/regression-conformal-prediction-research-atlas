@@ -1,5 +1,5 @@
 {
-  "artifact_count": 147,
+  "artifact_count": 159,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -73,6 +73,11 @@
     },
     {
       "artifact_kind": "atlas data",
+      "artifact_path": "atlas/claims/interpretation_boundaries.md",
+      "reader_use": "Readable interpretation-boundary summary."
+    },
+    {
+      "artifact_kind": "atlas data",
       "artifact_path": "atlas/datasets/dataset_catalog.csv",
       "reader_use": "Dataset catalog CSV."
     },
@@ -120,6 +125,36 @@
       "artifact_kind": "atlas data",
       "artifact_path": "atlas/scope/experiment_scope.json",
       "reader_use": "Scope counts and accounting metadata."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/experiment_scope.md",
+      "reader_use": "Readable experiment scope summary."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/planned_vs_completed_vs_publication_scoped.csv",
+      "reader_use": "Planned, completed, and publication-scoped accounting CSV."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/row_unit_definition.md",
+      "reader_use": "Definition of the completed-row accounting unit."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/run_accounting_summary.json",
+      "reader_use": "Run accounting summary JSON."
+    },
+    {
+      "artifact_kind": "atlas source",
+      "artifact_path": "atlas/README.md",
+      "reader_use": "Research Atlas source README."
+    },
+    {
+      "artifact_kind": "bibliography",
+      "artifact_path": "paper/references.bib",
+      "reader_use": "BibTeX references used by the article and supplement."
     },
     {
       "artifact_kind": "dataset card",
@@ -487,6 +522,11 @@
       "reader_use": "Knowledge graph browser data."
     },
     {
+      "artifact_kind": "individual report",
+      "artifact_path": "paper/individual_experiment_report.md",
+      "reader_use": "Individual experiment report Markdown."
+    },
+    {
       "artifact_kind": "manifest",
       "artifact_path": "evidence/public_artifact_manifest.json",
       "reader_use": "Public KG source/evidence resolution manifest."
@@ -668,8 +708,23 @@
     },
     {
       "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/prov/experiment_provenance.jsonld",
+      "reader_use": "PROV-O experiment provenance graph."
+    },
+    {
+      "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/public_rebuild_manifest.json",
+      "reader_use": "Public rebuild manifest."
+    },
+    {
+      "artifact_kind": "provenance",
       "artifact_path": "atlas/provenance/public_release_scope.json",
       "reader_use": "Public release scope receipt."
+    },
+    {
+      "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/reproducibility_tiers.md",
+      "reader_use": "Readable reproducibility tier definitions."
     },
     {
       "artifact_kind": "provenance",
@@ -735,8 +790,13 @@
       "artifact_kind": "website data",
       "artifact_path": "atlas/ui_data/method_family_summary.json",
       "reader_use": "Method family summary data."
+    },
+    {
+      "artifact_kind": "website data",
+      "artifact_path": "atlas/ui_data/public_research_atlas_manifest.json",
+      "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-10T19:58:25.210685+00:00",
+  "generated_at_utc": "2026-07-10T20:10:10.565032+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

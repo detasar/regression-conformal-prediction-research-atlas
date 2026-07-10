@@ -3,11 +3,14 @@
 from __future__ import annotations
 
 import importlib
+import csv
 import json
 import os
 import subprocess
 import sys
+from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urldefrag, urlparse
 
 import pytest
 
@@ -41,6 +44,19 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
 
 def repo_root() -> Path:
     return Path(__file__).resolve().parents[2]
+
+
+class _LinkParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.links: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attr = dict(attrs)
+        if tag in {"a", "link", "script", "img"}:
+            value = attr.get("href") or attr.get("src")
+            if value:
+                self.links.append(value)
 
 
 def test_public_research_atlas_core_imports() -> None:
@@ -137,6 +153,26 @@ def test_public_root_command_help_runs() -> None:
     assert "--max-runs MAX_RUNS" in result.stdout
 
 
+def test_public_root_command_default_config_resolves() -> None:
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(repo_root() / "reproducibility")
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "experiments.regression.scripts.run_regression_pilot",
+            "--max-runs",
+            "0",
+        ],
+        cwd=repo_root(),
+        env=env,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+
+
 def test_public_rebuild_commands_run() -> None:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root() / "reproducibility")
@@ -156,6 +192,100 @@ def test_public_rebuild_commands_run() -> None:
         )
         assert result.returncode == 0, result.stderr
         assert "\"status\": \"pass\"" in result.stdout
+
+
+def test_public_result_cube_schema_preserves_scientific_labels() -> None:
+    root = repo_root()
+    with (root / "atlas/results/result_cube_public.csv").open(
+        encoding="utf-8",
+        newline="",
+    ) as handle:
+        reader = csv.DictReader(handle)
+        rows = list(reader)
+        fieldnames = set(reader.fieldnames or [])
+    assert rows
+    assert {
+        "coverage_lower_bound_pass",
+        "selected_under_coverage_gate",
+        "numerical_pathology_flag",
+        "display_interval_policy",
+    } <= fieldnames
+    assert "near_nominal" not in fieldnames
+    assert "frontier_flag" not in fieldnames
+    assert any(row["numerical_pathology_flag"] == "true" for row in rows)
+
+
+def test_public_html_links_and_artifact_index_are_complete() -> None:
+    root = repo_root()
+    html_paths = [path for path in root.rglob("*.html") if ".git" not in path.parts]
+    linked: set[str] = set()
+    missing: list[tuple[str, str, str]] = []
+    for path in html_paths:
+        parser = _LinkParser()
+        parser.feed(path.read_text(encoding="utf-8", errors="ignore"))
+        for raw_link in parser.links:
+            href = urldefrag(raw_link)[0]
+            parsed = urlparse(href)
+            if (
+                not href
+                or parsed.scheme
+                or href.startswith("#")
+                or href.startswith("mailto:")
+            ):
+                continue
+            target = (path.parent / href).resolve()
+            try:
+                relative = target.relative_to(root.resolve()).as_posix()
+            except ValueError:
+                continue
+            linked.add(relative)
+            if not target.exists():
+                missing.append((path.relative_to(root).as_posix(), raw_link, relative))
+    assert not missing
+
+    artifact_index = json.loads(
+        (root / "atlas/artifacts/public_artifact_index.json").read_text(encoding="utf-8")
+    )
+    indexed = {
+        row["artifact_path"]
+        for row in artifact_index["artifacts"]
+    }
+    artifact_page = (root / "atlas/artifacts/index.html").read_text(encoding="utf-8")
+    substantive_files = {
+        path.relative_to(root).as_posix()
+        for path in root.rglob("*")
+        if path.is_file()
+        and ".git" not in path.parts
+        and path.relative_to(root).as_posix().startswith(
+            ("atlas/", "paper/", "site/", "evidence/")
+        )
+    }
+    assert substantive_files <= indexed
+    for artifact_path in substantive_files:
+        assert artifact_path in linked or artifact_path.endswith(".html")
+        assert artifact_path in artifact_page
+
+
+def test_public_html_metadata_and_accessibility_basics() -> None:
+    root = repo_root()
+    pages = [
+        root / "site/index.html",
+        root / "paper/research_document.html",
+        root / "atlas/index.html",
+        root / "atlas/results/index.html",
+        root / "site/kg_browser.html",
+    ]
+    for page in pages:
+        text = page.read_text(encoding="utf-8")
+        assert '<meta name="description"' in text
+        assert '<link rel="canonical"' in text
+        assert 'type="application/ld+json"' in text
+        assert "skip-link" in text
+        assert ":focus-visible" in text
+    assert "<caption>" in (root / "atlas/results/index.html").read_text(encoding="utf-8")
+    kg_text = (root / "site/kg_browser.html").read_text(encoding="utf-8")
+    assert "aria-live" in kg_text
+    assert "fallback" in kg_text.lower()
 
 
 def test_public_repository_text_has_no_private_review_boilerplate() -> None:

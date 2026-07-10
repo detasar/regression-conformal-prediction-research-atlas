@@ -4,11 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Regression CP Evidence Map</title>
+  <meta name="description" content="Traversable knowledge graph browser for the Regression CP Research Atlas, with guided evidence routes, search, filters, source details, and fallback tables.">
+  <link rel="canonical" href="https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Regression CP Evidence Map">
+  <meta property="og:description" content="Traversable knowledge graph browser for the Regression CP Research Atlas, with guided evidence routes, search, filters, source details, and fallback tables.">
+  <meta property="og:url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Regression CP Evidence Map", "description": "Traversable knowledge graph browser for the Regression CP Research Atlas, with guided evidence routes, search, filters, source details, and fallback tables.", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html", "applicationCategory": "ResearchApplication", "creator": {"@type": "Person", "name": "Emre Tasar", "email": "detasar@gmail.com"}}</script>
   <style>
     :root { --paper:#f8f5ee; --ink:#151922; --muted:#596273; --line:#d9d1c2; --panel:#fffdf8; --teal:#0f766e; --amber:#996515; --red:#a0442f; --blue:#245f9f; }
     * { box-sizing:border-box; }
     body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; }
     a { color:#145ea8; font-weight:720; }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid rgba(15,118,110,.35); outline-offset:3px; }
+    .skip-link { position:absolute; left:14px; top:-60px; background:var(--ink); color:#fffdf8; padding:8px 12px; border-radius:6px; z-index:20; }
+    .skip-link:focus { top:12px; }
     header { padding:24px 28px 18px; border-bottom:1px solid var(--line); background:rgba(255,253,248,.94); }
     .kicker { color:var(--teal); font-size:12px; font-weight:850; letter-spacing:0; text-transform:uppercase; }
     h1 { margin:6px 0 8px; font-family:Charter, Georgia, 'Times New Roman', serif; font-size:clamp(32px,4vw,56px); line-height:1; }
@@ -42,13 +53,14 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <header>
     <div class="kicker">Regression CP Research Atlas</div>
     <h1>Evidence Map</h1>
     <p class="sub">A guided knowledge graph for tracing methods, datasets, reports, and evidence scope. The graph opens with readable research routes; source fingerprints are available in the detail panel.</p>
     <p class="sub"><a href="index.html">Back to project page</a> · <a href="../paper/research_document.html">Research Document</a> · <a href="../atlas/index.html">Research Atlas</a></p>
   </header>
-  <main class="layout">
+  <main id="main-content" class="layout">
     <aside>
       <h2>Research Routes</h2>
       <div id="routes"></div>
@@ -59,7 +71,7 @@
     <section class="stage" aria-label="Evidence map canvas">
       <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop">One hop</button> <button id="twoHop">Two hops</button></div></div>
       <div class="canvas-wrap"><canvas id="mapCanvas" aria-label="Knowledge graph canvas"></canvas></div>
-      <div class="footer"><span id="status">Loading graph...</span><span>Click a labeled node or route to traverse.</span></div>
+      <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span>Click a labeled node or route to traverse.</span></div>
     </section>
     <aside class="right">
       <div class="detail" id="detail"><h2>What is in this graph?</h2><p class="muted">This is a reader-facing index over the experiment evidence: methods, dataset audits, result reports, interpretation scope, and provenance links. Start with a route, then drill into a node only when you want the underlying audit trail.</p></div>
