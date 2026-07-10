@@ -80,7 +80,7 @@ The robustness diagnostics point in the same direction as the coverage-gated sel
 
 ## Traceability And Release State
 
-The current knowledge graph snapshot contains 3,643 nodes and 21,019 edges, with 0 isolated nodes and 0 quality issues in the latest quality summary. The graph is evidence infrastructure for navigating the experiment; it is not yet the final citable public artifact.
+The current knowledge graph snapshot contains 3,643 nodes and 21,019 edges, with 0 isolated nodes and 0 quality issues in the latest quality summary. The graph is evidence infrastructure for navigating the experiment; it is not yet the Research Atlas citation target.
 
 The release register records 0 in scope release rows. The goal-completion audit says `can_mark_goal_complete = false`. The next publication work should therefore stay in draft/reporting mode until the sterile repository, final article/supplement outputs, and release review are completed.
 

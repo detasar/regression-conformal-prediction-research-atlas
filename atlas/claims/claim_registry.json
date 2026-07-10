@@ -29,7 +29,7 @@
       "evidence_gate": "No citation can open this claim by itself; it would require a later pre-specified selection protocol if the scientific state changes.",
       "kg_reference_node_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
-      "reader_safe_statement": "The current evidence does not support a final method selection, final main result, or deployment deployment rule.",
+      "reader_safe_statement": "The current evidence does not support a final method selection, final main result, or deployment rule.",
       "scope_limit": "Method-selection conclusions require separate validation.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },

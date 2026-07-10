@@ -46,7 +46,7 @@ This crosswalk explains how the supplement should be read with the main article.
 \toprule
 Main article surface & Supplement support & Primary source artifact & Stronger claim requiring validation \\
 \midrule
-CQR/CV+ descriptive performance & S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics & \texttt{method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit; cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis} & No final method selection, global best method, or deployment deployment rule. \\
+CQR/CV+ descriptive performance & S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics & \texttt{method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit; cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis} & No final method selection, global best method, or deployment rule. \\
 Venn-Abers bridge negative evidence & S2 bridge validation slice and S6 release-state boundary & \texttt{dataset\_\allowbreak{}final\_\allowbreak{}gate\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}bridge\_\allowbreak{}results} & No validated Venn-Abers regression interval claim. \\
 Bounded-support validity & S3 bounded-support endpoint policy & \texttt{bounded\_\allowbreak{}support\_\allowbreak{}endpoint\_\allowbreak{}closure\_\allowbreak{}audit} & No endpoint or bounded-support validity claim. \\
 Population-level group inference & S4 group diagnostics & \texttt{group inference\_\allowbreak{}population\_\allowbreak{}readiness\_\allowbreak{}audit} & No population-level group inference claim. \\
@@ -74,7 +74,7 @@ S2 & Check whether post-selection and bridge diagnostics preserve the same bound
 S3 & Check whether bounded-support endpoint behavior authorizes a validity claim. & 0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles. & Report endpoint policy closure and retained domain caveats. & Bounded-support and endpoint-validity claims require separate validation. \\
 S4 & Check whether group diagnostics define a population-group-inference estimand. & 187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles. & Use group rows as heterogeneity diagnostics. & Population-level and deployment group-inference claims require separate validation. \\
 S5 & Check whether duplicate and leakage controls strengthen or limit interpretation. & 29 duplicate actions, 46 quarantined actions, 0 unquarantined actions, and hard leakage not detected in scanned artifacts. & Retain integrity caveats as part of the scientific record. & Integrity caveats remain part of the scientific record. \\
-S6 & Check whether traceability artifacts are review infrastructure or public outputs. & 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and release scope recorded in the manifest. & Use the KG and package for evidence tracing. & Use the KG and site to inspect how claims connect to evidence. \\
+S6 & Check whether traceability artifacts are review infrastructure or public outputs. & 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and evidence scope recorded in the manifest. & Use the KG and package for evidence tracing. & Use the KG and site to inspect how claims connect to evidence. \\
 \bottomrule
 \end{longtable}
 \endgroup
