@@ -10,6 +10,7 @@ import os
 import shutil
 import subprocess
 import sys
+import zipfile
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urldefrag, urlparse
@@ -92,6 +93,41 @@ def test_public_package_data_includes_experiment_configs() -> None:
         if path.name.endswith((".yaml", ".yml"))
     )
     assert "pilot.yaml" in config_names
+    assert len(config_names) == 184
+    assert any(name.endswith("_model_matched_cqr_v1.yaml") for name in config_names)
+
+
+def test_public_wheel_contains_experiment_configs(tmp_path: Path) -> None:
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "pip",
+            "wheel",
+            ".",
+            "--no-deps",
+            "--wheel-dir",
+            str(tmp_path),
+        ],
+        cwd=repo_root(),
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    wheels = sorted(tmp_path.glob("*.whl"))
+    assert len(wheels) == 1
+    with zipfile.ZipFile(wheels[0]) as archive:
+        names = set(archive.namelist())
+    config_names = sorted(
+        name
+        for name in names
+        if name.startswith("experiments/regression/configs/")
+        and name.endswith((".yaml", ".yml"))
+    )
+    assert "experiments/regression/configs/pilot.yaml" in names
+    assert "experiments/regression/scripts/run_regression_pilot.py" in names
+    assert "experiments/regression/policies/data_policy_registry.md" in names
     assert len(config_names) == 184
     assert any(name.endswith("_model_matched_cqr_v1.yaml") for name in config_names)
 
