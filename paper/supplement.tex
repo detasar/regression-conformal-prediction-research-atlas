@@ -34,7 +34,7 @@ This crosswalk explains how the supplement should be read with the main article.
 \toprule
 Main article surface & Supplement support & Primary source artifact & Outside current evidence claim \\
 \midrule
-CQR/CV+ descriptive performance & S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics & \texttt{method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit; cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis} & No final method selection, global best method, or deployment recommendation. \\
+CQR/CV+ descriptive performance & S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics & \texttt{method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit; cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis} & No final method selection, global best method, or deployment deployment rule. \\
 Venn-Abers bridge negative evidence & S2 bridge validation slice and S6 release-state boundary & \texttt{dataset\_\allowbreak{}final\_\allowbreak{}gate\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}bridge\_\allowbreak{}results} & No validated Venn-Abers regression interval claim. \\
 Bounded-support validity & S3 bounded-support endpoint policy & \texttt{bounded\_\allowbreak{}support\_\allowbreak{}endpoint\_\allowbreak{}closure\_\allowbreak{}audit} & No endpoint or bounded-support validity claim. \\
 Population-level group inference & S4 group diagnostics & \texttt{group inference\_\allowbreak{}population\_\allowbreak{}readiness\_\allowbreak{}audit} & No population-level group inference claim. \\
@@ -57,7 +57,7 @@ The supplement is intentionally broader than the main article. Each section adds
 Section & Reviewer check & Evidence metric & Allowed use & Outside current evidence use \\
 \midrule
 S1 & Check whether the method-selection signal is robust enough to describe, but not promote. & CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000. & Report CQR/CV+ as strong practical candidates observed in these experiments. & Do not call CQR the final selected method or a universal deployment rule. \\
-S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & Do not upgrade the check into a universal CQR method guidance. \\
+S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & Do not upgrade the check into a universal CQR deployment guidance. \\
 S2 & Check whether post-selection and bridge diagnostics preserve the same boundary. & Post-selection diagnostic counts are cqr=18 and mondrian\_\allowbreak{}abs=7; the bridge slice has 45 completed atomic runs. & Use the slice as diagnostic stress-test evidence. & Do not upgrade the slice into final method selection or validated Venn-Abers regression intervals. \\
 S3 & Check whether bounded-support endpoint behavior authorizes a validity claim. & 0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles. & Report endpoint policy closure and retained domain caveats. & Do not state bounded-support or endpoint validity. \\
 S4 & Check whether group diagnostics define a population-group-inference estimand. & 187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles. & Use group rows as heterogeneity diagnostics. & Do not state population-level group inference or deployment group inference. \\
@@ -84,7 +84,7 @@ Common dataset-alpha cells & 94 & Shared comparison cells \\
 Common-cell selected diagnostic method & \texttt{cqr} & Not a final method selection \\
 Common-cell counts & cqr=58; cv\_\allowbreak{}plus=15; mondrian\_\allowbreak{}abs=21 & Descriptive counts only \\
 Bootstrap replicates & 1,000 & Selection stability diagnostic \\
-Bootstrap counts & cqr=1,000 & No method guidance \\
+Bootstrap counts & cqr=1,000 & Experiment-scoped interpretation \\
 Bootstrap primary selection rate & 1.0000 & Stability estimate, not final selection \\
 Bootstrap primary selection-rate 95\% interval & 0.9962 to 1.0000 & Precision check for the diagnostic rate \\
 Leave-one-dataset retention & 1.0000 & Diagnostic robustness \\
@@ -119,7 +119,7 @@ Paired dataset-alpha-model-family cells & 224 & Direct CQR backend comparison ce
 Fixed-GBM CQR selected cells & 116 & Coverage-eligible interval-score selections \\
 Model-matched CQR selected cells & 71 & Coverage-eligible interval-score selections \\
 Neither coverage-eligible variant & 37 & Cells where both CQR variants fail the coverage-eligibility rule \\
-Method-selection claim supported & \texttt{False} & No method guidance opens \\
+Method-selection claim supported & \texttt{False} & No deployment guidance follows from this table \\
 \bottomrule
 \end{longtable}
 \endgroup
@@ -248,7 +248,7 @@ Venn-Abers evidence is retained as part of the negative and boundary evidence fo
 
 \begin{itemize}
 \item This supplement summarizes the public evidence artifacts.
-\item Method evidence is diagnostic; no final method selection or recommendation is established.
+\item Method evidence is diagnostic; no final method selection or deployment rule is established.
 \item Bounded-support endpoint results block validity claims.
 \item Group diagnostics do not establish population-level group inference.
 \item Duplicate and integrity caveats are retained rather than hidden.

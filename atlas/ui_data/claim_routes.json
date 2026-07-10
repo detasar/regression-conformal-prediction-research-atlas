@@ -21,7 +21,7 @@
     },
     {
       "atlas_paths": [
-        "atlas/results/frontier_cells.csv",
+        "atlas/results/selected_under_coverage_gate_cells.csv",
         "atlas/results/result_cube_public.csv"
       ],
       "description": "CQR/CV+ were observed as strong practical candidates in these experiments.",

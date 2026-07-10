@@ -1,0 +1,742 @@
+{
+  "artifact_count": 147,
+  "artifacts": [
+    {
+      "artifact_kind": "article",
+      "artifact_path": "paper/article.html",
+      "reader_use": "Main article HTML."
+    },
+    {
+      "artifact_kind": "article",
+      "artifact_path": "paper/article.pdf",
+      "reader_use": "Main article PDF."
+    },
+    {
+      "artifact_kind": "article source",
+      "artifact_path": "paper/article.tex",
+      "reader_use": "Main article LaTeX source."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/artifacts/index.html",
+      "reader_use": "This artifact index."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/claims/index.html",
+      "reader_use": "Interpretation page."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/datasets/index.html",
+      "reader_use": "Dataset catalog page."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/index.html",
+      "reader_use": "Atlas overview."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/methods/index.html",
+      "reader_use": "Method catalog page."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/provenance/index.html",
+      "reader_use": "Provenance page."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/results/index.html",
+      "reader_use": "Result surfaces page."
+    },
+    {
+      "artifact_kind": "atlas",
+      "artifact_path": "atlas/scope/index.html",
+      "reader_use": "Experiment scope page."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/artifacts/public_artifact_index.json",
+      "reader_use": "Machine-readable version of this artifact index."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/claims/claim_evidence_matrix.csv",
+      "reader_use": "Claim/evidence matrix CSV."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/claims/claim_registry.json",
+      "reader_use": "Reader-safe claim registry."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/datasets/dataset_catalog.csv",
+      "reader_use": "Dataset catalog CSV."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/datasets/dataset_catalog.json",
+      "reader_use": "Dataset catalog JSON."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/methods/method_catalog.csv",
+      "reader_use": "Method catalog CSV."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/methods/method_ontology.json",
+      "reader_use": "Method ontology JSON."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/cqr_backend_sensitivity.csv",
+      "reader_use": "CQR backend sensitivity comparison."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/interpretation_boundaries.csv",
+      "reader_use": "Interpretation boundary table."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/result_cube_public.csv",
+      "reader_use": "Public aggregate result cube."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/selected_under_coverage_gate_cells.csv",
+      "reader_use": "Coverage-gated selected cells."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/venn_abers_negative_evidence.csv",
+      "reader_use": "Venn-Abers bridge diagnostic rows."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/experiment_scope.json",
+      "reader_use": "Scope counts and accounting metadata."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/aif360_lawschool_gpa.md",
+      "reader_use": "Dataset card for aif360_lawschool_gpa."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/aif360_lawschool_gpa_dedup.md",
+      "reader_use": "Dataset card for aif360_lawschool_gpa_dedup."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/college_scorecard_2026_median_earnings.md",
+      "reader_use": "Dataset card for college_scorecard_2026_median_earnings."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/fairlearn_acs_income_wy.md",
+      "reader_use": "Dataset card for fairlearn_acs_income_wy."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/fairlearn_diabetes_hospital_los.md",
+      "reader_use": "Dataset card for fairlearn_diabetes_hospital_los."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/folktables_acs_poverty_ratio_wy.md",
+      "reader_use": "Dataset card for folktables_acs_poverty_ratio_wy."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/folktables_acs_travel_time_wy.md",
+      "reader_use": "Dataset card for folktables_acs_travel_time_wy."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/hmda_2025_wy_interest_rate.md",
+      "reader_use": "Dataset card for hmda_2025_wy_interest_rate."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/meps_2023_total_expenditure.md",
+      "reader_use": "Dataset card for meps_2023_total_expenditure."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/nhanes_2017_2018_bmi.md",
+      "reader_use": "Dataset card for nhanes_2017_2018_bmi."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/nhanes_2017_2018_glycohemoglobin.md",
+      "reader_use": "Dataset card for nhanes_2017_2018_glycohemoglobin."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/nhanes_2017_2018_systolic_bp.md",
+      "reader_use": "Dataset card for nhanes_2017_2018_systolic_bp."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_chlamydia.md",
+      "reader_use": "Dataset card for openml_analcatdata_chlamydia."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_galapagos.md",
+      "reader_use": "Dataset card for openml_analcatdata_galapagos."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_gsssexsurvey.md",
+      "reader_use": "Dataset card for openml_analcatdata_gsssexsurvey."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate.md",
+      "reader_use": "Dataset card for openml_analcatdata_hiroshima_rate."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate_dedup.md",
+      "reader_use": "Dataset card for openml_analcatdata_hiroshima_rate_dedup."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_runshoes.md",
+      "reader_use": "Dataset card for openml_analcatdata_runshoes."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_seropositive.md",
+      "reader_use": "Dataset card for openml_analcatdata_seropositive."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_analcatdata_vehicle_count.md",
+      "reader_use": "Dataset card for openml_analcatdata_vehicle_count."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_arsenic_event_rate_panel.md",
+      "reader_use": "Dataset card for openml_arsenic_event_rate_panel."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_auto_price.md",
+      "reader_use": "Dataset card for openml_auto_price."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_baseball_hitter_salary.md",
+      "reader_use": "Dataset card for openml_baseball_hitter_salary."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_baseball_pitcher_salary.md",
+      "reader_use": "Dataset card for openml_baseball_pitcher_salary."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_baseball_team_salary.md",
+      "reader_use": "Dataset card for openml_baseball_team_salary."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_basketball_points_per_minute.md",
+      "reader_use": "Dataset card for openml_basketball_points_per_minute."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_bodyfat_percentage.md",
+      "reader_use": "Dataset card for openml_bodyfat_percentage."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_california_housing.md",
+      "reader_use": "Dataset card for openml_california_housing."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_california_housing_spatial_cell.md",
+      "reader_use": "Dataset card for openml_california_housing_spatial_cell."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_cholesterol_chol.md",
+      "reader_use": "Dataset card for openml_cholesterol_chol."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_cps_85_wages.md",
+      "reader_use": "Dataset card for openml_cps_85_wages."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_delta_elevators_se.md",
+      "reader_use": "Dataset card for openml_delta_elevators_se."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_disclosure_x_bias.md",
+      "reader_use": "Dataset card for openml_disclosure_x_bias."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_disclosure_x_noise.md",
+      "reader_use": "Dataset card for openml_disclosure_x_noise."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_disclosure_x_tampered.md",
+      "reader_use": "Dataset card for openml_disclosure_x_tampered."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_disclosure_z.md",
+      "reader_use": "Dataset card for openml_disclosure_z."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_faculty_salaries_asst_prof.md",
+      "reader_use": "Dataset card for openml_faculty_salaries_asst_prof."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_fishcatch_weight.md",
+      "reader_use": "Dataset card for openml_fishcatch_weight."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_gascons_consumption.md",
+      "reader_use": "Dataset card for openml_gascons_consumption."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_house_16h_price.md",
+      "reader_use": "Dataset card for openml_house_16h_price."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_hutsof99_quality.md",
+      "reader_use": "Dataset card for openml_hutsof99_quality."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_icu_loc.md",
+      "reader_use": "Dataset card for openml_icu_loc."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_kin8nm_y.md",
+      "reader_use": "Dataset card for openml_kin8nm_y."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_mba_grade_gpa.md",
+      "reader_use": "Dataset card for openml_mba_grade_gpa."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_mba_grade_gpa_dedup.md",
+      "reader_use": "Dataset card for openml_mba_grade_gpa_dedup."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_mercury_in_bass.md",
+      "reader_use": "Dataset card for openml_mercury_in_bass."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_mtp2_oz1143.md",
+      "reader_use": "Dataset card for openml_mtp2_oz1143."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_newton_hema_cells.md",
+      "reader_use": "Dataset card for openml_newton_hema_cells."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_plasma_retinol.md",
+      "reader_use": "Dataset card for openml_plasma_retinol."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_sensory_score.md",
+      "reader_use": "Dataset card for openml_sensory_score."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_sleuth_case1201_rank.md",
+      "reader_use": "Dataset card for openml_sleuth_case1201_rank."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_sleuth_case1202_experience.md",
+      "reader_use": "Dataset card for openml_sleuth_case1202_experience."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_sleuth_ex1714_invol.md",
+      "reader_use": "Dataset card for openml_sleuth_ex1714_invol."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_smsa_nox.md",
+      "reader_use": "Dataset card for openml_smsa_nox."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_socmob_sons_occupation.md",
+      "reader_use": "Dataset card for openml_socmob_sons_occupation."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/openml_space_ga_log_votes_pop.md",
+      "reader_use": "Dataset card for openml_space_ga_log_votes_pop."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/oulad_assessment_score.md",
+      "reader_use": "Dataset card for oulad_assessment_score."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/pisa_2022_math_pv_mean.md",
+      "reader_use": "Dataset card for pisa_2022_math_pv_mean."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/scf_2022_networth.md",
+      "reader_use": "Dataset card for scf_2022_networth."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/stackoverflow_2025_compensation.md",
+      "reader_use": "Dataset card for stackoverflow_2025_compensation."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_auto_mpg.md",
+      "reader_use": "Dataset card for uci_auto_mpg."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_bike_sharing.md",
+      "reader_use": "Dataset card for uci_bike_sharing."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_communities_crime.md",
+      "reader_use": "Dataset card for uci_communities_crime."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_student_performance.md",
+      "reader_use": "Dataset card for uci_student_performance."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_student_performance_no_prior_grades.md",
+      "reader_use": "Dataset card for uci_student_performance_no_prior_grades."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_student_performance_with_prior_grades.md",
+      "reader_use": "Dataset card for uci_student_performance_with_prior_grades."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_wine_quality.md",
+      "reader_use": "Dataset card for uci_wine_quality."
+    },
+    {
+      "artifact_kind": "dataset card",
+      "artifact_path": "atlas/datasets/cards/uci_wine_quality_dedup.md",
+      "reader_use": "Dataset card for uci_wine_quality_dedup."
+    },
+    {
+      "artifact_kind": "evidence",
+      "artifact_path": "evidence/claim_evidence_matrix.json",
+      "reader_use": "Claim/evidence matrix JSON."
+    },
+    {
+      "artifact_kind": "evidence",
+      "artifact_path": "evidence/claim_evidence_matrix.md",
+      "reader_use": "Claim/evidence matrix Markdown."
+    },
+    {
+      "artifact_kind": "evidence",
+      "artifact_path": "evidence/kg_quality_summary.json",
+      "reader_use": "Knowledge graph quality summary."
+    },
+    {
+      "artifact_kind": "evidence map",
+      "artifact_path": "site/kg_browser.html",
+      "reader_use": "Traversable knowledge graph browser."
+    },
+    {
+      "artifact_kind": "evidence map data",
+      "artifact_path": "site/kg_browser_data.json",
+      "reader_use": "Knowledge graph browser data."
+    },
+    {
+      "artifact_kind": "manifest",
+      "artifact_path": "evidence/public_artifact_manifest.json",
+      "reader_use": "Public KG source/evidence resolution manifest."
+    },
+    {
+      "artifact_kind": "manifest",
+      "artifact_path": "evidence/public_artifact_manifest.md",
+      "reader_use": "Readable public artifact manifest."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr.md",
+      "reader_use": "Method card for cqr."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr_gb_deep_n200_d4_lr003.md",
+      "reader_use": "Method card for cqr_gb_deep_n200_d4_lr003."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr_gb_default_n300_d3_lr010.md",
+      "reader_use": "Method card for cqr_gb_default_n300_d3_lr010."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr_gb_leaf5_n300_d3_lr005.md",
+      "reader_use": "Method card for cqr_gb_leaf5_n300_d3_lr005."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr_gb_shallow_n120_d2_lr003.md",
+      "reader_use": "Method card for cqr_gb_shallow_n120_d2_lr003."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr_gb_shallow_n240_d2_lr005.md",
+      "reader_use": "Method card for cqr_gb_shallow_n240_d2_lr005."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr_gb_subsample_n300_d3_lr005_sub08.md",
+      "reader_use": "Method card for cqr_gb_subsample_n300_d3_lr005_sub08."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cqr_model_matched.md",
+      "reader_use": "Method card for cqr_model_matched."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cv_minmax.md",
+      "reader_use": "Method card for cv_minmax."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cv_minmax_grouped.md",
+      "reader_use": "Method card for cv_minmax_grouped."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cv_plus.md",
+      "reader_use": "Method card for cv_plus."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/cv_plus_grouped.md",
+      "reader_use": "Method card for cv_plus_grouped."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/jackknife_minmax.md",
+      "reader_use": "Method card for jackknife_minmax."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/jackknife_plus.md",
+      "reader_use": "Method card for jackknife_plus."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/jackknife_plus_after_bootstrap.md",
+      "reader_use": "Method card for jackknife_plus_after_bootstrap."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/mondrian_abs.md",
+      "reader_use": "Method card for mondrian_abs."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/normalized_abs.md",
+      "reader_use": "Method card for normalized_abs."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/shrink_0.00.md",
+      "reader_use": "Method card for shrink_0.00."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/shrink_0.10.md",
+      "reader_use": "Method card for shrink_0.10."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/shrink_0.25.md",
+      "reader_use": "Method card for shrink_0.25."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/shrink_0.50.md",
+      "reader_use": "Method card for shrink_0.50."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/shrink_0.75.md",
+      "reader_use": "Method card for shrink_0.75."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/shrink_0.90.md",
+      "reader_use": "Method card for shrink_0.90."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/shrink_1.00.md",
+      "reader_use": "Method card for shrink_1.00."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/split_abs.md",
+      "reader_use": "Method card for split_abs."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/split_tail_0.25.md",
+      "reader_use": "Method card for split_tail_0.25."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/split_tail_0.50.md",
+      "reader_use": "Method card for split_tail_0.50."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/split_tail_0.75.md",
+      "reader_use": "Method card for split_tail_0.75."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/split_tail_grid_shortest.md",
+      "reader_use": "Method card for split_tail_grid_shortest."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/venn_abers_quantile.md",
+      "reader_use": "Method card for venn_abers_quantile."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/venn_abers_split_fallback.md",
+      "reader_use": "Method card for venn_abers_split_fallback."
+    },
+    {
+      "artifact_kind": "method card",
+      "artifact_path": "atlas/methods/cards/weighted_abs_covariate_shift.md",
+      "reader_use": "Method card for weighted_abs_covariate_shift."
+    },
+    {
+      "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/artifact_manifest.json",
+      "reader_use": "Atlas source artifact manifest."
+    },
+    {
+      "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/hash_receipts.json",
+      "reader_use": "Hash receipts for generated atlas files."
+    },
+    {
+      "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/public_release_scope.json",
+      "reader_use": "Public release scope receipt."
+    },
+    {
+      "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/ro-crate-metadata.json",
+      "reader_use": "RO-Crate metadata."
+    },
+    {
+      "artifact_kind": "repository",
+      "artifact_path": "README.md",
+      "reader_use": "Start here for the public Research Atlas."
+    },
+    {
+      "artifact_kind": "research document",
+      "artifact_path": "paper/research_document.html",
+      "reader_use": "Integrated Research Document HTML."
+    },
+    {
+      "artifact_kind": "research document source",
+      "artifact_path": "paper/research_document.md",
+      "reader_use": "Integrated Research Document Markdown."
+    },
+    {
+      "artifact_kind": "scope",
+      "artifact_path": "EVIDENCE_SCOPE.md",
+      "reader_use": "High-level reading scope and evidence boundaries."
+    },
+    {
+      "artifact_kind": "supplement",
+      "artifact_path": "paper/supplement.html",
+      "reader_use": "Supplement HTML."
+    },
+    {
+      "artifact_kind": "supplement",
+      "artifact_path": "paper/supplement.pdf",
+      "reader_use": "Supplement PDF."
+    },
+    {
+      "artifact_kind": "supplement source",
+      "artifact_path": "paper/supplement.tex",
+      "reader_use": "Supplement LaTeX source."
+    },
+    {
+      "artifact_kind": "website",
+      "artifact_path": "site/index.html",
+      "reader_use": "Publication landing page."
+    },
+    {
+      "artifact_kind": "website data",
+      "artifact_path": "atlas/ui_data/atlas_summary.json",
+      "reader_use": "Compact atlas summary data."
+    },
+    {
+      "artifact_kind": "website data",
+      "artifact_path": "atlas/ui_data/claim_routes.json",
+      "reader_use": "Claim route data."
+    },
+    {
+      "artifact_kind": "website data",
+      "artifact_path": "atlas/ui_data/dataset_method_heatmap.json",
+      "reader_use": "Dataset/method heatmap data."
+    },
+    {
+      "artifact_kind": "website data",
+      "artifact_path": "atlas/ui_data/method_family_summary.json",
+      "reader_use": "Method family summary data."
+    }
+  ],
+  "generated_at_utc": "2026-07-10T19:24:21.047767+00:00",
+  "schema": "regression_cp_public_artifact_index_v1"
+}

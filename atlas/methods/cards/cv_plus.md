@@ -8,7 +8,7 @@
 | Configured | `true` |
 | Completed rows | `13858` |
 | Dataset-alpha cells | `94` |
-| Coverage-eligible selected cells | `13` |
+| Coverage-gated selected cells | `13` |
 | Claim status | `observed_practical_candidate_in_this_experiment` |
 
 ## Reading Note

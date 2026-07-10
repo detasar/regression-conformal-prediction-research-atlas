@@ -49,7 +49,7 @@ The repository establishes that a large, audited regression conformal prediction
 
 ## What This Study Does Not Establish
 
-- A general best-method guidance or global method-selection claim.
+- A general best-deployment guidance or global method-selection claim.
 - Population-level group inference claims.
 - Bounded-support validity claims.
 - Validated Venn-Abers regression interval claims.

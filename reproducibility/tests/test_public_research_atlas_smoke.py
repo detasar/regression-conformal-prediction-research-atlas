@@ -60,9 +60,16 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     assert len(kg["edges"]) == kg["summary"]["edge_count"]
     assert kg["summary"]["public_artifact_manifest"] == "evidence/public_artifact_manifest.json"
     assert manifest["strategy"] == "manifest_plus_summary_not_full_artifact_dump"
-    assert manifest["summary"]["kg_source_and_evidence_path_coverage"] == 1.0
+    assert manifest["summary"]["manifest_reference_resolution_rate"] == 1.0
     assert "public_status_counts" in manifest["summary"]
     assert all(row.get("public_status") for row in manifest["artifacts"])
+    assert all("included" not in row for row in manifest["artifacts"])
+    assert all("file_included" in row for row in manifest["artifacts"])
+    assert all("represented_in_aggregate" in row for row in manifest["artifacts"])
+    assert all("content_hash_verifiable" in row for row in manifest["artifacts"])
+    kg_text = kg_path.read_text(encoding="utf-8")
+    assert "source_key_hash" not in kg_text
+    assert "source_key_fingerprint" in kg_text
 
 
 def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:

@@ -8,7 +8,7 @@
 | Publication completed rows | `0` |
 | Alpha levels | `0` |
 | Method labels | `0` |
-| Coverage-eligible selected cells | `0` |
+| Coverage-gated selected cells | `0` |
 | CQR backend paired cells | `0` |
 
 ## Reading Note

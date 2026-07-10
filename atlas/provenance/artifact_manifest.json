@@ -2,7 +2,7 @@
   "artifacts": [
     {
       "artifact_id": "research_document",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/manuscript/research_document.json",
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
@@ -11,7 +11,7 @@
     },
     {
       "artifact_id": "individual_report",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/manuscript/individual_experiment_report_draft.json",
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
@@ -20,7 +20,7 @@
     },
     {
       "artifact_id": "method_performance",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/reports/methodology_sanity_audit_20260627/method_performance_synthesis.json",
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
@@ -29,7 +29,7 @@
     },
     {
       "artifact_id": "experiment_accounting",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/reports/methodology_sanity_audit_20260627/experiment_accounting_audit.json",
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
@@ -38,7 +38,7 @@
     },
     {
       "artifact_id": "claim_matrix",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/manuscript/publication_claim_evidence_verification_matrix.json",
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
@@ -47,7 +47,7 @@
     },
     {
       "artifact_id": "neutral_result_ledger",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/manuscript/neutral_result_ledger.json",
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
@@ -56,7 +56,7 @@
     },
     {
       "artifact_id": "cqr_backend_sensitivity",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json",
       "public_status": "included_public_aggregate",
       "public_summary": "Audited source artifact summarized into the public atlas.",
@@ -65,7 +65,7 @@
     },
     {
       "artifact_id": "knowledge_graph",
-      "included": true,
+      "file_included": true,
       "original_path": "experiments/regression/catalogs/knowledge_graph.json",
       "public_status": "included_public_hash_receipt",
       "public_summary": "Audited source artifact summarized into the public atlas.",

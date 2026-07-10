@@ -8,7 +8,7 @@
 | Configured | `true` |
 | Completed rows | `4564` |
 | Dataset-alpha cells | `224` |
-| Coverage-eligible selected cells | `71` |
+| Coverage-gated selected cells | `71` |
 | Claim status | `backend_sensitivity_evidence` |
 
 ## Reading Note

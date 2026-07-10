@@ -61,7 +61,7 @@
       "role": "public test config"
     }
   ],
-  "generated_at_utc": "2026-07-10T18:59:24.515543+00:00",
+  "generated_at_utc": "2026-07-10T19:25:00.314218+00:00",
   "missing": [],
   "rebuild_commands": [
     "python -m experiments.regression.scripts.build_public_release_scope --package-root .",

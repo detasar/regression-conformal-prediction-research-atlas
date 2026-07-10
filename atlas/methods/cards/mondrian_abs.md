@@ -8,7 +8,7 @@
 | Configured | `true` |
 | Completed rows | `15118` |
 | Dataset-alpha cells | `95` |
-| Coverage-eligible selected cells | `15` |
+| Coverage-gated selected cells | `15` |
 | Claim status | `diagnostic_comparator` |
 
 ## Reading Note

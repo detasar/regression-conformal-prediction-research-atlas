@@ -46,7 +46,7 @@ def build_scope(package_root: Path) -> dict[str, Any]:
             "kg_node_count": len(kg.get("nodes", [])),
             "kg_edge_count": len(kg.get("edges", [])),
             "artifact_manifest_coverage": manifest.get("summary", {}).get(
-                "kg_source_and_evidence_path_coverage"
+                "manifest_reference_resolution_rate"
             ),
         },
         "public_paths": {

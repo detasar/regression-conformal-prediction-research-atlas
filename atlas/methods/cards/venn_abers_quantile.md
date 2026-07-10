@@ -8,7 +8,7 @@
 | Configured | `true` |
 | Completed rows | `7743` |
 | Dataset-alpha cells | `66` |
-| Coverage-eligible selected cells | `0` |
+| Coverage-gated selected cells | `0` |
 | Claim status | `bridge_specific_negative_or_diagnostic_evidence` |
 
 ## Reading Note

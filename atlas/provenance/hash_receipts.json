@@ -6,19 +6,29 @@
       "sha256": "ad00163df35aed6b348aad6a562588bf948bc9543b9518df5ba18a181ec8233b"
     },
     {
-      "bytes": 6673,
+      "bytes": 33659,
+      "path": "artifacts/index.html",
+      "sha256": "44f8a2fe36a2d10c5c8d05d9a062ac19b18ccbfea25de09fc6dd13967a27efb2"
+    },
+    {
+      "bytes": 26448,
+      "path": "artifacts/public_artifact_index.json",
+      "sha256": "56f5778ea721f0eabb4c99bd2b10d5da45d50115528903895866ba6b5c9c739b"
+    },
+    {
+      "bytes": 6676,
       "path": "claims/claim_evidence_matrix.csv",
-      "sha256": "5a65549e04dd288784adf2907b53a8a25015b61aa0382f5b81b2a2cd1b78ce65"
+      "sha256": "54675810836afc466cb3235480dd4986d9e8968b123d5a5b0f435140fa7aebeb"
     },
     {
-      "bytes": 10228,
+      "bytes": 10231,
       "path": "claims/claim_registry.json",
-      "sha256": "4b116674c4d494902d7259ef736275caa3086bb0fed63b079ada23d7d6540b64"
+      "sha256": "dcf8a1382aaf9eab5fc9b5f951643fba6657d12b2a15d453aa270d425f58bb11"
     },
     {
-      "bytes": 13497,
+      "bytes": 13547,
       "path": "claims/index.html",
-      "sha256": "c75d9995af0fb3cc1b9ef75ceeb5b1019a3d5912fda24c2a51f723b454dc7140"
+      "sha256": "b1633c91c35785742c2f7fbd8b119da96548ba0fab83195b1dea13765272ab25"
     },
     {
       "bytes": 775,
@@ -26,554 +36,554 @@
       "sha256": "e9336c7464362b82c557d53bd5bdea148f910ef4d35cd9c94c4b0c4eafe6b25f"
     },
     {
-      "bytes": 471,
+      "bytes": 468,
       "path": "datasets/cards/aif360_lawschool_gpa.md",
-      "sha256": "d3ddb6b5134aff0c4f2e477566b723f9ffcac9a9a42458d77cec9fcc6d776d4e"
+      "sha256": "c44ac7d4383e4048db5816e4dac3ae1b5ed998706e3913d38cfee80cec7332b5"
     },
     {
-      "bytes": 476,
+      "bytes": 473,
       "path": "datasets/cards/aif360_lawschool_gpa_dedup.md",
-      "sha256": "d0192dff95d5b5593f08e126df2aad99272ebc2d59284ba8f84f13f94a4ae44e"
+      "sha256": "96d4402bcd97764901dcda14eba552c29549c14f50cecc0e3c12b6aa94e5f817"
     },
     {
-      "bytes": 501,
+      "bytes": 498,
       "path": "datasets/cards/college_scorecard_2026_median_earnings.md",
-      "sha256": "1d78a41fd8872b867129082e3ff30a5b2ee4621d865e4cac0e00eb75a6800b78"
+      "sha256": "7e2cdfc87ed47564d246c6aeb225d5a0a07eb9083abf684de0c039628da11422"
     },
     {
-      "bytes": 479,
+      "bytes": 476,
       "path": "datasets/cards/fairlearn_acs_income_wy.md",
-      "sha256": "68e2e4742f1880d78783de174fb9f74edf13ba438f63d5115800c9ee5852cb41"
+      "sha256": "9fd893c91cab7609c30821028b8d80c886fc6f51b7c2a245cadc018e8f126365"
     },
     {
-      "bytes": 483,
+      "bytes": 480,
       "path": "datasets/cards/fairlearn_diabetes_hospital_los.md",
-      "sha256": "7496506fc8f4eeb19ac2f5d4f87aafa5c10b4125d9e6481ac56212ff1a710373"
-    },
-    {
-      "bytes": 484,
-      "path": "datasets/cards/folktables_acs_poverty_ratio_wy.md",
-      "sha256": "23ef6139528e9b27964c3db66cf8a6fcbbac1c056224f659ff30aec9615ba826"
-    },
-    {
-      "bytes": 482,
-      "path": "datasets/cards/folktables_acs_travel_time_wy.md",
-      "sha256": "bc9278e98c3213407c2968800fb2b7a6522fc65b07a7168709ee6266ba6d53f8"
-    },
-    {
-      "bytes": 476,
-      "path": "datasets/cards/hmda_2025_wy_interest_rate.md",
-      "sha256": "90b2f3fb8ba10bd978c43342c84b021173e8f430c3959c713d42e8156c4f7776"
-    },
-    {
-      "bytes": 477,
-      "path": "datasets/cards/meps_2023_total_expenditure.md",
-      "sha256": "c0ca39e4883149895b7afe47cc07f628b263508e718a947cdbcc72eb4c906c21"
-    },
-    {
-      "bytes": 472,
-      "path": "datasets/cards/nhanes_2017_2018_bmi.md",
-      "sha256": "c756b15c8020914ca11aefe75d08a12ab44f2d464e4fbe76c91687be09112189"
-    },
-    {
-      "bytes": 484,
-      "path": "datasets/cards/nhanes_2017_2018_glycohemoglobin.md",
-      "sha256": "3a1eec312fa5e7c3f4e260d9cd3f30bf3a544d7619805de9a35df5e9165f98a3"
-    },
-    {
-      "bytes": 480,
-      "path": "datasets/cards/nhanes_2017_2018_systolic_bp.md",
-      "sha256": "41e4e7bb3f6eb3c5b866b9523a4b882dcf9e0282037aad87d62232bf620e9ca7"
-    },
-    {
-      "bytes": 480,
-      "path": "datasets/cards/openml_analcatdata_chlamydia.md",
-      "sha256": "fd124780694b5cee978eb752ba8806c3503367f20d1c990b308521eead9cc856"
-    },
-    {
-      "bytes": 477,
-      "path": "datasets/cards/openml_analcatdata_galapagos.md",
-      "sha256": "0cf467b88b933e274db7604b45e5fa0b38878d46a0cab33ccdd5e728629d7f70"
-    },
-    {
-      "bytes": 480,
-      "path": "datasets/cards/openml_analcatdata_gsssexsurvey.md",
-      "sha256": "f8db1c0aeb79c019283edfb41e3f8aa971004fae405dcbf444b300597e11fac0"
-    },
-    {
-      "bytes": 484,
-      "path": "datasets/cards/openml_analcatdata_hiroshima_rate.md",
-      "sha256": "2dc3fe94e2b4e1feb5be4d308087b539e30a21f62008d91c754f249cd24b80ee"
-    },
-    {
-      "bytes": 489,
-      "path": "datasets/cards/openml_analcatdata_hiroshima_rate_dedup.md",
-      "sha256": "26aae6ec5429ddb65b0950b042f96698b9e4ba0272da6375b0c9f580c84388ae"
-    },
-    {
-      "bytes": 476,
-      "path": "datasets/cards/openml_analcatdata_runshoes.md",
-      "sha256": "b39c3b1ddb9be2594dfd3dfe110effe360b77b993d36a6fd4efd21b766079989"
-    },
-    {
-      "bytes": 480,
-      "path": "datasets/cards/openml_analcatdata_seropositive.md",
-      "sha256": "0dc763fc74a62b704c4d34054e870b0eceb59da86613137ca55dcf13866bffe0"
+      "sha256": "0c0ed8bad97e6c1e94899c0f8700e91226b180c14e681cdf94ecc29a2e238936"
     },
     {
       "bytes": 481,
-      "path": "datasets/cards/openml_analcatdata_vehicle_count.md",
-      "sha256": "f1922f9c247c2c5a6f070d78d68ce465665e49cd4915629ad476bc5914c67669"
-    },
-    {
-      "bytes": 482,
-      "path": "datasets/cards/openml_arsenic_event_rate_panel.md",
-      "sha256": "925703595d747420a249f3572ffc489739da349ba90d70bf420da1b0b04bd008"
-    },
-    {
-      "bytes": 469,
-      "path": "datasets/cards/openml_auto_price.md",
-      "sha256": "c34d5105f7fedc7a93dd0707ac28d1cb16ea42f96ebda1773dcfd26b9b010bc9"
-    },
-    {
-      "bytes": 478,
-      "path": "datasets/cards/openml_baseball_hitter_salary.md",
-      "sha256": "819e84c36a780783279f996cf735e8576317fad64b820ae77491d5272aacbf83"
+      "path": "datasets/cards/folktables_acs_poverty_ratio_wy.md",
+      "sha256": "c3490666cbf1d4002351a7e107f1a974d63f424ee9c113c20e4e9742cdee9474"
     },
     {
       "bytes": 479,
-      "path": "datasets/cards/openml_baseball_pitcher_salary.md",
-      "sha256": "9d99ce8af729ee2bd31b187ade1c2433622ea945a2aeb213340a2f6a2b7cbe58"
-    },
-    {
-      "bytes": 476,
-      "path": "datasets/cards/openml_baseball_team_salary.md",
-      "sha256": "e6cbb6c53e30a46234457e4f784ac67bac20bb751d625243c063bad482e8364a"
-    },
-    {
-      "bytes": 484,
-      "path": "datasets/cards/openml_basketball_points_per_minute.md",
-      "sha256": "32438f52908764eddc06ee759f94e4c341cbc9878c10132ee12e852ab17a7387"
-    },
-    {
-      "bytes": 477,
-      "path": "datasets/cards/openml_bodyfat_percentage.md",
-      "sha256": "ebc0f37fe41413d05bbfd9576ece3fc0106f5110f7ff9903c91fb88ef1e4fff3"
-    },
-    {
-      "bytes": 474,
-      "path": "datasets/cards/openml_california_housing.md",
-      "sha256": "d559290921782f88584067af5b229c45a79539cfc0a685c075547b97dabadf8d"
-    },
-    {
-      "bytes": 490,
-      "path": "datasets/cards/openml_california_housing_spatial_cell.md",
-      "sha256": "ef595cd1f54ba4d8234083921e61c52124bef09b02836e408c306a63c98261c6"
-    },
-    {
-      "bytes": 474,
-      "path": "datasets/cards/openml_cholesterol_chol.md",
-      "sha256": "4fc9260df8994cfe11c93d776247c5e3ea296365af2fa782ff528f20a6c27eda"
-    },
-    {
-      "bytes": 471,
-      "path": "datasets/cards/openml_cps_85_wages.md",
-      "sha256": "df9454b80fd673d9881ce43da2346ea6f069c84c888e7116bfbf7efde6d6c095"
-    },
-    {
-      "bytes": 476,
-      "path": "datasets/cards/openml_delta_elevators_se.md",
-      "sha256": "c2ba63006063aa48a72dab00ce0f4ed1241e20da24e87c5f59f2009c90d96b98"
+      "path": "datasets/cards/folktables_acs_travel_time_wy.md",
+      "sha256": "53be0332f8e7e78b34dbc9543d831fa53e825f4619a9b8e84fa57d11d44f53eb"
     },
     {
       "bytes": 473,
-      "path": "datasets/cards/openml_disclosure_x_bias.md",
-      "sha256": "ee7544d7a49dbe668b110e16a956904573970256e1c5da68a0175ba244e346c9"
+      "path": "datasets/cards/hmda_2025_wy_interest_rate.md",
+      "sha256": "e552a732e90c6e01678026066ee899303efc7f973fc428f2d599fdab038dfd15"
     },
     {
       "bytes": 474,
-      "path": "datasets/cards/openml_disclosure_x_noise.md",
-      "sha256": "d3ccbf0f761975f8a2a5d4348e95a17533d00c11a51408b2c29a2967e3cec3d2"
+      "path": "datasets/cards/meps_2023_total_expenditure.md",
+      "sha256": "10acb7ff04ee2613d11be0de362ba1575aad6c21f508daa3ec5fca0120761485"
+    },
+    {
+      "bytes": 469,
+      "path": "datasets/cards/nhanes_2017_2018_bmi.md",
+      "sha256": "9a9bf25c168ee974bfb9f7a2ba54542eb215fe6f28ab888a45c11007e28182fb"
+    },
+    {
+      "bytes": 481,
+      "path": "datasets/cards/nhanes_2017_2018_glycohemoglobin.md",
+      "sha256": "753fa63ed8ba58cbbe2e286b7d8bd965e31e39aa3d43060cc9ce2728f36c3e83"
     },
     {
       "bytes": 477,
-      "path": "datasets/cards/openml_disclosure_x_tampered.md",
-      "sha256": "1ec35ec9fd03250c12098a35caa741d529aa0c99d95d79b6fa277d70b516d473"
+      "path": "datasets/cards/nhanes_2017_2018_systolic_bp.md",
+      "sha256": "f141cac135be86fdbc11fc3939da94cc337e33260ed882c1f99b7b21000d285c"
     },
     {
-      "bytes": 468,
-      "path": "datasets/cards/openml_disclosure_z.md",
-      "sha256": "c72401263c6436de27870da916736b2676bb7ec9a5a178e5c1df0d82ac4678aa"
-    },
-    {
-      "bytes": 482,
-      "path": "datasets/cards/openml_faculty_salaries_asst_prof.md",
-      "sha256": "c2d27ffdad7bae21a803a73a22abe7d12f118c49972180eb794575c6c26262cc"
-    },
-    {
-      "bytes": 475,
-      "path": "datasets/cards/openml_fishcatch_weight.md",
-      "sha256": "bfd3648e0b2985e50f59c59fa47c28ac289f60daa7543b344f41171664d3f67e"
+      "bytes": 477,
+      "path": "datasets/cards/openml_analcatdata_chlamydia.md",
+      "sha256": "28c5763ba324cf946b77e579cd8e54509175d440540429284848b50ad52ae726"
     },
     {
       "bytes": 474,
-      "path": "datasets/cards/openml_gascons_consumption.md",
-      "sha256": "db03f9f66ea8c819c3fdf20ed27d02279227021e18e8e85dd096113991b452cc"
+      "path": "datasets/cards/openml_analcatdata_galapagos.md",
+      "sha256": "652efa7ee8742c4f405f2046485af1c02fab24f1f553ced2ae98deda2d0ee24d"
     },
     {
-      "bytes": 471,
-      "path": "datasets/cards/openml_house_16h_price.md",
-      "sha256": "e657cc2045cb44bff84a15cfd80d71f48a8584be00c8a1092951edbba11ab252"
+      "bytes": 477,
+      "path": "datasets/cards/openml_analcatdata_gsssexsurvey.md",
+      "sha256": "03708d66dc8176f19158b179337be5318adb091791550d5f63bc1f06eb990a78"
     },
     {
-      "bytes": 472,
-      "path": "datasets/cards/openml_hutsof99_quality.md",
-      "sha256": "b1faeab07b23331b6336499b9cfe50201e81bc37c3312da17cc693c71a8abc80"
-    },
-    {
-      "bytes": 463,
-      "path": "datasets/cards/openml_icu_loc.md",
-      "sha256": "163ccc50a7fd39c5bbac80f6853ada2fbe64aeca090840d2ce2f67d154933baf"
-    },
-    {
-      "bytes": 465,
-      "path": "datasets/cards/openml_kin8nm_y.md",
-      "sha256": "5add8723cc11f938f756fb6b8dee372ea1ba368c589c446553d25f856a097314"
-    },
-    {
-      "bytes": 469,
-      "path": "datasets/cards/openml_mba_grade_gpa.md",
-      "sha256": "257ad8474af4ef34c791f4fb4126fe85e08f7d309a0521383bb216b1600d0134"
-    },
-    {
-      "bytes": 475,
-      "path": "datasets/cards/openml_mba_grade_gpa_dedup.md",
-      "sha256": "9f24eae1068306216cfbca212a3c920385188cb0d650c7e71a06ecdf1d57359c"
-    },
-    {
-      "bytes": 471,
-      "path": "datasets/cards/openml_mercury_in_bass.md",
-      "sha256": "ea5a0fb39a5b53e91c7454c7f8aad27733b4e1adea3fa22a037c673705ab00c1"
-    },
-    {
-      "bytes": 469,
-      "path": "datasets/cards/openml_mtp2_oz1143.md",
-      "sha256": "cd587abc6ec0b9ef085324b6968c2db69e54848fcdfabc2350788b9248a2b21d"
-    },
-    {
-      "bytes": 473,
-      "path": "datasets/cards/openml_newton_hema_cells.md",
-      "sha256": "c9f0ce7016eeac2c042ae6de77cf6fa3d363cad52edfc9b03b39952785abe92b"
-    },
-    {
-      "bytes": 472,
-      "path": "datasets/cards/openml_plasma_retinol.md",
-      "sha256": "bfb6e9ff1dca2c68b600235e17d44af6080c98eecc8792731637d6a84bebfae4"
-    },
-    {
-      "bytes": 472,
-      "path": "datasets/cards/openml_sensory_score.md",
-      "sha256": "483a1f5d4a5e966856a238fc271d5985cc157ca829598f23c90ea144efb994fd"
-    },
-    {
-      "bytes": 476,
-      "path": "datasets/cards/openml_sleuth_case1201_rank.md",
-      "sha256": "a545513604b540f538bfa2e59869f575c0045edbb7854fca442f1a17a9bed73e"
-    },
-    {
-      "bytes": 482,
-      "path": "datasets/cards/openml_sleuth_case1202_experience.md",
-      "sha256": "384b327a640101a7e872ff43e1bd319d4907fbbfb621f6c33a21b0c3cb1b8918"
-    },
-    {
-      "bytes": 475,
-      "path": "datasets/cards/openml_sleuth_ex1714_invol.md",
-      "sha256": "591e7063db423975f8664b6888faf74dbe8157d6d763c7399a784c941f1612cd"
-    },
-    {
-      "bytes": 464,
-      "path": "datasets/cards/openml_smsa_nox.md",
-      "sha256": "c0141f9a976625661123bc5de8a6d2fea2bbcdea6e55d7745e49d0f38b7f15ba"
-    },
-    {
-      "bytes": 478,
-      "path": "datasets/cards/openml_socmob_sons_occupation.md",
-      "sha256": "1cf059adca9864154351536648034a9107f114af5f35b7da2597e18f1f93c9ec"
-    },
-    {
-      "bytes": 478,
-      "path": "datasets/cards/openml_space_ga_log_votes_pop.md",
-      "sha256": "25952448431f9f85249d23592c9a7b7320b8613a8b43216bb92356676ed1b4bb"
-    },
-    {
-      "bytes": 470,
-      "path": "datasets/cards/oulad_assessment_score.md",
-      "sha256": "e387cfea9764d78748e397592c4856f6943bf522f3a0408f514d0a13fd9e8be1"
-    },
-    {
-      "bytes": 472,
-      "path": "datasets/cards/pisa_2022_math_pv_mean.md",
-      "sha256": "f63bfd9f4a090c7c35911d84849007d151fe841658568a412dfbb79d0f4a49d2"
-    },
-    {
-      "bytes": 466,
-      "path": "datasets/cards/scf_2022_networth.md",
-      "sha256": "45ef7c5aa52d6310c4571f73ac6f12f6a876a65f381de20c8ba728c460d280af"
-    },
-    {
-      "bytes": 490,
-      "path": "datasets/cards/stackoverflow_2025_compensation.md",
-      "sha256": "52e9640d294e0973d21b93b54238902c37e67ed086482241420e3869ca974145"
-    },
-    {
-      "bytes": 460,
-      "path": "datasets/cards/uci_auto_mpg.md",
-      "sha256": "315baeb8ed824cedd991021b2fead4ba56921bc39f47239b0873e0bf2c167909"
-    },
-    {
-      "bytes": 463,
-      "path": "datasets/cards/uci_bike_sharing.md",
-      "sha256": "45af27e64cc81bb29d2b40676ad10698c247527afca237f23a8a4c0e095ec18d"
-    },
-    {
-      "bytes": 468,
-      "path": "datasets/cards/uci_communities_crime.md",
-      "sha256": "fdb860562712a94ac15af784625dc97509ac3ca00495269a1f433f0ee1aec9ea"
-    },
-    {
-      "bytes": 469,
-      "path": "datasets/cards/uci_student_performance.md",
-      "sha256": "a31c5218dc74389ab7001e199f6f8a6f2e084a5ec224fc7a97987b70adf8ca0b"
+      "bytes": 481,
+      "path": "datasets/cards/openml_analcatdata_hiroshima_rate.md",
+      "sha256": "2f421a359039d5bb3d277fc7b480adde1d5e92dae3db1308052031c079ac8f72"
     },
     {
       "bytes": 486,
-      "path": "datasets/cards/uci_student_performance_no_prior_grades.md",
-      "sha256": "7175c2ee2c8ea118746133a845dfdbf1ecd1ae8b138e0c590a715c5845efec68"
+      "path": "datasets/cards/openml_analcatdata_hiroshima_rate_dedup.md",
+      "sha256": "c6a5917550142416a401510f9f9446908c5bf9d1e0dc2ff6b93cafe7a463c96e"
     },
     {
-      "bytes": 488,
-      "path": "datasets/cards/uci_student_performance_with_prior_grades.md",
-      "sha256": "3204ef467f56e55a825a12b360addb7182db3633929e93bab8c0329b04033967"
+      "bytes": 473,
+      "path": "datasets/cards/openml_analcatdata_runshoes.md",
+      "sha256": "78f2181e30693d57a7bd6b1a45a56a4390b2ab5afdda7088d86334f0b570148e"
     },
     {
-      "bytes": 464,
-      "path": "datasets/cards/uci_wine_quality.md",
-      "sha256": "359ed3d7c372573350874b0a4730d530305918731e550d1d98ab0e33832e2d73"
+      "bytes": 477,
+      "path": "datasets/cards/openml_analcatdata_seropositive.md",
+      "sha256": "773e4d6c43f06ed5b60abdb3f2a76c841ef5195f6c2281984a09776ca4ac231b"
     },
     {
-      "bytes": 470,
-      "path": "datasets/cards/uci_wine_quality_dedup.md",
-      "sha256": "6e86a760cfd3a235a75fcf843cd72601156490621754d269afaf7d653078547c"
+      "bytes": 478,
+      "path": "datasets/cards/openml_analcatdata_vehicle_count.md",
+      "sha256": "9961f5b90413960f5cfa58d00b7b08183895ed7c4b63f0898f573522eed9aa65"
     },
     {
-      "bytes": 9393,
-      "path": "datasets/dataset_catalog.csv",
-      "sha256": "90260d2f75d816fb844d9332238cf497162315111cbb2b37bf3d012fd9345b37"
+      "bytes": 479,
+      "path": "datasets/cards/openml_arsenic_event_rate_panel.md",
+      "sha256": "38f1cfb01d7fd412db2c466a700a381feecd19a9d514b2e5ded55057c4383034"
     },
     {
-      "bytes": 34838,
-      "path": "datasets/dataset_catalog.json",
-      "sha256": "dda4c472a5deca1a1cedecfc375a38bc9bf83daeb4790e9bc56951327c49e218"
+      "bytes": 466,
+      "path": "datasets/cards/openml_auto_price.md",
+      "sha256": "14a8c5e57750fe4b4855ba5bf5ed94f652fb611fe9e72db95f6aa53454479253"
     },
     {
-      "bytes": 10668,
-      "path": "datasets/index.html",
-      "sha256": "e0332aaaae2ff3a66ccb51765aed74c96d269656cbb3b1099e9cd239dbb1d6dc"
+      "bytes": 475,
+      "path": "datasets/cards/openml_baseball_hitter_salary.md",
+      "sha256": "f4623b2383805b8952f33436ed3708809855bfa25fba709a4676ea7ae3d038e5"
     },
     {
-      "bytes": 7993,
-      "path": "index.html",
-      "sha256": "4b76508f31165350345dcf2d8eeedf7141d4d120548d68d00922d369a9ac6099"
+      "bytes": 476,
+      "path": "datasets/cards/openml_baseball_pitcher_salary.md",
+      "sha256": "8aa0e9f87f83d12c2e05d13d81c82b64666706e8a03eb4cd63b978b930e9e64d"
     },
     {
-      "bytes": 505,
-      "path": "methods/cards/cqr.md",
-      "sha256": "8fee25d22972f17ff4a37b8c507182489e63a7850ebe09881765bc2a229b8a7f"
+      "bytes": 473,
+      "path": "datasets/cards/openml_baseball_team_salary.md",
+      "sha256": "79eb01c31f2416a205ce45126829f648233e8c20517c374ed9f7b25b29bf52ad"
     },
     {
-      "bytes": 495,
-      "path": "methods/cards/cqr_gb_deep_n200_d4_lr003.md",
-      "sha256": "0721d702f209229f1e7aedcefd72ef0e5c722bb879d0a89d79aa87db988a68b3"
+      "bytes": 481,
+      "path": "datasets/cards/openml_basketball_points_per_minute.md",
+      "sha256": "02f2e1164aca54760f99f91a68a951497e14c962c665458f19b9147ac87b6a52"
     },
     {
-      "bytes": 498,
-      "path": "methods/cards/cqr_gb_default_n300_d3_lr010.md",
-      "sha256": "2e2e203248cdcd0c4cc76d738f0f755e67e864252e96d138c5138e4e95aab7b8"
+      "bytes": 474,
+      "path": "datasets/cards/openml_bodyfat_percentage.md",
+      "sha256": "48029a2488056a2fe893a60979235ec2b3e46f71635303ce99bb55632acebb83"
     },
     {
-      "bytes": 496,
-      "path": "methods/cards/cqr_gb_leaf5_n300_d3_lr005.md",
-      "sha256": "ff6325930c0d08d1b211f4ec6ea26073a392ec59710aea82dab693b7ae382764"
-    },
-    {
-      "bytes": 498,
-      "path": "methods/cards/cqr_gb_shallow_n120_d2_lr003.md",
-      "sha256": "b0f13a11809886573ebabefc4311871b507e9969839117dbf23ef224e9947926"
-    },
-    {
-      "bytes": 498,
-      "path": "methods/cards/cqr_gb_shallow_n240_d2_lr005.md",
-      "sha256": "cce633b901e39e0ea208c162f86e0eee476507f5a74eb7434cff67bc358a88de"
-    },
-    {
-      "bytes": 506,
-      "path": "methods/cards/cqr_gb_subsample_n300_d3_lr005_sub08.md",
-      "sha256": "45d20cddd26aad863d2680c3b29843f70bf20ddd166e81bf5083e675f6a87815"
-    },
-    {
-      "bytes": 515,
-      "path": "methods/cards/cqr_model_matched.md",
-      "sha256": "c3b41ef2dfc75727afc2a9b74c6f58b3213428fdd0303bcd850d830a10523d1e"
-    },
-    {
-      "bytes": 492,
-      "path": "methods/cards/cv_minmax.md",
-      "sha256": "25fc0fa851011e06970a480b025fdb162c35d6b84f9d967f9d3ee029c969bdb0"
-    },
-    {
-      "bytes": 498,
-      "path": "methods/cards/cv_minmax_grouped.md",
-      "sha256": "e05f5b0ac77f2545c9f9768d04e6525d65c65c9bbae629c927a9b2c014052166"
-    },
-    {
-      "bytes": 516,
-      "path": "methods/cards/cv_plus.md",
-      "sha256": "f5b99d94f2efd17ac523ff60cb91c3ab75be3af082d2437a0380c4a27c3ca3eb"
-    },
-    {
-      "bytes": 494,
-      "path": "methods/cards/cv_plus_grouped.md",
-      "sha256": "bff4330a4f63ae595779ae4b1ad34aad5f8d5a867c839822f2c5f26fb554a94f"
-    },
-    {
-      "bytes": 496,
-      "path": "methods/cards/jackknife_minmax.md",
-      "sha256": "b2847591ec1e0ac14b66f7910fd727a27be49e9bd0450392e27d88c716a0d3a5"
-    },
-    {
-      "bytes": 494,
-      "path": "methods/cards/jackknife_plus.md",
-      "sha256": "94e17e4093dd9f14aecfc6ab179fe5cbd33900fb75061845f58224ba8f7cce13"
-    },
-    {
-      "bytes": 510,
-      "path": "methods/cards/jackknife_plus_after_bootstrap.md",
-      "sha256": "8113a1a4a95458d031dea3148a9f381fa2ac33c799b45f1c9cd98ce1be992e49"
-    },
-    {
-      "bytes": 504,
-      "path": "methods/cards/mondrian_abs.md",
-      "sha256": "ae37ef13fedb52b1cc875c1ce9ac7ecb6a0eb1cd358246684fdd0c5da9271a5b"
-    },
-    {
-      "bytes": 501,
-      "path": "methods/cards/normalized_abs.md",
-      "sha256": "b93550966696450eb782afb0f7cae522d72b0a2af1b0d76891b02315f0e036e9"
-    },
-    {
-      "bytes": 493,
-      "path": "methods/cards/shrink_0.00.md",
-      "sha256": "77b7d530dfa72ee88c8164f50cd2250c310479f8132ebdac66a247e6389e908b"
-    },
-    {
-      "bytes": 513,
-      "path": "methods/cards/shrink_0.10.md",
-      "sha256": "55c1b3df155aaea7a27338dd8f30b3e6e6ae6b66a817d73297d0f0e00b3852d7"
-    },
-    {
-      "bytes": 493,
-      "path": "methods/cards/shrink_0.25.md",
-      "sha256": "0c666e64bdebc08f9a36e6c1f05fdebdeec60d10a3e9c481433d84fbd2c57236"
-    },
-    {
-      "bytes": 493,
-      "path": "methods/cards/shrink_0.50.md",
-      "sha256": "d0a8d2b84283e861b902e1d925d41b279ed47ca8fe5dc203ffb653851335424f"
-    },
-    {
-      "bytes": 493,
-      "path": "methods/cards/shrink_0.75.md",
-      "sha256": "74045246078e9a2543348444746a7ab56080f80805905a32ff01b46d962facd1"
-    },
-    {
-      "bytes": 513,
-      "path": "methods/cards/shrink_0.90.md",
-      "sha256": "75d0ba6f6d09a0f1b936fc060adf93120133d7fa2b0afb91d1c7f2cd3838645f"
-    },
-    {
-      "bytes": 493,
-      "path": "methods/cards/shrink_1.00.md",
-      "sha256": "9350eb4a1007c3add5b30dbda2b5dda64be291778b515b8556d742fea5e8d6ed"
+      "bytes": 471,
+      "path": "datasets/cards/openml_california_housing.md",
+      "sha256": "1e9d9a28bb295917445800449fb31bae6eb04404f3912a9ce6ebebe6144ab3e8"
     },
     {
       "bytes": 487,
+      "path": "datasets/cards/openml_california_housing_spatial_cell.md",
+      "sha256": "6994bf84a4324e1ee7d3ccf65f58050a1bafe68678706df131997aa41485306a"
+    },
+    {
+      "bytes": 471,
+      "path": "datasets/cards/openml_cholesterol_chol.md",
+      "sha256": "35a34bf81b3ae2167b7855394f03ed977d628cedeb0df401b1fb1eec8abbd444"
+    },
+    {
+      "bytes": 468,
+      "path": "datasets/cards/openml_cps_85_wages.md",
+      "sha256": "e6056a57eba56b46f7163476a519644e46646306bcb940551131b7fe8c3cbd6c"
+    },
+    {
+      "bytes": 473,
+      "path": "datasets/cards/openml_delta_elevators_se.md",
+      "sha256": "420b36813d0d9f55ecb531e5631e7729cdf97c084f09f41038a1c746334ed3cb"
+    },
+    {
+      "bytes": 470,
+      "path": "datasets/cards/openml_disclosure_x_bias.md",
+      "sha256": "dac6e97c5ddaa96dd5180d85ef43440b44f4275ff3f69e15052174f2320bd86d"
+    },
+    {
+      "bytes": 471,
+      "path": "datasets/cards/openml_disclosure_x_noise.md",
+      "sha256": "6b98d77a722c2e210e36b500a471215af140eb046b5cac3b10a1c98a1152b78b"
+    },
+    {
+      "bytes": 474,
+      "path": "datasets/cards/openml_disclosure_x_tampered.md",
+      "sha256": "ccc903800b27a15c030d0e2c8b0e56cecb979d4222f672666c7d70d7a2d5c0be"
+    },
+    {
+      "bytes": 465,
+      "path": "datasets/cards/openml_disclosure_z.md",
+      "sha256": "3e40c09a752d47edc84e7ef0e6d9d8c82902588aed4a33c813ba86888d644465"
+    },
+    {
+      "bytes": 479,
+      "path": "datasets/cards/openml_faculty_salaries_asst_prof.md",
+      "sha256": "fd90389fc6eee314de3359740865ce1ead2597ee0eb490686c55178f5840f577"
+    },
+    {
+      "bytes": 472,
+      "path": "datasets/cards/openml_fishcatch_weight.md",
+      "sha256": "477f71829e220a41bc3bad7167e9dd140f3040ebd80779c0dcbe707ff2a59837"
+    },
+    {
+      "bytes": 471,
+      "path": "datasets/cards/openml_gascons_consumption.md",
+      "sha256": "30662d0a5c9f288e7faf3072301a5d1bbb8da03a3f87d2a78d07a9c6c2ee38ac"
+    },
+    {
+      "bytes": 468,
+      "path": "datasets/cards/openml_house_16h_price.md",
+      "sha256": "3ff957a470534a14b6aff636f8b038d433458dcf51201d8b34202b40c07abf5e"
+    },
+    {
+      "bytes": 469,
+      "path": "datasets/cards/openml_hutsof99_quality.md",
+      "sha256": "b2604b6ec03b0e84e67b282765907ff422bb5fcc36a17bda77396e5608b36c5a"
+    },
+    {
+      "bytes": 460,
+      "path": "datasets/cards/openml_icu_loc.md",
+      "sha256": "e59afb6acb13f76b5d1d3ce5389821a0ac332fb998a0e410abd9c983d424907d"
+    },
+    {
+      "bytes": 462,
+      "path": "datasets/cards/openml_kin8nm_y.md",
+      "sha256": "883370de5d1132c7040af287113e1f8c045ec0c7c8f6132df3bf94d81d2233e2"
+    },
+    {
+      "bytes": 466,
+      "path": "datasets/cards/openml_mba_grade_gpa.md",
+      "sha256": "c992d8199cff33d8b397302a5f291f3be6553cd0c39714de7ace73bee5cf6969"
+    },
+    {
+      "bytes": 472,
+      "path": "datasets/cards/openml_mba_grade_gpa_dedup.md",
+      "sha256": "94512c533628f93c6c331e14794938c5011d97605ca26964580d7dfd732cb828"
+    },
+    {
+      "bytes": 468,
+      "path": "datasets/cards/openml_mercury_in_bass.md",
+      "sha256": "c3bc7f0d27a99f44c56ec9a665dacd5c8cd80a8fa01100066f688bb91895c951"
+    },
+    {
+      "bytes": 466,
+      "path": "datasets/cards/openml_mtp2_oz1143.md",
+      "sha256": "f482766af2bd1af3df4c1b612165135aed56cdbb5ce2b465b36c7d0f350bbb56"
+    },
+    {
+      "bytes": 470,
+      "path": "datasets/cards/openml_newton_hema_cells.md",
+      "sha256": "c7ccb381e421b8642654e4f3e5f5c57db4d9370f86e1163fad3f89279de1df00"
+    },
+    {
+      "bytes": 469,
+      "path": "datasets/cards/openml_plasma_retinol.md",
+      "sha256": "2a92c04c1be284cf9e271546e64dae7829440722e001481682b081325279e6a2"
+    },
+    {
+      "bytes": 469,
+      "path": "datasets/cards/openml_sensory_score.md",
+      "sha256": "10734ac24c8f7e3b057bde6948d8c3547b646f8430a8bf309eba88685b2ecdde"
+    },
+    {
+      "bytes": 473,
+      "path": "datasets/cards/openml_sleuth_case1201_rank.md",
+      "sha256": "39aef58a205e17c35e24d316ffa55ca833b1c6a985b9a87708115164006e0f9d"
+    },
+    {
+      "bytes": 479,
+      "path": "datasets/cards/openml_sleuth_case1202_experience.md",
+      "sha256": "b060a0813094b6235e6ef21e772c9101bed1af288b792b55cf7d8732202e55c2"
+    },
+    {
+      "bytes": 472,
+      "path": "datasets/cards/openml_sleuth_ex1714_invol.md",
+      "sha256": "8ff3d6fe28ee7f9d484b35f5e10c15f3dd8bcf58cf7f108c86319375cdeacf62"
+    },
+    {
+      "bytes": 461,
+      "path": "datasets/cards/openml_smsa_nox.md",
+      "sha256": "f077bb4ce2948385177975c7e1197833412ba4a83d8c54a5483e3e929167aedb"
+    },
+    {
+      "bytes": 475,
+      "path": "datasets/cards/openml_socmob_sons_occupation.md",
+      "sha256": "4a472bb99036c5c8e404ca18ca44e9a8d3ded8f924d0d8659b6b7d96acc3c44d"
+    },
+    {
+      "bytes": 475,
+      "path": "datasets/cards/openml_space_ga_log_votes_pop.md",
+      "sha256": "89f64564ed70e82b6b57a5714c7573e094feb4f2b080f7afb69d21d25a764dc2"
+    },
+    {
+      "bytes": 467,
+      "path": "datasets/cards/oulad_assessment_score.md",
+      "sha256": "0359508c6e52975897b271d2192614ca041400572f74b476f0bababc907706b2"
+    },
+    {
+      "bytes": 469,
+      "path": "datasets/cards/pisa_2022_math_pv_mean.md",
+      "sha256": "57948c2336a6f1c987ae79012b49008743f3ae99c251ec3379464b6956470e28"
+    },
+    {
+      "bytes": 463,
+      "path": "datasets/cards/scf_2022_networth.md",
+      "sha256": "38a98e0bc7c89d6793964bc89b3c2b38654e21fdd4dc3f0ae74de0cf5443ec93"
+    },
+    {
+      "bytes": 487,
+      "path": "datasets/cards/stackoverflow_2025_compensation.md",
+      "sha256": "0b86446a082ad7e31bb7a8e916f614b23e5111037cd9be165cb623e6f9930c49"
+    },
+    {
+      "bytes": 457,
+      "path": "datasets/cards/uci_auto_mpg.md",
+      "sha256": "e183a2f629e481752c96d0ca742f37286ff17858d7af9da5637d8fb02c2a272c"
+    },
+    {
+      "bytes": 460,
+      "path": "datasets/cards/uci_bike_sharing.md",
+      "sha256": "345bb4738df5f8d16b7b9d571bb131a2f0b7594296e0d9d0960c89235e6f7e6d"
+    },
+    {
+      "bytes": 465,
+      "path": "datasets/cards/uci_communities_crime.md",
+      "sha256": "b04e630bd8dcdeadac7636e9d5a608aef8791c6781a3b2732eccddb540102960"
+    },
+    {
+      "bytes": 466,
+      "path": "datasets/cards/uci_student_performance.md",
+      "sha256": "5d5f2c3b998045273b570c28056c3b5becb41384df73cdecb14efaabd80abf6a"
+    },
+    {
+      "bytes": 483,
+      "path": "datasets/cards/uci_student_performance_no_prior_grades.md",
+      "sha256": "40562157a3ce0c729621f596ad05590f57872b1a63be2f9fb18561d3102629b8"
+    },
+    {
+      "bytes": 485,
+      "path": "datasets/cards/uci_student_performance_with_prior_grades.md",
+      "sha256": "2abde08227e0e8c3cec6464dfcead6d2126998e548c96f85e4abcc5fcfeaef03"
+    },
+    {
+      "bytes": 461,
+      "path": "datasets/cards/uci_wine_quality.md",
+      "sha256": "0669404c56290073284c34b7f6944286c8aecb416cb2bcba53d0e53ccb2433dd"
+    },
+    {
+      "bytes": 467,
+      "path": "datasets/cards/uci_wine_quality_dedup.md",
+      "sha256": "bfc0da9fe34f93bbee71e04f4329bb83fd06b905383ad22c17073910f0dac21e"
+    },
+    {
+      "bytes": 9234,
+      "path": "datasets/dataset_catalog.csv",
+      "sha256": "6e67c32d2ea852c20fce30416152b94687336b85ee07372b56b14d2bd57318f3"
+    },
+    {
+      "bytes": 32458,
+      "path": "datasets/dataset_catalog.json",
+      "sha256": "15fe8117671bc1575f88a958013495b8b6c8b5c4011fbc2bbe983a0a6ab57fba"
+    },
+    {
+      "bytes": 10715,
+      "path": "datasets/index.html",
+      "sha256": "9def8804fa02faaa73c9a0fd10a743ab191fa17bbac8ebab4d3ab1bc2308a02b"
+    },
+    {
+      "bytes": 8037,
+      "path": "index.html",
+      "sha256": "4235d0e806fab411414842cebee8f5edf6c3d9d48287d96a13b51efb40bcd932"
+    },
+    {
+      "bytes": 502,
+      "path": "methods/cards/cqr.md",
+      "sha256": "1872689989de6ad4cbb480475a3560fb1bf1fe3cab8288f2ffd919fbee64d229"
+    },
+    {
+      "bytes": 492,
+      "path": "methods/cards/cqr_gb_deep_n200_d4_lr003.md",
+      "sha256": "1e5340b3b56b99f1923b7a87a78c6e671d876f39784657c3b864af73fab0e17c"
+    },
+    {
+      "bytes": 495,
+      "path": "methods/cards/cqr_gb_default_n300_d3_lr010.md",
+      "sha256": "9f68eb519190fca40efd72a7bdeb84175775a2136d2df213ca9a8ff2e0280643"
+    },
+    {
+      "bytes": 493,
+      "path": "methods/cards/cqr_gb_leaf5_n300_d3_lr005.md",
+      "sha256": "7494fdfabef8e1c51a4cb262a3708f27a739858598a5e6efa76389e70eb3a6ab"
+    },
+    {
+      "bytes": 495,
+      "path": "methods/cards/cqr_gb_shallow_n120_d2_lr003.md",
+      "sha256": "c1ebe48759e59faf54b2d3da9ba005bdf8597b318164387d0844f3a74c5677d0"
+    },
+    {
+      "bytes": 495,
+      "path": "methods/cards/cqr_gb_shallow_n240_d2_lr005.md",
+      "sha256": "1a4f6cfd378f4f73e3498ffeb58ee3093bb9687e0272f150d4653629649fdd15"
+    },
+    {
+      "bytes": 503,
+      "path": "methods/cards/cqr_gb_subsample_n300_d3_lr005_sub08.md",
+      "sha256": "c0eb1748015014ffa261b0200d988d4770f3821d311a64caa7b6c05d0121293e"
+    },
+    {
+      "bytes": 512,
+      "path": "methods/cards/cqr_model_matched.md",
+      "sha256": "a1aa775e495ce769501dc4ebe466f96e2ef0780197e6861873ee05a6cd994586"
+    },
+    {
+      "bytes": 489,
+      "path": "methods/cards/cv_minmax.md",
+      "sha256": "fd70fc083fd2362814c11f0b29a0389b50cf4fe2288387ebaa738515e3868911"
+    },
+    {
+      "bytes": 495,
+      "path": "methods/cards/cv_minmax_grouped.md",
+      "sha256": "f74d9cd368e0f59efe4db4376c12f6a7d62cf875accbc5d8522430cea919c536"
+    },
+    {
+      "bytes": 513,
+      "path": "methods/cards/cv_plus.md",
+      "sha256": "43ef0acfdbd46bc45744c6114f4c03b2d4d3c2f37eea1497d1fb474688def60a"
+    },
+    {
+      "bytes": 491,
+      "path": "methods/cards/cv_plus_grouped.md",
+      "sha256": "3408c351a4a243808e31a120688de30472ad76e5f9451b0be33adf94d7208436"
+    },
+    {
+      "bytes": 493,
+      "path": "methods/cards/jackknife_minmax.md",
+      "sha256": "a6c7134cb575c04673b06dba5d666f11e88088da4bbca928146302ce68ec2f4b"
+    },
+    {
+      "bytes": 491,
+      "path": "methods/cards/jackknife_plus.md",
+      "sha256": "1ddd44e939b1aee9331c030f652d4cdfa16c5bcbb5c53877b910a100494c3b34"
+    },
+    {
+      "bytes": 507,
+      "path": "methods/cards/jackknife_plus_after_bootstrap.md",
+      "sha256": "bb2de210fb866651866048e489fab3968c3594909aa66031b2e9744924a81e5d"
+    },
+    {
+      "bytes": 501,
+      "path": "methods/cards/mondrian_abs.md",
+      "sha256": "58af174c2407833eed4ef4242c27174cad3a8b1c032368e2c59b60a4fdb53556"
+    },
+    {
+      "bytes": 498,
+      "path": "methods/cards/normalized_abs.md",
+      "sha256": "c7933ad1e4eaa752333ddb4a3df4678d4080837788e3c2c2bc6f41e7cf6f4909"
+    },
+    {
+      "bytes": 490,
+      "path": "methods/cards/shrink_0.00.md",
+      "sha256": "88b308a8b365bd1d2e679b3f153a9ab02953bea71865a19f7b9197750b22edc9"
+    },
+    {
+      "bytes": 510,
+      "path": "methods/cards/shrink_0.10.md",
+      "sha256": "6d3cc1485517453caaa92c717b7ff42f301a6727c5b402fb3f117cd45ef5a33c"
+    },
+    {
+      "bytes": 490,
+      "path": "methods/cards/shrink_0.25.md",
+      "sha256": "04015bd11c3984ba2e6d77caca10c9b0852abaaef7dc183ddbb1fa06d0859014"
+    },
+    {
+      "bytes": 490,
+      "path": "methods/cards/shrink_0.50.md",
+      "sha256": "de2dd65b55010a48a4cf7e48fa9a885e9467b7bda411319ec0521160bc46a67b"
+    },
+    {
+      "bytes": 490,
+      "path": "methods/cards/shrink_0.75.md",
+      "sha256": "4ce99c85518afa10100c08622d8681c4517cecf67095f7ac807eafa7bd49c868"
+    },
+    {
+      "bytes": 510,
+      "path": "methods/cards/shrink_0.90.md",
+      "sha256": "72fed19d0a43e3f978085e73bda3d1384907799aad83dad4d287f0a8aaf933c7"
+    },
+    {
+      "bytes": 490,
+      "path": "methods/cards/shrink_1.00.md",
+      "sha256": "13d23248028f2b01f776c559a9c6dc9b4e7affd7f39e92ca6defdaca7a3625bc"
+    },
+    {
+      "bytes": 484,
       "path": "methods/cards/split_abs.md",
-      "sha256": "d930f9164fcec0d3949fe4778793acfebabe06977917f24d09f8c8657b88b6f0"
+      "sha256": "3ed67413e12c31ee01691fbb54e4925ca9a73f53a497635d9267798f29f2a5e7"
     },
     {
-      "bytes": 493,
+      "bytes": 490,
       "path": "methods/cards/split_tail_0.25.md",
-      "sha256": "df97ff3ad0526a7b7853c0d4571555964ec4733a22e0e19bcf798ef7ae0728b8"
+      "sha256": "2390bd32dfa6f133e411432fdd13208fd9174c3c999bfcf520033eef1fb5e062"
     },
     {
-      "bytes": 493,
+      "bytes": 490,
       "path": "methods/cards/split_tail_0.50.md",
-      "sha256": "617a042a6110947b0ff1750c52c8ec5dd5e72493a374e37fb69413b644b409aa"
+      "sha256": "bd08d43d96225502ac7e9c68500ee7fbeff9eb4a631ffcb0266d7cf2c8306956"
     },
     {
-      "bytes": 493,
+      "bytes": 490,
       "path": "methods/cards/split_tail_0.75.md",
-      "sha256": "a7ab7f84a595c078fad004d0765b356e21cbeb0bd6cf7b16ac988e3954255bdf"
+      "sha256": "ae5064b1061d31e61a2a0d54801c2711e9522e32b3c25e56807c1df7ef689de8"
     },
     {
-      "bytes": 521,
+      "bytes": 518,
       "path": "methods/cards/split_tail_grid_shortest.md",
-      "sha256": "537c17b48097f0c878cd5bd9e28228d5d75fa6cc193939895c4aef8cb1c2f121"
+      "sha256": "ec62ad298d1ce01d0f3780fc2b827bc84b862fdf4edecc1ea22320b26fc72de7"
     },
     {
-      "bytes": 560,
+      "bytes": 557,
       "path": "methods/cards/venn_abers_quantile.md",
-      "sha256": "81272bd77cf1ba7f708acaee1812d3ecca5f7b8f30756f1123e3da096ed75de8"
+      "sha256": "8c9f0951921d80922266287e40b54f9e8b0f8d4510b45bcd37d8a45241ee7729"
     },
     {
-      "bytes": 566,
+      "bytes": 563,
       "path": "methods/cards/venn_abers_split_fallback.md",
-      "sha256": "862a8990fa0ec616b8d3a30f47e28b3bd5bcb9d44033e3b70e7c6d9b11834e0f"
+      "sha256": "87c31b40b49eb27d23208a0d39fccab04a821dd5db04374b640fb09af7fc2500"
     },
     {
-      "bytes": 520,
+      "bytes": 517,
       "path": "methods/cards/weighted_abs_covariate_shift.md",
-      "sha256": "26b1872c56be37fd7a9732d9c65158fe98e4ac4edbb28519d4268663a3c693dc"
+      "sha256": "5520116504d6b229eb04ac22c7cac053993f1cacd359c75d267952b9d86052a5"
     },
     {
-      "bytes": 11224,
+      "bytes": 11271,
       "path": "methods/index.html",
-      "sha256": "c6a128d2e4430eaf2a79ab38a1304ee3221861573579bad62443bad2ea4a7813"
+      "sha256": "09129d00375a5134955460956fcecf4f7325dffd5ac1aaa6bdf2aa5426bc98cf"
     },
     {
-      "bytes": 5688,
+      "bytes": 5584,
       "path": "methods/method_catalog.csv",
-      "sha256": "8d001936eba91562600e4040e747907cb46e7134cb816c5bcc477fd857206c1b"
+      "sha256": "f589074262fc157012fc1c5dcf1981c0b300b0517ee774fb4f32153981f3e1c8"
     },
     {
-      "bytes": 21265,
+      "bytes": 19661,
       "path": "methods/method_ontology.json",
-      "sha256": "d15208b4e0b63d9ee641b6815f48f74b090304b9f2c1a91bd46050ef5138fdd2"
+      "sha256": "55ef9e9f2d7be7e875063151dda5691c2c47a8ea33fbdf56428daa176d0f540a"
     },
     {
-      "bytes": 4296,
+      "bytes": 4336,
       "path": "provenance/artifact_manifest.json",
-      "sha256": "bbc15a33559e20d1d7b7da1fc5d91d59d7b0167a148f4f6c57b7468dcb37ad6b"
+      "sha256": "f5ee30d2baea5450e7678f06b03857ac96ee4d7cd16822e6f673be0661e669a8"
     },
     {
-      "bytes": 7885,
+      "bytes": 7943,
       "path": "provenance/index.html",
-      "sha256": "62d12942fec0432403ef1def82bee8fd760a2728f0e4fdf84a578eb23835de32"
+      "sha256": "1b002a320c097b0de0cd0aa7766213388dd601ecc59e597e9b0c46b360d89265"
     },
     {
       "bytes": 1052,
       "path": "provenance/prov/experiment_provenance.jsonld",
-      "sha256": "3dc41c78f64ae73bcd54e7dc359897e99fcab9ba539d851c954e45e66536c52d"
+      "sha256": "2b53c45f318a60b89f22f9ca70c45edf2ef5f75a75a6035ce467ac1e32db8d6c"
     },
     {
       "bytes": 662,
@@ -591,14 +601,9 @@
       "sha256": "8bcccf1dee4778b0e07a3785d81d87ad0ad0b7b60353091cd5b77edb2de87435"
     },
     {
-      "bytes": 18035,
-      "path": "results/frontier_cells.csv",
-      "sha256": "5a042be239877a7cfb9262930a62d52209ac780c695e4547c38f83ad0b59eb15"
-    },
-    {
-      "bytes": 23101,
+      "bytes": 23148,
       "path": "results/index.html",
-      "sha256": "9e58a10b668a9e3f525399a36f4751af540c57c4a62179a7ea1716c55ad5bffa"
+      "sha256": "3a3dc63d1cb5a334bd83f751d9035fc7ab117fa51d90e921abc36dd66fa3fe77"
     },
     {
       "bytes": 1772,
@@ -606,19 +611,24 @@
       "sha256": "5b7fe9e7539d6c1c491616496bbc1248d934a4c8ff59d158340e6608c61ccecc"
     },
     {
-      "bytes": 344514,
+      "bytes": 386053,
       "path": "results/result_cube_public.csv",
-      "sha256": "ed6263d4367610669d59caede780473a674a604bd205a55922d896fa71cf997a"
+      "sha256": "846d951301a770ee7b9c7980495adfbe98e5715a83e49be4b6137e55419a8cf3"
     },
     {
-      "bytes": 577,
+      "bytes": 20807,
+      "path": "results/selected_under_coverage_gate_cells.csv",
+      "sha256": "d0e4e5419c718c86c5aef0b594cc1f41ef1316548f76fc09a8566f72ace09e92"
+    },
+    {
+      "bytes": 592,
       "path": "results/venn_abers_negative_evidence.csv",
-      "sha256": "a9f830403d5aecae387e9af863d0cd580e77299cfc5b3ce45bff340c5f410ee8"
+      "sha256": "5599e6fbf451ff5b8dca6e5ddc9452ecb0202620d8c6edd86b4de3b49e2e344f"
     },
     {
-      "bytes": 1533,
+      "bytes": 1486,
       "path": "scope/experiment_scope.json",
-      "sha256": "51ac24f376f2e7cf2a8e21a6bce0cea5acacd9d14bcc8c3c27089f47ab802dee"
+      "sha256": "468f68dfd9e2789e18200dc1be307d2a8295e4faec121f04c6fca314acccc47d"
     },
     {
       "bytes": 560,
@@ -626,9 +636,9 @@
       "sha256": "832bb0978d7b267d503d2fb844d0998310fd1186304e4f0bf10d6dd3b82cb856"
     },
     {
-      "bytes": 7092,
+      "bytes": 7139,
       "path": "scope/index.html",
-      "sha256": "859ffd140f019c46a8aa1f62d0c3ee2a61f29d6e8649c71fb67e67cad101f550"
+      "sha256": "c76ed86084982eee2911e41e0d969f70836d33abafe1bdc77816ae53971f1fc6"
     },
     {
       "bytes": 305,
@@ -641,19 +651,19 @@
       "sha256": "21c6863dd3802db5e0540a58b2e9f77c26a786836d9cb211fbbdd14a2b63b090"
     },
     {
-      "bytes": 1533,
+      "bytes": 1486,
       "path": "scope/run_accounting_summary.json",
-      "sha256": "51ac24f376f2e7cf2a8e21a6bce0cea5acacd9d14bcc8c3c27089f47ab802dee"
+      "sha256": "468f68dfd9e2789e18200dc1be307d2a8295e4faec121f04c6fca314acccc47d"
     },
     {
-      "bytes": 3341,
+      "bytes": 3314,
       "path": "ui_data/atlas_summary.json",
-      "sha256": "3830a4afbaff9496467ca23c5e75ff86dd5513958c4de73494889538e94be550"
+      "sha256": "5cb11be6ce348f9ce46be0d6cfde771968ffc016b659f23fa0cedaeffa34b5a8"
     },
     {
-      "bytes": 1691,
+      "bytes": 1711,
       "path": "ui_data/claim_routes.json",
-      "sha256": "46027c505b3a33351aadc68474e299745b4a29ef8cf3ea4d0bac5a5f64e5649f"
+      "sha256": "5977b21813a8794c25f5c858eac54025621545c838814ebc8e349ac150dc958e"
     },
     {
       "bytes": 166346,
@@ -666,6 +676,6 @@
       "sha256": "3a00f1115345dfcaec90a2b6bd44c655ec5d19761a5fa53d9b838f691e74ed25"
     }
   ],
-  "generated_at_utc": "2026-07-10T18:56:31.196433+00:00",
+  "generated_at_utc": "2026-07-10T19:24:21.047767+00:00",
   "schema": "regression_cp_atlas_hash_receipts_v1"
 }
