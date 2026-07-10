@@ -32,6 +32,8 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("not", "as", "recommended", "methods"),
         ("not", "as", "a", "ranking", "rule"),
         ("CQR/CV+", "were", "observed", "as", "strong", "practical", "candidates"),
+        ("Read", "CQR/CV+", "as", "strong", "practical", "candidates"),
+        ("CQR/CV+", "can", "be", "described", "as", "strong", "practical", "candidates"),
         ("Reading", "note"),
         ("Boundary:", "Do", "not"),
         ("not", "an", "independent", "scientific", "claim"),
@@ -377,6 +379,33 @@ def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
         if headline not in path.read_text(encoding="utf-8")
     ]
     assert not missing
+
+
+def test_public_reader_surfaces_avoid_legacy_frontier_language() -> None:
+    root = repo_root()
+    pages = [
+        root / "README.md",
+        root / "EVIDENCE_SCOPE.md",
+        root / "site/index.html",
+        root / "site/kg_browser.html",
+        root / "paper/research_document.md",
+        root / "paper/research_document.html",
+        root / "paper/individual_experiment_report.md",
+        root / "paper/article.tex",
+        root / "paper/article.html",
+        root / "paper/supplement.tex",
+        root / "paper/supplement.html",
+        root / "atlas/index.html",
+        root / "atlas/results/index.html",
+        root / "evidence/claim_evidence_matrix.md",
+    ]
+    violations = []
+    for path in pages:
+        text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in ("frontier", "near nominal", "near-nominal", "near_nominal"):
+            if phrase in text:
+                violations.append((str(path.relative_to(root)), phrase))
+    assert not violations
 
 
 def test_public_repository_text_has_no_private_review_boilerplate() -> None:
