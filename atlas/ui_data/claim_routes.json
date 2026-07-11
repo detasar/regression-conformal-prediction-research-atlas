@@ -43,7 +43,7 @@
         "atlas/claims/interpretation_boundaries.md"
       ],
       "description": "Broader readings that remain outside the current evidence surface.",
-      "route_id": "closed_gates",
+      "route_id": "evidence_limits",
       "title": "Interpretation Boundaries"
     }
   ],

@@ -1,164 +1,164 @@
 {
   "claims": [
     {
-      "claim_id": "paper_dataset_scope_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "scope_claim",
+      "claim_id": "dataset_scope",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "scope claim",
       "evidence_gate": "Dataset/source descriptions need source citations before final prose; the matrix does not certify exhaustive internet coverage.",
       "kg_reference_node_count": 9,
       "plain_language": "This row tells a reader what data sources were inspected; it does not turn the dataset list into a final result.",
       "reader_safe_statement": "The dataset/source audit defines the studied scope under the recorded review policy.",
       "scope_limit": "The dataset/source audit is a scoped study surface rather than exhaustive internet coverage or final dataset-level result promotion.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "paper_method_scope_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "descriptive_empirical_claim",
+      "claim_id": "method_scope",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "descriptive empirical claim",
       "evidence_gate": "Method descriptions need literature citations; empirical language must stay limited to these experiments.",
       "kg_reference_node_count": 9,
       "plain_language": "This row permits a careful description of what looked useful in the experiment, not a deployment rule for every regression problem.",
       "reader_safe_statement": "Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates.",
       "scope_limit": "Method behavior is reported as experiment-scoped evidence rather than deployment guidance.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "paper_main_results_blocked_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "blocked_positive_claim",
+      "claim_id": "main_results_scope",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "blocked positive claim",
       "evidence_gate": "No citation can open this claim by itself; it would require a later pre-specified selection protocol if the scientific state changes.",
       "kg_reference_node_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
       "reader_safe_statement": "The current evidence does not support a final method selection, final main result, or deployment rule.",
       "scope_limit": "Method-selection conclusions require separate validation.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "supplement_robustness_diagnostic_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "caveated_diagnostic_claim",
+      "claim_id": "robustness_diagnostics",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "caveated diagnostic claim",
       "evidence_gate": "Statistical or robustness interpretations need the documented audit context; they are not confirmatory superiority claims.",
       "kg_reference_node_count": 9,
       "plain_language": "This row records useful diagnostics without turning them into superiority evidence.",
       "reader_safe_statement": "Robustness rows are post-selection diagnostics and should be read with their multiplicity caveats.",
       "scope_limit": "Robustness diagnostics are descriptive rather than confirmatory superiority evidence.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "supplement_venn_abers_negative_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "negative_failure_mode_claim",
+      "claim_id": "venn_abers_bridge_result",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "negative failure mode claim",
       "evidence_gate": "The claim is bridge-specific negative evidence and leaves the broader Venn-Abers literature separate.",
       "kg_reference_node_count": 9,
       "plain_language": "This row records that one tested bridge behaved poorly; it does not say every Venn-Abers idea is wrong.",
       "reader_safe_statement": "In these experiments, the evaluated fast Venn-Abers regression bridge did not validate as the expected strong regression interval solution.",
       "scope_limit": "Validated Venn-Abers regression interval support would require separate evidence.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "supplement_methodology_controls_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "methodology_control_claim",
+      "claim_id": "methodology_controls",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "methodology control claim",
       "evidence_gate": "Control descriptions support reproducibility claims; scientific validity rests on the empirical evidence.",
       "kg_reference_node_count": 9,
       "plain_language": "This row explains the guardrails around the study rather than claiming the guardrails make every result final.",
       "reader_safe_statement": "The study includes audit controls for traceability, neutrality, and reproducibility.",
       "scope_limit": "Treat controls as traceability evidence, not validity proof.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "supplement_reproducibility_traceability_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "reproducibility_traceability_claim",
+      "claim_id": "reproducibility_traceability",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "reproducibility traceability claim",
       "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this study.",
       "kg_reference_node_count": 9,
       "plain_language": "This row tells a reader how the work can be audited and resumed while keeping the working source separate from the public Research Atlas.",
       "reader_safe_statement": "The Research Atlas package records completed-row accounting, resume-safety controls, and knowledge-graph traceability.",
       "scope_limit": "Cite the public Research Atlas repository for this study.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "individual_report_blueprint_evidence",
-      "claim_status": "open_for_experiment_scoped_reporting",
-      "claim_type": "authoring_blueprint_claim",
+      "claim_id": "individual_report_plan",
+      "claim_status": "experiment-scoped reporting",
+      "claim_type": "authoring blueprint claim",
       "evidence_gate": "This is an authoring map for the individual experiment report.",
       "kg_reference_node_count": 9,
       "plain_language": "This row preserves the report plan and author metadata for traceable review.",
       "reader_safe_statement": "The individual report blueprint records the author-stamped section map for later review.",
       "scope_limit": "Keep the individual-report blueprint separate from generated publication outputs.",
-      "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
+      "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "closed_gate:universal_best_method",
-      "claim_status": "requires_separate_validation",
+      "claim_id": "evidence_limit:universal_best_method",
+      "claim_status": "requires separate validation",
       "claim_type": "evidence_limit",
       "evidence_gate": "method_performance_synthesis and claim_evidence_matrix",
       "kg_reference_node_count": "",
-      "plain_language": "The synthesis is descriptive and experiment-scoped.",
+      "plain_language": "The synthesis describes this experiment rather than a universal ranking.",
       "reader_safe_statement": "Universal best method",
       "scope_limit": "A prospectively designed external validation protocol that explicitly supports a method-selection claim.",
-      "support_status": "closed_for_stronger_claim"
+      "support_status": "requires separate validation"
     },
     {
-      "claim_id": "closed_gate:production_guidance",
-      "claim_status": "requires_separate_validation",
+      "claim_id": "evidence_limit:production_guidance",
+      "claim_status": "requires separate validation",
       "claim_type": "evidence_limit",
       "evidence_gate": "claim_evidence_matrix",
       "kg_reference_node_count": "",
-      "plain_language": "The release evaluates empirical behavior; operational risk, monitoring, and deployment constraints require a separate study.",
+      "plain_language": "Operational risk, monitoring, and deployment constraints require a separate study.",
       "reader_safe_statement": "Production or deployment guidance",
       "scope_limit": "A separate deployment study with operational requirements, monitoring design, and domain-specific risk review.",
-      "support_status": "closed_for_stronger_claim"
+      "support_status": "requires separate validation"
     },
     {
-      "claim_id": "closed_gate:population_group_inference",
-      "claim_status": "requires_separate_validation",
+      "claim_id": "evidence_limit:population_group_inference",
+      "claim_status": "requires separate validation",
       "claim_type": "evidence_limit",
       "evidence_gate": "ready bundles=0",
       "kg_reference_node_count": "",
       "plain_language": "Population-level group inference requires a pre-specified inference design.",
       "reader_safe_statement": "Population-level group inference",
       "scope_limit": "A pre-specified population inference protocol with sampling design, estimands, and uncertainty model.",
-      "support_status": "closed_for_stronger_claim"
+      "support_status": "requires separate validation"
     },
     {
-      "claim_id": "closed_gate:bounded_support_validity",
-      "claim_status": "requires_separate_validation",
+      "claim_id": "evidence_limit:bounded_support_validity",
+      "claim_status": "requires separate validation",
       "claim_type": "evidence_limit",
       "evidence_gate": "ready bundles=0",
       "kg_reference_node_count": "",
       "plain_language": "A ready bounded-support validity bundle was not recorded.",
       "reader_safe_statement": "Bounded-support validity",
       "scope_limit": "A complete bounded-support validity analysis with estimator conventions and empirical stress tests.",
-      "support_status": "closed_for_stronger_claim"
+      "support_status": "requires separate validation"
     },
     {
-      "claim_id": "closed_gate:validated_venn_abers_regression_interval",
-      "claim_status": "requires_separate_validation",
+      "claim_id": "evidence_limit:validated_venn_abers_regression_interval",
+      "claim_status": "requires separate validation",
       "claim_type": "evidence_limit",
       "evidence_gate": "The expected strong regression solution did not emerge in these experiments.",
       "kg_reference_node_count": "",
       "plain_language": "The evaluated bridge produced negative or diagnostic evidence rather than a validated interval result.",
       "reader_safe_statement": "Validated Venn-Abers regression interval",
       "scope_limit": "A separately validated Venn-Abers regression construction with appropriate target, calibration, and interval semantics.",
-      "support_status": "closed_for_stronger_claim"
+      "support_status": "requires separate validation"
     },
     {
-      "claim_id": "closed_gate:cqr_backend_method_selection",
-      "claim_status": "requires_separate_validation",
+      "claim_id": "evidence_limit:cqr_backend_method_selection",
+      "claim_status": "requires separate validation",
       "claim_type": "evidence_limit",
       "evidence_gate": "cqr_fixed_vs_model_matched_synthesis",
       "kg_reference_node_count": "",
       "plain_language": "pipeline_level_descriptive_signal_only",
-      "reader_safe_statement": "CQR backend method-selection claim",
+      "reader_safe_statement": "CQR backend method selection",
       "scope_limit": "A future decision to run and validate a prospectively matched method-selection protocol.",
-      "support_status": "closed_for_stronger_claim"
+      "support_status": "requires separate validation"
     }
   ],
   "schema": "regression_cp_claim_registry_v1",
   "summary": {
     "claim_count": 14,
-    "closed_gate_count": 6,
+    "evidence_limit_count": 6,
     "experiment_scoped_reporting_rows": 8
   }
 }
