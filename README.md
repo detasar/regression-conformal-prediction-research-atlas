@@ -66,7 +66,7 @@ python -m pytest -m "unit or artifact_public or smoke"
 python -m experiments.regression.scripts.run_regression_pilot --help
 ```
 
-The public CI uses the same marker-selected smoke path. Full working ledgers, local caches, external data pulls, and long reruns are intentionally outside the public smoke test surface.
+The public CI uses the same marker-selected smoke path. Full experiment ledgers, local caches, external data pulls, and long reruns are intentionally outside the public smoke test surface.
 
 ## Citation
 
