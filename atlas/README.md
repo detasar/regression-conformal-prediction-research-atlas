@@ -21,5 +21,6 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 - `claims/` records interpretation boundaries and reader-safe evidence statements.
 - `provenance/` records source status, hashes, RO-Crate metadata, and PROV traces.
 - `ui_data/` contains compact JSON used by the public website.
+- `scope/benchmark_v2_protocol.*` records the frozen design requirements for the next balanced benchmark.
 
 The atlas is public and citable as a navigation and traceability artifact. Broader conclusions require separate validation beyond this experiment.

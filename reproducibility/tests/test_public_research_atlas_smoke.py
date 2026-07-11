@@ -334,6 +334,37 @@ def test_public_environment_lock_documents_install_surface() -> None:
     assert "reproducibility/environment/requirements-public-lock.txt" in readme
 
 
+def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
+    root = repo_root()
+    protocol_path = root / "atlas/scope/benchmark_v2_protocol.json"
+    markdown_path = root / "atlas/scope/benchmark_v2_protocol.md"
+    artifact_index_path = root / "atlas/artifacts/public_artifact_index.json"
+    assert protocol_path.exists()
+    assert markdown_path.exists()
+
+    protocol = json.loads(protocol_path.read_text(encoding="utf-8"))
+    assert protocol["schema"] == "regression_cp_benchmark_v2_protocol_v1"
+    assert protocol["status"] == "protocol_defined_not_executed"
+    assert (
+        protocol["primary_estimand"]["primary_comparison_unit"]
+        == "source_dataset_task_alpha_learner_config_split_hash"
+    )
+    requirements = "\n".join(protocol["design_requirements"]).lower()
+    assert "exact learner/config/split cells" in requirements
+    assert "inside each cv+/jackknife fold" in requirements
+    assert "planned, attempted, completed, failed, skipped" in requirements
+
+    markdown = markdown_path.read_text(encoding="utf-8")
+    assert "# Benchmark v2 Protocol" in markdown
+    assert "Status: protocol defined, not executed." in markdown
+    assert "retrospective cleanup" in markdown
+
+    artifact_index = json.loads(artifact_index_path.read_text(encoding="utf-8"))
+    indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
+    assert "atlas/scope/benchmark_v2_protocol.json" in indexed_paths
+    assert "atlas/scope/benchmark_v2_protocol.md" in indexed_paths
+
+
 def test_public_rebuild_commands_run() -> None:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root() / "reproducibility")

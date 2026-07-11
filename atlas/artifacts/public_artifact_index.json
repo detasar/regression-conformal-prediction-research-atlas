@@ -1,5 +1,5 @@
 {
-  "artifact_count": 164,
+  "artifact_count": 166,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -120,6 +120,16 @@
       "artifact_kind": "atlas data",
       "artifact_path": "atlas/results/venn_abers_negative_evidence.csv",
       "reader_use": "Venn-Abers bridge diagnostic rows."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/benchmark_v2_protocol.json",
+      "reader_use": "Machine-readable Benchmark v2 protocol."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/benchmark_v2_protocol.md",
+      "reader_use": "Prospectively frozen Benchmark v2 protocol."
     },
     {
       "artifact_kind": "atlas data",
@@ -822,6 +832,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-11T01:10:23.021624+00:00",
+  "generated_at_utc": "2026-07-11T01:19:32.269279+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

@@ -1,0 +1,34 @@
+{
+  "benchmark_version": "benchmark_v2_prospectively_frozen_protocol",
+  "design_requirements": [
+    "Use fewer but independently sourced datasets with explicit source/version/license records.",
+    "Represent task variants under their source dataset instead of counting them as independent datasets.",
+    "Use the same alpha grid, seed count, split policy, learner/config surface, and conformal wrappers within each paired task.",
+    "Compare conformal wrappers within exact learner/config/split cells rather than averaging across mismatched model grids.",
+    "Do not recount a fixed CQR backend across unrelated outer model-grid rows.",
+    "Fit imputation, scaling, capping, feature selection, and dimensionality reduction inside each CV+/jackknife fold.",
+    "Separate IID, grouped, temporal, spatial, and shift regimes before aggregation.",
+    "Freeze the primary utility rule, exclusion rules, and pathology-display policy before compute starts.",
+    "Report source-dataset-clustered bootstrap or hierarchical meta-analysis rather than row-level pseudo-inference.",
+    "Reserve untouched post-protocol datasets for external validation.",
+    "Publish planned, attempted, completed, failed, skipped, and publication-scoped accounting matrices.",
+    "Publish enough run-level ledger, split hash, environment lock, and aggregate cube material to audit the synthesis."
+  ],
+  "generated_at_utc": "2026-07-11T01:19:32.269279+00:00",
+  "primary_estimand": {
+    "primary_comparison_unit": "source_dataset_task_alpha_learner_config_split_hash",
+    "primary_utility_rule": "pre-specified coverage-lower-bound gate followed by interval score, reported with sensitivity to absolute coverage error and width",
+    "unit_hierarchy": [
+      "source_dataset",
+      "task_variant",
+      "split_regime",
+      "split_hash",
+      "learner_config",
+      "conformal_method_config"
+    ]
+  },
+  "purpose": "Define the next balanced, paired, leakage-safe regression conformal prediction benchmark before opening new result generation.",
+  "release_boundary": "Benchmark v2 is a forward protocol. It does not revise the Atlas v0 retrospective results until new, separately versioned runs are completed.",
+  "schema": "regression_cp_benchmark_v2_protocol_v1",
+  "status": "protocol_defined_not_executed"
+}
