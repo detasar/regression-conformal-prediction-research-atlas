@@ -94,6 +94,7 @@
     const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[] };
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
+    const nodeKey = n => n ? (n.display_id || n.id) : '';
     const graphNotice = message => { document.getElementById('graphNotice').textContent = message || ''; };
     function addIndex(edge){ for(const id of [edge.source,edge.target]){ if(!state.edgeByNode.has(id)) state.edgeByNode.set(id,[]); state.edgeByNode.get(id).push(edge); } }
     function neighbors(root){
@@ -138,7 +139,7 @@
       const q=document.getElementById('search').value.toLowerCase().trim();
       const type=document.getElementById('typeFilter').value;
       if(!q && !type) return [];
-      return state.data.nodes.filter(n=>(!type||n.type===type)&&(!q||`${n.label} ${n.summary} ${n.id}`.toLowerCase().includes(q)));
+      return state.data.nodes.filter(n=>(!type||n.type===type)&&(!q||`${n.label} ${n.summary} ${nodeKey(n)}`.toLowerCase().includes(q)));
     }
     function renderResults(){
       const allNodes=resultNodes();
@@ -170,7 +171,7 @@
         return;
       }
       const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
-      document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(n.id)}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
+      document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
       const es=(state.edgeByNode.get(n.id)||[]).slice(0,14);
       document.getElementById('edges').innerHTML=es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('');
       document.getElementById('table').innerHTML=`<table><thead><tr><th>Node</th><th>Type</th><th>Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;

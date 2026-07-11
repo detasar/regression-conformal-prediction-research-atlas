@@ -174,6 +174,25 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     legacy_source_key = "source_key" + "_hash"
     assert legacy_source_key not in kg_text
     assert "source_key_fingerprint" in kg_text
+    visible_values = []
+    for node in kg["nodes"]:
+        visible_values.extend(
+            str(node.get(key) or "")
+            for key in ("label", "summary", "display_id")
+        )
+    for edge in kg["edges"]:
+        visible_values.extend(
+            str(edge.get(key) or "")
+            for key in ("label", "summary", "evidence")
+        )
+    for route in kg.get("research_map", []):
+        visible_values.extend(
+            str(route.get(key) or "")
+            for key in ("title", "summary", "description")
+        )
+    visible_text = "\n".join(visible_values).lower()
+    for legacy in ("frontier", "near_nominal", "near nominal", "near-nominal"):
+        assert legacy not in visible_text
 
 
 def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
