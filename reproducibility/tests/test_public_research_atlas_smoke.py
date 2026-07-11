@@ -417,7 +417,7 @@ def test_public_html_links_and_artifact_index_are_complete() -> None:
         if path.is_file()
         and ".git" not in path.parts
         and path.relative_to(root).as_posix().startswith(
-            ("atlas/", "paper/", "site/", "evidence/")
+            ("atlas/", "paper/", "site/", "evidence/", "reproducibility/environment/")
         )
     }
     assert substantive_files <= indexed
