@@ -365,6 +365,37 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     assert "atlas/scope/benchmark_v2_protocol.md" in indexed_paths
 
 
+def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
+    root = repo_root()
+    matrix_path = root / "atlas/scope/audit_response_matrix.json"
+    markdown_path = root / "atlas/scope/audit_response_matrix.md"
+    artifact_index_path = root / "atlas/artifacts/public_artifact_index.json"
+    assert matrix_path.exists()
+    assert markdown_path.exists()
+
+    matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
+    assert matrix["schema"] == "regression_cp_final_audit_response_matrix_v1"
+    assert matrix["summary"]["p0_status"] == "completed"
+    assert matrix["summary"]["benchmark_v2_status"] == "protocol_defined_not_executed"
+    statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
+    assert ("P0", "completed") in statuses
+    assert ("P1", "protocol_defined_not_executed") in statuses
+    assert ("P2", "planned") in statuses
+    assert any(
+        "KG loading architecture" in row["item"] and row["status"] == "planned"
+        for row in matrix["rows"]
+    )
+
+    markdown = markdown_path.read_text(encoding="utf-8")
+    assert "# Final Audit Response Matrix" in markdown
+    assert "P0 items are required public-readiness repairs" in markdown
+
+    artifact_index = json.loads(artifact_index_path.read_text(encoding="utf-8"))
+    indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
+    assert "atlas/scope/audit_response_matrix.json" in indexed_paths
+    assert "atlas/scope/audit_response_matrix.md" in indexed_paths
+
+
 def test_public_rebuild_commands_run() -> None:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root() / "reproducibility")

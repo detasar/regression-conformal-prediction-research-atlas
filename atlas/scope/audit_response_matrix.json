@@ -1,0 +1,118 @@
+{
+  "generated_at_utc": "2026-07-11T01:27:30.166675+00:00",
+  "rows": [
+    {
+      "evidence_paths": [
+        "atlas/results/result_cube_public.csv",
+        "atlas/results/selected_under_coverage_gate_cells.csv",
+        "reproducibility/tests/test_public_research_atlas_smoke.py"
+      ],
+      "item": "Rename the one-sided coverage gate and selected-cell semantics.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "README.md",
+        "paper/research_document.html",
+        "evidence/claim_evidence_matrix.md"
+      ],
+      "item": "Use pipeline-level empirical wording for the CQR signal.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "paper/article.html",
+        "paper/supplement.html",
+        "reproducibility/tests/test_public_research_atlas_smoke.py"
+      ],
+      "item": "Keep row-level bands out of headline inferential language.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "reproducibility/experiments/regression/scripts/build_public_research_atlas.py",
+        "reproducibility/experiments/regression/scripts/build_research_atlas_package.py",
+        "reproducibility/experiments/regression/scripts/build_public_release_scope.py",
+        "pyproject.toml",
+        ".github/workflows/public-ci.yml"
+      ],
+      "item": "Publish public rebuild modules, default CLI config resolution, package-data configs, and wheel checks.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "atlas/provenance/artifact_manifest.json",
+        "evidence/public_artifact_manifest.json",
+        "site/kg_browser_data.json"
+      ],
+      "item": "Expose provenance as manifest resolution rather than pretending private source files are public.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "atlas/results/result_cube_public.csv",
+        "atlas/results/index.html"
+      ],
+      "item": "Add numerical pathology flags and display policy fields.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "atlas/artifacts/index.html",
+        "atlas/artifacts/public_artifact_index.json"
+      ],
+      "item": "Link substantive public artifacts from the HTML artifact index.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "atlas/scope/benchmark_v2_protocol.md",
+        "atlas/scope/benchmark_v2_protocol.json"
+      ],
+      "item": "Define the balanced, paired, leakage-safe Benchmark v2 before new result generation.",
+      "priority": "P1",
+      "status": "protocol_defined_not_executed"
+    },
+    {
+      "evidence_paths": [
+        "atlas/results/index.html",
+        "atlas/ui_data/dataset_method_heatmap.json",
+        "atlas/ui_data/method_family_summary.json"
+      ],
+      "item": "Build the interactive result-atlas layer.",
+      "priority": "P1",
+      "status": "partially_completed"
+    },
+    {
+      "evidence_paths": [
+        "site/kg_browser.html",
+        "site/kg_browser_data.json"
+      ],
+      "item": "Improve KG loading architecture beyond the current static full-graph JSON.",
+      "priority": "P1",
+      "status": "planned"
+    },
+    {
+      "evidence_paths": [
+        "reproducibility/experiments/regression/scripts/"
+      ],
+      "item": "Modularize monolithic builders and add broader maintenance gates.",
+      "priority": "P2",
+      "status": "planned"
+    }
+  ],
+  "schema": "regression_cp_final_audit_response_matrix_v1",
+  "summary": {
+    "atlas_product_status": "partially_completed",
+    "benchmark_v2_status": "protocol_defined_not_executed",
+    "maintenance_status": "planned",
+    "p0_status": "completed"
+  }
+}
