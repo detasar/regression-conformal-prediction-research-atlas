@@ -1,8 +1,10 @@
 {
-  "generated_at_utc": "2026-07-11T01:28:35.818992+00:00",
+  "generated_at_utc": "2026-07-11T01:43:56.920627+00:00",
   "public_paths": {
     "artifact_manifest": "evidence/public_artifact_manifest.json",
     "kg": "site/kg_browser_data.json",
+    "kg_edges": "site/kg_browser_edges.json",
+    "kg_index": "site/kg_browser_index.json",
     "scope": "atlas/scope/experiment_scope.json"
   },
   "schema": "regression_cp_public_release_scope_v1",
@@ -12,6 +14,8 @@
     "dataset_alpha_cell_count": 95,
     "dataset_count": 67,
     "kg_edge_count": 21019,
+    "kg_index_node_count": 3643,
+    "kg_lazy_edge_count": 21019,
     "kg_node_count": 3643,
     "method_label_count": 28
   },

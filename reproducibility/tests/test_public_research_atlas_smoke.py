@@ -151,13 +151,26 @@ def test_public_wheel_contains_experiment_configs(tmp_path: Path) -> None:
 def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     root = repo_root()
     kg_path = root / "site" / "kg_browser_data.json"
+    index_path = root / "site" / "kg_browser_index.json"
+    edge_path = root / "site" / "kg_browser_edges.json"
     manifest_path = root / "evidence" / "public_artifact_manifest.json"
     assert kg_path.exists()
+    assert index_path.exists()
+    assert edge_path.exists()
     assert manifest_path.exists()
     kg = json.loads(kg_path.read_text(encoding="utf-8"))
+    kg_index = json.loads(index_path.read_text(encoding="utf-8"))
+    kg_edges = json.loads(edge_path.read_text(encoding="utf-8"))
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     assert len(kg["nodes"]) == kg["summary"]["node_count"]
     assert len(kg["edges"]) == kg["summary"]["edge_count"]
+    assert kg_index["schema"] == "regression_cp_evidence_graph_index_v1"
+    assert kg_edges["schema"] == "regression_cp_evidence_graph_edges_v1"
+    assert len(kg_index["nodes"]) == len(kg["nodes"])
+    assert "edges" not in kg_index
+    assert len(kg_edges["edges"]) == len(kg["edges"])
+    assert kg_index["summary"]["loading_policy"] == "index_first_edges_on_demand"
+    assert index_path.stat().st_size < kg_path.stat().st_size
     assert kg["summary"]["public_artifact_manifest"] == "evidence/public_artifact_manifest.json"
     assert manifest["strategy"] == "manifest_plus_summary_not_full_artifact_dump"
     assert manifest["summary"]["manifest_reference_resolution_rate"] == 1.0
@@ -249,6 +262,11 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "Route not found:" in browser
     assert "data-node=" in browser
     assert "map-legend" in browser
+    assert "fetch('kg_browser_index.json')" in browser
+    assert "kg_browser_edges.json" in browser
+    assert "function ensureEdges()" in browser
+    assert "Loading edge provenance on demand" in browser
+    assert "fetch('kg_browser_data.json').then" not in browser
 
 
 def test_public_root_command_help_runs() -> None:
@@ -382,7 +400,8 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     assert ("P1", "protocol_defined_not_executed") in statuses
     assert ("P2", "planned") in statuses
     assert any(
-        "KG loading architecture" in row["item"] and row["status"] == "planned"
+        "KG loading architecture" in row["item"]
+        and row["status"] == "partially_completed"
         for row in matrix["rows"]
     )
 

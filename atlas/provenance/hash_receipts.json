@@ -6,14 +6,14 @@
       "sha256": "aca8b6ac2f37becffd341df7492e2fb84ee9d07b20f02f34464524d043738d0d"
     },
     {
-      "bytes": 43115,
+      "bytes": 43445,
       "path": "artifacts/index.html",
-      "sha256": "54992609bfb2df94ae0e6dbe037979abb38acb4e7f86cdf227b9922eb6a18c0f"
+      "sha256": "c41c3b8635971d922beb35fe0fd0f6f685877d435d10f755100b29a908ff3612"
     },
     {
-      "bytes": 30211,
+      "bytes": 30555,
       "path": "artifacts/public_artifact_index.json",
-      "sha256": "941c6dcc1ff7aa9a81be408ae7c0ca8f1f504e93862ff8d54378a9d122e972b7"
+      "sha256": "4915253b385b5bcb5eff7f12de684d8aee7e2dd57ff0840c620e15f26841d644"
     },
     {
       "bytes": 6631,
@@ -583,7 +583,7 @@
     {
       "bytes": 1052,
       "path": "provenance/prov/experiment_provenance.jsonld",
-      "sha256": "90e7bf990da918d2dfb4d693b8120fd4792f986de9504f45770a1ff30c64d761"
+      "sha256": "1e5361b3ee308f81106958edb37d778618d18879099ef64dc16debfde564d6ad"
     },
     {
       "bytes": 649,
@@ -626,19 +626,19 @@
       "sha256": "3ffd2e4f6a0f5a0c2ef036b963b8013a55677a167f6137448a729dcb97527fad"
     },
     {
-      "bytes": 3841,
+      "bytes": 3929,
       "path": "scope/audit_response_matrix.json",
-      "sha256": "4c1e3765b99ba442e4cad4a6c8dd6afb1ba6917007b5fe20a7e00093dedc0f66"
+      "sha256": "27442f65ee16c81ec5004ea36eca7f1f6b9815f38d96889b3b62e66042a0d9f4"
     },
     {
-      "bytes": 2680,
+      "bytes": 2756,
       "path": "scope/audit_response_matrix.md",
-      "sha256": "54e171a9e87192c38405104e59d689289fb52e390cf9e67b72268b02055e4418"
+      "sha256": "5eff45c9f218e0e4ae17824d0afb3fabe63dbf72f40be96fba77ff099af2a40f"
     },
     {
       "bytes": 2304,
       "path": "scope/benchmark_v2_protocol.json",
-      "sha256": "16d225ccf9c893d27ca0ceb1be2ee36d7dd1485b4cf9d0c7303cecce79995663"
+      "sha256": "439e18d664f87f729ff1522e149ddf7e18a14d64174a2b80bb358a9707166193"
     },
     {
       "bytes": 2151,
@@ -648,7 +648,7 @@
     {
       "bytes": 1636,
       "path": "scope/experiment_scope.json",
-      "sha256": "fa24ead18b9ced37c35c1e9bb8ec3acec3c5d656a6887e6643a87d18c02eaa2f"
+      "sha256": "08723345f28f555c971d014f670325043c28a33388a3fb9eaf18ea00dd2db361"
     },
     {
       "bytes": 560,
@@ -673,12 +673,12 @@
     {
       "bytes": 1636,
       "path": "scope/run_accounting_summary.json",
-      "sha256": "fa24ead18b9ced37c35c1e9bb8ec3acec3c5d656a6887e6643a87d18c02eaa2f"
+      "sha256": "08723345f28f555c971d014f670325043c28a33388a3fb9eaf18ea00dd2db361"
     },
     {
       "bytes": 3626,
       "path": "ui_data/atlas_summary.json",
-      "sha256": "588c2fe10a2e2542bd237f6121fed29160b3703c0da26b98482fe06d0bddeef4"
+      "sha256": "92a63b2bd951c3f1219f8f9c7275cac51a4b1727ca05c842c7a747c092b1ea50"
     },
     {
       "bytes": 1870,
@@ -696,6 +696,6 @@
       "sha256": "3a00f1115345dfcaec90a2b6bd44c655ec5d19761a5fa53d9b838f691e74ed25"
     }
   ],
-  "generated_at_utc": "2026-07-11T01:27:30.166675+00:00",
+  "generated_at_utc": "2026-07-11T01:42:48.177961+00:00",
   "schema": "regression_cp_atlas_hash_receipts_v1"
 }

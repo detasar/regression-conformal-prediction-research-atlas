@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-11T01:27:30.166675+00:00",
+  "generated_at_utc": "2026-07-11T01:42:48.177961+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -93,11 +93,13 @@
     {
       "evidence_paths": [
         "site/kg_browser.html",
+        "site/kg_browser_index.json",
+        "site/kg_browser_edges.json",
         "site/kg_browser_data.json"
       ],
       "item": "Improve KG loading architecture beyond the current static full-graph JSON.",
       "priority": "P1",
-      "status": "planned"
+      "status": "partially_completed"
     },
     {
       "evidence_paths": [

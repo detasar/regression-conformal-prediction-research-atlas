@@ -1,9 +1,9 @@
 {
   "completed_rows": 145839,
-  "generated_at_utc": "2026-07-11T01:28:35.951733+00:00",
+  "generated_at_utc": "2026-07-11T01:43:57.060694+00:00",
   "kg_edge_count": 21019,
   "kg_node_count": 3643,
-  "required_file_count": 11,
+  "required_file_count": 13,
   "route_count": 9,
   "routes": [
     {

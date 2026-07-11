@@ -37,6 +37,16 @@
     },
     {
       "exists": true,
+      "path": "site/kg_browser_index.json",
+      "role": "knowledge graph index data"
+    },
+    {
+      "exists": true,
+      "path": "site/kg_browser_edges.json",
+      "role": "knowledge graph edge bundle"
+    },
+    {
+      "exists": true,
       "path": "evidence/claim_evidence_matrix.md",
       "role": "claim-evidence matrix"
     },
@@ -76,7 +86,7 @@
       "role": "public smoke dependency pins"
     }
   ],
-  "generated_at_utc": "2026-07-11T01:28:35.985247+00:00",
+  "generated_at_utc": "2026-07-11T01:43:57.093625+00:00",
   "missing": [],
   "rebuild_commands": [
     "python -m experiments.regression.scripts.build_public_release_scope --package-root .",
@@ -84,7 +94,7 @@
     "python -m experiments.regression.scripts.build_research_atlas_package --package-root .",
     "python -m pytest -m \"unit or artifact_public or smoke\""
   ],
-  "required_file_count": 15,
+  "required_file_count": 17,
   "schema": "regression_cp_public_research_atlas_package_v1",
   "status": "pass"
 }

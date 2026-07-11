@@ -24,6 +24,8 @@ def validate_package(package_root: Path) -> dict:
         "paper/supplement.pdf": "supplement PDF",
         "site/kg_browser.html": "knowledge graph browser",
         "site/kg_browser_data.json": "knowledge graph data",
+        "site/kg_browser_index.json": "knowledge graph index data",
+        "site/kg_browser_edges.json": "knowledge graph edge bundle",
         "evidence/claim_evidence_matrix.md": "claim-evidence matrix",
         "evidence/public_artifact_manifest.json": "artifact manifest",
         "atlas/index.html": "Research Atlas site",

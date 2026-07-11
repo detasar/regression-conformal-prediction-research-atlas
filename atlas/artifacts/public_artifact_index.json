@@ -1,5 +1,5 @@
 {
-  "artifact_count": 168,
+  "artifact_count": 170,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -567,6 +567,16 @@
       "reader_use": "Knowledge graph browser data."
     },
     {
+      "artifact_kind": "evidence map data",
+      "artifact_path": "site/kg_browser_edges.json",
+      "reader_use": "Lazy-loaded knowledge graph edge bundle."
+    },
+    {
+      "artifact_kind": "evidence map data",
+      "artifact_path": "site/kg_browser_index.json",
+      "reader_use": "Initial knowledge graph browser index."
+    },
+    {
       "artifact_kind": "individual report",
       "artifact_path": "paper/individual_experiment_report.md",
       "reader_use": "Individual experiment report Markdown."
@@ -842,6 +852,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-11T01:27:30.166675+00:00",
+  "generated_at_utc": "2026-07-11T01:42:48.177961+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

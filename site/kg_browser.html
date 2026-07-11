@@ -91,13 +91,29 @@
     </aside>
   </main>
   <script>
-    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[] };
+    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], edgesLoaded:false, edgeLoadPromise:null };
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
     const graphNotice = message => { document.getElementById('graphNotice').textContent = message || ''; };
     function addIndex(edge){ for(const id of [edge.source,edge.target]){ if(!state.edgeByNode.has(id)) state.edgeByNode.set(id,[]); state.edgeByNode.get(id).push(edge); } }
+    function ensureEdges(){
+      if(state.edgesLoaded) return Promise.resolve();
+      if(state.edgeLoadPromise) return state.edgeLoadPromise;
+      document.getElementById('status').textContent='Loading edge bundle on demand...';
+      state.edgeLoadPromise = fetch('kg_browser_edges.json').then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then(payload=>{
+        const edges = payload.edges || [];
+        state.data.edges = edges;
+        edges.forEach(addIndex);
+        state.edgesLoaded = true;
+        document.getElementById('status').textContent=`Loaded ${edges.length.toLocaleString()} graph edges on demand.`;
+      }).catch(error=>{
+        graphNotice(`Edge bundle could not be loaded: ${error.message || 'unknown error'}`);
+      });
+      return state.edgeLoadPromise;
+    }
     function neighbors(root){
+      if(!state.edgesLoaded) return {nodes:[state.nodeById.get(root)].filter(Boolean), edges:[]};
       const seen = new Set(), edges = [], q = [{id:root,d:0}];
       while(q.length && seen.size < 70){
         const cur=q.shift(); if(!cur || seen.has(cur.id)) continue; seen.add(cur.id);
@@ -118,7 +134,7 @@
     }
     function select(id){
       if(!state.nodeById.has(id)){ graphNotice(`Node not found: ${id}`); return false; }
-      graphNotice(''); state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); return true;
+      graphNotice(''); state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); ensureEdges().then(renderAll); return true;
     }
     function selectRoute(routeId){
       const route=(state.data.research_map||[]).find(r=>r.route_id===routeId);
@@ -173,7 +189,7 @@
       const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
       document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
       const es=(state.edgeByNode.get(n.id)||[]).slice(0,14);
-      document.getElementById('edges').innerHTML=es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('');
+      document.getElementById('edges').innerHTML=state.edgesLoaded ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('') : '<p class="muted">Loading edge provenance on demand for this node...</p>';
       document.getElementById('table').innerHTML=`<table><thead><tr><th>Node</th><th>Type</th><th>Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;
       activateNodeButtons();
     }
@@ -204,8 +220,8 @@
       document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes`;
     }
     function renderAll(){ renderRoutes(); renderResults(); renderDetail(); updateDepthButtons(); draw(); }
-    fetch('kg_browser_data.json').then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then(data=>{
-      state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); data.edges.forEach(addIndex);
+    fetch('kg_browser_index.json').catch(()=>fetch('kg_browser_data.json')).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then(data=>{
+      state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); (data.edges||[]).forEach(addIndex); state.edgesLoaded=Boolean((data.edges||[]).length);
       renderFilters(); document.getElementById('search').oninput=renderAll; document.getElementById('typeFilter').onchange=renderAll;
       document.getElementById('oneHop').onclick=()=>{state.depth=1; renderAll();}; document.getElementById('twoHop').onclick=()=>{state.depth=2; renderAll();};
       document.getElementById('mapCanvas').onclick=e=>{ const rect=e.currentTarget.getBoundingClientRect(); const x=e.clientX-rect.left,y=e.clientY-rect.top; const hit=state.points.find(p=>Math.hypot(p.x-x,p.y-y)<p.r); if(hit) select(hit.id); };
@@ -215,7 +231,7 @@
       document.getElementById('status').textContent='Graph data could not be loaded.';
       graphNotice(error.message || 'Unknown loading error');
       document.getElementById('detail').innerHTML='<h2>Graph data unavailable</h2><p class="muted">The static HTML shell loaded, but the graph data file could not be fetched. The public Research Atlas artifacts remain available from the project page.</p>';
-      document.getElementById('table').innerHTML='<table><caption>Graph loading status</caption><thead><tr><th scope="col">File</th><th scope="col">Status</th></tr></thead><tbody><tr><td>kg_browser_data.json</td><td>unavailable</td></tr></tbody></table>';
+      document.getElementById('table').innerHTML='<table><caption>Graph loading status</caption><thead><tr><th scope="col">File</th><th scope="col">Status</th></tr></thead><tbody><tr><td>kg_browser_index.json</td><td>unavailable</td></tr><tr><td>kg_browser_data.json</td><td>fallback unavailable</td></tr></tbody></table>';
     });
   </script>
 </body>

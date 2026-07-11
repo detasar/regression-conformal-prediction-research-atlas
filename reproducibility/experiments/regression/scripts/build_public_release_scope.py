@@ -23,16 +23,20 @@ def atomic_write_json(path: Path, payload: dict[str, Any]) -> None:
 def build_scope(package_root: Path) -> dict[str, Any]:
     scope_path = package_root / "atlas/scope/experiment_scope.json"
     kg_path = package_root / "site/kg_browser_data.json"
+    kg_index_path = package_root / "site/kg_browser_index.json"
+    kg_edges_path = package_root / "site/kg_browser_edges.json"
     manifest_path = package_root / "evidence/public_artifact_manifest.json"
     missing = [
         path.relative_to(package_root).as_posix()
-        for path in (scope_path, kg_path, manifest_path)
+        for path in (scope_path, kg_path, kg_index_path, kg_edges_path, manifest_path)
         if not path.exists()
     ]
     if missing:
         raise FileNotFoundError(f"Missing Research Atlas files: {missing}")
     scope = read_json(scope_path)
     kg = read_json(kg_path)
+    kg_index = read_json(kg_index_path)
+    kg_edges = read_json(kg_edges_path)
     manifest = read_json(manifest_path)
     payload = {
         "schema": "regression_cp_public_release_scope_v1",
@@ -45,6 +49,8 @@ def build_scope(package_root: Path) -> dict[str, Any]:
             "method_label_count": scope.get("publication_method_label_count"),
             "kg_node_count": len(kg.get("nodes", [])),
             "kg_edge_count": len(kg.get("edges", [])),
+            "kg_index_node_count": len(kg_index.get("nodes", [])),
+            "kg_lazy_edge_count": len(kg_edges.get("edges", [])),
             "artifact_manifest_coverage": manifest.get("summary", {}).get(
                 "manifest_reference_resolution_rate"
             ),
@@ -52,6 +58,8 @@ def build_scope(package_root: Path) -> dict[str, Any]:
         "public_paths": {
             "scope": "atlas/scope/experiment_scope.json",
             "kg": "site/kg_browser_data.json",
+            "kg_index": "site/kg_browser_index.json",
+            "kg_edges": "site/kg_browser_edges.json",
             "artifact_manifest": "evidence/public_artifact_manifest.json",
         },
     }
@@ -59,6 +67,10 @@ def build_scope(package_root: Path) -> dict[str, Any]:
         raise ValueError("KG node count mismatch")
     if payload["scope"]["kg_edge_count"] != kg.get("summary", {}).get("edge_count"):
         raise ValueError("KG edge count mismatch")
+    if payload["scope"]["kg_index_node_count"] != payload["scope"]["kg_node_count"]:
+        raise ValueError("KG index node count mismatch")
+    if payload["scope"]["kg_lazy_edge_count"] != payload["scope"]["kg_edge_count"]:
+        raise ValueError("KG lazy edge count mismatch")
     return payload
 
 

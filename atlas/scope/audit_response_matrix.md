@@ -13,7 +13,7 @@ This matrix records how the Research Atlas responds to the final external audit.
 | P0 | Link substantive public artifacts from the HTML artifact index. | `completed` | `atlas/artifacts/index.html`<br>`atlas/artifacts/public_artifact_index.json` |
 | P1 | Define the balanced, paired, leakage-safe Benchmark v2 before new result generation. | `protocol_defined_not_executed` | `atlas/scope/benchmark_v2_protocol.md`<br>`atlas/scope/benchmark_v2_protocol.json` |
 | P1 | Build the interactive result-atlas layer. | `partially_completed` | `atlas/results/index.html`<br>`atlas/ui_data/dataset_method_heatmap.json`<br>`atlas/ui_data/method_family_summary.json` |
-| P1 | Improve KG loading architecture beyond the current static full-graph JSON. | `planned` | `site/kg_browser.html`<br>`site/kg_browser_data.json` |
+| P1 | Improve KG loading architecture beyond the current static full-graph JSON. | `partially_completed` | `site/kg_browser.html`<br>`site/kg_browser_index.json`<br>`site/kg_browser_edges.json`<br>`site/kg_browser_data.json` |
 | P2 | Modularize monolithic builders and add broader maintenance gates. | `planned` | `reproducibility/experiments/regression/scripts/` |
 
 P0 items are required public-readiness repairs. P1/P2 items remain forward work unless marked completed.

@@ -32,6 +32,8 @@ def build_manifest(package_root: Path) -> dict[str, Any]:
         "paper/supplement.html",
         "site/kg_browser.html",
         "site/kg_browser_data.json",
+        "site/kg_browser_index.json",
+        "site/kg_browser_edges.json",
         "evidence/public_artifact_manifest.json",
     ]
     missing = [rel for rel in required if not (package_root / rel).exists()]
