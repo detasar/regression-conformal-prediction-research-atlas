@@ -1,0 +1,48 @@
+{
+  "checklist": [
+    {
+      "evidence_path": "atlas/scope/benchmark_v2_protocol.json",
+      "gate_id": "protocol_frozen",
+      "status": "pass"
+    },
+    {
+      "evidence_path": "atlas/scope/benchmark_v2_execution_manifest.json",
+      "gate_id": "execution_manifest_defined",
+      "status": "pass"
+    },
+    {
+      "evidence_path": "atlas/scope/benchmark_v2_public_evidence_contract.json",
+      "gate_id": "public_evidence_contract_defined",
+      "status": "pass"
+    },
+    {
+      "evidence_path": "atlas/benchmark_v2/preflight/",
+      "gate_id": "preflight_templates_published",
+      "status": "pass"
+    },
+    {
+      "evidence_path": "atlas/benchmark_v2/preflight/source_dataset_registry_template.csv",
+      "gate_id": "source_dataset_registry_populated",
+      "status": "not_started"
+    },
+    {
+      "evidence_path": "atlas/benchmark_v2/preflight/task_variant_registry_template.csv",
+      "gate_id": "task_variant_registry_populated",
+      "status": "not_started"
+    },
+    {
+      "evidence_path": "atlas/benchmark_v2/preflight/run_status_ledger_template.csv",
+      "gate_id": "run_status_ledger_populated",
+      "status": "not_started"
+    },
+    {
+      "evidence_path": "benchmark_v2/aggregate_result_cube.parquet",
+      "gate_id": "benchmark_v2_results_generated",
+      "status": "not_started"
+    }
+  ],
+  "generated_at_utc": "2026-07-12T22:04:32.088828+00:00",
+  "overall_status": "preflight_templates_ready_execution_not_started",
+  "result_generation_status": "not_started",
+  "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
+}

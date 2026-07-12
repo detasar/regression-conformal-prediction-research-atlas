@@ -443,6 +443,75 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     assert "atlas/scope/benchmark_v2_execution_manifest.md" in indexed_paths
     assert "atlas/scope/benchmark_v2_public_evidence_contract.json" in indexed_paths
     assert "atlas/scope/benchmark_v2_public_evidence_contract.md" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/README.md" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/run_grid_cardinality.json" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/preflight_readiness_checklist.json" in indexed_paths
+
+
+def test_public_benchmark_v2_preflight_templates_are_published() -> None:
+    root = repo_root()
+    preflight = root / "atlas/benchmark_v2/preflight"
+    cardinality_path = preflight / "run_grid_cardinality.json"
+    checklist_path = preflight / "preflight_readiness_checklist.json"
+    run_grid_path = preflight / "run_grid_manifest_preview.csv"
+    source_template_path = preflight / "source_dataset_registry_template.csv"
+    task_template_path = preflight / "task_variant_registry_template.csv"
+    status_template_path = preflight / "run_status_ledger_template.csv"
+    for path in [
+        preflight / "README.md",
+        cardinality_path,
+        checklist_path,
+        preflight / "preflight_readiness_checklist.md",
+        run_grid_path,
+        source_template_path,
+        task_template_path,
+        status_template_path,
+    ]:
+        assert path.exists()
+
+    cardinality = json.loads(cardinality_path.read_text(encoding="utf-8"))
+    assert cardinality["schema"] == "regression_cp_benchmark_v2_run_grid_cardinality_v1"
+    assert cardinality["status"] == "preflight_template_not_executed"
+    assert cardinality["estimated_task_variant_count"] == 24
+    assert cardinality["primary_rows_per_task_variant"] == 8750
+    assert cardinality["diagnostic_rows_per_task_variant"] == 3500
+    assert cardinality["estimated_primary_planned_rows"] == 210000
+    assert cardinality["estimated_diagnostic_planned_rows"] == 84000
+    assert cardinality["estimated_total_planned_rows"] == 294000
+
+    checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
+    assert checklist["schema"] == "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
+    assert checklist["overall_status"] == "preflight_templates_ready_execution_not_started"
+    assert checklist["result_generation_status"] == "not_started"
+    statuses = {row["gate_id"]: row["status"] for row in checklist["checklist"]}
+    assert statuses["preflight_templates_published"] == "pass"
+    assert statuses["benchmark_v2_results_generated"] == "not_started"
+
+    with run_grid_path.open(encoding="utf-8", newline="") as handle:
+        preview_rows = list(csv.DictReader(handle))
+    assert len(preview_rows) == cardinality["primary_rows_per_task_variant"]
+    assert {"paired_cell_key", "split_hash", "conformal_method_config_id"} <= set(
+        preview_rows[0]
+    )
+    assert {row["ranking_role"] for row in preview_rows} == {"primary"}
+    assert all(row["planned_status"] == "template_pending_task_registry" for row in preview_rows)
+
+    with source_template_path.open(encoding="utf-8", newline="") as handle:
+        source_fields = next(csv.reader(handle))
+    assert {
+        "source_dataset_id",
+        "license",
+        "retrieval_command_or_url",
+        "content_hash_or_accession",
+    } <= set(source_fields)
+    with task_template_path.open(encoding="utf-8", newline="") as handle:
+        task_fields = next(csv.reader(handle))
+    assert {"task_variant_id", "source_dataset_id", "split_regime"} <= set(task_fields)
+    with status_template_path.open(encoding="utf-8", newline="") as handle:
+        status_fields = next(csv.reader(handle))
+    assert {"paired_cell_key", "attempted", "completed", "failed", "skipped"} <= set(
+        status_fields
+    )
 
 
 def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
@@ -456,14 +525,17 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
     assert matrix["schema"] == "regression_cp_final_audit_response_matrix_v1"
     assert matrix["summary"]["p0_status"] == "completed"
-    assert matrix["summary"]["benchmark_v2_status"] == "execution_contract_defined_not_executed"
+    assert (
+        matrix["summary"]["benchmark_v2_status"]
+        == "execution_preflight_templates_ready_not_executed"
+    )
     assert (
         matrix["summary"]["maintenance_status"]
         == "maintenance_gates_defined_modularization_pending"
     )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
-    assert ("P1", "execution_contract_defined_not_executed") in statuses
+    assert ("P1", "execution_preflight_templates_ready_not_executed") in statuses
     assert ("P2", "maintenance_gates_defined_modularization_pending") in statuses
     assert any(
         "KG loading architecture" in row["item"]

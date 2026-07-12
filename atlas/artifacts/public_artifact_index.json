@@ -1,5 +1,5 @@
 {
-  "artifact_count": 279,
+  "artifact_count": 287,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -205,6 +205,46 @@
       "artifact_kind": "atlas source",
       "artifact_path": "atlas/README.md",
       "reader_use": "Research Atlas source README."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/README.md",
+      "reader_use": "Benchmark v2 execution preflight overview."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/preflight_readiness_checklist.json",
+      "reader_use": "Machine-readable Benchmark v2 preflight readiness checklist."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/preflight_readiness_checklist.md",
+      "reader_use": "Readable Benchmark v2 preflight readiness checklist."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/run_grid_cardinality.json",
+      "reader_use": "Benchmark v2 run-grid cardinality calculation."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/run_grid_manifest_preview.csv",
+      "reader_use": "Benchmark v2 paired run-grid preview for one placeholder task."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/run_status_ledger_template.csv",
+      "reader_use": "Run-status ledger template required before Benchmark v2 execution."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/source_dataset_registry_template.csv",
+      "reader_use": "Source dataset registry template for Benchmark v2."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/task_variant_registry_template.csv",
+      "reader_use": "Task variant registry template for Benchmark v2."
     },
     {
       "artifact_kind": "bibliography",
@@ -1397,6 +1437,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-12T21:47:36.989488+00:00",
+  "generated_at_utc": "2026-07-12T22:04:32.088828+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
