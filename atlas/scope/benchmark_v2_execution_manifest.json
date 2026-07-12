@@ -1,0 +1,126 @@
+{
+  "analysis_plan": {
+    "primary_interval_summary": "source-dataset-clustered bootstrap",
+    "primary_summary_unit": "source_dataset_id",
+    "required_sensitivity_views": [
+      "absolute_coverage_error_width",
+      "coverage_width_pareto_set",
+      "source_dataset_cluster_bootstrap",
+      "regime_specific_results",
+      "external_validation_only"
+    ],
+    "secondary_summary": "hierarchical task-variant meta-analysis",
+    "selection_rule": "coverage lower-bound pass, then interval score, with sensitivity to absolute coverage error plus width"
+  },
+  "benchmark_version": "benchmark_v2_prospectively_frozen_protocol",
+  "generated_at_utc": "2026-07-12T20:48:39.587880+00:00",
+  "mandatory_grid_invariants": [
+    "Every conformal method is evaluated inside the same learner/config/split cell.",
+    "CQR is model-matched inside each learner family and is not repeated across unrelated outer model-grid rows.",
+    "CV+/jackknife preprocessing, feature selection, scaling, capping, and reducers are fit inside each fold.",
+    "All primary tasks use the same alpha grid and seed list unless a pre-run exclusion is recorded.",
+    "Regime-specific analyses are aggregated separately before any cross-regime summary.",
+    "The primary utility rule and sensitivity rules are frozen before execution starts."
+  ],
+  "paired_cell_key": [
+    "source_dataset_id",
+    "task_variant_id",
+    "split_regime",
+    "alpha",
+    "seed",
+    "split_hash",
+    "learner_family",
+    "learner_config_id",
+    "preprocessing_policy_id"
+  ],
+  "preprocessing_contract": {
+    "fold_local_steps": [
+      "imputation",
+      "scaling",
+      "target capping or transformation parameters",
+      "supervised feature selection",
+      "unsupervised dimensionality reduction",
+      "categorical encoding learned from the training fold"
+    ],
+    "forbidden_global_fit_steps": [
+      "SelectKBest or any supervised reducer fit before CV+/jackknife fold split",
+      "target-aware transformations fit on held-out fold labels",
+      "group or temporal leakage through shuffled folds when grouped/temporal metadata are present"
+    ],
+    "policy_id": "benchmark_v2_fold_local_preprocessing_v1"
+  },
+  "purpose": "Turn the Benchmark v2 design requirements into a runnable contract before any new result rows are generated.",
+  "run_grid": {
+    "alpha_grid": [
+      0.01,
+      0.05,
+      0.1,
+      0.15,
+      0.2
+    ],
+    "conformal_methods": [
+      "split_abs",
+      "cqr_model_matched",
+      "cv_plus",
+      "jackknife_plus",
+      "mondrian_abs"
+    ],
+    "diagnostic_methods_excluded_from_primary_ranking": [
+      "venn_abers_quantile_bridge",
+      "venn_abers_split_fallback_bridge"
+    ],
+    "learner_families": [
+      "ridge",
+      "elastic_net",
+      "hist_gradient_boosting",
+      "random_forest",
+      "extra_trees",
+      "knn",
+      "nystroem_svr"
+    ],
+    "random_seeds": [
+      101,
+      211,
+      307,
+      409,
+      503,
+      607,
+      709,
+      811,
+      907,
+      1009
+    ],
+    "split_regimes": [
+      "iid",
+      "grouped",
+      "temporal",
+      "spatial",
+      "covariate_shift"
+    ]
+  },
+  "schema": "regression_cp_benchmark_v2_execution_manifest_v1",
+  "source_dataset_policy": {
+    "maximum_task_variants_per_source_dataset": 2,
+    "required_source_metadata": [
+      "source_dataset_id",
+      "source_family",
+      "source_url_or_accession",
+      "retrieval_date",
+      "version",
+      "license",
+      "redistribution_status",
+      "row_count_after_policy",
+      "target_name",
+      "task_variant_id",
+      "split_regime_eligibility"
+    ],
+    "selection_constraints": [
+      "No source family may contribute more than two source datasets to the primary benchmark.",
+      "Deduplicated and raw variants remain task variants under the same source dataset.",
+      "External-validation datasets must be acquired or frozen after the protocol timestamp.",
+      "A dataset with ambiguous redistribution terms can be used only through public metadata and reproducible retrieval instructions."
+    ],
+    "target_source_dataset_count": 12
+  },
+  "status": "execution_contract_defined_not_executed"
+}

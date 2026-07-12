@@ -1,5 +1,5 @@
 {
-  "artifact_count": 173,
+  "artifact_count": 177,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -133,6 +133,16 @@
     },
     {
       "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/benchmark_v2_execution_manifest.json",
+      "reader_use": "Machine-readable Benchmark v2 run-grid contract."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/benchmark_v2_execution_manifest.md",
+      "reader_use": "Executable Benchmark v2 run-grid contract."
+    },
+    {
+      "artifact_kind": "atlas data",
       "artifact_path": "atlas/scope/benchmark_v2_protocol.json",
       "reader_use": "Machine-readable Benchmark v2 protocol."
     },
@@ -140,6 +150,16 @@
       "artifact_kind": "atlas data",
       "artifact_path": "atlas/scope/benchmark_v2_protocol.md",
       "reader_use": "Prospectively frozen Benchmark v2 protocol."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/benchmark_v2_public_evidence_contract.json",
+      "reader_use": "Machine-readable Benchmark v2 public evidence contract."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/benchmark_v2_public_evidence_contract.md",
+      "reader_use": "Benchmark v2 public evidence contract."
     },
     {
       "artifact_kind": "atlas data",
@@ -867,6 +887,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-12T12:16:02.007128+00:00",
+  "generated_at_utc": "2026-07-12T20:48:39.587880+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

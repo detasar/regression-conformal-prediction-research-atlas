@@ -214,6 +214,7 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         "near-nominal",
         phrase("document", "status:"),
         phrase("release", "render"),
+        "release" + "_" + "boundary",
         phrase("not", "a", "method", "recommendation"),
         phrase("release", "boundary", "ledger"),
         phrase("method", "recommendation", "authorized"),
@@ -372,17 +373,46 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     root = repo_root()
     protocol_path = root / "atlas/scope/benchmark_v2_protocol.json"
     markdown_path = root / "atlas/scope/benchmark_v2_protocol.md"
+    execution_path = root / "atlas/scope/benchmark_v2_execution_manifest.json"
+    execution_markdown_path = root / "atlas/scope/benchmark_v2_execution_manifest.md"
+    evidence_path = root / "atlas/scope/benchmark_v2_public_evidence_contract.json"
+    evidence_markdown_path = root / "atlas/scope/benchmark_v2_public_evidence_contract.md"
     artifact_index_path = root / "atlas/artifacts/public_artifact_index.json"
     assert protocol_path.exists()
     assert markdown_path.exists()
+    assert execution_path.exists()
+    assert execution_markdown_path.exists()
+    assert evidence_path.exists()
+    assert evidence_markdown_path.exists()
 
     protocol = json.loads(protocol_path.read_text(encoding="utf-8"))
+    execution = json.loads(execution_path.read_text(encoding="utf-8"))
+    evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
     assert protocol["schema"] == "regression_cp_benchmark_v2_protocol_v1"
     assert protocol["status"] == "protocol_defined_not_executed"
+    assert execution["schema"] == "regression_cp_benchmark_v2_execution_manifest_v1"
+    assert execution["status"] == "execution_contract_defined_not_executed"
+    assert evidence["schema"] == "regression_cp_benchmark_v2_public_evidence_contract_v1"
+    assert evidence["status"] == "contract_defined_not_populated"
     assert (
         protocol["primary_estimand"]["primary_comparison_unit"]
         == "source_dataset_task_alpha_learner_config_split_hash"
     )
+    assert execution["run_grid"]["alpha_grid"] == [0.01, 0.05, 0.1, 0.15, 0.2]
+    assert len(execution["run_grid"]["random_seeds"]) == 10
+    assert "cqr_model_matched" in execution["run_grid"]["conformal_methods"]
+    assert "venn_abers_quantile_bridge" in execution["run_grid"]["diagnostic_methods_excluded_from_primary_ranking"]
+    assert "source_dataset_id" in execution["paired_cell_key"]
+    assert "split_hash" in execution["paired_cell_key"]
+    assert any("fold" in step for step in execution["preprocessing_contract"]["fold_local_steps"])
+    required_artifacts = {row["artifact_id"] for row in evidence["required_public_artifacts"]}
+    assert {
+        "source_dataset_registry",
+        "run_grid_manifest",
+        "run_status_ledger",
+        "aggregate_result_cube",
+        "environment_lock",
+    } <= required_artifacts
     requirements = "\n".join(protocol["design_requirements"]).lower()
     assert "exact learner/config/split cells" in requirements
     assert "inside each cv+/jackknife fold" in requirements
@@ -397,6 +427,10 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
     assert "atlas/scope/benchmark_v2_protocol.json" in indexed_paths
     assert "atlas/scope/benchmark_v2_protocol.md" in indexed_paths
+    assert "atlas/scope/benchmark_v2_execution_manifest.json" in indexed_paths
+    assert "atlas/scope/benchmark_v2_execution_manifest.md" in indexed_paths
+    assert "atlas/scope/benchmark_v2_public_evidence_contract.json" in indexed_paths
+    assert "atlas/scope/benchmark_v2_public_evidence_contract.md" in indexed_paths
 
 
 def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
@@ -410,10 +444,10 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
     assert matrix["schema"] == "regression_cp_final_audit_response_matrix_v1"
     assert matrix["summary"]["p0_status"] == "completed"
-    assert matrix["summary"]["benchmark_v2_status"] == "protocol_defined_not_executed"
+    assert matrix["summary"]["benchmark_v2_status"] == "execution_contract_defined_not_executed"
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
-    assert ("P1", "protocol_defined_not_executed") in statuses
+    assert ("P1", "execution_contract_defined_not_executed") in statuses
     assert ("P2", "planned") in statuses
     assert any(
         "KG loading architecture" in row["item"]
@@ -560,6 +594,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("Document", "status:"),
         phrase("Research", "Document", "release", "render"),
         phrase("release", "render"),
+        "release" + "_" + "boundary",
         phrase("not", "a", "method", "recommendation"),
         phrase("private", "final-prose"),
         phrase("do", "not", "cite"),

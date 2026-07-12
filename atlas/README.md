@@ -22,6 +22,8 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 - `provenance/` records source status, hashes, RO-Crate metadata, and PROV traces.
 - `ui_data/` contains compact JSON used by the public website.
 - `scope/benchmark_v2_protocol.*` records the frozen design requirements for the next balanced benchmark.
+- `scope/benchmark_v2_execution_manifest.*` records the paired run-grid contract for Benchmark v2.
+- `scope/benchmark_v2_public_evidence_contract.*` records the minimum public evidence required before Benchmark v2 result interpretation.
 - `scope/audit_response_matrix.*` records the response to the final external audit.
 - `scope/planned_attempted_completed_matrix.*` records which accounting phases are public aggregates and which require private raw ledgers.
 

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-12T12:16:02.007128+00:00",
+  "generated_at_utc": "2026-07-12T20:48:39.587880+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -74,11 +74,15 @@
     {
       "evidence_paths": [
         "atlas/scope/benchmark_v2_protocol.md",
-        "atlas/scope/benchmark_v2_protocol.json"
+        "atlas/scope/benchmark_v2_protocol.json",
+        "atlas/scope/benchmark_v2_execution_manifest.md",
+        "atlas/scope/benchmark_v2_execution_manifest.json",
+        "atlas/scope/benchmark_v2_public_evidence_contract.md",
+        "atlas/scope/benchmark_v2_public_evidence_contract.json"
       ],
       "item": "Define the balanced, paired, leakage-safe Benchmark v2 before new result generation.",
       "priority": "P1",
-      "status": "protocol_defined_not_executed"
+      "status": "execution_contract_defined_not_executed"
     },
     {
       "evidence_paths": [
@@ -113,7 +117,7 @@
   "schema": "regression_cp_final_audit_response_matrix_v1",
   "summary": {
     "atlas_product_status": "partially_completed",
-    "benchmark_v2_status": "protocol_defined_not_executed",
+    "benchmark_v2_status": "execution_contract_defined_not_executed",
     "maintenance_status": "planned",
     "p0_status": "completed"
   }
