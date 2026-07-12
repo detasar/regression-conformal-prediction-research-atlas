@@ -768,7 +768,9 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         root / "paper/research_document.md",
         root / "paper/research_document.html",
         root / "paper/article.html",
+        root / "paper/article.tex",
         root / "paper/supplement.html",
+        root / "paper/supplement.tex",
         root / "atlas/index.html",
         root / "atlas/results/index.html",
         root / "evidence/claim_evidence_matrix.md",
@@ -788,6 +790,13 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("Positive", "claim", "promotion", "authorized"),
         phrase("positive", "claims", "remain", "beyond", "this", "study"),
         phrase("positive", "claims", "remain", "gated"),
+        phrase("working", "final-prose"),
+        phrase("not", "final", "Research", "Document", "prose"),
+        phrase("not", "final", "manuscript"),
+        phrase("private", "review", "draft"),
+        phrase("not", "a", "Research", "Atlas"),
+        phrase("not", "a", "deployment", "guidance"),
+        phrase("public", "research", "report"),
     ]
     violations = []
     for path in paths:

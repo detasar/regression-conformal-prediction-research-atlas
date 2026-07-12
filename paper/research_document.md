@@ -281,8 +281,6 @@ The rows below are writing controls derived from the claim/evidence verification
 | Mondrian absolute-residual calibration | 15 descriptive coverage-gated selected cells; row-weighted coverage mean 0.9073 | Useful diagnostic comparator |
 | Venn-Abers regression bridge | 14 undercoverage runs; quantile-coverage mean 0.6503 | Negative/failure-mode evidence for the evaluated bridge |
 
-The CQR row-weighted coverage mean is 0.9059, with a diagnostic row-weighted band from 0.9050 to 0.9068. This is evidence of strong empirical behavior inside the audited scope. It is not a proof that CQR is generally best, and it is not a deployment guidance.
-
 Robustness diagnostics are aligned with that descriptive reading. The common-cell selected method is `cqr`; common-cell counts are CQR=58, CV+=15, and Mondrian=21. Bootstrap selection counts are cqr=1,000. Leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. These numbers support a practical-candidate description; they do not establish final selection language.
 
 Coverage summaries provide additional context. CQR has nominal and coverage lower-bound pass rates of 0.6118 and 0.8076; CV+ has coverage lower-bound pass rate 0.8136; Mondrian absolute-residual calibration has coverage lower-bound pass rate 0.8586. The document reports these values as diagnostics at the audited scope.
