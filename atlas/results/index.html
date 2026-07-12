@@ -162,6 +162,23 @@ tr:last-child td { border-bottom:0; }
           <div class="axis-note"><span>lower coverage</span><span>higher coverage</span></div>
         </section>
       </div>
+      <div class="diagnostic-grid">
+        <section class="diagnostic-card">
+          <h3>Coverage Deviation</h3>
+          <p class="muted">Mean absolute deviation from the nominal target coverage, grouped by method family in the current filter view. Shorter bars are closer to the nominal target.</p>
+          <div id="coverage-deviation-bars"></div>
+        </section>
+        <section class="diagnostic-card">
+          <h3>Relative Interval-Score Efficiency</h3>
+          <p class="muted">Median interval-score ratio versus the best visible method in the same dataset-alpha cell. A value near 1 means closer to the best score within that cell.</p>
+          <div id="efficiency-bars"></div>
+        </section>
+      </div>
+      <section class="diagnostic-card">
+        <h3>Coverage-Width Pareto Summary</h3>
+        <p class="muted">Counts are computed within each visible dataset-alpha cell using empirical coverage and interval width. A selected row can still be dominated on this two-axis Pareto view because the study selection rule is coverage-gated interval score, not a pure Pareto set.</p>
+        <div id="pareto-summary"></div>
+      </section>
       <section>
         <h3>CQR Backend Sensitivity Map</h3>
         <p class="muted">Rows are paired dataset-alpha-model-family cells. Positive deltas mean the model-matched CQR backend was higher than the fixed-GBM CQR backend for that metric.</p>
@@ -247,6 +264,12 @@ tr:last-child td { border-bottom:0; }
           const nums = values.map(Number).filter(Number.isFinite);
           return nums.length ? nums.reduce((a,b) => a + b, 0) / nums.length : NaN;
         };
+        const median = values => {
+          const nums = values.map(Number).filter(Number.isFinite).sort((a,b) => a-b);
+          if (!nums.length) return NaN;
+          const mid = Math.floor(nums.length / 2);
+          return nums.length % 2 ? nums[mid] : (nums[mid-1] + nums[mid]) / 2;
+        };
         const nondominatedKeys = visible => {
           const keys = new Set();
           const groups = new Map();
@@ -301,6 +324,82 @@ tr:last-child td { border-bottom:0; }
             return `<div class="bar-row"><span>${html(family)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(2, pct * 100).toFixed(1)}%"></div></div><span>${item.selected} / ${item.total}</span></div>`;
           }).join('') || '<p class="muted">No rows in this view.</p>';
         };
+        const renderCoverageDeviation = filtered => {
+          const groups = new Map();
+          for (const row of filtered) {
+            const coverage = Number(row.coverage_mean);
+            const target = Number(row.target_coverage);
+            if (!Number.isFinite(coverage) || !Number.isFinite(target)) continue;
+            const key = row.method_family || 'unknown';
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(Math.abs(coverage - target));
+          }
+          const ranked = [...groups.entries()]
+            .map(([family, values]) => [family, mean(values), values.length])
+            .filter(([, value]) => Number.isFinite(value))
+            .sort((a,b) => a[1] - b[1])
+            .slice(0, 10);
+          const maxValue = Math.max(...ranked.map(([, value]) => value), 0.001);
+          byId('coverage-deviation-bars').innerHTML = ranked.map(([family, value, count]) => {
+            const pct = Math.max(2, (value / maxValue) * 100);
+            return `<div class="bar-row"><span>${html(family)}</span><div class="bar-track" title="mean absolute deviation ${fmt(value)} across ${count} rows"><div class="bar-fill" style="width:${pct.toFixed(1)}%; background:var(--amber)"></div></div><span>${fmt(value)}</span></div>`;
+          }).join('') || '<p class="muted">No coverage values in this view.</p>';
+        };
+        const renderEfficiency = filtered => {
+          const cellMin = new Map();
+          for (const row of filtered) {
+            const score = Number(row.interval_score_mean);
+            if (!Number.isFinite(score) || score <= 0) continue;
+            const key = `${row.dataset_id}|${row.alpha}`;
+            const current = cellMin.get(key);
+            if (!Number.isFinite(current) || score < current) cellMin.set(key, score);
+          }
+          const groups = new Map();
+          for (const row of filtered) {
+            const score = Number(row.interval_score_mean);
+            const best = cellMin.get(`${row.dataset_id}|${row.alpha}`);
+            if (!Number.isFinite(score) || !Number.isFinite(best) || score <= 0 || best <= 0) continue;
+            const key = row.method_family || 'unknown';
+            if (!groups.has(key)) groups.set(key, []);
+            groups.get(key).push(score / best);
+          }
+          const ranked = [...groups.entries()]
+            .map(([family, values]) => [family, median(values), values.length])
+            .filter(([, value]) => Number.isFinite(value))
+            .sort((a,b) => a[1] - b[1])
+            .slice(0, 10);
+          const maxValue = Math.max(...ranked.map(([, value]) => value), 1);
+          byId('efficiency-bars').innerHTML = ranked.map(([family, value, count]) => {
+            const pct = Math.max(2, Math.min(100, (value / maxValue) * 100));
+            return `<div class="bar-row"><span>${html(family)}</span><div class="bar-track" title="median interval-score ratio ${fmt(value)} across ${count} rows"><div class="bar-fill" style="width:${pct.toFixed(1)}%; background:var(--blue)"></div></div><span>${fmt(value)}×</span></div>`;
+          }).join('') || '<p class="muted">No positive interval-score values in this view.</p>';
+        };
+        const renderParetoSummary = filtered => {
+          const valid = filtered.filter(row => Number.isFinite(Number(row.coverage_mean)) && Number.isFinite(Number(row.width_mean)) && Number(row.width_mean) > 0);
+          const keySet = nondominatedKeys(valid);
+          const groups = new Map();
+          let selectedDominated = 0;
+          for (const row of valid) {
+            const family = row.method_family || 'unknown';
+            if (!groups.has(family)) groups.set(family, {total:0, nondominated:0, selected:0});
+            const item = groups.get(family);
+            const key = `${row.dataset_id}|${row.alpha}|${row.method_label}`;
+            const isNondominated = keySet.has(key);
+            item.total += 1;
+            if (isNondominated) item.nondominated += 1;
+            if (isTrue(row.selected_under_coverage_gate)) {
+              item.selected += 1;
+              if (!isNondominated) selectedDominated += 1;
+            }
+          }
+          const ranked = [...groups.entries()].sort((a,b) => b[1].nondominated - a[1].nondominated || b[1].selected - a[1].selected).slice(0, 10);
+          const maxValue = Math.max(...ranked.map(([, item]) => item.nondominated), 1);
+          const rowsHtml = ranked.map(([family, item]) => {
+            const pct = Math.max(2, (item.nondominated / maxValue) * 100);
+            return `<div class="bar-row"><span>${html(family)}</span><div class="bar-track" title="${item.nondominated} nondominated rows; ${item.selected} selected rows"><div class="bar-fill" style="width:${pct.toFixed(1)}%"></div></div><span>${item.nondominated} / ${item.total}</span></div>`;
+          }).join('');
+          byId('pareto-summary').innerHTML = `<p class="muted">${keySet.size.toLocaleString()} visible rows are coverage-width nondominated; ${selectedDominated.toLocaleString()} coverage-gated selected rows are dominated on coverage/width alone.</p>${rowsHtml || '<p class="muted">No Pareto-comparable rows in this view.</p>'}`;
+        };
         const renderScatter = filtered => {
           const el = byId('coverage-width-map');
           const valid = filtered.filter(row => Number.isFinite(Number(row.coverage_mean)) && Number.isFinite(Number(row.width_mean)) && Number(row.width_mean) > 0);
@@ -341,6 +440,9 @@ tr:last-child td { border-bottom:0; }
           const filtered = filteredRows();
           renderSummary(filtered);
           renderMethodBars(filtered);
+          renderCoverageDeviation(filtered);
+          renderEfficiency(filtered);
+          renderParetoSummary(filtered);
           renderScatter(filtered);
           renderCqrDeltas();
           const datasets = [...new Set(filtered.map(r => r.dataset_id))].sort().slice(0, 24);
