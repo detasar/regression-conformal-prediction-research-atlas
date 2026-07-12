@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-12T22:04:32.088828+00:00",
+  "generated_at_utc": "2026-07-12T22:17:40.935059+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -81,11 +81,14 @@
         "atlas/scope/benchmark_v2_public_evidence_contract.json",
         "atlas/benchmark_v2/preflight/README.md",
         "atlas/benchmark_v2/preflight/run_grid_cardinality.json",
-        "atlas/benchmark_v2/preflight/preflight_readiness_checklist.json"
+        "atlas/benchmark_v2/preflight/preflight_readiness_checklist.json",
+        "atlas/benchmark_v2/candidates/source_dataset_registry_candidate.csv",
+        "atlas/benchmark_v2/candidates/task_variant_registry_candidate.csv",
+        "atlas/benchmark_v2/candidates/candidate_selection_rationale.json"
       ],
       "item": "Define the balanced, paired, leakage-safe Benchmark v2 before new result generation.",
       "priority": "P1",
-      "status": "execution_preflight_templates_ready_not_executed"
+      "status": "candidate_registries_published_execution_not_started"
     },
     {
       "evidence_paths": [
@@ -126,7 +129,7 @@
   "schema": "regression_cp_final_audit_response_matrix_v1",
   "summary": {
     "atlas_product_status": "partially_completed",
-    "benchmark_v2_status": "execution_preflight_templates_ready_not_executed",
+    "benchmark_v2_status": "candidate_registries_published_execution_not_started",
     "maintenance_status": "maintenance_gates_defined_modularization_pending",
     "p0_status": "completed"
   }

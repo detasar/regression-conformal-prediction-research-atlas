@@ -11,6 +11,7 @@ import shutil
 import subprocess
 import sys
 import zipfile
+from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urldefrag, urlparse
@@ -446,6 +447,9 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     assert "atlas/benchmark_v2/preflight/README.md" in indexed_paths
     assert "atlas/benchmark_v2/preflight/run_grid_cardinality.json" in indexed_paths
     assert "atlas/benchmark_v2/preflight/preflight_readiness_checklist.json" in indexed_paths
+    assert "atlas/benchmark_v2/candidates/source_dataset_registry_candidate.csv" in indexed_paths
+    assert "atlas/benchmark_v2/candidates/task_variant_registry_candidate.csv" in indexed_paths
+    assert "atlas/benchmark_v2/candidates/candidate_selection_rationale.json" in indexed_paths
 
 
 def test_public_benchmark_v2_preflight_templates_are_published() -> None:
@@ -514,6 +518,58 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     )
 
 
+def test_public_benchmark_v2_candidate_registries_are_scoped_and_balanced() -> None:
+    root = repo_root()
+    candidate_root = root / "atlas/benchmark_v2/candidates"
+    source_path = candidate_root / "source_dataset_registry_candidate.csv"
+    task_path = candidate_root / "task_variant_registry_candidate.csv"
+    rationale_path = candidate_root / "candidate_selection_rationale.json"
+    rationale_md_path = candidate_root / "candidate_selection_rationale.md"
+    assert source_path.exists()
+    assert task_path.exists()
+    assert rationale_path.exists()
+    assert rationale_md_path.exists()
+
+    with source_path.open(encoding="utf-8", newline="") as handle:
+        source_rows = list(csv.DictReader(handle))
+    with task_path.open(encoding="utf-8", newline="") as handle:
+        task_rows = list(csv.DictReader(handle))
+    rationale = json.loads(rationale_path.read_text(encoding="utf-8"))
+
+    assert len(source_rows) == 12
+    assert len(task_rows) == 24
+    assert rationale["schema"] == "regression_cp_benchmark_v2_candidate_selection_rationale_v1"
+    assert rationale["status"] == "candidate_registries_published_execution_not_started"
+    assert rationale["source_candidate_count"] == 12
+    assert rationale["task_variant_candidate_count"] == 24
+    assert "do not contain completed Benchmark v2 result rows" in rationale_md_path.read_text(
+        encoding="utf-8"
+    )
+    family_counts = Counter(row["source_family"] for row in source_rows)
+    assert max(family_counts.values()) <= 2
+    task_counts = Counter(row["source_dataset_id"] for row in task_rows)
+    assert set(task_counts.values()) == {2}
+    assert all(
+        row["candidate_status"] == "candidate_pending_pre_execution_verification"
+        for row in source_rows
+    )
+    assert all(
+        row["candidate_status"] == "candidate_pending_pre_execution_verification"
+        for row in task_rows
+    )
+    assert all(
+        row["content_hash_scope"] == "profile_metadata_bundle_not_raw_dataset"
+        for row in source_rows
+    )
+    assert {"iid", "grouped", "temporal", "covariate_shift"} <= {
+        row["split_regime"] for row in task_rows
+    }
+    assert all(row["metadata_status"] for row in source_rows)
+    assert any("pending_final_terms_review" in row["license"] for row in source_rows)
+    assert all(row["fold_policy"] for row in task_rows)
+    assert all(row["leakage_guard"] for row in task_rows)
+
+
 def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     root = repo_root()
     matrix_path = root / "atlas/scope/audit_response_matrix.json"
@@ -527,7 +583,7 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     assert matrix["summary"]["p0_status"] == "completed"
     assert (
         matrix["summary"]["benchmark_v2_status"]
-        == "execution_preflight_templates_ready_not_executed"
+        == "candidate_registries_published_execution_not_started"
     )
     assert (
         matrix["summary"]["maintenance_status"]
@@ -535,7 +591,7 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
-    assert ("P1", "execution_preflight_templates_ready_not_executed") in statuses
+    assert ("P1", "candidate_registries_published_execution_not_started") in statuses
     assert ("P2", "maintenance_gates_defined_modularization_pending") in statuses
     assert any(
         "KG loading architecture" in row["item"]

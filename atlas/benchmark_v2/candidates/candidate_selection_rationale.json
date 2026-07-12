@@ -1,0 +1,26 @@
+{
+  "execution_boundary": "These are candidate registries for Benchmark v2 planning. They do not contain completed Benchmark v2 result rows.",
+  "generated_at_utc": "2026-07-12T22:17:40.935059+00:00",
+  "schema": "regression_cp_benchmark_v2_candidate_selection_rationale_v1",
+  "selection_rules": [
+    "Use at most two source datasets from any source family.",
+    "Keep task variants nested under source datasets rather than counted as independent datasets.",
+    "Prefer sources with existing audit profiles, clear target policies, and enough rows for paired wrapper comparisons.",
+    "Publish metadata gaps explicitly before execution rather than treating the candidate list as final source validation."
+  ],
+  "source_candidate_count": 12,
+  "source_family_counts": {
+    "aif360": 1,
+    "college_scorecard": 1,
+    "hmda": 1,
+    "meps": 1,
+    "nhanes": 1,
+    "openml": 2,
+    "pisa": 1,
+    "scf": 1,
+    "stackoverflow": 1,
+    "uci": 2
+  },
+  "status": "candidate_registries_published_execution_not_started",
+  "task_variant_candidate_count": 24
+}

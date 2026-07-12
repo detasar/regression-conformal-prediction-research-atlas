@@ -41,7 +41,7 @@
       "status": "not_started"
     }
   ],
-  "generated_at_utc": "2026-07-12T22:04:32.088828+00:00",
+  "generated_at_utc": "2026-07-12T22:17:40.935059+00:00",
   "overall_status": "preflight_templates_ready_execution_not_started",
   "result_generation_status": "not_started",
   "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"

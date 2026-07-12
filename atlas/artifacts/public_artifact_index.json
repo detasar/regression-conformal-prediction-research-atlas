@@ -1,5 +1,5 @@
 {
-  "artifact_count": 287,
+  "artifact_count": 291,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -205,6 +205,26 @@
       "artifact_kind": "atlas source",
       "artifact_path": "atlas/README.md",
       "reader_use": "Research Atlas source README."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/candidates/candidate_selection_rationale.json",
+      "reader_use": "Machine-readable Benchmark v2 candidate-selection rationale."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/candidates/candidate_selection_rationale.md",
+      "reader_use": "Readable Benchmark v2 candidate-selection rationale."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/candidates/source_dataset_registry_candidate.csv",
+      "reader_use": "Draft Benchmark v2 source-dataset candidate registry."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/candidates/task_variant_registry_candidate.csv",
+      "reader_use": "Draft Benchmark v2 task-variant candidate registry."
     },
     {
       "artifact_kind": "benchmark v2",
@@ -1437,6 +1457,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-12T22:04:32.088828+00:00",
+  "generated_at_utc": "2026-07-12T22:17:40.935059+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
