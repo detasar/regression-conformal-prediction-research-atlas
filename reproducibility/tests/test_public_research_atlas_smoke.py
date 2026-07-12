@@ -457,10 +457,14 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     assert matrix["schema"] == "regression_cp_final_audit_response_matrix_v1"
     assert matrix["summary"]["p0_status"] == "completed"
     assert matrix["summary"]["benchmark_v2_status"] == "execution_contract_defined_not_executed"
+    assert (
+        matrix["summary"]["maintenance_status"]
+        == "maintenance_gates_defined_modularization_pending"
+    )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
     assert ("P1", "execution_contract_defined_not_executed") in statuses
-    assert ("P2", "planned") in statuses
+    assert ("P2", "maintenance_gates_defined_modularization_pending") in statuses
     assert any(
         "KG loading architecture" in row["item"]
         and row["status"] == "partially_completed"
@@ -475,6 +479,36 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
     assert "atlas/scope/audit_response_matrix.json" in indexed_paths
     assert "atlas/scope/audit_response_matrix.md" in indexed_paths
+    assert "atlas/maintenance/maintenance_gate_matrix.json" in indexed_paths
+    assert "atlas/maintenance/maintenance_gate_matrix.md" in indexed_paths
+
+
+def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
+    root = repo_root()
+    matrix_path = root / "atlas/maintenance/maintenance_gate_matrix.json"
+    markdown_path = root / "atlas/maintenance/maintenance_gate_matrix.md"
+    assert matrix_path.exists()
+    assert markdown_path.exists()
+
+    matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
+    assert matrix["schema"] == "regression_cp_public_maintenance_gate_matrix_v1"
+    assert (
+        matrix["summary"]["overall_status"]
+        == "maintenance_gates_defined_modularization_pending"
+    )
+    gate_by_id = {row["gate_id"]: row for row in matrix["gates"]}
+    assert gate_by_id["public_smoke_ci"]["ci_enforced"] is True
+    assert gate_by_id["package_content"]["status"] == "implemented"
+    assert gate_by_id["public_forbidden_language"]["status"] == "implemented"
+    assert gate_by_id["environment_lock"]["status"] == "implemented"
+    assert gate_by_id["accessibility_metadata"]["status"] == "partial"
+    assert gate_by_id["builder_modularization"]["status"] == "planned"
+    assert gate_by_id["lint_type_security"]["ci_enforced"] is False
+    assert matrix["summary"]["ci_enforced_gate_count"] >= 5
+
+    markdown = markdown_path.read_text(encoding="utf-8")
+    assert "# Maintenance Gate Matrix" in markdown
+    assert "Builder modularization gate" in markdown
 
 
 def test_public_rebuild_commands_run() -> None:

@@ -1,5 +1,5 @@
 {
-  "artifact_count": 277,
+  "artifact_count": 279,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -957,6 +957,16 @@
       "reader_use": "Individual experiment report Markdown."
     },
     {
+      "artifact_kind": "maintenance",
+      "artifact_path": "atlas/maintenance/maintenance_gate_matrix.json",
+      "reader_use": "Machine-readable maintenance and CI gate matrix."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "atlas/maintenance/maintenance_gate_matrix.md",
+      "reader_use": "Readable maintenance and CI gate matrix."
+    },
+    {
       "artifact_kind": "manifest",
       "artifact_path": "evidence/public_artifact_manifest.json",
       "reader_use": "Public KG source/evidence resolution manifest."
@@ -1387,6 +1397,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-12T21:36:13.797700+00:00",
+  "generated_at_utc": "2026-07-12T21:47:36.989488+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

@@ -21,6 +21,7 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 - `claims/` records interpretation boundaries and reader-safe evidence statements.
 - `provenance/` records source status, hashes, RO-Crate metadata, and PROV traces.
 - `ui_data/` contains compact JSON used by the public website.
+- `maintenance/` records public CI and maintenance gates.
 - `scope/benchmark_v2_protocol.*` records the frozen design requirements for the next balanced benchmark.
 - `scope/benchmark_v2_execution_manifest.*` records the paired run-grid contract for Benchmark v2.
 - `scope/benchmark_v2_public_evidence_contract.*` records the minimum public evidence required before Benchmark v2 result interpretation.

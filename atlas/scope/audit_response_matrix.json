@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-12T21:36:13.797700+00:00",
+  "generated_at_utc": "2026-07-12T21:47:36.989488+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -111,18 +111,20 @@
     },
     {
       "evidence_paths": [
+        "atlas/maintenance/maintenance_gate_matrix.md",
+        "atlas/maintenance/maintenance_gate_matrix.json",
         "reproducibility/experiments/regression/scripts/"
       ],
       "item": "Modularize monolithic builders and add broader maintenance gates.",
       "priority": "P2",
-      "status": "planned"
+      "status": "maintenance_gates_defined_modularization_pending"
     }
   ],
   "schema": "regression_cp_final_audit_response_matrix_v1",
   "summary": {
     "atlas_product_status": "partially_completed",
     "benchmark_v2_status": "execution_contract_defined_not_executed",
-    "maintenance_status": "planned",
+    "maintenance_status": "maintenance_gates_defined_modularization_pending",
     "p0_status": "completed"
   }
 }
