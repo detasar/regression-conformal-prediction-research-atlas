@@ -248,6 +248,9 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert len(included_datasets) == scope["publication_dataset_count"]
     for row in included_datasets:
         assert (root / row["public_card_path"]).exists()
+        assert (root / row["public_card_html_path"]).exists()
+    dataset_index = (root / "atlas/datasets/index.html").read_text(encoding="utf-8")
+    assert "cards/fairlearn_acs_income_wy.html" in dataset_index
 
     result_methods = set()
     with (root / "atlas/results/result_cube_public.csv").open(encoding="utf-8", newline="") as handle:
@@ -257,6 +260,11 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
             result_methods.add(row["method_label"])
     ontology_methods = {row["method_label"] for row in method_ontology["methods"]}
     assert result_methods <= ontology_methods
+    for row in method_ontology["methods"]:
+        assert (root / row["public_card_html_path"]).exists()
+    method_index = (root / "atlas/methods/index.html").read_text(encoding="utf-8")
+    assert "cards/cqr.html" in method_index
+    assert "cards/cqr_model_matched.html" in method_index
     assert all(row.get("evidence_gate") for row in claim_registry["claims"])
     assert {route["route_id"] for route in kg["research_map"]} >= {
         "experiment_scope",

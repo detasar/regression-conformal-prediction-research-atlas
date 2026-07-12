@@ -9,6 +9,7 @@
       "dataset_family": "aif360",
       "dataset_id": "aif360_lawschool_gpa",
       "method_label_count": 9,
+      "public_card_html_path": "atlas/datasets/cards/aif360_lawschool_gpa.html",
       "public_card_path": "atlas/datasets/cards/aif360_lawschool_gpa.md",
       "publication_completed_row_count": 2368,
       "publication_included": true
@@ -22,6 +23,7 @@
       "dataset_family": "aif360",
       "dataset_id": "aif360_lawschool_gpa_dedup",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/aif360_lawschool_gpa_dedup.html",
       "public_card_path": "atlas/datasets/cards/aif360_lawschool_gpa_dedup.md",
       "publication_completed_row_count": 676,
       "publication_included": true
@@ -35,6 +37,7 @@
       "dataset_family": "college_scorecard",
       "dataset_id": "college_scorecard_2026_median_earnings",
       "method_label_count": 10,
+      "public_card_html_path": "atlas/datasets/cards/college_scorecard_2026_median_earnings.html",
       "public_card_path": "atlas/datasets/cards/college_scorecard_2026_median_earnings.md",
       "publication_completed_row_count": 2772,
       "publication_included": true
@@ -48,6 +51,7 @@
       "dataset_family": "fairlearn",
       "dataset_id": "fairlearn_acs_income_wy",
       "method_label_count": 10,
+      "public_card_html_path": "atlas/datasets/cards/fairlearn_acs_income_wy.html",
       "public_card_path": "atlas/datasets/cards/fairlearn_acs_income_wy.md",
       "publication_completed_row_count": 71000,
       "publication_included": true
@@ -61,6 +65,7 @@
       "dataset_family": "fairlearn",
       "dataset_id": "fairlearn_diabetes_hospital_los",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/fairlearn_diabetes_hospital_los.html",
       "public_card_path": "atlas/datasets/cards/fairlearn_diabetes_hospital_los.md",
       "publication_completed_row_count": 22,
       "publication_included": true
@@ -74,6 +79,7 @@
       "dataset_family": "folktables",
       "dataset_id": "folktables_acs_poverty_ratio_wy",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/folktables_acs_poverty_ratio_wy.html",
       "public_card_path": "atlas/datasets/cards/folktables_acs_poverty_ratio_wy.md",
       "publication_completed_row_count": 18,
       "publication_included": true
@@ -87,6 +93,7 @@
       "dataset_family": "folktables",
       "dataset_id": "folktables_acs_travel_time_wy",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/folktables_acs_travel_time_wy.html",
       "public_card_path": "atlas/datasets/cards/folktables_acs_travel_time_wy.md",
       "publication_completed_row_count": 18,
       "publication_included": true
@@ -100,6 +107,7 @@
       "dataset_family": "hmda",
       "dataset_id": "hmda_2025_wy_interest_rate",
       "method_label_count": 11,
+      "public_card_html_path": "atlas/datasets/cards/hmda_2025_wy_interest_rate.html",
       "public_card_path": "atlas/datasets/cards/hmda_2025_wy_interest_rate.md",
       "publication_completed_row_count": 1776,
       "publication_included": true
@@ -113,6 +121,7 @@
       "dataset_family": "meps",
       "dataset_id": "meps_2023_total_expenditure",
       "method_label_count": 10,
+      "public_card_html_path": "atlas/datasets/cards/meps_2023_total_expenditure.html",
       "public_card_path": "atlas/datasets/cards/meps_2023_total_expenditure.md",
       "publication_completed_row_count": 2826,
       "publication_included": true
@@ -126,6 +135,7 @@
       "dataset_family": "nhanes",
       "dataset_id": "nhanes_2017_2018_bmi",
       "method_label_count": 11,
+      "public_card_html_path": "atlas/datasets/cards/nhanes_2017_2018_bmi.html",
       "public_card_path": "atlas/datasets/cards/nhanes_2017_2018_bmi.md",
       "publication_completed_row_count": 5180,
       "publication_included": true
@@ -139,6 +149,7 @@
       "dataset_family": "nhanes",
       "dataset_id": "nhanes_2017_2018_glycohemoglobin",
       "method_label_count": 11,
+      "public_card_html_path": "atlas/datasets/cards/nhanes_2017_2018_glycohemoglobin.html",
       "public_card_path": "atlas/datasets/cards/nhanes_2017_2018_glycohemoglobin.md",
       "publication_completed_row_count": 5238,
       "publication_included": true
@@ -152,6 +163,7 @@
       "dataset_family": "nhanes",
       "dataset_id": "nhanes_2017_2018_systolic_bp",
       "method_label_count": 11,
+      "public_card_html_path": "atlas/datasets/cards/nhanes_2017_2018_systolic_bp.html",
       "public_card_path": "atlas/datasets/cards/nhanes_2017_2018_systolic_bp.md",
       "publication_completed_row_count": 5238,
       "publication_included": true
@@ -165,6 +177,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_chlamydia",
       "method_label_count": 14,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_chlamydia.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_chlamydia.md",
       "publication_completed_row_count": 5142,
       "publication_included": true
@@ -178,6 +191,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_galapagos",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_galapagos.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_galapagos.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -191,6 +205,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_gsssexsurvey",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_gsssexsurvey.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_gsssexsurvey.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -204,6 +219,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_hiroshima_rate",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate.md",
       "publication_completed_row_count": 1458,
       "publication_included": true
@@ -217,6 +233,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_hiroshima_rate_dedup",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate_dedup.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate_dedup.md",
       "publication_completed_row_count": 744,
       "publication_included": true
@@ -230,6 +247,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_runshoes",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_runshoes.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_runshoes.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -243,6 +261,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_seropositive",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_seropositive.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_seropositive.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -256,6 +275,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_analcatdata_vehicle_count",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_analcatdata_vehicle_count.html",
       "public_card_path": "atlas/datasets/cards/openml_analcatdata_vehicle_count.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -269,6 +289,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_arsenic_event_rate_panel",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/openml_arsenic_event_rate_panel.html",
       "public_card_path": "atlas/datasets/cards/openml_arsenic_event_rate_panel.md",
       "publication_completed_row_count": 2172,
       "publication_included": true
@@ -282,6 +303,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_auto_price",
       "method_label_count": 14,
+      "public_card_html_path": "atlas/datasets/cards/openml_auto_price.html",
       "public_card_path": "atlas/datasets/cards/openml_auto_price.md",
       "publication_completed_row_count": 3600,
       "publication_included": true
@@ -295,6 +317,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_baseball_hitter_salary",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_baseball_hitter_salary.html",
       "public_card_path": "atlas/datasets/cards/openml_baseball_hitter_salary.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -308,6 +331,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_baseball_pitcher_salary",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_baseball_pitcher_salary.html",
       "public_card_path": "atlas/datasets/cards/openml_baseball_pitcher_salary.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -321,6 +345,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_baseball_team_salary",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_baseball_team_salary.html",
       "public_card_path": "atlas/datasets/cards/openml_baseball_team_salary.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -334,6 +359,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_basketball_points_per_minute",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_basketball_points_per_minute.html",
       "public_card_path": "atlas/datasets/cards/openml_basketball_points_per_minute.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -347,6 +373,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_bodyfat_percentage",
       "method_label_count": 14,
+      "public_card_html_path": "atlas/datasets/cards/openml_bodyfat_percentage.html",
       "public_card_path": "atlas/datasets/cards/openml_bodyfat_percentage.md",
       "publication_completed_row_count": 3600,
       "publication_included": true
@@ -360,6 +387,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_california_housing",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_california_housing.html",
       "public_card_path": "atlas/datasets/cards/openml_california_housing.md",
       "publication_completed_row_count": 18,
       "publication_included": true
@@ -373,6 +401,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_california_housing_spatial_cell",
       "method_label_count": 11,
+      "public_card_html_path": "atlas/datasets/cards/openml_california_housing_spatial_cell.html",
       "public_card_path": "atlas/datasets/cards/openml_california_housing_spatial_cell.md",
       "publication_completed_row_count": 1716,
       "publication_included": true
@@ -386,6 +415,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_cholesterol_chol",
       "method_label_count": 12,
+      "public_card_html_path": "atlas/datasets/cards/openml_cholesterol_chol.html",
       "public_card_path": "atlas/datasets/cards/openml_cholesterol_chol.md",
       "publication_completed_row_count": 441,
       "publication_included": true
@@ -399,6 +429,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_cps_85_wages",
       "method_label_count": 10,
+      "public_card_html_path": "atlas/datasets/cards/openml_cps_85_wages.html",
       "public_card_path": "atlas/datasets/cards/openml_cps_85_wages.md",
       "publication_completed_row_count": 1035,
       "publication_included": true
@@ -412,6 +443,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_delta_elevators_se",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/openml_delta_elevators_se.html",
       "public_card_path": "atlas/datasets/cards/openml_delta_elevators_se.md",
       "publication_completed_row_count": 2172,
       "publication_included": true
@@ -425,6 +457,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_disclosure_x_bias",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_disclosure_x_bias.html",
       "public_card_path": "atlas/datasets/cards/openml_disclosure_x_bias.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -438,6 +471,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_disclosure_x_noise",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_disclosure_x_noise.html",
       "public_card_path": "atlas/datasets/cards/openml_disclosure_x_noise.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -451,6 +485,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_disclosure_x_tampered",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_disclosure_x_tampered.html",
       "public_card_path": "atlas/datasets/cards/openml_disclosure_x_tampered.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -464,6 +499,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_disclosure_z",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_disclosure_z.html",
       "public_card_path": "atlas/datasets/cards/openml_disclosure_z.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -477,6 +513,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_faculty_salaries_asst_prof",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_faculty_salaries_asst_prof.html",
       "public_card_path": "atlas/datasets/cards/openml_faculty_salaries_asst_prof.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -490,6 +527,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_fishcatch_weight",
       "method_label_count": 14,
+      "public_card_html_path": "atlas/datasets/cards/openml_fishcatch_weight.html",
       "public_card_path": "atlas/datasets/cards/openml_fishcatch_weight.md",
       "publication_completed_row_count": 3600,
       "publication_included": true
@@ -503,6 +541,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_gascons_consumption",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_gascons_consumption.html",
       "public_card_path": "atlas/datasets/cards/openml_gascons_consumption.md",
       "publication_completed_row_count": 6,
       "publication_included": true
@@ -516,6 +555,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_house_16h_price",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_house_16h_price.html",
       "public_card_path": "atlas/datasets/cards/openml_house_16h_price.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -529,6 +569,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_hutsof99_quality",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_hutsof99_quality.html",
       "public_card_path": "atlas/datasets/cards/openml_hutsof99_quality.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -542,6 +583,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_icu_loc",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_icu_loc.html",
       "public_card_path": "atlas/datasets/cards/openml_icu_loc.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -555,6 +597,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_kin8nm_y",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/openml_kin8nm_y.html",
       "public_card_path": "atlas/datasets/cards/openml_kin8nm_y.md",
       "publication_completed_row_count": 744,
       "publication_included": true
@@ -568,6 +611,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_mba_grade_gpa",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_mba_grade_gpa.html",
       "public_card_path": "atlas/datasets/cards/openml_mba_grade_gpa.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -581,6 +625,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_mba_grade_gpa_dedup",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_mba_grade_gpa_dedup.html",
       "public_card_path": "atlas/datasets/cards/openml_mba_grade_gpa_dedup.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -594,6 +639,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_mercury_in_bass",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_mercury_in_bass.html",
       "public_card_path": "atlas/datasets/cards/openml_mercury_in_bass.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -607,6 +653,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_mtp2_oz1143",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/openml_mtp2_oz1143.html",
       "public_card_path": "atlas/datasets/cards/openml_mtp2_oz1143.md",
       "publication_completed_row_count": 1778,
       "publication_included": true
@@ -620,6 +667,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_newton_hema_cells",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_newton_hema_cells.html",
       "public_card_path": "atlas/datasets/cards/openml_newton_hema_cells.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -633,6 +681,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_plasma_retinol",
       "method_label_count": 12,
+      "public_card_html_path": "atlas/datasets/cards/openml_plasma_retinol.html",
       "public_card_path": "atlas/datasets/cards/openml_plasma_retinol.md",
       "publication_completed_row_count": 441,
       "publication_included": true
@@ -646,6 +695,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_sensory_score",
       "method_label_count": 14,
+      "public_card_html_path": "atlas/datasets/cards/openml_sensory_score.html",
       "public_card_path": "atlas/datasets/cards/openml_sensory_score.md",
       "publication_completed_row_count": 3600,
       "publication_included": true
@@ -659,6 +709,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_sleuth_case1201_rank",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_sleuth_case1201_rank.html",
       "public_card_path": "atlas/datasets/cards/openml_sleuth_case1201_rank.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -672,6 +723,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_sleuth_case1202_experience",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_sleuth_case1202_experience.html",
       "public_card_path": "atlas/datasets/cards/openml_sleuth_case1202_experience.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -685,6 +737,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_sleuth_ex1714_invol",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_sleuth_ex1714_invol.html",
       "public_card_path": "atlas/datasets/cards/openml_sleuth_ex1714_invol.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -698,6 +751,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_smsa_nox",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_smsa_nox.html",
       "public_card_path": "atlas/datasets/cards/openml_smsa_nox.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -711,6 +765,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_socmob_sons_occupation",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_socmob_sons_occupation.html",
       "public_card_path": "atlas/datasets/cards/openml_socmob_sons_occupation.md",
       "publication_completed_row_count": 30,
       "publication_included": true
@@ -724,6 +779,7 @@
       "dataset_family": "openml",
       "dataset_id": "openml_space_ga_log_votes_pop",
       "method_label_count": 6,
+      "public_card_html_path": "atlas/datasets/cards/openml_space_ga_log_votes_pop.html",
       "public_card_path": "atlas/datasets/cards/openml_space_ga_log_votes_pop.md",
       "publication_completed_row_count": 18,
       "publication_included": true
@@ -737,6 +793,7 @@
       "dataset_family": "oulad",
       "dataset_id": "oulad_assessment_score",
       "method_label_count": 5,
+      "public_card_html_path": "atlas/datasets/cards/oulad_assessment_score.html",
       "public_card_path": "atlas/datasets/cards/oulad_assessment_score.md",
       "publication_completed_row_count": 15,
       "publication_included": true
@@ -750,6 +807,7 @@
       "dataset_family": "pisa",
       "dataset_id": "pisa_2022_math_pv_mean",
       "method_label_count": 11,
+      "public_card_html_path": "atlas/datasets/cards/pisa_2022_math_pv_mean.html",
       "public_card_path": "atlas/datasets/cards/pisa_2022_math_pv_mean.md",
       "publication_completed_row_count": 1701,
       "publication_included": true
@@ -763,6 +821,7 @@
       "dataset_family": "scf",
       "dataset_id": "scf_2022_networth",
       "method_label_count": 10,
+      "public_card_html_path": "atlas/datasets/cards/scf_2022_networth.html",
       "public_card_path": "atlas/datasets/cards/scf_2022_networth.md",
       "publication_completed_row_count": 1422,
       "publication_included": true
@@ -776,6 +835,7 @@
       "dataset_family": "stackoverflow",
       "dataset_id": "stackoverflow_2025_compensation",
       "method_label_count": 10,
+      "public_card_html_path": "atlas/datasets/cards/stackoverflow_2025_compensation.html",
       "public_card_path": "atlas/datasets/cards/stackoverflow_2025_compensation.md",
       "publication_completed_row_count": 4397,
       "publication_included": true
@@ -789,6 +849,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_auto_mpg",
       "method_label_count": 12,
+      "public_card_html_path": "atlas/datasets/cards/uci_auto_mpg.html",
       "public_card_path": "atlas/datasets/cards/uci_auto_mpg.md",
       "publication_completed_row_count": 754,
       "publication_included": true
@@ -802,6 +863,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_bike_sharing",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/uci_bike_sharing.html",
       "public_card_path": "atlas/datasets/cards/uci_bike_sharing.md",
       "publication_completed_row_count": 732,
       "publication_included": true
@@ -815,6 +877,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_communities_crime",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/uci_communities_crime.html",
       "public_card_path": "atlas/datasets/cards/uci_communities_crime.md",
       "publication_completed_row_count": 732,
       "publication_included": true
@@ -828,6 +891,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_student_performance",
       "method_label_count": 0,
+      "public_card_html_path": "atlas/datasets/cards/uci_student_performance.html",
       "public_card_path": "atlas/datasets/cards/uci_student_performance.md",
       "publication_completed_row_count": 0,
       "publication_included": false
@@ -841,6 +905,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_student_performance_no_prior_grades",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/uci_student_performance_no_prior_grades.html",
       "public_card_path": "atlas/datasets/cards/uci_student_performance_no_prior_grades.md",
       "publication_completed_row_count": 747,
       "publication_included": true
@@ -854,6 +919,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_student_performance_with_prior_grades",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/uci_student_performance_with_prior_grades.html",
       "public_card_path": "atlas/datasets/cards/uci_student_performance_with_prior_grades.md",
       "publication_completed_row_count": 732,
       "publication_included": true
@@ -867,6 +933,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_wine_quality",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/uci_wine_quality.html",
       "public_card_path": "atlas/datasets/cards/uci_wine_quality.md",
       "publication_completed_row_count": 2250,
       "publication_included": true
@@ -880,6 +947,7 @@
       "dataset_family": "uci",
       "dataset_id": "uci_wine_quality_dedup",
       "method_label_count": 7,
+      "public_card_html_path": "atlas/datasets/cards/uci_wine_quality_dedup.html",
       "public_card_path": "atlas/datasets/cards/uci_wine_quality_dedup.md",
       "publication_completed_row_count": 2160,
       "publication_included": true

@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dataset: nhanes_2017_2018_bmi</title>
+  <meta name="description" content="Public aggregate dataset card for the regression conformal prediction Research Atlas.">
+  <link rel="canonical" href="https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/nhanes_2017_2018_bmi.html">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/x-bibtex" title="BibTeX citation" href="../../../paper/citation.bib">
+  <link rel="alternate" type="application/x-research-info-systems" title="RIS citation" href="../../../paper/citation.ris">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dataset: nhanes_2017_2018_bmi">
+  <meta property="og:description" content="Public aggregate dataset card for the regression conformal prediction Research Atlas.">
+  <meta property="og:url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/nhanes_2017_2018_bmi.html">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Dataset", "name": "Regression CP Research Atlas: Dataset: nhanes_2017_2018_bmi", "description": "Public aggregate dataset card for the regression conformal prediction Research Atlas.", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/nhanes_2017_2018_bmi.html", "creator": {"@type": "Person", "name": "Emre Tasar", "email": "detasar@gmail.com"}, "keywords": ["conformal prediction", "regression", "prediction intervals", "research atlas"]}</script>
+  <style>
+:root { --paper:#f8f5ee; --ink:#141821; --muted:#596273; --line:#d8cfbe; --panel:#fffdf8; --teal:#0f766e; --amber:#95640f; --red:#a0442f; --blue:#245f9f; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height:1.55; }
+a { color:#145ea8; font-weight:740; text-decoration-thickness:1px; text-underline-offset:3px; }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid rgba(15,118,110,.35); outline-offset:3px; }
+.skip-link { position:absolute; left:14px; top:-60px; background:var(--ink); color:#fffdf8; padding:8px 12px; border-radius:6px; z-index:20; }
+.skip-link:focus { top:12px; }
+.shell { max-width:1280px; margin:0 auto; padding:24px 22px 68px; }
+.top { display:flex; justify-content:space-between; gap:20px; align-items:flex-start; border-bottom:1px solid var(--line); padding-bottom:18px; color:var(--muted); }
+.brand { color:var(--ink); font-weight:860; }
+.hero { display:grid; grid-template-columns:minmax(0,1fr) 420px; gap:40px; align-items:end; padding:42px 0 32px; border-bottom:1px solid var(--line); }
+.kicker { color:var(--teal); text-transform:uppercase; font-weight:860; font-size:12px; letter-spacing:0; margin-bottom:12px; }
+h1 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:clamp(42px,6vw,86px); line-height:.96; margin:0 0 18px; letter-spacing:0; }
+h2 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:30px; line-height:1.05; margin:0 0 14px; letter-spacing:0; }
+h3 { font-size:17px; margin:0 0 8px; }
+.lede { font-size:clamp(18px,1.7vw,23px); color:#354052; max-width:820px; margin:0; }
+.actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:22px; }
+.button { min-height:42px; display:inline-flex; align-items:center; border:1px solid var(--line); border-radius:6px; padding:9px 13px; background:#fffdf8; color:var(--ink); text-decoration:none; }
+.button.primary { background:var(--ink); color:#fffdf8; border-color:var(--ink); }
+.button:hover { border-color:var(--teal); color:var(--teal); }
+.button.primary:hover { background:var(--teal); color:#fffdf8; }
+.metric-board { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+.metric { background:var(--panel); padding:15px; min-height:88px; }
+.metric b { display:block; font-family:Charter, Georgia, 'Times New Roman', serif; font-size:30px; line-height:1; }
+.metric span { display:block; color:var(--muted); font-size:12px; text-transform:uppercase; margin-top:8px; }
+.nav { display:flex; flex-wrap:wrap; gap:8px; margin:20px 0 0; }
+.nav a { border:1px solid var(--line); border-radius:999px; background:#fffdf8; color:var(--ink); padding:6px 11px; text-decoration:none; font-size:13px; }
+.nav a:hover { border-color:var(--teal); color:var(--teal); }
+.grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; padding:30px 0; }
+.tile { border-top:2px solid var(--ink); padding-top:13px; min-width:0; }
+.tile p, .muted { color:var(--muted); margin:0 0 12px; }
+.panel-grid { display:grid; grid-template-columns:1.05fr .95fr; gap:24px; margin:28px 0; }
+.panel { background:var(--panel); border:1px solid var(--line); padding:18px; min-width:0; }
+.callout { border-left:4px solid var(--teal); background:#fffdf8; padding:15px 17px; margin:24px 0; }
+.callout.red { border-color:var(--red); }
+.table-wrap { overflow:auto; border:1px solid var(--line); background:var(--panel); margin:16px 0 26px; }
+table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:14px; }
+caption { text-align:left; padding:10px; color:var(--muted); font-weight:760; background:#fffdf8; border-bottom:1px solid var(--line); }
+th,td { border-bottom:1px solid var(--line); padding:9px 10px; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+th { background:#f3ead9; color:#4d3b1b; font-size:12px; text-transform:uppercase; letter-spacing:0; }
+tr:last-child td { border-bottom:0; }
+.controls { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0; }
+.controls label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; text-transform:uppercase; }
+.controls input, .controls select { width:100%; border:1px solid var(--line); border-radius:6px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
+.explorer-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:18px 0; }
+.summary-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin:12px 0 18px; }
+.summary-strip div { background:#fffdf8; padding:12px; min-width:0; }
+.summary-strip b { display:block; font-size:19px; }
+.summary-strip span { color:var(--muted); font-size:11px; font-weight:820; text-transform:uppercase; }
+.bar-row { display:grid; grid-template-columns:minmax(120px, .8fr) 1fr 86px; align-items:center; gap:10px; margin:8px 0; font-size:13px; }
+.bar-track { height:12px; background:#eee4d2; border:1px solid var(--line); position:relative; }
+.bar-fill { height:100%; background:var(--teal); min-width:2px; }
+.heatmap-grid { display:grid; grid-template-columns:220px repeat(var(--method-count, 8), minmax(88px,1fr)); min-width:960px; border:1px solid var(--line); background:var(--line); gap:1px; margin:12px 0 20px; }
+.heatmap-cell { min-height:54px; background:#fffdf8; padding:7px 8px; font-size:12px; overflow-wrap:anywhere; }
+.heatmap-cell.head { background:#f3ead9; color:#4d3b1b; font-weight:850; text-transform:uppercase; }
+.heatmap-cell.dataset { font-weight:760; color:#243247; }
+.heatmap-cell.selected { box-shadow:inset 0 0 0 3px rgba(15,118,110,.28); }
+.heatmap-cell.under { background:#fff2ec; }
+.heatmap-cell.pathology { background:#fff6ce; }
+.scatter { height:300px; min-height:300px; position:relative; border:1px solid var(--line); background:linear-gradient(#f3ead9 1px, transparent 1px), linear-gradient(90deg, #f3ead9 1px, transparent 1px), #fffdf8; background-size:100% 25%, 25% 100%; margin-top:10px; }
+.point { position:absolute; width:13px; height:13px; border-radius:50%; border:1px solid #fffdf8; background:#596273; transform:translate(-50%,50%); padding:0; cursor:pointer; }
+.point.selected { background:var(--teal); width:16px; height:16px; }
+.point.nondominated { box-shadow:0 0 0 3px rgba(149,100,15,.28); }
+.point.pathology { background:var(--amber); }
+.axis-note { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; gap:10px; }
+.delta-row { display:grid; grid-template-columns:minmax(140px,1fr) 1fr 90px; gap:10px; align-items:center; margin:8px 0; font-size:13px; }
+.delta-track { height:12px; border:1px solid var(--line); background:linear-gradient(90deg,#a0442f 0 49%,#273449 49% 51%,#0f766e 51% 100%); position:relative; }
+.delta-marker { position:absolute; top:-4px; width:4px; height:20px; background:#141821; }
+.funnel { display:grid; gap:10px; margin:12px 0 18px; }
+.funnel-row { display:grid; grid-template-columns:220px minmax(0,1fr) 160px; gap:12px; align-items:center; }
+.funnel-track { height:18px; border:1px solid var(--line); background:#eee4d2; position:relative; }
+.funnel-fill { height:100%; background:var(--teal); min-width:2px; }
+.funnel-fill.missing { background:repeating-linear-gradient(45deg,#d8cfbe 0 6px,#f6eedf 6px 12px); }
+.diagnostic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:14px 0 20px; }
+.diagnostic-card { border:1px solid var(--line); background:#fffdf8; padding:14px; min-width:0; }
+.legend { display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:13px; margin:8px 0 16px; }
+.legend span { display:inline-flex; align-items:center; gap:6px; }
+.swatch { width:14px; height:14px; border:1px solid var(--line); display:inline-block; }
+.path-list { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+.path-list a { border:1px solid var(--line); background:#fffdf8; padding:11px; border-radius:6px; text-decoration:none; color:var(--ink); }
+.footer { border-top:1px solid var(--line); color:var(--muted); padding-top:18px; margin-top:40px; font-size:13px; }
+@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid,.controls,.explorer-grid,.diagnostic-grid,.funnel-row { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .summary-strip { grid-template-columns:1fr 1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <main id="main-content" class="shell">
+    <div class="top">
+      <div><span class="brand">Regression CP Research Atlas</span> · evidence atlas</div>
+      <div>Emre Tasar, Data Scientist<br><a href="mailto:detasar@gmail.com">detasar@gmail.com</a></div>
+    </div>
+    <section class="hero">
+      <div>
+        <div class="kicker">Dataset Detail</div>
+        <h1>Dataset: nhanes_2017_2018_bmi</h1>
+        <p class="lede">Public aggregate dataset card for the regression conformal prediction Research Atlas.</p>
+        <nav class="nav" aria-label="Atlas sections"><a href="../../index.html">Overview</a><a href="../../scope/index.html">Scope</a><a href="../../datasets/index.html">Datasets</a><a href="../../methods/index.html">Methods</a><a href="../../results/index.html">Results</a><a href="../../claims/index.html">Interpretation</a><a href="../../provenance/index.html">Provenance</a><a href="../../artifacts/index.html">Artifacts</a><a href="../../../paper/research_document.html">Research Document</a><a href="../../../site/kg_browser.html">Evidence Map</a></nav>
+      </div>
+    </section>
+    
+    <section class="callout"><p>This detail page is a public aggregate dataset card. It does not include raw data, local caches, credentials, or nonredistributable source files.</p></section>
+    <div class="actions">
+      <a class="button primary" href="../../results/index.html#result-explorer">Open result explorer</a>
+      <a class="button" href="nhanes_2017_2018_bmi.md">Markdown card</a>
+      <a class="button" href="../dataset_catalog.csv">Dataset catalog CSV</a>
+      <a class="button" href="../dataset_catalog.json">Dataset catalog JSON</a>
+    </div>
+    <div class="table-wrap"><table><caption>Dataset card fields</caption><thead><tr><th scope="col">Field</th><th scope="col">Value</th></tr></thead><tbody><tr><td>Dataset family</td><td>nhanes</td></tr><tr><td>Publication included</td><td>true</td></tr><tr><td>Configured</td><td>true</td></tr><tr><td>Publication completed rows</td><td>5,180</td></tr><tr><td>Alpha levels</td><td>5</td></tr><tr><td>Method labels</td><td>11</td></tr><tr><td>Coverage-gated selected cells</td><td>5</td></tr><tr><td>CQR backend paired cells</td><td>7</td></tr><tr><td>Claim role</td><td>empirical_result_surface</td></tr></tbody></table></div>
+    
+    <div class="footer">The atlas separates observed experimental patterns from broader deployment conclusions. It is designed for navigation, traceability, and careful reading of the evidence.</div>
+  </main>
+</body>
+</html>

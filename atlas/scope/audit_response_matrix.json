@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-12T20:48:39.587880+00:00",
+  "generated_at_utc": "2026-07-12T21:06:55.103901+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -87,6 +87,10 @@
     {
       "evidence_paths": [
         "atlas/results/index.html",
+        "atlas/datasets/index.html",
+        "atlas/datasets/cards/*.html",
+        "atlas/methods/index.html",
+        "atlas/methods/cards/*.html",
         "atlas/ui_data/dataset_method_heatmap.json",
         "atlas/ui_data/method_family_summary.json"
       ],
