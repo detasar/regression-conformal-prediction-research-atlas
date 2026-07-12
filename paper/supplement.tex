@@ -68,7 +68,7 @@ The supplement is intentionally broader than the main article. Each section adds
 Section & Reviewer check & Evidence metric & Allowed use & Beyond this study use \\
 \midrule
 S1 & Check whether the method-selection signal is robust enough to describe, but not promote. & CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000. & Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates. & CQR final-selection and universal-deployment readings require separate validation. \\
-S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & The check remains backend-sensitivity evidence for the CQR pipeline signal. \\
+S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & The check is backend-sensitivity evidence for the CQR pipeline signal. \\
 S2 & Check whether post-selection and bridge diagnostics preserve the same boundary. & Post-selection diagnostic counts are cqr=18 and mondrian\_\allowbreak{}abs=7; the bridge slice has 45 completed atomic runs. & Use the slice as diagnostic stress-test evidence. & The slice remains diagnostic evidence rather than final selection or validated Venn-Abers interval evidence. \\
 S3 & Check whether bounded-support endpoint behavior authorizes a validity claim. & 0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles. & Report endpoint policy closure and retained domain caveats. & Bounded-support and endpoint-validity claims require separate validation. \\
 S4 & Check whether group diagnostics define a population-group-inference estimand. & 187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles. & Use group rows as heterogeneity diagnostics. & Population-level and deployment group-inference claims require separate validation. \\
@@ -92,10 +92,10 @@ Diagnostic item & Value & Boundary \\
 \midrule
 Candidate methods & 3 & CQR, CV+, and Mondrian absolute-residual calibration only \\
 Common dataset-alpha cells & 94 & Shared comparison cells \\
-Common-cell selected diagnostic method & \texttt{cqr} & Not a final method selection \\
+Common-cell selected diagnostic method & \texttt{cqr} & Descriptive comparison label \\
 Common-cell counts & cqr=58; cv\_\allowbreak{}plus=15; mondrian\_\allowbreak{}abs=21 & Descriptive counts only \\
 Bootstrap replicates & 1,000 & Selection stability diagnostic \\
-Bootstrap counts & cqr=1,000 & Experiment-scoped interpretation \\
+Bootstrap counts & cqr=1,000 & Selection-stability diagnostic only \\
 Bootstrap primary selection rate & 1.0000 & Stability estimate, not final selection \\
 Bootstrap primary selection-rate diagnostic band & 0.9962 to 1.0000 & Precision check for the diagnostic rate \\
 Leave-one-dataset retention & 1.0000 & Diagnostic robustness \\
@@ -130,7 +130,7 @@ Paired dataset-alpha-model-family cells & 224 & Direct CQR backend comparison ce
 Fixed-GBM CQR selected cells & 116 & Coverage-eligible interval-score selections \\
 Model-matched CQR selected cells & 71 & Coverage-eligible interval-score selections \\
 Neither coverage-eligible variant & 37 & Cells where both CQR variants fail the coverage-eligibility rule \\
-Method-selection claim supported & \texttt{False} & No deployment guidance follows from this table \\
+Study-wide method selection supported & \texttt{False} & No study-wide method selection follows from this table \\
 \bottomrule
 \end{longtable}
 \endgroup

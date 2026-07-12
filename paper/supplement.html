@@ -63,7 +63,7 @@
 <thead><tr><th>Section</th><th>Reviewer check</th><th>Evidence metric</th><th>Allowed use</th><th>Beyond this study use</th></tr></thead>
 <tbody>
 <tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates.</td><td>CQR final-selection and universal-deployment readings require separate validation.</td></tr>
-<tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>The check remains backend-sensitivity evidence for the CQR pipeline signal.</td></tr>
+<tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>The check is backend-sensitivity evidence for the CQR pipeline signal.</td></tr>
 <tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>The slice remains diagnostic evidence rather than final selection or validated Venn-Abers interval evidence.</td></tr>
 <tr><td>S3</td><td>Check whether bounded-support endpoint behavior authorizes a validity claim.</td><td>0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles.</td><td>Report endpoint policy closure and retained domain caveats.</td><td>Bounded-support and endpoint-validity claims require separate validation.</td></tr>
 <tr><td>S4</td><td>Check whether group diagnostics define a population-group-inference estimand.</td><td>187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles.</td><td>Use group rows as heterogeneity diagnostics.</td><td>Population-level and deployment group-inference claims require separate validation.</td></tr>
@@ -78,10 +78,10 @@
 <tbody>
 <tr><td>Candidate methods</td><td>3</td><td>CQR, CV+, and Mondrian absolute-residual calibration only</td></tr>
 <tr><td>Common dataset-alpha cells</td><td>94</td><td>Shared comparison cells</td></tr>
-<tr><td>Common-cell selected diagnostic method</td><td><code>cqr</code></td><td>Not a final method selection</td></tr>
+<tr><td>Common-cell selected diagnostic method</td><td><code>cqr</code></td><td>Descriptive comparison label</td></tr>
 <tr><td>Common-cell counts</td><td>cqr=58; cv_plus=15; mondrian_abs=21</td><td>Descriptive counts only</td></tr>
 <tr><td>Bootstrap replicates</td><td>1,000</td><td>Selection stability diagnostic</td></tr>
-<tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>Experiment-scoped interpretation</td></tr>
+<tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>Selection-stability diagnostic only</td></tr>
 <tr><td>Bootstrap primary selection rate</td><td>1.0000</td><td>Stability estimate, not final selection</td></tr>
 <tr><td>Bootstrap primary selection-rate diagnostic band</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
 <tr><td>Leave-one-dataset retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
@@ -106,7 +106,7 @@
 <tr><td>Fixed-GBM CQR selected cells</td><td>116</td><td>Coverage-eligible interval-score selections</td></tr>
 <tr><td>Model-matched CQR selected cells</td><td>71</td><td>Coverage-eligible interval-score selections</td></tr>
 <tr><td>Neither coverage-eligible variant</td><td>37</td><td>Cells where both CQR variants fail the coverage-eligibility rule</td></tr>
-<tr><td>Method-selection claim supported</td><td><code>False</code></td><td>No deployment guidance follows from this table</td></tr>
+<tr><td>Study-wide method selection supported</td><td><code>False</code></td><td>No study-wide method selection follows from this table</td></tr>
 </tbody>
 </table>
 <h2>S2. Post-Selection Validation Diagnostics</h2>

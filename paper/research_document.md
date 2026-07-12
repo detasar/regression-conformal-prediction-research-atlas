@@ -115,7 +115,7 @@ This table rewrites the study as a scientific-method chain: question, measuremen
 
 ## Review Protocol
 
-This protocol states how readers should interpret the current evidence and which broader decisions require separate validation.
+This table explains how to read the current evidence and which broader uses would require separate validation.
 
 | Decision point | Reader-facing criterion | Evidence to check | Still requires validation |
 |---|---|---|---|

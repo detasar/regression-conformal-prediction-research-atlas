@@ -41,7 +41,7 @@ Venn-Abers methods are related but not identical to ordinary split interval conf
 
 ### CQR Backend Sensitivity Check
 
-After the broad method synthesis, a model-matched CQR rerun checked whether the historical fixed-GBM CQR pipeline was driving the CQR signal. This is a backend-confound diagnostic, not a new deployment guidance.
+After the broad method synthesis, a model-matched CQR rerun checked whether the historical fixed-GBM CQR pipeline was driving the CQR signal. This is a backend-confound diagnostic, not a new method selection.
 
 | Quantity | Value | Interpretation |
 |---|---:|---|
