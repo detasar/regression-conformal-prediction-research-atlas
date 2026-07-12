@@ -1,0 +1,48 @@
+{
+  "generated_at_utc": "2026-07-12T12:16:02.007128+00:00",
+  "rows": [
+    {
+      "evidence_path": "atlas/scope/experiment_scope.json",
+      "interpretation": "Configured Cartesian run-cell estimate from public YAML configuration grids.",
+      "phase": "configured_run_cell_estimate",
+      "public_status": "deterministic_from_public_yaml_configs",
+      "row_count": 25012478
+    },
+    {
+      "evidence_path": "atlas/scope/benchmark_v2_protocol.json",
+      "interpretation": "Attempted-row accounting requires private raw ledgers that are not included in the Research Atlas package.",
+      "phase": "attempted_rows",
+      "public_status": "not_atomically_reconstructable_from_public_package",
+      "row_count": ""
+    },
+    {
+      "evidence_path": "atlas/scope/benchmark_v2_protocol.json",
+      "interpretation": "Failure counts are tracked in private ledgers; Benchmark v2 requires a publishable attempted/completed/failed/skipped matrix before new result generation.",
+      "phase": "failed_rows",
+      "public_status": "not_atomically_reconstructable_from_public_package",
+      "row_count": ""
+    },
+    {
+      "evidence_path": "atlas/scope/benchmark_v2_protocol.json",
+      "interpretation": "Skip counts are not independently reconstructable from the public aggregate package.",
+      "phase": "skipped_rows",
+      "public_status": "not_atomically_reconstructable_from_public_package",
+      "row_count": ""
+    },
+    {
+      "evidence_path": "atlas/scope/run_accounting_summary.json",
+      "interpretation": "Broader canonical completed ledger accounting represented as an aggregate count.",
+      "phase": "canonical_completed_rows",
+      "public_status": "public_aggregate_count",
+      "row_count": 156233
+    },
+    {
+      "evidence_path": "atlas/results/result_cube_public.csv",
+      "interpretation": "Rows used by the publication-scoped public synthesis.",
+      "phase": "publication_scoped_completed_rows",
+      "public_status": "public_aggregate_count",
+      "row_count": 145839
+    }
+  ],
+  "schema": "regression_cp_public_accounting_matrix_v1"
+}

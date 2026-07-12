@@ -1,5 +1,5 @@
 {
-  "artifact_count": 170,
+  "artifact_count": 173,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -150,6 +150,21 @@
       "artifact_kind": "atlas data",
       "artifact_path": "atlas/scope/experiment_scope.md",
       "reader_use": "Readable experiment scope summary."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/planned_attempted_completed_matrix.csv",
+      "reader_use": "CSV planned/attempted/completed/failed/skipped matrix."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/planned_attempted_completed_matrix.json",
+      "reader_use": "Machine-readable planned/attempted/completed/failed/skipped matrix."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/scope/planned_attempted_completed_matrix.md",
+      "reader_use": "Public planned/attempted/completed/failed/skipped matrix."
     },
     {
       "artifact_kind": "atlas data",
@@ -852,6 +867,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-11T01:42:48.177961+00:00",
+  "generated_at_utc": "2026-07-12T12:16:02.007128+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

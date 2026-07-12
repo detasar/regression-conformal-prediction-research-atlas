@@ -204,7 +204,23 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
             for key in ("title", "summary", "description")
         )
     visible_text = "\n".join(visible_values).lower()
-    for legacy in ("frontier", "near_nominal", "near nominal", "near-nominal"):
+    def phrase(*parts: str) -> str:
+        return " ".join(parts)
+
+    for legacy in (
+        "frontier",
+        "near_nominal",
+        "near nominal",
+        "near-nominal",
+        phrase("document", "status:"),
+        phrase("release", "render"),
+        phrase("not", "a", "method", "recommendation"),
+        phrase("release", "boundary", "ledger"),
+        phrase("method", "recommendation", "authorized"),
+        phrase("positive", "claim", "promotion", "authorized"),
+        phrase("positive", "claims", "remain", "beyond", "this", "study"),
+        phrase("positive", "claims", "remain", "gated"),
+    ):
         assert legacy not in visible_text
 
 
@@ -473,9 +489,15 @@ def test_public_results_page_exposes_interactive_atlas_layers() -> None:
     results = (root / "atlas/results/index.html").read_text(encoding="utf-8")
     for fragment in [
         "Result Explorer",
+        "Experiment Accounting Funnel",
+        "Venn-Abers Bridge Diagnostic",
         "Method-Family Selection Density",
         "Coverage-Width Map",
         "CQR Backend Sensitivity Map",
+        "planned_attempted_completed_matrix.json",
+        "not_atomically_reconstructable_from_public_package",
+        'id="accounting-funnel"',
+        'id="venn-bridge-diagnostic"',
         'id="explorer-summary"',
         'id="coverage-width-map"',
         'id="cqr-delta-wrap"',
@@ -489,6 +511,73 @@ def test_public_results_page_exposes_interactive_atlas_layers() -> None:
     assert "__RESULT_ROWS__" not in results
     assert "__CQR_ROWS__" not in results
     assert "{{row.dataset_id}}" not in results
+
+
+def test_public_accounting_matrix_artifacts_are_present() -> None:
+    root = repo_root()
+    base = root / "atlas/scope/planned_attempted_completed_matrix"
+    for suffix in (".json", ".md", ".csv"):
+        assert base.with_suffix(suffix).exists()
+
+    payload = json.loads(base.with_suffix(".json").read_text(encoding="utf-8"))
+    assert payload["schema"] == "regression_cp_public_accounting_matrix_v1"
+    rows = payload["rows"]
+    phases = {row["phase"] for row in rows}
+    assert {"attempted_rows", "failed_rows", "skipped_rows"} <= phases
+    unavailable = [
+        row
+        for row in rows
+        if row["phase"] in {"attempted_rows", "failed_rows", "skipped_rows"}
+    ]
+    assert unavailable
+    assert all(
+        row["public_status"] == "not_atomically_reconstructable_from_public_package"
+        for row in unavailable
+    )
+
+
+def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
+    root = repo_root()
+    def phrase(*parts: str) -> str:
+        return " ".join(parts)
+
+    paths = [
+        root / "README.md",
+        root / "EVIDENCE_SCOPE.md",
+        root / "site/index.html",
+        root / "site/kg_browser.html",
+        root / "site/kg_browser_index.json",
+        root / "site/kg_browser_data.json",
+        root / "paper/research_document.md",
+        root / "paper/research_document.html",
+        root / "paper/article.html",
+        root / "paper/supplement.html",
+        root / "atlas/index.html",
+        root / "atlas/results/index.html",
+        root / "evidence/claim_evidence_matrix.md",
+    ]
+    forbidden = [
+        phrase("Document", "status:"),
+        phrase("Research", "Document", "release", "render"),
+        phrase("release", "render"),
+        phrase("not", "a", "method", "recommendation"),
+        phrase("private", "final-prose"),
+        phrase("do", "not", "cite"),
+        phrase("public", "release", "remains", "closed"),
+        phrase("GitHub", "Pages", "remain", "closed"),
+        phrase("Release", "Boundary", "Ledger"),
+        phrase("Method", "recommendation", "authorized"),
+        phrase("Positive", "claim", "promotion", "authorized"),
+        phrase("positive", "claims", "remain", "beyond", "this", "study"),
+        phrase("positive", "claims", "remain", "gated"),
+    ]
+    violations = []
+    for path in paths:
+        text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        for phrase in forbidden:
+            if phrase.lower() in text:
+                violations.append((path.relative_to(root).as_posix(), phrase))
+    assert violations == []
 
 
 def test_public_html_links_and_artifact_index_are_complete() -> None:

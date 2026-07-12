@@ -84,13 +84,20 @@ tr:last-child td { border-bottom:0; }
 .delta-row { display:grid; grid-template-columns:minmax(140px,1fr) 1fr 90px; gap:10px; align-items:center; margin:8px 0; font-size:13px; }
 .delta-track { height:12px; border:1px solid var(--line); background:linear-gradient(90deg,#a0442f 0 49%,#273449 49% 51%,#0f766e 51% 100%); position:relative; }
 .delta-marker { position:absolute; top:-4px; width:4px; height:20px; background:#141821; }
+.funnel { display:grid; gap:10px; margin:12px 0 18px; }
+.funnel-row { display:grid; grid-template-columns:220px minmax(0,1fr) 160px; gap:12px; align-items:center; }
+.funnel-track { height:18px; border:1px solid var(--line); background:#eee4d2; position:relative; }
+.funnel-fill { height:100%; background:var(--teal); min-width:2px; }
+.funnel-fill.missing { background:repeating-linear-gradient(45deg,#d8cfbe 0 6px,#f6eedf 6px 12px); }
+.diagnostic-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin:14px 0 20px; }
+.diagnostic-card { border:1px solid var(--line); background:#fffdf8; padding:14px; min-width:0; }
 .legend { display:flex; flex-wrap:wrap; gap:10px; color:var(--muted); font-size:13px; margin:8px 0 16px; }
 .legend span { display:inline-flex; align-items:center; gap:6px; }
 .swatch { width:14px; height:14px; border:1px solid var(--line); display:inline-block; }
 .path-list { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
 .path-list a { border:1px solid var(--line); background:#fffdf8; padding:11px; border-radius:6px; text-decoration:none; color:var(--ink); }
 .footer { border-top:1px solid var(--line); color:var(--muted); padding-top:18px; margin-top:40px; font-size:13px; }
-@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid,.controls,.explorer-grid { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .summary-strip { grid-template-columns:1fr 1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
+@media (max-width:920px) { .shell { padding:18px 14px 46px; overflow:hidden; } .top,.hero,.panel-grid,.controls,.explorer-grid,.diagnostic-grid,.funnel-row { grid-template-columns:1fr; } .hero { gap:24px; padding-top:30px; } .grid { grid-template-columns:1fr; } .summary-strip { grid-template-columns:1fr 1fr; } .metric-board { grid-template-columns:1fr 1fr; } .path-list { grid-template-columns:1fr; } h1 { font-size:clamp(38px,12vw,58px); } table { font-size:13px; } }
 </style>
 </head>
 <body>

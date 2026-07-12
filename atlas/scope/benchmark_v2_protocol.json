@@ -14,7 +14,7 @@
     "Publish planned, attempted, completed, failed, skipped, and publication-scoped accounting matrices.",
     "Publish enough run-level ledger, split hash, environment lock, and aggregate cube material to audit the synthesis."
   ],
-  "generated_at_utc": "2026-07-11T01:42:48.177961+00:00",
+  "generated_at_utc": "2026-07-12T12:16:02.007128+00:00",
   "primary_estimand": {
     "primary_comparison_unit": "source_dataset_task_alpha_learner_config_split_hash",
     "primary_utility_rule": "pre-specified coverage-lower-bound gate followed by interval score, reported with sensitivity to absolute coverage error and width",
