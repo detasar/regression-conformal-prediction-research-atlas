@@ -289,8 +289,12 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "map-legend" in browser
     assert "fetch('kg_browser_index.json')" in browser
     assert "kg_browser_edges.json" in browser
-    assert "function ensureEdges()" in browser
+    assert "function ensureEdges(force=false)" in browser
     assert "Loading edge provenance on demand" in browser
+    assert 'id="edgeRetry"' in browser
+    assert "Retry edge bundle" in browser
+    assert "ensureEdges(true)" in browser
+    assert "Edge bundle unavailable; overview remains usable." in browser
     assert "fetch('kg_browser_data.json').then" not in browser
 
 

@@ -38,6 +38,7 @@
     .route span, .result span { display:block; }
     .table-action { border:0; background:transparent; color:#145ea8; padding:0; font:inherit; font-weight:720; text-align:left; text-decoration:underline; text-underline-offset:3px; }
     .graph-notice { color:var(--amber); font-weight:760; }
+    .edge-retry[hidden] { display:none; }
     label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:0; text-transform:uppercase; margin:14px 0 10px; }
     input, select { width:100%; border:1px solid var(--line); border-radius:7px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
     .stage { min-height:0; display:grid; grid-template-rows:auto minmax(0,1fr) auto; background:#f2ebdf; }
@@ -80,7 +81,7 @@
     <section class="stage" aria-labelledby="mapTitle">
       <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" aria-pressed="true">One hop</button> <button id="twoHop" aria-pressed="false">Two hops</button></div></div>
       <div class="canvas-wrap"><canvas id="mapCanvas" aria-label="Knowledge graph canvas visual overview"></canvas></div>
-      <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>evidence-limit edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
+      <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><button id="edgeRetry" class="edge-retry" type="button" hidden>Retry edge bundle</button><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>evidence-limit edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
     </section>
     <aside class="right">
       <div class="detail" id="detail"><h2>What is in this graph?</h2><p class="muted">This is a reader-facing index over the experiment evidence: methods, dataset audits, result reports, interpretation scope, and provenance links. Start with a route, then drill into a node only when you want the underlying audit trail.</p></div>
@@ -96,9 +97,16 @@
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
     const graphNotice = message => { document.getElementById('graphNotice').textContent = message || ''; };
+    const edgeRetry = () => document.getElementById('edgeRetry');
+    const setEdgeRetryVisible = visible => { edgeRetry().hidden = !visible; };
     function addIndex(edge){ for(const id of [edge.source,edge.target]){ if(!state.edgeByNode.has(id)) state.edgeByNode.set(id,[]); state.edgeByNode.get(id).push(edge); } }
-    function ensureEdges(){
+    function ensureEdges(force=false){
       if(state.edgesLoaded) return Promise.resolve();
+      if(force){
+        state.edgeLoadPromise = null;
+        graphNotice('');
+        setEdgeRetryVisible(false);
+      }
       if(state.edgeLoadPromise) return state.edgeLoadPromise;
       document.getElementById('status').textContent='Loading edge bundle on demand...';
       state.edgeLoadPromise = fetch('kg_browser_edges.json').then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then(payload=>{
@@ -106,8 +114,12 @@
         state.data.edges = edges;
         edges.forEach(addIndex);
         state.edgesLoaded = true;
+        setEdgeRetryVisible(false);
         document.getElementById('status').textContent=`Loaded ${edges.length.toLocaleString()} graph edges on demand.`;
       }).catch(error=>{
+        state.edgeLoadPromise = null;
+        setEdgeRetryVisible(true);
+        document.getElementById('status').textContent='Edge bundle unavailable; overview remains usable.';
         graphNotice(`Edge bundle could not be loaded: ${error.message || 'unknown error'}`);
       });
       return state.edgeLoadPromise;
@@ -133,12 +145,12 @@
       document.getElementById('twoHop').setAttribute('aria-pressed', state.depth===2 ? 'true' : 'false');
     }
     function select(id){
-      if(!state.nodeById.has(id)){ graphNotice(`Node not found: ${id}`); return false; }
+      if(!state.nodeById.has(id)){ state.selected=null; state.routeId=null; graphNotice(`Node not found: ${id}`); renderAll(); return false; }
       graphNotice(''); state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); ensureEdges().then(renderAll); return true;
     }
     function selectRoute(routeId){
       const route=(state.data.research_map||[]).find(r=>r.route_id===routeId);
-      if(!route){ graphNotice(`Route not found: ${routeId}`); return false; }
+      if(!route){ state.selected=null; state.routeId=null; graphNotice(`Route not found: ${routeId}`); renderAll(); return false; }
       graphNotice(''); state.selected=null; state.routeId=routeId; renderAll();
       history.replaceState(null,'','?preset='+encodeURIComponent(routeId));
       return true;
@@ -224,6 +236,7 @@
       state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); (data.edges||[]).forEach(addIndex); state.edgesLoaded=Boolean((data.edges||[]).length);
       renderFilters(); document.getElementById('search').oninput=renderAll; document.getElementById('typeFilter').onchange=renderAll;
       document.getElementById('oneHop').onclick=()=>{state.depth=1; renderAll();}; document.getElementById('twoHop').onclick=()=>{state.depth=2; renderAll();};
+      edgeRetry().onclick=()=>ensureEdges(true).then(renderAll);
       document.getElementById('mapCanvas').onclick=e=>{ const rect=e.currentTarget.getBoundingClientRect(); const x=e.clientX-rect.left,y=e.clientY-rect.top; const hit=state.points.find(p=>Math.hypot(p.x-x,p.y-y)<p.r); if(hit) select(hit.id); };
       const params=new URLSearchParams(location.search); const start=params.get('node'); const preset=params.get('preset'); if(start){ if(!select(start)) renderAll(); } else if(preset){ if(!selectRoute(preset)) renderAll(); } else renderAll();
       addEventListener('resize',draw);
