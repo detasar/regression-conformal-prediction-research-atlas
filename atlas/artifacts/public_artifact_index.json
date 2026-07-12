@@ -1,5 +1,5 @@
 {
-  "artifact_count": 291,
+  "artifact_count": 294,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -85,6 +85,21 @@
       "artifact_kind": "atlas data",
       "artifact_path": "atlas/datasets/dataset_catalog.json",
       "reader_use": "Dataset catalog JSON."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/datasets/source_metadata_matrix.csv",
+      "reader_use": "Dataset source/version/license/retrieval/hash matrix CSV."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/datasets/source_metadata_matrix.json",
+      "reader_use": "Machine-readable dataset source metadata matrix."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/datasets/source_metadata_matrix.md",
+      "reader_use": "Readable dataset source metadata matrix."
     },
     {
       "artifact_kind": "atlas data",
@@ -1457,6 +1472,6 @@
       "reader_use": "Public Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-12T22:29:31.051800+00:00",
+  "generated_at_utc": "2026-07-12T22:41:53.103644+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

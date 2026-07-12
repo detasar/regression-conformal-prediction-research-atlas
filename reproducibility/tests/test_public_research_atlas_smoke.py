@@ -299,6 +299,68 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "fetch('kg_browser_data.json').then" not in browser
 
 
+def test_public_dataset_source_metadata_matrix_is_published_and_scoped() -> None:
+    root = repo_root()
+    base = root / "atlas/datasets/source_metadata_matrix"
+    for suffix in (".csv", ".json", ".md"):
+        assert base.with_suffix(suffix).exists()
+
+    matrix = json.loads(base.with_suffix(".json").read_text(encoding="utf-8"))
+    catalog = json.loads((root / "atlas/datasets/dataset_catalog.json").read_text(encoding="utf-8"))
+    artifact_index = json.loads(
+        (root / "atlas/artifacts/public_artifact_index.json").read_text(encoding="utf-8")
+    )
+    markdown = base.with_suffix(".md").read_text(encoding="utf-8")
+    with base.with_suffix(".csv").open(encoding="utf-8", newline="") as handle:
+        csv_rows = list(csv.DictReader(handle))
+
+    assert matrix["schema"] == "regression_cp_dataset_source_metadata_matrix_v1"
+    assert matrix["summary"]["dataset_count"] == len(catalog["datasets"])
+    assert matrix["summary"]["profile_metadata_available_count"] > 0
+    assert matrix["summary"]["benchmark_v2_candidate_dataset_count"] > 0
+    assert len(matrix["rows"]) == len(catalog["datasets"]) == len(csv_rows)
+    assert "# Dataset Source Metadata Matrix" in markdown
+
+    required = {
+        "dataset_id",
+        "source_dataset_id",
+        "dataset_family",
+        "version",
+        "license_or_terms",
+        "retrieval_command_or_url",
+        "content_hash_scope",
+        "raw_content_hash_status",
+        "metadata_status",
+    }
+    for row in matrix["rows"]:
+        assert required <= set(row)
+        assert row["dataset_id"]
+        assert row["dataset_family"]
+        assert row["metadata_status"] in {
+            "profile_metadata_available",
+            "profile_missing_public_aggregate_only",
+        }
+        assert row["content_hash_scope"] in {
+            "profile_metadata_not_raw_dataset",
+            "no_public_profile_metadata",
+        }
+        assert row["raw_content_hash_status"] == (
+            "raw_data_not_redistributed_or_not_publicly_hashed"
+        )
+    assert any(row["source_profile_sha256"] for row in matrix["rows"])
+    assert not any(
+        row["content_hash_scope"] == "raw_dataset_content_hash"
+        for row in matrix["rows"]
+    )
+
+    indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
+    assert "atlas/datasets/source_metadata_matrix.csv" in indexed_paths
+    assert "atlas/datasets/source_metadata_matrix.json" in indexed_paths
+    assert "atlas/datasets/source_metadata_matrix.md" in indexed_paths
+    dataset_index = (root / "atlas/datasets/index.html").read_text(encoding="utf-8")
+    assert "source_metadata_matrix.md" in dataset_index
+
+
 def test_public_root_command_help_runs() -> None:
     env = os.environ.copy()
     env["PYTHONPATH"] = str(repo_root() / "reproducibility")

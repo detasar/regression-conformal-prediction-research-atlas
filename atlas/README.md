@@ -15,7 +15,7 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 ## Directory Map
 
 - `scope/` records the accounting boundary and row-unit definition.
-- `datasets/` records public aggregate dataset catalog entries and cards.
+- `datasets/` records public aggregate dataset catalog entries, source metadata, and cards.
 - `methods/` records method labels, families, ontology, and cards.
 - `results/` records the public aggregate result cube and selected result surfaces.
 - `claims/` records interpretation boundaries and reader-safe evidence statements.
