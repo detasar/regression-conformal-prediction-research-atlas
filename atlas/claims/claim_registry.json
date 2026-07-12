@@ -4,7 +4,7 @@
       "claim_id": "dataset_scope",
       "claim_status": "experiment-scoped reporting",
       "claim_type": "scope claim",
-      "evidence_gate": "Dataset/source descriptions need source citations before final prose; the matrix does not certify exhaustive internet coverage.",
+      "evidence_gate": "Dataset/source descriptions need source citations before final report text; the matrix does not certify exhaustive internet coverage.",
       "kg_reference_node_count": 9,
       "plain_language": "This row tells a reader what data sources were inspected; the dataset list defines study scope rather than a final dataset-level result.",
       "reader_safe_statement": "The dataset/source audit defines the studied scope under the recorded review policy.",
@@ -25,8 +25,8 @@
     {
       "claim_id": "main_results_scope",
       "claim_status": "experiment-scoped reporting",
-      "claim_type": "blocked positive claim",
-      "evidence_gate": "No citation can open this claim by itself; it would require a later pre-specified selection protocol if the scientific state changes.",
+      "claim_type": "stronger reading requiring validation",
+      "evidence_gate": "This reading would require a separate pre-specified validation protocol.",
       "kg_reference_node_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
       "reader_safe_statement": "The current evidence does not support a final method selection, final main result, or deployment rule.",
@@ -56,7 +56,7 @@
       "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "methodology_controls",
+      "claim_id": "methodology_records",
       "claim_status": "experiment-scoped reporting",
       "claim_type": "methodology control claim",
       "evidence_gate": "Control descriptions support reproducibility claims; scientific validity rests on the empirical evidence.",

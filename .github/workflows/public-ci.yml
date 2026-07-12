@@ -19,4 +19,6 @@ jobs:
       - name: Run public artifact smoke tests
         run: python -m pytest -m "unit or artifact_public or smoke"
       - name: Verify root command
-        run: python -m experiments.regression.scripts.run_regression_pilot --help
+        run: |
+          python -m experiments.regression.scripts.run_regression_pilot --help
+          python -m experiments.regression.scripts.run_regression_pilot --max-runs 0
