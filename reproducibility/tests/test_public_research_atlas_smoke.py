@@ -184,6 +184,18 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     assert all("file_included" in row for row in manifest["artifacts"])
     assert all("represented_in_aggregate" in row for row in manifest["artifacts"])
     assert all("content_hash_verifiable" in row for row in manifest["artifacts"])
+    manifest_text = json.dumps(manifest)
+    forbidden_private_builders = [
+        "build_private_sterile_publication_package",
+        "build_public_release_authorization",
+    ]
+    assert all(name not in manifest_text for name in forbidden_private_builders)
+    assert all(
+        "build_public_release_scope" in row.get("rebuild_command", "")
+        and "build_public_research_atlas" in row.get("rebuild_command", "")
+        and "build_research_atlas_package" in row.get("rebuild_command", "")
+        for row in manifest["artifacts"]
+    )
     kg_text = kg_path.read_text(encoding="utf-8")
     legacy_source_key = "source_key" + "_hash"
     assert legacy_source_key not in kg_text
