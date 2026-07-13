@@ -49,6 +49,6 @@ These packages are optional in the public package and are not required by the pu
 - Raw datasets
 - Local caches
 - Credentials
-- Full private ledgers
+- Full source ledgers
 - Prediction bundles
 - Nonredistributable source artifacts

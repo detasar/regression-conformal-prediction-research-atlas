@@ -7,7 +7,7 @@ Contact: detasar@gmail.com
 
 This regression conformal prediction study evaluated a broad set of audited experiment rows: 145,839 publication-scoped completed rows after accounting controls. The method synthesis covers 67 datasets, 95 dataset-alpha cells, 5 alpha levels, 28 conformal-method labels, and 148 source reports.
 
-The main empirical pattern is descriptive: CQR has the largest current coverage-gated selected-cell share in the audited synthesis, but the final-selection claim remains beyond this study. CQR appears on 56 coverage-gated selected cells, compared with 15 for Mondrian absolute-residual calibration and 13 for CV+. The robustness audit also retains CQR under common-cell, leave-one-dataset, leave-one-alpha, and bootstrap views; this is diagnostic robustness evidence, not a final method-selection claim.
+The main empirical pattern is descriptive: CQR has the largest current coverage-gated selected-cell share in the audited synthesis, but the final-selection claim remains beyond this study. CQR appears on 56 coverage-gated selected cells, compared with 15 for Mondrian absolute-residual calibration and 13 for CV+. The robustness audit also retains CQR under common-cell, leave-one-dataset, leave-one-alpha, and bootstrap views; this is diagnostic robustness evidence, diagnostic evidence rather than a study-wide method-selection claim.
 
 The Venn-Abers regression bridge is not validated as an interval method in the current evidence. The negative disposition audit records 14 undercoverage runs, and the grid failure decomposition reports 6,001 scored grid-reference rows with an upper-boundary hit pattern. This supports reporting Venn-Abers as negative/failure-mode evidence for this bridge.
 
@@ -33,7 +33,7 @@ Venn-Abers methods are related but not identical to ordinary split interval conf
 
 ## Method Findings
 
-| Method | Coverage-gated selected cells | Row-weighted coverage mean | Row-weighted nominal hit rate | Row-weighted coverage lower-bound pass rate | Claim status |
+| Method | Coverage-gated selected cells | Row-weighted coverage mean | Row-weighted nominal hit rate | Row-weighted coverage tolerance pass rate | Claim status |
 |---|---:|---:|---:|---:|---|
 | CQR | 56 | 0.9059 | 0.6118 | 0.8076 | descriptive diagnostic only |
 | Mondrian absolute residual | 15 | 0.9073 | 0.6839 | 0.8586 | descriptive diagnostic only |

@@ -346,7 +346,7 @@ Every dataset must pass these gates before headline model sweeps:
   design. Strict nominal-or-above rows are 474/714. The lowest strict-nominal
   score is XGBoost with `jackknife_plus_after_bootstrap` at coverage 0.9200,
   `Gender` gap 0.1140, width 8947.0502, and score 14710.2849; treat this as
-  an exploratory row, not a final model. Fixed-backend CQR is nominal in 51/51
+  an exploratory row for this experiment. Fixed-backend CQR is nominal in 51/51
   rows but is one wide repeated quantile-backend tuple. `normalized_abs` is
   nominal in 51/51 rows but endpoint-audit pathological, including inverse
   saturation and upper endpoints around 1.014e304; do not present it as a

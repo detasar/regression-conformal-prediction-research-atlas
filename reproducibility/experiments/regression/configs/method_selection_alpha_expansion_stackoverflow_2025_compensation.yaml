@@ -2,7 +2,8 @@ experiment_id: regression_method_selection_alpha_expansion_stackoverflow_2025_co
 purpose: Method-selection alpha-support expansion batch for stackoverflow_2025_compensation.
   The config clones audited split/preprocessing/runtime settings from a traced source
   config, restricts methods to the current shortlist, and expands target alpha support
-  only. It is support evidence, not final model or conformal-method selection evidence.
+  only. It provides support evidence for this experiment rather than a study-wide
+  model or conformal-method choice.
 random_seeds:
 - 11
 - 23

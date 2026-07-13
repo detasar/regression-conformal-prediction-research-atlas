@@ -25,7 +25,7 @@
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
       "scope_limit": "Keep method-selection conclusions beyond this study.",
-      "statement": "The current evidence does not establish a final method selection, final main result, or deployment rule.",
+      "statement": "The current evidence does not establish a study-wide method choice, final main result, or deployment rule.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {

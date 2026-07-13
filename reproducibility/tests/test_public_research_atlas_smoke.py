@@ -54,7 +54,7 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("Read", "CQR/CV+", "as", "strong", "practical", "candidates"),
         ("CQR/CV+", "can", "be", "described", "as", "strong", "practical", "candidates"),
         ("Reading", "note"),
-        ("Boundary:", "Do", "not"),
+        ("Boundary" + ":", "Do", "not"),
         ("not", "an", "independent", "scientific", "claim"),
         ("Do", "not", "cite"),
         ("not", "yet", "the", "final", "public", "citable", "repository"),

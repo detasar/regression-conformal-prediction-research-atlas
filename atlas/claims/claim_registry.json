@@ -29,7 +29,7 @@
       "evidence_gate": "This reading would require a separate pre-specified validation protocol.",
       "kg_reference_node_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
-      "reader_safe_statement": "The current evidence does not support a final method selection, final main result, or deployment rule.",
+      "reader_safe_statement": "The current evidence does not support a study-wide method choice, final main result, or deployment rule.",
       "scope_limit": "Method-selection conclusions require separate validation.",
       "support_status": "supported by audited artifacts and KG trace"
     },
@@ -72,7 +72,7 @@
       "claim_type": "reproducibility traceability claim",
       "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this study.",
       "kg_reference_node_count": 9,
-      "plain_language": "This row tells a reader how the work can be audited and resumed while keeping the source provenance separate from the public Research Atlas.",
+      "plain_language": "This row tells a reader how the work can be audited and resumed from the Research Atlas.",
       "reader_safe_statement": "The Research Atlas package records completed-row accounting, resume-safety controls, and knowledge-graph traceability.",
       "scope_limit": "Cite the public Research Atlas repository for this study.",
       "support_status": "supported by audited artifacts and KG trace"

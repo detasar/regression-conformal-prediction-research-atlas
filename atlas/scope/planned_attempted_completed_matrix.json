@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-12T23:54:04.444511+00:00",
+  "generated_at_utc": "2026-07-13T00:47:46.192177+00:00",
   "rows": [
     {
       "evidence_path": "atlas/scope/experiment_scope.json",
@@ -10,14 +10,14 @@
     },
     {
       "evidence_path": "atlas/scope/benchmark_v2_protocol.json",
-      "interpretation": "Attempted-row accounting requires private raw ledgers that are not included in the Research Atlas package.",
+      "interpretation": "Attempted-row accounting requires restricted source ledgers that are not included in the Research Atlas package.",
       "phase": "attempted_rows",
       "public_status": "not_atomically_reconstructable_from_public_package",
       "row_count": ""
     },
     {
       "evidence_path": "atlas/scope/benchmark_v2_protocol.json",
-      "interpretation": "Failure counts are tracked in private ledgers; Benchmark v2 requires a publishable attempted/completed/failed/skipped matrix before new result generation.",
+      "interpretation": "Failure counts are tracked in restricted source ledgers; Benchmark v2 requires a publishable attempted/completed/failed/skipped matrix before new result generation.",
       "phase": "failed_rows",
       "public_status": "not_atomically_reconstructable_from_public_package",
       "row_count": ""

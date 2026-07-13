@@ -35,7 +35,7 @@ Contact: detasar@gmail.com
 
 \section{Abstract}
 
-This report summarizes a regression conformal prediction study assembled from 145,839 publication-scoped completed rows, 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The largest coverage-gated selected-cell pattern is CQR, with 56 coverage-gated selected cells, followed by Mondrian absolute-residual calibration with 15 and CV+ with 13. These results are interpreted as diagnostic evidence only. The current evidence supports descriptive comparison, but not a study-wide method choice, bounded-support validity, population-level group inference, or a validated Venn-Abers regression interval claim.
+This report summarizes a regression conformal prediction study assembled from 145,839 publication-scoped completed rows, 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The largest coverage-gated selected-cell pattern is CQR, with 56 coverage-gated selected cells, followed by Mondrian absolute-residual calibration with 15 and CV+ with 13. These results are interpreted as diagnostic evidence only. The current evidence does not establish a study-wide method choice, a bounded-support validity claim, a population-level group inference claim, or a validated Venn-Abers regression interval claim.
 
 \section{Introduction}
 
@@ -64,7 +64,7 @@ Topic & Article statement & Stronger reading requiring validation \\
 Marginal conformal coverage & The conformal guarantee is a marginal coverage statement under exchangeability and the stated calibration protocol. & It is not conditional, subgroup, endpoint, or deployment coverage. \\
 Empirical coverage & Coverage values in this article summarize observed held-out behavior inside the audited dataset-alpha-method scope. & They are not theorem claims and not general product deployment rules. \\
 Group diagnostics & Group and Mondrian rows are heterogeneity diagnostics that help read the supplement. & They do not establish population-level group inference while the group-inference-ready bundle count is zero. \\
-Coverage-gated selection evidence & Coverage-gated selected-cell counts describe observed coverage-width trade-offs among audited methods. & They are not final method selection or universal superiority claims. \\
+Coverage-gated selection evidence & Coverage-gated selected-cell counts describe observed coverage-width trade-offs among audited methods. & They are not study-wide method choice or universal superiority claims. \\
 Venn-Abers bridge & The negative evidence concerns the evaluated interval bridge. & The broader predictive-distribution and generalized Venn-Abers literature remains separate. \\
 \bottomrule
 \end{longtable}
@@ -76,7 +76,7 @@ Venn-Abers bridge & The negative evidence concerns the evaluated interval bridge
 \item The study consolidates a large audited regression conformal-prediction evidence base under resumable, source-traceable execution records.
 \item It reports CQR/CV+ as strong practical candidates observed in these experiments, without converting that observation into a universal deployment rule.
 \item It reports the evaluated Venn-Abers regression bridge as negative/failure-mode evidence, without rejecting the broader Venn-Abers literature.
-\item It keeps population-level group inference, bounded-support validity, final method selection, Research Atlas, and citable web-artifact claims beyond this study unless their explicit evidence gates are opened later.
+\item It keeps population-level group inference, bounded-support validity, study-wide method choice, Research Atlas, and citable web-artifact claims beyond this study unless their explicit evidence gates are opened later.
 \end{itemize}
 
 \subsection{Paper Architecture And Review Contract}
@@ -89,7 +89,7 @@ The paper is organized around a small article, a broad supplement, and Research 
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
-Surface & Reader job & Boundary & Source basis \\
+Surface & Reader job & Scope & Source basis \\
 \midrule
 Minimal main article & Use the article for the study question, non-specialist primer, claim-evidence map, headline diagnostics, and interpretation-boundary summary. & Read the article as the compact scientific summary of the audited experiment. & Use a minimal main article and a broad supplementary document. \\
 Broad supplementary document & Use the supplement for method detail, robustness diagnostics, post-selection checks, bounded-support policy, group diagnostics, duplicate caveats, and Venn-Abers negative evidence. & Supplementary diagnostics do not open final selection, group inference, or validity claims. & Use a minimal main article and a broad supplementary document. \\
@@ -153,7 +153,7 @@ The table below pairs each reader-facing claim with source-backed evidence and i
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
-Claim surface & Evidence & Supported reading & Boundary \\
+Claim surface & Evidence & Supported reading & Scope \\
 \midrule
 Audited empirical scope & 145,839 publication-scoped rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. & The study has a broad audited regression-CP accounting base. & Scope size alone does not establish external validity or a study-wide method choice. \\
 CQR/CV+ descriptive performance & CQR appears in 56 coverage-gated selected cells; CV+ appears in 13 coverage-gated selected cells. & Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates. & Universal best-method claims require separate validation. \\
@@ -222,7 +222,7 @@ Concept & Reader-safe meaning & Outside scope reading \\
 \midrule
 \texttt{1 - alpha} target & A nominal design target for marginal coverage under the stated calibration protocol. & Subgroup, endpoint-region, and future-deployment coverage require observed evidence beyond the nominal target. \\
 CQR & Lower and upper quantile models are conformalized with calibration evidence so intervals can adapt to heterogeneous noise. & Its role here is empirical: quantile-based intervals adapt to heterogeneous noise within the audited experiment. \\
-CV+ & Out-of-fold prediction evidence is used to build intervals that reflect fitted-model variability. & It is not caveat-free evidence and does not open final method selection. \\
+CV+ & Out-of-fold prediction evidence is used to build intervals that reflect fitted-model variability. & It is not caveat-free evidence and does not open study-wide method choice. \\
 Mondrian/group calibration & Calibration can be stratified by groups when the comparison is intended to expose heterogeneity. & It is not a population-level group inference claim while the group-inference-ready bundle count is zero. \\
 Venn-Abers bridge & The experiment evaluates a bridge from Venn-Abers-style calibration evidence into interval diagnostics. & The observed undercoverage concerns the evaluated bridge, while predictive-distribution and generalized Venn-Abers research remain separate. \\
 \bottomrule
@@ -235,7 +235,7 @@ Venn-Abers bridge & The experiment evaluates a bridge from Venn-Abers-style cali
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
-Reader question & Short answer & Boundary \\
+Reader question & Short answer & Scope \\
 \midrule
 What is \texttt{1 - alpha}? & The nominal target coverage level used to design or calibrate the interval. & It is not the realized empirical coverage of every subgroup or future dataset. \\
 What is CQR? & Conformalized Quantile Regression: quantile models plus conformal calibration. & It is an observed strong practical candidate here, limited to the audited experiment. \\
@@ -262,7 +262,7 @@ Quantity & Definition & Article use \\
 Interval \texttt{C\_\allowbreak{}m(X\_\allowbreak{}i)} & Lower and upper endpoint returned by method \texttt{m} & Basic object being evaluated \\
 Empirical coverage & Mean of \texttt{1\{Y\_\allowbreak{}i in C\_\allowbreak{}m(X\_\allowbreak{}i)\}} over evaluated rows & Descriptive calibration evidence \\
 Empirical width & Mean of \texttt{U\_\allowbreak{}m(X\_\allowbreak{}i) -\allowbreak{} L\_\allowbreak{}m(X\_\allowbreak{}i)} & Informativeness evidence paired with coverage \\
-Coverage-gated selected cell & Observed coverage/width trade-off cell & Diagnostic pattern, not final selection \\
+Coverage-gated selected cell & Observed coverage/width trade-off cell & Diagnostic pattern, descriptive selection \\
 Undercoverage run & Completed run below its target boundary & Failure-mode evidence \\
 \bottomrule
 \end{longtable}
@@ -278,11 +278,11 @@ For a non-specialist reader, the methods differ mainly in how they choose or adj
 \renewcommand{\arraystretch}{1.18}
 \begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
-Method family & Interval mechanism & Boundary in this article \\
+Method family & Interval mechanism & Scope in this article \\
 \midrule
 Split conformal & Residual-score quantile on a calibration set & Baseline mechanism; not a complete endpoint or heterogeneity solution \\
 CQR & Lower/upper quantile models plus conformal calibration & Strong practical candidate observed here; limited to the audited experiment \\
-CV+ / jackknife+ & Out-of-fold or leave-one-out conformity evidence & Strong practical candidate observed here; no final method selection \\
+CV+ / jackknife+ & Out-of-fold or leave-one-out conformity evidence & Strong practical candidate observed here; no study-wide method choice \\
 Mondrian calibration & Group- or stratum-specific calibration & Diagnostic comparator; not a population-level group inference claim \\
 Venn-Abers bridge & Bridge from Venn-Abers-style calibration evidence to interval diagnostics & Negative evidence for the evaluated bridge only \\
 \bottomrule
@@ -293,7 +293,7 @@ Venn-Abers bridge & Bridge from Venn-Abers-style calibration evidence to interva
 
 \subsection{How To Read The Results Table}
 
-The results table mixes scope counts, descriptive method signals, and evidence limits. Coverage-gated selected cells summarize observed coverage/width trade-offs; row-weighted coverage summarizes empirical coverage across completed result blocks; undercoverage runs flag failure modes; and zero-ready gates record claims the article must not make. These quantities support interpretation, not final method selection.
+The results table mixes scope counts, descriptive method signals, and evidence limits. Coverage-gated selected cells summarize observed coverage/width trade-offs; row-weighted coverage summarizes empirical coverage across completed result blocks; undercoverage runs flag failure modes; and zero-ready gates record claims the article must not make. These quantities support interpretation, not study-wide method choice.
 
 \begingroup
 \small
@@ -363,7 +363,7 @@ The knowledge graph snapshot has 3,643 nodes and 21,019 edges. The graph links r
 
 \section{Conclusion}
 
-This report closes with a descriptive, not prescriptive, interpretation of the completed regression conformal-prediction evidence. The audited evidence base supports reporting the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ as practical candidates within this experiment and the evaluated Venn-Abers regression bridge as bridge-specific negative evidence. It does not support a study-wide method choice, a bounded-support validity claim, a population-level group inference claim, or a validated Venn-Abers regression interval claim.
+This report closes with a descriptive, not prescriptive, interpretation of the completed regression conformal-prediction evidence. The audited evidence base supports reporting the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ as practical candidates within this experiment and the evaluated Venn-Abers regression bridge as bridge-specific negative evidence. It does not support study-wide method choice, a general method selection, a bounded-support validity claim, a population-level group inference claim, Research Atlas, or a citable KG/site claim.
 
 The scientific contribution is therefore the audited measurement and boundary record itself: useful empirical patterns are retained, negative evidence is not rewritten as success, and stronger claims requiring validation remain visible until later evidence explicitly opens them.
 

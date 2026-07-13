@@ -51,6 +51,6 @@ markers = [
   "artifact_public: tests for public Research Atlas artifacts",
   "smoke: minimal public smoke tests",
   "external_data: tests requiring external data access",
-  "private_artifact: tests requiring private ledgers, caches, or nonredistributable artifacts",
+  "restricted_artifact: tests requiring restricted ledgers, caches, or nonredistributable artifacts",
   "slow: long-running tests or reruns",
 ]

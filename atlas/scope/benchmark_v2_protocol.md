@@ -7,7 +7,7 @@ Benchmark v2 is the forward protocol for a smaller, balanced, paired, leakage-sa
 ## Primary Estimand
 
 - Primary comparison unit: `source_dataset_task_alpha_learner_config_split_hash`
-- Primary utility rule: pre-specified coverage-lower-bound gate followed by interval score, reported with sensitivity to absolute coverage error and width.
+- Primary utility rule: pre-specified coverage tolerance gate followed by interval score, reported with sensitivity to absolute coverage error and width.
 - Unit hierarchy:
   - `source_dataset`
   - `task_variant`

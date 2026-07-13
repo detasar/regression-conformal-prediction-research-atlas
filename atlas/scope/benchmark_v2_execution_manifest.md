@@ -29,4 +29,4 @@ Turn the Benchmark v2 design requirements into a runnable contract before any ne
 
 - Primary summary unit: `source_dataset_id`
 - Primary interval summary: source-dataset-clustered bootstrap.
-- Selection rule: coverage lower-bound pass, then interval score, with sensitivity to absolute coverage error plus width.
+- Selection rule: coverage tolerance pass, then interval score, with sensitivity to absolute coverage error plus width.

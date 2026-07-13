@@ -67,7 +67,7 @@ python -m experiments.regression.scripts.run_regression_pilot --help
 python -m experiments.regression.scripts.run_regression_pilot --max-runs 0
 ```
 
-The public CI uses the same marker-selected smoke path. Full experiment ledgers, local caches, external data pulls, and long reruns are intentionally outside the public smoke test surface.
+The public CI uses the same marker-selected smoke path. Full source ledgers, local caches, external data pulls, and long reruns are intentionally outside the public smoke test surface.
 
 ## Citation
 

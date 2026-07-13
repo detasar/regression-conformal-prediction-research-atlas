@@ -49,7 +49,7 @@
 <table>
 <thead><tr><th>Main article surface</th><th>Supplement support</th><th>Primary source artifact</th><th>Stronger claim requiring validation</th></tr></thead>
 <tbody>
-<tr><td>CQR/CV+ descriptive performance</td><td>S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis</code></td><td>No final method selection, global best method, or deployment rule.</td></tr>
+<tr><td>CQR/CV+ descriptive performance</td><td>S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis</code></td><td>No study-wide method choice, global best method, or deployment rule.</td></tr>
 <tr><td>Venn-Abers bridge negative evidence</td><td>S2 bridge validation slice and S6 traceability</td><td><code>dataset_final_gate_post_selection_validation_bridge_results</code></td><td>No validated Venn-Abers regression interval claim.</td></tr>
 <tr><td>Bounded-support validity</td><td>S3 bounded-support endpoint policy</td><td><code>bounded_support_endpoint_closure_audit</code></td><td>No endpoint or bounded-support validity claim.</td></tr>
 <tr><td>Population-level group inference</td><td>S4 group diagnostics</td><td><code>group inference_population_readiness_audit</code></td><td>No population-level group inference claim.</td></tr>
@@ -64,7 +64,7 @@
 <tbody>
 <tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates.</td><td>CQR final-selection and universal-deployment readings require separate validation.</td></tr>
 <tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>The check is backend-sensitivity evidence for the CQR pipeline signal.</td></tr>
-<tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>The slice remains diagnostic evidence rather than final selection or validated Venn-Abers interval evidence.</td></tr>
+<tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>Do not upgrade the slice into study-wide method choice or validated Venn-Abers regression intervals.</td></tr>
 <tr><td>S3</td><td>Check whether bounded-support endpoint behavior authorizes a validity claim.</td><td>0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles.</td><td>Report endpoint policy closure and retained domain caveats.</td><td>Bounded-support and endpoint-validity claims require separate validation.</td></tr>
 <tr><td>S4</td><td>Check whether group diagnostics define a population-group-inference estimand.</td><td>187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles.</td><td>Use group rows as heterogeneity diagnostics.</td><td>Population-level and deployment group-inference claims require separate validation.</td></tr>
 <tr><td>S5</td><td>Check whether duplicate and leakage controls strengthen or limit interpretation.</td><td>29 duplicate actions, 46 quarantined actions, 0 unquarantined actions, and hard leakage not detected in scanned artifacts.</td><td>Retain integrity caveats as part of the scientific record.</td><td>Integrity caveats remain part of the scientific record.</td></tr>
@@ -72,9 +72,9 @@
 </tbody>
 </table>
 <h2>S1. Method Selection Robustness Diagnostics</h2>
-<p>This section supports the main article by separating descriptive method behavior from final method selection. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">@lei2017distribution_free_regression</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">@romano2019conformalized_quantile_regression</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">@barber2020jackknife_plus</a>; <a href="https://arxiv.org/abs/2002.09025">@kim2020jackknife_after_bootstrap</a>].</p>
+<p>This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">@lei2017distribution_free_regression</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">@romano2019conformalized_quantile_regression</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">@barber2020jackknife_plus</a>; <a href="https://arxiv.org/abs/2002.09025">@kim2020jackknife_after_bootstrap</a>].</p>
 <table>
-<thead><tr><th>Diagnostic item</th><th>Value</th><th>Boundary</th></tr></thead>
+<thead><tr><th>Diagnostic item</th><th>Value</th><th>Scope</th></tr></thead>
 <tbody>
 <tr><td>Candidate methods</td><td>3</td><td>CQR, CV+, and Mondrian absolute-residual calibration only</td></tr>
 <tr><td>Common dataset-alpha cells</td><td>94</td><td>Shared comparison cells</td></tr>
@@ -82,23 +82,23 @@
 <tr><td>Common-cell counts</td><td>cqr=58; cv_plus=15; mondrian_abs=21</td><td>Descriptive counts only</td></tr>
 <tr><td>Bootstrap replicates</td><td>1,000</td><td>Selection stability diagnostic</td></tr>
 <tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>Selection-stability diagnostic only</td></tr>
-<tr><td>Bootstrap primary selection rate</td><td>1.0000</td><td>Stability estimate, not final selection</td></tr>
-<tr><td>Bootstrap primary selection-rate diagnostic band</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
+<tr><td>Bootstrap primary selection rate</td><td>1.0000</td><td>Stability estimate, descriptive selection</td></tr>
+<tr><td>Bootstrap primary selection-rate descriptive range</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
 <tr><td>Leave-one-dataset retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
 <tr><td>Leave-one-alpha retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
 <tr><td>Final selection claim</td><td><code>beyond this study</code></td><td>Final selection remains beyond this study</td></tr>
 <tr><td>Pairwise shared cells</td><td>94</td><td>Inferential support, not a claim upgrade</td></tr>
 <tr><td>Main-result primary win rate</td><td>0.6778</td><td>Descriptive rate with final claim beyond this study</td></tr>
-<tr><td>Main-result primary win-rate diagnostic band</td><td>0.5757 to 0.7653</td><td>Uncertainty around the descriptive rate</td></tr>
+<tr><td>Main-result primary win-rate descriptive range</td><td>0.5757 to 0.7653</td><td>Uncertainty around the descriptive rate</td></tr>
 <tr><td>Robustness common-cell primary win rate</td><td>0.6170</td><td>Common-cell diagnostic only</td></tr>
-<tr><td>Robustness common-cell diagnostic band</td><td>0.5160 to 0.7089</td><td>Precision check, not claim scope</td></tr>
+<tr><td>Robustness common-cell descriptive range</td><td>0.5160 to 0.7089</td><td>Precision check, not claim scope</td></tr>
 </tbody>
 </table>
-<p>Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains beyond this study. The diagnostic bands summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
+<p>Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains beyond this study. The descriptive ranges summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
 <h3>S1b. CQR Backend Sensitivity Check</h3>
 <p>The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not create a method-selection claim.</p>
 <table>
-<thead><tr><th>Backend diagnostic item</th><th>Value</th><th>Boundary</th></tr></thead>
+<thead><tr><th>Backend diagnostic item</th><th>Value</th><th>Scope</th></tr></thead>
 <tbody>
 <tr><td>Fixed-GBM CQR completed rows</td><td>4,564</td><td>Historical comparator rows</td></tr>
 <tr><td>Model-matched CQR completed rows</td><td>4,564</td><td>Completed rerun rows</td></tr>
@@ -110,16 +110,16 @@
 </tbody>
 </table>
 <h2>S2. Post-Selection Validation Diagnostics</h2>
-<p>Post-selection validation asks whether the descriptive pattern persists in a held-out validation-style slice after the candidate methods have already been identified. The supplement treats this as a diagnostic stress test. It does not convert the observed counts into a final method selection.</p>
+<p>Post-selection validation asks whether the descriptive pattern persists in a held-out validation-style slice after the candidate methods have already been identified. The supplement treats this as a diagnostic stress test. It does not convert the observed counts into a study-wide method choice.</p>
 <table>
-<thead><tr><th>Diagnostic item</th><th>Value</th><th>Boundary</th></tr></thead>
+<thead><tr><th>Diagnostic item</th><th>Value</th><th>Scope</th></tr></thead>
 <tbody>
 <tr><td>Validation datasets</td><td>5</td><td>Narrow validation scope</td></tr>
 <tr><td>Validation dataset-alpha cells</td><td>25</td><td>Shared cells only</td></tr>
 <tr><td>Completed validation atomic runs</td><td>225</td><td>Completed diagnostic rows</td></tr>
-<tr><td>Validation diagnostic counts</td><td>cqr=18; mondrian_abs=7</td><td>No final method selection</td></tr>
+<tr><td>Validation diagnostic counts</td><td>cqr=18; mondrian_abs=7</td><td>No study-wide method choice</td></tr>
 <tr><td>Validation primary win rate</td><td>0.7200</td><td>Post-selection diagnostic rate</td></tr>
-<tr><td>Validation primary win-rate diagnostic band</td><td>0.5242 to 0.8572</td><td>Wide uncertainty remains visible</td></tr>
+<tr><td>Validation primary win-rate descriptive range</td><td>0.5242 to 0.8572</td><td>Wide uncertainty remains visible</td></tr>
 <tr><td>Feature leakage violations</td><td>0</td><td>Leakage sidecars clean in this slice</td></tr>
 <tr><td>Width pathology rows</td><td>6</td><td>Retained caveat evidence</td></tr>
 <tr><td>Bridge validation datasets</td><td>1</td><td>Dataset-final-gate bridge slice</td></tr>
@@ -128,11 +128,11 @@
 <tr><td>Venn-Abers bridge undercoverage runs</td><td>14</td><td>Negative bridge evidence</td></tr>
 </tbody>
 </table>
-<p>Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as final method selection, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>].</p>
+<p>Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as study-wide method choice, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>].</p>
 <h2>S3. Bounded-Support Endpoint Policy</h2>
 <p>Bounded-support checks ask whether prediction interval endpoints respect the natural domain of the target. This is different from ordinary marginal coverage. Weighted conformal ideas can address some covariate-shift settings [<a href="https://arxiv.org/abs/1904.06019">@tibshirani2020covariate_shift</a>], but the present endpoint policy is an empirical domain-validity gate. The current gate blocks bounded-support validity claims.</p>
 <table>
-<thead><tr><th>Diagnostic item</th><th>Value</th><th>Boundary</th></tr></thead>
+<thead><tr><th>Diagnostic item</th><th>Value</th><th>Scope</th></tr></thead>
 <tbody>
 <tr><td>Bounded-support bundles</td><td>15</td><td>Research Document-candidate bundles</td></tr>
 <tr><td>Bounded-support datasets</td><td>6</td><td>Current endpoint-audit scope</td></tr>
@@ -148,7 +148,7 @@
 <h2>S4. Group Diagnostics</h2>
 <p>Group coverage diagnostics compare interval behavior across observed groups. They are useful for auditing heterogeneity, but they are not population-level group inference claims unless the population estimand, protected-attribute scope, sampling design, and multiplicity treatment support that claim.</p>
 <table>
-<thead><tr><th>Diagnostic item</th><th>Value</th><th>Boundary</th></tr></thead>
+<thead><tr><th>Diagnostic item</th><th>Value</th><th>Scope</th></tr></thead>
 <tbody>
 <tr><td>Group diagnostic bundles</td><td>15</td><td>Diagnostic group scope</td></tr>
 <tr><td>Group diagnostic datasets</td><td>6</td><td>Current diagnostic scope</td></tr>
@@ -169,7 +169,7 @@
 <h2>S5. Duplicate And Integrity Caveats</h2>
 <p>Duplicate and split-integrity checks protect the interpretation of model comparisons. If repeated rows, row signatures, or model-visible duplicates can affect train/calibration/test separation, the result must retain the caveat rather than become stronger prose.</p>
 <table>
-<thead><tr><th>Diagnostic item</th><th>Value</th><th>Boundary</th></tr></thead>
+<thead><tr><th>Diagnostic item</th><th>Value</th><th>Scope</th></tr></thead>
 <tbody>
 <tr><td>Duplicate actions</td><td>29</td><td>Caveat inventory scope</td></tr>
 <tr><td>Open duplicate actions</td><td>0</td><td>Closure evidence only</td></tr>
@@ -188,7 +188,7 @@
 <p>Venn-Abers evidence is retained as part of the negative and boundary evidence for this study [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>]. The supplement does not claim that the current interval bridge validates Venn-Abers regression intervals.</p>
 <h2>Interpretation Scope</h2>
 <ul>
-<li>Method evidence is diagnostic; no final method selection or deployment rule is established.</li>
+<li>Method evidence is diagnostic; no study-wide method choice or deployment rule is established.</li>
 <li>Bounded-support endpoint results block validity claims.</li>
 <li>Group diagnostics do not establish population-level group inference.</li>
 <li>Duplicate and integrity caveats are retained rather than hidden.</li>

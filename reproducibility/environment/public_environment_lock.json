@@ -3,7 +3,7 @@
     "Raw datasets",
     "Local caches",
     "Credentials",
-    "Full private ledgers",
+    "Full source ledgers",
     "Prediction bundles",
     "Nonredistributable source artifacts"
   ],
@@ -38,7 +38,7 @@
     "gpu_required": false,
     "supported_notes": [
       "The public smoke package is expected to run on Linux and standard Python environments.",
-      "Long-running private experiment reruns and external data pulls are outside this public lock."
+      "Long-running source-ledger reruns and external data pulls are outside this public lock."
     ]
   },
   "python_requires": ">=3.10",

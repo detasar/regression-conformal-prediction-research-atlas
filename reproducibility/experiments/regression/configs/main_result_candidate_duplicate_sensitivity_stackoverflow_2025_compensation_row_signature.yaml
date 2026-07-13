@@ -7,9 +7,9 @@ purpose: Seed-matched row-signature duplicate-cluster split sensitivity for the
   transform, common alpha grid, train-fitted preprocessing, model
   hyperparameters, conformal methods, and no-promotion claim boundary. This is
   diagnostic split-methodology sensitivity for the candidate duplicate-signature
-  caveat only; it is not a final method, model, dataset, bounded-support,
-  fairness, developer-population, labor-market, compensation-policy,
-  Venn-Abers, or production claim.
+  caveat only; broader method, model, dataset, bounded-support, fairness,
+  developer-population, labor-market, compensation-policy, Venn-Abers, and
+  production readings require separate validation.
 random_seeds: &candidate_seeds
 - 401
 - 503
