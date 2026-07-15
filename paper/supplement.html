@@ -41,7 +41,7 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <main id="main-content">
-
+  <div class="boundary"><strong>Evidence scope.</strong> Experiment-scoped Research Atlas render with source-traceable results and layout checks.</div>
 <h1>Supplementary Document</h1>
 <p><strong>Key empirical signal:</strong> Under the current coverage gate, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. These results do not identify a universally superior conformal method.</p>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
@@ -64,13 +64,13 @@
 <table><caption>Supplement reading protocol</caption>
 <thead><tr><th scope="col">Section</th><th scope="col">Reviewer check</th><th scope="col">Evidence metric</th><th scope="col">Allowed use</th><th scope="col">Beyond this study use</th></tr></thead>
 <tbody>
-<tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Report the fixed-GBM CQR pipeline as the largest selected-cell signal, with Mondrian and CV+ as secondary candidates under the current coverage gate.</td><td>CQR final-selection and universal-deployment readings require separate validation.</td></tr>
-<tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>The check is backend-sensitivity evidence for the CQR pipeline signal.</td></tr>
+<tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Report the fixed-GBM CQR, Mondrian, and CV+ pattern as experiment-scoped evidence.</td><td>Keep CQR within experiment-scoped interpretation rather than a study-wide method choice or universal deployment rule.</td></tr>
+<tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>Use the check as backend sensitivity evidence rather than a universal CQR deployment rule.</td></tr>
 <tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>Do not upgrade the slice into study-wide method choice or validated Venn-Abers regression intervals.</td></tr>
 <tr><td>S3</td><td>Check whether bounded-support endpoint behavior supports a validity claim.</td><td>0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles.</td><td>Report endpoint policy closure and retained domain caveats.</td><td>Bounded-support and endpoint-validity claims require separate validation.</td></tr>
 <tr><td>S4</td><td>Check whether group diagnostics define a population-group-inference estimand.</td><td>187 pairwise group comparisons, 0 population-group-inference-ready bundles, and 0 population-estimand-declared bundles.</td><td>Use group rows as heterogeneity diagnostics.</td><td>Population-level and deployment group-inference claims require separate validation.</td></tr>
 <tr><td>S5</td><td>Check whether duplicate and leakage controls strengthen or limit interpretation.</td><td>29 duplicate actions, 46 quarantined actions, 0 unquarantined actions, and hard leakage not detected in scanned artifacts.</td><td>Retain integrity caveats as part of the scientific record.</td><td>Integrity caveats remain part of the scientific record.</td></tr>
-<tr><td>S6</td><td>Check how the evidence map supports source inspection.</td><td>3,643 KG nodes, 21,019 edges, 0 isolated nodes, and evidence scope recorded in the manifest.</td><td>Use the KG and package to trace claims to evidence.</td><td>Use the KG and site to inspect how claims connect to evidence.</td></tr>
+<tr><td>S6</td><td>Check how the evidence map supports source inspection.</td><td>3,643 KG nodes, 21,019 edges, 0 isolated nodes, with evidence scope tracked separately.</td><td>Use the KG and package for claim tracing and source navigation.</td><td>Keep KG/site citation scope tied to the Research Atlas release package.</td></tr>
 </tbody>
 </table>
 <h2>S1. Method Selection Robustness Diagnostics</h2>
@@ -83,7 +83,7 @@
 <tr><td>Common-cell selected diagnostic method</td><td><code>cqr</code></td><td>Descriptive comparison label</td></tr>
 <tr><td>Common-cell counts</td><td>cqr=58; cv_plus=15; mondrian_abs=21</td><td>Descriptive counts only</td></tr>
 <tr><td>Bootstrap replicates</td><td>1,000</td><td>Selection stability diagnostic</td></tr>
-<tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>Selection-stability diagnostic only</td></tr>
+<tr><td>Bootstrap counts</td><td>cqr=1,000</td><td>Experiment-scoped diagnostic</td></tr>
 <tr><td>Bootstrap primary selection rate</td><td>1.0000</td><td>Stability estimate, descriptive selection</td></tr>
 <tr><td>Bootstrap primary selection-rate descriptive range</td><td>0.9962 to 1.0000</td><td>Precision check for the diagnostic rate</td></tr>
 <tr><td>Leave-one-dataset retention</td><td>1.0000</td><td>Diagnostic robustness</td></tr>
@@ -93,10 +93,10 @@
 <tr><td>Main-result primary win rate</td><td>0.6778</td><td>Descriptive rate with final claim beyond this study</td></tr>
 <tr><td>Main-result primary win-rate descriptive range</td><td>0.5757 to 0.7653</td><td>Uncertainty around the descriptive rate</td></tr>
 <tr><td>Robustness common-cell primary win rate</td><td>0.6170</td><td>Common-cell diagnostic only</td></tr>
-<tr><td>Robustness common-cell descriptive range</td><td>0.5160 to 0.7089</td><td>Precision check, not claim scope</td></tr>
+<tr><td>Robustness common-cell descriptive range</td><td>0.5160 to 0.7089</td><td>Precision check for the audited scope</td></tr>
 </tbody>
 </table>
-<p>Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains beyond this study. The descriptive ranges summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.</p>
+<p>Reader note: this section explains why CQR/CV+ can be reported as experiment-scoped practical signals observed in these experiments while the final-selection gate remains beyond this study. The descriptive ranges summarize uncertainty around the observed rates; they do not change the validation state of the final-selection claim.</p>
 <h3>S1b. CQR Backend Sensitivity Check</h3>
 <p>The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not create a method-selection claim.</p>
 <table><caption>CQR backend sensitivity diagnostics</caption>
@@ -108,7 +108,7 @@
 <tr><td>Fixed-GBM CQR selected cells</td><td>116</td><td>Coverage-eligible interval-score selections</td></tr>
 <tr><td>Model-matched CQR selected cells</td><td>71</td><td>Coverage-eligible interval-score selections</td></tr>
 <tr><td>Neither coverage-eligible variant</td><td>37</td><td>Cells where both CQR variants fail the coverage-eligibility rule</td></tr>
-<tr><td>Study-wide method selection supported</td><td><code>False</code></td><td>No study-wide method selection follows from this table</td></tr>
+<tr><td>Study-wide method selection supported</td><td><code>False</code></td><td>Backend sensitivity evidence only</td></tr>
 </tbody>
 </table>
 <h2>S2. Post-Selection Validation Diagnostics</h2>
@@ -190,7 +190,8 @@
 <p>Venn-Abers evidence is retained as part of the negative and boundary evidence for this study [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">Nouretdinov et al. (2018)</a>]. The supplement does not claim that the current interval bridge validates Venn-Abers regression intervals.</p>
 <h2>Interpretation Scope</h2>
 <ul>
-<li>Method evidence is diagnostic; no study-wide method choice or deployment rule is established.</li>
+<li>This supplement records method details, robustness diagnostics, and traceability for the Research Document.</li>
+<li>Method evidence is experiment-scoped; deployment use requires separate validation.</li>
 <li>Bounded-support endpoint results block validity claims.</li>
 <li>Group diagnostics do not establish population-level group inference.</li>
 <li>Duplicate and integrity caveats are retained rather than hidden.</li>

@@ -3,6 +3,8 @@
 Author: Emre Tasar, Data Scientist
 Contact: detasar@gmail.com
 
+Evidence scope: this report summarizes the audited regression conformal prediction experiment and links each section to source evidence.
+
 ## Executive Summary
 
 This regression conformal prediction study evaluated a broad set of audited experiment rows: 145,839 publication-scoped completed rows after accounting controls. The method synthesis covers 67 datasets, 95 dataset-alpha cells, 5 alpha levels, 28 conformal-method labels, and 148 source reports.
