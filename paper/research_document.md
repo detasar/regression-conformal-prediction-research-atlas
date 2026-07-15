@@ -58,7 +58,7 @@ Several broader readings require evidence that was not produced in this study. T
 
 The review path is intentionally traceable. The Research Atlas package and KG connect the Research Document to source artifacts, scripts, interpretation boundaries, and citation boundaries. The current KG has 3,643 nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000.
 
- The KG supports navigation and traceability; scientific claims remain anchored in the underlying evidence.
+ The KG lets readers follow each major claim back to the evidence used in the study.
 
 ## Plain-Language Summary
 
@@ -194,7 +194,7 @@ The table below explains how each method family creates or adjusts prediction in
 
 ## Publication Design Basis
 
-Before the Research Document, supplement, README, and site are treated as reviewable publication surfaces, their structure is checked against a small source-backed review of comparable conformal prediction papers, repositories, docs, and sites. This review contributes navigation and traceability decisions only. It does not add experiments and does not recommend a conformal method.
+Before the Research Document, supplement, README, and site are treated as reviewable publication surfaces, their structure is checked against a small source-backed review of comparable conformal prediction papers, repositories, docs, and sites. This review shaped the reading path and evidence links; it did not add new experiments.
 
 | Design decision | Project application |
 |---|---|
