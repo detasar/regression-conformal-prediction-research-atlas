@@ -331,7 +331,13 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "Route not found:" in browser
     assert "data-node=" in browser
     assert "map-legend" in browser
-    assert "fetch('kg_browser_index.json')" in browser
+    assert 'id="mapCanvas" tabindex="0" role="img"' in browser
+    assert 'aria-describedby="canvasHelp"' in browser
+    assert "Canvas focus" in browser
+    assert "canvas.onkeydown" in browser
+    assert "fetchJson('kg_browser_index.json')" in browser
+    assert "Compact graph index unavailable" in browser
+    assert "loading full graph data" in browser
     assert "kg_browser_edges.json" in browser
     assert "function ensureEdges(force=false)" in browser
     assert "Loading edge provenance on demand" in browser
@@ -343,6 +349,9 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert 'scope="col">Anchor' in browser
     assert "Guided evidence routes" in browser
     assert "Selected node neighborhood" in browser
+    assert "hidden matches" in browser
+    assert "incident edges" in browser
+    assert "loaded neighborhood nodes" in browser
     assert "fetch('kg_browser_data.json').then" not in browser
 
 

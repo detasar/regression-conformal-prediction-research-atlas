@@ -36,6 +36,7 @@
     .route b, .result b { display:block; line-height:1.25; }
     .route span, .result span, .muted { color:var(--muted); font-size:12px; line-height:1.45; }
     .route span, .result span { display:block; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     .table-action { border:0; background:transparent; color:#145ea8; padding:0; font:inherit; font-weight:720; text-align:left; text-decoration:underline; text-underline-offset:3px; }
     .graph-notice { color:var(--amber); font-weight:760; }
     .edge-retry[hidden] { display:none; }
@@ -81,7 +82,7 @@
     </aside>
     <section class="stage" aria-labelledby="mapTitle">
       <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" aria-pressed="true">One hop</button> <button id="twoHop" aria-pressed="false">Two hops</button></div></div>
-      <div class="canvas-wrap"><canvas id="mapCanvas" aria-label="Knowledge graph canvas visual overview"></canvas></div>
+      <div class="canvas-wrap"><canvas id="mapCanvas" tabindex="0" role="img" aria-label="Knowledge graph canvas visual overview" aria-describedby="canvasHelp"></canvas><p id="canvasHelp" class="sr-only">Use the left and right arrow keys to move across visible graph nodes, then press Enter to open the highlighted node. The same nodes are available in the accessible table.</p></div>
       <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><button id="edgeRetry" class="edge-retry" type="button" hidden>Retry edge bundle</button><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>evidence-limit edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
     </section>
     <aside class="right">
@@ -93,10 +94,11 @@
     </aside>
   </main>
   <script>
-    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], edgesLoaded:false, edgeLoadPromise:null };
+    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], focusIndex:-1, edgesLoaded:false, edgeLoadPromise:null };
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
+    const fetchJson = path => fetch(path).then(r=>{ if(!r.ok) throw new Error(`${path} HTTP ${r.status}`); return r.json(); });
     const graphNotice = message => { document.getElementById('graphNotice').textContent = message || ''; };
     const edgeRetry = () => document.getElementById('edgeRetry');
     const setEdgeRetryVisible = visible => { edgeRetry().hidden = !visible; };
@@ -110,7 +112,7 @@
       }
       if(state.edgeLoadPromise) return state.edgeLoadPromise;
       document.getElementById('status').textContent='Loading edge bundle on demand...';
-      state.edgeLoadPromise = fetch('kg_browser_edges.json').then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then(payload=>{
+      state.edgeLoadPromise = fetchJson('kg_browser_edges.json').then(payload=>{
         const edges = payload.edges || [];
         state.data.edges = edges;
         edges.forEach(addIndex);
@@ -128,6 +130,7 @@
     function neighbors(root){
       if(!state.edgesLoaded) return {nodes:[state.nodeById.get(root)].filter(Boolean), edges:[]};
       const seen = new Set(), edges = [], q = [{id:root,d:0}];
+      let truncated = false;
       while(q.length && seen.size < 70){
         const cur=q.shift(); if(!cur || seen.has(cur.id)) continue; seen.add(cur.id);
         if(cur.d >= state.depth) continue;
@@ -136,7 +139,8 @@
           if(!seen.has(other)) q.push({id:other,d:cur.d+1});
         }
       }
-      return {nodes:[...seen].map(id=>state.nodeById.get(id)).filter(Boolean), edges:edges.slice(0,120)};
+      truncated = q.length > 0 || edges.length > 120;
+      return {nodes:[...seen].map(id=>state.nodeById.get(id)).filter(Boolean), edges:edges.slice(0,120), edgeTotal:edges.length, truncated};
     }
     function routeNodes(route){ return (route.node_ids||[]).map(id=>state.nodeById.get(id)).filter(Boolean); }
     function uniqueNodes(list){ const out=[], seen=new Set(); for(const n of list){ if(n && !seen.has(n.id)){ seen.add(n.id); out.push(n); } } return out; }
@@ -144,6 +148,11 @@
     function updateDepthButtons(){
       document.getElementById('oneHop').setAttribute('aria-pressed', state.depth===1 ? 'true' : 'false');
       document.getElementById('twoHop').setAttribute('aria-pressed', state.depth===2 ? 'true' : 'false');
+    }
+    function setDepth(depth){
+      state.depth=depth;
+      renderAll();
+      if(state.selected) ensureEdges().then(renderAll);
     }
     function select(id){
       if(!state.nodeById.has(id)){ state.selected=null; state.routeId=null; graphNotice(`Node not found: ${id}`); renderAll(); return false; }
@@ -173,7 +182,7 @@
     function renderResults(){
       const allNodes=resultNodes();
       const nodes=allNodes.slice(0,80);
-      document.getElementById('resultCount').textContent=allNodes.length ? `Showing ${nodes.length.toLocaleString()} of ${allNodes.length.toLocaleString()} matching nodes.` : '';
+      document.getElementById('resultCount').textContent=allNodes.length ? `Showing ${nodes.length.toLocaleString()} of ${allNodes.length.toLocaleString()} matching nodes${allNodes.length>nodes.length ? '; refine search or filter type to narrow the hidden matches.' : '.'}` : '';
       document.getElementById('results').innerHTML=nodes.length
         ? nodes.map(n=>`<button type="button" class="result ${n.id===state.selected?'active':''}" role="listitem" aria-current="${n.id===state.selected?'true':'false'}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></button>`).join('')
         : '<p class="muted">Search or choose a node type to inspect the full audit graph. The default canvas stays at reader overview level.</p>';
@@ -201,10 +210,25 @@
       }
       const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
       document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
-      const es=(state.edgeByNode.get(n.id)||[]).slice(0,14);
-      document.getElementById('edges').innerHTML=state.edgesLoaded ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('') : '<p class="muted">Loading edge provenance on demand for this node...</p>';
-	      document.getElementById('table').innerHTML=`<table><caption>Selected node neighborhood</caption><thead><tr><th scope="col">Node</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;
+      const incidentEdges=state.edgeByNode.get(n.id)||[];
+      const es=incidentEdges.slice(0,14);
+      const hiddenEdgeNote=state.edgesLoaded && incidentEdges.length>es.length ? `<p class="muted">Showing ${es.length.toLocaleString()} of ${incidentEdges.length.toLocaleString()} incident edges; use the graph route or source artifacts for the remaining edge provenance.</p>` : '';
+      document.getElementById('edges').innerHTML=state.edgesLoaded ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('') + hiddenEdgeNote : '<p class="muted">Loading edge provenance on demand for this node...</p>';
+      const neighborhood=neighbors(n.id);
+      const shownNeighborhoodNodes=neighborhood.nodes.slice(0,18);
+      const hiddenNodeNote=neighborhood.nodes.length>shownNeighborhoodNodes.length || neighborhood.truncated ? `<p class="muted">Showing ${shownNeighborhoodNodes.length.toLocaleString()} of ${neighborhood.nodes.length.toLocaleString()} loaded neighborhood nodes${neighborhood.truncated ? '; additional reachable nodes are omitted from this compact table.' : '.'}</p>` : '';
+	      document.getElementById('table').innerHTML=`<table><caption>Selected node neighborhood</caption><thead><tr><th scope="col">Node</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${shownNeighborhoodNodes.map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>${hiddenNodeNote}`;
       activateNodeButtons();
+    }
+    function announceCanvasFocus(){
+      const point=state.points[state.focusIndex], node=point ? state.nodeById.get(point.id) : null;
+      if(node) document.getElementById('status').textContent=`Canvas focus ${state.focusIndex+1} of ${state.points.length}: ${node.label}. Press Enter to open this node.`;
+    }
+    function moveCanvasFocus(delta){
+      if(!state.points.length) return;
+      state.focusIndex = state.focusIndex < 0 ? 0 : (state.focusIndex + delta + state.points.length) % state.points.length;
+      draw();
+      announceCanvasFocus();
     }
     function draw(){
       const canvas=document.getElementById('mapCanvas'), wrap=canvas.parentElement, r=wrap.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
@@ -224,21 +248,31 @@
         document.getElementById('mapTitle').textContent=route ? route.title : 'Reader overview';
       }
       nodes=nodes.slice(0,44);
+      if(state.focusIndex >= nodes.length) state.focusIndex = nodes.length ? 0 : -1;
       const cx=r.width/2, cy=r.height/2, radius=Math.min(r.width,r.height)*0.34;
       const pos=new Map();
       nodes.forEach((n,i)=>{ const angle=-Math.PI/2 + i*(Math.PI*2/Math.max(1,nodes.length)); const rr=n.id===state.selected?0:radius*(0.72+((i%5)*0.07)); pos.set(n.id,{x:cx+Math.cos(angle)*rr,y:cy+Math.sin(angle)*rr}); });
       edges.forEach(e=>{ const a=pos.get(e.source), b=pos.get(e.target); if(!a||!b) return; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=e.relation==='BLOCKED_BY'?'rgba(160,68,47,.38)':(e.relation==='ROUTE_STEP'?'rgba(153,101,21,.30)':'rgba(42,72,86,.22)'); ctx.lineWidth=e.relation==='ROUTE_STEP'?1.6:1; ctx.stroke(); });
       state.points=[];
-      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const overview=!state.selected; const route=selectedRoute(); const sparseLabel=(!route && (r.width<520 ? i%14===0 : i%10===0)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(is || nodes.length<=12 || sparseLabel){ ctx.fillStyle='#151922'; ctx.font=(is?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(r.width<520?24:38):(overview?(r.width<520?20:30):22); const label=short(n.label,maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
+      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const focused=i===state.focusIndex; const overview=!state.selected; const route=selectedRoute(); const sparseLabel=(!route && (r.width<520 ? i%14===0 : i%10===0)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); if(focused){ ctx.beginPath(); ctx.strokeStyle='rgba(15,118,110,.65)'; ctx.lineWidth=4; ctx.arc(p.x,p.y,size+7,0,Math.PI*2); ctx.stroke(); } ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(is || focused || nodes.length<=12 || sparseLabel){ ctx.fillStyle='#151922'; ctx.font=(is||focused?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(r.width<520?24:38):(overview?(r.width<520?20:30):22); const label=short(n.label,maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
       document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes`;
     }
     function renderAll(){ renderRoutes(); renderResults(); renderDetail(); updateDepthButtons(); draw(); }
-    fetch('kg_browser_index.json').catch(()=>fetch('kg_browser_data.json')).then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); }).then(data=>{
+    function loadInitialGraph(){
+      return fetchJson('kg_browser_index.json').catch(indexError=>{
+        graphNotice(`Compact graph index unavailable (${indexError.message || 'unknown error'}); loading full graph data.`);
+        return fetchJson('kg_browser_data.json');
+      });
+    }
+    loadInitialGraph().then(data=>{
       state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); (data.edges||[]).forEach(addIndex); state.edgesLoaded=Boolean((data.edges||[]).length);
       renderFilters(); document.getElementById('search').oninput=renderAll; document.getElementById('typeFilter').onchange=renderAll;
-      document.getElementById('oneHop').onclick=()=>{state.depth=1; renderAll();}; document.getElementById('twoHop').onclick=()=>{state.depth=2; renderAll();};
+      document.getElementById('oneHop').onclick=()=>setDepth(1); document.getElementById('twoHop').onclick=()=>setDepth(2);
       edgeRetry().onclick=()=>ensureEdges(true).then(renderAll);
-      document.getElementById('mapCanvas').onclick=e=>{ const rect=e.currentTarget.getBoundingClientRect(); const x=e.clientX-rect.left,y=e.clientY-rect.top; const hit=state.points.find(p=>Math.hypot(p.x-x,p.y-y)<p.r); if(hit) select(hit.id); };
+      const canvas=document.getElementById('mapCanvas');
+      canvas.onclick=e=>{ const rect=e.currentTarget.getBoundingClientRect(); const x=e.clientX-rect.left,y=e.clientY-rect.top; const hit=state.points.find(p=>Math.hypot(p.x-x,p.y-y)<p.r); if(hit) select(hit.id); };
+      canvas.onfocus=()=>{ if(state.focusIndex<0 && state.points.length){ state.focusIndex=0; draw(); announceCanvasFocus(); } };
+      canvas.onkeydown=e=>{ if(['ArrowRight','ArrowDown'].includes(e.key)){ e.preventDefault(); moveCanvasFocus(1); } else if(['ArrowLeft','ArrowUp'].includes(e.key)){ e.preventDefault(); moveCanvasFocus(-1); } else if((e.key==='Enter'||e.key===' ') && state.points[state.focusIndex]){ e.preventDefault(); select(state.points[state.focusIndex].id); } };
       const params=new URLSearchParams(location.search); const start=params.get('node'); const preset=params.get('preset'); if(start){ if(!select(start)) renderAll(); } else if(preset){ if(!selectRoute(preset)) renderAll(); } else renderAll();
       addEventListener('resize',draw);
     }).catch(error=>{
