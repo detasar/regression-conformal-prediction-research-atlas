@@ -124,7 +124,7 @@ This table explains how to read the current evidence and which broader uses woul
 | CQR backend sensitivity wording | The model-matched CQR rerun is reported as backend-sensitivity evidence. | Completed fixed-GBM rows 4,564; completed model-matched rows 4,564; paired cells 224; coverage-eligible interval-score selections fixed-GBM=116, model-matched=71, neither=37. | Method selection and deployment use require separate validation. |
 | Venn-Abers negative evidence | The evaluated bridge is reported as bridge-specific negative or failure-mode evidence. | 14 undercoverage runs and validated-regression support flag `False`. | No validated Venn-Abers regression interval claim and no literature-wide rejection of Venn-Abers research. |
 | Stronger scientific claims requiring validation | Bounded-support validity and population-group-inference claims are reported as beyond this study rather than softened into optimistic prose. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0. | No bounded-support validity, endpoint validity, population-level group inference, or deployment-group-inference conclusion. |
-| KG and site publication | The KG and Research Atlas site are useful for review navigation and claim tracing. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | The KG and GitHub Pages site let readers inspect how claims connect to evidence. |
+| KG and site publication | The KG and Research Atlas site are useful for review navigation and claim tracing. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | The Research Atlas site and KG browser let readers inspect how claims connect to evidence. |
 
 ## 1. Reader Primer
 
