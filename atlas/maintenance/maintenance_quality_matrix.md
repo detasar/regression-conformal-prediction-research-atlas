@@ -15,7 +15,7 @@ This matrix records the public maintenance and CI checks currently attached to t
 
 | Check | Status | CI enforced | Scope | Remaining work |
 |---|---|---:|---|---|
-| Public smoke CI | `implemented` | `True` | public package install, artifact smoke checks, and root command help | Keep expanding public smoke coverage as new atlas surfaces are added. |
+| Public smoke CI | `implemented` | `True` | public package install, rebuild commands, artifact/schema/link checks, reader-surface checks, and runner entry points | Keep expanding public smoke lanes as new atlas surfaces are added. |
 | Package content check | `implemented` | `True` | experiment configs, public rebuild modules, and runner entry points | Add checksum checks for future larger release assets. |
 | Reader-language check | `implemented` | `True` | public README, HTML article/supplement/document, atlas, KG, and evidence pages | Add any newly rejected public phrases to the scanner before publication. |
 | Link and schema smoke check | `implemented` | `True` | local links, indexed public artifacts, KG schema, and manifest coverage | Add browser-level crawl checks for dynamically generated route states. |

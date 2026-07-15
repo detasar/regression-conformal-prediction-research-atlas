@@ -11444,7 +11444,7 @@
         "excluded_reason": null,
         "file_included": true,
         "manifest": "evidence/public_artifact_manifest.json",
-        "public_content_sha256": "c23bb0a1228df3b8caa0ced992725fde9f8b1b3b812d83918f544ee606952da3",
+        "public_content_sha256": "0702f80d2183e067e42b5a96e6dc2c825498ea72f42cbcbd6384673527baede5",
         "public_path": "README.md",
         "represented_in_aggregate": true,
         "status": "included_public"

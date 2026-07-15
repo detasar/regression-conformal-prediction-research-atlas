@@ -628,6 +628,9 @@ def test_public_environment_lock_documents_install_surface() -> None:
     assert lock["recommended_python"] == "3.11"
     assert lock["platform"]["gpu_required"] is False
     assert "python -m pip install -e \".[test]\"" in lock["install_commands"]
+    assert any("core_imports or package_data" in command for command in lock["install_commands"])
+    assert any("kg_and_artifact_manifest or scope_catalogs" in command for command in lock["install_commands"])
+    assert any("reader_surfaces or html_metadata" in command for command in lock["install_commands"])
     assert "python -m pytest -m \"unit or artifact_public or smoke\" -q" in lock["install_commands"]
 
     locked = lock["locked_dependencies"]
@@ -697,6 +700,13 @@ def test_public_repository_maintenance_files_are_present() -> None:
     assert "indent_size = 4" in editorconfig
     assert "permissions:" in workflow
     assert workflow.count("contents: read") >= 2
+    assert "Run package and rebuild smoke checks" in workflow
+    assert "Run artifact schema and link checks" in workflow
+    assert "Run reader SEO and accessibility checks" in workflow
+    assert "Run full public artifact smoke suite" in workflow
+    assert "core_imports or package_data or wheel_contains" in workflow
+    assert "kg_and_artifact_manifest or scope_catalogs or source_metadata" in workflow
+    assert "reader_surfaces or html_metadata or seo_and_citation" in workflow
     assert "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0" in workflow
     assert "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1" in workflow
     assert "actions/checkout@v7" not in workflow
@@ -1125,6 +1135,9 @@ def test_public_maintenance_quality_matrix_tracks_ci_and_debt() -> None:
     )
     check_by_id = {row["check_id"]: row for row in matrix["checks"]}
     assert check_by_id["public_smoke_ci"]["ci_enforced"] is True
+    assert "package/rebuild smoke" in check_by_id["public_smoke_ci"]["command_or_evidence"]
+    assert "artifact/schema/link" in check_by_id["public_smoke_ci"]["command_or_evidence"]
+    assert "reader SEO/accessibility" in check_by_id["public_smoke_ci"]["command_or_evidence"]
     assert check_by_id["package_content"]["status"] == "implemented"
     assert check_by_id["public_forbidden_language"]["status"] == "implemented"
     assert check_by_id["environment_lock"]["status"] == "implemented"
