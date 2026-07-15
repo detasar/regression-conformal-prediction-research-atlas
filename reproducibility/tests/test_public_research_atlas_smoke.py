@@ -1396,6 +1396,11 @@ def test_public_pdfs_include_scholarly_metadata() -> None:
     }
     for stem, tokens in expected.items():
         tex = (root / f"{stem}.tex").read_text(encoding="utf-8")
+        assert "% public-pdf-tagged-tabular-v1" in tex
+        assert "\\begin{longtable}" not in tex
+        assert "\\begin{tabular}" in tex
+        assert "% public-pdf-tagging-v1" in tex
+        assert "\\DocumentMetadata{testphase={phase-III},pdfstandard=ua-2,lang=en-US}" in tex
         assert "% public-pdf-metadata-v1" in tex
         assert "\\hypersetup{%" in tex
         assert "pdftitle={" in tex
@@ -1413,6 +1418,7 @@ def test_public_pdfs_include_scholarly_metadata() -> None:
             )
             for token in tokens:
                 assert token in result.stdout
+            assert "Tagged:          yes" in result.stdout
 
 
 def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:

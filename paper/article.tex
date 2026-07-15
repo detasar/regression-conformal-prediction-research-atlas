@@ -1,8 +1,11 @@
+% public-pdf-tagging-v1
+\DocumentMetadata{testphase={phase-III},pdfstandard=ua-2,lang=en-US}
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{booktabs}
 \usepackage{longtable}
 % public-pdf-table-layout-v1
+% public-pdf-tagged-tabular-v1
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{xurl}
@@ -57,7 +60,7 @@ The snapshot below is the main article version of the Research Document's interp
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Topic & Article statement & Stronger reading requiring validation \\
 \midrule
@@ -67,7 +70,7 @@ Group diagnostics & Group and Mondrian rows are heterogeneity diagnostics that h
 Coverage-gated selection evidence & Coverage-gated selected-cell counts describe observed coverage-width trade-offs among audited methods. & They are not study-wide method choice or universal superiority claims. \\
 Venn-Abers bridge & The negative evidence concerns the evaluated interval bridge. & The broader predictive-distribution and generalized Venn-Abers literature remains separate. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \subsection{Contributions And Boundaries}
@@ -87,7 +90,7 @@ The paper is organized as a small article, a broad supplement, and working evide
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
 Surface & Reader job & Scope & Source basis \\
 \midrule
@@ -97,7 +100,7 @@ README review router & Use the README to choose the review path, locate artifact
 Research Atlas site and KG browser & Use the site and KG browser to trace claims to source artifacts, citation gates, quality checks, nodes, edges, and provenance. & The Research Atlas site and KG browser let readers inspect how claims connect to evidence. & Use the site as a Research Atlas portal with explicit lanes. \\
 Claim-evidence contract & Use the claim matrix to keep each reader-facing sentence tied to evidence, citation requirements, and an explicit stronger reading. & No prose may convert a stronger claim into a positive conclusion. & claim\_\allowbreak{}boundary\_\allowbreak{}for\_\allowbreak{}every\_\allowbreak{}surface \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{Research Questions}
@@ -108,7 +111,7 @@ The article is organized around five research questions. The answers below are i
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
 Research question & Article answer & Evidence anchor & Stronger reading requiring validation \\
 \midrule
@@ -119,7 +122,7 @@ What did the evaluated Venn-Abers regression bridge show? & The evaluated bridge
 Which stronger stronger readings require separate validation? & Bounded-support validity and population-level group inference remain beyond this study: 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. & Paper gate map, bounded-support audit, group-diagnostic audit, and claim matrix. & Keep diagnostic endpoint and group evidence separate from validity or group-inference conclusions. \\
 How can the evidence be audited? & The KG and Research Atlas package provide traceability infrastructure with 3,643 KG nodes and 21,019 KG edges. & Knowledge-graph quality audit and Research Atlas metadata. & Use the KG and site to inspect how claims connect to evidence. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{Concept Bridge For Non-Specialist Readers}
@@ -130,7 +133,7 @@ This bridge links the main technical concepts to the sources and interpretation 
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
 \toprule
 Concept & Source or evidence anchor & Article use & Safe sentence & Beyond this study sentence \\
 \midrule
@@ -140,7 +143,7 @@ CV+ and jackknife-style intervals & Jackknife+/CV+ resampling evidence \cite{bar
 Venn-Abers regression bridge & Venn-Abers predictive-distribution and generalized-calibration literature \cite{nouretdinov2018ivapd,nouretdinov2024ivapd_applications,vanderlaan2025generalized_venn_abers,petej2026inductive_venn_abers_regressors} & The study evaluates a bridge from Venn-Abers-style calibration evidence into regression interval diagnostics. & The evaluated bridge produced bridge-specific negative evidence in these experiments. & The result concerns the evaluated bridge and leaves the broader Venn-Abers literature separate. \\
 Claim-gated empirical wording & Publication claim-evidence matrix and section-boundary audit & Every empirical sentence is paired with evidence, an allowed reading, and a stronger stronger reading. & Evidence limits are part of the scientific result and should remain visible. & Diagnostic patterns should be kept separate from study-wide method choice, group-inference, endpoint-validity, and broader scope claims. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{Claim-Evidence Map}
@@ -151,7 +154,7 @@ The table below pairs each reader-facing claim with source-backed evidence and i
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
 Claim surface & Evidence & Supported reading & Scope \\
 \midrule
@@ -163,7 +166,7 @@ Bounded-support validity & 0 validity-ready bounded-support bundles. & Endpoint/
 Population-level group inference & 0 population-group-inference-ready bundles. & Group diagnostics can guide supplementary inspection. & No population-level group inference claim is established. \\
 Knowledge-graph traceability & 3,643 KG nodes and 21,019 KG edges. & The KG is evidence infrastructure linking artifacts, sections, citations, claims, and quality checks. & The KG lets readers follow source evidence behind the main claims. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{Study Design Summary}
@@ -180,7 +183,7 @@ The table below shows how a raw experimental object becomes a reader-facing stat
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
 \toprule
 Stage & Reader question & Evidence object & Allowed claim & Beyond this study upgrade \\
 \midrule
@@ -191,7 +194,7 @@ Failure-mode diagnostic & What did not work as expected? & 14 Venn-Abers bridge 
 Beyond this study positive gate & Which stronger claims stay absent? & 0 bounded-support-validity-ready bundles and 0 population-group-inference-ready bundles. & Evidence limits are reported as scientific results. & Zero-ready gates cannot be converted into validity or group-inference claims. \\
 Citation and traceability & Where should readers find the citable record? & Research Atlas package and KG evidence map. & These materials let readers inspect the evidence trail. & The Research Atlas site and KG browser let readers inspect how claims connect to evidence. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{Background And Methods}
@@ -216,7 +219,7 @@ The checklist below is intentionally conservative. It translates the method prim
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Concept & Evidence-supported meaning & Outside scope reading \\
 \midrule
@@ -226,14 +229,14 @@ CV+ & Out-of-fold prediction evidence is used to build intervals that reflect fi
 Mondrian/group calibration & Calibration can be stratified by groups when the comparison is intended to expose heterogeneity. & It is not a population-level group inference claim while the group-inference-ready bundle count is zero. \\
 Venn-Abers bridge & The experiment evaluates a bridge from Venn-Abers-style calibration evidence into interval diagnostics. & The observed undercoverage concerns the evaluated bridge, while predictive-distribution and generalized Venn-Abers research remain separate. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \begingroup
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Reader question & Short answer & Scope \\
 \midrule
@@ -242,7 +245,7 @@ What is CQR? & Conformalized Quantile Regression: quantile models plus conformal
 What is CV+? & A cross-validation-plus interval family using out-of-fold prediction evidence. & Its coverage-gated selected-cell signal remains diagnostic and experiment-scoped. \\
 What is the Venn-Abers bridge result? & The evaluated bridge did not behave as the expected strong regression solution. & This is bridge-specific negative evidence, not a literature-wide rejection. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \subsection{Notation And Evaluation Protocol}
@@ -255,7 +258,7 @@ The article uses these quantities descriptively. A coverage-gated selected cell 
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Quantity & Definition & Article use \\
 \midrule
@@ -265,7 +268,7 @@ Empirical width & Mean of \texttt{U\_\allowbreak{}m(X\_\allowbreak{}i) -\allowbr
 Coverage-gated selected cell & Observed coverage/width trade-off cell & Diagnostic pattern, descriptive selection \\
 Undercoverage run & Completed run below its target boundary & Failure-mode evidence \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \subsection{Method Mechanics Snapshot}
@@ -276,7 +279,7 @@ For a non-specialist reader, the methods differ mainly in how they choose or adj
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Method family & Interval mechanism & Scope in this article \\
 \midrule
@@ -286,7 +289,7 @@ CV+ / jackknife+ & Out-of-fold or leave-one-out conformity evidence & Strong pra
 Mondrian calibration & Group- or stratum-specific calibration & Diagnostic comparator; not a population-level group inference claim \\
 Venn-Abers bridge & Bridge from Venn-Abers-style calibration evidence to interval diagnostics & Negative evidence for the evaluated bridge only \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{Results}
@@ -299,7 +302,7 @@ The results table mixes scope counts, descriptive method signals, and evidence l
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Evidence area & Result & Interpretation \\
 \midrule
@@ -315,7 +318,7 @@ Venn-Abers bridge undercoverage runs & 14 & Negative/failure-mode evidence \\
 Bounded-support validity-ready bundles & 0 & No bounded-support validity claim \\
 Population-group-inference-ready bundles & 0 & No population-level group inference claim \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 The descriptive method result is internally consistent with the individual experiment report: CQR has the largest current coverage-gated selected-cell share, but the final selection claim remains beyond this study. The correct claim is not that CQR is the best regression conformal method in general; the supported claim is that CQR is the largest current diagnostic coverage-gated selected pattern in this audited study.
@@ -328,7 +331,7 @@ A completed model-matched CQR rerun tests whether the historical fixed-GBM CQR p
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.300\linewidth}>{\RaggedRight\arraybackslash}p{0.640\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.300\linewidth}>{\RaggedRight\arraybackslash}p{0.640\linewidth}@{}}
 \toprule
 CQR variant outcome & Coverage-eligible interval-score selected cells \\
 \midrule
@@ -336,7 +339,7 @@ Fixed-GBM CQR & 116 \\
 Model-matched CQR & 71 \\
 Neither coverage-eligible variant & 37 \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 This check keeps the interpretation conservative. It supports a pipeline-level backend sensitivity statement and does not convert CQR into a universal method-selection, best-method claim, or deployment guidance.

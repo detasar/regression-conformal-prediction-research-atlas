@@ -1,8 +1,11 @@
+% public-pdf-tagging-v1
+\DocumentMetadata{testphase={phase-III},pdfstandard=ua-2,lang=en-US}
 \documentclass[11pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{booktabs}
 \usepackage{longtable}
 % public-pdf-table-layout-v1
+% public-pdf-tagged-tabular-v1
 \usepackage{array}
 \usepackage{ragged2e}
 \usepackage{xurl}
@@ -41,7 +44,7 @@ This crosswalk explains how the supplement should be read with the main article.
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.190\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.270\linewidth}>{\RaggedRight\arraybackslash}p{0.210\linewidth}@{}}
 \toprule
 Main article surface & Supplement support & Primary source artifact & Stronger claim requiring validation \\
 \midrule
@@ -52,7 +55,7 @@ Population-level group inference & S4 group diagnostics & \texttt{group inferenc
 Duplicate and leakage integrity & S5 duplicate and integrity caveats & \texttt{cross\_\allowbreak{}run\_\allowbreak{}integrity\_\allowbreak{}audit} & No claim strengthening by hiding duplicate or split-integrity caveats. \\
 Knowledge-graph traceability & S6 traceability & \texttt{knowledge\_\allowbreak{}graph\_\allowbreak{}quality\_\allowbreak{}summary} & The KG and site support navigation and source tracing. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{Supplement Reading Protocol}
@@ -63,7 +66,7 @@ The supplement is intentionally broader than the main article. Each section adds
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.150\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.220\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.150\linewidth}@{}}
 \toprule
 Section & Reviewer check & Evidence metric & Allowed use & Beyond this study use \\
 \midrule
@@ -75,7 +78,7 @@ S4 & Check whether group diagnostics define a population-group-inference estiman
 S5 & Check whether duplicate and leakage controls strengthen or limit interpretation. & 29 duplicate actions, 46 quarantined actions, 0 unquarantined actions, and hard leakage not detected in scanned artifacts. & Retain integrity caveats as part of the scientific record. & Integrity caveats remain part of the scientific record. \\
 S6 & Check how the evidence map supports source inspection. & 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and evidence scope recorded in the manifest. & Use the KG and package to trace claims to evidence. & Use the KG and site to inspect how claims connect to evidence. \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{S1. Method Selection Robustness Diagnostics}
@@ -86,7 +89,7 @@ This section supports the main article by separating descriptive method behavior
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Diagnostic item & Value & Scope \\
 \midrule
@@ -107,7 +110,7 @@ Main-result primary win-rate descriptive range & 0.5757 to 0.7653 & Uncertainty 
 Robustness common-cell primary win rate & 0.6170 & Common-cell diagnostic only \\
 Robustness common-cell descriptive range & 0.5160 to 0.7089 & Precision check, not claim scope \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 Reader note: this section explains why the fixed-GBM CQR pipeline, Mondrian calibration, and CV+ can be reported as practical candidates within this experiment while the final-selection gate remains beyond this study. The descriptive ranges summarize uncertainty around the observed rates; they do not change the claim scope of the final-selection claim.
@@ -120,7 +123,7 @@ The completed model-matched CQR rerun checks whether the historical fixed-GBM CQ
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Backend diagnostic item & Value & Scope \\
 \midrule
@@ -132,7 +135,7 @@ Model-matched CQR selected cells & 71 & Coverage-eligible interval-score selecti
 Neither coverage-eligible variant & 37 & Cells where both CQR variants fail the coverage-eligibility rule \\
 Study-wide method selection supported & \texttt{False} & No study-wide method selection follows from this table \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 \section{S2. Post-Selection Validation Diagnostics}
@@ -143,7 +146,7 @@ Post-selection validation asks whether the descriptive pattern persists in a hel
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Diagnostic item & Value & Scope \\
 \midrule
@@ -160,7 +163,7 @@ Bridge validation atomic runs & 45 & Auxiliary diagnostic evidence \\
 Bridge validation diagnostic counts & cqr=3; cv\_\allowbreak{}plus=1; mondrian\_\allowbreak{}abs=1 & Bridge-slice diagnostics only \\
 Venn-Abers bridge undercoverage runs & 14 & Negative bridge evidence \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as study-wide method choice, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects \cite{nouretdinov2018ivapd,nouretdinov2024ivapd_applications,vanderlaan2025generalized_venn_abers,petej2026inductive_venn_abers_regressors}.
@@ -173,7 +176,7 @@ Bounded-support checks ask whether prediction interval endpoints respect the nat
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Diagnostic item & Value & Scope \\
 \midrule
@@ -186,7 +189,7 @@ Validity-ready bundles & 0 & No bounded-support validity claim \\
 stronger claim-ready bundles & 0 & Positive endpoint claim beyond this study \\
 Endpoint support status counts & beyond this study\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=11; clean\_\allowbreak{}no\_\allowbreak{}natural\_\allowbreak{}domain\_\allowbreak{}endpoint\_\allowbreak{}excursions=3; not\_\allowbreak{}applicable\_\allowbreak{}unbounded\_\allowbreak{}target\_\allowbreak{}endpoint\_\allowbreak{}hygiene\_\allowbreak{}recorded=1 & Support-status inventory, not a validity upgrade \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 Reader note: bounded-support evidence is stricter than ordinary coverage evidence. A method can have acceptable empirical coverage and still fail a natural-domain endpoint gate. The supplement therefore reports endpoint closure as a limitation, not as a post-processing success story.
@@ -199,7 +202,7 @@ Group coverage diagnostics compare interval behavior across observed groups. The
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Diagnostic item & Value & Scope \\
 \midrule
@@ -217,7 +220,7 @@ Weighted-estimand-applied bundles & 0 & No weighted population estimand applied 
 Sampling-weight-policy-declared bundles & 15 & Policy exists but does not open group-inference claim \\
 Population-group-inference-ready bundles & 0 & No population-level group inference claim \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 Reader note: group rows can show where interval behavior differs, but group inference is an estimand-level claim. Because the current population estimand and protected-attribute scope are not declared at the bundle level, the correct supplement reading is diagnostic heterogeneity, not population-level group inference.
@@ -230,7 +233,7 @@ Duplicate and split-integrity checks protect the interpretation of model compari
 \small
 \setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.18}
-\begin{longtable}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.340\linewidth}>{\RaggedRight\arraybackslash}p{0.350\linewidth}@{}}
 \toprule
 Diagnostic item & Value & Scope \\
 \midrule
@@ -244,7 +247,7 @@ Unsupported claim hits & 0 & Claim scan clean for this audit \\
 Cross-run risk counts & medium=39; pass=109 & Risk inventory retained \\
 Cross-run caveat counts & duplicate\_\allowbreak{}cluster\_\allowbreak{}plus\_\allowbreak{}family\_\allowbreak{}internal\_\allowbreak{}fold\_\allowbreak{}caveat=17; duplicate\_\allowbreak{}signature\_\allowbreak{}cross\_\allowbreak{}split\_\allowbreak{}caveat=14; model\_\allowbreak{}visible\_\allowbreak{}signature\_\allowbreak{}cross\_\allowbreak{}split\_\allowbreak{}caveat=15 & Caveats constrain interpretation \\
 \bottomrule
-\end{longtable}
+\end{tabular}
 \endgroup
 
 Reader note: the clean unsupported-claim scan does not erase duplicate or split caveats. It means the scanned artifacts did not contain unsupported claim language; the caveats still travel with the empirical interpretation.

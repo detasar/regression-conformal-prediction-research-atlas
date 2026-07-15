@@ -82,7 +82,7 @@
       "status": "implemented"
     }
   ],
-  "generated_at_utc": "2026-07-15T08:40:22.796401+00:00",
+  "generated_at_utc": "2026-07-15T08:54:51.006985+00:00",
   "schema": "regression_cp_public_maintenance_gate_matrix_v1",
   "summary": {
     "ci_enforced_gate_count": 6,
