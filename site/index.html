@@ -67,6 +67,7 @@
     .panel { border:1px solid var(--line); background:var(--panel); padding:18px; }
     .panel h2 { margin:0 0 12px; font-family:Charter, Georgia, 'Times New Roman', serif; font-size:27px; }
     table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:14px; }
+    caption { text-align:left; padding:8px 7px; color:var(--muted); font-weight:760; background:#fffdf8; border-bottom:1px solid var(--line); }
     th,td { border-bottom:1px solid var(--line); padding:9px 7px; text-align:left; vertical-align:top; overflow-wrap:anywhere; }
     th { color:#4e3d1c; background:#f5eddd; }
     .scope { margin-top:34px; border-top:1px solid var(--line); padding-top:24px; display:grid; grid-template-columns:220px minmax(0,1fr); gap:24px; }
@@ -137,12 +138,13 @@
       <div class="panel">
         <h2>Atlas at a glance</h2>
         <table>
+          <caption>Research Atlas public scope counts</caption>
           <tbody>
-            <tr><th>Publication-scoped rows</th><td>145,839</td></tr>
-            <tr><th>Canonical completed rows</th><td>156,233</td></tr>
-            <tr><th>Datasets / dataset-alpha cells</th><td>67 / 95</td></tr>
-            <tr><th>Method labels</th><td>28</td></tr>
-            <tr><th>CQR backend paired cells</th><td>224</td></tr>
+            <tr><th scope="row">Publication-scoped rows</th><td>145,839</td></tr>
+            <tr><th scope="row">Canonical completed rows</th><td>156,233</td></tr>
+            <tr><th scope="row">Datasets / dataset-alpha cells</th><td>67 / 95</td></tr>
+            <tr><th scope="row">Method labels</th><td>28</td></tr>
+            <tr><th scope="row">CQR backend paired cells</th><td>224</td></tr>
           </tbody>
         </table>
       </div>

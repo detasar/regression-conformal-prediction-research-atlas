@@ -41,6 +41,7 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <main id="main-content">
+
 <h1>Regression Conformal Prediction Under Neutral Interpretation Scope</h1>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
 <p>Contact: detasar@gmail.com</p>
@@ -54,8 +55,8 @@
 <p>This article therefore treats the empirical output as a controlled measurement exercise. The central question is not &#x27;Which method can we promote?&#x27; but &#x27;Which patterns are supported by the completed evidence, and which broader readings require separate validation?&#x27; That framing is important for readers who are new to conformal prediction: the coverage target explains what the interval is trying to guarantee, while the interpretation guide explains what this particular experiment does not prove.</p>
 <h3>Interpretation Guide</h3>
 <p>The snapshot below is the main article version of the Research Document&#x27;s interpretation guide. It separates conformal prediction&#x27;s theorem-level language from the empirical audit language used in this study, and it marks broader readings that would require separate validation.</p>
-<table>
-<thead><tr><th>Topic</th><th>Article statement</th><th>Stronger reading requiring validation</th></tr></thead>
+<table><caption>Guarantee and interpretation scope</caption>
+<thead><tr><th scope="col">Topic</th><th scope="col">Article statement</th><th scope="col">Stronger reading requiring validation</th></tr></thead>
 <tbody>
 <tr><td>Marginal conformal coverage</td><td>The conformal guarantee is a marginal coverage statement under exchangeability and the stated calibration protocol.</td><td>It is not conditional, subgroup, endpoint, or deployment coverage.</td></tr>
 <tr><td>Empirical coverage</td><td>Coverage values in this article summarize observed held-out behavior inside the audited dataset-alpha-method scope.</td><td>They are not theorem claims and not general product deployment rules.</td></tr>
@@ -73,8 +74,8 @@
 </ul>
 <h3>Paper Architecture And Review Contract</h3>
 <p>The paper is organized around a small article, a broad supplement, and Research Atlas navigation artifacts. This structure follows the source-backed publication exemplar review: the article carries the central claim-evidence narrative, while the supplement and KG carry the detailed audit trail. The contract below tells a reader where to look and how each surface should be interpreted.</p>
-<table>
-<thead><tr><th>Surface</th><th>Reader job</th><th>Scope</th><th>Source basis</th></tr></thead>
+<table><caption>Article, supplement, and evidence-map reading surfaces</caption>
+<thead><tr><th scope="col">Surface</th><th scope="col">Reader job</th><th scope="col">Scope</th><th scope="col">Source basis</th></tr></thead>
 <tbody>
 <tr><td>Minimal main article</td><td>Use the article for the study question, non-specialist primer, claim-evidence map, headline diagnostics, and interpretation-boundary summary.</td><td>Read the article as the compact scientific summary of the audited experiment.</td><td>Use a minimal main article and a broad supplementary document.</td></tr>
 <tr><td>Broad supplementary document</td><td>Use the supplement for method detail, robustness diagnostics, post-selection checks, bounded-support policy, group diagnostics, duplicate caveats, and Venn-Abers negative evidence.</td><td>Supplementary diagnostics do not open final selection, group inference, or validity claims.</td><td>Use a minimal main article and a broad supplementary document.</td></tr>
@@ -85,8 +86,8 @@
 </table>
 <h2>Research Questions</h2>
 <p>The article is organized around five research questions. The answers below are intentionally scoped: each answer states what the audited evidence supports and the stronger reading that remains beyond this study.</p>
-<table>
-<thead><tr><th>Research question</th><th>Article answer</th><th>Evidence anchor</th><th>Stronger reading requiring validation</th></tr></thead>
+<table><caption>Research questions and evidence anchors</caption>
+<thead><tr><th scope="col">Research question</th><th scope="col">Article answer</th><th scope="col">Evidence anchor</th><th scope="col">Stronger reading requiring validation</th></tr></thead>
 <tbody>
 <tr><td>What empirical object is being audited?</td><td>A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels.</td><td>Completed-row accounting and individual experiment report facts.</td><td>The scope is an audited experiment surface rather than exhaustive internet coverage or deployment generality.</td></tr>
 <tr><td>Which practical method pattern is supported descriptively?</td><td>Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates; CQR carried the largest coverage-gated selected-cell count (56) and CV+ contributed 13 coverage-gated selected cells.</td><td>Coverage-gated selected-cell counts, coverage-width diagnostics, and claim/evidence matrix.</td><td>Universal method selection or deployment use would require separate validation.</td></tr>
@@ -98,8 +99,8 @@
 </table>
 <h2>Concept Bridge For Non-Specialist Readers</h2>
 <p>This bridge links the main technical concepts to the sources and interpretation scope used in the article. It is intentionally compact: the supplement carries the longer method discussion, while this article keeps only the definitions needed to avoid over-reading the results.</p>
-<table>
-<thead><tr><th>Concept</th><th>Source or evidence anchor</th><th>Article use</th><th>Safe sentence</th><th>Beyond this study sentence</th></tr></thead>
+<table><caption>Concept bridge for conformal prediction terminology</caption>
+<thead><tr><th scope="col">Concept</th><th scope="col">Source or evidence anchor</th><th scope="col">Article use</th><th scope="col">Safe sentence</th><th scope="col">Beyond this study sentence</th></tr></thead>
 <tbody>
 <tr><td>Conformal prediction target</td><td>Distribution-free regression conformal prediction [<a href="https://arxiv.org/abs/1604.04173">@lei2017distribution_free_regression</a>]</td><td><code>1 - alpha</code> is the nominal marginal coverage target under the stated calibration assumptions.</td><td>The article may report target and observed coverage separately.</td><td>Subgroup, endpoint, and future-deployment coverage require separate validation.</td></tr>
 <tr><td>Conformalized Quantile Regression</td><td>CQR lower/upper quantile calibration [<a href="https://arxiv.org/abs/1905.03222">@romano2019conformalized_quantile_regression</a>]</td><td>CQR starts with lower and upper quantile models, then applies conformal calibration to the interval.</td><td>CQR can be described as a strong practical candidate observed in these experiments.</td><td>CQR is reported within the audited experiment rather than as a universal method choice.</td></tr>
@@ -110,8 +111,8 @@
 </table>
 <h2>Claim-Evidence Map</h2>
 <p>The table below pairs each reader-facing claim with source-backed evidence and interpretation scope. This keeps useful empirical signals separate from unsupported deployment rules, group-inference claims, endpoint-validity claims, and scope-expansion claims.</p>
-<table>
-<thead><tr><th>Claim surface</th><th>Evidence</th><th>Supported reading</th><th>Scope</th></tr></thead>
+<table><caption>Claim-evidence map</caption>
+<thead><tr><th scope="col">Claim surface</th><th scope="col">Evidence</th><th scope="col">Supported reading</th><th scope="col">Scope</th></tr></thead>
 <tbody>
 <tr><td>Audited empirical scope</td><td>145,839 publication-scoped rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels.</td><td>The study has a broad audited regression-CP accounting base.</td><td>Scope size alone does not establish external validity or a study-wide method choice.</td></tr>
 <tr><td>CQR/CV+ descriptive performance</td><td>CQR appears in 56 coverage-gated selected cells; CV+ appears in 13 coverage-gated selected cells.</td><td>Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates.</td><td>Universal best-method claims require separate validation.</td></tr>
@@ -127,8 +128,8 @@
 <p>This separation is deliberate. Model training, interval construction, diagnostic aggregation, literature-aware method description, and evidence scope are treated as different objects. As a result, a useful empirical pattern can be reported without becoming a deployment rule, and a negative result can be retained without being softened into a positive story.</p>
 <h2>Evidence-To-Claim Ladder</h2>
 <p>The table below shows how a raw experimental object becomes a reader-facing statement in this article. Each step has an allowed claim and a stronger reading. The purpose is to make the scientific method visible: evidence can support a scoped statement only after the relevant accounting, diagnostic, claim-boundary, and scope checks are kept attached.</p>
-<table>
-<thead><tr><th>Stage</th><th>Reader question</th><th>Evidence object</th><th>Allowed claim</th><th>Beyond this study upgrade</th></tr></thead>
+<table><caption>Evidence reading stages</caption>
+<thead><tr><th scope="col">Stage</th><th scope="col">Reader question</th><th scope="col">Evidence object</th><th scope="col">Allowed claim</th><th scope="col">Beyond this study upgrade</th></tr></thead>
 <tbody>
 <tr><td>Completed row</td><td>What was counted?</td><td>145,839 publication-scoped completed rows.</td><td>The empirical accounting base is broad and auditable.</td><td>A completed row is not, by itself, external validity.</td></tr>
 <tr><td>Dataset-alpha cell</td><td>What comparison unit was preserved?</td><td>95 dataset-alpha cells across 67 datasets.</td><td>Coverage behavior is read inside recorded calibration targets.</td><td>A dataset-alpha cell is not a population claim.</td></tr>
@@ -147,8 +148,8 @@
 <p>The evaluated Venn-Abers regression bridge has a different status. Venn-Abers regression work is closer to predictive distributions and generalized calibration than to a single ordinary interval recipe [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>]. The experiment therefore tests a bridge from that calibration evidence into interval diagnostics. The observed undercoverage is evidence against this bridge in this study, not evidence against the whole Venn-Abers research program.</p>
 <h3>Reader Safety Checklist</h3>
 <p>The checklist below is intentionally conservative. It translates the method primer into interpretation scope so a reader can tell which parts are conformal-method background, which parts are empirical findings from this study, and which stronger readings remain beyond this study.</p>
-<table>
-<thead><tr><th>Concept</th><th>Reader-safe meaning</th><th>Outside scope reading</th></tr></thead>
+<table><caption>Non-specialist concept meanings</caption>
+<thead><tr><th scope="col">Concept</th><th scope="col">Reader-safe meaning</th><th scope="col">Outside scope reading</th></tr></thead>
 <tbody>
 <tr><td><code>1 - alpha</code> target</td><td>A nominal design target for marginal coverage under the stated calibration protocol.</td><td>Subgroup, endpoint-region, and future-deployment coverage require observed evidence beyond the nominal target.</td></tr>
 <tr><td>CQR</td><td>Lower and upper quantile models are conformalized with calibration evidence so intervals can adapt to heterogeneous noise.</td><td>Its role here is empirical: quantile-based intervals adapt to heterogeneous noise within the audited experiment.</td></tr>
@@ -157,8 +158,8 @@
 <tr><td>Venn-Abers bridge</td><td>The experiment evaluates a bridge from Venn-Abers-style calibration evidence into interval diagnostics.</td><td>The observed undercoverage concerns the evaluated bridge, while predictive-distribution and generalized Venn-Abers research remain separate.</td></tr>
 </tbody>
 </table>
-<table>
-<thead><tr><th>Reader question</th><th>Short answer</th><th>Scope</th></tr></thead>
+<table><caption>Reader FAQ</caption>
+<thead><tr><th scope="col">Reader question</th><th scope="col">Short answer</th><th scope="col">Scope</th></tr></thead>
 <tbody>
 <tr><td>What is <code>1 - alpha</code>?</td><td>The nominal target coverage level used to design or calibrate the interval.</td><td>It is not the realized empirical coverage of every subgroup or future dataset.</td></tr>
 <tr><td>What is CQR?</td><td>Conformalized Quantile Regression: quantile models plus conformal calibration.</td><td>It is an observed strong practical candidate here, limited to the audited experiment.</td></tr>
@@ -169,8 +170,8 @@
 <h3>Notation And Evaluation Protocol</h3>
 <p>For an observation with features <code>X_i</code> and outcome <code>Y_i</code>, a method <code>m</code> returns an interval <code>C_m(X_i) = [L_m(X_i), U_m(X_i)]</code>. The basic coverage indicator is <code>1{Y_i in C_m(X_i)}</code>. Empirical coverage is the average of this indicator over the evaluated rows, and empirical width is the average of <code>U_m(X_i) - L_m(X_i)</code>. The nominal target <code>1 - alpha</code> is therefore a target for coverage, not a guarantee that every subgroup, endpoint region, or future dataset will satisfy the same rate.</p>
 <p>The article uses these quantities descriptively. A coverage-gated selected cell marks an observed coverage/width trade-off within a dataset-alpha comparison. Row-weighted coverage summarizes completed result rows. Undercoverage runs identify places where the empirical coverage fell below the target enough to be treated as failure-mode evidence. None of these summaries alone opens a final method-selection, group inference, or bounded-support claim.</p>
-<table>
-<thead><tr><th>Quantity</th><th>Definition</th><th>Article use</th></tr></thead>
+<table><caption>Evaluation quantities</caption>
+<thead><tr><th scope="col">Quantity</th><th scope="col">Definition</th><th scope="col">Article use</th></tr></thead>
 <tbody>
 <tr><td>Interval <code>C_m(X_i)</code></td><td>Lower and upper endpoint returned by method <code>m</code></td><td>Basic object being evaluated</td></tr>
 <tr><td>Empirical coverage</td><td>Mean of <code>1{Y_i in C_m(X_i)}</code> over evaluated rows</td><td>Descriptive calibration evidence</td></tr>
@@ -181,8 +182,8 @@
 </table>
 <h3>Method Mechanics Snapshot</h3>
 <p>For a non-specialist reader, the methods differ mainly in how they choose or adjust interval endpoints. Split conformal uses a held-out residual quantile. CQR starts with lower and upper quantile models before conformal calibration. CV+ and jackknife+ use out-of-fold or leave-one-out predictions. Mondrian variants calibrate within groups or strata. The evaluated Venn-Abers regression bridge maps a distinct calibration object into interval-style diagnostics.</p>
-<table>
-<thead><tr><th>Method family</th><th>Interval mechanism</th><th>Scope in this article</th></tr></thead>
+<table><caption>Method family mechanisms</caption>
+<thead><tr><th scope="col">Method family</th><th scope="col">Interval mechanism</th><th scope="col">Scope in this article</th></tr></thead>
 <tbody>
 <tr><td>Split conformal</td><td>Residual-score quantile on a calibration set</td><td>Baseline mechanism; not a complete endpoint or heterogeneity solution</td></tr>
 <tr><td>CQR</td><td>Lower/upper quantile models plus conformal calibration</td><td>Strong practical candidate observed here; limited to the audited experiment</td></tr>
@@ -194,8 +195,8 @@
 <h2>Results</h2>
 <h3>How To Read The Results Table</h3>
 <p>The results table mixes scope counts, descriptive method signals, and evidence limits. Coverage-gated selected cells summarize observed coverage/width trade-offs; row-weighted coverage summarizes empirical coverage across completed result blocks; undercoverage runs flag failure modes; and zero-ready gates record claims the article must not make. These quantities support interpretation, not study-wide method choice.</p>
-<table>
-<thead><tr><th>Evidence area</th><th>Result</th><th>Interpretation</th></tr></thead>
+<table><caption>Evidence area summary</caption>
+<thead><tr><th scope="col">Evidence area</th><th scope="col">Result</th><th scope="col">Interpretation</th></tr></thead>
 <tbody>
 <tr><td>Publication-scoped completed rows</td><td>145,839</td><td>Empirical accounting scope</td></tr>
 <tr><td>Datasets</td><td>67</td><td>Method synthesis scope</td></tr>
@@ -213,8 +214,8 @@
 <p>The descriptive method result is internally consistent with the individual experiment report: CQR has the largest current coverage-gated selected-cell share, but the final selection claim remains beyond this study. The correct claim is not that CQR is the best regression conformal method in general; the supported claim is that CQR is the largest current diagnostic coverage-gated selected pattern in this audited study.</p>
 <h3>CQR Backend Sensitivity Check</h3>
 <p>A completed model-matched CQR rerun tests whether the historical fixed-GBM CQR pipeline alone explains the CQR signal. The rerun completed 4,564 model-matched CQR rows and pairs them with 4,564 fixed-GBM CQR rows across 224 dataset-alpha-model-family cells.</p>
-<table>
-<thead><tr><th>CQR variant outcome</th><th>Coverage-eligible interval-score selected cells</th></tr></thead>
+<table><caption>CQR backend sensitivity selection counts</caption>
+<thead><tr><th scope="col">CQR variant outcome</th><th scope="col">Coverage-eligible interval-score selected cells</th></tr></thead>
 <tbody>
 <tr><td>Fixed-GBM CQR</td><td>116</td></tr>
 <tr><td>Model-matched CQR</td><td>71</td></tr>

@@ -97,6 +97,26 @@ class _LinkParser(HTMLParser):
                 self.links.append(value)
 
 
+class _TableAccessibilityParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.tables = 0
+        self.captions = 0
+        self.header_cells = 0
+        self.scoped_header_cells = 0
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        attr = dict(attrs)
+        if tag == "table":
+            self.tables += 1
+        elif tag == "caption":
+            self.captions += 1
+        elif tag == "th":
+            self.header_cells += 1
+            if attr.get("scope"):
+                self.scoped_header_cells += 1
+
+
 def test_public_research_atlas_core_imports() -> None:
     assert importlib.import_module("cpfi")
     assert importlib.import_module("cpfi.models")
@@ -238,8 +258,6 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         phrase("method", "recommendation"),
         phrase("part", "of", "the", "public", "Research", "Atlas"),
         phrase("release", "boundary", "ledger"),
-        phrase("method", "recommendation", "authorized"),
-        phrase("positive", "claim", "promotion", "authorized"),
         phrase("positive", "claim"),
         "positive" + "-claim",
         phrase("claim", "promotion"),
@@ -321,6 +339,10 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "Retry edge bundle" in browser
     assert "ensureEdges(true)" in browser
     assert "Edge bundle unavailable; overview remains usable." in browser
+    assert "Guided route anchor nodes" in browser
+    assert 'scope="col">Anchor' in browser
+    assert "Guided evidence routes" in browser
+    assert "Selected node neighborhood" in browser
     assert "fetch('kg_browser_data.json').then" not in browser
 
 
@@ -873,8 +895,6 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("public", "release", "remains", "closed"),
         phrase("GitHub", "Pages", "remain", "closed"),
         phrase("Release", "Boundary", "Ledger"),
-        phrase("Method", "recommendation", "authorized"),
-        phrase("Positive", "claim", "promotion", "authorized"),
         phrase("positive", "claim"),
         "positive" + "-claim",
         phrase("claim", "promotion"),
@@ -970,10 +990,17 @@ def test_public_html_metadata_and_accessibility_basics() -> None:
         assert "skip-link" in text
         assert ":focus-visible" in text
         assert 'rel="icon"' in text
-    assert "<caption>" in (root / "atlas/results/index.html").read_text(encoding="utf-8")
+        table_parser = _TableAccessibilityParser()
+        table_parser.feed(text)
+        assert table_parser.captions == table_parser.tables
+        assert table_parser.scoped_header_cells == table_parser.header_cells
     kg_text = (root / "site/kg_browser.html").read_text(encoding="utf-8")
     assert "aria-live" in kg_text
     assert "fallback" in kg_text.lower()
+    assert "Guided route anchor nodes" in kg_text
+    assert 'scope="col">Anchor' in kg_text
+    assert "Guided evidence routes" in kg_text
+    assert "Selected node neighborhood" in kg_text
 
 
 def test_public_seo_and_citation_discovery_files() -> None:

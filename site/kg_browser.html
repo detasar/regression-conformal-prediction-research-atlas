@@ -55,8 +55,9 @@
     .detail h2 { font-family:Charter, Georgia, 'Times New Roman', serif; font-size:24px; margin:4px 0 8px; line-height:1.1; }
     .pill { display:inline-flex; border:1px solid var(--line); border-radius:999px; padding:3px 8px; color:var(--muted); font-size:12px; margin:0 6px 6px 0; }
     code { background:#f5efe3; border:1px solid #e5dccb; border-radius:4px; padding:2px 4px; overflow-wrap:anywhere; }
-    table { width:100%; border-collapse:collapse; font-size:12px; table-layout:fixed; background:#fffdf8; }
-    th, td { border-bottom:1px solid var(--line); padding:7px; vertical-align:top; overflow-wrap:anywhere; text-align:left; }
+	    table { width:100%; border-collapse:collapse; font-size:12px; table-layout:fixed; background:#fffdf8; }
+	    caption { text-align:left; padding:8px; color:var(--muted); font-weight:760; background:#fffdf8; border-bottom:1px solid var(--line); }
+	    th, td { border-bottom:1px solid var(--line); padding:7px; vertical-align:top; overflow-wrap:anywhere; text-align:left; }
     th { color:#4e3d1c; background:#f5eddd; }
     @media (max-width:1050px) { .layout { grid-template-columns:1fr; height:auto; min-height:0; overflow:visible; } aside, aside.right { border:0; border-bottom:1px solid var(--line); max-height:none; } .stage { order:-1; min-height:620px; } .canvas-wrap { min-height:480px; } }
   </style>
@@ -192,9 +193,9 @@
           ? `<span class="pill">guided route</span><h2>${esc(route.title)}</h2><p class="muted">${esc(route.summary)}</p><p class="muted">This view shows the curated anchors first. Click an anchor node to open its one-hop or two-hop evidence neighborhood.</p>`
         : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, interpretation scope, and provenance records. It is an evidence map for inspecting the study.</p>`;
         document.getElementById('edges').innerHTML=route ? '<p class="muted">Route anchors are shown in the table below. Select one to inspect edge provenance.</p>' : '<p class="muted">Select a route or search for a node to see edge provenance.</p>';
-        document.getElementById('table').innerHTML=route
-          ? `<table><thead><tr><th>Anchor</th><th>Type</th><th>Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`
-          : `<table><thead><tr><th>Route</th><th>Meaning</th><th>Size</th></tr></thead><tbody>${routeRows}</tbody></table>`;
+	        document.getElementById('table').innerHTML=route
+	          ? `<table><caption>Guided route anchor nodes</caption><thead><tr><th scope="col">Anchor</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`
+	          : `<table><caption>Guided evidence routes</caption><thead><tr><th scope="col">Route</th><th scope="col">Meaning</th><th scope="col">Size</th></tr></thead><tbody>${routeRows}</tbody></table>`;
         activateNodeButtons();
         return;
       }
@@ -202,7 +203,7 @@
       document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
       const es=(state.edgeByNode.get(n.id)||[]).slice(0,14);
       document.getElementById('edges').innerHTML=state.edgesLoaded ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('') : '<p class="muted">Loading edge provenance on demand for this node...</p>';
-      document.getElementById('table').innerHTML=`<table><thead><tr><th>Node</th><th>Type</th><th>Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;
+	      document.getElementById('table').innerHTML=`<table><caption>Selected node neighborhood</caption><thead><tr><th scope="col">Node</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${neighbors(n.id).nodes.slice(0,18).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>`;
       activateNodeButtons();
     }
     function draw(){
