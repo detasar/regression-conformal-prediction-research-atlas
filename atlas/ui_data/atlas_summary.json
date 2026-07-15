@@ -25,7 +25,7 @@
         "atlas/results/selected_under_coverage_gate_cells.csv",
         "atlas/results/result_cube_public.csv"
       ],
-      "description": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. These results do not identify a universally superior conformal method.",
+      "description": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; broader method selection or deployment use would require separate validation.",
       "route_id": "cqr_pipeline_signal",
       "title": "CQR Pipeline Signal"
     },
@@ -43,7 +43,7 @@
         "atlas/claims/claim_registry.json",
         "atlas/claims/interpretation_boundaries.md"
       ],
-      "description": "Broader readings that remain outside the current evidence surface.",
+      "description": "Broader readings that require separate validation.",
       "route_id": "evidence_limits",
       "title": "Interpretation Boundaries"
     }
@@ -69,12 +69,12 @@
       "model_matched_cqr": 71,
       "no_coverage_eligible_variant": 37
     },
-    "generated_at_utc": "2026-07-15T13:37:36.569472+00:00",
+    "generated_at_utc": "2026-07-15T14:12:19.582950+00:00",
     "kg_edge_count": 21019,
     "kg_isolated_node_count": 0,
     "kg_manifest_reference_resolution_rate": 1.0,
     "kg_node_count": 3643,
-    "locked_empirical_wording": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. These results do not identify a universally superior conformal method.",
+    "locked_empirical_wording": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; broader method selection or deployment use would require separate validation.",
     "locked_venn_abers_wording": "The expected strong regression solution did not emerge in these experiments.",
     "public_reading": "The atlas is a public evidence map for inspecting the audited experiment.",
     "publication_alpha_count": 5,

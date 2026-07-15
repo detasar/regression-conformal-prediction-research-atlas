@@ -1,6 +1,6 @@
 # Interpretation Boundaries
 
-The following stronger readings are beyond this study surface:
+The following stronger readings require separate validation:
 
 - **Universal best method**: The synthesis describes this experiment rather than a universal ranking.
 - **Production or deployment guidance**: Operational risk, monitoring, and deployment constraints require a separate study.

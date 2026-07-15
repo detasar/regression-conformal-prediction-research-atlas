@@ -24,7 +24,7 @@
         "atlas/results/selected_under_coverage_gate_cells.csv",
         "atlas/results/result_cube_public.csv"
       ],
-      "description": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. These results do not identify a universally superior conformal method.",
+      "description": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; broader method selection or deployment use would require separate validation.",
       "route_id": "cqr_pipeline_signal",
       "title": "CQR Pipeline Signal"
     },
@@ -42,7 +42,7 @@
         "atlas/claims/claim_registry.json",
         "atlas/claims/interpretation_boundaries.md"
       ],
-      "description": "Broader readings that remain outside the current evidence surface.",
+      "description": "Broader readings that require separate validation.",
       "route_id": "evidence_limits",
       "title": "Interpretation Boundaries"
     }

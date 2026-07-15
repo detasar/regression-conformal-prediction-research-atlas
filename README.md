@@ -20,7 +20,7 @@ This repository is a scientific evidence atlas for a neutral empirical study of 
 
 ## Short Result
 
-Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. These results do not identify a universally superior conformal method. Broader use would require validation beyond this experiment.
+Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; broader method selection or deployment use would require separate validation. Broader use would require validation beyond this experiment.
 
 The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. This comparison shows how much the CQR result depends on the model backend.
 

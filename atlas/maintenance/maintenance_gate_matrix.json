@@ -64,13 +64,13 @@
       "status": "partial"
     },
     {
-      "ci_enforced": false,
-      "command_or_evidence": "monolithic source builders remain tracked as maintenance debt",
+      "ci_enforced": true,
+      "command_or_evidence": "public rebuild scripts share reproducibility/experiments/regression/scripts/public_builder_utils.py",
       "gate_id": "builder_modularization",
       "gate_label": "Builder modularization gate",
-      "remaining_work": "Split builders into DAG tasks with shared schema, path, provenance, and rendering helpers.",
+      "remaining_work": "Continue splitting large source builders into DAG tasks with shared schema, path, provenance, and rendering helpers.",
       "scope": "knowledge graph and publication builders",
-      "status": "planned"
+      "status": "partial"
     },
     {
       "ci_enforced": true,
@@ -82,14 +82,14 @@
       "status": "implemented"
     }
   ],
-  "generated_at_utc": "2026-07-15T13:37:36.569472+00:00",
+  "generated_at_utc": "2026-07-15T14:12:19.582950+00:00",
   "schema": "regression_cp_public_maintenance_gate_matrix_v1",
   "summary": {
-    "ci_enforced_gate_count": 7,
+    "ci_enforced_gate_count": 8,
     "gate_count": 9,
     "implemented_gate_count": 6,
     "overall_status": "schema_migration_seeded_modularization_pending",
-    "partial_gate_count": 2,
-    "planned_gate_count": 1
+    "partial_gate_count": 3,
+    "planned_gate_count": 0
   }
 }

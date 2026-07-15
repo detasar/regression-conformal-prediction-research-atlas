@@ -198,6 +198,7 @@ def test_public_research_atlas_core_imports() -> None:
     assert importlib.import_module("cpfi.models.trainers")
     assert importlib.import_module("cpfi.regression.conformal")
     assert importlib.import_module("experiments.regression.scripts.run_regression_pilot")
+    assert importlib.import_module("experiments.regression.scripts.public_builder_utils")
     assert importlib.import_module("experiments.regression.scripts.build_public_release_scope")
     assert importlib.import_module("experiments.regression.scripts.build_public_research_atlas")
     assert importlib.import_module("experiments.regression.scripts.build_research_atlas_package")
@@ -289,6 +290,7 @@ def test_public_wheel_contains_experiment_configs(tmp_path: Path) -> None:
     )
     assert "experiments/regression/configs/pilot.yaml" in names
     assert "experiments/regression/scripts/run_regression_pilot.py" in names
+    assert "experiments/regression/scripts/public_builder_utils.py" in names
     assert "experiments/regression/policies/data_policy_registry.md" in names
     assert len(config_names) == 184
     assert any(name.endswith("_model_matched_cqr_v1.yaml") for name in config_names)
@@ -1005,13 +1007,15 @@ def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
     assert gate_by_id["public_forbidden_language"]["status"] == "implemented"
     assert gate_by_id["environment_lock"]["status"] == "implemented"
     assert gate_by_id["accessibility_metadata"]["status"] == "partial"
-    assert gate_by_id["builder_modularization"]["status"] == "planned"
+    assert gate_by_id["builder_modularization"]["status"] == "partial"
+    assert gate_by_id["builder_modularization"]["ci_enforced"] is True
+    assert "public_builder_utils.py" in gate_by_id["builder_modularization"]["command_or_evidence"]
     assert gate_by_id["schema_migration"]["status"] == "implemented"
     assert gate_by_id["schema_migration"]["ci_enforced"] is True
     assert gate_by_id["lint_type_security"]["status"] == "partial"
     assert gate_by_id["lint_type_security"]["ci_enforced"] is True
     assert "secret patterns" in gate_by_id["lint_type_security"]["command_or_evidence"]
-    assert matrix["summary"]["ci_enforced_gate_count"] >= 7
+    assert matrix["summary"]["ci_enforced_gate_count"] >= 8
 
     markdown = markdown_path.read_text(encoding="utf-8")
     assert "# Maintenance Gate Matrix" in markdown
@@ -1598,7 +1602,8 @@ def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
     headline = (
         "Under the current coverage criterion, the fixed-GBM CQR pipeline was most "
         "frequently selected; Mondrian calibration and CV+ were secondary candidates. "
-        "These results do not identify a universally superior conformal method."
+        "The comparison is experiment-scoped; broader method selection or deployment "
+        "use would require separate validation."
     )
     pages = [
         root / "README.md",

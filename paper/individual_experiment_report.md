@@ -77,7 +77,7 @@ The robustness diagnostics point in the same direction as the coverage-gated sel
 |---|---|---|
 | Venn-Abers bridge | 14 undercoverage runs; quantile bridge coverage mean 0.6503; max run grid upper-hit rate 0.1803 | negative/failure-mode evidence, no validated regression interval claim |
 | Bounded support | 11 raw endpoint-excursion bundles; 0 validity-ready bundles | no bounded-support validity claim |
-| Group inference | 15 diagnostic group bundles; 0 population-group-inference-ready bundles | group diagnostics only, no population-level group inference claim |
+| Group inference | 15 diagnostic group bundles; 0 population-inference-ready bundles | group diagnostics only, no population-level group inference claim |
 | Positive method selection | 0 stronger claim-ready gates | beyond this study |
 
 ## Traceability
