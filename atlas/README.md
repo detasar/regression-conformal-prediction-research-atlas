@@ -18,7 +18,7 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 - `datasets/` records public aggregate dataset catalog entries, source metadata, and cards.
 - `methods/` records method labels, families, ontology, and cards.
 - `results/` records the public aggregate result cube and selected result surfaces.
-- `claims/` records interpretation boundaries and reader-safe evidence statements.
+- `claims/` records interpretation scope and evidence-supported statements.
 - `provenance/` records source status, hashes, RO-Crate metadata, and PROV traces.
 - `ui_data/` contains compact JSON used by the public website.
 - `maintenance/` records public CI and maintenance gates.

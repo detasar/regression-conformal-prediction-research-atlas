@@ -199,8 +199,8 @@ quality_controls:
   mortgage_pricing_proxy_diagnostics_only: true
   forbid_fair_lending_claims: true
   forbid_lending_discrimination_claims: true
-  forbid_protected_class_fairness_claims: true
-  forbid_race_sex_age_fairness_claims: true
+  forbid_protected_class_group inference_claims: true
+  forbid_race_sex_age_group inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_lender_ranking_claims: true
   forbid_borrower_pricing_guidance_claims: true
@@ -216,7 +216,7 @@ quality_controls:
   interpret_cqr_as_model_matched_quantile_backend: true
   historical_fixed_gbm_cqr_preserved_as_comparator: true
   requires_cqr_fixed_vs_model_matched_synthesis: true
-  no_method_winner_claim: true
+  no_method_selection_claim: true
 logging:
   ledger: experiments/regression/results/model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split_model_matched_cqr_v1/ledger.jsonl
   checkpoint_root: experiments/regression/results/model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split_model_matched_cqr_v1/checkpoints
@@ -237,4 +237,4 @@ rerun_metadata:
   new_method_id: cqr_model_matched
   config_suffix: _model_matched_cqr_v1
   fixed_gbm_cqr_rows_preserved: true
-  final_prose_boundary: pipeline_level_descriptive_signal_only
+  final_prose_boundary: Descriptive signal within this experiment

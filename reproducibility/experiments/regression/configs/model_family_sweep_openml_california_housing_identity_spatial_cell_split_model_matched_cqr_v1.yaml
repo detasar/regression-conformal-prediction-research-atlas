@@ -192,9 +192,9 @@ quality_controls:
   cv_plus_runtime_bounded_not_full_data_guarantee: true
   jackknife_runtime_bounded_not_full_data_guarantee: true
   geographic_proxy_diagnostics_only: true
-  forbid_protected_class_fairness_claims: true
+  forbid_protected_class_group inference_claims: true
   forbid_demographic_parity_claims: true
-  forbid_race_sex_age_fairness_claims: true
+  forbid_race_sex_age_group inference_claims: true
   forbid_housing_market_estimate_claims: true
   forbid_appraisal_or_pricing_guidance_claims: true
   forbid_policy_guidance_claims: true
@@ -208,7 +208,7 @@ quality_controls:
   interpret_cqr_as_model_matched_quantile_backend: true
   historical_fixed_gbm_cqr_preserved_as_comparator: true
   requires_cqr_fixed_vs_model_matched_synthesis: true
-  no_method_winner_claim: true
+  no_method_selection_claim: true
 logging:
   ledger: experiments/regression/results/model_family_sweep_openml_california_housing_identity_spatial_cell_split_model_matched_cqr_v1/ledger.jsonl
   checkpoint_root: experiments/regression/results/model_family_sweep_openml_california_housing_identity_spatial_cell_split_model_matched_cqr_v1/checkpoints
@@ -229,4 +229,4 @@ rerun_metadata:
   new_method_id: cqr_model_matched
   config_suffix: _model_matched_cqr_v1
   fixed_gbm_cqr_rows_preserved: true
-  final_prose_boundary: pipeline_level_descriptive_signal_only
+  final_prose_boundary: Descriptive signal within this experiment

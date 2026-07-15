@@ -56,7 +56,7 @@
       "support_status": "supported by audited artifacts and KG trace"
     },
     {
-      "claim_id": "methodology_records",
+      "claim_id": "methodology_controls",
       "claim_status": "experiment-scoped reporting",
       "claim_type": "methodology control claim",
       "evidence_gate": "Control descriptions support reproducibility claims; scientific validity rests on the empirical evidence.",
@@ -149,7 +149,7 @@
       "claim_type": "evidence_limit",
       "evidence_gate": "cqr_fixed_vs_model_matched_synthesis",
       "kg_reference_node_count": "",
-      "plain_language": "pipeline_level_descriptive_signal_only",
+      "plain_language": "Descriptive signal within this experiment",
       "reader_safe_statement": "CQR backend method selection",
       "scope_limit": "A future decision to run and validate a prospectively matched method-selection protocol.",
       "support_status": "requires separate validation"

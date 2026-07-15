@@ -205,7 +205,7 @@ quality_controls:
   age_bin_primary_diagnostic_only: true
   drop_age_after_bin_derivation: true
   drop_density_as_target_derived_leakage: true
-  rows_are_men_no_sex_or_gender_fairness_claims: true
+  rows_are_men_no_sex_or_gender_group inference_claims: true
   circumference_features_are_body_size_proxies: true
   forbid_population_health_claims: true
   forbid_clinical_guidance_claims: true
@@ -220,7 +220,7 @@ quality_controls:
   interpret_cqr_as_model_matched_quantile_backend: true
   historical_fixed_gbm_cqr_preserved_as_comparator: true
   requires_cqr_fixed_vs_model_matched_synthesis: true
-  no_method_winner_claim: true
+  no_method_selection_claim: true
 logging:
   ledger: experiments/regression/results/model_family_sweep_openml_bodyfat_age_density_drop_model_matched_cqr_v1/ledger.jsonl
   checkpoint_root: experiments/regression/results/model_family_sweep_openml_bodyfat_age_density_drop_model_matched_cqr_v1/checkpoints
@@ -241,4 +241,4 @@ rerun_metadata:
   new_method_id: cqr_model_matched
   config_suffix: _model_matched_cqr_v1
   fixed_gbm_cqr_rows_preserved: true
-  final_prose_boundary: pipeline_level_descriptive_signal_only
+  final_prose_boundary: Descriptive signal within this experiment

@@ -32,7 +32,7 @@ The expected strong regression solution did not emerge in these experiments. The
 2. `atlas/scope/experiment_scope.json` records the experiment accounting scope.
 3. `atlas/results/result_cube_public.csv` is the aggregate result cube.
 4. `atlas/datasets/dataset_catalog.csv` and `atlas/methods/method_catalog.csv` expose the dataset and method universes.
-5. `atlas/claims/claim_registry.json` records interpretation boundaries and reader-safe evidence statements.
+5. `atlas/claims/claim_registry.json` records interpretation scope and evidence-supported statements.
 6. `paper/research_document.html` is the primary Research Document for web reading; `paper/research_document.md` is the Markdown source.
 7. `paper/article.html` and `paper/article.pdf` are the compact report.
 8. `paper/supplement.html` and `paper/supplement.pdf` are the broad supplementary document.

@@ -191,7 +191,7 @@ quality_controls:
   sex_primary_group_diagnostic: true
   retain_race_age_secondary_audit_context: true
   age_experience_collinearity_context: true
-  forbid_headline_wage_fairness_claims: true
+  forbid_headline_wage_group inference_claims: true
   forbid_labor_market_policy_claims: true
   forbid_population_survey_claims: true
   forbid_causal_or_gender_gap_claims: true
@@ -200,7 +200,7 @@ quality_controls:
   interpret_cqr_as_model_matched_quantile_backend: true
   historical_fixed_gbm_cqr_preserved_as_comparator: true
   requires_cqr_fixed_vs_model_matched_synthesis: true
-  no_method_winner_claim: true
+  no_method_selection_claim: true
 logging:
   ledger: experiments/regression/results/model_family_sweep_openml_cps_85_wages_log1p_sex_model_matched_cqr_v1/ledger.jsonl
   checkpoint_root: experiments/regression/results/model_family_sweep_openml_cps_85_wages_log1p_sex_model_matched_cqr_v1/checkpoints
@@ -221,4 +221,4 @@ rerun_metadata:
   new_method_id: cqr_model_matched
   config_suffix: _model_matched_cqr_v1
   fixed_gbm_cqr_rows_preserved: true
-  final_prose_boundary: pipeline_level_descriptive_signal_only
+  final_prose_boundary: Descriptive signal within this experiment
