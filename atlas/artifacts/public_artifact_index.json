@@ -1,5 +1,5 @@
 {
-  "artifact_count": 299,
+  "artifact_count": 300,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -260,6 +260,11 @@
       "artifact_kind": "benchmark v2",
       "artifact_path": "atlas/benchmark_v2/preflight/run_grid_cardinality.json",
       "reader_use": "Benchmark v2 run-grid cardinality calculation."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/run_grid_manifest_candidate.csv.gz",
+      "reader_use": "Compressed full planned primary run-grid manifest for the current Benchmark v2 candidate task variants."
     },
     {
       "artifact_kind": "benchmark v2",
@@ -1497,6 +1502,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T05:27:58.345773+00:00",
+  "generated_at_utc": "2026-07-15T05:37:36.113740+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

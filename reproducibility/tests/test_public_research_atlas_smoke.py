@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib
 import importlib.resources as resources
 import csv
+import gzip
 import json
 import os
 import shutil
@@ -636,6 +637,7 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     cardinality_path = preflight / "run_grid_cardinality.json"
     checklist_path = preflight / "preflight_readiness_checklist.json"
     run_grid_path = preflight / "run_grid_manifest_preview.csv"
+    candidate_run_grid_path = preflight / "run_grid_manifest_candidate.csv.gz"
     source_template_path = preflight / "source_dataset_registry_template.csv"
     task_template_path = preflight / "task_variant_registry_template.csv"
     status_template_path = preflight / "run_status_ledger_template.csv"
@@ -645,6 +647,7 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         checklist_path,
         preflight / "preflight_readiness_checklist.md",
         run_grid_path,
+        candidate_run_grid_path,
         source_template_path,
         task_template_path,
         status_template_path,
@@ -660,6 +663,8 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert cardinality["estimated_primary_planned_rows"] == 210000
     assert cardinality["estimated_diagnostic_planned_rows"] == 84000
     assert cardinality["estimated_total_planned_rows"] == 294000
+    assert cardinality["candidate_task_variant_count"] == 24
+    assert cardinality["candidate_primary_planned_run_grid_row_count"] == 210000
 
     checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
     assert checklist["schema"] == "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
@@ -667,6 +672,7 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert checklist["result_generation_status"] == "not_started"
     statuses = {row["gate_id"]: row["status"] for row in checklist["checklist"]}
     assert statuses["preflight_templates_published"] == "pass"
+    assert statuses["candidate_run_grid_manifest_published"] == "pass"
     assert statuses["benchmark_v2_results_generated"] == "not_started"
 
     with run_grid_path.open(encoding="utf-8", newline="") as handle:
@@ -677,6 +683,20 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     )
     assert {row["ranking_role"] for row in preview_rows} == {"primary"}
     assert all(row["planned_status"] == "template_pending_task_registry" for row in preview_rows)
+
+    with gzip.open(candidate_run_grid_path, "rt", encoding="utf-8", newline="") as handle:
+        candidate_rows = list(csv.DictReader(handle))
+    assert len(candidate_rows) == cardinality["candidate_primary_planned_run_grid_row_count"]
+    assert {"paired_cell_key", "source_dataset_id", "task_variant_id", "split_hash"} <= set(
+        candidate_rows[0]
+    )
+    assert {row["ranking_role"] for row in candidate_rows} == {"primary"}
+    assert {row["planned_status"] for row in candidate_rows} == {
+        "candidate_task_registry_planned"
+    }
+    assert all("<pending" not in row["paired_cell_key"] for row in candidate_rows[:200])
+    assert len({row["task_variant_id"] for row in candidate_rows}) == 24
+    assert len({row["source_dataset_id"] for row in candidate_rows}) == 12
 
     with source_template_path.open(encoding="utf-8", newline="") as handle:
         source_fields = next(csv.reader(handle))

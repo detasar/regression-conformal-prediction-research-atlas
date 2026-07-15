@@ -13,3 +13,4 @@
 | `task_variant_registry_populated` | `not_started` | `atlas/benchmark_v2/preflight/task_variant_registry_template.csv` |
 | `run_status_ledger_populated` | `not_started` | `atlas/benchmark_v2/preflight/run_status_ledger_template.csv` |
 | `benchmark_v2_results_generated` | `not_started` | `benchmark_v2/aggregate_result_cube.parquet` |
+| `candidate_run_grid_manifest_published` | `pass` | `atlas/benchmark_v2/preflight/run_grid_manifest_candidate.csv.gz` |

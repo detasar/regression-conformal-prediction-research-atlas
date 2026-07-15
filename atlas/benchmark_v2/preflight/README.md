@@ -9,12 +9,15 @@ This directory contains public preflight artifacts for the forward Benchmark v2 
 - Estimated primary planned rows: `210000`
 - Estimated diagnostic planned rows: `84000`
 - Estimated total planned rows: `294000`
+- Candidate task variants represented in full primary grid: `24`
+- Candidate primary planned run-grid rows: `210000`
 
 ## Files
 
 - `source_dataset_registry_template.csv`: required source-dataset registry columns.
 - `task_variant_registry_template.csv`: required task-variant registry columns.
 - `run_grid_manifest_preview.csv`: paired-grid preview for one placeholder task variant.
+- `run_grid_manifest_candidate.csv.gz`: full planned primary run-grid manifest for the current 24 Benchmark v2 candidate task variants.
 - `run_status_ledger_template.csv`: required run-status ledger columns before execution.
 - `run_grid_cardinality.json`: deterministic cardinality calculation from the frozen execution manifest.
 - `preflight_readiness_checklist.*`: preflight gates and current statuses.

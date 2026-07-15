@@ -39,9 +39,14 @@
       "evidence_path": "benchmark_v2/aggregate_result_cube.parquet",
       "gate_id": "benchmark_v2_results_generated",
       "status": "not_started"
+    },
+    {
+      "evidence_path": "atlas/benchmark_v2/preflight/run_grid_manifest_candidate.csv.gz",
+      "gate_id": "candidate_run_grid_manifest_published",
+      "status": "pass"
     }
   ],
-  "generated_at_utc": "2026-07-15T05:27:58.345773+00:00",
+  "generated_at_utc": "2026-07-15T05:37:36.113740+00:00",
   "overall_status": "preflight_templates_ready_execution_not_started",
   "result_generation_status": "not_started",
   "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
