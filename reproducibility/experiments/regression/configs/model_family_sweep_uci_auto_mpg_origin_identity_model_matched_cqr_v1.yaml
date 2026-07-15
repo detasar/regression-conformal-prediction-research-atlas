@@ -184,7 +184,7 @@ quality_controls:
   note_seed_aggregate_count: 2
   treat_origin_as_vehicle_source_diagnostic_only: true
   document_horsepower_train_imputation: true
-  forbid_protected_class_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_emissions_regulatory_claims: true
   forbid_validated_venn_abers_regression_claims: true
   interpret_cqr_as_model_matched_quantile_backend: true

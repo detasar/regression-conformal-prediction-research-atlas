@@ -211,8 +211,8 @@ quality_controls:
   cv_plus_runtime_bounded_not_full_data_guarantee: true
   jackknife_runtime_bounded_not_full_data_guarantee: true
   institution_level_proxy_diagnostics_only: true
-  forbid_individual_earnings_group inference_claims: true
-  forbid_protected_class_group inference_claims: true
+  forbid_individual_earnings_group_inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_institution_ranking_claims: true
   forbid_roi_or_earnings_guidance_claims: true

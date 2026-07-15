@@ -217,8 +217,8 @@ quality_controls:
   forbid_school_effectiveness_claims: true
   forbid_population_weighted_claims: true
   forbid_plausible_value_pooled_claims: true
-  forbid_student_level_group inference_claims: true
-  forbid_protected_class_group inference_claims: true
+  forbid_student_level_group_inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_policy_guidance_claims: true
   forbid_causal_claims: true

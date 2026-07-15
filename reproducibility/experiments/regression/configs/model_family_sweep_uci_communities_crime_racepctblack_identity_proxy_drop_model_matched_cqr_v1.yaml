@@ -186,7 +186,7 @@ quality_controls:
   treat_racepctblack_bin_as_ecological_proxy_diagnostic_only: true
   require_identifier_and_raw_proxy_drop_policy: true
   require_high_missing_lemas_police_drop_policy: true
-  forbid_individual_group inference_claims: true
+  forbid_individual_group_inference_claims: true
   forbid_policing_or_crime_policy_claims: true
   forbid_validated_venn_abers_regression_claims: true
   interpret_cqr_as_model_matched_quantile_backend: true

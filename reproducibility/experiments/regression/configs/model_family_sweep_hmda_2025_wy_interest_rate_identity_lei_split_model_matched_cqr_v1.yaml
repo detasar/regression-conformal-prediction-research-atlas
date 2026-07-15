@@ -199,8 +199,8 @@ quality_controls:
   mortgage_pricing_proxy_diagnostics_only: true
   forbid_fair_lending_claims: true
   forbid_lending_discrimination_claims: true
-  forbid_protected_class_group inference_claims: true
-  forbid_race_sex_age_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
+  forbid_race_sex_age_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_lender_ranking_claims: true
   forbid_borrower_pricing_guidance_claims: true

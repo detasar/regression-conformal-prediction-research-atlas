@@ -190,7 +190,7 @@ quality_controls:
   drop_target_descendants_casual_registered: true
   treat_season_as_operational_diagnostic_only: true
   treat_temporal_shift_as_benchmark_property: true
-  forbid_protected_class_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_causal_or_policy_claims: true
   forbid_production_forecasting_validation_claims: true
   forbid_validated_venn_abers_regression_claims: true

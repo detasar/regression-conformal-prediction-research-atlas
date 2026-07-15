@@ -189,7 +189,7 @@ quality_controls:
   require_group_counts_in_notes: true
   forbid_student_level_policy_claims: true
   forbid_causal_or_intervention_claims: true
-  forbid_protected_class_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_validated_venn_abers_regression_claims: true
   interpret_cqr_as_model_matched_quantile_backend: true
   historical_fixed_gbm_cqr_preserved_as_comparator: true

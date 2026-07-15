@@ -199,8 +199,8 @@ quality_controls:
   forbid_national_expenditure_estimation_claims: true
   forbid_clinical_guidance_claims: true
   forbid_healthcare_disparity_claims: true
-  forbid_insurance_race_sex_group inference_claims: true
-  forbid_protected_class_group inference_claims: true
+  forbid_insurance_race_sex_group_inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_health_policy_guidance_claims: true
   forbid_causal_claims: true

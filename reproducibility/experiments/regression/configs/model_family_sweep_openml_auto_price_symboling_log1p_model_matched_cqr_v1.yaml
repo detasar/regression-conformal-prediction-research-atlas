@@ -203,8 +203,8 @@ quality_controls:
   symboling_primary_insurance_risk_diagnostic: true
   sparse_symboling_minus_2_group_caveat: true
   cleaned_openml_numeric_subset_not_full_auto_imports: true
-  forbid_protected_class_group inference_claims: true
-  forbid_insurance_pricing_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
+  forbid_insurance_pricing_group_inference_claims: true
   forbid_vehicle_valuation_guidance_claims: true
   forbid_causal_claims: true
   forbid_final_model_selection_claims: true

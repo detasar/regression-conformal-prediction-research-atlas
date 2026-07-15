@@ -205,7 +205,7 @@ quality_controls:
   age_bin_primary_diagnostic_only: true
   drop_age_after_bin_derivation: true
   drop_density_as_target_derived_leakage: true
-  rows_are_men_no_sex_or_gender_group inference_claims: true
+  rows_are_men_no_sex_or_gender_group_inference_claims: true
   circumference_features_are_body_size_proxies: true
   forbid_population_health_claims: true
   forbid_clinical_guidance_claims: true

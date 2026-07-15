@@ -194,8 +194,8 @@ quality_controls:
   household_survey_proxy_diagnostics_only: true
   forbid_population_weighted_scf_claims: true
   forbid_wealth_distribution_estimation_claims: true
-  forbid_individual_or_household_group inference_claims: true
-  forbid_protected_class_group inference_claims: true
+  forbid_individual_or_household_group_inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_policy_guidance_claims: true
   forbid_causal_claims: true

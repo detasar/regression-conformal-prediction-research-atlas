@@ -86,19 +86,19 @@ The release register records 0 in scope release rows. The goal-completion audit 
 
 ## Evidence Sources
 
-- `experiment_accounting_audit`: `experiments/regression/reports/methodology_sanity_audit_20260627/experiment_accounting_audit.json`
-- `method_performance_synthesis`: `experiments/regression/reports/methodology_sanity_audit_20260627/method_performance_synthesis.json`
-- `cqr_fixed_vs_model_matched_synthesis`: `experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json`
-- `method_selection_robustness_audit`: `experiments/regression/reports/methodology_sanity_audit_20260627/method_selection_robustness_audit.json`
-- `venn_abers_negative_evidence_disposition_audit`: `experiments/regression/reports/methodology_sanity_audit_20260627/venn_abers_negative_evidence_disposition_audit.json`
-- `venn_abers_grid_failure_mode_decomposition`: `experiments/regression/reports/methodology_sanity_audit_20260627/venn_abers_grid_failure_mode_decomposition.json`
-- `bounded_support_endpoint_closure_audit`: `experiments/regression/reports/methodology_sanity_audit_20260627/bounded_support_endpoint_closure_audit.json`
-- `group inference_population_readiness_audit`: `experiments/regression/reports/methodology_sanity_audit_20260627/group inference_population_readiness_audit.json`
-- `goal_completion_audit`: `experiments/regression/Research Document/goal_completion_audit.json`
-- `publication_release_gap_register`: `experiments/regression/Research Document/publication_release_gap_register.json`
-- `knowledge_graph_quality_summary`: `experiments/regression/reports/knowledge_graph_quality/quality_summary.json`
-- `publication_citation_registry`: `experiments/regression/Research Document/publication_citation_registry.json`
-- `reader_primer_section_alignment`: `experiments/regression/Research Document/reader_primer_section_alignment.json`
+- `experiment_accounting_audit`: `study/reports/methodology_sanity_audit_20260627/experiment_accounting_audit.json`
+- `method_performance_synthesis`: `study/reports/methodology_sanity_audit_20260627/method_performance_synthesis.json`
+- `cqr_fixed_vs_model_matched_synthesis`: `study/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json`
+- `method_selection_robustness_audit`: `study/reports/methodology_sanity_audit_20260627/method_selection_robustness_audit.json`
+- `venn_abers_negative_evidence_disposition_audit`: `study/reports/methodology_sanity_audit_20260627/venn_abers_negative_evidence_disposition_audit.json`
+- `venn_abers_grid_failure_mode_decomposition`: `study/reports/methodology_sanity_audit_20260627/venn_abers_grid_failure_mode_decomposition.json`
+- `bounded_support_endpoint_closure_audit`: `study/reports/methodology_sanity_audit_20260627/bounded_support_endpoint_closure_audit.json`
+- `group_inference_population_readiness_audit`: `study/reports/methodology_sanity_audit_20260627/group_inference_population_readiness_audit.json`
+- `goal_completion_audit`: `study/research_document/goal_completion_audit.json`
+- `publication_release_gap_register`: `study/research_document/publication_release_gap_register.json`
+- `knowledge_graph_quality_summary`: `study/reports/knowledge_graph_quality/quality_summary.json`
+- `publication_citation_registry`: `study/research_document/publication_citation_registry.json`
+- `reader_primer_section_alignment`: `study/research_document/reader_primer_section_alignment.json`
 
 ## References
 

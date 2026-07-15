@@ -180,7 +180,7 @@ quality_controls:
   require_gender_drop_or_dual_protected_drop_followup: true
   retain_lsat_and_ugpa_as_upstream_selection_pipeline_covariates: true
   omit_exact_kernel_ridge_due_large_n_exact_kernel_solver_risk: true
-  forbid_publication_ready_group inference_claims: true
+  forbid_publication_ready_group_inference_claims: true
   forbid_legal_or_admissions_policy_claims: true
   forbid_causal_or_intervention_claims: true
   forbid_merit_or_selection_pipeline_claims: true

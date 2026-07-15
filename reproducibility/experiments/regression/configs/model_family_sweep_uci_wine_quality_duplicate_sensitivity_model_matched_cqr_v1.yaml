@@ -192,7 +192,7 @@ quality_controls:
   track_out_of_quality_range_interval_endpoints: true
   treat_raw_frame_as_duplicate_contaminated_sensitivity: true
   treat_dedup_variant_as_duplicate_sensitivity_variant: true
-  forbid_protected_class_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_wine_science_or_product_ranking_claims: true
   forbid_bounded_ordinal_validity_claims: true
   forbid_validated_venn_abers_regression_claims: true

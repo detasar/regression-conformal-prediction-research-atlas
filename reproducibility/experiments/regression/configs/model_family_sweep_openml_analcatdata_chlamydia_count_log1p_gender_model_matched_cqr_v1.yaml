@@ -206,7 +206,7 @@ quality_controls:
   no_exposure_denominator_or_rate_model: true
   forbid_public_health_claims: true
   forbid_population_disease_burden_claims: true
-  forbid_sex_race_age_group inference_claims: true
+  forbid_sex_race_age_group_inference_claims: true
   forbid_causal_claims: true
   forbid_final_model_selection_claims: true
   forbid_validated_venn_abers_regression_claims: true

@@ -197,8 +197,8 @@ quality_controls:
   jackknife_runtime_bounded_not_full_data_guarantee: true
   forbid_developer_population_compensation_claims: true
   forbid_wage_gap_estimation_claims: true
-  forbid_sex_gender_race_disability_group inference_claims: true
-  forbid_protected_class_group inference_claims: true
+  forbid_sex_gender_race_disability_group_inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_country_adjusted_compensation_claims: true
   forbid_labor_market_guidance_claims: true

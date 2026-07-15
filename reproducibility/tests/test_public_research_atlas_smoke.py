@@ -1293,6 +1293,36 @@ def test_public_reader_surfaces_avoid_legacy_frontier_language() -> None:
     assert not violations
 
 
+def test_public_paper_surfaces_use_public_source_references() -> None:
+    root = repo_root()
+    pages = [
+        root / "paper/research_document.md",
+        root / "paper/research_document.html",
+        root / "paper/individual_experiment_report.md",
+        root / "paper/article.tex",
+        root / "paper/article.html",
+        root / "paper/supplement.tex",
+        root / "paper/supplement.html",
+    ]
+    forbidden = [
+        "experiments/regression/Research Document/",
+        "experiments/regression/manuscript/",
+        "experiments/regression/reports/",
+        "experiments/regression/catalogs/",
+        "study/research_document/Research Document_",
+        "study/catalogs/Research Document_",
+        "Research Document_",
+        "group inference_",
+    ]
+    violations = []
+    for path in pages:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for phrase in forbidden:
+            if phrase in text:
+                violations.append((str(path.relative_to(root)), phrase))
+    assert not violations
+
+
 def test_public_reader_surfaces_label_intervals_as_diagnostic_bands() -> None:
     root = repo_root()
     pages = [

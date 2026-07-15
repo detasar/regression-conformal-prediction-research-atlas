@@ -333,13 +333,13 @@ This document is intentionally strict about which broader readings require separ
 
 ## Source Artifacts
 
-- `publication_authoring_decision_record`: `experiments/regression/Research Document/publication_authoring_decision_record.json`
-- `main_article_source`: `experiments/regression/Research Document/main_article_source.json`
-- `supplement_source`: `experiments/regression/Research Document/supplement_source.json`
-- `individual_experiment_report_source`: `experiments/regression/Research Document/individual_experiment_report_source.json`
-- `claim_evidence_verification_matrix`: `experiments/regression/Research Document/claim_evidence_verification_matrix.json`
-- `publication_citation_registry`: `experiments/regression/Research Document/publication_citation_registry.json`
-- `knowledge_graph_quality_summary`: `experiments/regression/reports/knowledge_graph_quality/quality_summary.json`
-- `research_atlas_package_manifest`: `experiments/regression/Research Document/research_atlas_package_manifest.json`
-- `publication_exemplar_review`: `experiments/regression/Research Document/publication_exemplar_review.json`
-- `cqr_fixed_vs_model_matched_synthesis`: `experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json`
+- `publication_authoring_decision_record`: `study/research_document/publication_authoring_decision_record.json`
+- `main_article_source`: `study/research_document/main_article_source.json`
+- `supplement_source`: `study/research_document/supplement_source.json`
+- `individual_experiment_report_source`: `study/research_document/individual_experiment_report_source.json`
+- `claim_evidence_verification_matrix`: `study/research_document/claim_evidence_verification_matrix.json`
+- `publication_citation_registry`: `study/research_document/publication_citation_registry.json`
+- `knowledge_graph_quality_summary`: `study/reports/knowledge_graph_quality/quality_summary.json`
+- `research_atlas_package_manifest`: `study/research_document/research_atlas_package_manifest.json`
+- `publication_exemplar_review`: `study/research_document/publication_exemplar_review.json`
+- `cqr_fixed_vs_model_matched_synthesis`: `study/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json`

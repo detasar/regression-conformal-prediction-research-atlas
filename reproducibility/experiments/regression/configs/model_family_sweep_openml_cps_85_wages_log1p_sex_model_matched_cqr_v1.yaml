@@ -191,7 +191,7 @@ quality_controls:
   sex_primary_group_diagnostic: true
   retain_race_age_secondary_audit_context: true
   age_experience_collinearity_context: true
-  forbid_headline_wage_group inference_claims: true
+  forbid_headline_wage_group_inference_claims: true
   forbid_labor_market_policy_claims: true
   forbid_population_survey_claims: true
   forbid_causal_or_gender_gap_claims: true

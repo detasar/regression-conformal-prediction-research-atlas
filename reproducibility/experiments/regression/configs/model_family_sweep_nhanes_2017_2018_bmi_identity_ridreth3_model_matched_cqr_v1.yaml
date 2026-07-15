@@ -218,8 +218,8 @@ quality_controls:
   forbid_clinical_guidance_claims: true
   forbid_medical_decision_support_claims: true
   forbid_health_disparity_claims: true
-  forbid_race_ethnicity_group inference_claims: true
-  forbid_protected_class_group inference_claims: true
+  forbid_race_ethnicity_group_inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_policy_guidance_claims: true
   forbid_causal_claims: true

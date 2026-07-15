@@ -205,7 +205,7 @@ quality_controls:
   species_primary_sparse_diagnostic: true
   sparse_species_level_2_caveat: true
   length_features_are_size_proxies_for_weight: true
-  forbid_protected_class_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_biological_inference_claims: true
   forbid_fisheries_management_guidance_claims: true
   forbid_causal_claims: true

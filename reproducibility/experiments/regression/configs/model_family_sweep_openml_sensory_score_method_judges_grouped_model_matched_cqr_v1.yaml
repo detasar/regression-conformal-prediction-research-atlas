@@ -210,7 +210,7 @@ quality_controls:
   require_leave_one_judge_or_random_effect_sensitivity_followup: true
   require_method_as_feature_sensitivity_followup: true
   require_factor_design_leakage_review_followup: true
-  forbid_protected_class_group inference_claims: true
+  forbid_protected_class_group_inference_claims: true
   forbid_demographic_parity_claims: true
   forbid_sensory_science_inference_claims: true
   forbid_wine_quality_inference_claims: true

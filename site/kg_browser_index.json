@@ -3727,7 +3727,7 @@
       "size": 5.441,
       "source_key_fingerprint": "c1b3d734e451a254",
       "source_path": null,
-      "summary": "Requirement `dataset_specific_final_gates` for Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status beyond this study: Available dataset bundles are scoped robustness or candidate evidence with caveats, descriptive-results promotion evidence.",
+      "summary": "Requirement `dataset_specific_final_gates` for Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status beyond this study: Available dataset bundles are scoped robustness or candidate evidence with caveats, descriptive-results promotion evidence.",
       "type": "claim_requirement",
       "x": 151.162,
       "y": 23.641
@@ -3743,7 +3743,7 @@
       "size": 5.765,
       "source_key_fingerprint": "bcf9990effdf214d",
       "source_path": null,
-      "summary": "Requirement `endpoint_bounded_support_gate` for Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status beyond this study: Endpoint audits provide reconstruction hygiene and caveat tracking only; they do not establish nonnegative or bounded-support validity.",
+      "summary": "Requirement `endpoint_bounded_support_gate` for Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status beyond this study: Endpoint audits provide reconstruction hygiene and caveat tracking only; they do not establish nonnegative or bounded-support validity.",
       "type": "claim_requirement",
       "x": 157.633,
       "y": 37.36
@@ -3759,7 +3759,7 @@
       "size": 5.664,
       "source_key_fingerprint": "80d774c21d71b1dc",
       "source_path": null,
-      "summary": "Requirement `group inference_population_inference_gate` for Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status beyond this study: The current evidence is method-engineering and robustness evidence. The diagnostic group-comparison multiplicity scope is cited for transparency, but publication-ready protected-group population inference, population, legal, policy, or clinical claims require separate dedicated gates.",
+      "summary": "Requirement `group_inference_population_inference_gate` for Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status beyond this study: The current evidence is method-engineering and robustness evidence. The diagnostic group-comparison multiplicity scope is cited for transparency, but publication-ready protected-group population inference, population, legal, policy, or clinical claims require separate dedicated gates.",
       "type": "claim_requirement",
       "x": 162.834,
       "y": 52.211
@@ -3775,7 +3775,7 @@
       "size": 5.556,
       "source_key_fingerprint": "6b55ff470aa7e24c",
       "source_path": null,
-      "summary": "Requirement `final_method_model_selection_gate` for Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status beyond this study: No manifest-level rule currently promotes one conformal method/model as the final study selection.",
+      "summary": "Requirement `final_method_model_selection_gate` for Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status beyond this study: No manifest-level rule currently promotes one conformal method/model as the final study selection.",
       "type": "claim_requirement",
       "x": 166.63,
       "y": 68.076
@@ -3791,7 +3791,7 @@
       "size": 5.441,
       "source_key_fingerprint": "74f2f5b1ab34abf6",
       "source_path": null,
-      "summary": "Requirement `multiplicity_selection_record` for Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status beyond this study: The publication protocol defines the required selection and multiplicity record, but no final-selection record has been created for a promoted method/model.",
+      "summary": "Requirement `multiplicity_selection_record` for Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status beyond this study: The publication protocol defines the required selection and multiplicity record, but no final-selection record has been created for a promoted method/model.",
       "type": "claim_requirement",
       "x": 168.897,
       "y": 84.823
@@ -3807,7 +3807,7 @@
       "size": 5.019,
       "source_key_fingerprint": "ef8b4acd85888549",
       "source_path": null,
-      "summary": "Requirement `remediation_backlog_beyond_current_study_or_scoped` for Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status pass: The current remediation backlog has zero open actions; this removes backlog openness as the reason for blocking final-selection claims, but it does not itself promote a final result.",
+      "summary": "Requirement `remediation_backlog_beyond_current_study_or_scoped` for Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status pass: The current remediation backlog has zero open actions; this removes backlog openness as the reason for blocking final-selection claims, but it does not itself promote a final result.",
       "type": "claim_requirement",
       "x": 115.583,
       "y": 69.754
@@ -3823,7 +3823,7 @@
       "size": 6.564,
       "source_key_fingerprint": "cc1dce54dd6e2235",
       "source_path": null,
-      "summary": "Requirement `venn_abers_regression_validation_gate` for Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status beyond this study: The fast bridge remains negative diagnostic evidence and the split fallback remains ordinary split conformal evidence; no validated Venn-Abers regression interval-coverage claim is available.",
+      "summary": "Requirement `venn_abers_regression_validation_gate` for Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status beyond this study: The fast bridge remains negative diagnostic evidence and the split fallback remains ordinary split conformal evidence; no validated Venn-Abers regression interval-coverage claim is available.",
       "type": "claim_requirement",
       "x": 117.151,
       "y": 83.735
@@ -34795,7 +34795,7 @@
       "size": 6.759,
       "source_key_fingerprint": "90eba4b96c350eee",
       "source_path": null,
-      "summary": "Research Document claim `final_selection_and_group inference_claims_beyond_current_study` with status beyond this study: Choosing a final conformal method/model, publication-ready group-inference conclusions, population inference, legal/policy guidance, production readiness, bounded-support validity, and Venn-Abers regression-bridge validation claims are beyond this study until dedicated evidence gates explicitly pass.",
+      "summary": "Research Document claim `final_selection_and_group_inference_claims_beyond_current_study` with status beyond this study: Choosing a final conformal method/model, publication-ready group-inference conclusions, population inference, legal/policy guidance, production readiness, bounded-support validity, and Venn-Abers regression-bridge validation claims are beyond this study until dedicated evidence gates explicitly pass.",
       "type": "research_document_claim",
       "x": 23.443,
       "y": -132.949
@@ -36987,7 +36987,7 @@
       "size": 5.019,
       "source_key_fingerprint": "4527ccfe86997d72",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `group inference_group_diagnostic_tables` has role `group inference_group_diagnostic_no_population_claim` and keeps final report text, deployment guidance, and stronger claims beyond this study.",
+      "summary": "Article/supplement blueprint alignment row `group_inference_group_diagnostic_tables` has role `group_inference_group_diagnostic_no_population_claim` and keeps final report text, deployment guidance, and stronger claims beyond this study.",
       "type": "methodology_record",
       "x": 125.632,
       "y": -422.726
@@ -37787,7 +37787,7 @@
       "size": 4.588,
       "source_key_fingerprint": "16d8ca082a7648ef",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible` declares family `diagnostic_group_gap_family:nhanes_2017_2018_bmi:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible` declares family `diagnostic_group_gap_family:nhanes_2017_2018_bmi:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 261.024,
       "y": -285.719
@@ -37803,7 +37803,7 @@
       "size": 4.588,
       "source_key_fingerprint": "9548b1c2d48c3bcc",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_model_visible` declares family `diagnostic_group_gap_family:nhanes_2017_2018_glycohemoglobin:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_model_visible` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_model_visible` declares family `diagnostic_group_gap_family:nhanes_2017_2018_glycohemoglobin:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_model_visible` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 269.723,
       "y": -289.941
@@ -37819,7 +37819,7 @@
       "size": 4.588,
       "source_key_fingerprint": "9fd515a7bbc82a76",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_row_signature` declares family `diagnostic_group_gap_family:nhanes_2017_2018_glycohemoglobin:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_row_signature` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_row_signature` declares family `diagnostic_group_gap_family:nhanes_2017_2018_glycohemoglobin:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_row_signature` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 278.518,
       "y": -294.028
@@ -37835,7 +37835,7 @@
       "size": 4.588,
       "source_key_fingerprint": "c35ee4d18ca15425",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_model_visible` declares family `diagnostic_group_gap_family:nhanes_2017_2018_systolic_bp:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_model_visible` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_model_visible` declares family `diagnostic_group_gap_family:nhanes_2017_2018_systolic_bp:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_model_visible` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 287.409,
       "y": -297.98
@@ -37851,7 +37851,7 @@
       "size": 4.588,
       "source_key_fingerprint": "1cbbc5c5fc016f57",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_row_signature` declares family `diagnostic_group_gap_family:nhanes_2017_2018_systolic_bp:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_row_signature` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_row_signature` declares family `diagnostic_group_gap_family:nhanes_2017_2018_systolic_bp:RIDRETH3:duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_row_signature` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 296.394,
       "y": -301.794
@@ -37867,7 +37867,7 @@
       "size": 4.588,
       "source_key_fingerprint": "62b185c51fa07820",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible` declares family `diagnostic_group_gap_family:stackoverflow_2025_compensation:Age:duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible` declares family `diagnostic_group_gap_family:stackoverflow_2025_compensation:Age:duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 305.47,
       "y": -305.47
@@ -37883,7 +37883,7 @@
       "size": 4.588,
       "source_key_fingerprint": "c200e4ebf011ead7",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_row_signature` declares family `diagnostic_group_gap_family:stackoverflow_2025_compensation:Age:duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_row_signature` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_row_signature` declares family `diagnostic_group_gap_family:stackoverflow_2025_compensation:Age:duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_row_signature` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 314.636,
       "y": -309.006
@@ -37899,7 +37899,7 @@
       "size": 4.588,
       "source_key_fingerprint": "962335fb5f714fa3",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_model_visible` declares family `diagnostic_group_gap_family:uci_wine_quality:wine_color:duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_model_visible` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_model_visible` declares family `diagnostic_group_gap_family:uci_wine_quality:wine_color:duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_model_visible` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 278.546,
       "y": -268.665
@@ -37915,7 +37915,7 @@
       "size": 4.588,
       "source_key_fingerprint": "9214d244ff4ec555",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_row_signature` declares family `diagnostic_group_gap_family:uci_wine_quality:wine_color:duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_row_signature` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_row_signature` declares family `diagnostic_group_gap_family:uci_wine_quality:wine_color:duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_row_signature` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 287.494,
       "y": -272.329
@@ -37931,7 +37931,7 @@
       "size": 4.588,
       "source_key_fingerprint": "2e605a3b0ead5abc",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_nhanes_2017_2018_bmi` declares family `diagnostic_group_gap_family:nhanes_2017_2018_bmi:RIDRETH3:main_result_candidate_bundle_nhanes_2017_2018_bmi` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_nhanes_2017_2018_bmi` declares family `diagnostic_group_gap_family:nhanes_2017_2018_bmi:RIDRETH3:main_result_candidate_bundle_nhanes_2017_2018_bmi` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 296.531,
       "y": -275.853
@@ -37947,7 +37947,7 @@
       "size": 4.588,
       "source_key_fingerprint": "29723efb94c5004b",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_nhanes_2017_2018_glycohemoglobin` declares family `diagnostic_group_gap_family:nhanes_2017_2018_glycohemoglobin:RIDRETH3:main_result_candidate_bundle_nhanes_2017_2018_glycohemoglobin` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_nhanes_2017_2018_glycohemoglobin` declares family `diagnostic_group_gap_family:nhanes_2017_2018_glycohemoglobin:RIDRETH3:main_result_candidate_bundle_nhanes_2017_2018_glycohemoglobin` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 305.653,
       "y": -279.235
@@ -37963,7 +37963,7 @@
       "size": 4.588,
       "source_key_fingerprint": "b8fca879b1f13403",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_nhanes_2017_2018_systolic_bp` declares family `diagnostic_group_gap_family:nhanes_2017_2018_systolic_bp:RIDRETH3:main_result_candidate_bundle_nhanes_2017_2018_systolic_bp` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_nhanes_2017_2018_systolic_bp` declares family `diagnostic_group_gap_family:nhanes_2017_2018_systolic_bp:RIDRETH3:main_result_candidate_bundle_nhanes_2017_2018_systolic_bp` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 314.861,
       "y": -282.474
@@ -37979,7 +37979,7 @@
       "size": 4.588,
       "source_key_fingerprint": "2eebd2091a6092b4",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_openml_analcatdata_chlamydia` declares family `diagnostic_group_gap_family:openml_analcatdata_chlamydia:Gender:main_result_candidate_bundle_openml_analcatdata_chlamydia` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_openml_analcatdata_chlamydia` declares family `diagnostic_group_gap_family:openml_analcatdata_chlamydia:Gender:main_result_candidate_bundle_openml_analcatdata_chlamydia` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 324.151,
       "y": -285.57
@@ -37995,7 +37995,7 @@
       "size": 4.588,
       "source_key_fingerprint": "9cc5fe2f30b4e590",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_stackoverflow_2025_compensation` declares family `diagnostic_group_gap_family:stackoverflow_2025_compensation:Age:main_result_candidate_bundle_stackoverflow_2025_compensation` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_stackoverflow_2025_compensation` declares family `diagnostic_group_gap_family:stackoverflow_2025_compensation:Age:main_result_candidate_bundle_stackoverflow_2025_compensation` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 333.522,
       "y": -288.52
@@ -38011,7 +38011,7 @@
       "size": 4.588,
       "source_key_fingerprint": "1ee83aa6a75a03be",
       "source_path": null,
-      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_uci_wine_quality` declares family `diagnostic_group_gap_family:uci_wine_quality:wine_color:main_result_candidate_bundle_uci_wine_quality` with claim effect multiplicity_scope_declared_no_group inference_claim.",
+      "summary": "Group inference group multiplicity scope for bundle `main_result_candidate_bundle_uci_wine_quality` declares family `diagnostic_group_gap_family:uci_wine_quality:wine_color:main_result_candidate_bundle_uci_wine_quality` with claim effect multiplicity_scope_declared_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 294.957,
       "y": -250.538
@@ -38027,7 +38027,7 @@
       "size": 4.588,
       "source_key_fingerprint": "3a9833fc5cd29b00",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_bmi_identity_ridreth3_model_visible`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 304.118,
       "y": -253.63
@@ -38043,7 +38043,7 @@
       "size": 4.588,
       "source_key_fingerprint": "017249c0a8222f97",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_model_visible`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_model_visible`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 313.359,
       "y": -256.576
@@ -38059,7 +38059,7 @@
       "size": 4.588,
       "source_key_fingerprint": "4887fae896ea2e34",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_row_signature`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_glycohemoglobin_identity_ridreth3_row_signature`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 322.677,
       "y": -259.375
@@ -38075,7 +38075,7 @@
       "size": 4.588,
       "source_key_fingerprint": "8723383e5a436b85",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_model_visible`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_model_visible`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 332.071,
       "y": -262.027
@@ -38091,7 +38091,7 @@
       "size": 4.588,
       "source_key_fingerprint": "6af8d4f421532ecd",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_row_signature`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_nhanes_2017_2018_systolic_bp_identity_ridreth3_row_signature`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 341.538,
       "y": -264.529
@@ -38107,7 +38107,7 @@
       "size": 4.588,
       "source_key_fingerprint": "8f1c09679caa19d1",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible`: unweighted_respondent_sample_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_model_visible`: unweighted_respondent_sample_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 351.077,
       "y": -266.882
@@ -38123,7 +38123,7 @@
       "size": 4.588,
       "source_key_fingerprint": "48778f5ba5b1b7ea",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_row_signature`: unweighted_respondent_sample_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_stackoverflow_2025_compensation_log1p_age_row_signature`: unweighted_respondent_sample_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 310.19,
       "y": -231.412
@@ -38139,7 +38139,7 @@
       "size": 4.588,
       "source_key_fingerprint": "76bace34ed2159bc",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_model_visible`: unweighted_product_sample_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_model_visible`: unweighted_product_sample_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 319.528,
       "y": -233.918
@@ -38155,7 +38155,7 @@
       "size": 4.588,
       "source_key_fingerprint": "6884df2f0bc7e878",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_row_signature`: unweighted_product_sample_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `duplicate_cluster_sensitivity_uci_wine_quality_duplicate_sensitivity_row_signature`: unweighted_product_sample_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 328.936,
       "y": -236.275
@@ -38171,7 +38171,7 @@
       "size": 4.588,
       "source_key_fingerprint": "6b03cbd043531a85",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_nhanes_2017_2018_bmi`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_nhanes_2017_2018_bmi`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 338.413,
       "y": -238.48
@@ -38187,7 +38187,7 @@
       "size": 4.588,
       "source_key_fingerprint": "9a72c8b635a3a8fd",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_nhanes_2017_2018_glycohemoglobin`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_nhanes_2017_2018_glycohemoglobin`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 347.955,
       "y": -240.533
@@ -38203,7 +38203,7 @@
       "size": 4.588,
       "source_key_fingerprint": "c7a801869a7dec41",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_nhanes_2017_2018_systolic_bp`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_nhanes_2017_2018_systolic_bp`: unweighted_method_engineering_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 357.562,
       "y": -242.433
@@ -38219,7 +38219,7 @@
       "size": 4.588,
       "source_key_fingerprint": "114f92abdb02d26b",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_openml_analcatdata_chlamydia`: unweighted_table_cell_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_openml_analcatdata_chlamydia`: unweighted_table_cell_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 367.23,
       "y": -244.178
@@ -38235,7 +38235,7 @@
       "size": 4.588,
       "source_key_fingerprint": "2b990bc1bc80f449",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_stackoverflow_2025_compensation`: unweighted_respondent_sample_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_stackoverflow_2025_compensation`: unweighted_respondent_sample_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 324.184,
       "y": -211.361
@@ -38251,7 +38251,7 @@
       "size": 4.588,
       "source_key_fingerprint": "5eef257dfe711cad",
       "source_path": null,
-      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_uci_wine_quality`: unweighted_product_sample_diagnostic_only with claim effect policy_declared_no_population_group inference_claim.",
+      "summary": "Group inference sampling policy for bundle `main_result_candidate_bundle_uci_wine_quality`: unweighted_product_sample_diagnostic_only with claim effect policy_declared_no_population_group_inference_claim.",
       "type": "methodology_record",
       "x": 333.663,
       "y": -213.273
@@ -38267,7 +38267,7 @@
       "size": 6.121,
       "source_key_fingerprint": "523463d6b1d2a412",
       "source_path": null,
-      "summary": "Final publication output scope row `final_Research Document_prose_outside_scope` remains `beyond_current_study_no_final_scope`; the current Research Document route is neutral and does not establish final outputs or method promotion.",
+      "summary": "Final publication output scope row `final_research_document_prose_outside_scope` remains `beyond_current_study_no_final_scope`; the current Research Document route is neutral and does not establish final outputs or method promotion.",
       "type": "methodology_record",
       "x": 343.201,
       "y": -215.031
@@ -38475,7 +38475,7 @@
       "size": 5.441,
       "source_key_fingerprint": "1462a09f984bf1a3",
       "source_path": null,
-      "summary": "Final publication visual auditor feedback row `group inference_group_diagnostic_tables` is `feedback_ready_no_final_retention` with final retention and stronger claims beyond this study.",
+      "summary": "Final publication visual auditor feedback row `group_inference_group_diagnostic_tables` is `feedback_ready_no_final_retention` with final retention and stronger claims beyond this study.",
       "type": "methodology_record",
       "x": 357.884,
       "y": -169.514
@@ -38763,7 +38763,7 @@
       "size": 4.588,
       "source_key_fingerprint": "6550e8890eef8061",
       "source_path": null,
-      "summary": "Goal completion requirement `evidence_scope:group inference_population_inference_gate` has status complete_with_scope_limits.",
+      "summary": "Goal completion requirement `evidence_scope:group_inference_population_inference_gate` has status complete_with_scope_limits.",
       "type": "methodology_record",
       "x": 415.193,
       "y": -119.325
@@ -38939,7 +38939,7 @@
       "size": 5.019,
       "source_key_fingerprint": "4bab26376f8f7230",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `bounded_support_and_group inference_boundaries` has role `beyond_current_study_bounded_support_and_group inference_claims` and keeps final report text, broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `bounded_support_and_group_inference_boundaries` has role `beyond_current_study_bounded_support_and_group_inference_claims` and keeps final report text, broader readings require separate validation.",
       "type": "methodology_record",
       "x": 398.417,
       "y": -72.727
@@ -39867,7 +39867,7 @@
       "size": 5.315,
       "source_key_fingerprint": "eaf208775cb4d4b2",
       "source_path": null,
-      "summary": "Neutral result ledger row `group inference_group_diagnostic_no_population_claim` records `beyond_current_study_diagnostic_only` without stronger claim.",
+      "summary": "Neutral result ledger row `group_inference_group_diagnostic_no_population_claim` records `beyond_current_study_diagnostic_only` without stronger claim.",
       "type": "methodology_record",
       "x": 398.353,
       "y": 142.28
@@ -40011,7 +40011,7 @@
       "size": 4.588,
       "source_key_fingerprint": "ea23954a2ebb2357",
       "source_path": null,
-      "summary": "Paper gate closure disposition for `group inference_population_inference_gate`: stronger claim ready=False, scoped/negative path ready=True.",
+      "summary": "Paper gate closure disposition for `group_inference_population_inference_gate`: stronger claim ready=False, scoped/negative path ready=True.",
       "type": "methodology_record",
       "x": 401.896,
       "y": 181.55
@@ -40171,7 +40171,7 @@
       "size": 4.832,
       "source_key_fingerprint": "2ac789732a3f3849",
       "source_path": null,
-      "summary": "Paper-gate execution action `group inference_population_inference_gate.compute_group_counts_missingness_and_gaps` has status empirical_execution_complete.",
+      "summary": "Paper-gate execution action `group_inference_population_inference_gate.compute_group_counts_missingness_and_gaps` has status empirical_execution_complete.",
       "type": "methodology_record",
       "x": 352.554,
       "y": 199.325
@@ -40187,7 +40187,7 @@
       "size": 4.832,
       "source_key_fingerprint": "44a278b2e8ef97a9",
       "source_path": null,
-      "summary": "Paper-gate execution action `group inference_population_inference_gate.declare_group_comparison_multiplicity_scope` has status multiplicity_control_complete.",
+      "summary": "Paper-gate execution action `group_inference_population_inference_gate.declare_group_comparison_multiplicity_scope` has status multiplicity_control_complete.",
       "type": "methodology_record",
       "x": 358.535,
       "y": 207.0
@@ -40203,7 +40203,7 @@
       "size": 4.832,
       "source_key_fingerprint": "24009085dea99127",
       "source_path": null,
-      "summary": "Paper-gate execution action `group inference_population_inference_gate.define_population_and_protected_scope` has status protocol_design_complete.",
+      "summary": "Paper-gate execution action `group_inference_population_inference_gate.define_population_and_protected_scope` has status protocol_design_complete.",
       "type": "methodology_record",
       "x": 364.405,
       "y": 214.798
@@ -40219,7 +40219,7 @@
       "size": 4.832,
       "source_key_fingerprint": "d3f4f1b92e685df5",
       "source_path": null,
-      "summary": "Paper-gate execution action `group inference_population_inference_gate.define_sampling_weight_policy` has status protocol_design_complete.",
+      "summary": "Paper-gate execution action `group_inference_population_inference_gate.define_sampling_weight_policy` has status protocol_design_complete.",
       "type": "methodology_record",
       "x": 370.162,
       "y": 222.719
@@ -40235,7 +40235,7 @@
       "size": 4.588,
       "source_key_fingerprint": "5fb716a592dddeb7",
       "source_path": null,
-      "summary": "Paper-gate execution action `group inference_population_inference_gate.refresh_group inference_population_gate` has status gate_refresh_complete_no_group inference_claim.",
+      "summary": "Paper-gate execution action `group_inference_population_inference_gate.refresh_group_inference_population_gate` has status gate_refresh_complete_no_group_inference_claim.",
       "type": "methodology_record",
       "x": 375.806,
       "y": 230.761
@@ -40459,7 +40459,7 @@
       "size": 4.588,
       "source_key_fingerprint": "92382fc88fa999d4",
       "source_path": null,
-      "summary": "Paper-gate protocol design `population_and_protected_attribute_scope_v1` completes action `group inference_population_inference_gate.define_population_and_protected_scope` without stronger claim.",
+      "summary": "Paper-gate protocol design `population_and_protected_attribute_scope_v1` completes action `group_inference_population_inference_gate.define_population_and_protected_scope` without stronger claim.",
       "type": "methodology_record",
       "x": 343.721,
       "y": 276.291
@@ -41243,7 +41243,7 @@
       "size": 4.832,
       "source_key_fingerprint": "2c7e92a1c91d648c",
       "source_path": null,
-      "summary": "Publication progress active final blocker `final_Research Document_prose_outside_scope` keeps final publication outputs or claims beyond this study.",
+      "summary": "Publication progress active final blocker `final_research_document_prose_outside_scope` keeps final publication outputs or claims beyond this study.",
       "type": "methodology_record",
       "x": 192.367,
       "y": 396.832
@@ -41611,7 +41611,7 @@
       "size": 4.588,
       "source_key_fingerprint": "5190e5614c95c0fd",
       "source_path": null,
-      "summary": "Publication preparation visual/table inventory family `group inference_group_diagnostic_tables` remains candidate-only with retain decision not_started.",
+      "summary": "Publication preparation visual/table inventory family `group_inference_group_diagnostic_tables` remains candidate-only with retain decision not_started.",
       "type": "methodology_record",
       "x": 95.57,
       "y": 384.295
@@ -42123,7 +42123,7 @@
       "size": 5.176,
       "source_key_fingerprint": "153013cc7d23b92e",
       "source_path": null,
-      "summary": "Publication retention-readiness deployment rule `group inference_group_diagnostic_tables` is `supplement_candidate_after_final_prose_gate` with no final retention, release, or stronger claim in scope.",
+      "summary": "Publication retention-readiness deployment rule `group_inference_group_diagnostic_tables` is `supplement_candidate_after_final_prose_gate` with no final retention, release, or stronger claim in scope.",
       "type": "methodology_record",
       "x": -19.493,
       "y": 431.56
@@ -42283,7 +42283,7 @@
       "size": 4.588,
       "source_key_fingerprint": "52baab811777f660",
       "source_path": null,
-      "summary": "Publication visual/table audit item `group inference_group_diagnostic_tables` remains planned-not-started with no final retention in scope.",
+      "summary": "Publication visual/table audit item `group_inference_group_diagnostic_tables` remains planned-not-started with no final retention in scope.",
       "type": "methodology_record",
       "x": -53.46,
       "y": 392.375
@@ -42603,7 +42603,7 @@
       "size": 4.832,
       "source_key_fingerprint": "c9cd0e3f5f14c775",
       "source_path": null,
-      "summary": "Pre-retention visual/table audit row `group inference_group_diagnostic_tables` has decision `move_to_supplement_pending_render_audit` with no final retention in scope.",
+      "summary": "Pre-retention visual/table audit row `group_inference_group_diagnostic_tables` has decision `move_to_supplement_pending_render_audit` with no final retention in scope.",
       "type": "methodology_record",
       "x": -120.254,
       "y": 367.842
@@ -42763,7 +42763,7 @@
       "size": 5.176,
       "source_key_fingerprint": "2a4892566b02b477",
       "source_path": null,
-      "summary": "Draft visual/table render candidate `group inference_group_diagnostic_tables` has layout status `pass` and no final retention in scope.",
+      "summary": "Draft visual/table render candidate `group_inference_group_diagnostic_tables` has layout status `pass` and no final retention in scope.",
       "type": "methodology_record",
       "x": -163.596,
       "y": 380.306
@@ -43115,7 +43115,7 @@
       "size": 5.176,
       "source_key_fingerprint": "866003d9d93ee3f1",
       "source_path": null,
-      "summary": "Reader-primer section alignment row `article_supplement_blueprint_alignment:group inference_group_diagnostic_tables` maps a planned publication section or surface to required concept explanations before drafting.",
+      "summary": "Reader-primer section alignment row `article_supplement_blueprint_alignment:group_inference_group_diagnostic_tables` maps a planned publication section or surface to required concept explanations before drafting.",
       "type": "methodology_record",
       "x": -240.533,
       "y": 347.955
@@ -43243,7 +43243,7 @@
       "size": 5.315,
       "source_key_fingerprint": "a851b14f17c3f303",
       "source_path": null,
-      "summary": "Reader-primer section alignment row `individual_experiment_report:bounded_support_and_group inference_boundaries` maps a planned publication section or surface to required concept explanations before drafting.",
+      "summary": "Reader-primer section alignment row `individual_experiment_report:bounded_support_and_group_inference_boundaries` maps a planned publication section or surface to required concept explanations before drafting.",
       "type": "methodology_record",
       "x": -270.652,
       "y": 336.707
@@ -43547,7 +43547,7 @@
       "size": 4.588,
       "source_key_fingerprint": "04ecf7e0e1e2bdf7",
       "source_path": null,
-      "summary": "Reviewer design advice `group inference_domain_reviewer:R01` is accept_for_design for pre-prose design only.",
+      "summary": "Reviewer design advice `group_inference_domain_reviewer:R01` is accept_for_design for pre-prose design only.",
       "type": "methodology_record",
       "x": -310.645,
       "y": 273.671
@@ -43563,7 +43563,7 @@
       "size": 4.588,
       "source_key_fingerprint": "66edcc222d9d05a9",
       "source_path": null,
-      "summary": "Reviewer design advice `group inference_domain_reviewer:R02` is accept_for_design for pre-prose design only.",
+      "summary": "Reviewer design advice `group_inference_domain_reviewer:R02` is accept_for_design for pre-prose design only.",
       "type": "methodology_record",
       "x": -319.909,
       "y": 276.744
@@ -43579,7 +43579,7 @@
       "size": 4.588,
       "source_key_fingerprint": "c16abed1733b36be",
       "source_path": null,
-      "summary": "Reviewer design advice `group inference_domain_reviewer:R03` is accept_for_design for pre-prose design only.",
+      "summary": "Reviewer design advice `group_inference_domain_reviewer:R03` is accept_for_design for pre-prose design only.",
       "type": "methodology_record",
       "x": -329.254,
       "y": 279.671
@@ -43595,7 +43595,7 @@
       "size": 4.588,
       "source_key_fingerprint": "58304c39be355c65",
       "source_path": null,
-      "summary": "Reviewer design advice `group inference_domain_reviewer:R04` is accept_for_design for pre-prose design only.",
+      "summary": "Reviewer design advice `group_inference_domain_reviewer:R04` is accept_for_design for pre-prose design only.",
       "type": "methodology_record",
       "x": -338.677,
       "y": 282.451
@@ -43611,7 +43611,7 @@
       "size": 4.588,
       "source_key_fingerprint": "6186b1a22da4bf72",
       "source_path": null,
-      "summary": "Reviewer design advice `group inference_domain_reviewer:R05` is accept_for_design for pre-prose design only.",
+      "summary": "Reviewer design advice `group_inference_domain_reviewer:R05` is accept_for_design for pre-prose design only.",
       "type": "methodology_record",
       "x": -299.432,
       "y": 245.172
@@ -43835,7 +43835,7 @@
       "size": 4.588,
       "source_key_fingerprint": "8abf0a8822084308",
       "source_path": null,
-      "summary": "Reviewer design content-matrix row `group inference_group_diagnostic_tables` remains candidate-only with final placement not_started.",
+      "summary": "Reviewer design content-matrix row `group_inference_group_diagnostic_tables` remains candidate-only with final placement not_started.",
       "type": "methodology_record",
       "x": -327.948,
       "y": 205.474
@@ -44011,7 +44011,7 @@
       "size": 4.832,
       "source_key_fingerprint": "3fcbc72aa05d6ccc",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `group inference_population_scope` permits scoped reporting but blocks deployment guidance, stronger claims, and final report text.",
+      "summary": "Scientific neutrality interpretation row `group_inference_population_scope` permits scoped reporting but blocks deployment guidance, stronger claims, and final report text.",
       "type": "methodology_record",
       "x": -378.954,
       "y": 187.944
@@ -44075,7 +44075,7 @@
       "size": 5.019,
       "source_key_fingerprint": "b56edc1b818d60ea",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `sterile_repository_and_Research Document_outputs` permits scoped reporting but blocks deployment guidance, stronger claims, and final report text.",
+      "summary": "Scientific neutrality interpretation row `sterile_repository_and_research_document_outputs` permits scoped reporting but blocks deployment guidance, stronger claims, and final report text.",
       "type": "methodology_record",
       "x": -360.886,
       "y": 163.025
@@ -45003,7 +45003,7 @@
       "size": 5.176,
       "source_key_fingerprint": "839834c3ade1ca11",
       "source_path": null,
-      "summary": "Sterile repository required-content row `individual_experiment_report` is `blueprint_ready_final_report_beyond_current_study` and limited by `final_Research Document_prose_outside_scope`; final copying and release remain beyond this study.",
+      "summary": "Sterile repository required-content row `individual_experiment_report` is `blueprint_ready_final_report_beyond_current_study` and limited by `final_research_document_prose_outside_scope`; final copying and release remain beyond this study.",
       "type": "methodology_record",
       "x": -411.96,
       "y": -41.044
@@ -45035,7 +45035,7 @@
       "size": 5.441,
       "source_key_fingerprint": "65da6359a8fea567",
       "source_path": null,
-      "summary": "Sterile repository required-content row `main_article_outputs` is `planned_after_final_Research Document_gate` and limited by `final_Research Document_prose_outside_scope`; final copying and release remain beyond this study.",
+      "summary": "Sterile repository required-content row `main_article_outputs` is `planned_after_final_research_document_gate` and limited by `final_research_document_prose_outside_scope`; final copying and release remain beyond this study.",
       "type": "methodology_record",
       "x": -429.028,
       "y": -50.583
@@ -45147,7 +45147,7 @@
       "size": 5.176,
       "source_key_fingerprint": "7bf1d5f9d9090599",
       "source_path": null,
-      "summary": "Supplementary document section `group inference_group_diagnostics` links supplement text to audited evidence within the Research Atlas evidence trail.",
+      "summary": "Supplementary document section `group_inference_group_diagnostics` links supplement text to audited evidence within the Research Atlas evidence trail.",
       "type": "methodology_record",
       "x": -424.978,
       "y": -77.575
@@ -46869,7 +46869,7 @@
       "size": 6.631,
       "source_key_fingerprint": "466f7165af10c2b3",
       "source_path": null,
-      "summary": "Paper gate `group inference_population_inference_gate` has status beyond this study: Group diagnostics cannot be promoted to protected-group population inference, population, legal, policy, or clinical conclusions.",
+      "summary": "Paper gate `group_inference_population_inference_gate` has status beyond this study: Group diagnostics cannot be promoted to protected-group population inference, population, legal, policy, or clinical conclusions.",
       "type": "evidence_gate",
       "x": 128.553,
       "y": -41.219
@@ -50055,7 +50055,7 @@
       "size": 4.832,
       "source_key_fingerprint": "04648f56ebbd682d",
       "source_path": null,
-      "summary": "Post-experiment publication reviewer perspective `group inference_domain_reviewer`: diagnostic group limits, protected-attribute language, population inference boundaries, target-domain validity, and policy disclaimers",
+      "summary": "Post-experiment publication reviewer perspective `group_inference_domain_reviewer`: diagnostic group limits, protected-attribute language, population inference boundaries, target-domain validity, and policy disclaimers",
       "type": "reviewer_perspective",
       "x": -312.298,
       "y": -285.305
@@ -55271,7 +55271,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_chlamydia_count_log1p.",
+      "summary": "Regression report directory group_inference_smoke_chlamydia_count_log1p.",
       "type": "report",
       "x": 13.17,
       "y": -269.679
@@ -55287,7 +55287,7 @@
       "size": 5.315,
       "source_key_fingerprint": "8388b53013309f65",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_chlamydia_count_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_chlamydia_count_log1p.",
       "type": "report",
       "x": 15.814,
       "y": -278.551
@@ -55313,7 +55313,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_college_scorecard_earnings_log1p_state_split.",
+      "summary": "Regression report directory group_inference_smoke_college_scorecard_earnings_log1p_state_split.",
       "type": "report",
       "x": 18.599,
       "y": -287.399
@@ -55329,7 +55329,7 @@
       "size": 5.315,
       "source_key_fingerprint": "81852ecab72c7d61",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_college_scorecard_earnings_log1p_state_split.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_college_scorecard_earnings_log1p_state_split.",
       "type": "report",
       "x": 21.525,
       "y": -296.219
@@ -55355,7 +55355,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_cps_wages_log1p.",
+      "summary": "Regression report directory group_inference_smoke_cps_wages_log1p.",
       "type": "report",
       "x": 24.592,
       "y": -305.01
@@ -55371,7 +55371,7 @@
       "size": 5.315,
       "source_key_fingerprint": "395ffabcfe9e04b0",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_cps_wages_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_cps_wages_log1p.",
       "type": "report",
       "x": 27.799,
       "y": -313.771
@@ -55397,7 +55397,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_diabetes_los.",
+      "summary": "Regression report directory group_inference_smoke_diabetes_los.",
       "type": "report",
       "x": 25.09,
       "y": -259.791
@@ -55413,7 +55413,7 @@
       "size": 5.315,
       "source_key_fingerprint": "08aaf2de6129b44c",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_diabetes_los.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_diabetes_los.",
       "type": "report",
       "x": 28.081,
       "y": -268.536
@@ -55439,7 +55439,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_diabetes_los_repeated.",
+      "summary": "Regression report directory group_inference_smoke_diabetes_los_repeated.",
       "type": "report",
       "x": 31.212,
       "y": -277.249
@@ -55455,7 +55455,7 @@
       "size": 5.315,
       "source_key_fingerprint": "6733a2ae5aa43d0d",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_diabetes_los_repeated.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_diabetes_los_repeated.",
       "type": "report",
       "x": 34.483,
       "y": -285.928
@@ -55481,7 +55481,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_folktables_acs_poverty_ratio_wy.",
+      "summary": "Regression report directory group_inference_smoke_folktables_acs_poverty_ratio_wy.",
       "type": "report",
       "x": 37.892,
       "y": -294.573
@@ -55497,7 +55497,7 @@
       "size": 5.315,
       "source_key_fingerprint": "1e38d49d812d493d",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_folktables_acs_poverty_ratio_wy.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_folktables_acs_poverty_ratio_wy.",
       "type": "report",
       "x": 41.441,
       "y": -303.181
@@ -55523,7 +55523,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_folktables_acs_travel_time_wy.",
+      "summary": "Regression report directory group_inference_smoke_folktables_acs_travel_time_wy.",
       "type": "report",
       "x": 45.128,
       "y": -311.751
@@ -55539,7 +55539,7 @@
       "size": 5.315,
       "source_key_fingerprint": "91b29a89a351f1c1",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_folktables_acs_travel_time_wy.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_folktables_acs_travel_time_wy.",
       "type": "report",
       "x": 39.435,
       "y": -258.004
@@ -55565,7 +55565,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_hmda_interest_rate.",
+      "summary": "Regression report directory group_inference_smoke_hmda_interest_rate.",
       "type": "report",
       "x": 42.905,
       "y": -266.569
@@ -55581,7 +55581,7 @@
       "size": 5.315,
       "source_key_fingerprint": "a40cec133d946e35",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_hmda_interest_rate.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_hmda_interest_rate.",
       "type": "report",
       "x": 46.514,
       "y": -275.095
@@ -55607,7 +55607,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_hmda_interest_rate_county_repeated.",
+      "summary": "Regression report directory group_inference_smoke_hmda_interest_rate_county_repeated.",
       "type": "report",
       "x": 50.26,
       "y": -283.581
@@ -55623,7 +55623,7 @@
       "size": 5.315,
       "source_key_fingerprint": "bb750428f0dd3a8f",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_hmda_interest_rate_county_repeated.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_hmda_interest_rate_county_repeated.",
       "type": "report",
       "x": 54.143,
       "y": -292.023
@@ -55649,7 +55649,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_hmda_interest_rate_lender_repeated.",
+      "summary": "Regression report directory group_inference_smoke_hmda_interest_rate_lender_repeated.",
       "type": "report",
       "x": 58.163,
       "y": -300.421
@@ -55665,7 +55665,7 @@
       "size": 5.315,
       "source_key_fingerprint": "384499047500e81f",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_hmda_interest_rate_lender_repeated.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_hmda_interest_rate_lender_repeated.",
       "type": "report",
       "x": 62.319,
       "y": -308.774
@@ -55691,7 +55691,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_hmda_interest_rate_lender_split.",
+      "summary": "Regression report directory group_inference_smoke_hmda_interest_rate_lender_split.",
       "type": "report",
       "x": 53.659,
       "y": -255.425
@@ -55707,7 +55707,7 @@
       "size": 5.315,
       "source_key_fingerprint": "d4aa773b4b5b7984",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_hmda_interest_rate_lender_split.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_hmda_interest_rate_lender_split.",
       "type": "report",
       "x": 57.598,
       "y": -263.785
@@ -55733,7 +55733,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_lawschool_duplicate_sensitivity.",
+      "summary": "Regression report directory group_inference_smoke_lawschool_duplicate_sensitivity.",
       "type": "report",
       "x": 61.673,
       "y": -272.098
@@ -55749,7 +55749,7 @@
       "size": 5.441,
       "source_key_fingerprint": "5f8689c97e30c6f7",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_lawschool_duplicate_sensitivity.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_lawschool_duplicate_sensitivity.",
       "type": "report",
       "x": 65.883,
       "y": -280.363
@@ -55775,7 +55775,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_meps_total_expenditure_log1p_varstr_split.",
+      "summary": "Regression report directory group_inference_smoke_meps_total_expenditure_log1p_varstr_split.",
       "type": "report",
       "x": 70.228,
       "y": -288.578
@@ -55791,7 +55791,7 @@
       "size": 5.315,
       "source_key_fingerprint": "a8b53d34abdde914",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_meps_total_expenditure_log1p_varstr_split.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_meps_total_expenditure_log1p_varstr_split.",
       "type": "report",
       "x": 74.707,
       "y": -296.74
@@ -55817,7 +55817,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_nhanes_bmi.",
+      "summary": "Regression report directory group_inference_smoke_nhanes_bmi.",
       "type": "report",
       "x": 79.319,
       "y": -304.85
@@ -55833,7 +55833,7 @@
       "size": 5.315,
       "source_key_fingerprint": "4ba09dd545b52f45",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_nhanes_bmi.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_nhanes_bmi.",
       "type": "report",
       "x": 67.718,
       "y": -252.062
@@ -55859,7 +55859,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_nhanes_glycohemoglobin.",
+      "summary": "Regression report directory group_inference_smoke_nhanes_glycohemoglobin.",
       "type": "report",
       "x": 72.114,
       "y": -260.191
@@ -55875,7 +55875,7 @@
       "size": 5.315,
       "source_key_fingerprint": "9d20b4777709dbec",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_nhanes_glycohemoglobin.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_nhanes_glycohemoglobin.",
       "type": "report",
       "x": 76.643,
       "y": -268.266
@@ -55901,7 +55901,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_nhanes_systolic_bp.",
+      "summary": "Regression report directory group_inference_smoke_nhanes_systolic_bp.",
       "type": "report",
       "x": 81.305,
       "y": -276.285
@@ -55917,7 +55917,7 @@
       "size": 5.315,
       "source_key_fingerprint": "3a01277c1fc6a69a",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_nhanes_systolic_bp.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_nhanes_systolic_bp.",
       "type": "report",
       "x": 86.097,
       "y": -284.247
@@ -55943,7 +55943,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.",
       "type": "report",
       "x": 91.021,
       "y": -292.149
@@ -55959,7 +55959,7 @@
       "size": 5.315,
       "source_key_fingerprint": "09f91e76f1287ea3",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.",
       "type": "report",
       "x": 96.075,
       "y": -299.991
@@ -55985,7 +55985,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_auto_price_symboling_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_auto_price_symboling_log1p.",
       "type": "report",
       "x": 81.57,
       "y": -247.926
@@ -56001,7 +56001,7 @@
       "size": 5.315,
       "source_key_fingerprint": "bd88d9565f14f70f",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_auto_price_symboling_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_auto_price_symboling_log1p.",
       "type": "report",
       "x": 86.409,
       "y": -255.8
@@ -56027,7 +56027,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_baseball_hitter_salary_league_log1p_identifier_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_baseball_hitter_salary_league_log1p_identifier_drop.",
       "type": "report",
       "x": 91.378,
       "y": -263.611
@@ -56043,7 +56043,7 @@
       "size": 5.315,
       "source_key_fingerprint": "4c7827bfa982b2ab",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_baseball_hitter_salary_league_log1p_identifier_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_baseball_hitter_salary_league_log1p_identifier_drop.",
       "type": "report",
       "x": 96.476,
       "y": -271.36
@@ -56069,7 +56069,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_baseball_pitcher_salary_league_log1p_identifier_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_baseball_pitcher_salary_league_log1p_identifier_drop.",
       "type": "report",
       "x": 101.703,
       "y": -279.044
@@ -56085,7 +56085,7 @@
       "size": 5.315,
       "source_key_fingerprint": "79c60cc37036de82",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_baseball_pitcher_salary_league_log1p_identifier_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_baseball_pitcher_salary_league_log1p_identifier_drop.",
       "type": "report",
       "x": 107.056,
       "y": -286.662
@@ -56111,7 +56111,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_baseball_team_salary_league_log1p_team_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_baseball_team_salary_league_log1p_team_drop.",
       "type": "report",
       "x": 112.537,
       "y": -294.212
@@ -56127,7 +56127,7 @@
       "size": 5.315,
       "source_key_fingerprint": "8b8e0ae3e2b1be47",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_baseball_team_salary_league_log1p_team_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_baseball_team_salary_league_log1p_team_drop.",
       "type": "report",
       "x": 95.171,
       "y": -243.03
@@ -56153,7 +56153,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_basketball_points_agebin_identity_age_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_basketball_points_agebin_identity_age_drop.",
       "type": "report",
       "x": 100.439,
       "y": -250.623
@@ -56169,7 +56169,7 @@
       "size": 5.315,
       "source_key_fingerprint": "072617eacc5338cd",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_basketball_points_agebin_identity_age_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_basketball_points_agebin_identity_age_drop.",
       "type": "report",
       "x": 105.833,
       "y": -258.148
@@ -56195,7 +56195,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_bodyfat_age_density_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_bodyfat_age_density_drop.",
       "type": "report",
       "x": 111.352,
       "y": -265.602
@@ -56211,7 +56211,7 @@
       "size": 5.315,
       "source_key_fingerprint": "092247f6aebdcafb",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_bodyfat_age_density_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_bodyfat_age_density_drop.",
       "type": "report",
       "x": 116.996,
       "y": -272.985
@@ -56237,7 +56237,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_california_housing_ocean_proxy.",
+      "summary": "Regression report directory group_inference_smoke_openml_california_housing_ocean_proxy.",
       "type": "report",
       "x": 122.763,
       "y": -280.295
@@ -56253,7 +56253,7 @@
       "size": 5.315,
       "source_key_fingerprint": "c5c9c1dc635f8f31",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_california_housing_ocean_proxy.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_california_housing_ocean_proxy.",
       "type": "report",
       "x": 128.653,
       "y": -287.53
@@ -56279,7 +56279,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_cholesterol_sex_log1p_age_diagnosis_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_cholesterol_sex_log1p_age_diagnosis_drop.",
       "type": "report",
       "x": 108.48,
       "y": -237.388
@@ -56295,7 +56295,7 @@
       "size": 5.315,
       "source_key_fingerprint": "d620bbd2ebe687da",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_cholesterol_sex_log1p_age_diagnosis_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_cholesterol_sex_log1p_age_diagnosis_drop.",
       "type": "report",
       "x": 114.161,
       "y": -244.678
@@ -56321,7 +56321,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop.",
       "type": "report",
       "x": 119.963,
       "y": -251.893
@@ -56337,7 +56337,7 @@
       "size": 5.315,
       "source_key_fingerprint": "bfccc5c054e239fe",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop.",
       "type": "report",
       "x": 125.887,
       "y": -259.03
@@ -56363,7 +56363,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_disclosure_x_bias_age_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_disclosure_x_bias_age_log1p.",
       "type": "report",
       "x": 131.93,
       "y": -266.089
@@ -56379,7 +56379,7 @@
       "size": 5.315,
       "source_key_fingerprint": "d70fdc42fee78ee6",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_disclosure_x_bias_age_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_disclosure_x_bias_age_log1p.",
       "type": "report",
       "x": 138.093,
       "y": -273.068
@@ -56405,7 +56405,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_disclosure_x_noise_age_signed_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_disclosure_x_noise_age_signed_log1p.",
       "type": "report",
       "x": 144.375,
       "y": -279.966
@@ -56421,7 +56421,7 @@
       "size": 5.315,
       "source_key_fingerprint": "4265c867c356b7a4",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_disclosure_x_noise_age_signed_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_disclosure_x_noise_age_signed_log1p.",
       "type": "report",
       "x": 121.457,
       "y": -231.018
@@ -56447,7 +56447,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_disclosure_x_tampered_age_signed_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_disclosure_x_tampered_age_signed_log1p.",
       "type": "report",
       "x": 127.532,
       "y": -237.982
@@ -56463,7 +56463,7 @@
       "size": 5.315,
       "source_key_fingerprint": "1efa29baaa465c5e",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_disclosure_x_tampered_age_signed_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_disclosure_x_tampered_age_signed_log1p.",
       "type": "report",
       "x": 133.725,
       "y": -244.864
@@ -56489,7 +56489,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_disclosure_z_age_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_disclosure_z_age_log1p.",
       "type": "report",
       "x": 140.035,
       "y": -251.663
@@ -56505,7 +56505,7 @@
       "size": 5.315,
       "source_key_fingerprint": "c99aae4591db3ea8",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_disclosure_z_age_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_disclosure_z_age_log1p.",
       "type": "report",
       "x": 146.46,
       "y": -258.377
@@ -56531,7 +56531,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_faculty_salaries_cic_identity_leakage_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_faculty_salaries_cic_identity_leakage_drop.",
       "type": "report",
       "x": 153.0,
       "y": -265.004
@@ -56547,7 +56547,7 @@
       "size": 5.315,
       "source_key_fingerprint": "987a3ff10526a20c",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_faculty_salaries_cic_identity_leakage_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_faculty_salaries_cic_identity_leakage_drop.",
       "type": "report",
       "x": 159.654,
       "y": -271.543
@@ -56573,7 +56573,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_fishcatch_weight_species_log1p_sex_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_fishcatch_weight_species_log1p_sex_drop.",
       "type": "report",
       "x": 134.061,
       "y": -223.939
@@ -56589,7 +56589,7 @@
       "size": 5.315,
       "source_key_fingerprint": "440dff38ccd7897c",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_fishcatch_weight_species_log1p_sex_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_fishcatch_weight_species_log1p_sex_drop.",
       "type": "report",
       "x": 140.512,
       "y": -230.556
@@ -56615,7 +56615,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_galapagos_area_log1p_native_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_galapagos_area_log1p_native_drop.",
       "type": "report",
       "x": 147.077,
       "y": -237.085
@@ -56631,7 +56631,7 @@
       "size": 5.315,
       "source_key_fingerprint": "c2793fb0e5f9d917",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_galapagos_area_log1p_native_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_galapagos_area_log1p_native_drop.",
       "type": "report",
       "x": 153.753,
       "y": -243.524
@@ -56657,7 +56657,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_gascons_income_ordered.",
+      "summary": "Regression report directory group_inference_smoke_openml_gascons_income_ordered.",
       "type": "report",
       "x": 160.54,
       "y": -249.872
@@ -56673,7 +56673,7 @@
       "size": 5.315,
       "source_key_fingerprint": "f9729e513da410e5",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_gascons_income_ordered.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_gascons_income_ordered.",
       "type": "report",
       "x": 167.437,
       "y": -256.126
@@ -56699,7 +56699,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop.",
       "type": "report",
       "x": 174.443,
       "y": -262.287
@@ -56715,7 +56715,7 @@
       "size": 5.315,
       "source_key_fingerprint": "247f6188920f08b0",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop.",
       "type": "report",
       "x": 146.254,
       "y": -216.173
@@ -56741,7 +56741,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_hiroshima_rate_dose_duplicate_sensitivity.",
+      "summary": "Regression report directory group_inference_smoke_openml_hiroshima_rate_dose_duplicate_sensitivity.",
       "type": "report",
       "x": 153.062,
       "y": -222.423
@@ -56757,7 +56757,7 @@
       "size": 5.441,
       "source_key_fingerprint": "65fb65d985e2169e",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_hiroshima_rate_dose_duplicate_sensitivity.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_hiroshima_rate_dose_duplicate_sensitivity.",
       "type": "report",
       "x": 159.978,
       "y": -228.579
@@ -56783,7 +56783,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_house_16h_price_p14p9_log1p_proxy_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_house_16h_price_p14p9_log1p_proxy_drop.",
       "type": "report",
       "x": 167.0,
       "y": -234.638
@@ -56799,7 +56799,7 @@
       "size": 5.315,
       "source_key_fingerprint": "139a3e8759b5b1be",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_house_16h_price_p14p9_log1p_proxy_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_house_16h_price_p14p9_log1p_proxy_drop.",
       "type": "report",
       "x": 174.128,
       "y": -240.6
@@ -56825,7 +56825,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_hutsof99_quality_gender_age_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_hutsof99_quality_gender_age_drop.",
       "type": "report",
       "x": 181.361,
       "y": -246.463
@@ -56841,7 +56841,7 @@
       "size": 5.315,
       "source_key_fingerprint": "1e9f9f2ba324e314",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_hutsof99_quality_gender_age_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_hutsof99_quality_gender_age_drop.",
       "type": "report",
       "x": 188.697,
       "y": -252.227
@@ -56867,7 +56867,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_icu_loc_sex_identity_age_race_status_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_icu_loc_sex_identity_age_race_status_drop.",
       "type": "report",
       "x": 157.998,
       "y": -207.744
@@ -56883,7 +56883,7 @@
       "size": 5.315,
       "source_key_fingerprint": "777db2bb9e81d893",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_icu_loc_sex_identity_age_race_status_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_icu_loc_sex_identity_age_race_status_drop.",
       "type": "report",
       "x": 165.141,
       "y": -213.608
@@ -56909,7 +56909,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_kin8nm_y_theta3_identity_proxy_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_kin8nm_y_theta3_identity_proxy_drop.",
       "type": "report",
       "x": 172.387,
       "y": -219.371
@@ -56925,7 +56925,7 @@
       "size": 5.315,
       "source_key_fingerprint": "a97196caa0d150ef",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_kin8nm_y_theta3_identity_proxy_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_kin8nm_y_theta3_identity_proxy_drop.",
       "type": "report",
       "x": 179.735,
       "y": -225.032
@@ -56951,7 +56951,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_mba_grade_sex_duplicate_sensitivity.",
+      "summary": "Regression report directory group_inference_smoke_openml_mba_grade_sex_duplicate_sensitivity.",
       "type": "report",
       "x": 187.182,
       "y": -230.59
@@ -56967,7 +56967,7 @@
       "size": 5.441,
       "source_key_fingerprint": "5e44d0ce228082f9",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_mba_grade_sex_duplicate_sensitivity.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_mba_grade_sex_duplicate_sensitivity.",
       "type": "report",
       "x": 194.728,
       "y": -236.044
@@ -56993,7 +56993,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_mercury_bass_age_log1p_mercury_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_mercury_bass_age_log1p_mercury_drop.",
       "type": "report",
       "x": 202.372,
       "y": -241.393
@@ -57009,7 +57009,7 @@
       "size": 5.315,
       "source_key_fingerprint": "50c8a3d543272a4d",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_mercury_bass_age_log1p_mercury_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_mercury_bass_age_log1p_mercury_drop.",
       "type": "report",
       "x": 169.257,
       "y": -198.678
@@ -57035,7 +57035,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_newton_hema_cells_weeks_identity_id_grouped_sample_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_newton_hema_cells_weeks_identity_id_grouped_sample_drop.",
       "type": "report",
       "x": 176.715,
       "y": -204.137
@@ -57051,7 +57051,7 @@
       "size": 5.315,
       "source_key_fingerprint": "053f6386d15b4b17",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_newton_hema_cells_weeks_identity_id_grouped_sample_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_newton_hema_cells_weeks_identity_id_grouped_sample_drop.",
       "type": "report",
       "x": 184.269,
       "y": -209.49
@@ -57077,7 +57077,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_plasma_retinol_sex_log1p_age_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_plasma_retinol_sex_log1p_age_drop.",
       "type": "report",
       "x": 191.918,
       "y": -214.736
@@ -57093,7 +57093,7 @@
       "size": 5.315,
       "source_key_fingerprint": "5ab975a42d4233a2",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_plasma_retinol_sex_log1p_age_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_plasma_retinol_sex_log1p_age_drop.",
       "type": "report",
       "x": 199.662,
       "y": -219.873
@@ -57119,7 +57119,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_runshoes_male_log1p_proxy_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_runshoes_male_log1p_proxy_drop.",
       "type": "report",
       "x": 207.498,
       "y": -224.901
@@ -57135,7 +57135,7 @@
       "size": 5.315,
       "source_key_fingerprint": "acf609cdd9189704",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_runshoes_male_log1p_proxy_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_runshoes_male_log1p_proxy_drop.",
       "type": "report",
       "x": 215.426,
       "y": -229.818
@@ -57161,7 +57161,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_sensory_score_method_judges_grouped.",
+      "summary": "Regression report directory group_inference_smoke_openml_sensory_score_method_judges_grouped.",
       "type": "report",
       "x": 179.997,
       "y": -189.003
@@ -57177,7 +57177,7 @@
       "size": 5.315,
       "source_key_fingerprint": "af7a9c1143f8695a",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_sensory_score_method_judges_grouped.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_sensory_score_method_judges_grouped.",
       "type": "report",
       "x": 187.746,
       "y": -194.04
@@ -57203,7 +57203,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_seropositive_age_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_seropositive_age_log1p.",
       "type": "report",
       "x": 195.584,
       "y": -198.967
@@ -57219,7 +57219,7 @@
       "size": 5.315,
       "source_key_fingerprint": "2d6493b0b570eba8",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_seropositive_age_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_seropositive_age_log1p.",
       "type": "report",
       "x": 203.512,
       "y": -203.781
@@ -57245,7 +57245,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop.",
       "type": "report",
       "x": 211.529,
       "y": -208.482
@@ -57261,7 +57261,7 @@
       "size": 5.315,
       "source_key_fingerprint": "11776ab10039f10a",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop.",
       "type": "report",
       "x": 219.631,
       "y": -213.068
@@ -57287,7 +57287,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_sleuth_case1202_experience_fsex_log1p_age_salary_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_sleuth_case1202_experience_fsex_log1p_age_salary_drop.",
       "type": "report",
       "x": 227.82,
       "y": -217.539
@@ -57303,7 +57303,7 @@
       "size": 5.315,
       "source_key_fingerprint": "0b5d4d4d00ea8ed5",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_sleuth_case1202_experience_fsex_log1p_age_salary_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_sleuth_case1202_experience_fsex_log1p_age_salary_drop.",
       "type": "report",
       "x": 190.185,
       "y": -178.747
@@ -57329,7 +57329,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_sleuth_ex1714_invol_racebin_identity_zip_race_vol_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_sleuth_ex1714_invol_racebin_identity_zip_race_vol_drop.",
       "type": "report",
       "x": 198.201,
       "y": -183.348
@@ -57345,7 +57345,7 @@
       "size": 5.315,
       "source_key_fingerprint": "3150bdcdbfb2e9d6",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_sleuth_ex1714_invol_racebin_identity_zip_race_vol_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_sleuth_ex1714_invol_racebin_identity_zip_race_vol_drop.",
       "type": "report",
       "x": 206.3,
       "y": -187.833
@@ -57371,7 +57371,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_smsa_nox_nonwhite_income_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_smsa_nox_nonwhite_income_log1p.",
       "type": "report",
       "x": 214.483,
       "y": -192.201
@@ -57387,7 +57387,7 @@
       "size": 5.315,
       "source_key_fingerprint": "3036d49bb0f4a25d",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_smsa_nox_nonwhite_income_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_smsa_nox_nonwhite_income_log1p.",
       "type": "report",
       "x": 222.747,
       "y": -196.451
@@ -57413,7 +57413,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_socmob_sons_occupation_race_log1p.",
+      "summary": "Regression report directory group_inference_smoke_openml_socmob_sons_occupation_race_log1p.",
       "type": "report",
       "x": 231.091,
       "y": -200.581
@@ -57429,7 +57429,7 @@
       "size": 5.315,
       "source_key_fingerprint": "7b7a118ea2236603",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_socmob_sons_occupation_race_log1p.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_socmob_sons_occupation_race_log1p.",
       "type": "report",
       "x": 239.514,
       "y": -204.592
@@ -57455,7 +57455,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_space_ga_income_xcoord_group_split.",
+      "summary": "Regression report directory group_inference_smoke_openml_space_ga_income_xcoord_group_split.",
       "type": "report",
       "x": 199.79,
       "y": -167.943
@@ -57471,7 +57471,7 @@
       "size": 5.315,
       "source_key_fingerprint": "e27db37ab6ab6192",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_space_ga_income_xcoord_group_split.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_space_ga_income_xcoord_group_split.",
       "type": "report",
       "x": 208.048,
       "y": -172.094
@@ -57497,7 +57497,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_openml_vehicle_count_gender_log1p_age_drop.",
+      "summary": "Regression report directory group_inference_smoke_openml_vehicle_count_gender_log1p_age_drop.",
       "type": "report",
       "x": 216.383,
       "y": -176.123
@@ -57513,7 +57513,7 @@
       "size": 5.315,
       "source_key_fingerprint": "f3d58831453fd15a",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_openml_vehicle_count_gender_log1p_age_drop.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_openml_vehicle_count_gender_log1p_age_drop.",
       "type": "report",
       "x": 224.795,
       "y": -180.031
@@ -57539,7 +57539,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_oulad_assessment_score_student_split.",
+      "summary": "Regression report directory group_inference_smoke_oulad_assessment_score_student_split.",
       "type": "report",
       "x": 233.282,
       "y": -183.817
@@ -57555,7 +57555,7 @@
       "size": 5.315,
       "source_key_fingerprint": "e91cc6eaa62a653c",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_oulad_assessment_score_student_split.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_oulad_assessment_score_student_split.",
       "type": "report",
       "x": 241.842,
       "y": -187.479
@@ -57581,7 +57581,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_pisa_2022_math_pv_mean_school_split.",
+      "summary": "Regression report directory group_inference_smoke_pisa_2022_math_pv_mean_school_split.",
       "type": "report",
       "x": 250.474,
       "y": -191.017
@@ -57597,7 +57597,7 @@
       "size": 5.315,
       "source_key_fingerprint": "3f23bc80e6a4f6da",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_pisa_2022_math_pv_mean_school_split.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_pisa_2022_math_pv_mean_school_split.",
       "type": "report",
       "x": 208.782,
       "y": -156.624
@@ -57623,7 +57623,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_scf_networth_signed_log1p_family_split.",
+      "summary": "Regression report directory group_inference_smoke_scf_networth_signed_log1p_family_split.",
       "type": "report",
       "x": 217.257,
       "y": -160.311
@@ -57639,7 +57639,7 @@
       "size": 5.315,
       "source_key_fingerprint": "f890150ec1443e01",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_scf_networth_signed_log1p_family_split.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_scf_networth_signed_log1p_family_split.",
       "type": "report",
       "x": 225.802,
       "y": -163.873
@@ -57665,7 +57665,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_stackoverflow_compensation.",
+      "summary": "Regression report directory group_inference_smoke_stackoverflow_compensation.",
       "type": "report",
       "x": 234.417,
       "y": -167.309
@@ -57681,7 +57681,7 @@
       "size": 5.315,
       "source_key_fingerprint": "fbb69a301566ad33",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_stackoverflow_compensation.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_stackoverflow_compensation.",
       "type": "report",
       "x": 243.101,
       "y": -170.619
@@ -57707,7 +57707,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_stackoverflow_compensation_repeated.",
+      "summary": "Regression report directory group_inference_smoke_stackoverflow_compensation_repeated.",
       "type": "report",
       "x": 251.851,
       "y": -173.802
@@ -57723,7 +57723,7 @@
       "size": 5.315,
       "source_key_fingerprint": "0719f2944d0f93c8",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_stackoverflow_compensation_repeated.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_stackoverflow_compensation_repeated.",
       "type": "report",
       "x": 260.666,
       "y": -176.857
@@ -57749,7 +57749,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_uci_auto_mpg_origin_identity.",
+      "summary": "Regression report directory group_inference_smoke_uci_auto_mpg_origin_identity.",
       "type": "report",
       "x": 217.133,
       "y": -144.825
@@ -57765,7 +57765,7 @@
       "size": 5.315,
       "source_key_fingerprint": "802c30f0bdee24e9",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_uci_auto_mpg_origin_identity.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_uci_auto_mpg_origin_identity.",
       "type": "report",
       "x": 225.799,
       "y": -148.037
@@ -57791,7 +57791,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_uci_bike_sharing_day_ordered.",
+      "summary": "Regression report directory group_inference_smoke_uci_bike_sharing_day_ordered.",
       "type": "report",
       "x": 234.529,
       "y": -151.12
@@ -57807,7 +57807,7 @@
       "size": 5.315,
       "source_key_fingerprint": "dfac775481d9fa14",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_uci_bike_sharing_day_ordered.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_uci_bike_sharing_day_ordered.",
       "type": "report",
       "x": 243.321,
       "y": -154.074
@@ -57833,7 +57833,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_uci_communities_crime_ecological.",
+      "summary": "Regression report directory group_inference_smoke_uci_communities_crime_ecological.",
       "type": "report",
       "x": 252.174,
       "y": -156.899
@@ -57849,7 +57849,7 @@
       "size": 5.315,
       "source_key_fingerprint": "6bfbb277475c36c7",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_uci_communities_crime_ecological.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_uci_communities_crime_ecological.",
       "type": "report",
       "x": 261.087,
       "y": -159.592
@@ -57875,7 +57875,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_uci_student_performance_prior_grade_sensitivity.",
+      "summary": "Regression report directory group_inference_smoke_uci_student_performance_prior_grade_sensitivity.",
       "type": "report",
       "x": 270.058,
       "y": -162.154
@@ -57891,7 +57891,7 @@
       "size": 5.441,
       "source_key_fingerprint": "db8135da54163042",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_uci_student_performance_prior_grade_sensitivity.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_uci_student_performance_prior_grade_sensitivity.",
       "type": "report",
       "x": 224.818,
       "y": -132.581
@@ -57917,7 +57917,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Regression report directory group inference_smoke_uci_wine_quality_duplicate_sensitivity.",
+      "summary": "Regression report directory group_inference_smoke_uci_wine_quality_duplicate_sensitivity.",
       "type": "report",
       "x": 233.649,
       "y": -135.308
@@ -57933,7 +57933,7 @@
       "size": 5.441,
       "source_key_fingerprint": "e6991789258f1e1f",
       "source_path": null,
-      "summary": "Feature Leakage Audit sidecar for group inference_smoke_uci_wine_quality_duplicate_sensitivity.",
+      "summary": "Feature Leakage Audit sidecar for group_inference_smoke_uci_wine_quality_duplicate_sensitivity.",
       "type": "report",
       "x": 242.536,
       "y": -137.904
@@ -64691,7 +64691,7 @@
         "source_hash": null,
         "status": "included_public_aggregate"
       },
-      "summary": "Method Report evidence at study/reports/venn_abers_group inference_panel_diagnostic/diagnostic.md.",
+      "summary": "Method Report evidence at study/reports/venn_abers_group_inference_panel_diagnostic/diagnostic.md.",
       "type": "method_report",
       "x": 183.796,
       "y": 107.648
