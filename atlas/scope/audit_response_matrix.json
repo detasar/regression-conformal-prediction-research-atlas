@@ -1,10 +1,10 @@
 {
-  "generated_at_utc": "2026-07-15T14:12:19.582950+00:00",
+  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
   "rows": [
     {
       "evidence_paths": [
         "atlas/results/result_cube_public.csv",
-        "atlas/results/selected_under_coverage_gate_cells.csv",
+        "atlas/results/coverage_eligible_selected_cells.csv",
         "reproducibility/tests/test_public_research_atlas_smoke.py"
       ],
       "item": "Rename the one-sided coverage criterion and selected-cell semantics.",
@@ -121,13 +121,13 @@
     },
     {
       "evidence_paths": [
-        "atlas/maintenance/maintenance_gate_matrix.md",
-        "atlas/maintenance/maintenance_gate_matrix.json",
+        "atlas/maintenance/maintenance_quality_matrix.md",
+        "atlas/maintenance/maintenance_quality_matrix.json",
         "atlas/maintenance/schema_registry.json",
         "atlas/maintenance/schema_migration_fixtures.json",
         "reproducibility/experiments/regression/scripts/"
       ],
-      "item": "Modularize monolithic builders and add broader maintenance gates.",
+      "item": "Modularize monolithic builders and add broader maintenance checks.",
       "priority": "P2",
       "status": "schema_migration_seeded_modularization_pending"
     }

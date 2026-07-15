@@ -11,4 +11,4 @@ These fixtures pin the field-renaming and split-schema conventions that were int
 | `claim_matrix_public_v1` | `claim_evidence_matrix` | `regression_cp_claim_evidence_matrix_public_v1` | `regression_cp_claim_evidence_matrix_public_v1` | `covered_by_public_smoke` |
 | `artifact_index_public_v1` | `artifact_index` | `regression_cp_public_artifact_index_v1` | `regression_cp_public_artifact_index_v1` | `covered_by_public_smoke` |
 | `audit_response_matrix_public_v1` | `audit_response_matrix` | `regression_cp_final_audit_response_matrix_v1` | `regression_cp_final_audit_response_matrix_v1` | `covered_by_public_smoke` |
-| `maintenance_gate_matrix_public_v1` | `maintenance_gate_matrix` | `regression_cp_public_maintenance_gate_matrix_v1` | `regression_cp_public_maintenance_gate_matrix_v1` | `covered_by_public_smoke` |
+| `maintenance_quality_matrix_public_v1` | `maintenance_quality_matrix` | `regression_cp_public_maintenance_quality_matrix_v1` | `regression_cp_public_maintenance_quality_matrix_v1` | `covered_by_public_smoke` |

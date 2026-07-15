@@ -5,20 +5,20 @@
       "artifact_family": "result_cube",
       "expected_output_example": {
         "alpha": "0.1",
+        "coverage_eligible_selected": "true",
         "coverage_lower_bound_pass": "true",
         "dataset_id": "example_dataset",
-        "method_label": "cqr",
-        "selected_under_coverage_gate": "true"
+        "method_label": "cqr"
       },
       "field_role_migrations": {
-        "legacy_coverage_gate_label": "coverage_lower_bound_pass",
-        "legacy_selection_label": "selected_under_coverage_gate"
+        "legacy_coverage_check_label": "coverage_lower_bound_pass",
+        "legacy_selection_label": "coverage_eligible_selected"
       },
       "fixture_id": "result_cube_selection_labels_v0_to_v1",
       "input_example": {
         "alpha": "0.1",
         "dataset_id": "example_dataset",
-        "legacy_coverage_gate_label": "true",
+        "legacy_coverage_check_label": "true",
         "legacy_selection_label": "true",
         "method_label": "cqr"
       },
@@ -222,37 +222,37 @@
       "target_schema": "regression_cp_final_audit_response_matrix_v1"
     },
     {
-      "artifact_family": "maintenance_gate_matrix",
+      "artifact_family": "maintenance_quality_matrix",
       "expected_output_example": {
-        "gates": [
+        "checks": [
           {
-            "gate_id": "schema_migration"
+            "check_id": "schema_migration"
           }
         ],
-        "schema": "regression_cp_public_maintenance_gate_matrix_v1",
+        "schema": "regression_cp_public_maintenance_quality_matrix_v1",
         "summary": {
-          "gate_count": 1
+          "check_count": 1
         }
       },
-      "fixture_id": "maintenance_gate_matrix_public_v1",
+      "fixture_id": "maintenance_quality_matrix_public_v1",
       "input_example": {
-        "gates": [
+        "checks": [
           {
-            "gate_id": "schema_migration"
+            "check_id": "schema_migration"
           }
         ],
-        "schema": "regression_cp_public_maintenance_gate_matrix_v1",
+        "schema": "regression_cp_public_maintenance_quality_matrix_v1",
         "summary": {
-          "gate_count": 1
+          "check_count": 1
         }
       },
       "renamed_fields": {},
-      "source_schema": "regression_cp_public_maintenance_gate_matrix_v1",
+      "source_schema": "regression_cp_public_maintenance_quality_matrix_v1",
       "status": "covered_by_public_smoke",
-      "target_schema": "regression_cp_public_maintenance_gate_matrix_v1"
+      "target_schema": "regression_cp_public_maintenance_quality_matrix_v1"
     }
   ],
-  "generated_at_utc": "2026-07-15T14:12:19.582950+00:00",
+  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
   "schema": "regression_cp_public_schema_migration_fixtures_v1",
   "status": "schema_migration_fixtures_seeded"
 }

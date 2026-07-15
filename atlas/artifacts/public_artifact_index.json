@@ -73,8 +73,8 @@
     },
     {
       "artifact_kind": "atlas data",
-      "artifact_path": "atlas/claims/interpretation_boundaries.md",
-      "reader_use": "Readable interpretation-boundary summary."
+      "artifact_path": "atlas/claims/interpretation_limits.md",
+      "reader_use": "Readable interpretation-limits summary."
     },
     {
       "artifact_kind": "atlas data",
@@ -113,23 +113,23 @@
     },
     {
       "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/coverage_eligible_selected_cells.csv",
+      "reader_use": "Coverage-eligible selected cells."
+    },
+    {
+      "artifact_kind": "atlas data",
       "artifact_path": "atlas/results/cqr_backend_sensitivity.csv",
       "reader_use": "CQR backend sensitivity comparison."
     },
     {
       "artifact_kind": "atlas data",
-      "artifact_path": "atlas/results/interpretation_boundaries.csv",
-      "reader_use": "Interpretation boundary table."
+      "artifact_path": "atlas/results/interpretation_limits.csv",
+      "reader_use": "Interpretation limits table."
     },
     {
       "artifact_kind": "atlas data",
       "artifact_path": "atlas/results/result_cube_public.csv",
       "reader_use": "Public aggregate result cube."
-    },
-    {
-      "artifact_kind": "atlas data",
-      "artifact_path": "atlas/results/selected_under_coverage_gate_cells.csv",
-      "reader_use": "Coverage-gated selected cells."
     },
     {
       "artifact_kind": "atlas data",
@@ -1093,13 +1093,13 @@
     },
     {
       "artifact_kind": "maintenance",
-      "artifact_path": "atlas/maintenance/maintenance_gate_matrix.json",
-      "reader_use": "Machine-readable maintenance and CI gate matrix."
+      "artifact_path": "atlas/maintenance/maintenance_quality_matrix.json",
+      "reader_use": "Machine-readable maintenance and CI quality matrix."
     },
     {
       "artifact_kind": "maintenance",
-      "artifact_path": "atlas/maintenance/maintenance_gate_matrix.md",
-      "reader_use": "Readable maintenance and CI gate matrix."
+      "artifact_path": "atlas/maintenance/maintenance_quality_matrix.md",
+      "reader_use": "Readable maintenance and CI quality matrix."
     },
     {
       "artifact_kind": "maintenance",
@@ -1562,6 +1562,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T14:12:19.582950+00:00",
+  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

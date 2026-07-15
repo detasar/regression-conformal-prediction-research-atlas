@@ -21,7 +21,7 @@
     },
     {
       "atlas_paths": [
-        "atlas/results/selected_under_coverage_gate_cells.csv",
+        "atlas/results/coverage_eligible_selected_cells.csv",
         "atlas/results/result_cube_public.csv"
       ],
       "description": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; broader method selection or deployment use would require separate validation.",
@@ -31,7 +31,7 @@
     {
       "atlas_paths": [
         "atlas/results/venn_abers_negative_evidence.csv",
-        "atlas/results/interpretation_boundaries.csv"
+        "atlas/results/interpretation_limits.csv"
       ],
       "description": "Bridge-specific negative and diagnostic evidence, especially for the evaluated Venn-Abers regression bridge.",
       "route_id": "negative_evidence",
@@ -40,11 +40,11 @@
     {
       "atlas_paths": [
         "atlas/claims/claim_registry.json",
-        "atlas/claims/interpretation_boundaries.md"
+        "atlas/claims/interpretation_limits.md"
       ],
       "description": "Broader readings that require separate validation.",
       "route_id": "evidence_limits",
-      "title": "Interpretation Boundaries"
+      "title": "Interpretation Limits"
     }
   ],
   "schema": "regression_cp_claim_routes_v1"

@@ -450,13 +450,13 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     method_index = (root / "atlas/methods/index.html").read_text(encoding="utf-8")
     assert "cards/cqr.html" in method_index
     assert "cards/cqr_model_matched.html" in method_index
-    assert all(row.get("evidence_gate") for row in claim_registry["claims"])
+    assert all(row.get("evidence_reference") for row in claim_registry["claims"])
     assert {route["route_id"] for route in kg["research_map"]} >= {
         "experiment_scope",
         "method_universe",
         "cqr_cvplus_signal",
         "venn_abers_bridge",
-        "closed_gates",
+        "interpretation_limits",
     }
     browser = (root / "site/kg_browser.html").read_text(encoding="utf-8")
     assert 'role="list" aria-label="Guided research routes"' in browser
@@ -824,7 +824,7 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert checklist["schema"] == "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
     assert checklist["overall_status"] == "preflight_templates_ready_execution_not_started"
     assert checklist["result_generation_status"] == "not_started"
-    statuses = {row["gate_id"]: row["status"] for row in checklist["checklist"]}
+    statuses = {row["check_id"]: row["status"] for row in checklist["checklist"]}
     assert statuses["preflight_templates_published"] == "pass"
     assert statuses["candidate_run_grid_manifest_published"] == "pass"
     assert statuses["benchmark_v2_results_generated"] == "not_started"
@@ -982,44 +982,44 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
     assert "atlas/scope/audit_response_matrix.json" in indexed_paths
     assert "atlas/scope/audit_response_matrix.md" in indexed_paths
-    assert "atlas/maintenance/maintenance_gate_matrix.json" in indexed_paths
-    assert "atlas/maintenance/maintenance_gate_matrix.md" in indexed_paths
+    assert "atlas/maintenance/maintenance_quality_matrix.json" in indexed_paths
+    assert "atlas/maintenance/maintenance_quality_matrix.md" in indexed_paths
     assert "atlas/maintenance/schema_registry.json" in indexed_paths
     assert "atlas/maintenance/schema_migration_fixtures.json" in indexed_paths
 
 
-def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
+def test_public_maintenance_quality_matrix_tracks_ci_and_debt() -> None:
     root = repo_root()
-    matrix_path = root / "atlas/maintenance/maintenance_gate_matrix.json"
-    markdown_path = root / "atlas/maintenance/maintenance_gate_matrix.md"
+    matrix_path = root / "atlas/maintenance/maintenance_quality_matrix.json"
+    markdown_path = root / "atlas/maintenance/maintenance_quality_matrix.md"
     assert matrix_path.exists()
     assert markdown_path.exists()
 
     matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
-    assert matrix["schema"] == "regression_cp_public_maintenance_gate_matrix_v1"
+    assert matrix["schema"] == "regression_cp_public_maintenance_quality_matrix_v1"
     assert (
         matrix["summary"]["overall_status"]
         == "schema_migration_seeded_modularization_pending"
     )
-    gate_by_id = {row["gate_id"]: row for row in matrix["gates"]}
-    assert gate_by_id["public_smoke_ci"]["ci_enforced"] is True
-    assert gate_by_id["package_content"]["status"] == "implemented"
-    assert gate_by_id["public_forbidden_language"]["status"] == "implemented"
-    assert gate_by_id["environment_lock"]["status"] == "implemented"
-    assert gate_by_id["accessibility_metadata"]["status"] == "partial"
-    assert gate_by_id["builder_modularization"]["status"] == "partial"
-    assert gate_by_id["builder_modularization"]["ci_enforced"] is True
-    assert "public_builder_utils.py" in gate_by_id["builder_modularization"]["command_or_evidence"]
-    assert gate_by_id["schema_migration"]["status"] == "implemented"
-    assert gate_by_id["schema_migration"]["ci_enforced"] is True
-    assert gate_by_id["lint_type_security"]["status"] == "partial"
-    assert gate_by_id["lint_type_security"]["ci_enforced"] is True
-    assert "secret patterns" in gate_by_id["lint_type_security"]["command_or_evidence"]
-    assert matrix["summary"]["ci_enforced_gate_count"] >= 8
+    check_by_id = {row["check_id"]: row for row in matrix["checks"]}
+    assert check_by_id["public_smoke_ci"]["ci_enforced"] is True
+    assert check_by_id["package_content"]["status"] == "implemented"
+    assert check_by_id["public_forbidden_language"]["status"] == "implemented"
+    assert check_by_id["environment_lock"]["status"] == "implemented"
+    assert check_by_id["accessibility_metadata"]["status"] == "partial"
+    assert check_by_id["builder_modularization"]["status"] == "partial"
+    assert check_by_id["builder_modularization"]["ci_enforced"] is True
+    assert "public_builder_utils.py" in check_by_id["builder_modularization"]["command_or_evidence"]
+    assert check_by_id["schema_migration"]["status"] == "implemented"
+    assert check_by_id["schema_migration"]["ci_enforced"] is True
+    assert check_by_id["lint_type_security"]["status"] == "partial"
+    assert check_by_id["lint_type_security"]["ci_enforced"] is True
+    assert "secret patterns" in check_by_id["lint_type_security"]["command_or_evidence"]
+    assert matrix["summary"]["ci_enforced_check_count"] >= 8
 
     markdown = markdown_path.read_text(encoding="utf-8")
-    assert "# Maintenance Gate Matrix" in markdown
-    assert "Builder modularization gate" in markdown
+    assert "# Maintenance Quality Matrix" in markdown
+    assert "Builder modularization check" in markdown
 
 
 def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
@@ -1062,7 +1062,7 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
         "evidence/public_artifact_manifest.json",
         "atlas/results/result_cube_public.csv",
         "atlas/artifacts/public_artifact_index.json",
-        "atlas/maintenance/maintenance_gate_matrix.json",
+        "atlas/maintenance/maintenance_quality_matrix.json",
     } <= set(schema_by_path)
     assert {
         row["migration_fixture_id"] for row in registry["schemas"]
@@ -1073,20 +1073,20 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
     )
     assert {
         "coverage_lower_bound_pass",
-        "selected_under_coverage_gate",
+        "coverage_eligible_selected",
         "numerical_pathology_flag",
     } <= set(schema_by_path["atlas/results/result_cube_public.csv"]["required_fields"])
 
     result_fixture = fixture_by_id["result_cube_selection_labels_v0_to_v1"]
     assert result_fixture["field_role_migrations"] == {
-        "legacy_coverage_gate_label": "coverage_lower_bound_pass",
-        "legacy_selection_label": "selected_under_coverage_gate",
+        "legacy_coverage_check_label": "coverage_lower_bound_pass",
+        "legacy_selection_label": "coverage_eligible_selected",
     }
     result_fixture_text = json.dumps(result_fixture)
     assert "near" + "_nominal" not in result_fixture_text
     assert "front" + "ier" not in result_fixture_text
     assert "coverage_lower_bound_pass" in result_fixture["expected_output_example"]
-    assert "selected_under_coverage_gate" in result_fixture["expected_output_example"]
+    assert "coverage_eligible_selected" in result_fixture["expected_output_example"]
     kg_fixture = fixture_by_id["kg_provenance_label_v0_to_v1"]
     assert kg_fixture["field_role_migrations"]["source_fingerprint"] == "source_key_fingerprint"
     assert (
@@ -1172,7 +1172,7 @@ def test_public_result_cube_schema_preserves_scientific_labels() -> None:
     assert rows
     assert {
         "coverage_lower_bound_pass",
-        "selected_under_coverage_gate",
+        "coverage_eligible_selected",
         "numerical_pathology_flag",
         "numerical_pathology_reason",
         "display_interval_policy",
@@ -1204,7 +1204,7 @@ def test_public_result_cube_schema_preserves_scientific_labels() -> None:
         for row in heatmap_rows
         if row["numerical_pathology_flag"] is True
     )
-    selected_path = root / "atlas/results/selected_under_coverage_gate_cells.csv"
+    selected_path = root / "atlas/results/coverage_eligible_selected_cells.csv"
     selected_text = selected_path.read_text(encoding="utf-8")
     assert legacy_coverage_status not in selected_text
     with selected_path.open(encoding="utf-8", newline="") as handle:

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-15T14:12:19.582950+00:00",
+  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
   "policy": {
     "benchmark_v2_rule": "Benchmark v2 result artifacts must either use these schemas or publish v2 schemas with explicit fixtures before execution results are merged.",
     "breaking_change_rule": "Any removal or rename of a required field must add a migration fixture and a public smoke assertion before regenerated results are published.",
@@ -87,7 +87,7 @@
         "alpha",
         "method_label",
         "coverage_lower_bound_pass",
-        "selected_under_coverage_gate",
+        "coverage_eligible_selected",
         "numerical_pathology_flag",
         "display_interval_policy"
       ],
@@ -105,15 +105,15 @@
       "schema": "regression_cp_final_audit_response_matrix_v1"
     },
     {
-      "artifact_path": "atlas/maintenance/maintenance_gate_matrix.json",
+      "artifact_path": "atlas/maintenance/maintenance_quality_matrix.json",
       "format": "json",
-      "migration_fixture_id": "maintenance_gate_matrix_public_v1",
+      "migration_fixture_id": "maintenance_quality_matrix_public_v1",
       "required_fields": [
         "schema",
         "summary",
-        "gates"
+        "checks"
       ],
-      "schema": "regression_cp_public_maintenance_gate_matrix_v1"
+      "schema": "regression_cp_public_maintenance_quality_matrix_v1"
     }
   ],
   "status": "schema_registry_seeded"

@@ -1,0 +1,95 @@
+{
+  "checks": [
+    {
+      "check_id": "public_smoke_ci",
+      "check_label": "Public smoke CI",
+      "ci_enforced": true,
+      "command_or_evidence": "pytest -m \"unit or artifact_public or smoke\" -q",
+      "remaining_work": "Keep expanding public smoke coverage as new atlas surfaces are added.",
+      "scope": "public package install, artifact smoke checks, and root command help",
+      "status": "implemented"
+    },
+    {
+      "check_id": "package_content",
+      "check_label": "Package content check",
+      "ci_enforced": true,
+      "command_or_evidence": "public smoke tests inspect wheel/package resources",
+      "remaining_work": "Add checksum checks for future larger release assets.",
+      "scope": "experiment configs, public rebuild modules, and runner entry points",
+      "status": "implemented"
+    },
+    {
+      "check_id": "public_forbidden_language",
+      "check_label": "Reader-language check",
+      "ci_enforced": true,
+      "command_or_evidence": "public artifact smoke tests scan reader-facing surfaces",
+      "remaining_work": "Add any newly rejected public phrases to the scanner before publication.",
+      "scope": "public README, HTML article/supplement/document, atlas, KG, and evidence pages",
+      "status": "implemented"
+    },
+    {
+      "check_id": "link_and_schema_smoke",
+      "check_label": "Link and schema smoke check",
+      "ci_enforced": true,
+      "command_or_evidence": "public artifact smoke tests and artifact index checks",
+      "remaining_work": "Add browser-level crawl checks for dynamically generated route states.",
+      "scope": "local links, indexed public artifacts, KG schema, and manifest coverage",
+      "status": "implemented"
+    },
+    {
+      "check_id": "environment_lock",
+      "check_label": "Public environment lock",
+      "ci_enforced": true,
+      "command_or_evidence": "reproducibility/environment/public_environment_lock.*",
+      "remaining_work": "Add a full experiment container or lockfile before Benchmark v2 execution.",
+      "scope": "public smoke-test dependency surface",
+      "status": "implemented"
+    },
+    {
+      "check_id": "accessibility_metadata",
+      "check_label": "Accessibility and academic metadata check",
+      "ci_enforced": false,
+      "command_or_evidence": "skip links, focus-visible styles, captions, canonical URLs, citation metadata, JSON-LD, sitemap, robots files, and ACCESSIBILITY.md",
+      "remaining_work": "Add automated axe/lighthouse-style checks and tagged-PDF validation.",
+      "scope": "main public pages and atlas pages",
+      "status": "partial"
+    },
+    {
+      "check_id": "lint_type_security",
+      "check_label": "Lint, type, and security checks",
+      "ci_enforced": true,
+      "command_or_evidence": "public smoke tests compile public Python sources and scan high-confidence secret patterns",
+      "remaining_work": "Add ruff, mypy/pyright subset, and pip-audit gates after the public package dependency surface stabilizes.",
+      "scope": "Python style, import hygiene, type surface, dependency and secret scanning",
+      "status": "partial"
+    },
+    {
+      "check_id": "builder_modularization",
+      "check_label": "Builder modularization check",
+      "ci_enforced": true,
+      "command_or_evidence": "public rebuild scripts share reproducibility/experiments/regression/scripts/public_builder_utils.py",
+      "remaining_work": "Continue splitting large source builders into DAG tasks with shared schema, path, provenance, and rendering helpers.",
+      "scope": "knowledge graph and publication builders",
+      "status": "partial"
+    },
+    {
+      "check_id": "schema_migration",
+      "check_label": "Schema migration check",
+      "ci_enforced": true,
+      "command_or_evidence": "atlas/maintenance/schema_registry.*, atlas/maintenance/schema_migration_fixtures.*, and public smoke schema tests",
+      "remaining_work": "Extend the registry when Benchmark v2 result schemas are generated.",
+      "scope": "versioned atlas, KG, evidence, and result-cube schemas",
+      "status": "implemented"
+    }
+  ],
+  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
+  "schema": "regression_cp_public_maintenance_quality_matrix_v1",
+  "summary": {
+    "check_count": 9,
+    "ci_enforced_check_count": 8,
+    "implemented_check_count": 6,
+    "overall_status": "schema_migration_seeded_modularization_pending",
+    "partial_check_count": 3,
+    "planned_check_count": 0
+  }
+}

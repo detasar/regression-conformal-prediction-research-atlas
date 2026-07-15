@@ -1,10 +1,10 @@
 # Claim-Evidence Matrix
 
-This reader-facing matrix links the study's main statements to the evidence gates and scope limits used in the Research Atlas.
+This reader-facing matrix links the study's main statements to the evidence references and scope limits used in the Research Atlas.
 
-| Claim row | Evidence-supported statement | Evidence gate | Scope limit |
+| Claim row | Evidence-supported statement | Evidence reference | Scope limit |
 |---|---|---|---|
-| paper_dataset_scope_evidence | The dataset/source audit defines the studied scope under the recorded review policy. | Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage. | The dataset/source audit is a scoped study surface rather than exhaustive internet coverage or final dataset-level result promotion. |
+| paper_dataset_scope_evidence | The dataset/source audit defines the studied scope under the recorded review policy. | Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage. | The dataset/source audit is a scoped study surface rather than exhaustive internet coverage or final dataset-level result overstatement. |
 | paper_method_scope_evidence | Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates. | Method descriptions need literature citations; empirical language must stay limited to these experiments. | Method behavior is reported as experiment-scoped evidence rather than deployment guidance. |
 | paper_main_results_beyond_current_study_evidence | The current evidence does not establish a study-wide method choice, final main result, or deployment rule. | This reading would require a separate pre-specified validation protocol. | Keep method-selection conclusions beyond this study. |
 | supplement_robustness_diagnostic_evidence | Robustness rows are post-selection diagnostics and should be read with their multiplicity caveats. | Statistical or robustness interpretations need the documented audit context; they are not confirmatory superiority claims. | Robustness diagnostics are descriptive rather than confirmatory superiority evidence. |

@@ -2,16 +2,16 @@
   "generated_at_utc": "2026-07-09T14:29:22.101931+00:00",
   "rows": [
     {
-      "evidence_gate": "Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage.",
+      "evidence_reference": "Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage.",
       "id": "paper_dataset_scope_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row tells a reader what data sources were inspected; the dataset list defines study scope rather than a final dataset-level result.",
-      "scope_limit": "The dataset/source audit is a scoped study surface rather than exhaustive internet coverage or final dataset-level result promotion.",
+      "scope_limit": "The dataset/source audit is a scoped study surface rather than exhaustive internet coverage or final dataset-level result overstatement.",
       "statement": "The dataset/source audit defines the studied scope under the recorded review policy.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "Method descriptions need literature citations; empirical language must stay limited to these experiments.",
+      "evidence_reference": "Method descriptions need literature citations; empirical language must stay limited to these experiments.",
       "id": "paper_method_scope_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row permits a careful description of what looked useful in the experiment; deployment rules for new regression problems require separate validation.",
@@ -20,7 +20,7 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "This reading would require a separate pre-specified validation protocol.",
+      "evidence_reference": "This reading would require a separate pre-specified validation protocol.",
       "id": "paper_main_results_beyond_current_study_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row prevents a reader from mistaking promising diagnostic patterns for a final answer.",
@@ -29,7 +29,7 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "Statistical or robustness interpretations need the documented audit context; they are not confirmatory superiority claims.",
+      "evidence_reference": "Statistical or robustness interpretations need the documented audit context; they are not confirmatory superiority claims.",
       "id": "supplement_robustness_diagnostic_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row records useful diagnostics without turning them into superiority evidence.",
@@ -38,7 +38,7 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "The claim is bridge-specific negative evidence and leaves the broader Venn-Abers literature separate.",
+      "evidence_reference": "The claim is bridge-specific negative evidence and leaves the broader Venn-Abers literature separate.",
       "id": "supplement_venn_abers_negative_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row records that one tested bridge behaved poorly while the broader Venn-Abers literature remains separate.",
@@ -47,7 +47,7 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "Control descriptions support reproducibility claims; scientific validity rests on the empirical evidence.",
+      "evidence_reference": "Control descriptions support reproducibility claims; scientific validity rests on the empirical evidence.",
       "id": "supplement_methodology_records_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row explains the guardrails around the study rather than claiming the guardrails make every result final.",
@@ -56,7 +56,7 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this study.",
+      "evidence_reference": "Use the public Research Atlas repository as the citable artifact for this study.",
       "id": "supplement_reproducibility_traceability_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row tells a reader how the work can be audited and resumed while keeping the source provenance separate from the public Research Atlas.",
@@ -65,7 +65,7 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_gate": "This is an authoring map for the individual experiment report.",
+      "evidence_reference": "This is an authoring map for the individual experiment report.",
       "id": "individual_report_blueprint_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row preserves the report plan and author metadata for traceable review.",

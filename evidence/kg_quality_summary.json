@@ -32,8 +32,8 @@
     },
     {
       "anchor_node_count": 10,
-      "route_id": "closed_gates",
-      "title": "Interpretation Boundaries"
+      "route_id": "interpretation_limits",
+      "title": "Interpretation Limits"
     },
     {
       "anchor_node_count": 8,

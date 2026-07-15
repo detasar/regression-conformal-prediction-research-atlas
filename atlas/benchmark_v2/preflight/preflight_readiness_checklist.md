@@ -3,7 +3,7 @@
 - Overall status: `preflight_templates_ready_execution_not_started`
 - Result generation status: `not_started`
 
-| Gate | Status | Evidence |
+| Check | Status | Evidence |
 |---|---|---|
 | `protocol_frozen` | `pass` | `atlas/scope/benchmark_v2_protocol.json` |
 | `execution_manifest_defined` | `pass` | `atlas/scope/benchmark_v2_execution_manifest.json` |
