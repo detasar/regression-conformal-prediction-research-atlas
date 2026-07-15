@@ -825,6 +825,7 @@ def test_public_result_cube_schema_preserves_scientific_labels() -> None:
         "coverage_lower_bound_pass",
         "selected_under_coverage_gate",
         "numerical_pathology_flag",
+        "numerical_pathology_reason",
         "display_interval_policy",
     } <= fieldnames
     legacy_coverage_status = "near" + "_nominal"
@@ -832,6 +833,28 @@ def test_public_result_cube_schema_preserves_scientific_labels() -> None:
     assert legacy_coverage_status not in fieldnames
     assert legacy_selection_flag not in fieldnames
     assert any(row["numerical_pathology_flag"] == "true" for row in rows)
+    assert any(
+        row["numerical_pathology_reason"] and row["display_interval_policy"]
+        for row in rows
+        if row["numerical_pathology_flag"] == "true"
+    )
+    heatmap = json.loads(
+        (root / "atlas/ui_data/dataset_method_heatmap.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    heatmap_rows = heatmap["rows"]
+    assert {
+        "numerical_pathology_flag",
+        "numerical_pathology_reason",
+        "display_interval_policy",
+    } <= set(heatmap_rows[0])
+    assert any(row["numerical_pathology_flag"] is True for row in heatmap_rows)
+    assert any(
+        row["numerical_pathology_reason"] and row["display_interval_policy"]
+        for row in heatmap_rows
+        if row["numerical_pathology_flag"] is True
+    )
     selected_path = root / "atlas/results/selected_under_coverage_gate_cells.csv"
     selected_text = selected_path.read_text(encoding="utf-8")
     assert legacy_coverage_status not in selected_text
@@ -856,6 +879,9 @@ def test_public_results_page_exposes_interactive_atlas_layers() -> None:
         "Relative Interval-Score Efficiency",
         "Coverage-Width Pareto Summary",
         "CQR Backend Sensitivity Map",
+        "Numerical pathology",
+        "numerical_pathology_reason",
+        "display_interval_policy",
         "planned_attempted_completed_matrix.json",
         "not_atomically_reconstructable_from_public_package",
         'id="accounting-funnel"',
