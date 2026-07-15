@@ -599,6 +599,7 @@ def test_public_repository_maintenance_files_are_present() -> None:
     root = repo_root()
     contributing = (root / "CONTRIBUTING.md").read_text(encoding="utf-8")
     security = (root / "SECURITY.md").read_text(encoding="utf-8")
+    accessibility = (root / "ACCESSIBILITY.md").read_text(encoding="utf-8")
     codeowners = (root / "CODEOWNERS").read_text(encoding="utf-8")
     github_codeowners = (root / ".github/CODEOWNERS").read_text(encoding="utf-8")
     data_licenses = (root / "DATA_LICENSES.md").read_text(encoding="utf-8")
@@ -618,6 +619,10 @@ def test_public_repository_maintenance_files_are_present() -> None:
     assert "detasar@gmail.com" in security
     assert "restricted ledgers" in security
     assert "nonredistributable datasets" in security
+    assert "Accessibility" in accessibility
+    assert "main landmark" in accessibility
+    assert "PDF tagging" in accessibility
+    assert "detasar@gmail.com" in accessibility
     assert "@detasar" in codeowners
     assert github_codeowners == codeowners
     assert "Data Licenses And Redistribution Scope" in data_licenses
@@ -639,6 +644,7 @@ def test_public_repository_maintenance_files_are_present() -> None:
         "README.md",
         "CONTRIBUTING.md",
         "SECURITY.md",
+        "ACCESSIBILITY.md",
         "CODEOWNERS",
         ".github/CODEOWNERS",
         "DATA_LICENSES.md",

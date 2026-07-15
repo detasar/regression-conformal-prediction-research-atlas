@@ -1,5 +1,5 @@
 {
-  "artifact_count": 311,
+  "artifact_count": 312,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -1068,6 +1068,11 @@
     },
     {
       "artifact_kind": "maintenance",
+      "artifact_path": "ACCESSIBILITY.md",
+      "reader_use": "Accessibility support, known limits, and feedback contact."
+    },
+    {
+      "artifact_kind": "maintenance",
       "artifact_path": "CODEOWNERS",
       "reader_use": "Repository ownership file."
     },
@@ -1557,6 +1562,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T13:12:14.725057+00:00",
+  "generated_at_utc": "2026-07-15T13:25:59.134005+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

@@ -39,6 +39,7 @@ The expected strong regression solution did not emerge in these experiments. The
 9. `site/index.html` is the web entry point.
 10. `site/kg_browser.html` is the browsable evidence graph.
 11. `evidence/public_artifact_manifest.json` resolves public KG source/evidence references.
+12. `ACCESSIBILITY.md` records accessibility support, known limits, and feedback contact.
 
 GitHub Pages: <https://detasar.github.io/regression-conformal-prediction-research-atlas/>
 Public repository: <https://github.com/detasar/regression-conformal-prediction-research-atlas>
