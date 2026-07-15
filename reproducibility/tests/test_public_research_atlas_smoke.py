@@ -8,6 +8,7 @@ import csv
 import gzip
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -21,6 +22,16 @@ import pytest
 
 
 pytestmark = [pytest.mark.smoke, pytest.mark.artifact_public]
+
+SECRET_PATTERNS = {
+    "private_key_block": re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+    "openai_api_key": re.compile(r"(?<![A-Za-z0-9])sk-(?:proj-)?[A-Za-z0-9_-]{20,}"),
+    "github_classic_token": re.compile(r"(?:ghp|gho|ghu|ghs|ghr)_[A-Za-z0-9_]{30,}"),
+    "github_fine_grained_token": re.compile(r"github_pat_[A-Za-z0-9_]{20,}"),
+    "aws_access_key": re.compile(r"AKIA[0-9A-Z]{16}"),
+    "slack_token": re.compile(r"xox[baprs]-[A-Za-z0-9-]{20,}"),
+    "google_api_key": re.compile(r"AIza[0-9A-Za-z_-]{35}"),
+}
 
 FORBIDDEN_PUBLIC_PHRASES = tuple(
     " ".join(parts)
@@ -190,6 +201,50 @@ def test_public_research_atlas_core_imports() -> None:
     assert importlib.import_module("experiments.regression.scripts.build_public_release_scope")
     assert importlib.import_module("experiments.regression.scripts.build_public_research_atlas")
     assert importlib.import_module("experiments.regression.scripts.build_research_atlas_package")
+
+
+def test_public_python_sources_compile_and_secret_patterns_are_absent() -> None:
+    root = repo_root()
+    skipped_parts = {".git", "__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", "build"}
+    python_paths = [
+        path
+        for path in root.rglob("*.py")
+        if not skipped_parts.intersection(path.parts)
+        and not any(part.endswith(".egg-info") for part in path.parts)
+    ]
+    assert python_paths
+    for path in python_paths:
+        source = path.read_text(encoding="utf-8", errors="ignore")
+        compile(source, str(path.relative_to(root)), "exec")
+
+    checked_suffixes = {
+        ".cff",
+        ".html",
+        ".json",
+        ".md",
+        ".py",
+        ".tex",
+        ".toml",
+        ".txt",
+        ".xml",
+        ".yaml",
+        ".yml",
+    }
+    violations: list[tuple[str, str]] = []
+    for path in root.rglob("*"):
+        if skipped_parts.intersection(path.parts) or not path.is_file():
+            continue
+        if any(part.endswith(".egg-info") for part in path.parts):
+            continue
+        if path.suffix.lower() not in checked_suffixes:
+            continue
+        if path.stat().st_size > 5_000_000:
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for name, pattern in SECRET_PATTERNS.items():
+            if pattern.search(text):
+                violations.append((str(path.relative_to(root)), name))
+    assert not violations
 
 
 def test_public_package_data_includes_experiment_configs() -> None:
@@ -953,8 +1008,10 @@ def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
     assert gate_by_id["builder_modularization"]["status"] == "planned"
     assert gate_by_id["schema_migration"]["status"] == "implemented"
     assert gate_by_id["schema_migration"]["ci_enforced"] is True
-    assert gate_by_id["lint_type_security"]["ci_enforced"] is False
-    assert matrix["summary"]["ci_enforced_gate_count"] >= 6
+    assert gate_by_id["lint_type_security"]["status"] == "partial"
+    assert gate_by_id["lint_type_security"]["ci_enforced"] is True
+    assert "secret patterns" in gate_by_id["lint_type_security"]["command_or_evidence"]
+    assert matrix["summary"]["ci_enforced_gate_count"] >= 7
 
     markdown = markdown_path.read_text(encoding="utf-8")
     assert "# Maintenance Gate Matrix" in markdown

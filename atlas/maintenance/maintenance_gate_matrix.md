@@ -7,9 +7,9 @@ This matrix records the public maintenance and CI gates currently attached to th
 - overall_status: `schema_migration_seeded_modularization_pending`
 - gate_count: `9`
 - implemented_gate_count: `6`
-- partial_gate_count: `1`
-- planned_gate_count: `2`
-- ci_enforced_gate_count: `6`
+- partial_gate_count: `2`
+- planned_gate_count: `1`
+- ci_enforced_gate_count: `7`
 
 ## Gates
 
@@ -21,6 +21,6 @@ This matrix records the public maintenance and CI gates currently attached to th
 | Link and schema smoke gate | `implemented` | `True` | local links, indexed public artifacts, KG schema, and manifest coverage | Add browser-level crawl checks for dynamically generated route states. |
 | Public environment lock | `implemented` | `True` | public smoke-test dependency surface | Add a full experiment container or lockfile before Benchmark v2 execution. |
 | Accessibility and academic metadata gate | `partial` | `False` | main public pages and atlas pages | Add automated axe/lighthouse-style checks and tagged-PDF validation. |
-| Lint, type, and security gates | `planned` | `False` | Python style, import hygiene, type surface, dependency and secret scanning | Introduce ruff, mypy/pyright subset, pip-audit, and secret scan gates after public/restricted test split stabilizes. |
+| Lint, type, and security gates | `partial` | `True` | Python style, import hygiene, type surface, dependency and secret scanning | Add ruff, mypy/pyright subset, and pip-audit gates after the public package dependency surface stabilizes. |
 | Builder modularization gate | `planned` | `False` | knowledge graph and publication builders | Split builders into DAG tasks with shared schema, path, provenance, and rendering helpers. |
 | Schema migration gate | `implemented` | `True` | versioned atlas, KG, evidence, and result-cube schemas | Extend the registry when Benchmark v2 result schemas are generated. |
