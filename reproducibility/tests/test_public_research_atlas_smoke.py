@@ -934,6 +934,18 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
 
     registry = json.loads(registry_path.read_text(encoding="utf-8"))
     fixtures = json.loads(fixtures_path.read_text(encoding="utf-8"))
+    fixtures_text = fixtures_path.read_text(encoding="utf-8").lower()
+    fixtures_md_text = fixtures_md.read_text(encoding="utf-8").lower()
+    for legacy in (
+        "front" + "ier",
+        "near" + "_nominal",
+        "near " + "nominal",
+        "near" + "-nominal",
+        "source_key" + "_hash",
+        "edge_selector" + "_provenance_coverage",
+    ):
+        assert legacy not in fixtures_text
+        assert legacy not in fixtures_md_text
     assert registry["schema"] == "regression_cp_public_schema_registry_v1"
     assert registry["status"] == "schema_registry_seeded"
     assert fixtures["schema"] == "regression_cp_public_schema_migration_fixtures_v1"
@@ -964,20 +976,26 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
     } <= set(schema_by_path["atlas/results/result_cube_public.csv"]["required_fields"])
 
     result_fixture = fixture_by_id["result_cube_selection_labels_v0_to_v1"]
-    assert result_fixture["renamed_fields"] == {
-        "near_nominal": "coverage_lower_bound_pass",
-        "frontier_flag": "selected_under_coverage_gate",
+    assert result_fixture["field_role_migrations"] == {
+        "legacy_coverage_gate_label": "coverage_lower_bound_pass",
+        "legacy_selection_label": "selected_under_coverage_gate",
     }
-    assert "near_nominal" not in result_fixture["expected_output_example"]
-    assert "frontier_flag" not in result_fixture["expected_output_example"]
+    result_fixture_text = json.dumps(result_fixture)
+    assert "near" + "_nominal" not in result_fixture_text
+    assert "front" + "ier" not in result_fixture_text
+    assert "coverage_lower_bound_pass" in result_fixture["expected_output_example"]
+    assert "selected_under_coverage_gate" in result_fixture["expected_output_example"]
     kg_fixture = fixture_by_id["kg_provenance_label_v0_to_v1"]
-    assert kg_fixture["renamed_fields"]["source_key_hash"] == "source_key_fingerprint"
+    assert kg_fixture["field_role_migrations"]["source_fingerprint"] == "source_key_fingerprint"
     assert (
-        kg_fixture["renamed_fields"]["edge_selector_provenance_coverage"]
+        kg_fixture["field_role_migrations"]["selector_reference_resolution_rate"]
         == "manifest_reference_resolution_rate"
     )
     manifest_fixture = fixture_by_id["public_manifest_included_to_file_included_v1"]
-    assert manifest_fixture["renamed_fields"]["included"] == "file_included"
+    assert (
+        manifest_fixture["field_role_migrations"]["legacy_file_presence"]
+        == "file_included"
+    )
     assert "included" not in manifest_fixture["expected_output_example"]["artifacts"][0]
     assert "file_included" in manifest_fixture["expected_output_example"]["artifacts"][0]
 

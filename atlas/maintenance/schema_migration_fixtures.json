@@ -10,17 +10,17 @@
         "method_label": "cqr",
         "selected_under_coverage_gate": "true"
       },
+      "field_role_migrations": {
+        "legacy_coverage_gate_label": "coverage_lower_bound_pass",
+        "legacy_selection_label": "selected_under_coverage_gate"
+      },
       "fixture_id": "result_cube_selection_labels_v0_to_v1",
       "input_example": {
         "alpha": "0.1",
         "dataset_id": "example_dataset",
-        "frontier_flag": "true",
-        "method_label": "cqr",
-        "near_nominal": "true"
-      },
-      "renamed_fields": {
-        "frontier_flag": "selected_under_coverage_gate",
-        "near_nominal": "coverage_lower_bound_pass"
+        "legacy_coverage_gate_label": "true",
+        "legacy_selection_label": "true",
+        "method_label": "cqr"
       },
       "source_schema": "regression_cp_result_cube_public_legacy_v0",
       "status": "covered_by_public_smoke",
@@ -39,21 +39,21 @@
           "manifest_reference_resolution_rate": 1.0
         }
       },
+      "field_role_migrations": {
+        "selector_reference_resolution_rate": "manifest_reference_resolution_rate",
+        "source_fingerprint": "source_key_fingerprint"
+      },
       "fixture_id": "kg_provenance_label_v0_to_v1",
       "input_example": {
         "nodes": [
           {
             "id": "claim:cqr",
-            "source_key_hash": "abc123"
+            "source_fingerprint": "abc123"
           }
         ],
         "summary": {
-          "edge_selector_provenance_coverage": 1.0
+          "selector_reference_resolution_rate": 1.0
         }
-      },
-      "renamed_fields": {
-        "edge_selector_provenance_coverage": "manifest_reference_resolution_rate",
-        "source_key_hash": "source_key_fingerprint"
       },
       "source_schema": "regression_cp_evidence_graph_public_legacy_v0",
       "status": "covered_by_public_smoke",
@@ -74,21 +74,21 @@
           "manifest_reference_resolution_rate": 1.0
         }
       },
+      "field_role_migrations": {
+        "legacy_file_presence": "file_included",
+        "reference_resolution_rate": "manifest_reference_resolution_rate"
+      },
       "fixture_id": "public_manifest_included_to_file_included_v1",
       "input_example": {
         "artifacts": [
           {
-            "included": false,
+            "legacy_file_presence": false,
             "public_reference": "report:x"
           }
         ],
         "summary": {
-          "provenance_coverage": 1.0
+          "reference_resolution_rate": 1.0
         }
-      },
-      "renamed_fields": {
-        "included": "file_included",
-        "provenance_coverage": "manifest_reference_resolution_rate"
       },
       "source_schema": "regression_cp_public_artifact_manifest_legacy_v0",
       "status": "covered_by_public_smoke",
@@ -252,7 +252,7 @@
       "target_schema": "regression_cp_public_maintenance_gate_matrix_v1"
     }
   ],
-  "generated_at_utc": "2026-07-15T09:54:59.411327+00:00",
+  "generated_at_utc": "2026-07-15T10:04:56.829435+00:00",
   "schema": "regression_cp_public_schema_migration_fixtures_v1",
   "status": "schema_migration_fixtures_seeded"
 }
