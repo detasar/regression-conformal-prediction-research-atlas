@@ -1,4 +1,4 @@
-"""Validate the public Research Atlas package from a clean checkout."""
+"""Validate the Research Atlas package from a clean checkout."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-"""Validate the public Research Atlas HTML/data bundle."""
+"""Validate the Research Atlas HTML/data bundle."""
 
 from __future__ import annotations
 

@@ -1,4 +1,4 @@
-# Public Research Atlas smoke-environment lock
+# Research Atlas smoke-environment lock
 # Generated from build_public_release_authorization.py.
 numpy==2.3.5
 pandas==3.0.3

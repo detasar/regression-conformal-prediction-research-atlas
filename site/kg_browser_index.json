@@ -11446,7 +11446,7 @@
         "manifest": "evidence/public_artifact_manifest.json",
         "public_path": "README.md",
         "represented_in_aggregate": true,
-        "source_hash": "ec5ee49bcfe645c5dcaa328c35a960ba621850f84fc7151b5ee8f7a0f9cfa3fd",
+        "source_hash": "00ec71c2dad504d4869008ea4fc38184ef881ea10d6a9a1d78bd61786a010434",
         "status": "included_public"
       },
       "summary": "Current working-repository README; not the final sterile publication README.",

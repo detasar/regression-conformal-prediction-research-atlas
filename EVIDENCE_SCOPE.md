@@ -1,6 +1,6 @@
 # Evidence Scope
 
-This repository is the public Research Atlas for the regression conformal prediction study.
+This repository is the Research Atlas for the regression conformal prediction study.
 
 ## Included Artifacts
 

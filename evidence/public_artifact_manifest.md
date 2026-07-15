@@ -1,6 +1,6 @@
 # Public Artifact Manifest
 
-This manifest resolves every knowledge-graph source/evidence path used by the public Research Atlas.
+This manifest resolves every knowledge-graph source/evidence path used by the Research Atlas.
 
 - Strategy: `manifest_plus_summary_not_full_artifact_dump`
 - KG referenced artifacts: 1873

@@ -3,7 +3,7 @@
 Author: Emre Tasar, Data Scientist
 Contact: detasar@gmail.com
 
-This repository is a public scientific evidence atlas for a neutral empirical study of regression conformal prediction. It contains the Research Document, compact report, broad supplement, browsable knowledge graph, public aggregate result cube, interpretation registry, provenance receipts, and reproducibility materials.
+This repository is a scientific evidence atlas for a neutral empirical study of regression conformal prediction. It contains the Research Document, compact report, broad supplement, browsable knowledge graph, aggregate result cube, interpretation registry, provenance receipts, and reproducibility materials.
 
 ## Atlas At A Glance
 
@@ -28,15 +28,15 @@ The expected strong regression solution did not emerge in these experiments. The
 
 ## Artifacts
 
-1. `atlas/index.html` is the HTML entry point for the public evidence atlas.
+1. `atlas/index.html` is the HTML entry point for the evidence atlas.
 2. `atlas/scope/experiment_scope.json` records the experiment accounting scope.
-3. `atlas/results/result_cube_public.csv` is the public aggregate result cube.
+3. `atlas/results/result_cube_public.csv` is the aggregate result cube.
 4. `atlas/datasets/dataset_catalog.csv` and `atlas/methods/method_catalog.csv` expose the dataset and method universes.
 5. `atlas/claims/claim_registry.json` records interpretation boundaries and reader-safe evidence statements.
 6. `paper/research_document.html` is the primary Research Document for web reading; `paper/research_document.md` is the Markdown source.
 7. `paper/article.html` and `paper/article.pdf` are the compact report.
 8. `paper/supplement.html` and `paper/supplement.pdf` are the broad supplementary document.
-9. `site/index.html` is the public web entry point.
+9. `site/index.html` is the web entry point.
 10. `site/kg_browser.html` is the browsable evidence graph.
 11. `evidence/public_artifact_manifest.json` resolves public KG source/evidence references.
 
@@ -45,11 +45,11 @@ Public repository: <https://github.com/detasar/regression-conformal-prediction-r
 
 ## What This Repository Establishes
 
-The repository establishes that a large, audited regression conformal prediction experiment was run and reported under neutral scientific boundaries. It exposes the experiment universe as public aggregate evidence: scope accounting, dataset and method catalogs, result cube, backend sensitivity analysis, negative evidence, interpretation boundaries, and provenance receipts.
+The repository establishes that a large, audited regression conformal prediction experiment was run and reported under neutral scientific boundaries. It exposes the experiment universe as aggregate evidence: scope accounting, dataset and method catalogs, result cube, backend sensitivity analysis, negative evidence, interpretation boundaries, and provenance receipts.
 
 ## Interpretation Scope
 
-The public artifacts support experiment-scoped empirical reading. Production use, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would require separate, pre-specified validation work.
+The artifacts support experiment-scoped empirical reading. Production use, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would require separate, pre-specified validation work.
 
 ## Reproducibility
 

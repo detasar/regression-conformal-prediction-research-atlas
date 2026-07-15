@@ -1,6 +1,6 @@
 # Public Environment Lock
 
-This file records the dependency surface used for the public Research Atlas smoke tests. It is a reproducibility snapshot for the public package, not a full lock for private long-running experiments or external data acquisition.
+This file records the dependency surface used for Research Atlas smoke tests. It is a reproducibility snapshot for this package, not a full lock for restricted long-running experiments or external data acquisition.
 
 ## Python
 

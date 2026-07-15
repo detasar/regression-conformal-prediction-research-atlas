@@ -8,7 +8,7 @@ authors:
 date-released: "2026-07-10"
 url: "https://github.com/detasar/regression-conformal-prediction-research-atlas"
 repository-code: "https://github.com/detasar/regression-conformal-prediction-research-atlas"
-abstract: "Public Research Atlas for a neutral empirical study of regression conformal prediction, including article, supplement, result cube, evidence map, provenance receipts, and reproducibility materials."
+abstract: "Research Atlas for a neutral empirical study of regression conformal prediction, including article, supplement, result cube, evidence map, provenance receipts, and reproducibility materials."
 keywords:
   - conformal prediction
   - regression

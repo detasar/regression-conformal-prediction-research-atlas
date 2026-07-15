@@ -1,6 +1,6 @@
 # Dataset Source Metadata Matrix
 
-This matrix answers the audit request for a dataset source/version/license/retrieval/hash register. It is deliberately scoped: hashes in this table are hashes of public profile or audit metadata files, not hashes of raw datasets. Raw data remain excluded from the public Research Atlas.
+This matrix answers the audit request for a dataset source/version/license/retrieval/hash register. It is deliberately scoped: hashes in this table are hashes of public profile or audit metadata files, not hashes of raw datasets. Raw data remain excluded from the Research Atlas.
 
 | Quantity | Value |
 |---|---:|

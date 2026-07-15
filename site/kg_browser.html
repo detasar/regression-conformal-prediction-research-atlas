@@ -244,7 +244,7 @@
     }).catch(error=>{
       document.getElementById('status').textContent='Graph data could not be loaded.';
       graphNotice(error.message || 'Unknown loading error');
-      document.getElementById('detail').innerHTML='<h2>Graph data unavailable</h2><p class="muted">The static HTML shell loaded, but the graph data file could not be fetched. The public Research Atlas artifacts remain available from the project page.</p>';
+      document.getElementById('detail').innerHTML='<h2>Graph data unavailable</h2><p class="muted">The static HTML shell loaded, but the graph data file could not be fetched. The Research Atlas artifacts remain available from the project page.</p>';
       document.getElementById('table').innerHTML='<table><caption>Graph loading status</caption><thead><tr><th scope="col">File</th><th scope="col">Status</th></tr></thead><tbody><tr><td>kg_browser_index.json</td><td>unavailable</td></tr><tr><td>kg_browser_data.json</td><td>fallback unavailable</td></tr></tbody></table>';
     });
   </script>

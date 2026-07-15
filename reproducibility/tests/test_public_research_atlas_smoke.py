@@ -1,4 +1,4 @@
-"""Public Research Atlas smoke tests."""
+"""Research Atlas smoke tests."""
 
 from __future__ import annotations
 
@@ -489,6 +489,48 @@ def test_public_environment_lock_documents_install_surface() -> None:
     readme = (root / "README.md").read_text(encoding="utf-8")
     assert "reproducibility/environment/public_environment_lock.md" in readme
     assert "reproducibility/environment/requirements-public-lock.txt" in readme
+
+
+def test_public_repository_maintenance_files_are_present() -> None:
+    root = repo_root()
+    contributing = (root / "CONTRIBUTING.md").read_text(encoding="utf-8")
+    security = (root / "SECURITY.md").read_text(encoding="utf-8")
+    codeowners = (root / "CODEOWNERS").read_text(encoding="utf-8")
+    editorconfig = (root / ".editorconfig").read_text(encoding="utf-8")
+    checksums = (root / "CHECKSUMS.sha256").read_text(encoding="utf-8")
+    workflow = (root / ".github/workflows/public-ci.yml").read_text(encoding="utf-8")
+    artifact_index = json.loads(
+        (root / "atlas/artifacts/public_artifact_index.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
+
+    assert 'python -m pip install -e ".[test]"' in contributing
+    assert 'python -m pytest -m "unit or artifact_public or smoke"' in contributing
+    assert "sha256sum -c CHECKSUMS.sha256" in contributing
+    assert "detasar@gmail.com" in security
+    assert "restricted ledgers" in security
+    assert "nonredistributable datasets" in security
+    assert "@detasar" in codeowners
+    assert "root = true" in editorconfig
+    assert "indent_size = 4" in editorconfig
+    assert "permissions:" in workflow
+    assert workflow.count("contents: read") >= 2
+    assert "sha256sum -c CHECKSUMS.sha256" in workflow
+    for expected_path in [
+        "README.md",
+        "CONTRIBUTING.md",
+        "SECURITY.md",
+        "CODEOWNERS",
+        ".editorconfig",
+        "CHECKSUMS.sha256",
+        "site/index.html",
+        "atlas/provenance/index.html",
+        "paper/article.pdf",
+        "reproducibility/tests/test_public_research_atlas_smoke.py",
+    ]:
+        assert expected_path in indexed_paths or expected_path in checksums
 
 
 def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:

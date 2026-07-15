@@ -1,4 +1,4 @@
-"""Validate and summarize the public Research Atlas release scope."""
+"""Validate and summarize the Research Atlas evidence scope."""
 
 from __future__ import annotations
 

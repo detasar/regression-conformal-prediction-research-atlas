@@ -1,5 +1,5 @@
 {
-  "artifact_count": 294,
+  "artifact_count": 299,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -1033,6 +1033,26 @@
     },
     {
       "artifact_kind": "maintenance",
+      "artifact_path": ".editorconfig",
+      "reader_use": "Editor configuration."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "CODEOWNERS",
+      "reader_use": "Repository ownership file."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "CONTRIBUTING.md",
+      "reader_use": "Contribution and validation guide."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "SECURITY.md",
+      "reader_use": "Security and data-handling reporting guide."
+    },
+    {
+      "artifact_kind": "maintenance",
       "artifact_path": "atlas/maintenance/maintenance_gate_matrix.json",
       "reader_use": "Machine-readable maintenance and CI gate matrix."
     },
@@ -1373,6 +1393,11 @@
     },
     {
       "artifact_kind": "provenance",
+      "artifact_path": "CHECKSUMS.sha256",
+      "reader_use": "SHA-256 checksums for the published repository snapshot."
+    },
+    {
+      "artifact_kind": "provenance",
       "artifact_path": "atlas/provenance/artifact_manifest.json",
       "reader_use": "Atlas source artifact manifest."
     },
@@ -1409,7 +1434,7 @@
     {
       "artifact_kind": "repository",
       "artifact_path": "README.md",
-      "reader_use": "Start here for the public Research Atlas."
+      "reader_use": "Start here for the Research Atlas."
     },
     {
       "artifact_kind": "research document",
@@ -1469,9 +1494,9 @@
     {
       "artifact_kind": "website data",
       "artifact_path": "atlas/ui_data/public_research_atlas_manifest.json",
-      "reader_use": "Public Research Atlas manifest for UI readers."
+      "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T02:00:48.638920+00:00",
+  "generated_at_utc": "2026-07-15T02:18:05.118249+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
