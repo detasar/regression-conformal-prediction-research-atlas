@@ -1329,17 +1329,33 @@ def test_public_seo_and_citation_discovery_files() -> None:
     root = repo_root()
     robots = (root / "robots.txt").read_text(encoding="utf-8")
     sitemap = (root / "sitemap.xml").read_text(encoding="utf-8")
+    seo_manifest = json.loads(
+        (root / "atlas/provenance/public_seo_manifest.json").read_text(
+            encoding="utf-8"
+        )
+    )
     favicon = (root / "favicon.svg").read_text(encoding="utf-8")
     citation_cff = (root / "CITATION.cff").read_text(encoding="utf-8")
     citation_bib = (root / "paper/citation.bib").read_text(encoding="utf-8")
     citation_ris = (root / "paper/citation.ris").read_text(encoding="utf-8")
     assert "Sitemap: https://detasar.github.io/regression-conformal-prediction-research-atlas/sitemap.xml" in robots
+    assert seo_manifest["schema"] == "regression_cp_public_seo_manifest_v1"
+    assert seo_manifest["canonical_base_url"] == "https://detasar.github.io/regression-conformal-prediction-research-atlas/"
+    assert seo_manifest["summary"]["html_page_count"] == seo_manifest["summary"]["sitemap_url_count"]
+    assert seo_manifest["summary"]["html_page_count"] >= 100
+    assert seo_manifest["summary"]["dataset_card_page_count"] >= 60
+    assert seo_manifest["summary"]["method_card_page_count"] >= 25
+    sitemap_url_count = sitemap.count("<url>")
+    assert sitemap_url_count == seo_manifest["summary"]["sitemap_url_count"]
+    for page in seo_manifest["pages"]:
+        assert f"<loc>{page['url']}</loc>" in sitemap
     for url in [
         "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/index.html",
         "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/article.html",
         "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.html",
         "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html",
         "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/results/index.html",
+        "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/scope/index.html",
     ]:
         assert f"<loc>{url}</loc>" in sitemap
     assert "<svg" in favicon and "#151922" in favicon

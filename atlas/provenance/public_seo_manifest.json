@@ -1,0 +1,822 @@
+{
+  "canonical_base_url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/",
+  "lastmod": "2026-07-15",
+  "pages": [
+    {
+      "lastmod": "2026-07-15",
+      "path": "index.html",
+      "priority": "1.0",
+      "section": "root",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "site/index.html",
+      "priority": "1.0",
+      "section": "site",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "paper/research_document.html",
+      "priority": "0.95",
+      "section": "paper",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/research_document.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "paper/article.html",
+      "priority": "0.95",
+      "section": "paper",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/article.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "paper/supplement.html",
+      "priority": "0.90",
+      "section": "paper",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/paper/supplement.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "site/kg_browser.html",
+      "priority": "0.90",
+      "section": "site",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/index.html",
+      "priority": "0.90",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/results/index.html",
+      "priority": "0.85",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/results/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/index.html",
+      "priority": "0.85",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/index.html",
+      "priority": "0.85",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/scope/index.html",
+      "priority": "0.85",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/scope/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/claims/index.html",
+      "priority": "0.85",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/claims/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/provenance/index.html",
+      "priority": "0.85",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/provenance/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/artifacts/index.html",
+      "priority": "0.85",
+      "section": "atlas",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/artifacts/index.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/aif360_lawschool_gpa.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/aif360_lawschool_gpa.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/aif360_lawschool_gpa_dedup.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/aif360_lawschool_gpa_dedup.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/college_scorecard_2026_median_earnings.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/college_scorecard_2026_median_earnings.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/fairlearn_acs_income_wy.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/fairlearn_acs_income_wy.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/fairlearn_diabetes_hospital_los.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/fairlearn_diabetes_hospital_los.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/folktables_acs_poverty_ratio_wy.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/folktables_acs_poverty_ratio_wy.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/folktables_acs_travel_time_wy.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/folktables_acs_travel_time_wy.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/hmda_2025_wy_interest_rate.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/hmda_2025_wy_interest_rate.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/meps_2023_total_expenditure.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/meps_2023_total_expenditure.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/nhanes_2017_2018_bmi.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/nhanes_2017_2018_bmi.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/nhanes_2017_2018_glycohemoglobin.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/nhanes_2017_2018_glycohemoglobin.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/nhanes_2017_2018_systolic_bp.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/nhanes_2017_2018_systolic_bp.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_chlamydia.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_chlamydia.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_galapagos.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_galapagos.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_gsssexsurvey.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_gsssexsurvey.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_hiroshima_rate.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_hiroshima_rate_dedup.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_hiroshima_rate_dedup.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_runshoes.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_runshoes.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_seropositive.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_seropositive.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_analcatdata_vehicle_count.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_analcatdata_vehicle_count.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_arsenic_event_rate_panel.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_arsenic_event_rate_panel.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_auto_price.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_auto_price.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_baseball_hitter_salary.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_baseball_hitter_salary.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_baseball_pitcher_salary.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_baseball_pitcher_salary.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_baseball_team_salary.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_baseball_team_salary.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_basketball_points_per_minute.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_basketball_points_per_minute.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_bodyfat_percentage.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_bodyfat_percentage.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_california_housing.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_california_housing.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_california_housing_spatial_cell.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_california_housing_spatial_cell.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_cholesterol_chol.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_cholesterol_chol.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_cps_85_wages.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_cps_85_wages.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_delta_elevators_se.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_delta_elevators_se.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_disclosure_x_bias.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_disclosure_x_bias.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_disclosure_x_noise.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_disclosure_x_noise.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_disclosure_x_tampered.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_disclosure_x_tampered.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_disclosure_z.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_disclosure_z.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_faculty_salaries_asst_prof.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_faculty_salaries_asst_prof.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_fishcatch_weight.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_fishcatch_weight.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_gascons_consumption.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_gascons_consumption.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_house_16h_price.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_house_16h_price.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_hutsof99_quality.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_hutsof99_quality.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_icu_loc.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_icu_loc.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_kin8nm_y.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_kin8nm_y.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_mba_grade_gpa.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_mba_grade_gpa.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_mba_grade_gpa_dedup.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_mba_grade_gpa_dedup.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_mercury_in_bass.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_mercury_in_bass.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_mtp2_oz1143.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_mtp2_oz1143.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_newton_hema_cells.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_newton_hema_cells.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_plasma_retinol.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_plasma_retinol.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_sensory_score.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_sensory_score.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_sleuth_case1201_rank.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_sleuth_case1201_rank.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_sleuth_case1202_experience.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_sleuth_case1202_experience.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_sleuth_ex1714_invol.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_sleuth_ex1714_invol.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_smsa_nox.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_smsa_nox.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_socmob_sons_occupation.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_socmob_sons_occupation.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/openml_space_ga_log_votes_pop.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/openml_space_ga_log_votes_pop.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/oulad_assessment_score.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/oulad_assessment_score.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/pisa_2022_math_pv_mean.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/pisa_2022_math_pv_mean.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/scf_2022_networth.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/scf_2022_networth.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/stackoverflow_2025_compensation.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/stackoverflow_2025_compensation.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_auto_mpg.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_auto_mpg.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_bike_sharing.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_bike_sharing.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_communities_crime.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_communities_crime.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_student_performance.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_student_performance.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_student_performance_no_prior_grades.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_student_performance_no_prior_grades.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_student_performance_with_prior_grades.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_student_performance_with_prior_grades.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_wine_quality.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_wine_quality.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/datasets/cards/uci_wine_quality_dedup.html",
+      "priority": "0.65",
+      "section": "dataset_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/datasets/cards/uci_wine_quality_dedup.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr_gb_deep_n200_d4_lr003.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr_gb_deep_n200_d4_lr003.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr_gb_default_n300_d3_lr010.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr_gb_default_n300_d3_lr010.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr_gb_leaf5_n300_d3_lr005.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr_gb_leaf5_n300_d3_lr005.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr_gb_shallow_n120_d2_lr003.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr_gb_shallow_n120_d2_lr003.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr_gb_shallow_n240_d2_lr005.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr_gb_shallow_n240_d2_lr005.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr_gb_subsample_n300_d3_lr005_sub08.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr_gb_subsample_n300_d3_lr005_sub08.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cqr_model_matched.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cqr_model_matched.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cv_minmax.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cv_minmax.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cv_minmax_grouped.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cv_minmax_grouped.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cv_plus.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cv_plus.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/cv_plus_grouped.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/cv_plus_grouped.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/jackknife_minmax.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/jackknife_minmax.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/jackknife_plus.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/jackknife_plus.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/jackknife_plus_after_bootstrap.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/jackknife_plus_after_bootstrap.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/mondrian_abs.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/mondrian_abs.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/normalized_abs.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/normalized_abs.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/shrink_0.00.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/shrink_0.00.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/shrink_0.10.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/shrink_0.10.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/shrink_0.25.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/shrink_0.25.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/shrink_0.50.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/shrink_0.50.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/shrink_0.75.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/shrink_0.75.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/shrink_0.90.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/shrink_0.90.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/shrink_1.00.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/shrink_1.00.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/split_abs.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/split_abs.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/split_tail_0.25.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/split_tail_0.25.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/split_tail_0.50.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/split_tail_0.50.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/split_tail_0.75.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/split_tail_0.75.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/split_tail_grid_shortest.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/split_tail_grid_shortest.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/venn_abers_quantile.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/venn_abers_quantile.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/venn_abers_split_fallback.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/venn_abers_split_fallback.html"
+    },
+    {
+      "lastmod": "2026-07-15",
+      "path": "atlas/methods/cards/weighted_abs_covariate_shift.html",
+      "priority": "0.65",
+      "section": "method_cards",
+      "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/atlas/methods/cards/weighted_abs_covariate_shift.html"
+    }
+  ],
+  "schema": "regression_cp_public_seo_manifest_v1",
+  "summary": {
+    "dataset_card_page_count": 68,
+    "favicon_path": "favicon.svg",
+    "html_page_count": 114,
+    "method_card_page_count": 32,
+    "robots_path": "robots.txt",
+    "section_counts": {
+      "atlas": 8,
+      "dataset_cards": 68,
+      "method_cards": 32,
+      "paper": 3,
+      "root": 1,
+      "site": 2
+    },
+    "sitemap_path": "sitemap.xml",
+    "sitemap_url_count": 114
+  }
+}

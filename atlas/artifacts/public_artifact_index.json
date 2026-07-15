@@ -1,5 +1,5 @@
 {
-  "artifact_count": 304,
+  "artifact_count": 309,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -285,6 +285,11 @@
       "artifact_kind": "benchmark v2",
       "artifact_path": "atlas/benchmark_v2/preflight/task_variant_registry_template.csv",
       "reader_use": "Task variant registry template for Benchmark v2."
+    },
+    {
+      "artifact_kind": "bibliography",
+      "artifact_path": "CITATION.cff",
+      "reader_use": "Citation metadata in Citation File Format."
     },
     {
       "artifact_kind": "bibliography",
@@ -982,6 +987,21 @@
       "reader_use": "HTML dataset detail page for uci_wine_quality_dedup."
     },
     {
+      "artifact_kind": "discovery",
+      "artifact_path": "atlas/provenance/public_seo_manifest.json",
+      "reader_use": "Machine-readable SEO and crawl manifest."
+    },
+    {
+      "artifact_kind": "discovery",
+      "artifact_path": "robots.txt",
+      "reader_use": "Crawler policy for the Research Atlas site."
+    },
+    {
+      "artifact_kind": "discovery",
+      "artifact_path": "sitemap.xml",
+      "reader_use": "Crawler sitemap for all public HTML pages."
+    },
+    {
       "artifact_kind": "environment",
       "artifact_path": "reproducibility/environment/public_environment_lock.json",
       "reader_use": "Machine-readable public smoke environment lock."
@@ -1493,6 +1513,11 @@
     },
     {
       "artifact_kind": "website",
+      "artifact_path": "favicon.svg",
+      "reader_use": "Research Atlas favicon."
+    },
+    {
+      "artifact_kind": "website",
       "artifact_path": "site/index.html",
       "reader_use": "Publication landing page."
     },
@@ -1522,6 +1547,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T08:24:21.028451+00:00",
+  "generated_at_utc": "2026-07-15T08:40:22.796401+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
