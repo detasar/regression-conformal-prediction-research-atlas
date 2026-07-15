@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-15T16:41:44.126765+00:00",
+  "generated_at_utc": "2026-07-15T17:05:44.720462+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -87,6 +87,9 @@
         "atlas/benchmark_v2/preflight/source_dataset_registry.csv",
         "atlas/benchmark_v2/preflight/task_variant_registry.csv",
         "atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz",
+        "atlas/benchmark_v2/preflight/execution_chunks.csv",
+        "atlas/benchmark_v2/preflight/execution_chunks.json",
+        "atlas/benchmark_v2/preflight/execution_resume_contract.md",
         "atlas/benchmark_v2/candidates/source_dataset_registry_candidate.csv",
         "atlas/benchmark_v2/candidates/task_variant_registry_candidate.csv",
         "atlas/benchmark_v2/candidates/candidate_selection_rationale.json"

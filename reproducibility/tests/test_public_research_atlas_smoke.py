@@ -799,6 +799,9 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     task_registry_path = preflight / "task_variant_registry.csv"
     status_template_path = preflight / "run_status_ledger_template.csv"
     initial_status_path = preflight / "run_status_ledger_initial.csv.gz"
+    execution_chunks_csv_path = preflight / "execution_chunks.csv"
+    execution_chunks_json_path = preflight / "execution_chunks.json"
+    execution_resume_contract_path = preflight / "execution_resume_contract.md"
     for path in [
         preflight / "README.md",
         cardinality_path,
@@ -812,6 +815,9 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         task_registry_path,
         status_template_path,
         initial_status_path,
+        execution_chunks_csv_path,
+        execution_chunks_json_path,
+        execution_resume_contract_path,
     ]:
         assert path.exists()
 
@@ -826,6 +832,9 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert cardinality["estimated_total_planned_rows"] == 294000
     assert cardinality["candidate_task_variant_count"] == 24
     assert cardinality["candidate_primary_planned_run_grid_row_count"] == 210000
+    assert cardinality["candidate_paired_cell_count"] == 42000
+    assert cardinality["execution_chunk_count"] == 210
+    assert cardinality["execution_chunk_paired_cell_size"] == 200
 
     checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
     assert checklist["schema"] == "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
@@ -837,6 +846,7 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert statuses["task_variant_registry_populated"] == "pass"
     assert statuses["run_status_ledger_populated"] == "pass"
     assert statuses["candidate_run_grid_manifest_published"] == "pass"
+    assert statuses["execution_chunks_published"] == "pass"
     assert statuses["benchmark_v2_results_generated"] == "not_started"
 
     with run_grid_path.open(encoding="utf-8", newline="") as handle:
@@ -887,6 +897,64 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert {row["failed"] for row in initial_status_rows} == {"false"}
     assert {row["skipped"] for row in initial_status_rows} == {"false"}
 
+    with execution_chunks_csv_path.open(encoding="utf-8", newline="") as handle:
+        execution_chunk_rows = list(csv.DictReader(handle))
+    execution_chunk_payload = json.loads(
+        execution_chunks_json_path.read_text(encoding="utf-8")
+    )
+    assert (
+        execution_chunk_payload["schema"]
+        == "regression_cp_benchmark_v2_execution_chunks_v1"
+    )
+    assert execution_chunk_payload["status"] == "chunk_manifest_ready_results_not_started"
+    assert execution_chunk_payload["result_generation_status"] == "not_started"
+    assert execution_chunk_payload["chunk_count"] == 210
+    assert execution_chunk_payload["paired_cell_count"] == 42000
+    assert execution_chunk_payload["method_row_count"] == 210000
+    assert execution_chunk_payload["paired_cell_chunk_size"] == 200
+    assert execution_chunk_payload["method_rows_per_paired_cell"] == 5
+    assert len(execution_chunk_rows) == len(execution_chunk_payload["chunks"])
+    assert sum(int(row["paired_cell_count"]) for row in execution_chunk_rows) == 42000
+    assert sum(int(row["method_row_count"]) for row in execution_chunk_rows) == 210000
+    assert {row["planned_status"] for row in execution_chunk_rows} == {
+        "planned_not_attempted"
+    }
+    for field in ["attempted", "completed", "failed", "skipped"]:
+        assert {row[field] for row in execution_chunk_rows} == {"false"}
+    assert execution_chunk_rows[0]["first_paired_cell_key"] == candidate_rows[0][
+        "paired_cell_key"
+    ]
+    assert execution_chunk_rows[-1]["last_paired_cell_key"] == candidate_rows[-1][
+        "paired_cell_key"
+    ]
+    assert "run_benchmark_v2_chunk" in execution_chunk_rows[0]["dry_run_command"]
+    assert "--dry-run" in execution_chunk_rows[0]["dry_run_command"]
+    assert "paired cell is never split" in execution_resume_contract_path.read_text(
+        encoding="utf-8"
+    ).lower()
+    dry_run = subprocess.run(
+        [
+            "python",
+            "-m",
+            "experiments.regression.scripts.run_benchmark_v2_chunk",
+            "--chunk-id",
+            "benchmark_v2_chunk_0001",
+            "--package-root",
+            str(root),
+            "--dry-run",
+        ],
+        check=True,
+        text=True,
+        capture_output=True,
+        cwd=root,
+    )
+    dry_run_summary = json.loads(dry_run.stdout)
+    assert dry_run_summary["chunk_id"] == "benchmark_v2_chunk_0001"
+    assert dry_run_summary["paired_cell_count"] == 200
+    assert dry_run_summary["method_row_count"] == 1000
+    assert dry_run_summary["run_grid_exists"] is True
+    assert dry_run_summary["status_ledger_exists"] is True
+
     with source_template_path.open(encoding="utf-8", newline="") as handle:
         source_fields = next(csv.reader(handle))
     assert {
@@ -913,6 +981,9 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert "atlas/benchmark_v2/preflight/source_dataset_registry.csv" in indexed_paths
     assert "atlas/benchmark_v2/preflight/task_variant_registry.csv" in indexed_paths
     assert "atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/execution_chunks.csv" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/execution_chunks.json" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/execution_resume_contract.md" in indexed_paths
 
 
 def test_public_benchmark_v2_candidate_registries_are_scoped_and_balanced() -> None:

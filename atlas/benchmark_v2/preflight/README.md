@@ -11,6 +11,8 @@ This directory contains public preflight artifacts for the forward Benchmark v2 
 - Estimated total planned rows: `294000`
 - Candidate task variants represented in full primary grid: `24`
 - Candidate primary planned run-grid rows: `210000`
+- Candidate paired cells: `42000`
+- Execution chunks: `210`
 
 ## Files
 
@@ -22,5 +24,8 @@ This directory contains public preflight artifacts for the forward Benchmark v2 
 - `run_grid_manifest_candidate.csv.gz`: full planned primary run-grid manifest for the current 24 Benchmark v2 candidate task variants.
 - `run_status_ledger_template.csv`: required run-status ledger columns before execution.
 - `run_status_ledger_initial.csv.gz`: initialized planned-row status ledger; no rows are attempted or completed.
+- `execution_chunks.csv`: paired-cell-preserving chunk manifest for resumable execution planning.
+- `execution_chunks.json`: machine-readable chunk manifest with row counts, checkpoint paths, and dry-run commands.
+- `execution_resume_contract.md`: readable resume contract and execution invariants.
 - `run_grid_cardinality.json`: deterministic cardinality calculation from the frozen execution manifest.
 - `preflight_readiness_checklist.*`: preflight checks and current statuses.

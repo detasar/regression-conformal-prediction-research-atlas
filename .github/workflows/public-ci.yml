@@ -29,3 +29,4 @@ jobs:
         run: |
           python -m experiments.regression.scripts.run_regression_pilot --help
           python -m experiments.regression.scripts.run_regression_pilot --max-runs 0
+          python -m experiments.regression.scripts.run_benchmark_v2_chunk --chunk-id benchmark_v2_chunk_0001 --package-root . --dry-run

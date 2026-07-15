@@ -132,7 +132,7 @@
 <thead><tr><th scope="col">Stage</th><th scope="col">Reader question</th><th scope="col">Evidence object</th><th scope="col">Allowed claim</th><th scope="col">Beyond this study upgrade</th></tr></thead>
 <tbody>
 <tr><td>Completed row</td><td>What was counted?</td><td>145,839 audited completed rows.</td><td>The empirical accounting base is broad and auditable.</td><td>A completed row is not, by itself, external validity.</td></tr>
-<tr><td>Dataset-alpha cell</td><td>What comparison unit was preserved?</td><td>95 dataset-alpha cells across 67 datasets.</td><td>Coverage behavior is read inside recorded calibration targets.</td><td>A dataset-alpha cell is not a population claim.</td></tr>
+<tr><td>Dataset-alpha cell</td><td>What comparison unit was preserved?</td><td>95 dataset-alpha cells across 67 datasets.</td><td>Coverage behavior is read inside recorded calibration targets.</td><td>Population claims require evidence beyond a dataset-alpha cell.</td></tr>
 <tr><td>Method diagnostic</td><td>What pattern was observed?</td><td>CQR=56, CV+=13, Mondrian=15 coverage-gated selected cells.</td><td>CQR/CV+ can be described as experiment-scoped practical signals observed here.</td><td>Coverage-gated selected-cell counts do not select a final or universal best method.</td></tr>
 <tr><td>Failure-mode diagnostic</td><td>What did not work as expected?</td><td>14 Venn-Abers bridge undercoverage runs.</td><td>The evaluated bridge is reportable as negative evidence.</td><td>The result does not reject the broader Venn-Abers literature.</td></tr>
 <tr><td>Unvalidated stronger readings</td><td>Which stronger readings require validation?</td><td>0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles.</td><td>Unvalidated stronger readings are reported as part of the result.</td><td>Zero-ready gates cannot be converted into validity or population-inference claims.</td></tr>
@@ -154,7 +154,7 @@
 <tr><td><code>1 - alpha</code> target</td><td>A nominal design target for marginal coverage under the stated calibration protocol.</td><td>Subgroup, endpoint-region, and future-deployment coverage require observed evidence beyond the nominal target.</td></tr>
 <tr><td>CQR</td><td>Lower and upper quantile models are conformalized with calibration evidence so intervals can adapt to heterogeneous noise.</td><td>It is experiment-scoped method evidence, universal best method, or deployment guidance.</td></tr>
 <tr><td>CV+</td><td>Out-of-fold prediction evidence is used to build intervals that reflect fitted-model variability.</td><td>It is not caveat-free evidence and does not open study-wide method choice.</td></tr>
-<tr><td>Mondrian/group calibration</td><td>Calibration can be stratified by groups when the comparison is intended to expose heterogeneity.</td><td>It is not a population-level group inference claim while the group-inference-ready bundle count is zero.</td></tr>
+<tr><td>Mondrian/group calibration</td><td>Calibration can be stratified by groups when the comparison is intended to expose heterogeneity.</td><td>Population-level group inference would require a ready inference bundle.</td></tr>
 <tr><td>Venn-Abers bridge</td><td>The experiment evaluates a bridge from Venn-Abers-style calibration evidence into interval diagnostics.</td><td>The observed undercoverage concerns the evaluated bridge, while predictive-distribution and generalized Venn-Abers research remain separate.</td></tr>
 </tbody>
 </table>
@@ -188,7 +188,7 @@
 <tr><td>Split conformal</td><td>Residual-score quantile on a calibration set</td><td>Baseline mechanism; not a complete endpoint or heterogeneity solution</td></tr>
 <tr><td>CQR</td><td>Lower/upper quantile models plus conformal calibration</td><td>Strong practical candidate observed here; experiment-scoped</td></tr>
 <tr><td>CV+ / jackknife+</td><td>Out-of-fold or leave-one-out conformity evidence</td><td>Strong practical candidate observed here; no study-wide method choice</td></tr>
-<tr><td>Mondrian calibration</td><td>Group- or stratum-specific calibration</td><td>Diagnostic comparator; not a population-level group inference claim</td></tr>
+<tr><td>Mondrian calibration</td><td>Group- or stratum-specific calibration</td><td>Diagnostic comparator; population-level group inference requires separate validation</td></tr>
 <tr><td>Venn-Abers bridge</td><td>Bridge from Venn-Abers-style calibration evidence to interval diagnostics</td><td>Negative evidence for the evaluated bridge only</td></tr>
 </tbody>
 </table>

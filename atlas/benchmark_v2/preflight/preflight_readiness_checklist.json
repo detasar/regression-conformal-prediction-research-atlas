@@ -44,9 +44,14 @@
       "check_id": "candidate_run_grid_manifest_published",
       "evidence_path": "atlas/benchmark_v2/preflight/run_grid_manifest_candidate.csv.gz",
       "status": "pass"
+    },
+    {
+      "check_id": "execution_chunks_published",
+      "evidence_path": "atlas/benchmark_v2/preflight/execution_chunks.json",
+      "status": "pass"
     }
   ],
-  "generated_at_utc": "2026-07-15T16:41:44.126765+00:00",
+  "generated_at_utc": "2026-07-15T17:05:44.720462+00:00",
   "overall_status": "pre_execution_ledger_ready_results_not_started",
   "result_generation_status": "not_started",
   "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"

@@ -189,7 +189,7 @@ The table below shows how a raw experimental object becomes a reader-facing stat
 Stage & Reader question & Evidence object & Allowed claim & Beyond this study upgrade \\
 \midrule
 Completed row & What was counted? & 145,839 audited completed rows. & The empirical accounting base is broad and auditable. & A completed row is not, by itself, external validity. \\
-Dataset-alpha cell & What comparison unit was preserved? & 95 dataset-alpha cells across 67 datasets. & Coverage behavior is read inside recorded calibration targets. & A dataset-alpha cell is not a population claim. \\
+Dataset-alpha cell & What comparison unit was preserved? & 95 dataset-alpha cells across 67 datasets. & Coverage behavior is read inside recorded calibration targets. & Population claims require evidence beyond a dataset-alpha cell. \\
 Method diagnostic & What pattern was observed? & CQR=56, CV+=13, Mondrian=15 coverage-gated selected cells. & CQR/CV+ can be described as experiment-scoped practical signals observed here. & Coverage-gated selected-cell counts do not select a final or universal best method. \\
 Failure-mode diagnostic & What did not work as expected? & 14 Venn-Abers bridge undercoverage runs. & The evaluated bridge is reportable as negative evidence. & The result does not reject the broader Venn-Abers literature. \\
 Unvalidated stronger readings & Which stronger readings require validation? & 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. & Unvalidated stronger readings are reported as part of the result. & Zero-ready gates cannot be converted into validity or population-inference claims. \\
@@ -227,7 +227,7 @@ Concept & Evidence-supported meaning & Not established reading \\
 \texttt{1 - alpha} target & A nominal design target for marginal coverage under the stated calibration protocol. & Subgroup, endpoint-region, and future-deployment coverage require observed evidence beyond the nominal target. \\
 CQR & Lower and upper quantile models are conformalized with calibration evidence so intervals can adapt to heterogeneous noise. & It is experiment-scoped method evidence, universal best method, or deployment guidance. \\
 CV+ & Out-of-fold prediction evidence is used to build intervals that reflect fitted-model variability. & It is not caveat-free evidence and does not open study-wide method choice. \\
-Mondrian/group calibration & Calibration can be stratified by groups when the comparison is intended to expose heterogeneity. & It is not a population-level group inference claim while the group-inference-ready bundle count is zero. \\
+Mondrian/group calibration & Calibration can be stratified by groups when the comparison is intended to expose heterogeneity. & Population-level group inference would require a ready inference bundle. \\
 Venn-Abers bridge & The experiment evaluates a bridge from Venn-Abers-style calibration evidence into interval diagnostics. & The observed undercoverage concerns the evaluated bridge, while predictive-distribution and generalized Venn-Abers research remain separate. \\
 \bottomrule
 \end{tabular}
@@ -287,7 +287,7 @@ Method family & Interval mechanism & Scope in this article \\
 Split conformal & Residual-score quantile on a calibration set & Baseline mechanism; not a complete endpoint or heterogeneity solution \\
 CQR & Lower/upper quantile models plus conformal calibration & Strong practical candidate observed here; experiment-scoped \\
 CV+ / jackknife+ & Out-of-fold or leave-one-out conformity evidence & Strong practical candidate observed here; no study-wide method choice \\
-Mondrian calibration & Group- or stratum-specific calibration & Diagnostic comparator; not a population-level group inference claim \\
+Mondrian calibration & Group- or stratum-specific calibration & Diagnostic comparator; population-level group inference requires separate validation \\
 Venn-Abers bridge & Bridge from Venn-Abers-style calibration evidence to interval diagnostics & Negative evidence for the evaluated bridge only \\
 \bottomrule
 \end{tabular}

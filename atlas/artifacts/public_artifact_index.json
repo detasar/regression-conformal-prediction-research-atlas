@@ -1,5 +1,5 @@
 {
-  "artifact_count": 315,
+  "artifact_count": 318,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -245,6 +245,21 @@
       "artifact_kind": "benchmark v2",
       "artifact_path": "atlas/benchmark_v2/preflight/README.md",
       "reader_use": "Benchmark v2 execution preflight overview."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/execution_chunks.csv",
+      "reader_use": "Chunk manifest for resumable Benchmark v2 execution planning."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/execution_chunks.json",
+      "reader_use": "Machine-readable chunk manifest for resumable Benchmark v2 execution planning."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/execution_resume_contract.md",
+      "reader_use": "Readable resume contract for Benchmark v2 chunk execution."
     },
     {
       "artifact_kind": "benchmark v2",
@@ -1577,6 +1592,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T16:41:44.126765+00:00",
+  "generated_at_utc": "2026-07-15T17:05:44.720462+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

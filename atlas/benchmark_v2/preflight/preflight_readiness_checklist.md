@@ -14,3 +14,4 @@
 | `run_status_ledger_populated` | `pass` | `atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz` |
 | `benchmark_v2_results_generated` | `not_started` | `benchmark_v2/aggregate_result_cube.parquet` |
 | `candidate_run_grid_manifest_published` | `pass` | `atlas/benchmark_v2/preflight/run_grid_manifest_candidate.csv.gz` |
+| `execution_chunks_published` | `pass` | `atlas/benchmark_v2/preflight/execution_chunks.json` |
