@@ -1,8 +1,11 @@
 {
   "completed_rows": 145839,
+  "generated_at_utc": "2026-07-15T17:19:23.700883+00:00",
+  "hash_receipt_count": 275,
   "kg_edge_count": 21019,
   "kg_node_count": 3643,
-  "route_count": 5,
+  "required_file_count": 18,
+  "route_count": 9,
   "routes": [
     {
       "anchor_count": 3,
@@ -10,26 +13,47 @@
       "title": "Experiment Scope"
     },
     {
-      "anchor_count": 2,
+      "anchor_count": 7,
       "route_id": "method_universe",
       "title": "Method Universe"
     },
     {
-      "anchor_count": 2,
-      "route_id": "cqr_pipeline_signal",
-      "title": "CQR Pipeline Signal"
+      "anchor_count": 6,
+      "route_id": "cqr_cvplus_signal",
+      "title": "CQR / CV+ Practical Signal"
     },
     {
-      "anchor_count": 2,
-      "route_id": "negative_evidence",
+      "anchor_count": 6,
+      "route_id": "cqr_backend_sensitivity",
+      "title": "CQR Backend Sensitivity Check"
+    },
+    {
+      "anchor_count": 7,
+      "route_id": "venn_abers_bridge",
       "title": "Negative Evidence"
     },
     {
-      "anchor_count": 2,
-      "route_id": "evidence_limits",
+      "anchor_count": 10,
+      "route_id": "interpretation_limits",
       "title": "Interpretation Limits"
+    },
+    {
+      "anchor_count": 8,
+      "route_id": "dataset_audits",
+      "title": "Dataset Audits"
+    },
+    {
+      "anchor_count": 8,
+      "route_id": "claim_scope",
+      "title": "How to Read the Evidence"
+    },
+    {
+      "anchor_count": 7,
+      "route_id": "reproducibility",
+      "title": "Reproducibility Trail"
     }
   ],
   "schema": "regression_cp_public_research_atlas_manifest_v1",
+  "source_artifact_count": 8,
   "status": "pass"
 }

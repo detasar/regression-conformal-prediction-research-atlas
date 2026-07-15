@@ -1247,6 +1247,12 @@ def test_public_rebuild_commands_run(tmp_path: Path) -> None:
         "experiments.regression.scripts.build_public_research_atlas",
         "experiments.regression.scripts.build_research_atlas_package",
     ]
+    output_paths = [
+        scratch / "atlas/provenance/public_release_scope.json",
+        scratch / "atlas/ui_data/public_research_atlas_manifest.json",
+        scratch / "atlas/provenance/public_rebuild_manifest.json",
+    ]
+    before_outputs = {path: path.read_text(encoding="utf-8") for path in output_paths}
     for module in modules:
         result = subprocess.run(
             [sys.executable, "-m", module, "--package-root", str(scratch)],
@@ -1258,6 +1264,8 @@ def test_public_rebuild_commands_run(tmp_path: Path) -> None:
         )
         assert result.returncode == 0, result.stderr
         assert "\"status\": \"pass\"" in result.stdout
+    after_outputs = {path: path.read_text(encoding="utf-8") for path in output_paths}
+    assert after_outputs == before_outputs
     rebuild_manifest = json.loads(
         (scratch / "atlas/provenance/public_rebuild_manifest.json").read_text(
             encoding="utf-8"

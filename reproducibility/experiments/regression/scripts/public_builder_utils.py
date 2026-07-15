@@ -23,5 +23,17 @@ def utc_now_iso() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def preserve_generated_at(path: Path, payload: dict[str, Any]) -> dict[str, Any]:
+    if path.exists():
+        try:
+            prior = read_json(path)
+        except (json.JSONDecodeError, OSError):
+            prior = {}
+        prior_generated_at = prior.get("generated_at_utc")
+        if isinstance(prior_generated_at, str) and prior_generated_at:
+            payload["generated_at_utc"] = prior_generated_at
+    return payload
+
+
 def missing_relative_paths(package_root: Path, relatives: list[str]) -> list[str]:
     return [rel for rel in relatives if not (package_root / rel).exists()]

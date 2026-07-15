@@ -9,6 +9,7 @@ from pathlib import Path
 from experiments.regression.scripts.public_builder_utils import (
     atomic_write_json,
     missing_relative_paths,
+    preserve_generated_at,
     utc_now_iso,
 )
 
@@ -104,7 +105,9 @@ def main() -> None:
     args = parser.parse_args()
     root = Path(args.package_root).resolve()
     payload = validate_package(root)
-    atomic_write_json(root / args.out, payload)
+    out_path = root / args.out
+    payload = preserve_generated_at(out_path, payload)
+    atomic_write_json(out_path, payload)
     print(json.dumps({"status": payload["status"], "out": args.out}, sort_keys=True))
 
 
