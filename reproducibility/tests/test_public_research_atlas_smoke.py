@@ -274,9 +274,25 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         for row in manifest["artifacts"]
     )
     kg_text = kg_path.read_text(encoding="utf-8")
+    index_text = index_path.read_text(encoding="utf-8")
+    edge_text = edge_path.read_text(encoding="utf-8")
+    artifact_manifest_text = manifest_path.read_text(encoding="utf-8")
     legacy_source_key = "source_key" + "_hash"
     assert legacy_source_key not in kg_text
     assert "source_key_fingerprint" in kg_text
+    raw_public_graph_text = "\n".join(
+        [kg_text, index_text, edge_text, artifact_manifest_text]
+    ).lower()
+    for legacy in ("frontier", "near_nominal", "near nominal", "near-nominal"):
+        assert legacy not in raw_public_graph_text
+    node_ids = {str(node["id"]) for node in kg["nodes"]}
+    assert {str(node["id"]) for node in kg_index["nodes"]} == node_ids
+    assert {
+        str(edge["source"]) for edge in kg_edges["edges"]
+    } <= node_ids
+    assert {
+        str(edge["target"]) for edge in kg_edges["edges"]
+    } <= node_ids
     visible_values = []
     for node in kg["nodes"]:
         visible_values.extend(
