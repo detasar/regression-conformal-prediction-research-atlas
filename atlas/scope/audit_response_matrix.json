@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-15T11:42:43.211720+00:00",
+  "generated_at_utc": "2026-07-15T11:51:30.776279+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -47,9 +47,11 @@
       "evidence_paths": [
         "atlas/provenance/artifact_manifest.json",
         "evidence/public_artifact_manifest.json",
-        "site/kg_browser_data.json"
+        "site/kg_browser_data.json",
+        "site/kg_browser_index.json",
+        "site/kg_browser_edges.json"
       ],
-      "item": "Expose provenance as manifest resolution rather than pretending restricted source files are public.",
+      "item": "Expose provenance as manifest resolution with separate source fingerprints and public content hashes.",
       "priority": "P0",
       "status": "completed"
     },

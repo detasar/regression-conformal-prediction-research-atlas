@@ -879,6 +879,13 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
         and "atlas/results/cqr_backend_sensitivity.csv" in row["evidence_paths"]
         for row in matrix["rows"]
     )
+    assert any(
+        "separate source fingerprints and public content hashes" in row["item"]
+        and row["status"] == "completed"
+        and "site/kg_browser_index.json" in row["evidence_paths"]
+        and "site/kg_browser_edges.json" in row["evidence_paths"]
+        for row in matrix["rows"]
+    )
 
     markdown = markdown_path.read_text(encoding="utf-8")
     assert "# Final Audit Response Matrix" in markdown
