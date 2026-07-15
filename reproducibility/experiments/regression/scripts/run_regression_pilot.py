@@ -2822,22 +2822,44 @@ def plus_fold_feature_reducer_metadata(
     config: Dict | None,
 ) -> Dict[str, Any]:
     reducer = feature_reducer_config(config)
+    reducer_method = reducer["method"]
+    reducer_uses_labels = reducer_method == "select_k_best_f_regression"
+    if reducer_uses_labels:
+        reducer_label_scope = (
+            "internal_fit_fold_only" if applied else "prediction_bundle_outer_train"
+        )
+    else:
+        reducer_label_scope = "not_applicable_unsupervised_or_none"
+    base = {
+        "plus_preprocessing_fit_scope": "prediction_bundle_outer_train",
+        "plus_preprocessing_fold_local": False,
+        "plus_preprocessing_label_access": "none",
+        "plus_preprocessing_note": (
+            "The prediction-bundle preprocessor is unsupervised and fitted once "
+            "on the outer training split. Benchmark v2 requires fully fold-local "
+            "preprocessing, encoding, dimensionality reduction, and supervised "
+            "feature selection for confirmatory plus-family comparisons."
+        ),
+        "plus_feature_reducer_method": reducer_method,
+        "plus_feature_reducer_uses_labels": reducer_uses_labels,
+        "plus_feature_reducer_label_access_scope": reducer_label_scope,
+    }
     if not applied:
         return {
+            **base,
             "plus_feature_reducer_fit_scope": "pre_reduced_prediction_bundle",
             "plus_feature_reducer_fold_local": False,
-            "plus_preprocessing_fit_scope": "prediction_bundle_outer_train",
-            "plus_feature_reducer_method": reducer["method"],
         }
     return {
+        **base,
         "plus_feature_reducer_fit_scope": "internal_resampling_fit_fold_only",
         "plus_feature_reducer_fold_local": True,
-        "plus_preprocessing_fit_scope": "prediction_bundle_outer_train",
-        "plus_feature_reducer_method": reducer["method"],
         "plus_feature_reducer_note": (
             "The optional feature reducer is refit inside each CV+/jackknife "
-            "fit fold. The preprocessing transformer is still the prediction "
-            "bundle preprocessor fitted on the outer training split."
+            "fit fold. If the reducer uses labels, only the internal fit-fold "
+            "labels are visible to that reducer. The preprocessing transformer "
+            "is still the prediction-bundle preprocessor fitted on the outer "
+            "training split."
         ),
     }
 
