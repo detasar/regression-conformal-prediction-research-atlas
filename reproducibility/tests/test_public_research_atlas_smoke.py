@@ -966,6 +966,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("release", "render"),
         "release" + "_" + "boundary",
         phrase("not", "a", "method", "recommendation"),
+        phrase("not", "an", "independent", "scientific", "claim"),
         phrase("private", "final-prose"),
         phrase("do", "not", "cite"),
         phrase("public", "release", "remains", "closed"),
