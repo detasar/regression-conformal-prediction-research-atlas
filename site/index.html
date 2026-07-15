@@ -98,8 +98,8 @@
           <a class="button secondary" href="https://github.com/detasar/regression-conformal-prediction-research-atlas">GitHub</a>
         </div>
         <div class="tldr">
-          <div class="tldr-row"><b>Experiment universe</b><p>145,839 publication-scoped completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels.</p></div>
-          <div class="tldr-row"><b>Main empirical signal</b><p>Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; broader method selection or deployment use would require separate validation.</p></div>
+          <div class="tldr-row"><b>Experiment universe</b><p>145,839 audited completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels.</p></div>
+          <div class="tldr-row"><b>Main empirical signal</b><p>Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.</p></div>
           <div class="tldr-row"><b>CQR backend check</b><p>4,564 model-matched CQR runs; 224 paired cells; selected cells fixed-GBM 116, model-matched 71, neither 37. The comparison is reported as backend-sensitivity evidence.</p></div>
           <div class="tldr-row"><b>Venn-Abers bridge</b><p>The expected strong regression solution did not emerge in these experiments.</p></div>
           <div class="tldr-row"><b>Interpretation</b><p>These observations are tied to the audited experiment. Deployment use or universal method selection would require separate validation.</p></div>
@@ -150,16 +150,16 @@
       </div>
       <div class="panel">
         <h2>CQR Pipeline Signal</h2>
-        <p>Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; broader method selection or deployment use would require separate validation.</p>
+        <p>Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.</p>
         <p class="caption">The model-matched CQR check is reported alongside this signal so readers can inspect backend sensitivity.</p>
         <p><a href="../atlas/results/index.html">Results page</a> · <a href="../atlas/results/cqr_backend_sensitivity.csv">CQR backend sensitivity CSV</a></p>
       </div>
     </section>
     <section class="scope">
-      <h2>Evidence Scope</h2>
+      <h2>How to read the evidence</h2>
       <ul>
         <li>The study reports empirical observations from this audited experiment surface.</li>
-        <li>Production advice, universal method selection, population-level group inference, and bounded-support validity would require separate validation.</li>
+        <li>Using these results as practical advice for a new application would need a validation plan for that setting.</li>
         <li>The Venn-Abers result concerns the evaluated regression bridge and should be read separately from the broader literature.</li>
       </ul>
     </section>

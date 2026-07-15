@@ -1604,7 +1604,7 @@ def test_public_pdfs_include_scholarly_metadata() -> None:
     root = repo_root()
     expected = {
         "paper/article": [
-            "Regression Conformal Prediction Under Neutral Interpretation Scope",
+            "Regression Conformal Prediction: Empirical Study",
             "Emre Tasar, Data Scientist",
             "conformal prediction, regression, prediction intervals",
         ],
@@ -1646,8 +1646,8 @@ def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
     headline = (
         "Under the current coverage criterion, the fixed-GBM CQR pipeline was most "
         "frequently selected; Mondrian calibration and CV+ were secondary candidates. "
-        "The comparison is experiment-scoped; broader method selection or deployment "
-        "use would require separate validation."
+        "The comparison is experiment-scoped; using the pattern in a new setting would "
+        "need its own validation plan."
     )
     pages = [
         root / "README.md",

@@ -11444,7 +11444,7 @@
         "excluded_reason": null,
         "file_included": true,
         "manifest": "evidence/public_artifact_manifest.json",
-        "public_content_sha256": "0d8e3fe6ece51d9cfc9ef392bc4bb2291898681d605a333b05131ba1a0c8ad4d",
+        "public_content_sha256": "98d351208ea2cb2d2c03a83e5175be37f424d8192317ea375ce7aad0ddabdee9",
         "public_path": "README.md",
         "represented_in_aggregate": true,
         "status": "included_public"
@@ -66552,7 +66552,7 @@
       ],
       "route_id": "claim_scope",
       "summary": "What the study reports and what stronger interpretations it does not establish.",
-      "title": "Evidence Scope"
+      "title": "How to Read the Evidence"
     },
     {
       "accent": "#273449",
