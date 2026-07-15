@@ -588,6 +588,10 @@ def test_public_repository_maintenance_files_are_present() -> None:
     assert "indent_size = 4" in editorconfig
     assert "permissions:" in workflow
     assert workflow.count("contents: read") >= 2
+    assert "actions/checkout@v7" in workflow
+    assert "actions/setup-python@v6" in workflow
+    assert "actions/checkout@v4" not in workflow
+    assert "actions/setup-python@v5" not in workflow
     assert "sha256sum -c CHECKSUMS.sha256" in workflow
     for expected_path in [
         "README.md",
