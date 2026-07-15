@@ -33,5 +33,6 @@ python -m experiments.regression.scripts.run_benchmark_v2_chunk --chunk-id bench
 - `sum(chunks.paired_cell_count)` equals the manifest paired-cell count.
 - `sum(chunks.method_row_count)` equals the manifest method-row count.
 - `first_paired_cell_key` and `last_paired_cell_key` define inclusive paired-cell boundaries.
+- `first_method_row_key` and `last_method_row_key` define inclusive method-row boundaries inside those paired cells.
 - The source run grid and initial status ledger paths are recorded on every chunk row.
 - Benchmark v2 result generation remains `not_started` until a separate execution ledger records attempts.

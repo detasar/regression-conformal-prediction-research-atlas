@@ -96,6 +96,8 @@ def main() -> int:
         "method_row_count": int(chunk["method_row_count"]),
         "first_paired_cell_key": chunk["first_paired_cell_key"],
         "last_paired_cell_key": chunk["last_paired_cell_key"],
+        "first_method_row_key": chunk.get("first_method_row_key", ""),
+        "last_method_row_key": chunk.get("last_method_row_key", ""),
         "checkpoint_dir_template": chunk["checkpoint_dir_template"],
         "run_grid_exists": run_grid_path.exists(),
         "status_ledger_exists": status_ledger_path.exists(),

@@ -868,18 +868,28 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     with run_grid_path.open(encoding="utf-8", newline="") as handle:
         preview_rows = list(csv.DictReader(handle))
     assert len(preview_rows) == cardinality["primary_rows_per_task_variant"]
-    assert {"paired_cell_key", "split_hash", "conformal_method_config_id"} <= set(
+    assert {"method_row_key", "paired_cell_key", "split_hash", "conformal_method_config_id"} <= set(
         preview_rows[0]
     )
+    assert len({row["method_row_key"] for row in preview_rows}) == len(preview_rows)
     assert {row["ranking_role"] for row in preview_rows} == {"primary"}
     assert all(row["planned_status"] == "template_pending_task_registry" for row in preview_rows)
 
     with gzip.open(candidate_run_grid_path, "rt", encoding="utf-8", newline="") as handle:
         candidate_rows = list(csv.DictReader(handle))
     assert len(candidate_rows) == cardinality["candidate_primary_planned_run_grid_row_count"]
-    assert {"paired_cell_key", "source_dataset_id", "task_variant_id", "split_hash"} <= set(
-        candidate_rows[0]
-    )
+    assert {
+        "method_row_key",
+        "paired_cell_key",
+        "source_dataset_id",
+        "task_variant_id",
+        "split_hash",
+        "conformal_method_config_id",
+    } <= set(candidate_rows[0])
+    assert len({row["method_row_key"] for row in candidate_rows}) == len(candidate_rows)
+    assert len({row["paired_cell_key"] for row in candidate_rows}) == cardinality[
+        "candidate_paired_cell_count"
+    ]
     assert {row["ranking_role"] for row in candidate_rows} == {"primary"}
     assert {row["planned_status"] for row in candidate_rows} == {
         "candidate_task_registry_planned"
@@ -904,8 +914,17 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     with gzip.open(initial_status_path, "rt", encoding="utf-8", newline="") as handle:
         initial_status_rows = list(csv.DictReader(handle))
     assert len(initial_status_rows) == len(candidate_rows)
+    assert len({row["method_row_key"] for row in initial_status_rows}) == len(
+        initial_status_rows
+    )
+    assert {row["method_row_key"] for row in initial_status_rows} == {
+        row["method_row_key"] for row in candidate_rows
+    }
     assert {row["paired_cell_key"] for row in initial_status_rows} == {
         row["paired_cell_key"] for row in candidate_rows
+    }
+    assert {row["conformal_method_config_id"] for row in initial_status_rows} == {
+        row["conformal_method_config_id"] for row in candidate_rows
     }
     assert {row["planned"] for row in initial_status_rows} == {"true"}
     assert {row["attempted"] for row in initial_status_rows} == {"false"}
@@ -984,9 +1003,15 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert {"task_variant_id", "source_dataset_id", "split_regime"} <= set(task_fields)
     with status_template_path.open(encoding="utf-8", newline="") as handle:
         status_fields = next(csv.reader(handle))
-    assert {"paired_cell_key", "attempted", "completed", "failed", "skipped"} <= set(
-        status_fields
-    )
+    assert {
+        "method_row_key",
+        "paired_cell_key",
+        "conformal_method_config_id",
+        "attempted",
+        "completed",
+        "failed",
+        "skipped",
+    } <= set(status_fields)
 
     artifact_index = json.loads(
         (root / "atlas/artifacts/public_artifact_index.json").read_text(

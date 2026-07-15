@@ -1,1 +1,1 @@
-paired_cell_key,planned,attempted,completed,failed,skipped,failure_reason,checkpoint_path_hash
+method_row_key,paired_cell_key,conformal_method_config_id,planned,attempted,completed,failed,skipped,failure_reason,checkpoint_path_hash

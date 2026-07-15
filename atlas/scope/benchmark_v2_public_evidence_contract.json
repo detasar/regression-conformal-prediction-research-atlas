@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-15T22:45:04.168586+00:00",
+  "generated_at_utc": "2026-07-15T22:58:43.038401+00:00",
   "publishability_gates": [
     "Every planned/attempted/completed/failed/skipped count is public or has a documented exclusion reason.",
     "Every source dataset has version, license, retrieval, and hash/accession metadata.",
@@ -38,6 +38,7 @@
     {
       "artifact_id": "run_grid_manifest",
       "minimum_columns": [
+        "method_row_key",
         "paired_cell_key",
         "alpha",
         "seed",
@@ -51,7 +52,9 @@
     {
       "artifact_id": "run_status_ledger",
       "minimum_columns": [
+        "method_row_key",
         "paired_cell_key",
+        "conformal_method_config_id",
         "attempted",
         "completed",
         "failed",
