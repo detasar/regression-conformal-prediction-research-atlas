@@ -31,6 +31,11 @@
     aside { min-height:0; padding:18px; background:rgba(255,253,248,.86); border-right:1px solid var(--line); overflow:auto; }
     aside.right { border-right:0; border-left:1px solid var(--line); }
     .route, .result, .edge { border:1px solid var(--line); background:var(--panel); border-radius:8px; padding:11px; margin-bottom:10px; }
+    .edge summary { cursor:pointer; list-style:none; display:grid; gap:6px; }
+    .edge summary::-webkit-details-marker { display:none; }
+    .edge summary::before { content:'+'; width:22px; height:22px; border:1px solid var(--line); border-radius:50%; display:inline-grid; place-items:center; color:var(--teal); font-weight:850; }
+    .edge[open] summary::before { content:'-'; }
+    .edge .receipt { margin-top:10px; padding-top:10px; border-top:1px solid var(--line); }
     .route, .result { width:100%; color:var(--ink); font:inherit; text-align:left; cursor:pointer; }
     .route:hover, .route[aria-current="true"], .result:hover, .result.active, .result[aria-current="true"] { border-color:var(--teal); box-shadow:inset 3px 0 0 var(--teal); }
     .route b, .result b { display:block; line-height:1.25; }
@@ -99,6 +104,7 @@
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
     const fetchJson = path => fetch(path).then(r=>{ if(!r.ok) throw new Error(`${path} HTTP ${r.status}`); return r.json(); });
+    const artifactHref = path => path ? `../${String(path).replace(/^\/+/, '')}` : '';
     const graphNotice = message => { document.getElementById('graphNotice').textContent = message || ''; };
     const edgeRetry = () => document.getElementById('edgeRetry');
     const setEdgeRetryVisible = visible => { edgeRetry().hidden = !visible; };
@@ -213,7 +219,7 @@
       const incidentEdges=state.edgeByNode.get(n.id)||[];
       const es=incidentEdges.slice(0,14);
       const hiddenEdgeNote=state.edgesLoaded && incidentEdges.length>es.length ? `<p class="muted">Showing ${es.length.toLocaleString()} of ${incidentEdges.length.toLocaleString()} incident edges; use the graph route or source artifacts for the remaining edge provenance.</p>` : '';
-      document.getElementById('edges').innerHTML=state.edgesLoaded ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<div class="edge"><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><p class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · <code>${esc(e.evidence_path||'source selector recorded')}</code></p>${er?`<p class="muted">Public artifact: ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`:''}</div>`; }).join('') + hiddenEdgeNote : '<p class="muted">Loading edge provenance on demand for this node...</p>';
+      document.getElementById('edges').innerHTML=state.edgesLoaded ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; const publicLink=er&&er.public_path?`<p class="muted"><a href="${esc(artifactHref(er.public_path))}">Open public artifact</a></p>`:''; return `<details class="edge"><summary><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><span class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · expand provenance receipt</span></summary><div class="receipt"><p class="muted"><strong>Evidence path:</strong> <code>${esc(e.evidence_path||'source selector recorded')}</code></p><p class="muted"><strong>Connected node:</strong> <code>${esc(other)}</code></p>${er?`<p class="muted"><strong>Public artifact:</strong> ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>${publicLink}<p class="muted"><strong>Manifest:</strong> <code>${esc(er.manifest||'evidence/public_artifact_manifest.json')}</code></p><p class="muted"><strong>Hash verifiable:</strong> ${er.content_hash_verifiable?'yes':'no'} · <strong>represented in aggregate:</strong> ${er.represented_in_aggregate?'yes':'no'}</p>`:'<p class="muted">No public artifact resolution row is recorded for this edge.</p>'}</div></details>`; }).join('') + hiddenEdgeNote : '<p class="muted">Loading edge provenance on demand for this node...</p>';
       const neighborhood=neighbors(n.id);
       const shownNeighborhoodNodes=neighborhood.nodes.slice(0,18);
       const hiddenNodeNote=neighborhood.nodes.length>shownNeighborhoodNodes.length || neighborhood.truncated ? `<p class="muted">Showing ${shownNeighborhoodNodes.length.toLocaleString()} of ${neighborhood.nodes.length.toLocaleString()} loaded neighborhood nodes${neighborhood.truncated ? '; additional reachable nodes are omitted from this compact table.' : '.'}</p>` : '';
