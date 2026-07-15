@@ -240,7 +240,7 @@ The result tables combine several diagnostic quantities. The guide below states 
 | `row-weighted coverage mean` | Average empirical coverage after giving larger completed-result blocks proportionally more influence. | Use it as a broad descriptive coverage summary within the audited experiment scope. | It is a descriptive coverage summary within the audited experiment. |
 | `diagnostic row-weighted coverage band` | A quantified uncertainty band around the observed aggregate coverage estimate. | Use it to judge the precision of the descriptive aggregate, not only the point estimate. | It does not remove split, dataset, endpoint, or selection caveats. |
 | `coverage-gated selected cell` | A dataset-alpha comparison where a method sits on the observed coverage/width trade-off set. | Use coverage-gated selected-cell counts as a compact map of practical trade-offs seen in the study. | A coverage-gated selected-cell count is descriptive evidence, descriptive evidence rather than a general deployment rule. |
-| `coverage-tolerance hit rate` | The share of comparison cells where empirical coverage is close to the target `1 - alpha` level. | Use it to separate approximate calibration behavior from raw coverage averages. | Coverage tolerance behavior remains scoped to the audited cells. |
+| `coverage-tolerance pass rate` | The share of comparison cells where empirical coverage is close to the target `1 - alpha` level. | Use it to separate approximate calibration behavior from raw coverage averages. | Coverage-tolerance behavior remains scoped to the audited cells. |
 | `undercoverage run` | A run where empirical coverage falls below the target coverage level by the audit rule. | Use it as failure-mode evidence, especially for methods or bridges that do not satisfy validation evidence checks. | It is bridge- or run-specific evidence; the broader literature remains separate. |
 | `evidence limit` | A recorded limit on the strongest conclusion supported by the current evidence. | Use evidence limits as part of the result: they identify which broader readings need separate validation. | Evidence limits can change only when new evidence changes the study record. |
 
@@ -285,13 +285,13 @@ The CQR row-weighted coverage mean is 0.9059, with a diagnostic row-weighted ban
 
 Robustness diagnostics are aligned with that descriptive reading. The common-cell method choice is `cqr`; common-cell counts are CQR=58, CV+=15, and Mondrian=21. Bootstrap selection counts are cqr=1,000. Leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. These numbers support a practical-candidate description; they do not turn the result into a universal method choice.
 
-Coverage summaries provide additional context. CQR has nominal and coverage-tolerance pass rates of 0.6118 and 0.8076; CV+ has coverage-tolerance hit rate 0.8136; Mondrian absolute-residual calibration has coverage-tolerance hit rate 0.8586. The document reports these values as diagnostics at the audited scope.
+Coverage summaries provide additional context. CQR has nominal and coverage-tolerance pass rates of 0.6118 and 0.8076; CV+ has coverage-tolerance pass rate 0.8136; Mondrian absolute-residual calibration has coverage-tolerance pass rate 0.8586. The document reports these values as diagnostics at the audited scope.
 
 ## 4. Negative Evidence And Unsupported Stronger Claims
 
 Three high-risk readings require separate validation. First, bounded-support validity has 0 bundles are validity-ready, despite 15 bounded-support bundles and 11 raw endpoint-excursion bundles being recorded. Second, population-level group inference has 0 bundles are population-inference-ready, even though 15 group-inference bundles and 187 pairwise group comparisons are available as diagnostics. Third, the evaluated Venn-Abers bridge is reported as negative evidence rather than as a validated regression solution.
 
-The Venn-Abers result is intentionally narrow. The evaluated bridge has quantile-coverage mean 0.6503, coverage-tolerance hit rate 0.0337, and validated-regression support flag `False`. This does not reject Venn-Abers research. It only records that the current regression interval bridge did not satisfy the validation evidence needed in this experiment.
+The Venn-Abers result is intentionally narrow. The evaluated bridge has quantile-coverage mean 0.6503, coverage-tolerance pass rate 0.0337, and validated-regression support flag `False`. This does not reject Venn-Abers research. It only records that the current regression interval bridge did not satisfy the validation evidence needed in this experiment.
 
 ## 5. Knowledge Graph And Reproducibility
 
