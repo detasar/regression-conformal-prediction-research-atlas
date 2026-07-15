@@ -86,8 +86,17 @@
       "role": "public smoke dependency pins"
     }
   ],
-  "generated_at_utc": "2026-07-15T03:44:30.299460+00:00",
+  "generated_at_utc": "2026-07-15T08:10:20.821190+00:00",
   "missing": [],
+  "package_data": {
+    "config_failures": [],
+    "default_config_path": "reproducibility/experiments/regression/configs/pilot.yaml",
+    "default_config_resolution": "packaged_layout",
+    "expected_experiment_config_count": 184,
+    "experiment_config_count": 184,
+    "pilot_config_exists": true,
+    "runner_script_exists": true
+  },
   "rebuild_commands": [
     "python -m experiments.regression.scripts.build_public_release_scope --package-root .",
     "python -m experiments.regression.scripts.build_public_research_atlas --package-root .",

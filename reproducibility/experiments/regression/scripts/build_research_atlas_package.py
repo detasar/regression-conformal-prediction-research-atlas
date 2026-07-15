@@ -40,13 +40,47 @@ def validate_package(package_root: Path) -> dict:
         path = package_root / rel
         rows.append({"path": rel, "role": role, "exists": path.exists()})
     missing = [row["path"] for row in rows if not row["exists"]]
+    config_dir = package_root / "reproducibility/experiments/regression/configs"
+    config_files = sorted(config_dir.glob("*.yaml")) if config_dir.exists() else []
+    pilot_config = config_dir / "pilot.yaml"
+    runner_script = (
+        package_root
+        / "reproducibility/experiments/regression/scripts/run_regression_pilot.py"
+    )
+    expected_config_count = 184
+    config_failures = []
+    if not config_dir.exists():
+        config_failures.append("missing reproducibility/experiments/regression/configs")
+    if len(config_files) != expected_config_count:
+        config_failures.append(
+            f"expected {expected_config_count} YAML configs, found {len(config_files)}"
+        )
+    if not pilot_config.exists():
+        config_failures.append("missing pilot.yaml")
+    if not runner_script.exists():
+        config_failures.append("missing run_regression_pilot.py")
     payload = {
         "schema": "regression_cp_public_research_atlas_package_v1",
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
-        "status": "pass" if not missing else "fail",
+        "status": "pass" if not missing and not config_failures else "fail",
         "required_file_count": len(required),
         "missing": missing,
         "files": rows,
+        "package_data": {
+            "experiment_config_count": len(config_files),
+            "expected_experiment_config_count": expected_config_count,
+            "pilot_config_exists": pilot_config.exists(),
+            "runner_script_exists": runner_script.exists(),
+            "default_config_resolution": (
+                "packaged_layout" if pilot_config.exists() else "missing"
+            ),
+            "default_config_path": (
+                "reproducibility/experiments/regression/configs/pilot.yaml"
+                if pilot_config.exists()
+                else None
+            ),
+            "config_failures": config_failures,
+        },
         "rebuild_commands": [
             "python -m experiments.regression.scripts.build_public_release_scope --package-root .",
             "python -m experiments.regression.scripts.build_public_research_atlas --package-root .",
@@ -56,6 +90,8 @@ def validate_package(package_root: Path) -> dict:
     }
     if missing:
         raise FileNotFoundError(f"Missing public package files: {missing}")
+    if config_failures:
+        raise ValueError(f"Public package config-data failures: {config_failures}")
     return payload
 
 

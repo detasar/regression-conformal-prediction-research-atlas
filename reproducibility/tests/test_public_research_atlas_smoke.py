@@ -967,6 +967,22 @@ def test_public_rebuild_commands_run(tmp_path: Path) -> None:
         )
         assert result.returncode == 0, result.stderr
         assert "\"status\": \"pass\"" in result.stdout
+    rebuild_manifest = json.loads(
+        (scratch / "atlas/provenance/public_rebuild_manifest.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    package_data = rebuild_manifest["package_data"]
+    assert package_data["experiment_config_count"] == 184
+    assert package_data["expected_experiment_config_count"] == 184
+    assert package_data["pilot_config_exists"] is True
+    assert package_data["runner_script_exists"] is True
+    assert package_data["default_config_resolution"] == "packaged_layout"
+    assert (
+        package_data["default_config_path"]
+        == "reproducibility/experiments/regression/configs/pilot.yaml"
+    )
+    assert package_data["config_failures"] == []
 
 
 def test_public_result_cube_schema_preserves_scientific_labels() -> None:
