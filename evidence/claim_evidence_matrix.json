@@ -2,7 +2,7 @@
   "generated_at_utc": "2026-07-09T14:29:22.101931+00:00",
   "rows": [
     {
-      "evidence_gate": "Dataset/source descriptions need source citations before final report text; the matrix does not certify exhaustive internet coverage.",
+      "evidence_gate": "Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage.",
       "id": "paper_dataset_scope_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row tells a reader what data sources were inspected; the dataset list defines study scope rather than a final dataset-level result.",

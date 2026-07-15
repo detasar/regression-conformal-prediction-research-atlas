@@ -4,7 +4,7 @@
       "claim_id": "dataset_scope",
       "claim_status": "experiment-scoped reporting",
       "claim_type": "scope claim",
-      "evidence_gate": "Dataset/source descriptions need source citations before final report text; the matrix does not certify exhaustive internet coverage.",
+      "evidence_gate": "Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage.",
       "kg_reference_node_count": 9,
       "plain_language": "This row tells a reader what data sources were inspected; the dataset list defines study scope rather than a final dataset-level result.",
       "reader_safe_statement": "The dataset/source audit defines the studied scope under the recorded review policy.",
@@ -70,11 +70,11 @@
       "claim_id": "reproducibility_traceability",
       "claim_status": "experiment-scoped reporting",
       "claim_type": "reproducibility traceability claim",
-      "evidence_gate": "Use the public Research Atlas repository as the citable artifact for this study.",
+      "evidence_gate": "Cite the Research Atlas repository; source provenance is tracked separately.",
       "kg_reference_node_count": 9,
       "plain_language": "This row tells a reader how the work can be audited and resumed from the Research Atlas.",
       "reader_safe_statement": "The Research Atlas package records completed-row accounting, resume-safety controls, and knowledge-graph traceability.",
-      "scope_limit": "Cite the public Research Atlas repository for this study.",
+      "scope_limit": "Cite the Research Atlas repository; source provenance is tracked separately.",
       "support_status": "supported by audited artifacts and KG trace"
     },
     {
