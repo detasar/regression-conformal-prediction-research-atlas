@@ -799,9 +799,23 @@ def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
     assert "Builder modularization gate" in markdown
 
 
-def test_public_rebuild_commands_run() -> None:
+def test_public_rebuild_commands_run(tmp_path: Path) -> None:
+    scratch = tmp_path / "atlas_package"
+    shutil.copytree(
+        repo_root(),
+        scratch,
+        ignore=shutil.ignore_patterns(
+            ".git",
+            ".mypy_cache",
+            ".pytest_cache",
+            "__pycache__",
+            "build",
+            "dist",
+            "*.egg-info",
+        ),
+    )
     env = os.environ.copy()
-    env["PYTHONPATH"] = str(repo_root() / "reproducibility")
+    env["PYTHONPATH"] = str(scratch / "reproducibility")
     modules = [
         "experiments.regression.scripts.build_public_release_scope",
         "experiments.regression.scripts.build_public_research_atlas",
@@ -809,8 +823,8 @@ def test_public_rebuild_commands_run() -> None:
     ]
     for module in modules:
         result = subprocess.run(
-            [sys.executable, "-m", module, "--package-root", str(repo_root())],
-            cwd=repo_root(),
+            [sys.executable, "-m", module, "--package-root", str(scratch)],
+            cwd=scratch,
             env=env,
             text=True,
             capture_output=True,
