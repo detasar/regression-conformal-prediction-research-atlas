@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-15T08:54:51.006985+00:00",
+  "generated_at_utc": "2026-07-15T09:07:06.642119+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -98,11 +98,13 @@
         "atlas/methods/index.html",
         "atlas/methods/cards/*.html",
         "atlas/ui_data/dataset_method_heatmap.json",
-        "atlas/ui_data/method_family_summary.json"
+        "atlas/ui_data/method_family_summary.json",
+        "atlas/results/cqr_backend_sensitivity.csv",
+        "atlas/scope/planned_attempted_completed_matrix.json"
       ],
       "item": "Build the interactive result-atlas layer.",
       "priority": "P1",
-      "status": "partially_completed"
+      "status": "completed_current_public_atlas_layer"
     },
     {
       "evidence_paths": [
@@ -113,7 +115,7 @@
       ],
       "item": "Improve KG loading architecture beyond the current static full-graph JSON.",
       "priority": "P1",
-      "status": "partially_completed"
+      "status": "completed_current_public_kg_layer"
     },
     {
       "evidence_paths": [
@@ -130,8 +132,9 @@
   ],
   "schema": "regression_cp_final_audit_response_matrix_v1",
   "summary": {
-    "atlas_product_status": "partially_completed",
+    "atlas_product_status": "completed_current_public_atlas_layer",
     "benchmark_v2_status": "candidate_registries_published_execution_not_started",
+    "kg_product_status": "completed_current_public_kg_layer",
     "maintenance_status": "schema_migration_seeded_modularization_pending",
     "p0_status": "completed"
   }

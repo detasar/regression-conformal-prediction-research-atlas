@@ -827,16 +827,32 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
         == "candidate_registries_published_execution_not_started"
     )
     assert (
+        matrix["summary"]["atlas_product_status"]
+        == "completed_current_public_atlas_layer"
+    )
+    assert (
+        matrix["summary"]["kg_product_status"]
+        == "completed_current_public_kg_layer"
+    )
+    assert (
         matrix["summary"]["maintenance_status"]
         == "schema_migration_seeded_modularization_pending"
     )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
     assert ("P1", "candidate_registries_published_execution_not_started") in statuses
+    assert ("P1", "completed_current_public_atlas_layer") in statuses
+    assert ("P1", "completed_current_public_kg_layer") in statuses
     assert ("P2", "schema_migration_seeded_modularization_pending") in statuses
     assert any(
         "KG loading architecture" in row["item"]
-        and row["status"] == "partially_completed"
+        and row["status"] == "completed_current_public_kg_layer"
+        for row in matrix["rows"]
+    )
+    assert any(
+        "interactive result-atlas layer" in row["item"]
+        and row["status"] == "completed_current_public_atlas_layer"
+        and "atlas/results/cqr_backend_sensitivity.csv" in row["evidence_paths"]
         for row in matrix["rows"]
     )
 
