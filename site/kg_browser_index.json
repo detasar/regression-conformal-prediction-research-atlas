@@ -11446,7 +11446,7 @@
         "manifest": "evidence/public_artifact_manifest.json",
         "public_path": "README.md",
         "represented_in_aggregate": true,
-        "source_hash": "00ec71c2dad504d4869008ea4fc38184ef881ea10d6a9a1d78bd61786a010434",
+        "source_hash": "86609e1aab21ac0d1e391428670b8a4ce3373c199c89a334ba342b6ff76dd765",
         "status": "included_public"
       },
       "summary": "Current working-repository README; not the final sterile publication README.",
@@ -44773,7 +44773,7 @@
       "degree": 3,
       "display_id": "methodology_record:sterile-repository-readme-draft-working-review-package",
       "id": "methodology_record:sterile-repository-readme-draft-working-review-package",
-      "label": "Research Atlas README:reader review Package",
+      "label": "Research Atlas README:Research Atlas Package",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 5.019,

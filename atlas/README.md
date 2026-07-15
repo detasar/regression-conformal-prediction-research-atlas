@@ -30,4 +30,4 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 - `scope/audit_response_matrix.*` records the response to the final external audit.
 - `scope/planned_attempted_completed_matrix.*` records which accounting phases are public aggregates and which require restricted source ledgers.
 
-The atlas is public and citable as a navigation and traceability artifact. Broader conclusions require separate validation beyond this experiment.
+Use this atlas as the citable record for the audited experiment. Broader conclusions require separate validation.

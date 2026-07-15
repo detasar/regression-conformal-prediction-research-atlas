@@ -2,7 +2,7 @@
 
 This repository is the Research Atlas for the regression conformal prediction study.
 
-## Included Artifacts
+## Included Materials
 
 - Research Document, compact report, supplement, and individual experiment report.
 - Navigable evidence map backed by the knowledge graph.

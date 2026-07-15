@@ -26,7 +26,7 @@ The completed backend-confound check added `4,564` model-matched CQR runs and `2
 
 The expected strong regression solution did not emerge in these experiments. The Venn-Abers statement is bridge-specific negative evidence for the evaluated regression bridge. It should be read separately from the broader Venn-Abers, predictive-distribution, and generalized-calibration literatures.
 
-## Artifacts
+## Package Contents
 
 1. `atlas/index.html` is the HTML entry point for the evidence atlas.
 2. `atlas/scope/experiment_scope.json` records the experiment accounting scope.
@@ -49,7 +49,7 @@ The repository establishes that a large, audited regression conformal prediction
 
 ## Interpretation Scope
 
-The artifacts support experiment-scoped empirical reading. Production use, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would require separate, pre-specified validation work.
+These materials support an experiment-scoped empirical reading. Production use, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would require separate, pre-specified validation work.
 
 ## Reproducibility
 
