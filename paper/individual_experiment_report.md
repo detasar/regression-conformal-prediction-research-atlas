@@ -26,7 +26,7 @@ Venn-Abers methods are related but not identical to ordinary split interval conf
 | Quantity | Value | Source |
 |---|---:|---|
 | Canonical completed rows | 156,233 | `experiment_accounting_audit.json` |
-| Publication-scoped completed rows | 145,839 | `experiment_accounting_audit.json` |
+| Audited synthesis rows | 145,839 | `experiment_accounting_audit.json` |
 | Datasets in method synthesis | 67 | `method_performance_synthesis.json` |
 | Dataset-alpha cells | 95 | `method_performance_synthesis.json` |
 | Alpha levels | 5 | `method_performance_synthesis.json` |

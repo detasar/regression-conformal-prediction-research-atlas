@@ -9,7 +9,7 @@ This repository is a scientific evidence atlas for a neutral empirical study of 
 
 | Surface | Public Count |
 |---|---:|
-| Publication-scoped completed rows | 145,839 |
+| Audited synthesis rows | 145,839 |
 | Canonical completed rows | 156,233 |
 | Publication datasets | 67 |
 | Dataset-alpha cells | 95 |

@@ -11444,7 +11444,7 @@
         "excluded_reason": null,
         "file_included": true,
         "manifest": "evidence/public_artifact_manifest.json",
-        "public_content_sha256": "98d351208ea2cb2d2c03a83e5175be37f424d8192317ea375ce7aad0ddabdee9",
+        "public_content_sha256": "78bb302a0eecbf0218550678b821970342e82187fa6a9fb74923cfb53def29ae",
         "public_path": "README.md",
         "represented_in_aggregate": true,
         "status": "included_public"
@@ -66545,10 +66545,10 @@
         "methodology_record:claim-evidence-draft-artifact-main-article-draft",
         "methodology_record:claim-evidence-draft-artifact-publication-citation-registry",
         "methodology_record:claim-evidence-draft-artifact-research-document",
-        "manifest:working-latex-html-review-outputs",
         "methodology_record:final-publication-output-scope-final-research-document-prose-not",
         "methodology_record:final-publication-output-scope-final-visual-table-retention-not",
-        "methodology_record:final-publication-output-scope-kg-citable-component-scope-limited"
+        "methodology_record:final-publication-output-scope-deployment-claim-not-authori",
+        "methodology_record:final-publication-output-scope-stronger-claims-not-auth"
       ],
       "route_id": "claim_scope",
       "summary": "What the study reports and what stronger interpretations it does not establish.",

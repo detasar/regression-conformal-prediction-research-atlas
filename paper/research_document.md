@@ -22,7 +22,7 @@ Read this document in four layers. First, identify the empirical object that was
 
 ## Executive Synthesis
 
-This synthesis states the document's position before the detailed tables. It is written for a reviewer who needs to understand the scientific result, the negative evidence, and the evidence scope without first reading every audit artifact.
+This synthesis states the document's position before the detailed tables. It is written for a reviewer who needs to understand the scientific result, the negative evidence, and the study scope without first reading every audit artifact.
 
 ### What this document is
 
@@ -213,7 +213,7 @@ The Research Document, supplement, README, and site follow a small source-backed
 
 | Scope item | Value | Interpretation |
 |---|---:|---|
-| Publication-scoped completed rows | 145,839 | Audited empirical accounting scope |
+| Audited synthesis rows | 145,839 | Audited empirical accounting scope |
 | Datasets | 67 | Public regression dataset scope |
 | Dataset-alpha cells | 95 | Calibration comparison cells |
 | Conformal-method labels | 28 | Broad conformal method surface |
@@ -307,7 +307,7 @@ The review order is deliberately simple. Read this Research Document first, then
 | `rendered_outputs/main_article_review.html` | Main article surface | Conservative scientific wording |
 | `rendered_outputs/supplementary_document_review.html` | Broad supplementary surface | Methods, diagnostics, and estimator conventions |
 | `site/kg_browser.html` | Browsable KG surface | Evidence navigation and source traceability |
-| `governance/publication_authoring_decision_record.md` | Evidence scope record | Scientific scope limits and publication context |
+| `governance/publication_authoring_decision_record.md` | Study scope record | Scientific scope limits and publication context |
 
 ## 7. How To Read The Evidence
 
