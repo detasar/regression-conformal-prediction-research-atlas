@@ -486,6 +486,12 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "loading full graph data" in browser
     assert "kg_browser_edges.json" in browser
     assert "function ensureEdges(force=false)" in browser
+    assert "function createGraphWorker()" in browser
+    assert "new Worker(workerUrl)" in browser
+    assert "workerCall('neighborhood'" in browser
+    assert "state.workerEdgesReady" in browser
+    assert "Graph worker unavailable; using main-thread fallback." in browser
+    assert "Worker is preparing edge provenance for this node" in browser
     assert "Loading edge provenance on demand" in browser
     assert 'id="edgeRetry"' in browser
     assert "Retry edge bundle" in browser

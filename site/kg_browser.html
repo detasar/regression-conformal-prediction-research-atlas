@@ -100,7 +100,7 @@
     </aside>
   </main>
   <script>
-    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], focusIndex:-1, edgesLoaded:false, edgeLoadPromise:null };
+    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], focusIndex:-1, edgesLoaded:false, edgeLoadPromise:null, mainEdgeIndexBuilt:false, worker:null, workerSeq:0, workerCalls:new Map(), workerEdgesReady:false, workerNeighborhood:new Map(), workerNeighborhoodPending:new Set() };
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
@@ -110,10 +110,149 @@
     const edgeRetry = () => document.getElementById('edgeRetry');
     const setEdgeRetryVisible = visible => { edgeRetry().hidden = !visible; };
     function addIndex(edge){ for(const id of [edge.source,edge.target]){ if(!state.edgeByNode.has(id)) state.edgeByNode.set(id,[]); state.edgeByNode.get(id).push(edge); } }
+    function buildMainEdgeIndex(edges){
+      if(state.mainEdgeIndexBuilt) return;
+      (edges||[]).forEach(addIndex);
+      state.mainEdgeIndexBuilt = true;
+    }
+    function createGraphWorker(){
+      if(!('Worker' in window) || !window.Blob || !window.URL) return null;
+      const workerSource = `
+        let edgeByNode = new Map();
+        function addEdge(edge){
+          for(const id of [edge.source, edge.target]){
+            if(!edgeByNode.has(id)) edgeByNode.set(id, []);
+            edgeByNode.get(id).push(edge);
+          }
+        }
+        function neighborhood(root, depth){
+          const seen = new Set(), edges = [], q = [{id:root,d:0}];
+          while(q.length && seen.size < 70){
+            const cur = q.shift();
+            if(!cur || seen.has(cur.id)) continue;
+            seen.add(cur.id);
+            if(cur.d >= depth) continue;
+            for(const edge of edgeByNode.get(cur.id) || []){
+              edges.push(edge);
+              const other = edge.source === cur.id ? edge.target : edge.source;
+              if(!seen.has(other)) q.push({id:other,d:cur.d+1});
+            }
+          }
+          const incidentEdges = edgeByNode.get(root) || [];
+          return {
+            node_ids: [...seen],
+            edges: edges.slice(0, 120),
+            edgeTotal: edges.length,
+            incident_edges: incidentEdges.slice(0, 120),
+            incidentEdgeTotal: incidentEdges.length,
+            truncated: q.length > 0 || edges.length > 120
+          };
+        }
+        self.onmessage = event => {
+          const message = event.data || {};
+          const requestId = message.requestId;
+          const payload = message.payload || {};
+          try {
+            if(message.type === 'init'){
+              self.postMessage({requestId, payload:{nodeCount:(payload.nodes || []).length}});
+            } else if(message.type === 'edges'){
+              edgeByNode = new Map();
+              (payload.edges || []).forEach(addEdge);
+              self.postMessage({requestId, payload:{edgeCount:(payload.edges || []).length}});
+            } else if(message.type === 'neighborhood'){
+              self.postMessage({requestId, payload:neighborhood(payload.root, payload.depth || 1)});
+            }
+          } catch(error) {
+            self.postMessage({requestId, error:error.message || String(error)});
+          }
+        };
+      `;
+      try {
+        const workerUrl = URL.createObjectURL(new Blob([workerSource], {type:'text/javascript'}));
+        const worker = new Worker(workerUrl);
+        worker.onmessage = event => {
+          const message = event.data || {};
+          const call = state.workerCalls.get(message.requestId);
+          if(!call) return;
+          state.workerCalls.delete(message.requestId);
+          if(message.error) call.reject(new Error(message.error));
+          else call.resolve(message.payload || {});
+        };
+        worker.onerror = event => {
+          graphNotice(`Graph worker failed; using main-thread fallback (${event.message || 'unknown error'}).`);
+          for(const call of state.workerCalls.values()) call.reject(new Error(event.message || 'worker failed'));
+          state.workerCalls.clear();
+        };
+        return worker;
+      } catch(error) {
+        graphNotice(`Graph worker unavailable; using main-thread fallback (${error.message || 'unknown error'}).`);
+        return null;
+      }
+    }
+    function workerCall(type, payload){
+      if(!state.worker) return null;
+      const requestId = ++state.workerSeq;
+      const promise = new Promise((resolve,reject)=>state.workerCalls.set(requestId,{resolve,reject}));
+      state.worker.postMessage({requestId,type,payload});
+      return promise;
+    }
+    function initializeWorker(data){
+      state.worker = createGraphWorker();
+      if(!state.worker){ graphNotice('Graph worker unavailable; using main-thread fallback.'); return; }
+      workerCall('init', {nodes:data.nodes || []}).then(payload=>{
+        document.getElementById('status').textContent=`Graph worker indexed ${Number(payload.nodeCount||0).toLocaleString()} nodes.`;
+      }).catch(error=>{
+        state.worker = null;
+        graphNotice(`Graph worker failed; using main-thread fallback (${error.message || 'unknown error'}).`);
+      });
+    }
+    function indexEdgesWithWorker(edges){
+      if(!state.worker){ buildMainEdgeIndex(edges); return Promise.resolve({mode:'main-thread'}); }
+      return workerCall('edges', {edges}).then(payload=>{
+        state.workerEdgesReady = true;
+        return {mode:'worker', edgeCount:payload.edgeCount || 0};
+      }).catch(error=>{
+        state.worker = null;
+        state.workerEdgesReady = false;
+        buildMainEdgeIndex(edges);
+        graphNotice(`Graph worker failed; using main-thread fallback (${error.message || 'unknown error'}).`);
+        return {mode:'main-thread'};
+      });
+    }
+    function requestWorkerNeighborhood(root, depth){
+      const cacheKey = `${root}|${depth}`;
+      if(!state.workerEdgesReady) return Promise.resolve(null);
+      if(state.workerNeighborhood.has(cacheKey)) return Promise.resolve(state.workerNeighborhood.get(cacheKey));
+      if(state.workerNeighborhoodPending.has(cacheKey)) return Promise.resolve(null);
+      state.workerNeighborhoodPending.add(cacheKey);
+      return workerCall('neighborhood', {root, depth}).then(payload=>{
+        state.workerNeighborhoodPending.delete(cacheKey);
+        const result = {
+          nodes:(payload.node_ids || []).map(id=>state.nodeById.get(id)).filter(Boolean),
+          edges:payload.edges || [],
+          edgeTotal:payload.edgeTotal || 0,
+          incidentEdges:payload.incident_edges || [],
+          incidentEdgeTotal:payload.incidentEdgeTotal || 0,
+          truncated:Boolean(payload.truncated)
+        };
+        state.workerNeighborhood.set(cacheKey, result);
+        renderAll();
+        return result;
+      }).catch(error=>{
+        state.workerNeighborhoodPending.delete(cacheKey);
+        graphNotice(`Graph worker neighborhood failed; using main-thread fallback (${error.message || 'unknown error'}).`);
+        state.workerEdgesReady = false;
+        buildMainEdgeIndex(state.data.edges || []);
+        renderAll();
+        return null;
+      });
+    }
     function ensureEdges(force=false){
       if(state.edgesLoaded) return Promise.resolve();
       if(force){
         state.edgeLoadPromise = null;
+        state.workerNeighborhood.clear();
+        state.workerNeighborhoodPending.clear();
         graphNotice('');
         setEdgeRetryVisible(false);
       }
@@ -122,10 +261,12 @@
       state.edgeLoadPromise = fetchJson('kg_browser_edges.json').then(payload=>{
         const edges = payload.edges || [];
         state.data.edges = edges;
-        edges.forEach(addIndex);
-        state.edgesLoaded = true;
-        setEdgeRetryVisible(false);
-        document.getElementById('status').textContent=`Loaded ${edges.length.toLocaleString()} graph edges on demand.`;
+        return indexEdgesWithWorker(edges).then(indexResult=>{
+          state.edgesLoaded = true;
+          setEdgeRetryVisible(false);
+          const mode = indexResult.mode === 'worker' ? 'with worker indexing' : 'with main-thread fallback indexing';
+          document.getElementById('status').textContent=`Loaded ${edges.length.toLocaleString()} graph edges on demand ${mode}.`;
+        });
       }).catch(error=>{
         state.edgeLoadPromise = null;
         setEdgeRetryVisible(true);
@@ -135,6 +276,13 @@
       return state.edgeLoadPromise;
     }
     function neighbors(root){
+      if(state.workerEdgesReady){
+        const cacheKey = `${root}|${state.depth}`;
+        const cached = state.workerNeighborhood.get(cacheKey);
+        if(cached) return cached;
+        requestWorkerNeighborhood(root, state.depth);
+        return {nodes:[state.nodeById.get(root)].filter(Boolean), edges:[], incidentEdges:[], edgeTotal:0, incidentEdgeTotal:0, loading:true};
+      }
       if(!state.edgesLoaded) return {nodes:[state.nodeById.get(root)].filter(Boolean), edges:[]};
       const seen = new Set(), edges = [], q = [{id:root,d:0}];
       let truncated = false;
@@ -147,7 +295,8 @@
         }
       }
       truncated = q.length > 0 || edges.length > 120;
-      return {nodes:[...seen].map(id=>state.nodeById.get(id)).filter(Boolean), edges:edges.slice(0,120), edgeTotal:edges.length, truncated};
+      const incidentEdges = state.edgeByNode.get(root) || [];
+      return {nodes:[...seen].map(id=>state.nodeById.get(id)).filter(Boolean), edges:edges.slice(0,120), edgeTotal:edges.length, incidentEdges:incidentEdges.slice(0,120), incidentEdgeTotal:incidentEdges.length, truncated};
     }
     function routeNodes(route){ return (route.node_ids||[]).map(id=>state.nodeById.get(id)).filter(Boolean); }
     function uniqueNodes(list){ const out=[], seen=new Set(); for(const n of list){ if(n && !seen.has(n.id)){ seen.add(n.id); out.push(n); } } return out; }
@@ -159,11 +308,11 @@
     function setDepth(depth){
       state.depth=depth;
       renderAll();
-      if(state.selected) ensureEdges().then(renderAll);
+      if(state.selected) ensureEdges().then(()=>requestWorkerNeighborhood(state.selected, state.depth)).then(renderAll);
     }
     function select(id){
       if(!state.nodeById.has(id)){ state.selected=null; state.routeId=null; graphNotice(`Node not found: ${id}`); renderAll(); return false; }
-      graphNotice(''); state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); ensureEdges().then(renderAll); return true;
+      graphNotice(''); state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); ensureEdges().then(()=>requestWorkerNeighborhood(id, state.depth)).then(renderAll); return true;
     }
     function selectRoute(routeId){
       const route=(state.data.research_map||[]).find(r=>r.route_id===routeId);
@@ -221,11 +370,12 @@
       }
       const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
       document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
-      const incidentEdges=state.edgeByNode.get(n.id)||[];
-      const es=incidentEdges.slice(0,14);
-      const hiddenEdgeNote=state.edgesLoaded && incidentEdges.length>es.length ? `<p class="muted">Showing ${es.length.toLocaleString()} of ${incidentEdges.length.toLocaleString()} incident edges; use the graph route or source artifacts for the remaining edge provenance.</p>` : '';
-      document.getElementById('edges').innerHTML=state.edgesLoaded ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; const publicLink=er&&er.public_path?`<p class="muted"><a href="${esc(artifactHref(er.public_path))}">Open public artifact</a></p>`:''; return `<details class="edge"><summary><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><span class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · expand provenance receipt</span></summary><div class="receipt"><p class="muted"><strong>Evidence path:</strong> <code>${esc(e.evidence_path||'source selector recorded')}</code></p><p class="muted"><strong>Connected node:</strong> <code>${esc(other)}</code></p>${er?`<p class="muted"><strong>Public artifact:</strong> ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>${publicLink}<p class="muted"><strong>Manifest:</strong> <code>${esc(er.manifest||'evidence/public_artifact_manifest.json')}</code></p><p class="muted"><strong>Hash verifiable:</strong> ${er.content_hash_verifiable?'yes':'no'} · <strong>represented in aggregate:</strong> ${er.represented_in_aggregate?'yes':'no'}</p>`:'<p class="muted">No public artifact resolution row is recorded for this edge.</p>'}</div></details>`; }).join('') + hiddenEdgeNote : '<p class="muted">Loading edge provenance on demand for this node...</p>';
       const neighborhood=neighbors(n.id);
+      const incidentEdges=neighborhood.incidentEdges || [];
+      const es=incidentEdges.slice(0,14);
+      const incidentEdgeTotal=neighborhood.incidentEdgeTotal ?? incidentEdges.length;
+      const hiddenEdgeNote=state.edgesLoaded && incidentEdgeTotal>es.length ? `<p class="muted">Showing ${es.length.toLocaleString()} of ${incidentEdgeTotal.toLocaleString()} incident edges; use the graph route or source artifacts for the remaining edge provenance.</p>` : '';
+      document.getElementById('edges').innerHTML=state.edgesLoaded ? (neighborhood.loading ? '<p class="muted">Worker is preparing edge provenance for this node...</p>' : es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; const publicLink=er&&er.public_path?`<p class="muted"><a href="${esc(artifactHref(er.public_path))}">Open public artifact</a></p>`:''; return `<details class="edge"><summary><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><span class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · expand provenance receipt</span></summary><div class="receipt"><p class="muted"><strong>Evidence path:</strong> <code>${esc(e.evidence_path||'source selector recorded')}</code></p><p class="muted"><strong>Connected node:</strong> <code>${esc(other)}</code></p>${er?`<p class="muted"><strong>Public artifact:</strong> ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>${publicLink}<p class="muted"><strong>Manifest:</strong> <code>${esc(er.manifest||'evidence/public_artifact_manifest.json')}</code></p><p class="muted"><strong>Hash verifiable:</strong> ${er.content_hash_verifiable?'yes':'no'} · <strong>represented in aggregate:</strong> ${er.represented_in_aggregate?'yes':'no'}</p>`:'<p class="muted">No public artifact resolution row is recorded for this edge.</p>'}</div></details>`; }).join('') + hiddenEdgeNote) : '<p class="muted">Loading edge provenance on demand for this node...</p>';
       const shownNeighborhoodNodes=neighborhood.nodes.slice(0,18);
       const hiddenNodeNote=neighborhood.nodes.length>shownNeighborhoodNodes.length || neighborhood.truncated ? `<p class="muted">Showing ${shownNeighborhoodNodes.length.toLocaleString()} of ${neighborhood.nodes.length.toLocaleString()} loaded neighborhood nodes${neighborhood.truncated ? '; additional reachable nodes are omitted from this compact table.' : '.'}</p>` : '';
 	      document.getElementById('table').innerHTML=`<table><caption>Selected node neighborhood</caption><thead><tr><th scope="col">Node</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${shownNeighborhoodNodes.map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>${hiddenNodeNote}`;
@@ -276,7 +426,12 @@
       });
     }
     loadInitialGraph().then(data=>{
-      state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); (data.edges||[]).forEach(addIndex); state.edgesLoaded=Boolean((data.edges||[]).length);
+      state.data=data; data.nodes.forEach(n=>state.nodeById.set(n.id,n)); initializeWorker(data);
+      const initialEdges = data.edges || [];
+      if(initialEdges.length){
+        state.data.edges = initialEdges;
+        indexEdgesWithWorker(initialEdges).then(()=>{ state.edgesLoaded=true; renderAll(); });
+      }
       renderFilters(); document.getElementById('search').oninput=renderAll; document.getElementById('typeFilter').onchange=renderAll;
       document.getElementById('oneHop').onclick=()=>setDepth(1); document.getElementById('twoHop').onclick=()=>setDepth(2);
       edgeRetry().onclick=()=>ensureEdges(true).then(renderAll);
