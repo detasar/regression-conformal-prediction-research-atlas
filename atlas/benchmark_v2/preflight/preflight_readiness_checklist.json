@@ -22,18 +22,18 @@
     },
     {
       "check_id": "source_dataset_registry_populated",
-      "evidence_path": "atlas/benchmark_v2/preflight/source_dataset_registry_template.csv",
-      "status": "not_started"
+      "evidence_path": "atlas/benchmark_v2/preflight/source_dataset_registry.csv",
+      "status": "pass"
     },
     {
       "check_id": "task_variant_registry_populated",
-      "evidence_path": "atlas/benchmark_v2/preflight/task_variant_registry_template.csv",
-      "status": "not_started"
+      "evidence_path": "atlas/benchmark_v2/preflight/task_variant_registry.csv",
+      "status": "pass"
     },
     {
       "check_id": "run_status_ledger_populated",
-      "evidence_path": "atlas/benchmark_v2/preflight/run_status_ledger_template.csv",
-      "status": "not_started"
+      "evidence_path": "atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz",
+      "status": "pass"
     },
     {
       "check_id": "benchmark_v2_results_generated",
@@ -46,8 +46,8 @@
       "status": "pass"
     }
   ],
-  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
-  "overall_status": "preflight_templates_ready_execution_not_started",
+  "generated_at_utc": "2026-07-15T15:21:33.090395+00:00",
+  "overall_status": "pre_execution_ledger_ready_results_not_started",
   "result_generation_status": "not_started",
   "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
 }

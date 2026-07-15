@@ -1,5 +1,5 @@
 {
-  "artifact_count": 312,
+  "artifact_count": 315,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -273,13 +273,28 @@
     },
     {
       "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz",
+      "reader_use": "Initial planned-row status ledger for Benchmark v2 before result generation."
+    },
+    {
+      "artifact_kind": "benchmark v2",
       "artifact_path": "atlas/benchmark_v2/preflight/run_status_ledger_template.csv",
       "reader_use": "Run-status ledger template required before Benchmark v2 execution."
     },
     {
       "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/source_dataset_registry.csv",
+      "reader_use": "Frozen pre-execution source-dataset registry for Benchmark v2."
+    },
+    {
+      "artifact_kind": "benchmark v2",
       "artifact_path": "atlas/benchmark_v2/preflight/source_dataset_registry_template.csv",
       "reader_use": "Source dataset registry template for Benchmark v2."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/preflight/task_variant_registry.csv",
+      "reader_use": "Frozen pre-execution task-variant registry for Benchmark v2."
     },
     {
       "artifact_kind": "benchmark v2",
@@ -1562,6 +1577,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
+  "generated_at_utc": "2026-07-15T15:21:33.090395+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

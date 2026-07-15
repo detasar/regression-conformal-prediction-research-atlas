@@ -793,8 +793,11 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     run_grid_path = preflight / "run_grid_manifest_preview.csv"
     candidate_run_grid_path = preflight / "run_grid_manifest_candidate.csv.gz"
     source_template_path = preflight / "source_dataset_registry_template.csv"
+    source_registry_path = preflight / "source_dataset_registry.csv"
     task_template_path = preflight / "task_variant_registry_template.csv"
+    task_registry_path = preflight / "task_variant_registry.csv"
     status_template_path = preflight / "run_status_ledger_template.csv"
+    initial_status_path = preflight / "run_status_ledger_initial.csv.gz"
     for path in [
         preflight / "README.md",
         cardinality_path,
@@ -803,8 +806,11 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         run_grid_path,
         candidate_run_grid_path,
         source_template_path,
+        source_registry_path,
         task_template_path,
+        task_registry_path,
         status_template_path,
+        initial_status_path,
     ]:
         assert path.exists()
 
@@ -822,10 +828,13 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
 
     checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
     assert checklist["schema"] == "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
-    assert checklist["overall_status"] == "preflight_templates_ready_execution_not_started"
+    assert checklist["overall_status"] == "pre_execution_ledger_ready_results_not_started"
     assert checklist["result_generation_status"] == "not_started"
     statuses = {row["check_id"]: row["status"] for row in checklist["checklist"]}
     assert statuses["preflight_templates_published"] == "pass"
+    assert statuses["source_dataset_registry_populated"] == "pass"
+    assert statuses["task_variant_registry_populated"] == "pass"
+    assert statuses["run_status_ledger_populated"] == "pass"
     assert statuses["candidate_run_grid_manifest_published"] == "pass"
     assert statuses["benchmark_v2_results_generated"] == "not_started"
 
@@ -852,6 +861,31 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert len({row["task_variant_id"] for row in candidate_rows}) == 24
     assert len({row["source_dataset_id"] for row in candidate_rows}) == 12
 
+    with source_registry_path.open(encoding="utf-8", newline="") as handle:
+        source_registry_rows = list(csv.DictReader(handle))
+    with task_registry_path.open(encoding="utf-8", newline="") as handle:
+        task_registry_rows = list(csv.DictReader(handle))
+    assert len(source_registry_rows) == 12
+    assert len(task_registry_rows) == 24
+    assert {row["source_dataset_id"] for row in source_registry_rows} == {
+        row["source_dataset_id"] for row in candidate_rows
+    }
+    assert {row["task_variant_id"] for row in task_registry_rows} == {
+        row["task_variant_id"] for row in candidate_rows
+    }
+
+    with gzip.open(initial_status_path, "rt", encoding="utf-8", newline="") as handle:
+        initial_status_rows = list(csv.DictReader(handle))
+    assert len(initial_status_rows) == len(candidate_rows)
+    assert {row["paired_cell_key"] for row in initial_status_rows} == {
+        row["paired_cell_key"] for row in candidate_rows
+    }
+    assert {row["planned"] for row in initial_status_rows} == {"true"}
+    assert {row["attempted"] for row in initial_status_rows} == {"false"}
+    assert {row["completed"] for row in initial_status_rows} == {"false"}
+    assert {row["failed"] for row in initial_status_rows} == {"false"}
+    assert {row["skipped"] for row in initial_status_rows} == {"false"}
+
     with source_template_path.open(encoding="utf-8", newline="") as handle:
         source_fields = next(csv.reader(handle))
     assert {
@@ -868,6 +902,16 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert {"paired_cell_key", "attempted", "completed", "failed", "skipped"} <= set(
         status_fields
     )
+
+    artifact_index = json.loads(
+        (root / "atlas/artifacts/public_artifact_index.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
+    assert "atlas/benchmark_v2/preflight/source_dataset_registry.csv" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/task_variant_registry.csv" in indexed_paths
+    assert "atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz" in indexed_paths
 
 
 def test_public_benchmark_v2_candidate_registries_are_scoped_and_balanced() -> None:
@@ -935,7 +979,7 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     assert matrix["summary"]["p0_status"] == "completed"
     assert (
         matrix["summary"]["benchmark_v2_status"]
-        == "candidate_registries_published_execution_not_started"
+        == "pre_execution_ledger_ready_results_not_started"
     )
     assert (
         matrix["summary"]["atlas_product_status"]
@@ -951,7 +995,7 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
-    assert ("P1", "candidate_registries_published_execution_not_started") in statuses
+    assert ("P1", "pre_execution_ledger_ready_results_not_started") in statuses
     assert ("P1", "completed_current_public_atlas_layer") in statuses
     assert ("P1", "completed_current_public_kg_layer") in statuses
     assert ("P2", "schema_migration_seeded_modularization_pending") in statuses

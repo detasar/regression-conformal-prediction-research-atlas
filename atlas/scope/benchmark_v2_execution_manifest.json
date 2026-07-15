@@ -13,7 +13,7 @@
     "selection_rule": "coverage tolerance pass, then interval score, with sensitivity to absolute coverage error plus width"
   },
   "benchmark_version": "benchmark_v2_prospectively_frozen_protocol",
-  "generated_at_utc": "2026-07-15T15:02:50.465358+00:00",
+  "generated_at_utc": "2026-07-15T15:21:33.090395+00:00",
   "mandatory_grid_invariants": [
     "Every conformal method is evaluated inside the same learner/config/split cell.",
     "CQR is model-matched inside each learner family and is not repeated across unrelated outer model-grid rows.",
