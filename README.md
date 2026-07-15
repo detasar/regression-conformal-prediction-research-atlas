@@ -22,7 +22,7 @@ This repository is a scientific evidence atlas for a neutral empirical study of 
 
 Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. These results do not identify a universally superior conformal method. Broader use would require validation beyond this experiment.
 
-The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. This comparison is the backend-sensitivity context for the CQR signal.
+The completed backend-confound check added `4,564` model-matched CQR runs and `224` paired dataset-alpha-model-family cells. Coverage-eligible interval-score selections were fixed-GBM CQR `116`, model-matched CQR `71`, and neither `37`. This comparison shows how much the CQR result depends on the model backend.
 
 The expected strong regression solution did not emerge in these experiments. The Venn-Abers statement is bridge-specific negative evidence for the evaluated regression bridge. It should be read separately from the broader Venn-Abers, predictive-distribution, and generalized-calibration literatures.
 
