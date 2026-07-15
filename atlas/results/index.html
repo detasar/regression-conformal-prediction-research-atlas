@@ -20,6 +20,8 @@
 * { box-sizing:border-box; }
 body { margin:0; background:var(--paper); color:var(--ink); font-family:Aptos, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif; line-height:1.55; }
 a { color:#145ea8; font-weight:740; text-decoration-thickness:1px; text-underline-offset:3px; }
+.detail-link { color:inherit; font-weight:760; text-decoration-color:rgba(20,94,168,.45); }
+.detail-link:hover { color:#145ea8; text-decoration-color:#145ea8; }
 a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible { outline:3px solid rgba(15,118,110,.35); outline-offset:3px; }
 .skip-link { position:absolute; left:14px; top:-60px; background:var(--ink); color:#fffdf8; padding:8px 12px; border-radius:6px; z-index:20; }
 .skip-link:focus { top:12px; }
@@ -74,6 +76,7 @@ tr:last-child td { border-bottom:0; }
 .heatmap-cell { min-height:54px; background:#fffdf8; padding:7px 8px; font-size:12px; overflow-wrap:anywhere; }
 .heatmap-cell.head { background:#f3ead9; color:#4d3b1b; font-weight:850; text-transform:uppercase; }
 .heatmap-cell.dataset { font-weight:760; color:#243247; }
+.heatmap-cell .detail-link { overflow-wrap:anywhere; }
 .heatmap-cell.selected { box-shadow:inset 0 0 0 3px rgba(15,118,110,.28); }
 .heatmap-cell.under { background:#fff2ec; }
 .heatmap-cell.pathology { background:#fff6ce; }
@@ -208,6 +211,10 @@ tr:last-child td { border-bottom:0; }
         };
         const text = value => String(value ?? '');
         const html = value => text(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+        const hrefPart = value => encodeURIComponent(text(value));
+        const datasetCardHref = value => `../datasets/cards/${hrefPart(value)}.html`;
+        const methodCardHref = value => `../methods/cards/${hrefPart(value)}.html`;
+        const detailLink = (href, label, aria) => `<a class="detail-link" href="${html(href)}" aria-label="${html(aria)}">${html(label)}</a>`;
         const families = [...new Set(rows.map(r => r.dataset_family).filter(Boolean))].sort();
         const methodFamilies = [...new Set(rows.map(r => r.method_family).filter(Boolean))].sort();
         const alphas = [...new Set(rows.map(r => text(r.alpha)).filter(Boolean))].sort((a,b) => Number(a) - Number(b));
@@ -494,9 +501,9 @@ tr:last-child td { border-bottom:0; }
           const methodCount = Math.max(1, methods.length);
           const lookup = new Map(filtered.map(r => [`${r.dataset_id}|${r.method_label}`, r]));
           let heat = `<div class="heatmap-grid" style="--method-count:${methodCount}"><div class="heatmap-cell head">Dataset</div>`;
-          for (const method of methods) heat += `<div class="heatmap-cell head">${method}</div>`;
+          for (const method of methods) heat += `<div class="heatmap-cell head">${detailLink(methodCardHref(method), method, `Open method detail for ${method}`)}</div>`;
           for (const dataset of datasets) {
-            heat += `<div class="heatmap-cell dataset">${dataset}</div>`;
+            heat += `<div class="heatmap-cell dataset">${detailLink(datasetCardHref(dataset), dataset, `Open dataset detail for ${dataset}`)}</div>`;
             for (const method of methods) {
               const row = lookup.get(`${dataset}|${method}`);
               if (!row) { heat += '<div class="heatmap-cell"></div>'; continue; }
@@ -511,7 +518,7 @@ tr:last-child td { border-bottom:0; }
           heat += '</div>';
           byId('heatmap-wrap').innerHTML = heat;
           const preview = filtered.slice(0, 60);
-          byId('explorer-table-wrap').innerHTML = `<table><caption>Filtered result cube preview</caption><thead><tr><th scope="col">Dataset</th><th scope="col">Alpha</th><th scope="col">Method</th><th scope="col">Coverage</th><th scope="col">Width</th><th scope="col">Interval score</th><th scope="col">Selected</th><th scope="col">Numerical pathology</th></tr></thead><tbody>${preview.map(row => `<tr><td>${html(row.dataset_id)}</td><td>${html(row.alpha)}</td><td>${html(row.method_label)}</td><td>${fmt(row.coverage_mean)}</td><td>${fmt(row.width_mean)}</td><td>${fmt(row.interval_score_mean)}</td><td>${isTrue(row.selected_under_coverage_gate) ? 'yes' : 'no'}</td><td>${isTrue(row.numerical_pathology_flag) ? html(`${row.numerical_pathology_reason || 'flagged'}; ${row.display_interval_policy || 'display policy recorded'}`) : 'no'}</td></tr>`).join('')}</tbody></table>`;
+          byId('explorer-table-wrap').innerHTML = `<table><caption>Filtered result cube preview</caption><thead><tr><th scope="col">Dataset</th><th scope="col">Alpha</th><th scope="col">Method</th><th scope="col">Coverage</th><th scope="col">Width</th><th scope="col">Interval score</th><th scope="col">Selected</th><th scope="col">Numerical pathology</th></tr></thead><tbody>${preview.map(row => `<tr><td>${detailLink(datasetCardHref(row.dataset_id), row.dataset_id, `Open dataset detail for ${row.dataset_id}`)}</td><td>${html(row.alpha)}</td><td>${detailLink(methodCardHref(row.method_label), row.method_label, `Open method detail for ${row.method_label}`)}</td><td>${fmt(row.coverage_mean)}</td><td>${fmt(row.width_mean)}</td><td>${fmt(row.interval_score_mean)}</td><td>${isTrue(row.selected_under_coverage_gate) ? 'yes' : 'no'}</td><td>${isTrue(row.numerical_pathology_flag) ? html(`${row.numerical_pathology_reason || 'flagged'}; ${row.display_interval_policy || 'display policy recorded'}`) : 'no'}</td></tr>`).join('')}</tbody></table>`;
         };
         for (const id of ['filter-family','filter-method-family','filter-alpha','filter-search']) {
           byId(id).addEventListener('input', render);
