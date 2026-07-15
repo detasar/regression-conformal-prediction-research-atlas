@@ -43,6 +43,7 @@
 <main id="main-content">
 
 <h1>Supplementary Document</h1>
+<p><strong>Key empirical signal:</strong> Under the current coverage gate, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. These results do not identify a universally superior conformal method.</p>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
 <p>Contact: detasar@gmail.com</p>
 <h2>Supplement Reader Crosswalk</h2>
@@ -50,7 +51,7 @@
 <table><caption>Main article to supplement crosswalk</caption>
 <thead><tr><th scope="col">Main article surface</th><th scope="col">Supplement support</th><th scope="col">Primary source artifact</th><th scope="col">Stronger claim requiring validation</th></tr></thead>
 <tbody>
-<tr><td>CQR/CV+ descriptive performance</td><td>S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis</code></td><td>No study-wide method choice, global best method, or deployment rule.</td></tr>
+<tr><td>CQR, Mondrian, and CV+ descriptive performance</td><td>S1 robustness diagnostics, S1b CQR backend sensitivity, and S2 post-selection diagnostics</td><td><code>method_selection_robustness_audit; cqr_fixed_vs_model_matched_synthesis</code></td><td>No study-wide method choice, global best method, or deployment rule.</td></tr>
 <tr><td>Venn-Abers bridge negative evidence</td><td>S2 bridge validation slice and S6 traceability</td><td><code>dataset_final_gate_post_selection_validation_bridge_results</code></td><td>No validated Venn-Abers regression interval claim.</td></tr>
 <tr><td>Bounded-support validity</td><td>S3 bounded-support endpoint policy</td><td><code>bounded_support_endpoint_closure_audit</code></td><td>No endpoint or bounded-support validity claim.</td></tr>
 <tr><td>Population-level group inference</td><td>S4 group diagnostics</td><td><code>group inference_population_readiness_audit</code></td><td>No population-level group inference claim.</td></tr>
@@ -63,7 +64,7 @@
 <table><caption>Supplement reading protocol</caption>
 <thead><tr><th scope="col">Section</th><th scope="col">Reviewer check</th><th scope="col">Evidence metric</th><th scope="col">Allowed use</th><th scope="col">Beyond this study use</th></tr></thead>
 <tbody>
-<tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates.</td><td>CQR final-selection and universal-deployment readings require separate validation.</td></tr>
+<tr><td>S1</td><td>Check whether the method-selection signal is robust enough to describe, but not promote.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Report the fixed-GBM CQR pipeline as the largest selected-cell signal, with Mondrian and CV+ as secondary candidates under the current coverage gate.</td><td>CQR final-selection and universal-deployment readings require separate validation.</td></tr>
 <tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>The check is backend-sensitivity evidence for the CQR pipeline signal.</td></tr>
 <tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>Do not upgrade the slice into study-wide method choice or validated Venn-Abers regression intervals.</td></tr>
 <tr><td>S3</td><td>Check whether bounded-support endpoint behavior authorizes a validity claim.</td><td>0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles.</td><td>Report endpoint policy closure and retained domain caveats.</td><td>Bounded-support and endpoint-validity claims require separate validation.</td></tr>

@@ -43,6 +43,9 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("KG", "browser", "accepted"),
         ("Current", "release", "status"),
         ("Public", "repository", "released"),
+        ("edge", "selector", "provenance", "coverage"),
+        ("Edge", "selector", "provenance", "coverage"),
+        ("Claim-edge", "selector", "provenance", "coverage"),
         ("reader", "review", "package"),
         ("reader" + "-safe",),
         ("Reader" + "-safe", "statement"),
@@ -1222,9 +1225,9 @@ def test_public_pdfs_include_scholarly_metadata() -> None:
 def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
     root = repo_root()
     headline = (
-        "Within this retrospective and imbalanced experiment surface, the fixed-GBM "
-        "CQR pipeline was selected most often under the coverage-gated interval-score "
-        "rule; Mondrian calibration and CV+ were secondary practical candidates."
+        "Under the current coverage gate, the fixed-GBM CQR pipeline was most "
+        "frequently selected; Mondrian calibration and CV+ were secondary candidates. "
+        "These results do not identify a universally superior conformal method."
     )
     pages = [
         root / "README.md",
