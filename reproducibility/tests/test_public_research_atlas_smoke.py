@@ -261,6 +261,8 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     assert all("file_included" in row for row in manifest["artifacts"])
     assert all("represented_in_aggregate" in row for row in manifest["artifacts"])
     assert all("content_hash_verifiable" in row for row in manifest["artifacts"])
+    assert all("public_content_sha256" in row for row in manifest["artifacts"])
+    assert all("source_hash" not in row for row in manifest["artifacts"])
     manifest_text = json.dumps(manifest)
     forbidden_private_builders = [
         "build_private_sterile_publication_package",
@@ -283,6 +285,8 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     raw_public_graph_text = "\n".join(
         [kg_text, index_text, edge_text, artifact_manifest_text]
     ).lower()
+    assert '"source_hash"' not in raw_public_graph_text
+    assert "public_content_sha256" in raw_public_graph_text
     for legacy in ("frontier", "near_nominal", "near nominal", "near-nominal"):
         assert legacy not in raw_public_graph_text
     node_ids = {str(node["id"]) for node in kg["nodes"]}
