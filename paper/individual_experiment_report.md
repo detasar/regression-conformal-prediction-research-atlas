@@ -9,7 +9,7 @@ This report summarizes the audited regression conformal prediction experiment an
 
 This regression conformal prediction study evaluated a broad set of audited experiment rows: 145,839 completed rows after accounting controls. The method synthesis covers 67 datasets, 95 dataset-alpha cells, 5 alpha levels, 28 conformal-method labels, and 148 source reports.
 
-The main empirical pattern is descriptive: CQR has the largest current coverage-gated selected-cell share in the audited synthesis, but the final-selection claim remains beyond this study. CQR appears on 56 coverage-gated selected cells, compared with 15 for Mondrian absolute-residual calibration and 13 for CV+. The robustness audit also retains CQR under common-cell, leave-one-dataset, leave-one-alpha, and bootstrap views; this is diagnostic robustness evidence, diagnostic evidence rather than a study-wide method-selection claim.
+The main empirical pattern is descriptive: CQR has the largest current coverage-gated selected-cell share in the audited synthesis. A study-wide method-choice conclusion would need prospective validation. CQR appears on 56 coverage-gated selected cells, compared with 15 for Mondrian absolute-residual calibration and 13 for CV+. The robustness audit also retains CQR under common-cell, leave-one-dataset, leave-one-alpha, and bootstrap views; this is diagnostic robustness evidence rather than a study-wide method-choice conclusion.
 
 The Venn-Abers regression bridge is not validated as an interval method in the current evidence. The negative disposition audit records 14 undercoverage runs, and the grid failure decomposition reports 6,001 scored grid-reference rows with an upper-boundary hit pattern. This supports reporting Venn-Abers as negative/failure-mode evidence for this bridge.
 
@@ -35,7 +35,7 @@ Venn-Abers methods are related but not identical to ordinary split interval conf
 
 ## Method Findings
 
-| Method | Coverage-gated selected cells | Row-weighted coverage mean | Row-weighted nominal hit rate | Row-weighted coverage tolerance pass rate | Claim status |
+| Method | Coverage-gated selected cells | Row-weighted coverage mean | Row-weighted nominal hit rate | Row-weighted tolerance hit rate | Interpretation |
 |---|---:|---:|---:|---:|---|
 | CQR | 56 | 0.9059 | 0.6118 | 0.8076 | descriptive diagnostic only |
 | Mondrian absolute residual | 15 | 0.9073 | 0.6839 | 0.8586 | descriptive diagnostic only |
@@ -54,7 +54,7 @@ After the broad method synthesis, a model-matched CQR rerun checked whether the 
 | Model-matched CQR selected cells | 71 | Coverage-eligible lower interval-score cells |
 | Neither coverage-eligible variant | 37 | Cells where both CQR variants fail the coverage-eligibility rule |
 
-For CQR, the row-weighted coverage mean is 0.9059, with a diagnostic row-weighted band from 0.9050 to 0.9068. The row-weighted absolute coverage error mean is 0.0210. These values support a descriptive statement that CQR has the largest current coverage-gated selected-cell share in this study; they do not support a general deployment rule that all regression conformal prediction users should choose CQR.
+For CQR, the row-weighted coverage mean is 0.9059, with a diagnostic row-weighted band from 0.9050 to 0.9068. The row-weighted absolute coverage error mean is 0.0210. These values support a descriptive statement that CQR has the largest current coverage-gated selected-cell share in this study; they do not support a general rule that all regression conformal prediction users should choose CQR.
 
 ## Selection Robustness Diagnostics
 
@@ -67,24 +67,24 @@ For CQR, the row-weighted coverage mean is 0.9059, with a diagnostic row-weighte
 | Bootstrap CQR selections | 1,000 | `method_selection_robustness_audit.json` |
 | Leave-one-dataset CQR retention rate | 1.0000 | `method_selection_robustness_audit.json` |
 | Leave-one-alpha CQR retention rate | 1.0000 | `method_selection_robustness_audit.json` |
-| Final-selection claim status | `beyond this study` | `method_selection_robustness_audit.json` |
+| Study-wide method-choice support | requires prospective validation | `method_selection_robustness_audit.json` |
 
-The robustness diagnostics point in the same direction as the coverage-gated selected-cell table: CQR is stable under the current diagnostic protocol. The correct interpretation is still cautious. The audit explicitly keeps the final-selection claim beyond this study.
+The robustness diagnostics point in the same direction as the coverage-gated selected-cell table: CQR is stable under the current diagnostic protocol. The correct interpretation is still cautious. A study-wide method-choice conclusion would need prospective validation.
 
-## Negative And Beyond this study Claims
+## Negative And Separately Validated Readings
 
 | Claim area | Observed evidence | Current claim state |
 |---|---|---|
 | Venn-Abers bridge | 14 undercoverage runs; quantile bridge coverage mean 0.6503; max run grid upper-hit rate 0.1803 | negative/failure-mode evidence, no validated regression interval claim |
 | Bounded support | 11 raw endpoint-excursion bundles; 0 validity-ready bundles | no bounded-support validity claim |
 | Group inference | 15 diagnostic group bundles; 0 population-inference-ready bundles | group diagnostics only, no population-level group inference claim |
-| Positive method selection | 0 stronger claim-ready gates | beyond this study |
+| Study-wide method choice | 0 ready evidence bundles | requires prospective validation |
 
 ## Traceability
 
 The current knowledge graph snapshot contains 3,643 nodes and 21,019 edges, with 0 isolated nodes and 0 quality issues in the latest quality summary. The graph is an evidence map for navigating the experiment and checking how findings connect to source reports.
 
-The Research Atlas records the experiment scope, article and supplement outputs, and evidence-map links for inspection. Further conclusions should remain tied to the evidence shown here.
+The current evidence keeps deployment, endpoint-validity, and population-inference readings separate from the descriptive experiment result. The Research Atlas package carries the public article, supplement, evidence map, and reproducibility metadata.
 
 ## Evidence Sources
 
@@ -97,7 +97,7 @@ The Research Atlas records the experiment scope, article and supplement outputs,
 - `bounded_support_endpoint_closure_audit`: `study/reports/methodology_sanity_audit_20260627/bounded_support_endpoint_closure_audit.json`
 - `group_inference_population_readiness_audit`: `study/reports/methodology_sanity_audit_20260627/group_inference_population_readiness_audit.json`
 - `goal_completion_audit`: `study/research_document/goal_completion_audit.json`
-- `publication_release_gap_register`: `study/research_document/publication_release_gap_register.json`
+- `publication_scope_register`: `study/research_document/publication_scope_register.json`
 - `knowledge_graph_quality_summary`: `study/reports/knowledge_graph_quality/quality_summary.json`
 - `publication_citation_registry`: `study/research_document/publication_citation_registry.json`
 - `reader_primer_section_alignment`: `study/research_document/reader_primer_section_alignment.json`

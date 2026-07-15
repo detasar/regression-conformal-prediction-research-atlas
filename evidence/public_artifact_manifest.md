@@ -5,7 +5,7 @@ This manifest resolves every knowledge-graph source/evidence path used by the Re
 - Strategy: `manifest_plus_summary_not_full_artifact_dump`
 - KG referenced artifacts: 1873
 - File-included artifacts: 1
-- Aggregate-represented artifacts: 1859
+- Aggregate-represented artifacts: 1865
 - Content-hash-verifiable artifacts: 1
 - Manifest/summary artifacts: 1872
 
@@ -225,72 +225,72 @@ This manifest resolves every knowledge-graph source/evidence path used by the Re
 | kg_edge_evidence | `experiments/regression/configs/feature_reduction_sensitivity_openml_mtp2_oz1143_selectk100_oz2bin_identity_descriptor_drop.yaml` | included_public_aggregate | false | true | false | 13 |
 | kg_edge_evidence | `experiments/regression/configs/full_literature_sweep.yaml` | included_public_aggregate | false | true | false | 39 |
 | kg_edge_evidence | `experiments/regression/configs/full_literature_sweep_acs_income_log1p.yaml` | included_public_aggregate | false | true | false | 16 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_acs_income_log1p.yaml` | included_public_aggregate | false | true | false | 7 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_chlamydia_count_log1p.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_college_scorecard_earnings_log1p_state_split.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_cps_wages_log1p.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_diabetes_los.yaml` | included_public_aggregate | false | true | false | 7 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_diabetes_los_repeated.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_folktables_acs_poverty_ratio_wy.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_folktables_acs_travel_time_wy.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_hmda_interest_rate.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_hmda_interest_rate_county_repeated.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_hmda_interest_rate_lender_repeated.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_hmda_interest_rate_lender_split.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_lawschool.yaml` | included_public_aggregate | false | true | false | 7 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_lawschool_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_meps_total_expenditure_log1p_varstr_split.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_nhanes_bmi.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_nhanes_glycohemoglobin.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_nhanes_systolic_bp.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_auto_price_symboling_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_baseball_hitter_salary_league_log1p_identifier_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_baseball_pitcher_salary_league_log1p_identifier_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_baseball_team_salary_league_log1p_team_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_basketball_points_agebin_identity_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_bodyfat_age_density_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_california_housing_ocean_proxy.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_cholesterol_sex_log1p_age_diagnosis_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_disclosure_x_bias_age_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_disclosure_x_noise_age_signed_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_disclosure_x_tampered_age_signed_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_disclosure_z_age_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_faculty_salaries_cic_identity_leakage_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_fishcatch_weight_species_log1p_sex_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_galapagos_area_log1p_native_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_gascons_income_ordered.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_hiroshima_rate_dose_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_house_16h_price_p14p9_log1p_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_hutsof99_quality_gender_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_icu_loc_sex_identity_age_race_status_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_kin8nm_y_theta3_identity_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_mba_grade_sex_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_mercury_bass_age_log1p_mercury_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_newton_hema_cells_weeks_identity_id_grouped_sample_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_plasma_retinol_sex_log1p_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_runshoes_male_log1p_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_sensory_score_method_judges_grouped.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_seropositive_age_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_sleuth_case1202_experience_fsex_log1p_age_salary_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_sleuth_ex1714_invol_racebin_identity_zip_race_vol_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_smsa_nox_nonwhite_income_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_socmob_sons_occupation_race_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_space_ga_income_xcoord_group_split.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_openml_vehicle_count_gender_log1p_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_oulad_assessment_score_student_split.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_pisa_2022_math_pv_mean_school_split.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_scf_networth_signed_log1p_family_split.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_stackoverflow_compensation.yaml` | included_public_aggregate | false | true | false | 8 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_stackoverflow_compensation_repeated.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_uci_auto_mpg_origin_identity.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_uci_bike_sharing_day_ordered.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_uci_communities_crime_ecological.yaml` | included_public_aggregate | false | true | false | 9 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_uci_student_performance_prior_grade_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
-| kg_edge_evidence | `experiments/regression/configs/group inference_smoke_uci_wine_quality_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_acs_income_log1p.yaml` | included_public_aggregate | false | true | false | 7 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_chlamydia_count_log1p.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_college_scorecard_earnings_log1p_state_split.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_cps_wages_log1p.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_diabetes_los.yaml` | included_public_aggregate | false | true | false | 7 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_diabetes_los_repeated.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_folktables_acs_poverty_ratio_wy.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_folktables_acs_travel_time_wy.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_hmda_interest_rate.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_hmda_interest_rate_county_repeated.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_hmda_interest_rate_lender_repeated.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_hmda_interest_rate_lender_split.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_lawschool.yaml` | included_public_aggregate | false | true | false | 7 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_lawschool_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_meps_total_expenditure_log1p_varstr_split.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_nhanes_bmi.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_nhanes_glycohemoglobin.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_nhanes_systolic_bp.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_auto_price_symboling_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_baseball_hitter_salary_league_log1p_identifier_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_baseball_pitcher_salary_league_log1p_identifier_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_baseball_team_salary_league_log1p_team_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_basketball_points_agebin_identity_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_bodyfat_age_density_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_california_housing_ocean_proxy.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_cholesterol_sex_log1p_age_diagnosis_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_delta_elevators_se_climbrate_identity_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_disclosure_x_bias_age_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_disclosure_x_noise_age_signed_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_disclosure_x_tampered_age_signed_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_disclosure_z_age_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_faculty_salaries_cic_identity_leakage_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_fishcatch_weight_species_log1p_sex_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_galapagos_area_log1p_native_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_gascons_income_ordered.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_gsssexsurvey_aidsknow_male_identity_sensitive_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_hiroshima_rate_dose_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_house_16h_price_p14p9_log1p_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_hutsof99_quality_gender_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_icu_loc_sex_identity_age_race_status_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_kin8nm_y_theta3_identity_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_mba_grade_sex_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_mercury_bass_age_log1p_mercury_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_newton_hema_cells_weeks_identity_id_grouped_sample_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_plasma_retinol_sex_log1p_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_runshoes_male_log1p_proxy_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_sensory_score_method_judges_grouped.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_seropositive_age_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_sleuth_case1201_rank_incomebin_identity_income_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_sleuth_case1202_experience_fsex_log1p_age_salary_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_sleuth_ex1714_invol_racebin_identity_zip_race_vol_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_smsa_nox_nonwhite_income_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_socmob_sons_occupation_race_log1p.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_space_ga_income_xcoord_group_split.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_openml_vehicle_count_gender_log1p_age_drop.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_oulad_assessment_score_student_split.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_pisa_2022_math_pv_mean_school_split.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_scf_networth_signed_log1p_family_split.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_stackoverflow_compensation.yaml` | included_public_aggregate | false | true | false | 8 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_stackoverflow_compensation_repeated.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_uci_auto_mpg_origin_identity.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_uci_bike_sharing_day_ordered.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_uci_communities_crime_ecological.yaml` | included_public_aggregate | false | true | false | 9 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_uci_student_performance_prior_grade_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
+| kg_edge_evidence | `experiments/regression/configs/group_inference_smoke_uci_wine_quality_duplicate_sensitivity.yaml` | included_public_aggregate | false | true | false | 10 |
 | kg_edge_evidence | `experiments/regression/configs/jackknife_after_bootstrap_smoke.yaml` | included_public_aggregate | false | true | false | 7 |
 | kg_edge_evidence | `experiments/regression/configs/main_result_candidate_bundle_nhanes_2017_2018_bmi.yaml` | included_public_aggregate | false | true | false | 6 |
 | kg_edge_evidence | `experiments/regression/configs/main_result_candidate_bundle_nhanes_2017_2018_glycohemoglobin.yaml` | included_public_aggregate | false | true | false | 6 |
@@ -374,7 +374,7 @@ This manifest resolves every knowledge-graph source/evidence path used by the Re
 | kg_edge_evidence | `experiments/regression/configs/plus_minmax_smoke.yaml` | included_public_aggregate | false | true | false | 7 |
 | kg_edge_evidence | `experiments/regression/configs/split_tail_smoke_cps_wages.yaml` | included_public_aggregate | false | true | false | 8 |
 | kg_edge_evidence | `experiments/regression/configs/venn_abers_biomarker_clinical_panel_diagnostic.yaml` | included_public_aggregate | false | true | false | 13 |
-| kg_edge_evidence | `experiments/regression/configs/venn_abers_group inference_panel_diagnostic.yaml` | included_public_aggregate | false | true | false | 13 |
+| kg_edge_evidence | `experiments/regression/configs/venn_abers_group_inference_panel_diagnostic.yaml` | included_public_aggregate | false | true | false | 13 |
 | kg_edge_evidence | `experiments/regression/configs/venn_abers_real_data_diagnostic.yaml` | included_public_aggregate | false | true | false | 12 |
 | kg_edge_evidence | `experiments/regression/configs/venn_abers_split_fallback_smoke_uci_student_no_prior.yaml` | included_public_aggregate | false | true | false | 8 |
 | kg_edge_evidence | `experiments/regression/configs/weighted_covariate_shift_smoke.yaml` | included_public_aggregate | false | true | false | 5 |
@@ -386,17 +386,12 @@ This manifest resolves every knowledge-graph source/evidence path used by the Re
 | kg_edge_evidence | `experiments/regression/method_specs/covariate_shift_regression.md` | included_public_aggregate | false | true | false | 1 |
 | kg_edge_evidence | `experiments/regression/method_specs/distributional_and_full_conformal_regression.md` | included_public_aggregate | false | true | false | 5 |
 | kg_edge_evidence | `experiments/regression/method_specs/plus_family_regression.md` | included_public_aggregate | false | true | false | 7 |
-| kg_edge_evidence | `experiments/regression/method_specs/risk_control_and_boundary_methods.md` | included_public_aggregate | false | true | false | 2 |
+| kg_edge_evidence | `experiments/regression/method_specs/risk_control_and_scope_methods.md` | included_public_aggregate | false | true | false | 2 |
 | kg_edge_evidence | `experiments/regression/method_specs/split_and_cqr_regression.md` | included_public_aggregate | false | true | false | 20 |
 | kg_edge_evidence | `experiments/regression/method_specs/tail_specific_split_regression.md` | included_public_aggregate | false | true | false | 4 |
 | kg_edge_evidence | `experiments/regression/method_specs/venn_abers_regression.md` | included_public_aggregate | false | true | false | 6 |
 | kg_edge_evidence | `experiments/regression/policies/data_policy_registry.md` | included_public_aggregate | false | true | false | 98 |
 | kg_edge_evidence | `experiments/regression/runs/run_registry.md` | included_public_aggregate | false | true | false | 1 |
-| kg_edge_evidence | `study/catalogs/Research Document_bundle_index.json` | included_public_hash_receipt | false | true | false | 15 |
-| kg_edge_evidence | `study/catalogs/Research Document_bundle_index.md` | included_public_hash_receipt | false | true | false | 1 |
-| kg_edge_evidence | `study/catalogs/Research Document_claim_register.json` | included_public_hash_receipt | false | true | false | 562 |
-| kg_edge_evidence | `study/catalogs/Research Document_claim_register.md` | included_public_hash_receipt | false | true | false | 1 |
-| kg_edge_evidence | `study/catalogs/Research Document_evidence_manifest_schema.json` | included_public_hash_receipt | false | true | false | 1 |
 | kg_edge_evidence | `study/catalogs/audit_index.json` | included_public_hash_receipt | false | true | false | 8 |
 | kg_edge_evidence | `study/catalogs/dataset_candidates.jsonl` | included_public_hash_receipt | false | true | false | 335 |
 | kg_edge_evidence | `study/catalogs/external_source_discovery_watchlist.json` | excluded_nonredistributable_data | false | false | false | 4 |
@@ -407,6 +402,11 @@ This manifest resolves every knowledge-graph source/evidence path used by the Re
 | kg_edge_evidence | `study/catalogs/openml_ranked_candidates.jsonl` | included_public_hash_receipt | false | true | false | 1 |
 | kg_edge_evidence | `study/catalogs/openml_ranked_candidates.md` | included_public_hash_receipt | false | true | false | 1 |
 | kg_edge_evidence | `study/catalogs/openml_review_decisions.jsonl` | included_public_hash_receipt | false | true | false | 83 |
+| kg_edge_evidence | `study/catalogs/research_document_bundle_index.json` | included_public_hash_receipt | false | true | false | 15 |
+| kg_edge_evidence | `study/catalogs/research_document_bundle_index.md` | included_public_hash_receipt | false | true | false | 1 |
+| kg_edge_evidence | `study/catalogs/research_document_claim_register.json` | included_public_hash_receipt | false | true | false | 562 |
+| kg_edge_evidence | `study/catalogs/research_document_claim_register.md` | included_public_hash_receipt | false | true | false | 1 |
+| kg_edge_evidence | `study/catalogs/research_document_evidence_manifest_schema.json` | included_public_hash_receipt | false | true | false | 1 |
 | kg_edge_evidence | `study/catalogs/target_domain_provenance.json` | included_public_hash_receipt | false | true | false | 11 |
 | kg_edge_evidence | `study/reports/benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop/feature_leakage_audit.json` | included_public_aggregate | false | true | false | 3 |
 | kg_edge_evidence | `study/reports/benchmark_smoke_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop/pilot_summary.json` | included_public_aggregate | false | true | false | 17 |

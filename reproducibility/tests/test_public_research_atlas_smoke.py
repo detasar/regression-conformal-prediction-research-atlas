@@ -1487,6 +1487,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         root / "site/kg_browser.html",
         root / "site/kg_browser_index.json",
         root / "site/kg_browser_data.json",
+        root / "site/kg_browser_edges.json",
         root / "paper/research_document.md",
         root / "paper/research_document.html",
         root / "paper/individual_experiment_report.md",
@@ -1556,6 +1557,11 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("not", "a", "Research", "Atlas"),
         phrase("not", "a", "deployment", "guidance"),
         phrase("public", "research", "report"),
+        "sterile",
+        "release-cut",
+        "release_gap",
+        "blocker",
+        "final method-selection claims",
     ]
     violations = []
     for path in paths:

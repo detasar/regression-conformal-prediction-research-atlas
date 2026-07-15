@@ -1,6 +1,6 @@
 {
   "completed_rows": 145839,
-  "generated_at_utc": "2026-07-15T21:01:12.863520+00:00",
+  "generated_at_utc": "2026-07-15T22:21:19.712640+00:00",
   "hash_receipt_count": 275,
   "kg_edge_count": 21019,
   "kg_node_count": 3643,
@@ -20,7 +20,7 @@
     {
       "anchor_count": 6,
       "route_id": "cqr_cvplus_signal",
-      "title": "CQR / CV+ Practical Signal"
+      "title": "CQR / Mondrian / CV+ Practical Signal"
     },
     {
       "anchor_count": 6,
@@ -33,7 +33,7 @@
       "title": "Negative Evidence"
     },
     {
-      "anchor_count": 10,
+      "anchor_count": 8,
       "route_id": "interpretation_limits",
       "title": "Interpretation Limits"
     },
