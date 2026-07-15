@@ -1615,7 +1615,10 @@ def test_public_html_metadata_and_accessibility_basics() -> None:
         assert '<meta name="description"' in text
         assert '<link rel="canonical"' in text
         assert 'type="application/ld+json"' in text
-        assert "skip-link" in text
+        assert '<a class="skip-link" href="#main-content">Skip to main content</a>' in text
+        assert '<main id="main-content"' in text
+        main_tag = text.split('<main id="main-content"', 1)[1].split(">", 1)[0]
+        assert 'tabindex="-1"' in main_tag
         assert ":focus-visible" in text
         assert 'rel="icon"' in text
         table_parser = _TableAccessibilityParser()
