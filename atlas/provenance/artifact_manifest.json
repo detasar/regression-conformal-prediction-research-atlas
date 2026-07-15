@@ -9,7 +9,7 @@
       "public_summary": "Audited source artifact summarized into the public atlas.",
       "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
       "represented_in_aggregate": true,
-      "source_build_sha256_receipt": "591dfa89224bd0c12c6172dc27b332dce30e85c62b3cbf043dfe21e8aa210b21",
+      "source_build_sha256_receipt": "2545ffbc8af0bf20a489353e808f73bba1d6e2bbb855894cb8e9fabee220fe9a",
       "source_reference_fingerprint": "195fdba80b21eb4d"
     },
     {

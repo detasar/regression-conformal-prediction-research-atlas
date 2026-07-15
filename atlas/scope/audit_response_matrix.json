@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-15T11:51:30.776279+00:00",
+  "generated_at_utc": "2026-07-15T12:25:25.470639+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -7,7 +7,7 @@
         "atlas/results/selected_under_coverage_gate_cells.csv",
         "reproducibility/tests/test_public_research_atlas_smoke.py"
       ],
-      "item": "Rename the one-sided coverage gate and selected-cell semantics.",
+      "item": "Rename the one-sided coverage criterion and selected-cell semantics.",
       "priority": "P0",
       "status": "completed"
     },

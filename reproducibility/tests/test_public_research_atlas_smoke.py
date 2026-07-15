@@ -1496,7 +1496,7 @@ def test_public_pdfs_include_scholarly_metadata() -> None:
 def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
     root = repo_root()
     headline = (
-        "Under the current coverage gate, the fixed-GBM CQR pipeline was most "
+        "Under the current coverage criterion, the fixed-GBM CQR pipeline was most "
         "frequently selected; Mondrian calibration and CV+ were secondary candidates. "
         "These results do not identify a universally superior conformal method."
     )

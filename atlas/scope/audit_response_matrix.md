@@ -4,7 +4,7 @@ This matrix records how the Research Atlas responds to the final external audit.
 
 | Priority | Item | Status | Evidence |
 |---|---|---|---|
-| P0 | Rename the one-sided coverage gate and selected-cell semantics. | `completed` | `atlas/results/result_cube_public.csv`<br>`atlas/results/selected_under_coverage_gate_cells.csv`<br>`reproducibility/tests/test_public_research_atlas_smoke.py` |
+| P0 | Rename the one-sided coverage criterion and selected-cell semantics. | `completed` | `atlas/results/result_cube_public.csv`<br>`atlas/results/selected_under_coverage_gate_cells.csv`<br>`reproducibility/tests/test_public_research_atlas_smoke.py` |
 | P0 | Use pipeline-level empirical wording for the CQR signal. | `completed` | `README.md`<br>`paper/research_document.html`<br>`evidence/claim_evidence_matrix.md` |
 | P0 | Keep row-level bands out of headline inferential language. | `completed` | `paper/article.html`<br>`paper/supplement.html`<br>`reproducibility/tests/test_public_research_atlas_smoke.py` |
 | P0 | Publish public rebuild modules, default CLI config resolution, package-data configs, and wheel checks. | `completed` | `reproducibility/experiments/regression/scripts/build_public_research_atlas.py`<br>`reproducibility/experiments/regression/scripts/build_research_atlas_package.py`<br>`reproducibility/experiments/regression/scripts/build_public_release_scope.py`<br>`pyproject.toml`<br>`.github/workflows/public-ci.yml` |
