@@ -56,7 +56,7 @@
     },
     {
       "ci_enforced": false,
-      "command_or_evidence": "not yet enforced in public CI",
+      "command_or_evidence": "pending CI enforcement",
       "gate_id": "lint_type_security",
       "gate_label": "Lint, type, and security gates",
       "remaining_work": "Introduce ruff, mypy/pyright subset, pip-audit, and secret scan gates after public/restricted test split stabilizes.",
@@ -82,7 +82,7 @@
       "status": "implemented"
     }
   ],
-  "generated_at_utc": "2026-07-15T07:12:08.474671+00:00",
+  "generated_at_utc": "2026-07-15T07:32:28.780996+00:00",
   "schema": "regression_cp_public_maintenance_gate_matrix_v1",
   "summary": {
     "ci_enforced_gate_count": 6,

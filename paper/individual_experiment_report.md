@@ -78,9 +78,9 @@ The robustness diagnostics point in the same direction as the coverage-gated sel
 | Group inference | 15 diagnostic group bundles; 0 population-group-inference-ready bundles | group diagnostics only, no population-level group inference claim |
 | Positive method selection | 0 stronger claim-ready gates | beyond this study |
 
-## Traceability And Release State
+## Traceability
 
-The current knowledge graph snapshot contains 3,643 nodes and 21,019 edges, with 0 isolated nodes and 0 quality issues in the latest quality summary. The graph is evidence infrastructure for navigating the experiment; it is not yet the Research Atlas citation target.
+The current knowledge graph snapshot contains 3,643 nodes and 21,019 edges, with 0 isolated nodes and 0 quality issues in the latest quality summary. The graph is an evidence map for navigating the experiment and checking how findings connect to source reports.
 
 The Research Atlas records the experiment scope, article and supplement outputs, and evidence-map links for inspection. Further conclusions should remain tied to the evidence shown here.
 

@@ -242,7 +242,7 @@ The result tables combine several diagnostic quantities. The guide below states 
 | `coverage-gated selected cell` | A dataset-alpha comparison where a method sits on the observed coverage-gated selected comparison set. | Use coverage-gated selected-cell counts as a compact map of practical trade-offs seen in the study. | A coverage-gated selected-cell count is descriptive evidence, a descriptive selection or general deployment rule. |
 | `coverage tolerance pass rate` | The share of comparison cells where empirical coverage is close to the target `1 - alpha` level. | Use it to separate approximate calibration behavior from raw coverage averages. | Coverage tolerance behavior remains scoped to the audited cells. |
 | `undercoverage run` | A run where empirical coverage falls below the target coverage level by the audit rule. | Use it as failure-mode evidence, especially for methods or bridges that do not close validation gates. | It is bridge- or run-specific evidence, not a rejection of a whole research literature. |
-| `evidence limit` | An explicit record that the current evidence cannot support a stronger claim. | Use evidence limits as results: they identify which stronger readings require separate evidence. | Evidence limits can be revised only by later evidence and the published evidence scope, not by prose. |
+| `evidence limit` | A recorded limit on the strongest conclusion supported by the current evidence. | Use evidence limits as part of the result: they identify which broader readings need separate validation. | Evidence limits can change only when new evidence changes the study record. |
 
 ### Evidence-To-Claim Interpretation Ladder
 
@@ -256,7 +256,7 @@ The ladder below connects each result type to the strongest claim it can support
 | Robustness retention | Bootstrap and leave-one diagnostics test whether the practical candidate pattern is fragile. | Bootstrap selection counts are cqr=1,000; leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. | Robustness retention cannot open study-wide method choice or deployment guidance gates. | Use robustness as support for cautious wording, not for a final selection sentence. |
 | CQR backend sensitivity | The model-matched rerun tests whether the fixed-GBM CQR signal was only a backend artifact. | 4,564 model-matched CQR rows, 224 paired cells, selected cells fixed-GBM CQR=116, model-matched CQR=71, neither=37. | It cannot promote CQR from experiment-scoped practical signal to universal method-selection or deployment guidance. | Read the check as backend-confound evidence and keep the final claim descriptive. |
 | Negative bridge evidence | Undercoverage and a unvalidated-regression flag support a narrow failure-mode reading for the evaluated bridge. | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | It cannot reject predictive-distribution or generalized Venn-Abers research. | Report the bridge result as negative evidence exactly at the evaluated bridge scope. |
-| Evidence limits | Evidence limits identify claims that the current evidence is not allowed to make. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0; KG citable component in scope `False`. | Evidence limits cannot be reopened by optimistic prose, README wording, or site polish. | Treat evidence limits as scientific results and study scope. |
+| Evidence limits | Evidence limits identify broader readings that need separate validation before they are used as conclusions. | Bounded-support-validity-ready bundles 0; population-group-inference-ready bundles 0; the KG is available as an evidence map for source inspection. | A polished site, README, or evidence map cannot by itself turn a broader reading into an empirical conclusion. | Treat evidence limits as part of the study scope. |
 
 ### Claim Language Guardrails
 
@@ -293,11 +293,11 @@ The Venn-Abers result is intentionally narrow. The evaluated bridge has quantile
 
 ## 5. Knowledge Graph And Reproducibility
 
-The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes. Average edge confidence is 0.9917, and manifest reference resolution rate is 1.0000. In the Research Atlas package, the KG browser exposes 3,643 nodes, 21,019 edges, 39 node types, and 58 relation types. The browser is intended to let reviewers move from claims to source reports, tables, scripts, and quality gates. It is not yet a public citable component; public citation waits for article, supplement, site, README, and publication QA.
+The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes. Average edge confidence is 0.9917, and manifest reference resolution rate is 1.0000. In the Research Atlas package, the KG browser exposes 3,643 nodes, 21,019 edges, 39 node types, and 58 relation types. The browser lets readers move from claims to source reports, tables, scripts, and quality checks.
 
 ## 6. How To Read The Artifact Set
 
-The review order is deliberately simple. Read this Research Document first, then inspect the rendered main article and broad supplement, then use the individual experiment report for the author-stamped experiment summary. The KG browser should be used when a reader wants to trace a claim to reports, source artifacts, scripts, or quality gates. Governance files should be checked before any publication decision because they encode the stronger claims requiring validation.
+The review order is deliberately simple. Read this Research Document first, then inspect the rendered main article and broad supplement, then use the individual experiment report for the author-stamped experiment summary. The KG browser should be used when a reader wants to trace a claim to reports, source artifacts, scripts, or quality checks. Governance files record which broader readings need separate validation.
 
 | Artifact | Role | Study scope |
 |---|---|---|
@@ -315,9 +315,9 @@ This document is intentionally strict about which broader readings require separ
 - The fixed-GBM CQR pipeline is described as the largest selected-cell signal; Mondrian and CV+ are secondary candidates in this experiment.
 - The model-matched CQR rerun is reported as backend-sensitivity evidence.
 - The evaluated Venn-Abers regression bridge is described as negative/failure-mode evidence.
-- Positive group inference, bounded-support validity, validated Venn-Abers regression, production, and best-method claims remain beyond this study.
-- The KG is a browsable supplementary traceability layer for source inspection.
-- No new experiments are established or required for this document.
+- Population-level group inference, bounded-support validity, validated Venn-Abers regression, production, and best-method readings require separate validation.
+- The KG is an evidence map for source inspection.
+- No new experiments are introduced by this document.
 - Publication-package design examples are used only to improve navigation and source traceability.
 
 ## References
