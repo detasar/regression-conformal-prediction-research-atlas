@@ -25,6 +25,12 @@ Turn the Benchmark v2 design requirements into a runnable contract before any ne
 5. Regime-specific analyses are aggregated separately before any cross-regime summary.
 6. The primary utility rule and sensitivity rules are frozen before execution starts.
 
+## Preprocessing Contract
+
+- Policy ID: `benchmark_v2_fold_local_preprocessing_v1`
+- Runner flag: `conformal.plus_fold_local_preprocessing=true`
+- Fold-local steps: imputation, scaling, target capping or transformation parameters, supervised feature selection, unsupervised dimensionality reduction, categorical encoding learned from the training fold
+
 ## Analysis Plan
 
 - Primary summary unit: `source_dataset_id`

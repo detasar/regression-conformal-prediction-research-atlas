@@ -17,7 +17,7 @@ import subprocess
 import tempfile
 import time
 import traceback
-from dataclasses import asdict, dataclass
+from dataclasses import asdict, dataclass, replace
 from pathlib import Path
 from typing import Any, Dict, Iterable, Iterator, List, Tuple
 from urllib.request import urlopen
@@ -813,6 +813,8 @@ class PredictionBundle:
     scale_test: np.ndarray
     target_transform: str
     preprocessed_feature_names: List[str]
+    X_train_raw: pd.DataFrame | None = None
+    X_test_raw: pd.DataFrame | None = None
 
     @property
     def artifact_paths(self) -> Dict[str, str]:
@@ -2008,6 +2010,8 @@ def load_prediction_bundle(cache_root: Path, artifact_id: str) -> PredictionBund
             preprocessed_feature_names=[
                 str(name) for name in metadata.get("preprocessed_feature_names", [])
             ],
+            X_train_raw=None,
+            X_test_raw=None,
         )
 
 
@@ -2816,10 +2820,60 @@ def fold_local_feature_reducer_available(
     )
 
 
+def plus_fold_local_preprocessing_enabled(config: Dict | None) -> bool:
+    """Return whether plus-family methods should refit preprocessing per fold."""
+
+    if not isinstance(config, dict):
+        return False
+    conformal = config.get("conformal", {})
+    if not isinstance(conformal, dict):
+        return False
+    return bool(conformal.get("plus_fold_local_preprocessing", False))
+
+
+def fold_local_preprocessing_available(
+    X_train_raw: pd.DataFrame | None,
+    X_test_raw: pd.DataFrame | None,
+    config: Dict | None,
+) -> bool:
+    """Return whether raw feature frames are available for fold-local preprocessing."""
+
+    return (
+        plus_fold_local_preprocessing_enabled(config)
+        and isinstance(X_train_raw, pd.DataFrame)
+        and isinstance(X_test_raw, pd.DataFrame)
+    )
+
+
+def plus_feature_reducer_fold_local_applied(
+    X_train_pre_feature_reducer: np.ndarray | None,
+    X_test_pre_feature_reducer: np.ndarray | None,
+    X_train_raw: pd.DataFrame | None,
+    X_test_raw: pd.DataFrame | None,
+    preprocessed_feature_names: List[str] | None,
+    config: Dict | None,
+) -> bool:
+    """Return whether a configured feature reducer is refit inside plus folds."""
+
+    if feature_reducer_config(config)["method"] in {"none", ""}:
+        return False
+    return fold_local_preprocessing_available(
+        X_train_raw,
+        X_test_raw,
+        config,
+    ) or fold_local_feature_reducer_available(
+        X_train_pre_feature_reducer,
+        X_test_pre_feature_reducer,
+        preprocessed_feature_names,
+        config,
+    )
+
+
 def plus_fold_feature_reducer_metadata(
     *,
     applied: bool,
     config: Dict | None,
+    preprocessing_applied: bool = False,
 ) -> Dict[str, Any]:
     reducer = feature_reducer_config(config)
     reducer_method = reducer["method"]
@@ -2831,14 +2885,22 @@ def plus_fold_feature_reducer_metadata(
     else:
         reducer_label_scope = "not_applicable_unsupervised_or_none"
     base = {
-        "plus_preprocessing_fit_scope": "prediction_bundle_outer_train",
-        "plus_preprocessing_fold_local": False,
+        "plus_preprocessing_fit_scope": (
+            "internal_resampling_fit_fold_only"
+            if preprocessing_applied
+            else "prediction_bundle_outer_train"
+        ),
+        "plus_preprocessing_fold_local": bool(preprocessing_applied),
         "plus_preprocessing_label_access": "none",
         "plus_preprocessing_note": (
-            "The prediction-bundle preprocessor is unsupervised and fitted once "
-            "on the outer training split. Benchmark v2 requires fully fold-local "
-            "preprocessing, encoding, dimensionality reduction, and supervised "
-            "feature selection for confirmatory plus-family comparisons."
+            "The preprocessor is refit inside each CV+/jackknife fit fold."
+            if preprocessing_applied
+            else (
+                "The prediction-bundle preprocessor is unsupervised and fitted once "
+                "on the outer training split. Benchmark v2 requires fully fold-local "
+                "preprocessing, encoding, dimensionality reduction, and supervised "
+                "feature selection for confirmatory plus-family comparisons."
+            )
         ),
         "plus_feature_reducer_method": reducer_method,
         "plus_feature_reducer_uses_labels": reducer_uses_labels,
@@ -2874,10 +2936,35 @@ def fold_local_resampling_matrices(
     seed: int,
     X_train_pre_feature_reducer: np.ndarray | None = None,
     X_test_pre_feature_reducer: np.ndarray | None = None,
+    X_train_raw: pd.DataFrame | None = None,
+    X_test_raw: pd.DataFrame | None = None,
     preprocessed_feature_names: List[str] | None = None,
     config: Dict | None = None,
-) -> Tuple[np.ndarray, np.ndarray, np.ndarray, bool]:
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, bool, bool]:
     """Return fold-local train, heldout, and test matrices for plus-family methods."""
+
+    if fold_local_preprocessing_available(X_train_raw, X_test_raw, config):
+        preprocessor = fit_preprocessing(
+            X_train_raw.iloc[fit_idx].copy(),
+            PreprocessingConfig(),
+        )
+        X_fit_p = apply_preprocessing(X_train_raw.iloc[fit_idx].copy(), preprocessor)
+        X_heldout_p = apply_preprocessing(
+            X_train_raw.iloc[heldout_idx].copy(), preprocessor
+        )
+        X_test_p = apply_preprocessing(X_test_raw.copy(), preprocessor)
+        feature_names = list(X_fit_p.columns)
+        X_fit, X_heldout, X_test_fold, _, _ = apply_feature_reducer(
+            X_fit_p.to_numpy(dtype=float),
+            y_train[fit_idx],
+            X_heldout_p.to_numpy(dtype=float),
+            X_test_p.to_numpy(dtype=float),
+            feature_names,
+            config or {},
+            seed,
+        )
+        reducer_applied = feature_reducer_config(config)["method"] not in {"none", ""}
+        return X_fit, X_heldout, X_test_fold, reducer_applied, True
 
     if not fold_local_feature_reducer_available(
         X_train_pre_feature_reducer,
@@ -2885,7 +2972,7 @@ def fold_local_resampling_matrices(
         preprocessed_feature_names,
         config,
     ):
-        return X_train[fit_idx], X_train[heldout_idx], X_test, False
+        return X_train[fit_idx], X_train[heldout_idx], X_test, False, False
 
     X_fit, X_heldout, X_test_fold, _, _ = apply_feature_reducer(
         X_train_pre_feature_reducer[fit_idx],
@@ -2896,7 +2983,7 @@ def fold_local_resampling_matrices(
         config,
         seed,
     )
-    return X_fit, X_heldout, X_test_fold, True
+    return X_fit, X_heldout, X_test_fold, True, False
 
 
 def fit_cv_plus_predictions(
@@ -2910,6 +2997,8 @@ def fit_cv_plus_predictions(
     *,
     X_train_pre_feature_reducer: np.ndarray | None = None,
     X_test_pre_feature_reducer: np.ndarray | None = None,
+    X_train_raw: pd.DataFrame | None = None,
+    X_test_raw: pd.DataFrame | None = None,
     preprocessed_feature_names: List[str] | None = None,
     config: Dict | None = None,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
@@ -2929,7 +3018,7 @@ def fit_cv_plus_predictions(
 
     for fold_idx, (fit_idx, heldout_idx) in enumerate(splitter.split(X_train)):
         model = make_model(model_id, model_params, seed + fold_idx)
-        X_fit, X_heldout, X_test_fold, _ = fold_local_resampling_matrices(
+        X_fit, X_heldout, X_test_fold, _, _ = fold_local_resampling_matrices(
             X_train=X_train,
             X_test=X_test,
             y_train=y_train,
@@ -2938,6 +3027,8 @@ def fit_cv_plus_predictions(
             seed=seed + fold_idx,
             X_train_pre_feature_reducer=X_train_pre_feature_reducer,
             X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+            X_train_raw=X_train_raw,
+            X_test_raw=X_test_raw,
             preprocessed_feature_names=preprocessed_feature_names,
             config=config,
         )
@@ -3064,6 +3155,8 @@ def fit_grouped_cv_plus_predictions(
     method_name: str = "cv_plus_grouped",
     X_train_pre_feature_reducer: np.ndarray | None = None,
     X_test_pre_feature_reducer: np.ndarray | None = None,
+    X_train_raw: pd.DataFrame | None = None,
+    X_test_raw: pd.DataFrame | None = None,
     preprocessed_feature_names: List[str] | None = None,
     config: Dict | None = None,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, Dict]:
@@ -3084,10 +3177,11 @@ def fit_grouped_cv_plus_predictions(
     )
     yhat_oof = np.empty(len(y_train), dtype=float)
     yhat_test_by_fold = []
+    preprocessing_applied_any = False
 
     for fold_idx, (fit_idx, heldout_idx) in enumerate(folds):
         model = make_model(model_id, model_params, seed + fold_idx)
-        X_fit, X_heldout, X_test_fold, fold_local_applied = (
+        X_fit, X_heldout, X_test_fold, fold_local_applied, preprocessing_applied = (
             fold_local_resampling_matrices(
                 X_train=X_train,
                 X_test=X_test,
@@ -3097,6 +3191,8 @@ def fit_grouped_cv_plus_predictions(
                 seed=seed + fold_idx,
                 X_train_pre_feature_reducer=X_train_pre_feature_reducer,
                 X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+                X_train_raw=X_train_raw,
+                X_test_raw=X_test_raw,
                 preprocessed_feature_names=preprocessed_feature_names,
                 config=config,
             )
@@ -3107,11 +3203,15 @@ def fit_grouped_cv_plus_predictions(
         metadata["plus_feature_reducer_fold_local"] = bool(
             metadata.get("plus_feature_reducer_fold_local", False) or fold_local_applied
         )
+        preprocessing_applied_any = bool(
+            preprocessing_applied_any or preprocessing_applied
+        )
 
     metadata.update(
         plus_fold_feature_reducer_metadata(
             applied=bool(metadata.get("plus_feature_reducer_fold_local", False)),
             config=config,
+            preprocessing_applied=preprocessing_applied_any,
         )
     )
 
@@ -3129,6 +3229,8 @@ def fit_jackknife_plus_predictions(
     *,
     X_train_pre_feature_reducer: np.ndarray | None = None,
     X_test_pre_feature_reducer: np.ndarray | None = None,
+    X_train_raw: pd.DataFrame | None = None,
+    X_test_raw: pd.DataFrame | None = None,
     preprocessed_feature_names: List[str] | None = None,
     config: Dict | None = None,
 ) -> Tuple[np.ndarray, np.ndarray]:
@@ -3149,7 +3251,7 @@ def fit_jackknife_plus_predictions(
         fit_idx = all_indices != row_idx
         heldout_idx = np.array([row_idx], dtype=int)
         model = make_model(model_id, model_params, seed + row_idx)
-        X_fit, X_heldout, X_test_fold, _ = fold_local_resampling_matrices(
+        X_fit, X_heldout, X_test_fold, _, _ = fold_local_resampling_matrices(
             X_train=X_train,
             X_test=X_test,
             y_train=y_train,
@@ -3158,6 +3260,8 @@ def fit_jackknife_plus_predictions(
             seed=seed + row_idx,
             X_train_pre_feature_reducer=X_train_pre_feature_reducer,
             X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+            X_train_raw=X_train_raw,
+            X_test_raw=X_test_raw,
             preprocessed_feature_names=preprocessed_feature_names,
             config=config,
         )
@@ -3477,8 +3581,6 @@ def fit_or_load_prediction_bundle(
     )
     artifact_id = stable_run_id(payload)
     cached = None if force else load_prediction_bundle(cache_root, artifact_id)
-    if cached is not None:
-        return cached
 
     split_df, effective_split_group_col = add_duplicate_cluster_split_group(
         df,
@@ -3533,6 +3635,12 @@ def fit_or_load_prediction_bundle(
     X_train = train_df.drop(columns=feature_drop)
     X_cal = cal_df.drop(columns=feature_drop)
     X_test = test_df.drop(columns=feature_drop)
+    if cached is not None:
+        return replace(
+            cached,
+            X_train_raw=X_train.copy(),
+            X_test_raw=X_test.copy(),
+        )
     preprocessor = fit_preprocessing(X_train, PreprocessingConfig())
     X_train_p = apply_preprocessing(X_train, preprocessor)
     X_cal_p = apply_preprocessing(X_cal, preprocessor)
@@ -3654,6 +3762,8 @@ def fit_or_load_prediction_bundle(
         scale_test=scale_test,
         target_transform=target_transform,
         preprocessed_feature_names=preprocessed_feature_names,
+        X_train_raw=X_train.copy(),
+        X_test_raw=X_test.copy(),
     )
 
 
@@ -3689,6 +3799,8 @@ def build_interval(
     split_groups_train: np.ndarray | None = None,
     X_train_pre_feature_reducer: np.ndarray | None = None,
     X_test_pre_feature_reducer: np.ndarray | None = None,
+    X_train_raw: pd.DataFrame | None = None,
+    X_test_raw: pd.DataFrame | None = None,
     preprocessed_feature_names: List[str] | None = None,
     feature_reducer_source_config: Dict | None = None,
 ):
@@ -3844,6 +3956,8 @@ def build_interval(
             n_folds=cv_plus_folds,
             X_train_pre_feature_reducer=X_train_pre_feature_reducer,
             X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+            X_train_raw=X_train_raw,
+            X_test_raw=X_test_raw,
             preprocessed_feature_names=preprocessed_feature_names,
             config=feature_reducer_source_config,
         )
@@ -3853,13 +3967,20 @@ def build_interval(
         metadata = {
             **result.metadata,
             **plus_fold_feature_reducer_metadata(
-                applied=fold_local_feature_reducer_available(
+                applied=plus_feature_reducer_fold_local_applied(
                     X_train_pre_feature_reducer,
                     X_test_pre_feature_reducer,
+                    X_train_raw,
+                    X_test_raw,
                     preprocessed_feature_names,
                     feature_reducer_source_config,
                 ),
                 config=feature_reducer_source_config,
+                preprocessing_applied=fold_local_preprocessing_available(
+                    X_train_raw,
+                    X_test_raw,
+                    feature_reducer_source_config,
+                ),
             ),
         }
         return type(result)(
@@ -3885,6 +4006,8 @@ def build_interval(
             n_folds=cv_plus_folds,
             X_train_pre_feature_reducer=X_train_pre_feature_reducer,
             X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+            X_train_raw=X_train_raw,
+            X_test_raw=X_test_raw,
             preprocessed_feature_names=preprocessed_feature_names,
             config=feature_reducer_source_config,
         )
@@ -3894,13 +4017,20 @@ def build_interval(
         metadata = {
             **result.metadata,
             **plus_fold_feature_reducer_metadata(
-                applied=fold_local_feature_reducer_available(
+                applied=plus_feature_reducer_fold_local_applied(
                     X_train_pre_feature_reducer,
                     X_test_pre_feature_reducer,
+                    X_train_raw,
+                    X_test_raw,
                     preprocessed_feature_names,
                     feature_reducer_source_config,
                 ),
                 config=feature_reducer_source_config,
+                preprocessing_applied=fold_local_preprocessing_available(
+                    X_train_raw,
+                    X_test_raw,
+                    feature_reducer_source_config,
+                ),
             ),
         }
         return type(result)(
@@ -3935,6 +4065,8 @@ def build_interval(
                 method_name=cp_method,
                 X_train_pre_feature_reducer=X_train_pre_feature_reducer,
                 X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+                X_train_raw=X_train_raw,
+                X_test_raw=X_test_raw,
                 preprocessed_feature_names=preprocessed_feature_names,
                 config=feature_reducer_source_config,
             )
@@ -3974,6 +4106,8 @@ def build_interval(
             max_train_rows=jackknife_plus_max_train_rows,
             X_train_pre_feature_reducer=X_train_pre_feature_reducer,
             X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+            X_train_raw=X_train_raw,
+            X_test_raw=X_test_raw,
             preprocessed_feature_names=preprocessed_feature_names,
             config=feature_reducer_source_config,
         )
@@ -3981,13 +4115,20 @@ def build_interval(
         metadata = {
             **result.metadata,
             **plus_fold_feature_reducer_metadata(
-                applied=fold_local_feature_reducer_available(
+                applied=plus_feature_reducer_fold_local_applied(
                     X_train_pre_feature_reducer,
                     X_test_pre_feature_reducer,
+                    X_train_raw,
+                    X_test_raw,
                     preprocessed_feature_names,
                     feature_reducer_source_config,
                 ),
                 config=feature_reducer_source_config,
+                preprocessing_applied=fold_local_preprocessing_available(
+                    X_train_raw,
+                    X_test_raw,
+                    feature_reducer_source_config,
+                ),
             ),
         }
         return type(result)(
@@ -4008,6 +4149,8 @@ def build_interval(
             max_train_rows=jackknife_plus_max_train_rows,
             X_train_pre_feature_reducer=X_train_pre_feature_reducer,
             X_test_pre_feature_reducer=X_test_pre_feature_reducer,
+            X_train_raw=X_train_raw,
+            X_test_raw=X_test_raw,
             preprocessed_feature_names=preprocessed_feature_names,
             config=feature_reducer_source_config,
         )
@@ -4015,13 +4158,20 @@ def build_interval(
         metadata = {
             **result.metadata,
             **plus_fold_feature_reducer_metadata(
-                applied=fold_local_feature_reducer_available(
+                applied=plus_feature_reducer_fold_local_applied(
                     X_train_pre_feature_reducer,
                     X_test_pre_feature_reducer,
+                    X_train_raw,
+                    X_test_raw,
                     preprocessed_feature_names,
                     feature_reducer_source_config,
                 ),
                 config=feature_reducer_source_config,
+                preprocessing_applied=fold_local_preprocessing_available(
+                    X_train_raw,
+                    X_test_raw,
+                    feature_reducer_source_config,
+                ),
             ),
         }
         return type(result)(
@@ -4350,6 +4500,8 @@ def run_one(
             split_groups_train=bundle.split_groups_train,
             X_train_pre_feature_reducer=bundle.X_train_pre_feature_reducer,
             X_test_pre_feature_reducer=bundle.X_test_pre_feature_reducer,
+            X_train_raw=bundle.X_train_raw,
+            X_test_raw=bundle.X_test_raw,
             preprocessed_feature_names=bundle.preprocessed_feature_names,
             feature_reducer_source_config=config,
         )
