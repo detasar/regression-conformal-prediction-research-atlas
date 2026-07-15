@@ -117,6 +117,122 @@ tr:last-child td { border-bottom:0; }
     </section>
     
     <section class="callout"><p>Provenance is recorded as public aggregate manifests, source fingerprints, and rebuild notes. The public package uses manifest-plus-summary rather than copying raw ledgers or nonredistributable data.</p></section>
+    <section class="panel" id="provenance-explorer">
+      <h2>Provenance Receipt Explorer</h2>
+      <p class="muted">Inspect source-manifest rows and generated-file hash receipts without treating restricted ledgers or nonredistributable data as public files. The explorer loads <code>hash_receipts.json</code> on demand from this directory and links the complete KG artifact manifest separately.</p>
+      <div class="actions">
+        <a class="button primary" href="artifact_manifest.json">Source artifact manifest</a>
+        <a class="button" href="hash_receipts.json">Hash receipts JSON</a>
+        <a class="button" href="public_rebuild_manifest.json">Rebuild manifest</a>
+        <a class="button" href="public_release_scope.json">Scope receipt</a>
+        <a class="button" href="ro-crate-metadata.json">RO-Crate</a>
+        <a class="button" href="../../evidence/public_artifact_manifest.json">KG artifact manifest</a>
+      </div>
+      <div class="summary-strip" id="provenance-summary" aria-label="Provenance summary"></div>
+      <div class="controls">
+        <label>Source status<select id="provenance-status"><option value="">All statuses</option></select></label>
+        <label>Hash verifiability<select id="provenance-verifiability"><option value="">All rows</option><option value="true">Content hash verifiable</option><option value="false">Manifest/fingerprint only</option></select></label>
+        <label>Source search<input id="provenance-search" type="search" placeholder="source path or artifact id"></label>
+        <label>Receipt search<input id="receipt-search" type="search" placeholder="generated file path"></label>
+      </div>
+      <p class="muted" id="provenance-status-text" role="status" aria-live="polite"></p>
+      <div class="table-wrap" id="source-receipt-table" tabindex="0" aria-label="Filtered source artifact manifest rows"></div>
+      <h3>Generated File Hash Receipts</h3>
+      <p class="muted">These receipts cover public generated files by path, byte size, and SHA-256. They are file-integrity receipts for the public atlas, not raw-ledger disclosure.</p>
+      <p class="muted" id="hash-receipt-status" role="status" aria-live="polite">Loading hash receipts...</p>
+      <div class="table-wrap" id="hash-receipt-table" tabindex="0" aria-label="Generated file hash receipts"></div>
+      <script>
+        const provenanceSources = [{"artifact_id":"research_document","original_path":"experiments/regression/manuscript/research_document.json","public_status":"included_public_aggregate","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"195fdba80b21eb4d","source_build_sha256_receipt":"0ff9da59f1ebfcd2dae30a8768d5fd32eb62bb3c6fa4170ba1765c98a7b2389c","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"},{"artifact_id":"individual_report","original_path":"experiments/regression/manuscript/individual_experiment_report_draft.json","public_status":"included_public_aggregate","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"d153bed36339c2c6","source_build_sha256_receipt":"0c95ec8605e92eb656d84e1b0a19d34a52daf6a7923b7c79254594cf62f9d017","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"},{"artifact_id":"method_performance","original_path":"experiments/regression/reports/methodology_sanity_audit_20260627/method_performance_synthesis.json","public_status":"included_public_aggregate","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"f74abf76b1cccbcf","source_build_sha256_receipt":"3ade1faebd6df3f5a5642be168a6dd14d5d86b260caa640ca6da7c4e013b3c67","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"},{"artifact_id":"experiment_accounting","original_path":"experiments/regression/reports/methodology_sanity_audit_20260627/experiment_accounting_audit.json","public_status":"included_public_aggregate","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"4dc2754fd35f9366","source_build_sha256_receipt":"19b0608a47a25469235b39bb5f7b6ea336acc5855316ab7ab14074317038eac7","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"},{"artifact_id":"claim_matrix","original_path":"experiments/regression/manuscript/publication_claim_evidence_verification_matrix.json","public_status":"included_public_aggregate","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"00b6cf220d5ccbeb","source_build_sha256_receipt":"b99a10cab0dac7681e9c9d934976bcb54a9a2098b322699d9366a3a8fa4efb61","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"},{"artifact_id":"neutral_result_ledger","original_path":"experiments/regression/manuscript/neutral_result_ledger.json","public_status":"included_public_aggregate","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"994c4ca55619c1bd","source_build_sha256_receipt":"44302886a315090027ea4c453d2a8172c0409172bc7c947433211785f2c1b167","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"},{"artifact_id":"cqr_backend_sensitivity","original_path":"experiments/regression/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json","public_status":"included_public_aggregate","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"f2ecc55821048bab","source_build_sha256_receipt":"8d69004af9579d2d973c7c5a058a403365c3f9b2ec1808685d92943538b80fe1","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"},{"artifact_id":"knowledge_graph","original_path":"experiments/regression/catalogs/knowledge_graph.json","public_status":"included_public_hash_receipt","file_included":false,"represented_in_aggregate":true,"content_hash_verifiable":false,"source_reference_fingerprint":"8012e1f25d57759b","source_build_sha256_receipt":"d74b05225b84a2578edca2a8a5e0fc536030ba2bcf80a06f9a4f75c87b40b173","public_summary":"Audited source artifact summarized into the public atlas.","rebuild_command":"python -m experiments.regression.scripts.build_public_research_atlas"}];
+        const provenanceById = id => document.getElementById(id);
+        const provenanceHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+        const provenanceShort = (value, limit=76) => {
+          const text = String(value ?? '');
+          return text.length > limit ? text.slice(0, limit - 1) + '…' : text;
+        };
+        const provenanceTrue = value => value === true || value === 'true';
+        let hashReceiptRows = [];
+        const provenanceStatuses = [...new Set(provenanceSources.map(row => row.public_status).filter(Boolean))].sort();
+        for (const status of provenanceStatuses) {
+          const option = document.createElement('option');
+          option.value = status;
+          option.textContent = status;
+          provenanceById('provenance-status').appendChild(option);
+        }
+        const provenanceParams = new URLSearchParams(window.location.search);
+        if (provenanceParams.get('status') && provenanceStatuses.includes(provenanceParams.get('status'))) provenanceById('provenance-status').value = provenanceParams.get('status');
+        if (provenanceParams.get('verifiable')) provenanceById('provenance-verifiability').value = provenanceParams.get('verifiable');
+        if (provenanceParams.get('source_q')) provenanceById('provenance-search').value = provenanceParams.get('source_q');
+        if (provenanceParams.get('receipt_q')) provenanceById('receipt-search').value = provenanceParams.get('receipt_q');
+        const updateProvenanceUrl = () => {
+          const next = new URLSearchParams();
+          for (const [key, value] of [
+            ['status', provenanceById('provenance-status').value],
+            ['verifiable', provenanceById('provenance-verifiability').value],
+            ['source_q', provenanceById('provenance-search').value.trim()],
+            ['receipt_q', provenanceById('receipt-search').value.trim()],
+          ]) if (value) next.set(key, value);
+          const query = next.toString();
+          window.history.replaceState(null, '', query ? `?${query}#provenance-explorer` : '#provenance-explorer');
+        };
+        const filteredProvenanceSources = () => {
+          const status = provenanceById('provenance-status').value;
+          const verifiable = provenanceById('provenance-verifiability').value;
+          const query = provenanceById('provenance-search').value.toLowerCase().trim();
+          return provenanceSources.filter(row =>
+            (!status || row.public_status === status) &&
+            (!verifiable || String(provenanceTrue(row.content_hash_verifiable)) === verifiable) &&
+            (!query || `${row.artifact_id} ${row.original_path} ${row.public_status}`.toLowerCase().includes(query))
+          );
+        };
+        const filteredHashReceipts = () => {
+          const query = provenanceById('receipt-search').value.toLowerCase().trim();
+          return hashReceiptRows.filter(row => !query || String(row.path || '').toLowerCase().includes(query));
+        };
+        const renderProvenanceSummary = () => {
+          const represented = provenanceSources.filter(row => provenanceTrue(row.represented_in_aggregate)).length;
+          const verifiable = provenanceSources.filter(row => provenanceTrue(row.content_hash_verifiable)).length;
+          const included = provenanceSources.filter(row => provenanceTrue(row.file_included)).length;
+          provenanceById('provenance-summary').innerHTML = [
+            ['Source rows', provenanceSources.length.toLocaleString()],
+            ['Aggregate represented', represented.toLocaleString()],
+            ['Files included', included.toLocaleString()],
+            ['Content-hash verifiable', verifiable.toLocaleString()],
+          ].map(([label, value]) => `<div><b>${provenanceHtml(value)}</b><span>${provenanceHtml(label)}</span></div>`).join('');
+        };
+        const renderProvenanceSources = () => {
+          const rows = filteredProvenanceSources();
+          const shown = rows.slice(0, 80);
+          provenanceById('provenance-status-text').textContent = `Showing ${shown.length.toLocaleString()} of ${rows.length.toLocaleString()} source-manifest rows; ${hashReceiptRows.length.toLocaleString()} generated-file receipts loaded.`;
+          const body = shown.map(row => `<tr><td><code>${provenanceHtml(row.artifact_id)}</code></td><td><code>${provenanceHtml(provenanceShort(row.original_path, 90))}</code></td><td>${provenanceHtml(row.public_status)}</td><td>${provenanceTrue(row.represented_in_aggregate) ? 'yes' : 'no'}</td><td>${provenanceTrue(row.content_hash_verifiable) ? 'yes' : 'no'}</td><td><code>${provenanceHtml(row.source_reference_fingerprint)}</code></td></tr>`).join('');
+          provenanceById('source-receipt-table').innerHTML = `<table><caption>Filtered public source-manifest rows</caption><thead><tr><th scope="col">Artifact</th><th scope="col">Original source reference</th><th scope="col">Public status</th><th scope="col">Aggregate represented</th><th scope="col">Content hash verifiable</th><th scope="col">Reference fingerprint</th></tr></thead><tbody>${body || '<tr><td colspan="6">No matching source rows.</td></tr>'}</tbody></table>`;
+        };
+        const renderHashReceipts = () => {
+          const rows = filteredHashReceipts().sort((a,b) => String(a.path || '').localeCompare(String(b.path || '')));
+          const shown = rows.slice(0, 90);
+          provenanceById('hash-receipt-status').textContent = `Showing ${shown.length.toLocaleString()} of ${rows.length.toLocaleString()} matching generated-file receipts.`;
+          const body = shown.map(row => `<tr><td><code>${provenanceHtml(provenanceShort(row.path, 92))}</code></td><td>${Number(row.bytes || 0).toLocaleString()}</td><td><code>${provenanceHtml(row.sha256)}</code></td></tr>`).join('');
+          provenanceById('hash-receipt-table').innerHTML = `<table><caption>Generated public file hash receipts</caption><thead><tr><th scope="col">Path</th><th scope="col">Bytes</th><th scope="col">SHA-256</th></tr></thead><tbody>${body || '<tr><td colspan="3">No matching hash receipts.</td></tr>'}</tbody></table>`;
+          renderProvenanceSources();
+        };
+        const renderProvenance = () => { updateProvenanceUrl(); renderProvenanceSummary(); renderProvenanceSources(); renderHashReceipts(); };
+        for (const id of ['provenance-status','provenance-verifiability','provenance-search','receipt-search']) {
+          provenanceById(id).addEventListener('input', renderProvenance);
+          provenanceById(id).addEventListener('change', renderProvenance);
+        }
+        fetch('hash_receipts.json')
+          .then(response => { if (!response.ok) throw new Error(`HTTP ${response.status}`); return response.json(); })
+          .then(payload => { hashReceiptRows = payload.files || []; renderProvenance(); })
+          .catch(error => {
+            provenanceById('hash-receipt-status').textContent = `Hash receipt file could not be loaded: ${error.message || 'unknown error'}. Use the direct JSON link above.`;
+            provenanceById('hash-receipt-table').innerHTML = '<table><caption>Generated public file hash receipts</caption><thead><tr><th scope="col">File</th><th scope="col">Status</th></tr></thead><tbody><tr><td>hash_receipts.json</td><td>unavailable</td></tr></tbody></table>';
+            renderProvenanceSummary();
+            renderProvenanceSources();
+          });
+        renderProvenanceSummary();
+        renderProvenanceSources();
+      </script>
+    </section>
+    <h2>Source Manifest Snapshot</h2>
     <div class="table-wrap"><table><caption>Public provenance source rows</caption><thead><tr><th scope="col">Artifact</th><th scope="col">Public status</th><th scope="col">File included in public package</th><th scope="col">Aggregate represented</th><th scope="col">Content hash verifiable</th><th scope="col">Source reference fingerprint</th><th scope="col">Summary</th></tr></thead><tbody><tr><td>research_document</td><td>included_public_aggregate</td><td>False</td><td>True</td><td>False</td><td>195fdba80b21eb4d</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>individual_report</td><td>included_public_aggregate</td><td>False</td><td>True</td><td>False</td><td>d153bed36339c2c6</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>method_performance</td><td>included_public_aggregate</td><td>False</td><td>True</td><td>False</td><td>f74abf76b1cccbcf</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>experiment_accounting</td><td>included_public_aggregate</td><td>False</td><td>True</td><td>False</td><td>4dc2754fd35f9366</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>claim_matrix</td><td>included_public_aggregate</td><td>False</td><td>True</td><td>False</td><td>00b6cf220d5ccbeb</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>neutral_result_ledger</td><td>included_public_aggregate</td><td>False</td><td>True</td><td>False</td><td>994c4ca55619c1bd</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>cqr_backend_sensitivity</td><td>included_public_aggregate</td><td>False</td><td>True</td><td>False</td><td>f2ecc55821048bab</td><td>Audited source artifact summarized into the public atlas.</td></tr><tr><td>knowledge_graph</td><td>included_public_hash_receipt</td><td>False</td><td>True</td><td>False</td><td>8012e1f25d57759b</td><td>Audited source artifact summarized into the public atlas.</td></tr></tbody></table></div>
     
     <div class="footer">The atlas separates observed experimental patterns from broader deployment conclusions. It is designed for navigation, traceability, and careful reading of the evidence.</div>

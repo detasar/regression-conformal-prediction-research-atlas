@@ -1,9 +1,10 @@
 {
   "completed_rows": 145839,
-  "generated_at_utc": "2026-07-15T01:40:26.999411+00:00",
+  "generated_at_utc": "2026-07-15T02:02:48.953018+00:00",
+  "hash_receipt_count": 263,
   "kg_edge_count": 21019,
   "kg_node_count": 3643,
-  "required_file_count": 13,
+  "required_file_count": 16,
   "route_count": 9,
   "routes": [
     {
@@ -53,5 +54,6 @@
     }
   ],
   "schema": "regression_cp_public_research_atlas_manifest_v1",
+  "source_artifact_count": 8,
   "status": "pass"
 }

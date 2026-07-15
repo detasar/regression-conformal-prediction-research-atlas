@@ -839,6 +839,40 @@ def test_public_results_page_exposes_interactive_atlas_layers() -> None:
     assert "{{row.dataset_id}}" not in results
 
 
+def test_public_provenance_page_exposes_receipt_explorer() -> None:
+    root = repo_root()
+    provenance = (root / "atlas/provenance/index.html").read_text(encoding="utf-8")
+    hash_receipts = json.loads((root / "atlas/provenance/hash_receipts.json").read_text(encoding="utf-8"))
+    source_manifest = json.loads((root / "atlas/provenance/artifact_manifest.json").read_text(encoding="utf-8"))
+    kg_manifest = json.loads((root / "evidence/public_artifact_manifest.json").read_text(encoding="utf-8"))
+    for fragment in [
+        "Provenance Receipt Explorer",
+        'id="provenance-explorer"',
+        'id="provenance-summary"',
+        'id="source-receipt-table"',
+        'id="hash-receipt-table"',
+        'id="provenance-status"',
+        'id="receipt-search"',
+        "Filtered public source-manifest rows",
+        "Generated public file hash receipts",
+        "hash_receipts.json",
+        "artifact_manifest.json",
+        "public_rebuild_manifest.json",
+        "public_release_scope.json",
+        "ro-crate-metadata.json",
+        "../../evidence/public_artifact_manifest.json",
+        "fetch('hash_receipts.json')",
+        "window.history.replaceState",
+        "source_reference_fingerprint",
+        "content_hash_verifiable",
+    ]:
+        assert fragment in provenance
+    assert len(hash_receipts["files"]) >= 200
+    assert source_manifest["summary"]["source_artifact_count"] == len(source_manifest["artifacts"])
+    assert source_manifest["summary"]["source_artifact_count"] >= 8
+    assert kg_manifest["summary"]["manifest_reference_resolution_rate"] == 1.0
+
+
 def test_public_accounting_matrix_artifacts_are_present() -> None:
     root = repo_root()
     base = root / "atlas/scope/planned_attempted_completed_matrix"
@@ -980,6 +1014,7 @@ def test_public_html_metadata_and_accessibility_basics() -> None:
         root / "paper/supplement.html",
         root / "atlas/index.html",
         root / "atlas/results/index.html",
+        root / "atlas/provenance/index.html",
         root / "site/kg_browser.html",
     ]
     for page in pages:
