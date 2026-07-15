@@ -74,7 +74,7 @@
 </tbody>
 </table>
 <h2>S1. Method Selection Robustness Diagnostics</h2>
-<p>This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">@lei2017distribution_free_regression</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">@romano2019conformalized_quantile_regression</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">@barber2020jackknife_plus</a>; <a href="https://arxiv.org/abs/2002.09025">@kim2020jackknife_after_bootstrap</a>].</p>
+<p>This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">Lei et al. (2017)</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">Romano et al. (2019)</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">Barber et al. (2020)</a>; <a href="https://arxiv.org/abs/2002.09025">Kim et al. (2020)</a>].</p>
 <table><caption>Method-selection robustness diagnostics</caption>
 <thead><tr><th scope="col">Diagnostic item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
 <tbody>
@@ -130,7 +130,7 @@
 <tr><td>Venn-Abers bridge undercoverage runs</td><td>14</td><td>Negative bridge evidence</td></tr>
 </tbody>
 </table>
-<p>Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as study-wide method choice, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">@nouretdinov2024ivapd_applications</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">@vanderlaan2025generalized_venn_abers</a>; <a href="https://arxiv.org/html/2605.06646v1">@petej2026inductive_venn_abers_regressors</a>].</p>
+<p>Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not license language such as study-wide method choice, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">Nouretdinov et al. (2018)</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">Nouretdinov and Gammerman (2024)</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">Van Der Laan and Alaa (2025)</a>; <a href="https://arxiv.org/html/2605.06646v1">Petej and Vovk (2026)</a>].</p>
 <h2>S3. Bounded-Support Endpoint Policy</h2>
 <p>Bounded-support checks ask whether prediction interval endpoints respect the natural domain of the target. This is different from ordinary marginal coverage. Weighted conformal ideas can address some covariate-shift settings [<a href="https://arxiv.org/abs/1904.06019">@tibshirani2020covariate_shift</a>], but the present endpoint policy is an empirical domain-validity gate. The current gate blocks bounded-support validity claims.</p>
 <table><caption>Bounded-support endpoint diagnostics</caption>
@@ -187,7 +187,7 @@
 <p>Reader note: the clean unsupported-claim scan does not erase duplicate or split caveats. It means the scanned artifacts did not contain unsupported claim language; the caveats still travel with the empirical interpretation.</p>
 <h2>S6. Traceability</h2>
 <p>The supplement is linked to a knowledge graph snapshot with 3,643 nodes, 21,019 edges, and 0 isolated nodes. The graph connects report sections, source artifacts, citations, interpretation scope, and quality checks. It is part of the Research Atlas evidence trail for inspecting the study.</p>
-<p>Venn-Abers evidence is retained as part of the negative and boundary evidence for this study [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">@nouretdinov2018ivapd</a>]. The supplement does not claim that the current interval bridge validates Venn-Abers regression intervals.</p>
+<p>Venn-Abers evidence is retained as part of the negative and boundary evidence for this study [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">Nouretdinov et al. (2018)</a>]. The supplement does not claim that the current interval bridge validates Venn-Abers regression intervals.</p>
 <h2>Interpretation Scope</h2>
 <ul>
 <li>Method evidence is diagnostic; no study-wide method choice or deployment rule is established.</li>
@@ -197,15 +197,15 @@
 </ul>
 <h2>References</h2>
 <ul>
-<li><code>@barber2020jackknife_plus</code>: <a href="https://arxiv.org/abs/1905.02928">https://arxiv.org/abs/1905.02928</a></li>
-<li><code>@kim2020jackknife_after_bootstrap</code>: <a href="https://arxiv.org/abs/2002.09025">https://arxiv.org/abs/2002.09025</a></li>
-<li><code>@lei2017distribution_free_regression</code>: <a href="https://arxiv.org/abs/1604.04173">https://arxiv.org/abs/1604.04173</a></li>
-<li><code>@nouretdinov2018ivapd</code>: <a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">https://proceedings.mlr.press/v91/nouretdinov18a.html</a></li>
-<li><code>@nouretdinov2024ivapd_applications</code>: <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">https://proceedings.mlr.press/v230/nouretdinov24a.html</a></li>
-<li><code>@petej2026inductive_venn_abers_regressors</code>: <a href="https://arxiv.org/html/2605.06646v1">https://arxiv.org/html/2605.06646v1</a></li>
-<li><code>@romano2019conformalized_quantile_regression</code>: <a href="https://arxiv.org/abs/1905.03222">https://arxiv.org/abs/1905.03222</a></li>
+<li>Barber et al. (2020). <em>Predictive inference with the jackknife+</em>. <a href="https://arxiv.org/abs/1905.02928">https://arxiv.org/abs/1905.02928</a>.</li>
+<li>Kim et al. (2020). <em>Predictive Inference Is Free with the Jackknife+-after-Bootstrap</em>. <a href="https://arxiv.org/abs/2002.09025">https://arxiv.org/abs/2002.09025</a>.</li>
+<li>Lei et al. (2017). <em>Distribution-Free Predictive Inference for Regression</em>. <a href="https://arxiv.org/abs/1604.04173">https://arxiv.org/abs/1604.04173</a>.</li>
+<li>Nouretdinov et al. (2018). <em>Inductive Venn-Abers predictive distribution</em>. <a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">https://proceedings.mlr.press/v91/nouretdinov18a.html</a>.</li>
+<li>Nouretdinov and Gammerman (2024). <em>Inductive Venn-Abers Predictive Distributions: New Applications and Evaluation</em>. <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">https://proceedings.mlr.press/v230/nouretdinov24a.html</a>.</li>
+<li>Petej and Vovk (2026). <em>Inductive Venn-Abers and related regressors</em>. <a href="https://arxiv.org/html/2605.06646v1">https://arxiv.org/html/2605.06646v1</a>.</li>
+<li>Romano et al. (2019). <em>Conformalized Quantile Regression</em>. <a href="https://arxiv.org/abs/1905.03222">https://arxiv.org/abs/1905.03222</a>.</li>
 <li><code>@tibshirani2020covariate_shift</code>: <a href="https://arxiv.org/abs/1904.06019">https://arxiv.org/abs/1904.06019</a></li>
-<li><code>@vanderlaan2025generalized_venn_abers</code>: <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">https://proceedings.mlr.press/v267/van-der-laan25a.html</a></li>
+<li>Van Der Laan and Alaa (2025). <em>Generalized Venn and Venn-Abers Calibration with Applications in Conformal Prediction</em>. <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">https://proceedings.mlr.press/v267/van-der-laan25a.html</a>.</li>
 </ul>
 <h2>Source Artifacts</h2>
 <ul>

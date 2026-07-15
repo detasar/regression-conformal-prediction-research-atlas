@@ -13,11 +13,11 @@ The Venn-Abers regression bridge is not validated as an interval method in the c
 
 ## Reader Primer
 
-Conformal prediction is a wrapper for producing prediction sets or intervals with finite-sample marginal coverage under exchangeability. In regression, a prediction interval is intended to contain the next response value with target coverage `1 - alpha` [@lei2017distribution_free_regression]. `alpha` is the target miscoverage rate, so `alpha = 0.1` corresponds to nominal 90% coverage. Nominal coverage is the target; empirical coverage is what the experiment actually observed.
+Conformal prediction is a wrapper for producing prediction sets or intervals with finite-sample marginal coverage under exchangeability. In regression, a prediction interval is intended to contain the next response value with target coverage `1 - alpha` [Lei et al. (2017)]. `alpha` is the target miscoverage rate, so `alpha = 0.1` corresponds to nominal 90% coverage. Nominal coverage is the target; empirical coverage is what the experiment actually observed.
 
-Split conformal regression calibrates residuals on a held-out calibration split. CQR changes the score: it first fits lower and upper quantile functions, then applies a conformal correction so interval width can adapt to heteroscedasticity [@romano2019conformalized_quantile_regression]. CV+ and jackknife+ use out-of-fold or leave-one-out predictions to account for fitted-model variability [@barber2020jackknife_plus; @kim2020jackknife_after_bootstrap].
+Split conformal regression calibrates residuals on a held-out calibration split. CQR changes the score: it first fits lower and upper quantile functions, then applies a conformal correction so interval width can adapt to heteroscedasticity [Romano et al. (2019)]. CV+ and jackknife+ use out-of-fold or leave-one-out predictions to account for fitted-model variability [Barber et al. (2020); Kim et al. (2020)].
 
-Venn-Abers methods are related but not identical to ordinary split interval conformal regression. The cited Venn-Abers regression and calibration literature focuses on predictive distributions, auto-calibration, generalized calibration, and regression-related extensions [@nouretdinov2018ivapd; @nouretdinov2024ivapd_applications; @vanderlaan2025generalized_venn_abers; @petej2026inductive_venn_abers_regressors]. Therefore, converting a Venn-Abers object into the same interval contract used by CQR or CV+ is an extra design decision, not a free positive validation.
+Venn-Abers methods are related but not identical to ordinary split interval conformal regression. The cited Venn-Abers regression and calibration literature focuses on predictive distributions, auto-calibration, generalized calibration, and regression-related extensions [Nouretdinov et al. (2018); Nouretdinov and Gammerman (2024); Van Der Laan and Alaa (2025); Petej and Vovk (2026)]. Therefore, converting a Venn-Abers object into the same interval contract used by CQR or CV+ is an extra design decision, not a free positive validation.
 
 ## Empirical Scope
 
@@ -102,11 +102,11 @@ The Research Atlas records the experiment scope, article and supplement outputs,
 
 ## References
 
-- `@barber2020jackknife_plus`: https://arxiv.org/abs/1905.02928
-- `@kim2020jackknife_after_bootstrap`: https://arxiv.org/abs/2002.09025
-- `@lei2017distribution_free_regression`: https://arxiv.org/abs/1604.04173
-- `@nouretdinov2018ivapd`: https://proceedings.mlr.press/v91/nouretdinov18a.html
-- `@nouretdinov2024ivapd_applications`: https://proceedings.mlr.press/v230/nouretdinov24a.html
-- `@petej2026inductive_venn_abers_regressors`: https://arxiv.org/html/2605.06646v1
-- `@romano2019conformalized_quantile_regression`: https://arxiv.org/abs/1905.03222
-- `@vanderlaan2025generalized_venn_abers`: https://proceedings.mlr.press/v267/van-der-laan25a.html
+- Barber et al. (2020). *Predictive inference with the jackknife+*. [https://arxiv.org/abs/1905.02928](https://arxiv.org/abs/1905.02928).
+- Kim et al. (2020). *Predictive Inference Is Free with the Jackknife+-after-Bootstrap*. [https://arxiv.org/abs/2002.09025](https://arxiv.org/abs/2002.09025).
+- Lei et al. (2017). *Distribution-Free Predictive Inference for Regression*. [https://arxiv.org/abs/1604.04173](https://arxiv.org/abs/1604.04173).
+- Nouretdinov et al. (2018). *Inductive Venn-Abers predictive distribution*. [https://proceedings.mlr.press/v91/nouretdinov18a.html](https://proceedings.mlr.press/v91/nouretdinov18a.html).
+- Nouretdinov and Gammerman (2024). *Inductive Venn-Abers Predictive Distributions: New Applications and Evaluation*. [https://proceedings.mlr.press/v230/nouretdinov24a.html](https://proceedings.mlr.press/v230/nouretdinov24a.html).
+- Petej and Vovk (2026). *Inductive Venn-Abers and related regressors*. [https://arxiv.org/html/2605.06646v1](https://arxiv.org/html/2605.06646v1).
+- Romano et al. (2019). *Conformalized Quantile Regression*. [https://arxiv.org/abs/1905.03222](https://arxiv.org/abs/1905.03222).
+- Van Der Laan and Alaa (2025). *Generalized Venn and Venn-Abers Calibration with Applications in Conformal Prediction*. [https://proceedings.mlr.press/v267/van-der-laan25a.html](https://proceedings.mlr.press/v267/van-der-laan25a.html).

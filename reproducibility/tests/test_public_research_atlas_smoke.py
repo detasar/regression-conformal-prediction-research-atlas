@@ -1522,6 +1522,55 @@ def test_public_paper_surfaces_use_public_source_references() -> None:
     assert not violations
 
 
+def test_public_paper_surfaces_humanize_literature_citations() -> None:
+    root = repo_root()
+    pages = [
+        root / "paper/research_document.md",
+        root / "paper/research_document.html",
+        root / "paper/individual_experiment_report.md",
+        root / "paper/article.tex",
+        root / "paper/article.html",
+        root / "paper/supplement.tex",
+        root / "paper/supplement.html",
+    ]
+    citation_keys = [
+        "barber2020jackknife_plus",
+        "kim2020jackknife_after_bootstrap",
+        "lei2017distribution_free_regression",
+        "nouretdinov2018ivapd",
+        "nouretdinov2024ivapd_applications",
+        "petej2026inductive_venn_abers_regressors",
+        "romano2019conformalized_quantile_regression",
+        "vanderlaan2025generalized_venn_abers",
+    ]
+    violations = []
+    combined = []
+    for path in pages:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        combined.append(text)
+        for key in citation_keys:
+            if f"@{key}" in text:
+                violations.append((str(path.relative_to(root)), key))
+    assert not violations
+    joined = "\n".join(combined)
+    for label in [
+        "Lei et al. (2017)",
+        "Romano et al. (2019)",
+        "Barber et al. (2020)",
+        "Kim et al. (2020)",
+        "Nouretdinov et al. (2018)",
+        "Petej and Vovk (2026)",
+        "Van Der Laan and Alaa (2025)",
+    ]:
+        assert label in joined
+    research_html = (root / "paper/research_document.html").read_text(
+        encoding="utf-8"
+    )
+    assert "*Predictive inference with the jackknife+*" not in research_html
+    assert "<em>Predictive inference with the jackknife+</em>" in research_html
+    assert '<a href="https://arxiv.org/abs/1905.02928">' in research_html
+
+
 def test_public_reader_surfaces_label_intervals_as_diagnostic_bands() -> None:
     root = repo_root()
     pages = [
