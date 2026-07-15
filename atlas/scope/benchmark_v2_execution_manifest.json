@@ -13,7 +13,72 @@
     "selection_rule": "coverage tolerance pass, then interval score, with sensitivity to absolute coverage error plus width"
   },
   "benchmark_version": "benchmark_v2_prospectively_frozen_protocol",
-  "generated_at_utc": "2026-07-15T22:58:43.038401+00:00",
+  "generated_at_utc": "2026-07-15T23:16:25.693560+00:00",
+  "learner_configs": {
+    "elastic_net": {
+      "learner_config_id": "elastic_net_benchmark_v2_primary_v1",
+      "learner_params": {
+        "alpha": 0.01,
+        "l1_ratio": 0.5
+      },
+      "model_id": "elasticnet"
+    },
+    "extra_trees": {
+      "learner_config_id": "extra_trees_benchmark_v2_primary_v1",
+      "learner_params": {
+        "max_depth": null,
+        "max_features": "sqrt",
+        "min_samples_leaf": 5,
+        "n_estimators": 300
+      },
+      "model_id": "extra_trees"
+    },
+    "hist_gradient_boosting": {
+      "learner_config_id": "hist_gradient_boosting_benchmark_v2_primary_v1",
+      "learner_params": {
+        "l2_regularization": 0.1,
+        "learning_rate": 0.06,
+        "max_leaf_nodes": 31
+      },
+      "model_id": "hist_gradient_boosting"
+    },
+    "knn": {
+      "learner_config_id": "knn_benchmark_v2_primary_v1",
+      "learner_params": {
+        "n_neighbors": 15,
+        "p": 2,
+        "weights": "distance"
+      },
+      "model_id": "knn"
+    },
+    "nystroem_svr": {
+      "learner_config_id": "nystroem_svr_benchmark_v2_primary_v1",
+      "learner_params": {
+        "C": 1.0,
+        "epsilon": 0.1,
+        "gamma": "scale",
+        "kernel": "rbf"
+      },
+      "model_id": "svr"
+    },
+    "random_forest": {
+      "learner_config_id": "random_forest_benchmark_v2_primary_v1",
+      "learner_params": {
+        "max_depth": null,
+        "max_features": "sqrt",
+        "min_samples_leaf": 5,
+        "n_estimators": 300
+      },
+      "model_id": "random_forest"
+    },
+    "ridge": {
+      "learner_config_id": "ridge_benchmark_v2_primary_v1",
+      "learner_params": {
+        "alpha": 1.0
+      },
+      "model_id": "ridge"
+    }
+  },
   "mandatory_grid_invariants": [
     "Every conformal method is evaluated inside the same learner/config/split cell.",
     "CQR is model-matched inside each learner family and is not repeated across unrelated outer model-grid rows.",

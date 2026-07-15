@@ -13,7 +13,7 @@ import shutil
 import subprocess
 import sys
 import zipfile
-from collections import Counter
+from collections import Counter, defaultdict
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urldefrag, urlparse
@@ -757,6 +757,14 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     assert execution["status"] == "execution_contract_defined_not_executed"
     assert evidence["schema"] == "regression_cp_benchmark_v2_public_evidence_contract_v1"
     assert evidence["status"] == "contract_defined_not_populated"
+    assert execution["learner_configs"]["ridge"]["model_id"] == "ridge"
+    assert execution["learner_configs"]["elastic_net"]["model_id"] == "elasticnet"
+    assert execution["learner_configs"]["nystroem_svr"]["model_id"] == "svr"
+    for family in execution["run_grid"]["learner_families"]:
+        learner = execution["learner_configs"][family]
+        assert learner["learner_config_id"] == f"{family}_benchmark_v2_primary_v1"
+        assert isinstance(learner["learner_params"], dict)
+        assert learner["learner_params"]
     assert (
         protocol["primary_estimand"]["primary_comparison_unit"]
         == "source_dataset_task_alpha_learner_config_split_hash"
@@ -768,7 +776,8 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     assert "source_dataset_id" in execution["paired_cell_key"]
     assert "split_hash" in execution["paired_cell_key"]
     assert any("fold" in step for step in execution["preprocessing_contract"]["fold_local_steps"])
-    required_artifacts = {row["artifact_id"] for row in evidence["required_public_artifacts"]}
+    artifact_by_id = {row["artifact_id"]: row for row in evidence["required_public_artifacts"]}
+    required_artifacts = set(artifact_by_id)
     assert {
         "source_dataset_registry",
         "run_grid_manifest",
@@ -776,6 +785,8 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
         "aggregate_result_cube",
         "environment_lock",
     } <= required_artifacts
+    for field in ("model_id", "learner_params_json", "learner_params_hash"):
+        assert field in artifact_by_id["run_grid_manifest"]["minimum_columns"]
     requirements = "\n".join(protocol["design_requirements"]).lower()
     assert "exact learner/config/split cells" in requirements
     assert "inside each cv+/jackknife fold" in requirements
@@ -868,10 +879,20 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     with run_grid_path.open(encoding="utf-8", newline="") as handle:
         preview_rows = list(csv.DictReader(handle))
     assert len(preview_rows) == cardinality["primary_rows_per_task_variant"]
-    assert {"method_row_key", "paired_cell_key", "split_hash", "conformal_method_config_id"} <= set(
-        preview_rows[0]
-    )
+    assert {
+        "method_row_key",
+        "paired_cell_key",
+        "split_hash",
+        "learner_config_id",
+        "model_id",
+        "learner_params_json",
+        "learner_params_hash",
+        "conformal_method_config_id",
+    } <= set(preview_rows[0])
     assert len({row["method_row_key"] for row in preview_rows}) == len(preview_rows)
+    assert all(row["model_id"] for row in preview_rows)
+    assert all(row["learner_params_json"].startswith("{") for row in preview_rows)
+    assert all(len(row["learner_params_hash"]) == 16 for row in preview_rows)
     assert {row["ranking_role"] for row in preview_rows} == {"primary"}
     assert all(row["planned_status"] == "template_pending_task_registry" for row in preview_rows)
 
@@ -884,6 +905,10 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         "source_dataset_id",
         "task_variant_id",
         "split_hash",
+        "learner_config_id",
+        "model_id",
+        "learner_params_json",
+        "learner_params_hash",
         "conformal_method_config_id",
     } <= set(candidate_rows[0])
     assert len({row["method_row_key"] for row in candidate_rows}) == len(candidate_rows)
@@ -894,6 +919,18 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert {row["planned_status"] for row in candidate_rows} == {
         "candidate_task_registry_planned"
     }
+    paired_cell_learner_signatures = defaultdict(set)
+    for row in candidate_rows[:5000]:
+        paired_cell_learner_signatures[row["paired_cell_key"]].add(
+            (
+                row["learner_config_id"],
+                row["model_id"],
+                row["learner_params_json"],
+                row["learner_params_hash"],
+            )
+        )
+    assert paired_cell_learner_signatures
+    assert all(len(values) == 1 for values in paired_cell_learner_signatures.values())
     assert all("<pending" not in row["paired_cell_key"] for row in candidate_rows[:200])
     assert len({row["task_variant_id"] for row in candidate_rows}) == 24
     assert len({row["source_dataset_id"] for row in candidate_rows}) == 12

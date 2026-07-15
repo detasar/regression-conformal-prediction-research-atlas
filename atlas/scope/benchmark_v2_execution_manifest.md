@@ -16,6 +16,18 @@ Turn the Benchmark v2 design requirements into a runnable contract before any ne
 - Primary conformal methods: split_abs, cqr_model_matched, cv_plus, jackknife_plus, mondrian_abs
 - Regimes: iid, grouped, temporal, spatial, covariate_shift
 
+## Frozen Learner Configurations
+
+| Learner family | Runner model id | Learner config id | Parameters |
+|---|---|---|---|
+| `ridge` | `ridge` | `ridge_benchmark_v2_primary_v1` | `{"alpha": 1.0}` |
+| `elastic_net` | `elasticnet` | `elastic_net_benchmark_v2_primary_v1` | `{"alpha": 0.01, "l1_ratio": 0.5}` |
+| `hist_gradient_boosting` | `hist_gradient_boosting` | `hist_gradient_boosting_benchmark_v2_primary_v1` | `{"l2_regularization": 0.1, "learning_rate": 0.06, "max_leaf_nodes": 31}` |
+| `random_forest` | `random_forest` | `random_forest_benchmark_v2_primary_v1` | `{"max_depth": null, "max_features": "sqrt", "min_samples_leaf": 5, "n_estimators": 300}` |
+| `extra_trees` | `extra_trees` | `extra_trees_benchmark_v2_primary_v1` | `{"max_depth": null, "max_features": "sqrt", "min_samples_leaf": 5, "n_estimators": 300}` |
+| `knn` | `knn` | `knn_benchmark_v2_primary_v1` | `{"n_neighbors": 15, "p": 2, "weights": "distance"}` |
+| `nystroem_svr` | `svr` | `nystroem_svr_benchmark_v2_primary_v1` | `{"C": 1.0, "epsilon": 0.1, "gamma": "scale", "kernel": "rbf"}` |
+
 ## Mandatory Invariants
 
 1. Every conformal method is evaluated inside the same learner/config/split cell.
