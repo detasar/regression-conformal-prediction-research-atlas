@@ -293,7 +293,7 @@ The Venn-Abers result is intentionally narrow. The evaluated bridge has quantile
 
 ## 5. Knowledge Graph And Reproducibility
 
-The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes. Average edge confidence is 0.9917, and manifest reference resolution rate is 1.0000. In the Research Atlas package, the KG browser exposes 3,643 nodes, 21,019 edges, 39 node types, and 58 relation types. The browser is intended to let reviewers move from claims to source reports, tables, scripts, and quality gates. It helps readers follow the evidence map.
+The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes. Average edge confidence is 0.9917, and manifest reference resolution rate is 1.0000. In the Research Atlas package, the KG browser exposes 3,643 nodes, 21,019 edges, 39 node types, and 58 relation types. The browser is intended to let reviewers move from claims to source reports, tables, scripts, and quality gates. It is not yet a public citable component; public citation waits for article, supplement, site, README, and publication QA.
 
 ## 6. How To Read The Artifact Set
 
