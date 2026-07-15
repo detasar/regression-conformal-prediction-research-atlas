@@ -62,6 +62,7 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("not", "a", "release", "artifact"),
         ("not", "a", "method", "recommendation"),
         ("not", "method", "recommendations"),
+        ("method", "recommendation"),
         ("not", "a", "method-selection", "claim"),
         ("not", "a", "method-selection", "result"),
         ("not", "a", "final", "selected", "method"),
@@ -1376,12 +1377,14 @@ def test_public_accounting_matrix_artifacts_are_present() -> None:
 
 def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
     root = repo_root()
+    assert not (root / "EVIDENCE_SCOPE.md").exists()
+    assert (root / "HOW_TO_READ_THE_EVIDENCE.md").exists()
     def phrase(*parts: str) -> str:
         return " ".join(parts)
 
     paths = [
         root / "README.md",
-        root / "EVIDENCE_SCOPE.md",
+        root / "HOW_TO_READ_THE_EVIDENCE.md",
         root / "site/index.html",
         root / "site/kg_browser.html",
         root / "site/kg_browser_index.json",
@@ -1403,6 +1406,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("release", "render"),
         "release" + "_" + "boundary",
         phrase("not", "a", "method", "recommendation"),
+        phrase("method", "recommendation"),
         phrase("not", "an", "independent", "scientific", "claim"),
         phrase("private", "final-prose"),
         phrase("do", "not", "cite"),
@@ -1670,7 +1674,7 @@ def test_public_reader_surfaces_avoid_legacy_frontier_language() -> None:
     root = repo_root()
     pages = [
         root / "README.md",
-        root / "EVIDENCE_SCOPE.md",
+        root / "HOW_TO_READ_THE_EVIDENCE.md",
         root / "site/index.html",
         root / "site/kg_browser.html",
         root / "paper/research_document.md",

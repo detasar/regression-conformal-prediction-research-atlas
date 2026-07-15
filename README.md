@@ -44,11 +44,11 @@ The expected strong regression solution did not emerge in these experiments. The
 GitHub Pages: <https://detasar.github.io/regression-conformal-prediction-research-atlas/>
 Public repository: <https://github.com/detasar/regression-conformal-prediction-research-atlas>
 
-## What This Repository Establishes
+## What This Repository Contains
 
-The repository establishes that a large, audited regression conformal prediction experiment was run and reported under neutral scientific boundaries. It exposes the experiment universe as aggregate evidence: scope accounting, dataset and method catalogs, result cube, backend sensitivity analysis, negative evidence, interpretation boundaries, and provenance receipts.
+This repository summarizes a large audited regression conformal prediction experiment. It exposes the study as aggregate evidence: accounting summaries, dataset and method catalogs, result cube, backend sensitivity analysis, negative evidence, reading limits, and provenance receipts.
 
-## Interpretation Scope
+## Reading Guide
 
 These materials support an experiment-scoped empirical reading. Production use, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would require separate, pre-specified validation work.
 

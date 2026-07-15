@@ -1507,6 +1507,11 @@
       "reader_use": "RO-Crate metadata."
     },
     {
+      "artifact_kind": "reading guide",
+      "artifact_path": "HOW_TO_READ_THE_EVIDENCE.md",
+      "reader_use": "Plain-language guide for reading the study evidence."
+    },
+    {
       "artifact_kind": "repository",
       "artifact_path": "README.md",
       "reader_use": "Start here for the Research Atlas."
@@ -1520,11 +1525,6 @@
       "artifact_kind": "research document source",
       "artifact_path": "paper/research_document.md",
       "reader_use": "Integrated Research Document Markdown."
-    },
-    {
-      "artifact_kind": "scope",
-      "artifact_path": "EVIDENCE_SCOPE.md",
-      "reader_use": "High-level reading scope and evidence boundaries."
     },
     {
       "artifact_kind": "supplement",
@@ -1577,6 +1577,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T16:20:06.863152+00:00",
+  "generated_at_utc": "2026-07-15T16:41:44.126765+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
