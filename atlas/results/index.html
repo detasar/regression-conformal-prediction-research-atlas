@@ -60,6 +60,8 @@ tr:last-child td { border-bottom:0; }
 .controls { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin:18px 0; }
 .controls label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; text-transform:uppercase; }
 .controls input, .controls select { width:100%; border:1px solid var(--line); border-radius:6px; background:#fffdf8; color:var(--ink); padding:9px 10px; font:inherit; }
+.share-row { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:8px 0 14px; }
+.share-row code { max-width:100%; overflow-wrap:anywhere; background:#f4ebdc; border:1px solid var(--line); border-radius:6px; padding:8px 10px; font-size:12px; color:#344052; }
 .explorer-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin:18px 0; }
 .summary-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); margin:12px 0 18px; }
 .summary-strip div { background:#fffdf8; padding:12px; min-width:0; }
@@ -137,6 +139,11 @@ tr:last-child td { border-bottom:0; }
         <label>Method family<select id="filter-method-family"><option value="">All method families</option></select></label>
         <label>Alpha<select id="filter-alpha"><option value="">All alpha levels</option></select></label>
         <label>Search<input id="filter-search" type="search" placeholder="dataset or method"></label>
+      </div>
+      <div class="share-row" aria-label="Share filtered result view">
+        <button id="copy-result-view" class="button" type="button">Copy Current View</button>
+        <code id="result-view-link" aria-label="Current result explorer link"></code>
+        <span id="copy-result-status" class="muted" role="status" aria-live="polite"></span>
       </div>
       <div class="summary-strip" id="explorer-summary" aria-label="Filtered result summary"></div>
       <div class="legend" aria-label="Heatmap legend">
@@ -259,6 +266,42 @@ tr:last-child td { border-bottom:0; }
           const query = next.toString();
           const url = `${window.location.pathname}${query ? '?' + query : ''}${window.location.hash || ''}`;
           window.history.replaceState(null, '', url);
+          updateShareLink();
+        };
+        const currentExplorerUrl = () => {
+          const url = new URL(window.location.href);
+          url.hash = 'result-explorer';
+          return url.toString();
+        };
+        const updateShareLink = () => {
+          const value = currentExplorerUrl();
+          byId('result-view-link').textContent = value;
+          byId('copy-result-view').setAttribute('data-url', value);
+        };
+        const fallbackCopy = value => {
+          const input = document.createElement('textarea');
+          input.value = value;
+          input.setAttribute('readonly', '');
+          input.style.position = 'fixed';
+          input.style.left = '-9999px';
+          document.body.appendChild(input);
+          input.select();
+          const ok = document.execCommand('copy');
+          document.body.removeChild(input);
+          return ok;
+        };
+        const copyCurrentView = async () => {
+          const value = currentExplorerUrl();
+          try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(value);
+            } else if (!fallbackCopy(value)) {
+              throw new Error('copy unavailable');
+            }
+            byId('copy-result-status').textContent = 'Current view link copied.';
+          } catch (error) {
+            byId('copy-result-status').textContent = 'Copy unavailable; link is shown.';
+          }
         };
         const mean = values => {
           const nums = values.map(Number).filter(Number.isFinite);
@@ -473,6 +516,7 @@ tr:last-child td { border-bottom:0; }
         for (const id of ['filter-family','filter-method-family','filter-alpha','filter-search']) {
           byId(id).addEventListener('input', render);
         }
+        byId('copy-result-view').addEventListener('click', copyCurrentView);
         render();
       })();
     </script>
