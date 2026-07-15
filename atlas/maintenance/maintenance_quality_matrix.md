@@ -4,7 +4,7 @@ This matrix records the public maintenance and CI checks currently attached to t
 
 ## Summary
 
-- overall_status: `schema_migration_seeded_modularization_pending`
+- overall_status: `source_backed_public_builder_modularization_started`
 - check_count: `9`
 - implemented_check_count: `6`
 - partial_check_count: `3`

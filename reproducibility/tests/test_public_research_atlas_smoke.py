@@ -1079,14 +1079,22 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     )
     assert (
         matrix["summary"]["maintenance_status"]
-        == "schema_migration_seeded_modularization_pending"
+        == "source_backed_public_builder_modularization_started"
     )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
     assert ("P1", "pre_execution_ledger_ready_results_not_started") in statuses
     assert ("P1", "completed_current_public_atlas_layer") in statuses
     assert ("P1", "completed_current_public_kg_layer") in statuses
-    assert ("P2", "schema_migration_seeded_modularization_pending") in statuses
+    assert ("P2", "source_backed_public_builder_modularization_started") in statuses
+    assert any(
+        row["priority"] == "P2"
+        and "reproducibility/experiments/regression/scripts/build_public_release_scope.py"
+        in row["evidence_paths"]
+        and "reproducibility/experiments/regression/scripts/build_research_atlas_package.py"
+        in row["evidence_paths"]
+        for row in matrix["rows"]
+    )
     assert any(
         "KG loading architecture" in row["item"]
         and row["status"] == "completed_current_public_kg_layer"
@@ -1131,7 +1139,7 @@ def test_public_maintenance_quality_matrix_tracks_ci_and_debt() -> None:
     assert matrix["schema"] == "regression_cp_public_maintenance_quality_matrix_v1"
     assert (
         matrix["summary"]["overall_status"]
-        == "schema_migration_seeded_modularization_pending"
+        == "source_backed_public_builder_modularization_started"
     )
     check_by_id = {row["check_id"]: row for row in matrix["checks"]}
     assert check_by_id["public_smoke_ci"]["ci_enforced"] is True
@@ -1145,6 +1153,7 @@ def test_public_maintenance_quality_matrix_tracks_ci_and_debt() -> None:
     assert check_by_id["builder_modularization"]["status"] == "partial"
     assert check_by_id["builder_modularization"]["ci_enforced"] is True
     assert "public_builder_utils.py" in check_by_id["builder_modularization"]["command_or_evidence"]
+    assert "source-backed" in check_by_id["builder_modularization"]["command_or_evidence"]
     assert check_by_id["schema_migration"]["status"] == "implemented"
     assert check_by_id["schema_migration"]["ci_enforced"] is True
     assert check_by_id["lint_type_security"]["status"] == "partial"

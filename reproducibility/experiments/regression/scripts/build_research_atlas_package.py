@@ -30,15 +30,22 @@ def validate_package(package_root: Path) -> dict:
         "atlas/index.html": "Research Atlas site",
         "pyproject.toml": "install metadata",
         "pytest.ini": "public test config",
-        "reproducibility/environment/public_environment_lock.json": "public smoke environment lock",
-        "reproducibility/environment/public_environment_lock.md": "public smoke environment lock documentation",
-        "reproducibility/environment/requirements-public-lock.txt": "public smoke dependency pins",
+        "reproducibility/environment/public_environment_lock.json": (
+            "public smoke environment lock"
+        ),
+        "reproducibility/environment/public_environment_lock.md": (
+            "public smoke environment lock documentation"
+        ),
+        "reproducibility/environment/requirements-public-lock.txt": (
+            "public smoke dependency pins"
+        ),
     }
     rows = []
     for rel, role in required.items():
         path = package_root / rel
         rows.append({"path": rel, "role": role, "exists": path.exists()})
     missing = missing_relative_paths(package_root, list(required))
+
     config_dir = package_root / "reproducibility/experiments/regression/configs"
     config_files = sorted(config_dir.glob("*.yaml")) if config_dir.exists() else []
     pilot_config = config_dir / "pilot.yaml"
@@ -58,6 +65,7 @@ def validate_package(package_root: Path) -> dict:
         config_failures.append("missing pilot.yaml")
     if not runner_script.exists():
         config_failures.append("missing run_regression_pilot.py")
+
     payload = {
         "schema": "regression_cp_public_research_atlas_package_v1",
         "generated_at_utc": utc_now_iso(),
@@ -84,7 +92,7 @@ def validate_package(package_root: Path) -> dict:
             "python -m experiments.regression.scripts.build_public_release_scope --package-root .",
             "python -m experiments.regression.scripts.build_public_research_atlas --package-root .",
             "python -m experiments.regression.scripts.build_research_atlas_package --package-root .",
-            "python -m pytest -m \"unit or artifact_public or smoke\"",
+            'python -m pytest -m "unit or artifact_public or smoke"',
         ],
     }
     if missing:

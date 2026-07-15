@@ -28,6 +28,7 @@ def build_scope(package_root: Path) -> dict[str, Any]:
     ]
     if missing:
         raise FileNotFoundError(f"Missing Research Atlas files: {missing}")
+
     scope = read_json(scope_path)
     kg = read_json(kg_path)
     kg_index = read_json(kg_index_path)

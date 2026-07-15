@@ -67,7 +67,7 @@
       "check_id": "builder_modularization",
       "check_label": "Builder modularization check",
       "ci_enforced": true,
-      "command_or_evidence": "public rebuild scripts share reproducibility/experiments/regression/scripts/public_builder_utils.py",
+      "command_or_evidence": "public rebuild scripts are source-backed in experiments/regression/scripts/{public_builder_utils.py,build_public_release_scope.py,build_research_atlas_package.py} and copied into reproducibility/experiments/regression/scripts/",
       "remaining_work": "Continue splitting large source builders into DAG tasks with shared schema, path, provenance, and rendering helpers.",
       "scope": "knowledge graph and publication builders",
       "status": "partial"
@@ -82,13 +82,13 @@
       "status": "implemented"
     }
   ],
-  "generated_at_utc": "2026-07-15T22:19:27.809447+00:00",
+  "generated_at_utc": "2026-07-15T22:32:31.107959+00:00",
   "schema": "regression_cp_public_maintenance_quality_matrix_v1",
   "summary": {
     "check_count": 9,
     "ci_enforced_check_count": 8,
     "implemented_check_count": 6,
-    "overall_status": "schema_migration_seeded_modularization_pending",
+    "overall_status": "source_backed_public_builder_modularization_started",
     "partial_check_count": 3,
     "planned_check_count": 0
   }

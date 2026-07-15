@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-15T22:19:27.809447+00:00",
+  "generated_at_utc": "2026-07-15T22:32:31.107959+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -131,11 +131,14 @@
         "atlas/maintenance/maintenance_quality_matrix.json",
         "atlas/maintenance/schema_registry.json",
         "atlas/maintenance/schema_migration_fixtures.json",
+        "reproducibility/experiments/regression/scripts/public_builder_utils.py",
+        "reproducibility/experiments/regression/scripts/build_public_release_scope.py",
+        "reproducibility/experiments/regression/scripts/build_research_atlas_package.py",
         "reproducibility/experiments/regression/scripts/"
       ],
       "item": "Modularize monolithic builders and add broader maintenance checks.",
       "priority": "P2",
-      "status": "schema_migration_seeded_modularization_pending"
+      "status": "source_backed_public_builder_modularization_started"
     }
   ],
   "schema": "regression_cp_final_audit_response_matrix_v1",
@@ -143,7 +146,7 @@
     "atlas_product_status": "completed_current_public_atlas_layer",
     "benchmark_v2_status": "pre_execution_ledger_ready_results_not_started",
     "kg_product_status": "completed_current_public_kg_layer",
-    "maintenance_status": "schema_migration_seeded_modularization_pending",
+    "maintenance_status": "source_backed_public_builder_modularization_started",
     "p0_status": "completed"
   }
 }
