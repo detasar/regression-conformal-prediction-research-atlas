@@ -47,6 +47,20 @@ def load_chunks(path: Path) -> dict[str, Any]:
     return payload
 
 
+def resolve_package_root(package_root_arg: str, chunks_arg: str) -> Path:
+    """Resolve the Research Atlas package root from common invocation locations."""
+    package_root = Path(package_root_arg).resolve()
+    chunks_path = Path(chunks_arg)
+    if chunks_path.is_absolute() or (package_root / chunks_path).exists():
+        return package_root
+
+    parent = package_root.parent
+    if (parent / chunks_path).exists() and package_root.name == "reproducibility":
+        return parent
+
+    return package_root
+
+
 def main() -> int:
     args = parse_args()
     if not args.dry_run:
@@ -55,7 +69,7 @@ def main() -> int:
             "Benchmark v2 execution requires a separate private runner."
         )
 
-    package_root = Path(args.package_root).resolve()
+    package_root = resolve_package_root(args.package_root, args.chunks)
     chunks_path = Path(args.chunks)
     if not chunks_path.is_absolute():
         chunks_path = package_root / chunks_path
