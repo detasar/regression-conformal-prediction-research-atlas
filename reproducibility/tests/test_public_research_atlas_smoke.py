@@ -587,6 +587,8 @@ def test_public_repository_maintenance_files_are_present() -> None:
     contributing = (root / "CONTRIBUTING.md").read_text(encoding="utf-8")
     security = (root / "SECURITY.md").read_text(encoding="utf-8")
     codeowners = (root / "CODEOWNERS").read_text(encoding="utf-8")
+    github_codeowners = (root / ".github/CODEOWNERS").read_text(encoding="utf-8")
+    data_licenses = (root / "DATA_LICENSES.md").read_text(encoding="utf-8")
     editorconfig = (root / ".editorconfig").read_text(encoding="utf-8")
     checksums = (root / "CHECKSUMS.sha256").read_text(encoding="utf-8")
     workflow = (root / ".github/workflows/public-ci.yml").read_text(encoding="utf-8")
@@ -604,12 +606,19 @@ def test_public_repository_maintenance_files_are_present() -> None:
     assert "restricted ledgers" in security
     assert "nonredistributable datasets" in security
     assert "@detasar" in codeowners
+    assert github_codeowners == codeowners
+    assert "Data Licenses And Redistribution Scope" in data_licenses
+    assert "atlas/datasets/source_metadata_matrix.md" in data_licenses
+    assert "Raw external datasets" in data_licenses
+    assert "Restricted ledgers, caches, and prediction bundles" in data_licenses
     assert "root = true" in editorconfig
     assert "indent_size = 4" in editorconfig
     assert "permissions:" in workflow
     assert workflow.count("contents: read") >= 2
-    assert "actions/checkout@v7" in workflow
-    assert "actions/setup-python@v6" in workflow
+    assert "actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0" in workflow
+    assert "actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1" in workflow
+    assert "actions/checkout@v7" not in workflow
+    assert "actions/setup-python@v6" not in workflow
     assert "actions/checkout@v4" not in workflow
     assert "actions/setup-python@v5" not in workflow
     assert "sha256sum -c CHECKSUMS.sha256" in workflow
@@ -618,6 +627,8 @@ def test_public_repository_maintenance_files_are_present() -> None:
         "CONTRIBUTING.md",
         "SECURITY.md",
         "CODEOWNERS",
+        ".github/CODEOWNERS",
+        "DATA_LICENSES.md",
         ".editorconfig",
         "CHECKSUMS.sha256",
         "site/index.html",

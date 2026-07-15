@@ -1,5 +1,5 @@
 {
-  "artifact_count": 309,
+  "artifact_count": 311,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -1063,6 +1063,11 @@
     },
     {
       "artifact_kind": "maintenance",
+      "artifact_path": ".github/CODEOWNERS",
+      "reader_use": "GitHub repository ownership file."
+    },
+    {
+      "artifact_kind": "maintenance",
       "artifact_path": "CODEOWNERS",
       "reader_use": "Repository ownership file."
     },
@@ -1070,6 +1075,11 @@
       "artifact_kind": "maintenance",
       "artifact_path": "CONTRIBUTING.md",
       "reader_use": "Contribution and validation guide."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "DATA_LICENSES.md",
+      "reader_use": "Dataset licensing and redistribution scope."
     },
     {
       "artifact_kind": "maintenance",
@@ -1547,6 +1557,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T12:25:25.470639+00:00",
+  "generated_at_utc": "2026-07-15T12:33:44.369386+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
