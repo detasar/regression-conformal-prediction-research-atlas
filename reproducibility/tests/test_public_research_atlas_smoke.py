@@ -362,6 +362,10 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "Node not found:" in browser
     assert "Route not found:" in browser
     assert "data-node=" in browser
+    assert "data-route-action=" in browser
+    assert "activateRouteButtons" in browser
+    assert "Open evidence route" in browser
+    assert ".table-action:hover" in browser
     assert "map-legend" in browser
     assert 'id="mapCanvas" tabindex="0" role="img"' in browser
     assert 'aria-describedby="canvasHelp"' in browser

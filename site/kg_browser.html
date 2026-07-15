@@ -42,7 +42,8 @@
     .route span, .result span, .muted { color:var(--muted); font-size:12px; line-height:1.45; }
     .route span, .result span { display:block; }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
-    .table-action { border:0; background:transparent; color:#145ea8; padding:0; font:inherit; font-weight:720; text-align:left; text-decoration:underline; text-underline-offset:3px; }
+    .table-action { border:0; background:transparent; color:#145ea8; padding:0; font:inherit; font-weight:720; text-align:left; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+    .table-action:hover { color:var(--teal); }
     .graph-notice { color:var(--amber); font-weight:760; }
     .edge-retry[hidden] { display:none; }
     label { display:grid; gap:5px; color:var(--muted); font-size:12px; font-weight:800; letter-spacing:0; text-transform:uppercase; margin:14px 0 10px; }
@@ -197,12 +198,15 @@
     function activateNodeButtons(){
       document.querySelectorAll('[data-node]').forEach(el=>el.onclick=()=>select(el.dataset.node));
     }
+    function activateRouteButtons(){
+      document.querySelectorAll('[data-route-action]').forEach(el=>el.onclick=()=>selectRoute(el.dataset.routeAction));
+    }
     function renderDetail(){
       const n=state.nodeById.get(state.selected);
       if(!n){
         const route=selectedRoute();
         const routes=route?[route]:(state.data.research_map||[]);
-        const routeRows=routes.map(r=>`<tr><td>${esc(r.title)}</td><td>${esc(short(r.summary,140))}</td><td>${esc((r.node_ids||[]).length)} anchors</td></tr>`).join('');
+        const routeRows=routes.map(r=>`<tr><td><button type="button" class="table-action" data-route-action="${esc(r.route_id)}" aria-label="Open evidence route ${esc(r.title)}">${esc(r.title)}</button></td><td>${esc(short(r.summary,140))}</td><td>${esc((r.node_ids||[]).length)} anchors</td></tr>`).join('');
         const anchorRows=route ? routeNodes(route).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
         document.getElementById('detail').innerHTML=route
           ? `<span class="pill">guided route</span><h2>${esc(route.title)}</h2><p class="muted">${esc(route.summary)}</p><p class="muted">This view shows the curated anchors first. Click an anchor node to open its one-hop or two-hop evidence neighborhood.</p>`
@@ -212,6 +216,7 @@
 	          ? `<table><caption>Guided route anchor nodes</caption><thead><tr><th scope="col">Anchor</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`
 	          : `<table><caption>Guided evidence routes</caption><thead><tr><th scope="col">Route</th><th scope="col">Meaning</th><th scope="col">Size</th></tr></thead><tbody>${routeRows}</tbody></table>`;
         activateNodeButtons();
+        activateRouteButtons();
         return;
       }
       const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
