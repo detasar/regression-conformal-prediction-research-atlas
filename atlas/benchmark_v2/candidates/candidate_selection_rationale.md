@@ -26,6 +26,6 @@
 | `stackoverflow` | 1 |
 | `uci` | 2 |
 
-## Boundary
+## Scope
 
 These are candidate registries for Benchmark v2 planning. They do not contain completed Benchmark v2 result rows.
