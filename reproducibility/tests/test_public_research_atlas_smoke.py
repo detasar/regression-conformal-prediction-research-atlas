@@ -789,12 +789,12 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     )
     assert (
         matrix["summary"]["maintenance_status"]
-        == "maintenance_gates_defined_modularization_pending"
+        == "schema_migration_seeded_modularization_pending"
     )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
     assert ("P1", "candidate_registries_published_execution_not_started") in statuses
-    assert ("P2", "maintenance_gates_defined_modularization_pending") in statuses
+    assert ("P2", "schema_migration_seeded_modularization_pending") in statuses
     assert any(
         "KG loading architecture" in row["item"]
         and row["status"] == "partially_completed"
@@ -811,6 +811,8 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     assert "atlas/scope/audit_response_matrix.md" in indexed_paths
     assert "atlas/maintenance/maintenance_gate_matrix.json" in indexed_paths
     assert "atlas/maintenance/maintenance_gate_matrix.md" in indexed_paths
+    assert "atlas/maintenance/schema_registry.json" in indexed_paths
+    assert "atlas/maintenance/schema_migration_fixtures.json" in indexed_paths
 
 
 def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
@@ -824,7 +826,7 @@ def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
     assert matrix["schema"] == "regression_cp_public_maintenance_gate_matrix_v1"
     assert (
         matrix["summary"]["overall_status"]
-        == "maintenance_gates_defined_modularization_pending"
+        == "schema_migration_seeded_modularization_pending"
     )
     gate_by_id = {row["gate_id"]: row for row in matrix["gates"]}
     assert gate_by_id["public_smoke_ci"]["ci_enforced"] is True
@@ -833,12 +835,83 @@ def test_public_maintenance_gate_matrix_tracks_ci_and_debt() -> None:
     assert gate_by_id["environment_lock"]["status"] == "implemented"
     assert gate_by_id["accessibility_metadata"]["status"] == "partial"
     assert gate_by_id["builder_modularization"]["status"] == "planned"
+    assert gate_by_id["schema_migration"]["status"] == "implemented"
+    assert gate_by_id["schema_migration"]["ci_enforced"] is True
     assert gate_by_id["lint_type_security"]["ci_enforced"] is False
-    assert matrix["summary"]["ci_enforced_gate_count"] >= 5
+    assert matrix["summary"]["ci_enforced_gate_count"] >= 6
 
     markdown = markdown_path.read_text(encoding="utf-8")
     assert "# Maintenance Gate Matrix" in markdown
     assert "Builder modularization gate" in markdown
+
+
+def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
+    root = repo_root()
+    registry_path = root / "atlas/maintenance/schema_registry.json"
+    fixtures_path = root / "atlas/maintenance/schema_migration_fixtures.json"
+    registry_md = root / "atlas/maintenance/schema_registry.md"
+    fixtures_md = root / "atlas/maintenance/schema_migration_fixtures.md"
+    artifact_index_path = root / "atlas/artifacts/public_artifact_index.json"
+    assert registry_path.exists()
+    assert fixtures_path.exists()
+    assert registry_md.exists()
+    assert fixtures_md.exists()
+
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    fixtures = json.loads(fixtures_path.read_text(encoding="utf-8"))
+    assert registry["schema"] == "regression_cp_public_schema_registry_v1"
+    assert registry["status"] == "schema_registry_seeded"
+    assert fixtures["schema"] == "regression_cp_public_schema_migration_fixtures_v1"
+    assert fixtures["status"] == "schema_migration_fixtures_seeded"
+
+    fixture_by_id = {row["fixture_id"]: row for row in fixtures["fixtures"]}
+    schema_by_path = {row["artifact_path"]: row for row in registry["schemas"]}
+    assert {
+        "site/kg_browser_data.json",
+        "site/kg_browser_index.json",
+        "site/kg_browser_edges.json",
+        "evidence/public_artifact_manifest.json",
+        "atlas/results/result_cube_public.csv",
+        "atlas/artifacts/public_artifact_index.json",
+        "atlas/maintenance/maintenance_gate_matrix.json",
+    } <= set(schema_by_path)
+    assert {
+        row["migration_fixture_id"] for row in registry["schemas"]
+    } <= set(fixture_by_id)
+    assert (
+        schema_by_path["atlas/results/result_cube_public.csv"]["schema"]
+        == "regression_cp_result_cube_public_v1"
+    )
+    assert {
+        "coverage_lower_bound_pass",
+        "selected_under_coverage_gate",
+        "numerical_pathology_flag",
+    } <= set(schema_by_path["atlas/results/result_cube_public.csv"]["required_fields"])
+
+    result_fixture = fixture_by_id["result_cube_selection_labels_v0_to_v1"]
+    assert result_fixture["renamed_fields"] == {
+        "near_nominal": "coverage_lower_bound_pass",
+        "frontier_flag": "selected_under_coverage_gate",
+    }
+    assert "near_nominal" not in result_fixture["expected_output_example"]
+    assert "frontier_flag" not in result_fixture["expected_output_example"]
+    kg_fixture = fixture_by_id["kg_provenance_label_v0_to_v1"]
+    assert kg_fixture["renamed_fields"]["source_key_hash"] == "source_key_fingerprint"
+    assert (
+        kg_fixture["renamed_fields"]["edge_selector_provenance_coverage"]
+        == "manifest_reference_resolution_rate"
+    )
+    manifest_fixture = fixture_by_id["public_manifest_included_to_file_included_v1"]
+    assert manifest_fixture["renamed_fields"]["included"] == "file_included"
+    assert "included" not in manifest_fixture["expected_output_example"]["artifacts"][0]
+    assert "file_included" in manifest_fixture["expected_output_example"]["artifacts"][0]
+
+    artifact_index = json.loads(artifact_index_path.read_text(encoding="utf-8"))
+    indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
+    assert "atlas/maintenance/schema_registry.json" in indexed_paths
+    assert "atlas/maintenance/schema_registry.md" in indexed_paths
+    assert "atlas/maintenance/schema_migration_fixtures.json" in indexed_paths
+    assert "atlas/maintenance/schema_migration_fixtures.md" in indexed_paths
 
 
 def test_public_rebuild_commands_run(tmp_path: Path) -> None:

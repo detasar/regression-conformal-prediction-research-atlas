@@ -1,5 +1,5 @@
 {
-  "artifact_count": 300,
+  "artifact_count": 304,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -1067,6 +1067,26 @@
       "reader_use": "Readable maintenance and CI gate matrix."
     },
     {
+      "artifact_kind": "maintenance",
+      "artifact_path": "atlas/maintenance/schema_migration_fixtures.json",
+      "reader_use": "Machine-readable schema migration fixtures used by public smoke tests."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "atlas/maintenance/schema_migration_fixtures.md",
+      "reader_use": "Readable schema migration fixtures."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "atlas/maintenance/schema_registry.json",
+      "reader_use": "Machine-readable public schema registry."
+    },
+    {
+      "artifact_kind": "maintenance",
+      "artifact_path": "atlas/maintenance/schema_registry.md",
+      "reader_use": "Readable public schema registry."
+    },
+    {
       "artifact_kind": "manifest",
       "artifact_path": "evidence/public_artifact_manifest.json",
       "reader_use": "Public KG source/evidence resolution manifest."
@@ -1502,6 +1522,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-15T06:37:27.229207+00:00",
+  "generated_at_utc": "2026-07-15T06:50:36.118415+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

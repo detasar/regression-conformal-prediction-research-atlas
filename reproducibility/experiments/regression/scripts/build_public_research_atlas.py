@@ -30,6 +30,8 @@ def build_manifest(package_root: Path) -> dict[str, Any]:
         "atlas/provenance/artifact_manifest.json",
         "atlas/provenance/hash_receipts.json",
         "atlas/provenance/index.html",
+        "atlas/maintenance/schema_registry.json",
+        "atlas/maintenance/schema_migration_fixtures.json",
         "paper/research_document.html",
         "paper/article.html",
         "paper/supplement.html",

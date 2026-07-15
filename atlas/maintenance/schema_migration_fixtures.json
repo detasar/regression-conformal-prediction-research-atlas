@@ -1,0 +1,258 @@
+{
+  "fixture_count": 8,
+  "fixtures": [
+    {
+      "artifact_family": "result_cube",
+      "expected_output_example": {
+        "alpha": "0.1",
+        "coverage_lower_bound_pass": "true",
+        "dataset_id": "example_dataset",
+        "method_label": "cqr",
+        "selected_under_coverage_gate": "true"
+      },
+      "fixture_id": "result_cube_selection_labels_v0_to_v1",
+      "input_example": {
+        "alpha": "0.1",
+        "dataset_id": "example_dataset",
+        "frontier_flag": "true",
+        "method_label": "cqr",
+        "near_nominal": "true"
+      },
+      "renamed_fields": {
+        "frontier_flag": "selected_under_coverage_gate",
+        "near_nominal": "coverage_lower_bound_pass"
+      },
+      "source_schema": "regression_cp_result_cube_public_legacy_v0",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_result_cube_public_v1"
+    },
+    {
+      "artifact_family": "knowledge_graph",
+      "expected_output_example": {
+        "nodes": [
+          {
+            "id": "claim:cqr",
+            "source_key_fingerprint": "abc123"
+          }
+        ],
+        "summary": {
+          "manifest_reference_resolution_rate": 1.0
+        }
+      },
+      "fixture_id": "kg_provenance_label_v0_to_v1",
+      "input_example": {
+        "nodes": [
+          {
+            "id": "claim:cqr",
+            "source_key_hash": "abc123"
+          }
+        ],
+        "summary": {
+          "edge_selector_provenance_coverage": 1.0
+        }
+      },
+      "renamed_fields": {
+        "edge_selector_provenance_coverage": "manifest_reference_resolution_rate",
+        "source_key_hash": "source_key_fingerprint"
+      },
+      "source_schema": "regression_cp_evidence_graph_public_legacy_v0",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_evidence_graph_v2"
+    },
+    {
+      "artifact_family": "public_artifact_manifest",
+      "expected_output_example": {
+        "artifacts": [
+          {
+            "content_hash_verifiable": false,
+            "file_included": false,
+            "public_reference": "report:x",
+            "represented_in_aggregate": true
+          }
+        ],
+        "summary": {
+          "manifest_reference_resolution_rate": 1.0
+        }
+      },
+      "fixture_id": "public_manifest_included_to_file_included_v1",
+      "input_example": {
+        "artifacts": [
+          {
+            "included": false,
+            "public_reference": "report:x"
+          }
+        ],
+        "summary": {
+          "provenance_coverage": 1.0
+        }
+      },
+      "renamed_fields": {
+        "included": "file_included",
+        "provenance_coverage": "manifest_reference_resolution_rate"
+      },
+      "source_schema": "regression_cp_public_artifact_manifest_legacy_v0",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_public_artifact_manifest_v1"
+    },
+    {
+      "artifact_family": "knowledge_graph_lazy_loading",
+      "expected_output_example": {
+        "edges": {
+          "edges": [
+            {
+              "source": "claim:cqr",
+              "target": "method:cqr"
+            }
+          ],
+          "schema": "regression_cp_evidence_graph_edges_v1"
+        },
+        "index": {
+          "nodes": [
+            {
+              "id": "claim:cqr"
+            }
+          ],
+          "schema": "regression_cp_evidence_graph_index_v1"
+        }
+      },
+      "fixture_id": "kg_index_split_from_full_graph_v1",
+      "input_example": {
+        "edges": [
+          {
+            "source": "claim:cqr",
+            "target": "method:cqr"
+          }
+        ],
+        "nodes": [
+          {
+            "id": "claim:cqr"
+          }
+        ],
+        "schema": "regression_cp_evidence_graph_v2"
+      },
+      "renamed_fields": {},
+      "source_schema": "regression_cp_evidence_graph_v2",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_evidence_graph_index_v1 + regression_cp_evidence_graph_edges_v1"
+    },
+    {
+      "artifact_family": "claim_evidence_matrix",
+      "expected_output_example": {
+        "claims": [
+          {
+            "claim_id": "claim:scope"
+          }
+        ],
+        "schema": "regression_cp_claim_evidence_matrix_public_v1",
+        "summary": {
+          "claim_count": 1
+        }
+      },
+      "fixture_id": "claim_matrix_public_v1",
+      "input_example": {
+        "claims": [
+          {
+            "claim_id": "claim:scope"
+          }
+        ],
+        "schema": "regression_cp_claim_evidence_matrix_public_v1",
+        "summary": {
+          "claim_count": 1
+        }
+      },
+      "renamed_fields": {},
+      "source_schema": "regression_cp_claim_evidence_matrix_public_v1",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_claim_evidence_matrix_public_v1"
+    },
+    {
+      "artifact_family": "artifact_index",
+      "expected_output_example": {
+        "artifact_count": 1,
+        "artifacts": [
+          {
+            "artifact_path": "atlas/index.html"
+          }
+        ],
+        "schema": "regression_cp_public_artifact_index_v1"
+      },
+      "fixture_id": "artifact_index_public_v1",
+      "input_example": {
+        "artifact_count": 1,
+        "artifacts": [
+          {
+            "artifact_path": "atlas/index.html"
+          }
+        ],
+        "schema": "regression_cp_public_artifact_index_v1"
+      },
+      "renamed_fields": {},
+      "source_schema": "regression_cp_public_artifact_index_v1",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_public_artifact_index_v1"
+    },
+    {
+      "artifact_family": "audit_response_matrix",
+      "expected_output_example": {
+        "rows": [
+          {
+            "priority": "P0"
+          }
+        ],
+        "schema": "regression_cp_final_audit_response_matrix_v1",
+        "summary": {
+          "p0_status": "completed"
+        }
+      },
+      "fixture_id": "audit_response_matrix_public_v1",
+      "input_example": {
+        "rows": [
+          {
+            "priority": "P0"
+          }
+        ],
+        "schema": "regression_cp_final_audit_response_matrix_v1",
+        "summary": {
+          "p0_status": "completed"
+        }
+      },
+      "renamed_fields": {},
+      "source_schema": "regression_cp_final_audit_response_matrix_v1",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_final_audit_response_matrix_v1"
+    },
+    {
+      "artifact_family": "maintenance_gate_matrix",
+      "expected_output_example": {
+        "gates": [
+          {
+            "gate_id": "schema_migration"
+          }
+        ],
+        "schema": "regression_cp_public_maintenance_gate_matrix_v1",
+        "summary": {
+          "gate_count": 1
+        }
+      },
+      "fixture_id": "maintenance_gate_matrix_public_v1",
+      "input_example": {
+        "gates": [
+          {
+            "gate_id": "schema_migration"
+          }
+        ],
+        "schema": "regression_cp_public_maintenance_gate_matrix_v1",
+        "summary": {
+          "gate_count": 1
+        }
+      },
+      "renamed_fields": {},
+      "source_schema": "regression_cp_public_maintenance_gate_matrix_v1",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_public_maintenance_gate_matrix_v1"
+    }
+  ],
+  "generated_at_utc": "2026-07-15T06:50:36.118415+00:00",
+  "schema": "regression_cp_public_schema_migration_fixtures_v1",
+  "status": "schema_migration_fixtures_seeded"
+}

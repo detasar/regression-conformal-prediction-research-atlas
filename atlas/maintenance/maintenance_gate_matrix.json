@@ -73,23 +73,23 @@
       "status": "planned"
     },
     {
-      "ci_enforced": false,
-      "command_or_evidence": "not yet enforced in public CI",
+      "ci_enforced": true,
+      "command_or_evidence": "atlas/maintenance/schema_registry.*, atlas/maintenance/schema_migration_fixtures.*, and public smoke schema tests",
       "gate_id": "schema_migration",
       "gate_label": "Schema migration gate",
-      "remaining_work": "Add schema fixtures and migration tests before Benchmark v2 results are generated.",
+      "remaining_work": "Extend the registry when Benchmark v2 result schemas are generated.",
       "scope": "versioned atlas, KG, evidence, and result-cube schemas",
-      "status": "planned"
+      "status": "implemented"
     }
   ],
-  "generated_at_utc": "2026-07-15T06:37:27.229207+00:00",
+  "generated_at_utc": "2026-07-15T06:50:36.118415+00:00",
   "schema": "regression_cp_public_maintenance_gate_matrix_v1",
   "summary": {
-    "ci_enforced_gate_count": 5,
+    "ci_enforced_gate_count": 6,
     "gate_count": 9,
-    "implemented_gate_count": 5,
-    "overall_status": "maintenance_gates_defined_modularization_pending",
+    "implemented_gate_count": 6,
+    "overall_status": "schema_migration_seeded_modularization_pending",
     "partial_gate_count": 1,
-    "planned_gate_count": 3
+    "planned_gate_count": 2
   }
 }
