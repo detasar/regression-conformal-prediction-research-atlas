@@ -1,8 +1,8 @@
 {
-  "completed_method_row_count": 16338,
-  "completed_progress_fraction": 0.389,
+  "completed_method_row_count": 16458,
+  "completed_progress_fraction": 0.39185714,
   "failed_method_row_count": 0,
-  "generated_at_utc": "2026-07-16T20:31:42.473015+00:00",
+  "generated_at_utc": "2026-07-16T20:52:01.767026+00:00",
   "historical_attempt_record_count": 26875,
   "historical_failed_attempt_count": 4322,
   "historical_failed_attempt_reason_counts": {
@@ -13,8 +13,8 @@
   "method_rows_with_latest_failed_after_historical_attempt_count": 0,
   "method_rows_with_multiple_attempt_records_count": 3502,
   "method_rows_with_recovered_failed_attempt_count": 4322,
-  "observed_method_row_count": 25843,
-  "pending_method_row_count": 16157,
+  "observed_method_row_count": 26043,
+  "pending_method_row_count": 15957,
   "progress_reconciled_with_live_integrity_audit": true,
   "progress_snapshot_source": "benchmark_v2_live_integrity_audit_latest_rows",
   "public_scope_note": "Aggregate Benchmark v2 execution status snapshot. Raw execution ledgers, local caches, and prediction bundles are not included in the public package.",
@@ -23,16 +23,16 @@
   "schema": "regression_cp_benchmark_v2_execution_status_snapshot_v1",
   "selected_chunk_count": 42,
   "selected_method_row_count": 42000,
-  "skipped_method_row_count": 9505,
+  "skipped_method_row_count": 9585,
   "snapshot_source": "source_execution_summary",
   "source_chunk_count": 42,
   "source_reference": "source execution summary retained outside the public package",
   "status": "execution_in_progress",
   "status_counts": {
-    "completed": 16338,
+    "completed": 16458,
     "skipped_infeasible_grouped_regime": 5250,
-    "skipped_method": 4255
+    "skipped_method": 4335
   },
-  "terminal_method_row_count": 25843,
-  "terminal_progress_fraction": 0.61530952
+  "terminal_method_row_count": 26043,
+  "terminal_progress_fraction": 0.62007143
 }

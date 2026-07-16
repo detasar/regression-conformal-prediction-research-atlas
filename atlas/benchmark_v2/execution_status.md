@@ -7,13 +7,13 @@ This page reports the aggregate execution state for the balanced Benchmark v2 ru
 - Status: `execution_in_progress`
 - Result generation status: `in_progress`
 - Selected method rows: `42000`
-- Observed method rows: `25843`
-- Terminal method rows: `25843`
-- Completed method rows: `16338`
-- Skipped method rows: `9505`
+- Observed method rows: `26043`
+- Terminal method rows: `26043`
+- Completed method rows: `16458`
+- Skipped method rows: `9585`
 - Failed method rows: `0`
-- Pending method rows: `16157`
-- Terminal progress fraction: `0.61530952`
+- Pending method rows: `15957`
+- Terminal progress fraction: `0.62007143`
 - Historical attempt records: `26875`
 - Historical failed attempts: `4322`
 - Method rows with recovered failed attempts: `4322`
@@ -22,9 +22,9 @@ This page reports the aggregate execution state for the balanced Benchmark v2 ru
 
 | Status | Rows |
 |---|---:|
-| `completed` | 16338 |
+| `completed` | 16458 |
 | `skipped_infeasible_grouped_regime` | 5250 |
-| `skipped_method` | 4255 |
+| `skipped_method` | 4335 |
 
 ## Historical Attempt Diagnostics
 
