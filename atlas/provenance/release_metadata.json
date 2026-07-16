@@ -20,7 +20,7 @@
     "preferred_citation_type": "repository",
     "ris_path": "paper/citation.ris"
   },
-  "generated_at_utc": "2026-07-16T17:02:20.298536+00:00",
+  "generated_at_utc": "2026-07-16T17:22:49.197526+00:00",
   "language": "English",
   "public_artifacts": {
     "article_html": "paper/article.html",
@@ -43,7 +43,7 @@
   },
   "schema": "regression_cp_public_release_metadata_v1",
   "source_generation": {
-    "source_repository_commit_sha": "f490c4b19d200d3ce51f6f20d339b5ab2fcca65a",
+    "source_repository_commit_sha": "bcb9a88f6febf7a8f2a12e1d9c7dda25627a90f5",
     "source_repository_scope": "source_generation_repository"
   },
   "title": "Regression Conformal Prediction Study: Research Atlas"
