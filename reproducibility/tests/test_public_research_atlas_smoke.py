@@ -1802,6 +1802,8 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
     paths = [
         root / "README.md",
         root / "HOW_TO_READ_THE_EVIDENCE.md",
+        root / "DATA_LICENSES.md",
+        root / "SECURITY.md",
         root / "site/index.html",
         root / "site/kg_browser.html",
         root / "site/kg_browser_index.json",
@@ -1863,6 +1865,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("private", "review"),
         phrase("private", "site"),
         phrase("private", "package"),
+        phrase("private", "ledgers"),
         phrase("can", "be", "reviewed", "privately"),
         phrase("separate", "publication", "decision"),
         phrase("citation", "metadata", "require", "separate", "validation"),

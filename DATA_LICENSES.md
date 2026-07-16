@@ -16,7 +16,7 @@ Those files record source names, retrieval status, license notes when available,
 
 | Artifact class | Included here? | License / status | Notes |
 |---|---:|---|---|
-| Reproducibility code and tests | Yes | Repository `LICENSE` | Public smoke and artifact checks run without private ledgers. |
+| Reproducibility code and tests | Yes | Repository `LICENSE` | Public smoke and artifact checks run without restricted source ledgers. |
 | Article, supplement, site, and README | Yes | Repository `LICENSE` unless an upstream citation says otherwise | Scholarly citations remain attached to method and dataset descriptions. |
 | Aggregate result tables and atlas metadata | Yes | Public Research Atlas release data | These are derived aggregate outputs, not raw external datasets. |
 | Raw external datasets | No | Governed by upstream providers | Use the source metadata matrix to locate upstream terms. |
