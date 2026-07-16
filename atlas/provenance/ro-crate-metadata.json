@@ -17,6 +17,9 @@
           "@id": "results/result_cube_public.csv"
         },
         {
+          "@id": "results/numerical_pathology_report.json"
+        },
+        {
           "@id": "claims/claim_registry.json"
         },
         {

@@ -1630,6 +1630,7 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
         "site/kg_browser_edges.json",
         "evidence/public_artifact_manifest.json",
         "atlas/results/result_cube_public.csv",
+        "atlas/results/numerical_pathology_report.json",
         "atlas/artifacts/public_artifact_index.json",
         "atlas/benchmark_v2/live_integrity_audit.json",
         "atlas/maintenance/maintenance_quality_matrix.json",
@@ -1640,6 +1641,10 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
     assert (
         schema_by_path["atlas/results/result_cube_public.csv"]["schema"]
         == "regression_cp_result_cube_public_v1"
+    )
+    assert (
+        schema_by_path["atlas/results/numerical_pathology_report.json"]["schema"]
+        == "regression_cp_numerical_pathology_report_v1"
     )
     assert {
         "coverage_lower_bound_pass",
@@ -1817,6 +1822,72 @@ def test_public_result_cube_schema_preserves_scientific_labels() -> None:
     assert "coverage_lower_bound_fail" in statuses
 
 
+def test_public_numerical_pathology_report_is_published_and_domain_safe() -> None:
+    root = repo_root()
+    base = root / "atlas/results/numerical_pathology_report"
+    for suffix in (".csv", ".json", ".md"):
+        assert base.with_suffix(suffix).exists()
+
+    with (root / "atlas/results/result_cube_public.csv").open(
+        encoding="utf-8",
+        newline="",
+    ) as handle:
+        result_rows = list(csv.DictReader(handle))
+    with base.with_suffix(".csv").open(encoding="utf-8", newline="") as handle:
+        report_rows = list(csv.DictReader(handle))
+    payload = json.loads(base.with_suffix(".json").read_text(encoding="utf-8"))
+    markdown = base.with_suffix(".md").read_text(encoding="utf-8")
+    artifact_index = json.loads(
+        (root / "atlas/artifacts/public_artifact_index.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    schema_registry = json.loads(
+        (root / "atlas/maintenance/schema_registry.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    results_page = (root / "atlas/results/index.html").read_text(encoding="utf-8")
+
+    assert payload["schema"] == "regression_cp_numerical_pathology_report_v1"
+    assert len(report_rows) == len(result_rows) == payload["summary"]["row_count"]
+    assert payload["summary"]["flagged_row_count"] == 29
+    assert payload["summary"]["coverage_ci_high_gt_one_count"] == 23
+    assert payload["summary"]["coverage_ci_clipped_count"] == 23
+    assert payload["summary"]["coverage_ci_low_lt_zero_count"] == 0
+    assert payload["summary"]["extreme_width_or_score_count"] == 6
+    assert all(
+        0.0 <= float(row["clipped_coverage_ci_low"]) <= 1.0
+        and 0.0 <= float(row["clipped_coverage_ci_high"]) <= 1.0
+        for row in report_rows
+        if row["clipped_coverage_ci_low"] and row["clipped_coverage_ci_high"]
+    )
+    assert any(
+        row["finite_domain_validation_status"]
+        == "coverage_ci_raw_outside_probability_domain"
+        for row in report_rows
+    )
+    assert any(row["recommended_plot_scale"] == "log_metric_axis" for row in report_rows)
+    assert "Raw diagnostic-band bounds are kept" in markdown
+    indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
+    assert "atlas/results/numerical_pathology_report.csv" in indexed_paths
+    assert "atlas/results/numerical_pathology_report.json" in indexed_paths
+    assert "atlas/results/numerical_pathology_report.md" in indexed_paths
+    schema_by_path = {row["artifact_path"]: row for row in schema_registry["schemas"]}
+    assert (
+        schema_by_path["atlas/results/numerical_pathology_report.json"]["schema"]
+        == "regression_cp_numerical_pathology_report_v1"
+    )
+    for fragment in (
+        "Numerical Pathology And Display Policy",
+        "numerical_pathology_report.md",
+        "numerical_pathology_report.csv",
+        "numerical_pathology_report.json",
+        "Display CI high",
+    ):
+        assert fragment in results_page
+
+
 def test_public_results_page_exposes_interactive_atlas_layers() -> None:
     root = repo_root()
     results = (root / "atlas/results/index.html").read_text(encoding="utf-8")
@@ -1833,6 +1904,9 @@ def test_public_results_page_exposes_interactive_atlas_layers() -> None:
         "CQR Backend Sensitivity Map",
         "Copy Current View",
         "Share filtered result view",
+        "Numerical Pathology And Display Policy",
+        "numerical_pathology_report.md",
+        "Display CI high",
         "Numerical pathology",
         "numerical_pathology_reason",
         "display_interval_policy",

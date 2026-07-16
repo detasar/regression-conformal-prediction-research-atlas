@@ -22,7 +22,8 @@
     {
       "atlas_paths": [
         "atlas/results/coverage_eligible_selected_cells.csv",
-        "atlas/results/result_cube_public.csv"
+        "atlas/results/result_cube_public.csv",
+        "atlas/results/numerical_pathology_report.md"
       ],
       "description": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.",
       "route_id": "cqr_pipeline_signal",
@@ -31,6 +32,7 @@
     {
       "atlas_paths": [
         "atlas/results/venn_abers_negative_evidence.csv",
+        "atlas/results/numerical_pathology_report.json",
         "atlas/results/interpretation_limits.csv"
       ],
       "description": "Bridge-specific negative and diagnostic evidence, especially for the evaluated Venn-Abers regression bridge.",

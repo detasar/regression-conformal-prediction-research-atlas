@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-07-16T13:35:27.321749+00:00",
+  "generated_at_utc": "2026-07-16T13:53:37.263915+00:00",
   "policy": {
     "benchmark_v2_rule": "Benchmark v2 result artifacts must either use these schemas or publish v2 schemas with explicit fixtures before execution results are merged.",
     "breaking_change_rule": "Any removal or rename of a required field must add a migration fixture and a public smoke assertion before regenerated results are published.",
     "compatibility_rule": "Public readers may rely on these schema identifiers and required fields inside the Atlas v0 release line."
   },
   "schema": "regression_cp_public_schema_registry_v1",
-  "schema_count": 10,
+  "schema_count": 11,
   "schemas": [
     {
       "artifact_path": "site/kg_browser_data.json",
@@ -92,6 +92,17 @@
         "display_interval_policy"
       ],
       "schema": "regression_cp_result_cube_public_v1"
+    },
+    {
+      "artifact_path": "atlas/results/numerical_pathology_report.json",
+      "format": "json",
+      "migration_fixture_id": "result_cube_selection_labels_v0_to_v1",
+      "required_fields": [
+        "schema",
+        "summary",
+        "rows"
+      ],
+      "schema": "regression_cp_numerical_pathology_report_v1"
     },
     {
       "artifact_path": "atlas/scope/audit_response_matrix.json",

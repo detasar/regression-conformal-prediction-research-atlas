@@ -11,6 +11,7 @@ This registry records the public schema identifiers and required fields that rea
 | `evidence/claim_evidence_matrix.json` | `regression_cp_claim_evidence_matrix_public_v1` | `json` | `schema`, `summary`, `claims` | `claim_matrix_public_v1` |
 | `atlas/artifacts/public_artifact_index.json` | `regression_cp_public_artifact_index_v1` | `json` | `schema`, `artifact_count`, `artifacts` | `artifact_index_public_v1` |
 | `atlas/results/result_cube_public.csv` | `regression_cp_result_cube_public_v1` | `csv` | `dataset_id`, `alpha`, `method_label`, `coverage_lower_bound_pass`, `coverage_eligible_selected`, `numerical_pathology_flag`, `display_interval_policy` | `result_cube_selection_labels_v0_to_v1` |
+| `atlas/results/numerical_pathology_report.json` | `regression_cp_numerical_pathology_report_v1` | `json` | `schema`, `summary`, `rows` | `result_cube_selection_labels_v0_to_v1` |
 | `atlas/scope/audit_response_matrix.json` | `regression_cp_final_audit_response_matrix_v1` | `json` | `schema`, `summary`, `rows` | `audit_response_matrix_public_v1` |
 | `atlas/benchmark_v2/live_integrity_audit.json` | `regression_cp_benchmark_v2_live_integrity_audit_public_v1` | `json` | `schema`, `status`, `critical_violation_count`, `planned_method_row_count`, `observed_method_row_count`, `completed_method_row_count`, `raw_ledger_included` | `benchmark_v2_live_integrity_audit_public_v1` |
 | `atlas/maintenance/maintenance_quality_matrix.json` | `regression_cp_public_maintenance_quality_matrix_v1` | `json` | `schema`, `summary`, `checks` | `maintenance_quality_matrix_public_v1` |

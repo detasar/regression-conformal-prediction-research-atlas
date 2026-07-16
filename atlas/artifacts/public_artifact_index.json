@@ -1,5 +1,5 @@
 {
-  "artifact_count": 327,
+  "artifact_count": 330,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -125,6 +125,21 @@
       "artifact_kind": "atlas data",
       "artifact_path": "atlas/results/interpretation_limits.csv",
       "reader_use": "Interpretation limits table."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/numerical_pathology_report.csv",
+      "reader_use": "Numerical pathology and display-policy report CSV."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/numerical_pathology_report.json",
+      "reader_use": "Numerical pathology and display-policy report JSON."
+    },
+    {
+      "artifact_kind": "atlas data",
+      "artifact_path": "atlas/results/numerical_pathology_report.md",
+      "reader_use": "Readable numerical pathology and display-policy report."
     },
     {
       "artifact_kind": "atlas data",
@@ -1637,6 +1652,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-16T13:35:27.321749+00:00",
+  "generated_at_utc": "2026-07-16T13:53:37.263915+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
