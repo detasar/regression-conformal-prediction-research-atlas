@@ -112,10 +112,10 @@ Every dataset must pass these gates before headline model sweeps:
   seven conformal methods, and seeds 11/23; a no-force rerun returned 714/714
   `skipped_completed` records. The sweep corrected the CV+ train-row cap to
   5000 so all 102 CV+ atomic rows completed. It improves the ridge-smoke
-  score frontier with RBF SVR `C=0.3, epsilon=0.1, gamma=scale` plus
+  score trade-off row with RBF SVR `C=0.3, epsilon=0.1, gamma=scale` plus
   `normalized_abs`: coverage 0.9079, `theta3_bin` diagnostic gap 0.1576,
   mean width 0.5888, and score 0.7291. It also improves the diagnostic-gap
-  frontier with RBF SVR `C=1.0, epsilon=0.03, gamma=0.01` plus
+  diagnostic-gap selected row with RBF SVR `C=1.0, epsilon=0.03, gamma=0.01` plus
   `mondrian_abs`: coverage 0.9131, gap 0.0191, mean width 0.7320, and score
   0.9008. Fast `venn_abers_quantile` is nominal in 0/51 seed-aggregated rows.
   Treat as synthetic benchmark diagnostics and post-hoc model-family triage
@@ -134,13 +134,13 @@ Every dataset must pass these gates before headline model sweeps:
   configurations and seven conformal methods; a no-force rerun returned
   714/714 `skipped_completed` records. The sweep sets
   `cv_plus_max_train_rows` to 6000 so CV+ completes on the 5,710-row training
-  split. It slightly improves the ridge-smoke score frontier with RBF kernel
+  split. It slightly improves the ridge-smoke score trade-off row with RBF kernel
   ridge `alpha=0.1, gamma=0.01` plus `cv_plus`: coverage 0.9013,
   `climbRate_bin` diagnostic gap 0.0534, mean width 0.0055408, and score
-  0.0073378. It improves the nominal diagnostic-gap frontier with elastic net
+  0.0073378. It improves the nominal diagnostic-gap selected row with elastic net
   `alpha=0.01, l1_ratio=0.25` plus `mondrian_abs`: coverage 0.9341, gap
   0.0300, mean width 0.0075032, and score 0.0099254, which is a
-  gap/width/overcoverage tradeoff rather than the score frontier. Fast
+  gap/width/overcoverage tradeoff rather than the score-selected row. Fast
   `venn_abers_quantile` is nominal in 0/51 seed-aggregated rows with mean
   coverage 0.6073. Treat as tabular control benchmark diagnostics and
   post-hoc model-family triage only, not protected-class fairness evidence,
@@ -1020,7 +1020,7 @@ Every dataset must pass these gates before headline model sweeps:
     seeds 11/23/47/71/89, with a complete no-force resume check. Prediction
     metadata confirms 1087 train-preprocessed descriptors reduced to 50 PCA
     components with explained variance ratio sum 0.8981 in the sampled
-    bundle. PCA50 did not improve the all-descriptor score frontier: its best
+    bundle. PCA50 did not improve the all-descriptor score-selected row: its best
     nominal-or-above row is RBF SVR `C=1.0, epsilon=0.03, gamma=scale` with
     `mondrian_abs`, coverage 0.9309, `oz2_bin` gap 0.1623, mean width 0.5691,
     and score 0.6806. A train-only SelectKBest100 sensitivity panel also
@@ -1029,14 +1029,14 @@ Every dataset must pass these gates before headline model sweeps:
     resume check. Sampled prediction metadata confirms 1087
     train-preprocessed descriptors reduced to 100 selected descriptors, with
     no selected `oz2`, `oz2_bin`, or `oz1143`. SelectKBest100 did not improve
-    the score frontier: its best nominal-or-above row is RBF SVR
+    the score-selected row: its best nominal-or-above row is RBF SVR
     `C=1.0, epsilon=0.1, gamma=scale` with `normalized_abs`, coverage 0.9127,
     `oz2_bin` diagnostic gap 0.1710, mean width 0.5864, and score 0.7392.
     Its best nominal-or-above diagnostic gap is ridge `alpha=1.0` with
     `split_abs`, coverage 0.9164, gap 0.1277, mean width 0.6778, and score
     0.8328. SelectKBest is fit once on the outer training split; CV+ rows
     operate on this selected representation and are not fold-local supervised
-    feature-selection evidence. Treat all frontier rows as post-hoc triage
+    feature-selection evidence. Treat all selected rows as post-hoc triage
     signals from small test/group cells, and treat this as high-dimensional
     QSAR interval-machinery and descriptor-representation sensitivity evidence
     only, not protected-class fairness evidence, molecular-design guidance,
