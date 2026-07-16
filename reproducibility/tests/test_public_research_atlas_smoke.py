@@ -583,6 +583,11 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "Open evidence route" in browser
     assert ".table-action:hover" in browser
     assert "map-legend" in browser
+    assert "const routeAliases = {claim_matrix:'claim_scope'" in browser
+    assert "function resolveRouteId(routeId)" in browser
+    assert "state.routeId=resolvedRouteId" in browser
+    assert "const mobileCanvas=r.width<560" in browser
+    assert "const shouldLabel=is || focused || (!mobileCanvas" in browser
     assert 'id="mapCanvas" tabindex="0" role="img"' in browser
     assert 'aria-describedby="canvasHelp canvasStatus"' in browser
     assert 'id="canvasStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"' in browser
