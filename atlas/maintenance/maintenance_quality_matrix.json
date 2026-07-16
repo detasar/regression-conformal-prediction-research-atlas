@@ -82,7 +82,7 @@
       "status": "implemented"
     }
   ],
-  "generated_at_utc": "2026-07-16T13:13:45.127533+00:00",
+  "generated_at_utc": "2026-07-16T13:35:27.321749+00:00",
   "schema": "regression_cp_public_maintenance_quality_matrix_v1",
   "summary": {
     "check_count": 9,

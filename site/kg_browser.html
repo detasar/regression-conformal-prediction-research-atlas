@@ -92,7 +92,7 @@
       <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><button id="edgeRetry" class="edge-retry" type="button" hidden>Retry edge bundle</button><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>evidence-limit edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
     </section>
     <aside class="right">
-      <div class="detail" id="detail"><h2>What is in this graph?</h2><p class="muted">This is a reader-facing index over the experiment evidence: methods, dataset audits, result reports, interpretation scope, and provenance links. Start with a route, then drill into a node only when you want the underlying audit trail.</p></div>
+      <div class="detail" id="detail"><h2>What is in this graph?</h2><p class="muted">This is a reader-facing index over the experiment evidence: methods, dataset audits, result reports, study limits, and provenance links. Start with a route, then drill into a node only when you want the underlying audit trail.</p></div>
       <h2>Neighborhood</h2>
       <div id="edges"></div>
       <h2>Accessible Table</h2>
@@ -364,7 +364,7 @@
           ? `<span class="pill">deep link status</span><h2>Requested graph item was not found</h2><p class="muted">The requested ${esc(state.missingRequest.kind)} <code>${esc(state.missingRequest.value)}</code> is not present in this public graph snapshot. Use search or one of the guided routes below.</p>`
           : (route
           ? `<span class="pill">guided route</span><h2>${esc(route.title)}</h2><p class="muted">${esc(route.summary)}</p><p class="muted">This view shows the curated anchors first. Click an anchor node to open its one-hop or two-hop evidence neighborhood.</p>`
-        : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, interpretation scope, and provenance records. It is an evidence map for inspecting the study.</p>`);
+        : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, study limits, and provenance records. It is an evidence map for inspecting the study.</p>`);
         document.getElementById('edges').innerHTML=route ? '<p class="muted">Route anchors are shown in the table below. Select one to inspect edge provenance.</p>' : '<p class="muted">Select a route or search for a node to see edge provenance.</p>';
 	        document.getElementById('table').innerHTML=route
 	          ? `<table><caption>Guided route anchor nodes</caption><thead><tr><th scope="col">Anchor</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`

@@ -463,6 +463,8 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         phrase("release", "render"),
         "release" + "_" + "boundary",
         phrase("release", "boundary"),
+        phrase("claim", "boundaries"),
+        phrase("interpretation", "boundaries"),
         phrase("public", "release", "authorized"),
         phrase("method", "recommendation", "authorized"),
         phrase("positive", "claim", "promotion", "authorized"),

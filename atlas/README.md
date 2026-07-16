@@ -1,6 +1,6 @@
 # Regression CP Research Atlas
 
-This atlas makes the experiment universe visible: scope, datasets, methods, result cube, interpretation boundaries, and provenance.
+This atlas makes the experiment universe visible: scope, datasets, methods, result cube, study limits, and provenance.
 
 ## At A Glance
 
