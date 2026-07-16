@@ -20,6 +20,7 @@ python -m pytest -m "unit or artifact_public or smoke" -q -k "reader_surfaces or
 python -m pytest -m "unit or artifact_public or smoke" -q
 python -m experiments.regression.scripts.run_regression_pilot --help
 python -m experiments.regression.scripts.run_regression_pilot --max-runs 0
+python -m experiments.regression.scripts.run_benchmark_v2_chunk --chunk-id benchmark_v2_chunk_0001 --package-root . --dry-run
 ```
 
 ## Locked Public Smoke Dependencies
@@ -46,6 +47,23 @@ These packages are optional in the public package and are not required by the pu
 | `xgboost` | `>=2.0` |
 | `lightgbm` | `>=4.0` |
 | `catboost` | `>=1.2` |
+
+## External Data Execution Dependencies
+
+These packages are needed only when executing Benchmark v2 rows that fetch external datasets. They are intentionally outside the public smoke lock, which verifies the packaged atlas, manifests, schemas, links, and dry-run execution contracts without downloading external data.
+
+Install them with:
+
+```bash
+python -m pip install -e ".[external-data]"
+```
+
+| Package | Constraint |
+|---|---:|
+| `openml` | `>=0.14` |
+| `fairlearn` | `>=0.10` |
+| `folktables` | `>=0.0.12` |
+| `aif360` | `>=0.6` |
 
 ## Excluded From This Public Lock
 

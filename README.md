@@ -66,6 +66,7 @@ python -m pip install -e ".[test]"
 python -m pytest -m "unit or artifact_public or smoke"
 python -m experiments.regression.scripts.run_regression_pilot --help
 python -m experiments.regression.scripts.run_regression_pilot --max-runs 0
+python -m experiments.regression.scripts.run_benchmark_v2_chunk --chunk-id benchmark_v2_chunk_0001 --package-root . --dry-run
 ```
 
 The public CI runs the same marker-selected suite in named lanes: package and
@@ -73,6 +74,13 @@ rebuild checks, artifact/schema/link checks, reader SEO and accessibility
 checks, and then the full public smoke suite. Full source ledgers, local caches,
 external data pulls, and long reruns are intentionally outside the public smoke
 test surface.
+
+Benchmark v2 execution rows that fetch external datasets require the optional
+external-data environment:
+
+```bash
+python -m pip install -e ".[external-data]"
+```
 
 ## Citation
 

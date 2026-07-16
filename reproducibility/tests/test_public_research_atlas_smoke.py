@@ -632,6 +632,7 @@ def test_public_environment_lock_documents_install_surface() -> None:
     assert any("kg_and_artifact_manifest or scope_catalogs" in command for command in lock["install_commands"])
     assert any("reader_surfaces or html_metadata" in command for command in lock["install_commands"])
     assert "python -m pytest -m \"unit or artifact_public or smoke\" -q" in lock["install_commands"]
+    assert any("run_benchmark_v2_chunk" in command for command in lock["install_commands"])
 
     locked = lock["locked_dependencies"]
     for name in [
@@ -647,6 +648,8 @@ def test_public_environment_lock_documents_install_surface() -> None:
         assert name in locked
         assert locked[name]
     assert lock["optional_model_dependencies"]["xgboost"] == ">=2.0"
+    assert lock["external_data_dependencies"]["aif360"] == ">=0.6"
+    assert lock["external_data_dependencies"]["openml"] == ">=0.14"
 
     req_text = req_path.read_text(encoding="utf-8")
     assert "numpy==2.3.5" in req_text
@@ -657,9 +660,12 @@ def test_public_environment_lock_documents_install_surface() -> None:
     md_text = md_path.read_text(encoding="utf-8")
     assert "# Public Environment Lock" in md_text
     assert "Locked Public Smoke Dependencies" in md_text
+    assert "External Data Execution Dependencies" in md_text
+    assert "python -m pip install -e \".[external-data]\"" in md_text
     readme = (root / "README.md").read_text(encoding="utf-8")
     assert "reproducibility/environment/public_environment_lock.md" in readme
     assert "reproducibility/environment/requirements-public-lock.txt" in readme
+    assert ".[external-data]" in readme
 
 
 def test_public_repository_maintenance_files_are_present() -> None:

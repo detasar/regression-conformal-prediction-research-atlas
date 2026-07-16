@@ -30,6 +30,12 @@ optional-models = [
   "lightgbm>=4.0",
   "catboost>=1.2",
 ]
+external-data = [
+  "openml>=0.14",
+  "fairlearn>=0.10",
+  "folktables>=0.0.12",
+  "aif360>=0.6",
+]
 
 [tool.setuptools]
 package-dir = {"" = "reproducibility"}

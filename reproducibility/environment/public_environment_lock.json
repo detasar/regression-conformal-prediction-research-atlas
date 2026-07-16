@@ -7,6 +7,12 @@
     "Prediction bundles",
     "Nonredistributable source artifacts"
   ],
+  "external_data_dependencies": {
+    "aif360": ">=0.6",
+    "fairlearn": ">=0.10",
+    "folktables": ">=0.0.12",
+    "openml": ">=0.14"
+  },
   "generated_for_release_date": "2026-07-10",
   "install_commands": [
     "python -m pip install --upgrade pip",
@@ -16,7 +22,8 @@
     "python -m pytest -m \"unit or artifact_public or smoke\" -q -k \"reader_surfaces or html_metadata or seo_and_citation or pdfs_include or pipeline_level or legacy_frontier or public_source_references or literature_citations or diagnostic_bands or repository_text\"",
     "python -m pytest -m \"unit or artifact_public or smoke\" -q",
     "python -m experiments.regression.scripts.run_regression_pilot --help",
-    "python -m experiments.regression.scripts.run_regression_pilot --max-runs 0"
+    "python -m experiments.regression.scripts.run_regression_pilot --max-runs 0",
+    "python -m experiments.regression.scripts.run_benchmark_v2_chunk --chunk-id benchmark_v2_chunk_0001 --package-root . --dry-run"
   ],
   "lock_status": "public_smoke_reproducibility_environment",
   "locked_dependencies": {
