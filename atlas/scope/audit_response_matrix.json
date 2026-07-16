@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-16T08:52:10.701378+00:00",
+  "generated_at_utc": "2026-07-16T09:15:18.787801+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -99,6 +99,17 @@
       "item": "Define the balanced, paired, leakage-aware Benchmark v2 and track execution.",
       "priority": "P1",
       "status": "execution_in_progress"
+    },
+    {
+      "evidence_paths": [
+        "atlas/scope/benchmark_v2_execution_manifest.md",
+        "atlas/scope/benchmark_v2_execution_manifest.json",
+        "atlas/scope/benchmark_v2_protocol.md",
+        "atlas/scope/benchmark_v2_protocol.json"
+      ],
+      "item": "Verify Benchmark v2 CV+/jackknife preprocessing is fold-local.",
+      "priority": "P1",
+      "status": "completed_current_execution_contract"
     },
     {
       "evidence_paths": [

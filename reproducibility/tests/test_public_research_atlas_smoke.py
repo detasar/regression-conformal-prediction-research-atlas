@@ -1305,6 +1305,7 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     )
     assert ("P1", "completed_current_public_atlas_layer") in statuses
     assert ("P1", "completed_current_public_kg_layer") in statuses
+    assert ("P1", "completed_current_execution_contract") in statuses
     assert ("P2", "source_backed_public_builder_modularization_started") in statuses
     assert any(
         row["priority"] == "P2"
@@ -1323,6 +1324,13 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
         "interactive result-atlas layer" in row["item"]
         and row["status"] == "completed_current_public_atlas_layer"
         and "atlas/results/cqr_backend_sensitivity.csv" in row["evidence_paths"]
+        for row in matrix["rows"]
+    )
+    assert any(
+        "CV+/jackknife preprocessing is fold-local" in row["item"]
+        and row["status"] == "completed_current_execution_contract"
+        and "atlas/scope/benchmark_v2_execution_manifest.json" in row["evidence_paths"]
+        and "atlas/scope/benchmark_v2_protocol.json" in row["evidence_paths"]
         for row in matrix["rows"]
     )
     assert any(
