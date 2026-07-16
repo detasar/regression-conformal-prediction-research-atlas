@@ -6,6 +6,7 @@ import importlib
 import importlib.resources as resources
 import csv
 import gzip
+import hashlib
 import json
 import os
 import re
@@ -384,13 +385,32 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     assert legacy_kg_summary_key not in kg["summary"]
     assert kg["summary"]["manifest_reference_resolution_rate"] == 1.0
     assert "public_status_counts" in manifest["summary"]
+    assert "public_resolution_kind_counts" in manifest["summary"]
+    assert manifest["summary"]["public_resolution_artifact_count"] > 0
+    assert manifest["summary"]["content_hash_verifiable_artifact_count"] > 0
+    assert (
+        manifest["summary"]["public_resolution_hash_verifiable_artifact_count"]
+        == manifest["summary"]["content_hash_verifiable_artifact_count"]
+    )
     assert all(row.get("public_status") for row in manifest["artifacts"])
     assert all("included" not in row for row in manifest["artifacts"])
     assert all("file_included" in row for row in manifest["artifacts"])
+    assert all("source_file_included" in row for row in manifest["artifacts"])
     assert all("represented_in_aggregate" in row for row in manifest["artifacts"])
     assert all("content_hash_verifiable" in row for row in manifest["artifacts"])
+    assert all("content_hash_scope" in row for row in manifest["artifacts"])
+    assert all("public_resolution_kind" in row for row in manifest["artifacts"])
+    assert all("public_resolution_note" in row for row in manifest["artifacts"])
     assert all("public_content_sha256" in row for row in manifest["artifacts"])
     assert all("source_hash" not in row for row in manifest["artifacts"])
+    for row in manifest["artifacts"]:
+        if not row.get("public_path"):
+            continue
+        public_path = root / row["public_path"]
+        assert public_path.is_file()
+        assert row["public_content_sha256"] == hashlib.sha256(public_path.read_bytes()).hexdigest()
+        assert row["content_hash_verifiable"] is True
+        assert row["content_hash_scope"] in {"included_source_file", "public_resolution_artifact"}
     manifest_text = json.dumps(manifest)
     legacy_private_builders = [
         "build_private_" + "ster" + "ile" + "_publication_package",
