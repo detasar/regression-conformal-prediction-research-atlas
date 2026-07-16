@@ -1,6 +1,6 @@
 {
   "completed_rows": 145839,
-  "generated_at_utc": "2026-07-16T12:48:10.258811+00:00",
+  "generated_at_utc": "2026-07-16T13:14:35.184800+00:00",
   "hash_receipt_count": 281,
   "kg_edge_count": 21019,
   "kg_node_count": 3643,
@@ -8,7 +8,7 @@
   "route_count": 9,
   "routes": [
     {
-      "anchor_count": 3,
+      "anchor_count": 2,
       "route_id": "experiment_scope",
       "title": "Experiment Scope"
     },
@@ -28,12 +28,12 @@
       "title": "CQR Backend Sensitivity Check"
     },
     {
-      "anchor_count": 7,
+      "anchor_count": 10,
       "route_id": "venn_abers_bridge",
       "title": "Negative Evidence"
     },
     {
-      "anchor_count": 8,
+      "anchor_count": 10,
       "route_id": "interpretation_limits",
       "title": "Interpretation Limits"
     },

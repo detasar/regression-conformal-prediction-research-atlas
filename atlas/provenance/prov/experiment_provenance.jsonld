@@ -6,7 +6,7 @@
     "atlas/results/result_cube_public.csv",
     "atlas/claims/claim_registry.json"
   ],
-  "generatedAtTime": "2026-07-16T12:47:23.848502+00:00",
+  "generatedAtTime": "2026-07-16T13:13:45.127533+00:00",
   "id": "build_public_research_atlas",
   "used": [
     "experiments/regression/manuscript/research_document.json",

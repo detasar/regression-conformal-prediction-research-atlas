@@ -6,7 +6,7 @@
   "reader_note": "The browser exposes curated routes first and keeps raw source keys as provenance detail.",
   "routes": [
     {
-      "anchor_node_count": 3,
+      "anchor_node_count": 2,
       "route_id": "experiment_scope",
       "title": "Experiment Scope"
     },
@@ -26,12 +26,12 @@
       "title": "CQR Backend Sensitivity Check"
     },
     {
-      "anchor_node_count": 7,
+      "anchor_node_count": 10,
       "route_id": "venn_abers_bridge",
       "title": "Negative Evidence"
     },
     {
-      "anchor_node_count": 8,
+      "anchor_node_count": 10,
       "route_id": "interpretation_limits",
       "title": "Interpretation Limits"
     },

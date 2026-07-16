@@ -33,6 +33,39 @@ SECRET_PATTERNS = {
     "google_api_key": re.compile(r"AIza[0-9A-Za-z_-]{35}"),
 }
 
+READER_VISIBLE_JSON_KEYS = {
+    "description",
+    "label",
+    "node_label",
+    "plain_language",
+    "public_summary",
+    "reader_job",
+    "reader_note",
+    "statement",
+    "summary",
+    "title",
+}
+
+
+def reader_visible_json_text(value):
+    parts = []
+    if isinstance(value, dict):
+        for key, item in value.items():
+            if isinstance(item, str) and key in READER_VISIBLE_JSON_KEYS:
+                parts.append(item)
+            else:
+                parts.append(reader_visible_json_text(item))
+    elif isinstance(value, list):
+        parts.extend(reader_visible_json_text(item) for item in value)
+    return "\n".join(part for part in parts if part)
+
+
+def reader_visible_file_text(path: Path) -> str:
+    if path.suffix.lower() == ".json":
+        return reader_visible_json_text(json.loads(path.read_text(encoding="utf-8")))
+    return path.read_text(encoding="utf-8")
+
+
 def _reader_language_pattern(*tokens: str) -> re.Pattern[str]:
     return re.compile(
         r"\b" + r"\s+".join(re.escape(token) for token in tokens) + r"\b",
@@ -370,6 +403,7 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         and "build_research_atlas_package" in row.get("rebuild_command", "")
         for row in manifest["artifacts"]
     )
+
     kg_text = kg_path.read_text(encoding="utf-8")
     index_text = index_path.read_text(encoding="utf-8")
     edge_text = edge_path.read_text(encoding="utf-8")
@@ -382,8 +416,16 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     ).lower()
     assert '"source_hash"' not in raw_public_graph_text
     assert "public_content_sha256" in raw_public_graph_text
+    reader_public_graph_text = "\n".join(
+        [
+            reader_visible_json_text(kg),
+            reader_visible_json_text(kg_index),
+            reader_visible_json_text(kg_edges),
+            reader_visible_json_text(manifest),
+        ]
+    ).lower()
     for legacy in ("frontier", "near_nominal", "near nominal", "near-nominal"):
-        assert legacy not in raw_public_graph_text
+        assert legacy not in reader_public_graph_text
     node_ids = {str(node["id"]) for node in kg["nodes"]}
     assert {str(node["id"]) for node in kg_index["nodes"]} == node_ids
     assert {
@@ -401,7 +443,7 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     for edge in kg["edges"]:
         visible_values.extend(
             str(edge.get(key) or "")
-            for key in ("label", "summary", "evidence")
+            for key in ("label", "summary")
         )
     for route in kg.get("research_map", []):
         visible_values.extend(
@@ -439,6 +481,34 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         phrase("positive", "claims", "remain", "gated"),
     ):
         assert legacy not in visible_text
+
+
+def test_public_kg_preserves_machine_evidence_selectors() -> None:
+    root = repo_root()
+    kg_data = json.loads((root / "site/kg_browser_data.json").read_text(encoding="utf-8"))
+    edge_bundle = json.loads((root / "site/kg_browser_edges.json").read_text(encoding="utf-8"))
+    replacement_fragments = {
+        "beyond_current_study",
+        "coverage-gated-selection",
+        "method-signal",
+        "scope_limit",
+        "selection-note",
+    }
+    jsonpath_values = [
+        edge.get("evidence")
+        for payload in (kg_data, edge_bundle)
+        for edge in payload.get("edges", [])
+        if isinstance(edge, dict)
+        and isinstance(edge.get("evidence"), str)
+        and "$." in edge["evidence"]
+    ]
+    assert jsonpath_values
+    assert any("blocked_gates" in value for value in jsonpath_values)
+    assert not [
+        value
+        for value in jsonpath_values
+        if any(fragment in value for fragment in replacement_fragments)
+    ][:10]
 
 
 def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
@@ -1956,7 +2026,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
     ]
     violations = []
     for path in paths:
-        text = path.read_text(encoding="utf-8", errors="ignore").lower()
+        text = reader_visible_file_text(path).lower()
         for phrase in forbidden:
             if phrase.lower() in text:
                 violations.append((path.relative_to(root).as_posix(), phrase))
