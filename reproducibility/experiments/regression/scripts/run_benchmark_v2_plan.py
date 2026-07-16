@@ -190,7 +190,10 @@ def summarize_chunk(
     ledger_path = chunk_execution_root / "benchmark_v2_execution_ledger.jsonl"
     latest = latest_status_by_method_row(ledger_path)
     selected_latest = {key: latest[key] for key in selected_keys if key in latest}
-    status_counts = Counter(str(row.get("status", "unknown")) for row in selected_latest.values())
+    status_counts = Counter(
+        chunk_runner.normalized_execution_status(row)
+        for row in selected_latest.values()
+    )
     retry_statuses = {str(status) for status in args.retry_skipped_status or []}
     retry_terminal_statuses = set(retry_statuses)
     if args.retry_failed:

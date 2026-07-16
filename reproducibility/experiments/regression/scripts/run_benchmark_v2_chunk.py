@@ -99,9 +99,24 @@ UNSUPPORTED_REGIME_ERROR_SNIPPETS = (
 )
 
 
+def is_unsupported_split_regime_text(text: str) -> bool:
+    return any(snippet in text for snippet in UNSUPPORTED_REGIME_ERROR_SNIPPETS)
+
+
 def is_unsupported_split_regime_exception(exc: Exception) -> bool:
-    message = str(exc)
-    return any(snippet in message for snippet in UNSUPPORTED_REGIME_ERROR_SNIPPETS)
+    return is_unsupported_split_regime_text(str(exc))
+
+
+def normalized_execution_status(row: dict[str, Any]) -> str:
+    status = str(row.get("status", ""))
+    if status == "failed":
+        diagnostic_text = "\n".join(
+            str(row.get(key, ""))
+            for key in ("error_message", "traceback_tail", "skip_reason")
+        )
+        if is_unsupported_split_regime_text(diagnostic_text):
+            return "skipped_infeasible_grouped_regime"
+    return status
 
 
 def parse_args() -> argparse.Namespace:
@@ -256,7 +271,7 @@ def latest_status_by_method_row(ledger_path: Path) -> dict[str, str]:
     for row in read_jsonl(ledger_path):
         key = str(row.get("method_row_key", ""))
         if key:
-            latest[key] = str(row.get("status", ""))
+            latest[key] = normalized_execution_status(row)
     return latest
 
 
@@ -281,7 +296,7 @@ def previously_terminal_rows(
     terminal: set[str] = set()
     for row in read_jsonl(ledger_path):
         key = str(row.get("method_row_key", ""))
-        status = str(row.get("status", ""))
+        status = normalized_execution_status(row)
         if not key:
             continue
         if should_retry_status(
