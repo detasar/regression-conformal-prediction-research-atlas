@@ -2191,7 +2191,7 @@ def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
     assert not missing
 
 
-def test_public_reader_surfaces_avoid_legacy_frontier_language() -> None:
+def test_public_reader_surfaces_enforce_selection_language() -> None:
     root = repo_root()
     pages = [
         root / "README.md",

@@ -34,7 +34,7 @@ jobs:
       - name: Run reader SEO and accessibility checks
         run: >
           python -m pytest -m "unit or artifact_public or smoke" -q
-          -k "reader_surfaces or html_metadata or seo_and_citation or pdfs_include or pipeline_level or legacy_frontier or public_source_references or literature_citations or diagnostic_bands or repository_text"
+          -k "reader_surfaces or html_metadata or seo_and_citation or pdfs_include or pipeline_level or selection_language or public_source_references or literature_citations or diagnostic_bands or repository_text"
       - name: Run full public artifact smoke suite
         run: python -m pytest -m "unit or artifact_public or smoke" -q
       - name: Verify root command
