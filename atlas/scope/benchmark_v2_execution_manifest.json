@@ -48,7 +48,7 @@
     "policy_reason": "Exact jackknife+ refits one model per training row. Rows above the cap are recorded as skipped_method with the threshold in the run notes rather than silently approximated.",
     "restart_command_suffix": "--jackknife-plus-max-train-rows 500"
   },
-  "generated_at_utc": "2026-07-16T03:54:32.089754+00:00",
+  "generated_at_utc": "2026-07-16T04:04:41.227918+00:00",
   "learner_configs": {
     "elastic_net": {
       "learner_config_id": "elastic_net_benchmark_v2_primary_v1",
