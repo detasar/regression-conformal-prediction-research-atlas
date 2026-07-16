@@ -77,6 +77,9 @@ def _reader_language_pattern(*tokens: str) -> re.Pattern[str]:
 FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
     "machine_status_label": _reader_language_pattern("Document", "status"),
     "draft_status_label": _reader_language_pattern("Draft", "status"),
+    "document_status_inline": re.compile(
+        r"\bDocument\s+status\s*:", re.IGNORECASE
+    ),
     "research_document_render_label": _reader_language_pattern(
         "Research", "Document", "release", "render"
     ),
