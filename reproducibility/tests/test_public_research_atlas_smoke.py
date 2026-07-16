@@ -178,25 +178,25 @@ FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
     "final_citable_boilerplate": _reader_language_pattern(
         "final", "citable", "public", "artifact"
     ),
-    "release_state_label": _reader_language_pattern("release", "state"),
+    "publication_state_label": _reader_language_pattern("release", "state"),
     "engine_label_boilerplate": re.compile(
         r"\b(?:recommendation\s+engine|claim\s+generator)\b", re.IGNORECASE
     ),
-    "closed_release_boilerplate": _reader_language_pattern(
+    "closed_publication_boilerplate": _reader_language_pattern(
         "public", "release", "remains", "closed"
     ),
     "release_gate_boilerplate": _reader_language_pattern("release", "gate"),
     "release_boundary_boilerplate": _reader_language_pattern("release", "boundary"),
-    "public_release_authorized_boilerplate": _reader_language_pattern(
+    "publication_support_boilerplate": _reader_language_pattern(
         "public", "release", "authorized"
     ),
-    "method_authorized_boilerplate": _reader_language_pattern(
+    "method_scope_boilerplate": _reader_language_pattern(
         "method", "recommendation", "authorized"
     ),
     "evidence_boundary_boilerplate": _reader_language_pattern(
         "outside", "current", "evidence"
     ),
-    "positive_claim_boilerplate": re.compile(
+    "stronger_claim_boilerplate": re.compile(
         r"\bpositive(?:\s+claim|-claim)(?:\s+promotion)?\b",
         re.IGNORECASE,
     ),
@@ -2052,6 +2052,9 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("method", "recommendation"),
         phrase("not", "an", "independent", "scientific", "claim"),
         phrase("private", "final-prose"),
+        phrase("private", "research", "document"),
+        phrase("private", "review", "prose"),
+        phrase("closed", "research-atlas", "boundaries"),
         phrase("do", "not", "cite"),
         phrase("not", "yet"),
         phrase("public", "citation", "waits"),
@@ -2074,6 +2077,14 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         "positive" + "-claim",
         phrase("claim", "promotion"),
         "claim" + "-promotion",
+        "method_" + "recommendation_authorized",
+        "positive_" + "claim_promotion_authorized",
+        "public_" + "release_authorized",
+        "private_" + "packaging_authorized",
+        "authorization_" + "status",
+        "allowed_" + "current_action",
+        "blocked_" + "current_action",
+        "blocked_" + "no_final_scopeation",
         phrase("Main-claim", "promotion"),
         phrase("promotion", "beyond", "this", "study"),
         phrase("positive", "claims", "remain", "beyond", "this", "study"),
