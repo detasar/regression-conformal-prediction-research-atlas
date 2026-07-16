@@ -499,8 +499,12 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert 'id="graphNotice" class="graph-notice" role="status" aria-live="polite"' in browser
     assert "if(!r.ok) throw new Error" in browser
     assert ".catch(error=>" in browser
-    assert "Node not found:" in browser
-    assert "Route not found:" in browser
+    assert "Requested graph node not found:" in browser
+    assert "Requested graph route not found:" in browser
+    assert "Requested graph item was not found" in browser
+    assert "deep link status" in browser
+    assert "No matching nodes for the current search or filter." in browser
+    assert "No matching nodes. Clear the search text" in browser
     assert "data-node=" in browser
     assert "data-route-action=" in browser
     assert "activateRouteButtons" in browser

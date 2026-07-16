@@ -100,7 +100,7 @@
     </aside>
   </main>
   <script>
-    const state = { data:null, selected:null, routeId:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], focusIndex:-1, edgesLoaded:false, edgeLoadPromise:null, mainEdgeIndexBuilt:false, worker:null, workerSeq:0, workerCalls:new Map(), workerEdgesReady:false, workerNeighborhood:new Map(), workerNeighborhoodPending:new Set() };
+    const state = { data:null, selected:null, routeId:null, missingRequest:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], focusIndex:-1, edgesLoaded:false, edgeLoadPromise:null, mainEdgeIndexBuilt:false, worker:null, workerSeq:0, workerCalls:new Map(), workerEdgesReady:false, workerNeighborhood:new Map(), workerNeighborhoodPending:new Set() };
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
@@ -311,13 +311,13 @@
       if(state.selected) ensureEdges().then(()=>requestWorkerNeighborhood(state.selected, state.depth)).then(renderAll);
     }
     function select(id){
-      if(!state.nodeById.has(id)){ state.selected=null; state.routeId=null; graphNotice(`Node not found: ${id}`); renderAll(); return false; }
-      graphNotice(''); state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); ensureEdges().then(()=>requestWorkerNeighborhood(id, state.depth)).then(renderAll); return true;
+      if(!state.nodeById.has(id)){ state.selected=null; state.routeId=null; state.missingRequest={kind:'node', value:id}; graphNotice(`Requested graph node not found: ${id}`); renderAll(); return false; }
+      graphNotice(''); state.missingRequest=null; state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); ensureEdges().then(()=>requestWorkerNeighborhood(id, state.depth)).then(renderAll); return true;
     }
     function selectRoute(routeId){
       const route=(state.data.research_map||[]).find(r=>r.route_id===routeId);
-      if(!route){ state.selected=null; state.routeId=null; graphNotice(`Route not found: ${routeId}`); renderAll(); return false; }
-      graphNotice(''); state.selected=null; state.routeId=routeId; renderAll();
+      if(!route){ state.selected=null; state.routeId=null; state.missingRequest={kind:'route', value:routeId}; graphNotice(`Requested graph route not found: ${routeId}`); renderAll(); return false; }
+      graphNotice(''); state.missingRequest=null; state.selected=null; state.routeId=routeId; renderAll();
       history.replaceState(null,'','?preset='+encodeURIComponent(routeId));
       return true;
     }
@@ -336,12 +336,15 @@
       return state.data.nodes.filter(n=>(!type||n.type===type)&&(!q||`${n.label} ${n.summary} ${nodeKey(n)}`.toLowerCase().includes(q)));
     }
     function renderResults(){
+      const q=document.getElementById('search').value.toLowerCase().trim();
+      const type=document.getElementById('typeFilter').value;
+      const hasCriteria=Boolean(q || type);
       const allNodes=resultNodes();
       const nodes=allNodes.slice(0,80);
-      document.getElementById('resultCount').textContent=allNodes.length ? `Showing ${nodes.length.toLocaleString()} of ${allNodes.length.toLocaleString()} matching nodes${allNodes.length>nodes.length ? '; refine search or filter type to narrow the hidden matches.' : '.'}` : '';
+      document.getElementById('resultCount').textContent=allNodes.length ? `Showing ${nodes.length.toLocaleString()} of ${allNodes.length.toLocaleString()} matching nodes${allNodes.length>nodes.length ? '; refine search or filter type to narrow the hidden matches.' : '.'}` : (hasCriteria ? 'No matching nodes for the current search or filter.' : '');
       document.getElementById('results').innerHTML=nodes.length
         ? nodes.map(n=>`<button type="button" class="result ${n.id===state.selected?'active':''}" role="listitem" aria-current="${n.id===state.selected?'true':'false'}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></button>`).join('')
-        : '<p class="muted">Search or choose a node type to inspect the full audit graph. The default canvas stays at reader overview level.</p>';
+        : (hasCriteria ? '<p class="muted">No matching nodes. Clear the search text or choose a broader node type.</p>' : '<p class="muted">Search or choose a node type to inspect the full audit graph. The default canvas stays at reader overview level.</p>');
       document.querySelectorAll('.result').forEach(el=>el.onclick=()=>select(el.dataset.id));
     }
     function activateNodeButtons(){
@@ -357,9 +360,11 @@
         const routes=route?[route]:(state.data.research_map||[]);
         const routeRows=routes.map(r=>`<tr><td><button type="button" class="table-action" data-route-action="${esc(r.route_id)}" aria-label="Open evidence route ${esc(r.title)}">${esc(r.title)}</button></td><td>${esc(short(r.summary,140))}</td><td>${esc((r.node_ids||[]).length)} anchors</td></tr>`).join('');
         const anchorRows=route ? routeNodes(route).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
-        document.getElementById('detail').innerHTML=route
+        document.getElementById('detail').innerHTML=state.missingRequest
+          ? `<span class="pill">deep link status</span><h2>Requested graph item was not found</h2><p class="muted">The requested ${esc(state.missingRequest.kind)} <code>${esc(state.missingRequest.value)}</code> is not present in this public graph snapshot. Use search or one of the guided routes below.</p>`
+          : (route
           ? `<span class="pill">guided route</span><h2>${esc(route.title)}</h2><p class="muted">${esc(route.summary)}</p><p class="muted">This view shows the curated anchors first. Click an anchor node to open its one-hop or two-hop evidence neighborhood.</p>`
-        : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, interpretation scope, and provenance records. It is an evidence map for inspecting the study.</p>`;
+        : `<span class="pill">reader overview</span><h2>What is in this graph?</h2><p class="muted">This graph has ${Number(state.data.summary.node_count).toLocaleString()} nodes and ${Number(state.data.summary.edge_count).toLocaleString()} edges. It links methods, dataset audits, result reports, interpretation scope, and provenance records. It is an evidence map for inspecting the study.</p>`);
         document.getElementById('edges').innerHTML=route ? '<p class="muted">Route anchors are shown in the table below. Select one to inspect edge provenance.</p>' : '<p class="muted">Select a route or search for a node to see edge provenance.</p>';
 	        document.getElementById('table').innerHTML=route
 	          ? `<table><caption>Guided route anchor nodes</caption><thead><tr><th scope="col">Anchor</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${anchorRows}</tbody></table>`
