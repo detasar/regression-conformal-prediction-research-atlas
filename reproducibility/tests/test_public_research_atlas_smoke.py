@@ -650,6 +650,20 @@ def test_public_environment_lock_documents_install_surface() -> None:
     assert lock["optional_model_dependencies"]["xgboost"] == ">=2.0"
     assert lock["external_data_dependencies"]["aif360"] == ">=0.6"
     assert lock["external_data_dependencies"]["openml"] == ">=0.14"
+    benchmark_env = lock["benchmark_v2_execution_environment"]
+    assert benchmark_env["snapshot_date"] == "2026-07-16"
+    assert benchmark_env["python"]
+    assert benchmark_env["platform"]
+    for name in [
+        "openml",
+        "fairlearn",
+        "folktables",
+        "aif360",
+        "xgboost",
+        "lightgbm",
+        "catboost",
+    ]:
+        assert benchmark_env["packages"][name]
 
     req_text = req_path.read_text(encoding="utf-8")
     assert "numpy==2.3.5" in req_text
@@ -661,6 +675,9 @@ def test_public_environment_lock_documents_install_surface() -> None:
     assert "# Public Environment Lock" in md_text
     assert "Locked Public Smoke Dependencies" in md_text
     assert "External Data Execution Dependencies" in md_text
+    assert "Benchmark v2 Execution Snapshot" in md_text
+    assert "`openml` | `0.15.1`" in md_text
+    assert "`catboost` | `1.2.10`" in md_text
     assert "python -m pip install -e \".[external-data]\"" in md_text
     readme = (root / "README.md").read_text(encoding="utf-8")
     assert "reproducibility/environment/public_environment_lock.md" in readme

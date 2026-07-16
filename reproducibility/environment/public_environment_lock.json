@@ -1,4 +1,27 @@
 {
+  "benchmark_v2_execution_environment": {
+    "packages": {
+      "PyYAML": "6.0.3",
+      "aif360": "0.6.1",
+      "catboost": "1.2.10",
+      "fairlearn": "0.14.0",
+      "folktables": "0.0.12",
+      "joblib": "1.5.3",
+      "lightgbm": "4.6.0",
+      "loguru": "0.7.3",
+      "numpy": "2.3.5",
+      "openml": "0.15.1",
+      "pandas": "3.0.3",
+      "scikit-learn": "1.9.0",
+      "scipy": "1.16.3",
+      "tqdm": "4.67.1",
+      "xgboost": "3.3.0"
+    },
+    "platform": "Linux-6.8.0-134-generic-x86_64-with-glibc2.39",
+    "purpose": "Observed local environment for the long-running Benchmark v2 execution surface. This is separate from the lightweight public smoke-test lock.",
+    "python": "3.13.11",
+    "snapshot_date": "2026-07-16"
+  },
   "excluded_surfaces": [
     "Raw datasets",
     "Local caches",

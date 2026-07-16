@@ -65,6 +65,32 @@ python -m pip install -e ".[external-data]"
 | `folktables` | `>=0.0.12` |
 | `aif360` | `>=0.6` |
 
+## Benchmark v2 Execution Snapshot
+
+This section records the observed local environment for the long-running Benchmark v2 execution surface. It is separate from the lightweight public smoke-test lock.
+
+- Snapshot date: `2026-07-16`
+- Python: `3.13.11`
+- Platform: `Linux-6.8.0-134-generic-x86_64-with-glibc2.39`
+
+| Package | Observed version |
+|---|---:|
+| `numpy` | `2.3.5` |
+| `pandas` | `3.0.3` |
+| `scipy` | `1.16.3` |
+| `scikit-learn` | `1.9.0` |
+| `PyYAML` | `6.0.3` |
+| `loguru` | `0.7.3` |
+| `openml` | `0.15.1` |
+| `fairlearn` | `0.14.0` |
+| `folktables` | `0.0.12` |
+| `aif360` | `0.6.1` |
+| `xgboost` | `3.3.0` |
+| `lightgbm` | `4.6.0` |
+| `catboost` | `1.2.10` |
+| `tqdm` | `4.67.1` |
+| `joblib` | `1.5.3` |
+
 ## Excluded From This Public Lock
 
 - Raw datasets
