@@ -846,6 +846,7 @@ def test_public_repository_maintenance_files_are_present() -> None:
         "CODEOWNERS",
         ".github/CODEOWNERS",
         "DATA_LICENSES.md",
+        "reproducibility/experiments/regression/policies/data_policy_registry.md",
         ".editorconfig",
         "CHECKSUMS.sha256",
         "site/index.html",
@@ -2004,7 +2005,14 @@ def test_public_html_links_and_artifact_index_are_complete() -> None:
         if path.is_file()
         and ".git" not in path.parts
         and path.relative_to(root).as_posix().startswith(
-            ("atlas/", "paper/", "site/", "evidence/", "reproducibility/environment/")
+            (
+                "atlas/",
+                "paper/",
+                "site/",
+                "evidence/",
+                "reproducibility/environment/",
+                "reproducibility/experiments/regression/policies/",
+            )
         )
     }
     assert substantive_files <= indexed

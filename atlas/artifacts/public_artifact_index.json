@@ -1,5 +1,5 @@
 {
-  "artifact_count": 326,
+  "artifact_count": 327,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -1512,6 +1512,11 @@
       "reader_use": "HTML method detail page for weighted_abs_covariate_shift."
     },
     {
+      "artifact_kind": "policy",
+      "artifact_path": "reproducibility/experiments/regression/policies/data_policy_registry.md",
+      "reader_use": "Dataset and modeling policy registry used by the public reproducibility package."
+    },
+    {
       "artifact_kind": "provenance",
       "artifact_path": "CHECKSUMS.sha256",
       "reader_use": "SHA-256 checksums for the published repository snapshot."
@@ -1632,6 +1637,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-16T12:19:21.387200+00:00",
+  "generated_at_utc": "2026-07-16T12:28:10.393258+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
