@@ -798,7 +798,13 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     }
     assert shift_policies[
         "openml_kin8nm:openml_kin8nm_y:covariate_shift"
-    ]["covariate_shift_policy_id"] == "theta3_ordered_upper_tail_v1"
+    ]["covariate_shift_policy_id"] == "theta3_bin_upper_quartile_target_v1"
+    assert shift_policies[
+        "openml_kin8nm:openml_kin8nm_y:covariate_shift"
+    ]["source_target_col"] == "theta3_bin"
+    assert shift_policies[
+        "openml_kin8nm:openml_kin8nm_y:covariate_shift"
+    ]["target_values"] == ["(0.792, 1.571]"]
     wine_shift = shift_policies[
         "uci_wine_quality:uci_wine_quality_dedup:covariate_shift"
     ]

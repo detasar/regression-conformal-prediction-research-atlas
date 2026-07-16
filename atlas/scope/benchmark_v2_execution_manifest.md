@@ -23,7 +23,7 @@ Turn the Benchmark v2 design requirements into a runnable contract and record th
 - Reason: Exact jackknife+ refits one model per training row. Rows above the cap are recorded as skipped_method with the threshold in the run notes rather than silently approximated.
 - Restart command suffix: `--jackknife-plus-max-train-rows 500 --retry-skipped-status skipped_unsupported_regime`
 - Retry skipped statuses after policy upgrade: `skipped_unsupported_regime`
-- Covariate shift split policies: `theta3_ordered_upper_tail_v1` for `openml_kin8nm:openml_kin8nm_y:covariate_shift`; `wine_color_white_source_red_target_v1` for `uci_wine_quality:uci_wine_quality_dedup:covariate_shift`
+- Covariate shift split policies: `theta3_bin_upper_quartile_target_v1` for `openml_kin8nm:openml_kin8nm_y:covariate_shift`; `wine_color_white_source_red_target_v1` for `uci_wine_quality:uci_wine_quality_dedup:covariate_shift`
 - Parallel workers: `4` workers over disjoint chunk-index ranges.
 - Worker ranges: `benchmark_v2_worker_01` chunks 1-10; `benchmark_v2_worker_02` chunks 11-21; `benchmark_v2_worker_03` chunks 22-32; `benchmark_v2_worker_04` chunks 33-42
 - Ledger contract: Each chunk owns one execution ledger and checkpoint tree. Workers must use non-overlapping chunk-index ranges; summaries and logs are worker-specific, while chunk ledgers remain the authoritative resume state.

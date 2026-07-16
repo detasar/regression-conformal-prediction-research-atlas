@@ -192,12 +192,15 @@ def summarize_chunk(
     selected_latest = {key: latest[key] for key in selected_keys if key in latest}
     status_counts = Counter(str(row.get("status", "unknown")) for row in selected_latest.values())
     retry_statuses = {str(status) for status in args.retry_skipped_status or []}
+    retry_terminal_statuses = set(retry_statuses)
+    if args.retry_failed:
+        retry_terminal_statuses.add("failed")
     observed_terminal = sum(
         count
         for status, count in status_counts.items()
         if status in chunk_runner.EXECUTION_TERMINAL_STATUSES
         or status.startswith("skipped_")
-        if status not in retry_statuses
+        if status not in retry_terminal_statuses
     )
     pending = max(0, len(selected_keys) - observed_terminal)
     return {
@@ -208,12 +211,14 @@ def summarize_chunk(
         "terminal_method_row_count": observed_terminal,
         "pending_method_row_count": pending,
         "completed_method_row_count": status_counts.get("completed", 0),
-        "failed_method_row_count": status_counts.get("failed", 0),
+        "failed_method_row_count": (
+            0 if args.retry_failed else status_counts.get("failed", 0)
+        ),
         "skipped_method_row_count": sum(
             count
             for status, count in status_counts.items()
             if status.startswith("skipped_") or status == "skipped_method"
-            if status not in retry_statuses
+            if status not in retry_terminal_statuses
         ),
         "status_counts": dict(sorted(status_counts.items())),
         "ledger_path": str(ledger_path),

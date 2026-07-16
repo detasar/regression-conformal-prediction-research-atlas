@@ -59,12 +59,14 @@ BENCHMARK_V2_SPATIAL_GROUP_COLUMNS = {
 
 BENCHMARK_V2_COVARIATE_SHIFT_POLICIES = {
     "openml_kin8nm:openml_kin8nm_y:covariate_shift": {
-        "strategy": "ordered",
-        "order_col": "theta3",
-        "covariate_shift_policy_id": "theta3_ordered_upper_tail_v1",
+        "strategy": "source_target",
+        "source_target_col": "theta3_bin",
+        "target_values": ["(0.792, 1.571]"],
+        "covariate_shift_policy_id": "theta3_bin_upper_quartile_target_v1",
         "policy_note": (
-            "Rows are ordered by theta3; the upper tail is held out as the "
-            "target-domain test split."
+            "Rows in the upper theta3_bin quartile are held out as the "
+            "target-domain test split; the remaining bins form the source "
+            "train/calibration domain."
         ),
     },
     "uci_wine_quality:uci_wine_quality_dedup:covariate_shift": {

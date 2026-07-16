@@ -16,10 +16,13 @@
   "computational_execution_policy": {
     "covariate_shift_split_policies": [
       {
-        "covariate_shift_policy_id": "theta3_ordered_upper_tail_v1",
-        "order_col": "theta3",
-        "policy_note": "Rows are ordered by theta3; the upper tail is held out as the target-domain test split.",
-        "strategy": "ordered",
+        "covariate_shift_policy_id": "theta3_bin_upper_quartile_target_v1",
+        "policy_note": "Rows in the upper theta3_bin quartile are held out as the target-domain test split; the remaining bins form the source train/calibration domain.",
+        "source_target_col": "theta3_bin",
+        "strategy": "source_target",
+        "target_values": [
+          "(0.792, 1.571]"
+        ],
         "task_variant_id": "openml_kin8nm:openml_kin8nm_y:covariate_shift"
       },
       {
@@ -73,7 +76,7 @@
       "skipped_unsupported_regime"
     ]
   },
-  "generated_at_utc": "2026-07-16T04:22:04.371469+00:00",
+  "generated_at_utc": "2026-07-16T04:29:12.510753+00:00",
   "learner_configs": {
     "elastic_net": {
       "learner_config_id": "elastic_net_benchmark_v2_primary_v1",
