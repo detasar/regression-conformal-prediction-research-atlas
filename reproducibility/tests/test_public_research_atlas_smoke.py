@@ -786,6 +786,15 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
         execution["computational_execution_policy"]["restart_command_suffix"]
         == "--jackknife-plus-max-train-rows 500"
     )
+    parallel_policy = execution["computational_execution_policy"]["parallel_worker_policy"]
+    assert parallel_policy["enabled"] is True
+    assert parallel_policy["max_concurrent_workers"] == 4
+    assert parallel_policy["chunk_partition_policy"] == "disjoint_chunk_index_ranges"
+    assert [
+        (row["chunk_index_min"], row["chunk_index_max"])
+        for row in parallel_policy["worker_ranges"]
+    ] == [(1, 10), (11, 21), (22, 32), (33, 42)]
+    assert "authoritative resume state" in parallel_policy["ledger_contract"]
     assert execution["learner_configs"]["ridge"]["model_id"] == "ridge"
     assert execution["learner_configs"]["elastic_net"]["model_id"] == "elasticnet"
     assert execution["learner_configs"]["nystroem_svr"]["model_id"] == "svr"
@@ -828,6 +837,8 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     execution_markdown = execution_markdown_path.read_text(encoding="utf-8")
     assert "Computational Execution Policy" in execution_markdown
     assert "Jackknife+ max train rows: `500`" in execution_markdown
+    assert "Parallel workers: `4` workers over disjoint chunk-index ranges." in execution_markdown
+    assert "`benchmark_v2_worker_04` chunks 33-42" in execution_markdown
 
     artifact_index = json.loads(artifact_index_path.read_text(encoding="utf-8"))
     indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}

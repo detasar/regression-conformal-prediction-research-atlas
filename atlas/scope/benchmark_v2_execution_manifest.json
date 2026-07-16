@@ -17,10 +17,38 @@
     "cv_plus_max_train_rows": null,
     "initial_uncapped_smoke_rows": "The first three completed rows in chunk 0001 were produced before the cap was applied; no completed exact jackknife+ row was produced before the capped restart.",
     "jackknife_plus_max_train_rows": 500,
+    "parallel_worker_policy": {
+      "chunk_partition_policy": "disjoint_chunk_index_ranges",
+      "enabled": true,
+      "ledger_contract": "Each chunk owns one execution ledger and checkpoint tree. Workers must use non-overlapping chunk-index ranges; summaries and logs are worker-specific, while chunk ledgers remain the authoritative resume state.",
+      "max_concurrent_workers": 4,
+      "worker_ranges": [
+        {
+          "chunk_index_max": 10,
+          "chunk_index_min": 1,
+          "worker_id": "benchmark_v2_worker_01"
+        },
+        {
+          "chunk_index_max": 21,
+          "chunk_index_min": 11,
+          "worker_id": "benchmark_v2_worker_02"
+        },
+        {
+          "chunk_index_max": 32,
+          "chunk_index_min": 22,
+          "worker_id": "benchmark_v2_worker_03"
+        },
+        {
+          "chunk_index_max": 42,
+          "chunk_index_min": 33,
+          "worker_id": "benchmark_v2_worker_04"
+        }
+      ]
+    },
     "policy_reason": "Exact jackknife+ refits one model per training row. Rows above the cap are recorded as skipped_method with the threshold in the run notes rather than silently approximated.",
     "restart_command_suffix": "--jackknife-plus-max-train-rows 500"
   },
-  "generated_at_utc": "2026-07-16T03:47:39.224458+00:00",
+  "generated_at_utc": "2026-07-16T03:54:32.089754+00:00",
   "learner_configs": {
     "elastic_net": {
       "learner_config_id": "elastic_net_benchmark_v2_primary_v1",

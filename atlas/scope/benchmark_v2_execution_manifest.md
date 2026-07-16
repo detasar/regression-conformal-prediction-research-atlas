@@ -22,6 +22,9 @@ Turn the Benchmark v2 design requirements into a runnable contract and record th
 - Jackknife+ max train rows: `500`
 - Reason: Exact jackknife+ refits one model per training row. Rows above the cap are recorded as skipped_method with the threshold in the run notes rather than silently approximated.
 - Restart command suffix: `--jackknife-plus-max-train-rows 500`
+- Parallel workers: `4` workers over disjoint chunk-index ranges.
+- Worker ranges: `benchmark_v2_worker_01` chunks 1-10; `benchmark_v2_worker_02` chunks 11-21; `benchmark_v2_worker_03` chunks 22-32; `benchmark_v2_worker_04` chunks 33-42
+- Ledger contract: Each chunk owns one execution ledger and checkpoint tree. Workers must use non-overlapping chunk-index ranges; summaries and logs are worker-specific, while chunk ledgers remain the authoritative resume state.
 
 ## Frozen Learner Configurations
 
