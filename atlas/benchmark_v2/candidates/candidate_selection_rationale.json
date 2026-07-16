@@ -1,6 +1,6 @@
 {
   "execution_boundary": "These are candidate registries for Benchmark v2 planning. They do not contain completed Benchmark v2 result rows.",
-  "generated_at_utc": "2026-07-16T04:50:09.534289+00:00",
+  "generated_at_utc": "2026-07-16T05:18:18.764867+00:00",
   "schema": "regression_cp_benchmark_v2_candidate_selection_rationale_v1",
   "selection_rules": [
     "Use at most two source datasets from any source family.",
@@ -21,6 +21,6 @@
     "stackoverflow": 1,
     "uci": 2
   },
-  "status": "candidate_registries_published_execution_not_started",
+  "status": "candidate_registries_published",
   "task_variant_candidate_count": 24
 }

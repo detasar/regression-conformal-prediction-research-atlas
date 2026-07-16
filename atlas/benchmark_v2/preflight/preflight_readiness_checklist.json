@@ -37,8 +37,8 @@
     },
     {
       "check_id": "benchmark_v2_results_generated",
-      "evidence_path": "benchmark_v2/aggregate_result_cube.parquet",
-      "status": "not_started"
+      "evidence_path": "atlas/benchmark_v2/execution_status.json",
+      "status": "in_progress"
     },
     {
       "check_id": "candidate_run_grid_manifest_published",
@@ -51,8 +51,8 @@
       "status": "pass"
     }
   ],
-  "generated_at_utc": "2026-07-16T04:50:09.534289+00:00",
-  "overall_status": "pre_execution_ledger_ready_results_not_started",
-  "result_generation_status": "not_started",
+  "generated_at_utc": "2026-07-16T05:18:18.764867+00:00",
+  "overall_status": "execution_in_progress",
+  "result_generation_status": "in_progress",
   "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
 }

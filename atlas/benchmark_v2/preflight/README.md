@@ -1,11 +1,11 @@
 # Benchmark v2 Preflight
 
-This directory contains public preflight artifacts for the forward Benchmark v2 protocol. They do not contain completed Benchmark v2 result rows.
+This directory contains public preflight artifacts for the Benchmark v2 protocol. Aggregate execution progress is recorded outside the preflight templates.
 
 ## Status
 
-- Overall status: `pre_execution_ledger_ready_results_not_started`
-- Result generation status: `not_started`
+- Overall status: `execution_in_progress`
+- Result generation status: `in_progress`
 - Estimated primary planned rows: `42000`
 - Estimated diagnostic planned rows: `16800`
 - Estimated total planned rows: `58800`

@@ -1,11 +1,11 @@
 # Benchmark v2 Execution Resume Contract
 
-This contract makes the planned Benchmark v2 grid chunkable before result generation starts. It is a pre-execution artifact; it does not contain completed Benchmark v2 results.
+This contract makes the Benchmark v2 grid chunkable and restartable. Aggregate progress is reported separately from raw execution ledgers.
 
 ## Status
 
-- Chunk manifest status: `chunk_manifest_ready_results_not_started`
-- Result generation status: `not_started`
+- Chunk manifest status: `chunk_manifest_ready_execution_in_progress`
+- Result generation status: `in_progress`
 - Chunk count: `42`
 - Paired cells: `8400`
 - Method rows: `42000`
@@ -35,4 +35,4 @@ python -m experiments.regression.scripts.run_benchmark_v2_chunk --chunk-id bench
 - `first_paired_cell_key` and `last_paired_cell_key` define inclusive paired-cell boundaries.
 - `first_method_row_key` and `last_method_row_key` define inclusive method-row boundaries inside those paired cells.
 - The source run grid and initial status ledger paths are recorded on every chunk row.
-- Benchmark v2 result generation remains `not_started` until a separate execution ledger records attempts.
+- Aggregate execution progress is reported in `atlas/benchmark_v2/execution_status.json`; raw execution ledgers remain outside the public package.

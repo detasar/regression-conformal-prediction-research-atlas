@@ -1,0 +1,25 @@
+{
+  "completed_method_row_count": 3241,
+  "completed_progress_fraction": 0.07716667,
+  "failed_method_row_count": 0,
+  "generated_at_utc": "2026-07-16T05:18:18.764867+00:00",
+  "observed_method_row_count": 4049,
+  "pending_method_row_count": 37951,
+  "public_scope_note": "Aggregate Benchmark v2 execution status snapshot. Raw execution ledgers, local caches, and prediction bundles are not included in the public package.",
+  "raw_ledger_included": false,
+  "result_generation_status": "in_progress",
+  "schema": "regression_cp_benchmark_v2_execution_status_snapshot_v1",
+  "selected_chunk_count": 42,
+  "selected_method_row_count": 42000,
+  "skipped_method_row_count": 808,
+  "snapshot_source": "source_execution_summary",
+  "source_chunk_count": 42,
+  "source_reference": "source execution summary retained outside the public package",
+  "status": "execution_in_progress",
+  "status_counts": {
+    "completed": 3241,
+    "skipped_method": 808
+  },
+  "terminal_method_row_count": 4049,
+  "terminal_progress_fraction": 0.09640476
+}

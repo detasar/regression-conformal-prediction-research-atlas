@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-16T04:50:09.534289+00:00",
+  "generated_at_utc": "2026-07-16T05:18:18.764867+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -75,6 +75,8 @@
     },
     {
       "evidence_paths": [
+        "atlas/benchmark_v2/execution_status.md",
+        "atlas/benchmark_v2/execution_status.json",
         "atlas/scope/benchmark_v2_protocol.md",
         "atlas/scope/benchmark_v2_protocol.json",
         "atlas/scope/benchmark_v2_execution_manifest.md",
@@ -94,9 +96,9 @@
         "atlas/benchmark_v2/candidates/task_variant_registry_candidate.csv",
         "atlas/benchmark_v2/candidates/candidate_selection_rationale.json"
       ],
-      "item": "Define the balanced, paired, leakage-safe Benchmark v2 before new result generation.",
+      "item": "Define the balanced, paired, leakage-aware Benchmark v2 and track execution.",
       "priority": "P1",
-      "status": "pre_execution_ledger_ready_results_not_started"
+      "status": "execution_in_progress"
     },
     {
       "evidence_paths": [
@@ -144,7 +146,7 @@
   "schema": "regression_cp_final_audit_response_matrix_v1",
   "summary": {
     "atlas_product_status": "completed_current_public_atlas_layer",
-    "benchmark_v2_status": "pre_execution_ledger_ready_results_not_started",
+    "benchmark_v2_status": "execution_in_progress",
     "kg_product_status": "completed_current_public_kg_layer",
     "maintenance_status": "source_backed_public_builder_modularization_started",
     "p0_status": "completed"

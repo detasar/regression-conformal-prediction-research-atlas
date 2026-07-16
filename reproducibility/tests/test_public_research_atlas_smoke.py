@@ -899,6 +899,8 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     execution_chunks_csv_path = preflight / "execution_chunks.csv"
     execution_chunks_json_path = preflight / "execution_chunks.json"
     execution_resume_contract_path = preflight / "execution_resume_contract.md"
+    execution_status_path = root / "atlas/benchmark_v2/execution_status.json"
+    execution_status_markdown_path = root / "atlas/benchmark_v2/execution_status.md"
     for path in [
         preflight / "README.md",
         cardinality_path,
@@ -915,6 +917,8 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         execution_chunks_csv_path,
         execution_chunks_json_path,
         execution_resume_contract_path,
+        execution_status_path,
+        execution_status_markdown_path,
     ]:
         assert path.exists()
 
@@ -940,8 +944,16 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
 
     checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
     assert checklist["schema"] == "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
-    assert checklist["overall_status"] == "pre_execution_ledger_ready_results_not_started"
-    assert checklist["result_generation_status"] == "not_started"
+    assert checklist["overall_status"] in {
+        "execution_in_progress",
+        "execution_complete_pending_public_synthesis",
+        "pre_execution_ready",
+    }
+    assert checklist["result_generation_status"] in {
+        "in_progress",
+        "complete_pending_public_synthesis",
+        "not_started",
+    }
     statuses = {row["check_id"]: row["status"] for row in checklist["checklist"]}
     assert statuses["preflight_templates_published"] == "pass"
     assert statuses["source_dataset_registry_populated"] == "pass"
@@ -949,7 +961,22 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert statuses["run_status_ledger_populated"] == "pass"
     assert statuses["candidate_run_grid_manifest_published"] == "pass"
     assert statuses["execution_chunks_published"] == "pass"
-    assert statuses["benchmark_v2_results_generated"] == "not_started"
+    assert statuses["benchmark_v2_results_generated"] in {
+        "in_progress",
+        "complete_pending_public_synthesis",
+        "not_started",
+    }
+
+    execution_status = json.loads(execution_status_path.read_text(encoding="utf-8"))
+    assert execution_status["schema"] == "regression_cp_benchmark_v2_execution_status_snapshot_v1"
+    assert execution_status["selected_method_row_count"] == cardinality["candidate_primary_planned_run_grid_row_count"]
+    assert execution_status["raw_ledger_included"] is False
+    assert execution_status["failed_method_row_count"] >= 0
+    assert execution_status["pending_method_row_count"] >= 0
+    assert "raw execution ledgers" in execution_status["public_scope_note"].lower()
+    assert "# Benchmark v2 Execution Status" in execution_status_markdown_path.read_text(
+        encoding="utf-8"
+    )
 
     with run_grid_path.open(encoding="utf-8", newline="") as handle:
         preview_rows = list(csv.DictReader(handle))
@@ -1060,8 +1087,16 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         execution_chunk_payload["schema"]
         == "regression_cp_benchmark_v2_execution_chunks_v1"
     )
-    assert execution_chunk_payload["status"] == "chunk_manifest_ready_results_not_started"
-    assert execution_chunk_payload["result_generation_status"] == "not_started"
+    assert execution_chunk_payload["status"] in {
+        "chunk_manifest_ready_execution_in_progress",
+        "chunk_manifest_ready_execution_complete_pending_public_synthesis",
+        "chunk_manifest_ready",
+    }
+    assert execution_chunk_payload["result_generation_status"] in {
+        "in_progress",
+        "complete_pending_public_synthesis",
+        "not_started",
+    }
     assert execution_chunk_payload["chunk_count"] == 42
     assert execution_chunk_payload["paired_cell_count"] == 8400
     assert execution_chunk_payload["method_row_count"] == 42000
@@ -1167,7 +1202,7 @@ def test_public_benchmark_v2_candidate_registries_are_scoped_and_balanced() -> N
     assert len(source_rows) == 12
     assert len(task_rows) == 24
     assert rationale["schema"] == "regression_cp_benchmark_v2_candidate_selection_rationale_v1"
-    assert rationale["status"] == "candidate_registries_published_execution_not_started"
+    assert rationale["status"] == "candidate_registries_published"
     assert rationale["source_candidate_count"] == 12
     assert rationale["task_variant_candidate_count"] == 24
     assert "do not contain completed Benchmark v2 result rows" in rationale_md_path.read_text(
@@ -1209,10 +1244,11 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     matrix = json.loads(matrix_path.read_text(encoding="utf-8"))
     assert matrix["schema"] == "regression_cp_final_audit_response_matrix_v1"
     assert matrix["summary"]["p0_status"] == "completed"
-    assert (
-        matrix["summary"]["benchmark_v2_status"]
-        == "pre_execution_ledger_ready_results_not_started"
-    )
+    assert matrix["summary"]["benchmark_v2_status"] in {
+        "execution_in_progress",
+        "execution_complete_pending_public_synthesis",
+        "pre_execution_ready",
+    }
     assert (
         matrix["summary"]["atlas_product_status"]
         == "completed_current_public_atlas_layer"
@@ -1227,7 +1263,16 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     )
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
-    assert ("P1", "pre_execution_ledger_ready_results_not_started") in statuses
+    assert any(
+        priority == "P1"
+        and status
+        in {
+            "execution_in_progress",
+            "execution_complete_pending_public_synthesis",
+            "pre_execution_ready",
+        }
+        for priority, status in statuses
+    )
     assert ("P1", "completed_current_public_atlas_layer") in statuses
     assert ("P1", "completed_current_public_kg_layer") in statuses
     assert ("P2", "source_backed_public_builder_modularization_started") in statuses

@@ -1,6 +1,6 @@
 # Benchmark v2 Candidate Selection Rationale
 
-- Status: `candidate_registries_published_execution_not_started`
+- Status: `candidate_registries_published`
 - Source candidates: `12`
 - Task-variant candidates: `24`
 
