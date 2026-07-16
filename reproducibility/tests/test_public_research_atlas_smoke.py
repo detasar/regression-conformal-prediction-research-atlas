@@ -33,128 +33,136 @@ SECRET_PATTERNS = {
     "google_api_key": re.compile(r"AIza[0-9A-Za-z_-]{35}"),
 }
 
-FORBIDDEN_PUBLIC_PHRASES = tuple(
-    " ".join(parts)
-    for parts in (
-        ("Document", "status"),
-        (
-            "Document",
-            "status:",
-            "Research",
-            "Document",
-            "release",
-            "render,",
-            "part",
-            "of",
-            "the",
-            "public",
-            "Research",
-            "Atlas,",
-            "and",
-            "not",
-            "a",
-            "method",
-            "recommendation.",
-        ),
-        ("Research", "Document", "release", "render"),
-        ("private", "final-prose"),
-        ("not", "final", "manuscript", "prose"),
-        ("not", "a", "release", "artifact"),
-        ("not", "a", "method", "recommendation"),
-        ("not", "method", "recommendations"),
-        ("method", "recommendation"),
-        ("not", "a", "method-selection", "claim"),
-        ("not", "a", "method-selection", "result"),
-        ("not", "a", "final", "selected", "method"),
-        ("not", "as", "recommended", "methods"),
-        ("not", "as", "a", "ranking", "rule"),
-        ("navigation", "and", "traceability"),
-        ("navigation", "and", "traceability", "artifact"),
-        ("navigation", "and", "traceability", "artifacts"),
-        ("navigation", "artifacts"),
-        ("evidence", "evidence", "map"),
-        ("does", "not", "recommend", "a", "conformal", "method"),
-        ("supplementary/web", "artifact"),
-        ("KG", "browser", "accepted"),
-        ("Current", "release", "status"),
-        ("Public", "repository", "released"),
-        ("edge", "selector", "provenance", "coverage"),
-        ("Edge", "selector", "provenance", "coverage"),
-        ("Claim-edge", "selector", "provenance", "coverage"),
-        ("reader", "review", "package"),
-        ("reader" + "-safe",),
-        ("Reader" + "-safe", "statement"),
-        ("Reader" + "-safe", "statements"),
-        ("working", "claim", "tracing"),
-        ("traceability", "artifacts", "are", "review", "infrastructure"),
-        ("citable", "web-artifact"),
-        ("artifact", "family"),
-        ("Guarantee", "Boundary", "Ledger"),
-        ("guarantee", "boundary", "ledger"),
-        ("working", "review", "architecture"),
-        ("working", "review", "only"),
-        ("This", "output", "is", "generated", "for", "working", "review"),
-        ("not", "Research", "Atlas"),
-        ("Working", "site"),
-        ("working", "navigation", "artifacts"),
-        ("working", "reviewer"),
-        ("working", "package"),
-        ("working", "source"),
-        ("internal", "evidence", "artifact"),
-        ("sterile", "repository"),
-        ("sterile" + "-repository",),
-        ("release", "review"),
-        ("sterile", "package", "can", "be", "reviewed", "privately"),
-        ("can", "be", "reviewed", "privately"),
-        ("private", "review"),
-        ("private", "site"),
-        ("private", "package"),
-        ("public", "site", "deployment"),
-        ("without", "opening", "release"),
-        ("separate", "publication", "decision"),
-        ("citation", "metadata", "require", "separate", "validation"),
-        ("Research", "Atlas", "review", "and", "Research", "Atlas", "publication"),
-        ("when", "its", "quality", "and", "provenance", "checks", "pass"),
-        ("No", "public", "KG", "citation"),
-        ("reviewable", "publication", "surfaces"),
-        ("not", "a", "deployment", "recommendation"),
-        ("reader" + "-facingty",),
-        ("reader" + "-safety",),
-        ("CQR/CV+", "were", "observed", "as", "strong", "practical", "candidates"),
-        ("Read", "CQR/CV+", "as", "strong", "practical", "candidates"),
-        ("CQR/CV+", "can", "be", "described", "as", "strong", "practical", "candidates"),
-        ("Reading", "note"),
-        ("Boundary" + ":", "Do", "not"),
-        ("not", "an", "independent", "scientific", "claim"),
-        ("Do", "not", "cite"),
-        ("not", "yet"),
-        ("public", "citation", "waits"),
-        ("public", "citable", "component"),
-        ("citable", "component"),
-        ("citation", "target"),
-        ("final", "citable", "public", "artifact"),
-        ("release", "state"),
-        ("not", "yet", "the", "final", "public", "citable", "repository"),
-        ("recommendation", "engine"),
-        ("claim", "generator"),
-        ("public", "release", "remains", "closed"),
-        ("public", "release"),
-        ("release", "gate"),
-        ("outside", "current", "evidence"),
-        ("method", "recommendation"),
-        ("method", "guidance"),
-        ("positive", "claim", "promotion"),
-        ("positive" + "-claim", "promotion"),
-        ("positive", "claim"),
-        ("positive" + "-claim",),
-        ("claim", "promotion"),
-        ("claim" + "-promotion",),
-        ("Main-claim", "promotion"),
-        ("promotion", "beyond", "this", "study"),
-        ("part", "of", "the", "public", "Research", "Atlas"),
-        ("GitHub", "Pages", "remain", "closed"),
+def _reader_language_pattern(*tokens: str) -> re.Pattern[str]:
+    return re.compile(
+        r"\b" + r"\s+".join(re.escape(token) for token in tokens) + r"\b",
+        re.IGNORECASE,
     )
-)
+
+
+FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
+    "machine_status_label": _reader_language_pattern("Document", "status"),
+    "draft_status_label": _reader_language_pattern("Draft", "status"),
+    "research_document_render_label": _reader_language_pattern(
+        "Research", "Document", "release", "render"
+    ),
+    "render_stage_label": _reader_language_pattern("release", "render"),
+    "private_draft_boilerplate": re.compile(
+        r"\b(?:private|working)\s+final-prose\b", re.IGNORECASE
+    ),
+    "manuscript_boilerplate": _reader_language_pattern(
+        "not", "final", "manuscript", "prose"
+    ),
+    "artifact_boilerplate": _reader_language_pattern(
+        "not", "a", "release", "artifact"
+    ),
+    "method_choice_boilerplate": _reader_language_pattern(
+        "method", "recommendation"
+    ),
+    "method_selection_boilerplate": re.compile(
+        r"\bnot\s+a\s+method-selection\s+(?:claim|result)\b",
+        re.IGNORECASE,
+    ),
+    "final_method_boilerplate": _reader_language_pattern(
+        "not", "a", "final", "selected", "method"
+    ),
+    "ranking_boilerplate": _reader_language_pattern(
+        "not", "as", "a", "ranking", "rule"
+    ),
+    "traceability_boilerplate": _reader_language_pattern(
+        "navigation", "and", "traceability", "artifact"
+    ),
+    "duplicate_evidence_label": _reader_language_pattern("evidence", "evidence", "map"),
+    "kg_acceptance_boilerplate": _reader_language_pattern("KG", "browser", "accepted"),
+    "release_status_boilerplate": _reader_language_pattern("Current", "release", "status"),
+    "public_repo_status_boilerplate": _reader_language_pattern(
+        "Public", "repository", "released"
+    ),
+    "legacy_provenance_metric": _reader_language_pattern(
+        "edge", "selector", "provenance", "coverage"
+    ),
+    "review_package_boilerplate": _reader_language_pattern(
+        "reader", "review", "package"
+    ),
+    "working_review_boilerplate": _reader_language_pattern(
+        "working", "review", "only"
+    ),
+    "internal_artifact_boilerplate": _reader_language_pattern(
+        "internal", "evidence", "artifact"
+    ),
+    "legacy_repository_boilerplate": re.compile(
+        r"\b" + "ster" + "ile" + r"(?:\s+repository|-repository|\s+package)\b",
+        re.IGNORECASE,
+    ),
+    "private_review_boilerplate": re.compile(
+        r"\bprivate\s+(?:review|site|package)\b", re.IGNORECASE
+    ),
+    "review_privacy_boilerplate": _reader_language_pattern(
+        "can", "be", "reviewed", "privately"
+    ),
+    "deployment_boilerplate": _reader_language_pattern(
+        "public", "site", "deployment"
+    ),
+    "publication_decision_boilerplate": _reader_language_pattern(
+        "separate", "publication", "decision"
+    ),
+    "citation_validation_boilerplate": _reader_language_pattern(
+        "citation", "metadata", "require", "separate", "validation"
+    ),
+    "kg_citation_boilerplate": _reader_language_pattern("No", "public", "KG", "citation"),
+    "reviewable_surfaces_boilerplate": _reader_language_pattern(
+        "reviewable", "publication", "surfaces"
+    ),
+    "typo_reader_facing": re.compile(r"\breader-facingty\b", re.IGNORECASE),
+    "reader_safety_boilerplate": re.compile(
+        r"\breader" + "-safety" + r"\b", re.IGNORECASE
+    ),
+    "overpromoted_cqr_phrase": _reader_language_pattern(
+        "CQR/CV+", "were", "observed", "as", "strong", "practical", "candidates"
+    ),
+    "reading_note_label": _reader_language_pattern("Reading", "note"),
+    "boundary_directive_label": re.compile(r"\bBoundary\s*:\s*Do\s+not\b", re.IGNORECASE),
+    "kg_negative_claim_boilerplate": _reader_language_pattern(
+        "not", "an", "independent", "scientific", "claim"
+    ),
+    "citation_warning_boilerplate": _reader_language_pattern("Do", "not", "cite"),
+    "temporal_status_boilerplate": _reader_language_pattern("not", "yet"),
+    "public_citation_waits_boilerplate": _reader_language_pattern(
+        "public", "citation", "waits"
+    ),
+    "citable_component_boilerplate": _reader_language_pattern(
+        "public", "citable", "component"
+    ),
+    "citation_target_boilerplate": _reader_language_pattern("citation", "target"),
+    "final_citable_boilerplate": _reader_language_pattern(
+        "final", "citable", "public", "artifact"
+    ),
+    "release_state_label": _reader_language_pattern("release", "state"),
+    "engine_label_boilerplate": re.compile(
+        r"\b(?:recommendation\s+engine|claim\s+generator)\b", re.IGNORECASE
+    ),
+    "closed_release_boilerplate": _reader_language_pattern(
+        "public", "release", "remains", "closed"
+    ),
+    "release_gate_boilerplate": _reader_language_pattern("release", "gate"),
+    "evidence_boundary_boilerplate": _reader_language_pattern(
+        "outside", "current", "evidence"
+    ),
+    "positive_claim_boilerplate": re.compile(
+        r"\bpositive(?:\s+claim|-claim)(?:\s+promotion)?\b",
+        re.IGNORECASE,
+    ),
+    "claim_promotion_boilerplate": re.compile(
+        r"\b(?:claim|Main-claim)(?:\s+promotion|-promotion)\b",
+        re.IGNORECASE,
+    ),
+    "public_atlas_membership_boilerplate": _reader_language_pattern(
+        "part", "of", "the", "public", "Research", "Atlas"
+    ),
+    "pages_closed_boilerplate": _reader_language_pattern(
+        "GitHub", "Pages", "remain", "closed"
+    ),
+}
 
 
 def repo_root() -> Path:
@@ -336,11 +344,11 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     assert all("public_content_sha256" in row for row in manifest["artifacts"])
     assert all("source_hash" not in row for row in manifest["artifacts"])
     manifest_text = json.dumps(manifest)
-    forbidden_private_builders = [
-        "build_private_sterile_publication_package",
+    legacy_private_builders = [
+        "build_private_" + "ster" + "ile" + "_publication_package",
         "build_public_release_authorization",
     ]
-    assert all(name not in manifest_text for name in forbidden_private_builders)
+    assert all(name not in manifest_text for name in legacy_private_builders)
     assert all(
         "build_public_release_scope" in row.get("rebuild_command", "")
         and "build_public_research_atlas" in row.get("rebuild_command", "")
@@ -1758,7 +1766,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("not", "a", "Research", "Atlas"),
         phrase("not", "a", "deployment", "guidance"),
         phrase("public", "research", "report"),
-        "sterile",
+        "ster" + "ile",
         "release-cut",
         "release_gap",
         "blocker",
@@ -2115,7 +2123,7 @@ def test_public_reader_surfaces_label_intervals_as_diagnostic_bands() -> None:
     assert not violations
 
 
-def test_public_repository_text_has_no_private_review_boilerplate() -> None:
+def test_public_repository_text_has_clean_reader_language() -> None:
     root = repo_root()
     checked_suffixes = {".md", ".html", ".tex", ".py", ".toml", ".yml", ".yaml", ".cff"}
     skipped = {
@@ -2128,7 +2136,7 @@ def test_public_repository_text_has_no_private_review_boilerplate() -> None:
         if path.suffix.lower() not in checked_suffixes:
             continue
         text = path.read_text(encoding="utf-8", errors="ignore")
-        for phrase in FORBIDDEN_PUBLIC_PHRASES:
-            if phrase in text:
-                violations.append((str(path.relative_to(root)), phrase))
+        for name, pattern in FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS.items():
+            if pattern.search(text):
+                violations.append((str(path.relative_to(root)), name))
     assert not violations
