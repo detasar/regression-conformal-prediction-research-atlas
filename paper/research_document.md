@@ -13,7 +13,7 @@ Under the current coverage criterion, the fixed-GBM CQR pipeline was most freque
 
 Read this document in four layers. First, identify the empirical object that was audited. Second, separate observed practical-candidate patterns from deployment rules. Third, keep negative Venn-Abers bridge evidence separate from the broader Venn-Abers literature. Fourth, use the package, KG, and site as traceability surfaces for inspecting how claims connect to evidence.
 
-| Reading layer | Reader question | Safe reading | Scope |
+| Reading layer | Reader question | Main reading | Evidence note |
 |---|---|---|---|
 | Empirical object | What was actually measured? | An audited regression conformal prediction study over completed dataset-alpha-method result rows. | The scope is an audited experiment surface rather than exhaustive internet coverage, a product benchmark, or evidence for future deployments. |
 | Observed pattern | Which methods looked practically useful here? | The fixed-GBM CQR pipeline had the largest selected-cell signal; Mondrian calibration and CV+ were secondary signals in this study. | Choosing a method for a new setting would require a prospective validation protocol. |
@@ -28,43 +28,43 @@ This synthesis states the document's position before the detailed tables. It is 
 
 This Research Document is an evidence-linked synthesis of a regression conformal prediction audit. It summarizes 145,839 completed rows across 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The unit of evidence is therefore an audited result surface, not a single showcase run.
 
-Scope: The study identity describes the audited experiment surface rather than exhaustive internet coverage or validation for a future deployment.
+Evidence note: The study identity describes the audited experiment surface rather than exhaustive internet coverage or validation for a future deployment.
 
 ### What the evidence supports
 
 The central supported wording is deliberately narrow. The fixed-GBM CQR pipeline had the largest selected-cell signal, while Mondrian calibration and CV+ were secondary signals. CQR has 56 coverage-eligible selected cells, and CV+ has 13. These counts describe what happened inside the audited experiment.
 
-Scope: A universal best-method statement or a new-setting deployment use would need its own validation plan.
+Evidence note: A universal best-method statement or a new-setting deployment use would need its own validation plan.
 
 ### What the CQR backend check adds
 
 The completed backend-confound check adds a model-matched CQR rerun to test how much the CQR signal depends on its backend model. It completed 4,564 model-matched CQR rows and paired 224 dataset-alpha-model-family cells against the historical fixed-GBM CQR pipeline. Coverage-eligible interval-score selections were fixed-GBM CQR=116, model-matched CQR=71, and neither=37.
 
-Scope: The check keeps CQR as an experiment-scoped practical signal; choosing a method for a new setting would need a separate validation protocol.
+Evidence note: The check keeps CQR as an experiment-scoped practical signal; choosing a method for a new setting would need a separate validation protocol.
 
-### Which broader readings require separate validation
+### What the evidence does not support
 
 The evaluated Venn-Abers regression bridge did not become the expected strong interval solution in this experiment. The bridge has 14 undercoverage runs, a quantile-coverage mean of 0.6503, and validated-regression support flag `False`.
 
-Scope: Avoid generalizing this bridge-specific negative evidence into a rejection of predictive-distribution or generalized Venn-Abers research.
+Evidence note: Avoid generalizing this bridge-specific negative evidence into a rejection of predictive-distribution or generalized Venn-Abers research.
 
 ### Which broader readings require separate validation
 
 Several broader readings require evidence that was not produced in this study. The current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. These zeros are not gaps to hide; they are part of the scientific result.
 
-Scope: Endpoint-validity, group-inference, and deployment readings require separate validation.
+Evidence note: Endpoint-validity, group-inference, and deployment readings require separate validation.
 
 ### How to inspect the evidence
 
 The reading path is intentionally traceable. The Research Atlas package and KG connect the Research Document to source artifacts, scripts, claim scope, and citation scope. The current KG has 3,643 nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000.
 
-Scope: Use the KG as a map from statements to the evidence that supports them.
+Evidence note: Use the KG as a map from statements to the evidence that supports them.
 
 ## Plain-Language Summary
 
-This section gives the shortest reader-facing interpretation before the technical tables. It is written for a reader who may not know conformal prediction. Each answer is paired with the evidence that supports it and the stronger reading that requires separate validation.
+This section gives the shortest non-technical interpretation before the technical tables. It is written for a reader who may not know conformal prediction. Each answer is paired with the evidence that supports it and the stronger reading that requires separate validation.
 
-| Reader question | Plain-language answer | Evidence anchor | Scope |
+| Reader question | Plain-language answer | Evidence anchor | Evidence note |
 |---|---|---|---|
 | What is the shortest correct reading of the study? | This is an audited measurement record for regression conformal prediction. | 145,839 completed rows across 67 datasets, 95 dataset-alpha cells, and 28 method labels. | The study is an audited experiment surface rather than exhaustive internet coverage, a product benchmark, or deployment advice. |
 | What does the practical-candidate pattern mean? | The fixed-GBM CQR pipeline was the largest selected-cell signal; Mondrian calibration and CV+ were secondary signals under the current coverage criterion. | CQR has 56 coverage-gated selected cells, Mondrian has 15, and CV+ has 13; the model-matched CQR rerun completed 4,564 rows and 224 paired cells. | Method choice, universal best-method statements, and deployment use require separate validation. |
@@ -105,7 +105,7 @@ This table rewrites the study as a scientific-method chain: question, measuremen
 
 | Stage | Reader question | Evidence anchor | Scientific interpretation |
 |---|---|---|---|
-| Question and empirical object | What exactly is being measured before any method interpretation? | 145,839 audited result rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Scope size is audit evidence, not proof of exhaustive internet coverage or performance in a future deployment setting. |
+| Question and empirical object | What exactly is being measured before any method interpretation? | 145,839 audited result rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Study size is audit evidence, not proof of exhaustive internet coverage or performance in a future deployment setting. |
 | Measurement protocol | Which quantities turn model outputs into comparable evidence? | Coverage, width, coverage-gated selected cells, coverage-tolerance pass rates, and undercoverage runs are read within dataset-alpha-method cells. | Empirical metrics are not theorem-level guarantees and do not imply conditional, endpoint, or subgroup claims. |
 | Candidate-method comparison | Which practical patterns survived the audited comparison? | CQR has 56 coverage-gated selected cells and CV+ has 13; CQR row-weighted coverage mean is 0.9059. | This supports an experiment-scoped practical-signal reading under the current coverage criterion. |
 | CQR backend sensitivity control | Was the CQR signal only caused by the fixed-GBM CQR backend? | The model-matched CQR rerun completed 4,564 rows and formed 224 paired dataset-alpha-model-family cells. Coverage-eligible interval-score selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | The check supports a backend-sensitivity reading. Broader CQR selection, deployment, or universal method-interpretation context would need a separate validation protocol. |
@@ -149,9 +149,9 @@ The concept map below links the plain-language idea, its literature basis, the e
 
 ### Terminology Compass
 
-The following table fixes the meaning of recurring terms before the results are interpreted. Each term is defined as it is used in this Research Document. The last column states the scope limit that prevents a descriptive result from becoming a deployment rule.
+The following table fixes the meaning of recurring terms before the results are interpreted. Each term is defined as it is used in this Research Document. The last column states the evidence note that keeps a descriptive result from becoming a deployment rule.
 
-| Term | Plain-language meaning | Role in this document | Scope |
+| Term | Plain-language meaning | Role in this document | Evidence note |
 |---|---|---|---|
 | `prediction interval` | A lower-to-upper range around a regression prediction. | The interval is the object whose empirical coverage and width are audited. | Production use would require separate validation. |
 | `coverage` | The fraction of held-out outcomes that fall inside the interval. | Coverage is reported as an empirical diagnostic by dataset, alpha, and method family. | Observed coverage is interpreted within the audited experiment. |
@@ -168,11 +168,11 @@ The following table fixes the meaning of recurring terms before the results are 
 
 This distinction matters for non-specialist readers. A method can show attractive empirical coverage in this study and still remain inappropriate as a general deployment rule. Conversely, a failure mode for one evaluated bridge does not reject an entire research family. The document keeps both sides visible so the later article, supplement, and KG can cite exactly what was observed.
 
-### Evidence Interpretation Ledger
+### Evidence Interpretation Guide
 
 The guide below separates three layers that are easy to confuse: the conformal prediction theorem layer, the empirical audit layer, and the evidence-limit layer. It is an interpretation guide, not a new theorem and not a new experiment. The marginal coverage language follows the regression conformal prediction sources [Lei et al. (2017); Romano et al. (2019)], while the Venn-Abers row is bounded by the predictive-distribution and generalized-calibration sources [Nouretdinov et al. (2018); Nouretdinov and Gammerman (2024); Van Der Laan and Alaa (2025); Petej and Vovk (2026)].
 
-| Topic | Reader-facing statement | Required condition or evidence | Scope limit |
+| Topic | What the evidence says | Required condition or evidence | Scope limit |
 |---|---|---|---|
 | Marginal conformal coverage | The conformal regression guarantee is a marginal coverage statement for future exchangeable draws, not a pointwise promise for every individual row. | Exchangeability, a fixed calibration protocol, and a stated `1 - alpha` target. | Avoid reading marginal coverage as conditional, subgroup, endpoint, or deployment coverage. |
 | Empirical coverage in this study | Observed coverage summarizes held-out behavior inside the audited dataset, split, method, and alpha scope. | Completed-row accounting, dataset-alpha cells, split policy, and result audits. | Avoid converting an empirical coverage mean into a theorem or a general product deployment rule. |
@@ -200,7 +200,7 @@ The Research Document, supplement, README, and site follow a small source-backed
 |---|---|
 | Use a minimal main article and a broad supplementary document. | The main article keeps the claim-evidence map and headline results; the supplement carries broad method, dataset, audit, robustness, and negative-evidence material. |
 | Make the README a guide, not a dense methods dump. | The README starts with status, plain-language summary, reading path, evidence snapshot, repository map, KG entry, and citation surface. |
-| Use the site as a Research Atlas Research Atlas portal with explicit lanes. | The Research Atlas site should expose the handoff, Research Document, rendered article/supplement, KG browser, and governance checks. |
+| Use the site as a Research Atlas portal with explicit lanes. | The Research Atlas site should expose the handoff, Research Document, rendered article/supplement, KG browser, and governance checks. |
 | Pair every reader-facing claim with evidence and a scope limit. | The article, Research Document, and README retain neutral language: observed descriptive signals are not deployment rules, and bridge-specific failures are not literature-wide rejections. |
 | Give the Research Document a checklist-like transparency spine. | The Research Document should visibly cover claims, limitations, assumptions, reproducibility route, compute, license and source provenance, and publication-scope checks. |
 | Expose reproduction structure while excluding raw data and secrets. | The Research Atlas package records source, configs, tests, reports, and metadata, while excluding raw data, caches, local databases, and secret-like material. |
@@ -258,11 +258,11 @@ The ladder below connects each result type to the strongest claim it can support
 | Negative bridge evidence | Undercoverage and a validation flag set to false support a narrow failure-mode reading for the evaluated bridge. | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | It cannot reject predictive-distribution or generalized Venn-Abers research. | Report the bridge result as negative evidence exactly at the evaluated bridge scope. |
 | Evidence limits | Evidence limits identify broader readings that need separate validation before they are used as conclusions. | Bounded-support-validity-ready bundles 0; population-inference-ready bundles 0; the KG is available as an evidence map for source inspection. | A polished site, README, or evidence map cannot by itself turn a broader reading into an empirical conclusion. | Treat evidence limits as part of the study scope. |
 
-### Claim Language Guide
+### Claim Wording Guide
 
 The rows below are writing guide rows derived from the claim/evidence verification matrix. They state the study wording currently supported, the source or citation evidence that must stay attached to it, the stronger reading requiring validation, and the plain-language reason a non-specialist reader should not read more into the evidence than the study can support.
 
-| Target | Claim type | Supported wording | Source/citation evidence | Stronger reading requiring validation | Plain-language note |
+| Target | Claim type | Supported wording | Evidence link | Stronger reading | Plain-language note |
 |---|---|---|---|---|---|
 | `main_article` | `scope_claim` | The dataset/source audit defines the studied scope under the recorded review policy. | Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage. | Avoid implying exhaustive internet coverage or final dataset-level result overstatement. | This row tells a reader what data sources were inspected; the dataset list defines study scope rather than a final dataset-level result. |
 | `main_article` | `descriptive_empirical_claim` | Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan. | Method descriptions need literature citations; empirical language must stay limited to these experiments. | Keep CQR, CV+, and other methods within experiment-scoped interpretation. | This row permits a careful description of what looked useful in the experiment, bounded to the audited experiment for every regression problem. |
@@ -275,10 +275,10 @@ The rows below are writing guide rows derived from the claim/evidence verificati
 
 | Method family | Key observed evidence | Supported interpretation |
 |---|---:|---|
-| CQR | 56 descriptive coverage-gated selected cells; row-weighted coverage mean 0.9059 | Experiment-scoped practical signal observed in this experiment |
+| CQR | 56 coverage-gated selected cells; row-weighted coverage mean 0.9059 | Experiment-scoped practical signal observed here |
 | Model-matched CQR check | 4,564 completed model-matched rows; 224 paired cells; selected cells fixed-GBM=116, model-matched=71, neither=37 | Backend sensitivity evidence for the CQR pipeline signal |
-| CV+ | 13 descriptive coverage-gated selected cells; row-weighted coverage mean 0.8997 | Experiment-scoped practical signal observed in this experiment |
-| Mondrian absolute-residual calibration | 15 descriptive coverage-gated selected cells; row-weighted coverage mean 0.9073 | Useful diagnostic comparator |
+| CV+ | 13 coverage-gated selected cells; row-weighted coverage mean 0.8997 | Experiment-scoped practical signal observed here |
+| Mondrian absolute-residual calibration | 15 coverage-gated selected cells; row-weighted coverage mean 0.9073 | Useful diagnostic comparator |
 | Venn-Abers regression bridge | 14 undercoverage runs; quantile-coverage mean 0.6503 | Negative/failure-mode evidence for the evaluated bridge |
 
 The CQR row-weighted coverage mean is 0.9059, with a diagnostic row-weighted band from 0.9050 to 0.9068. This is evidence of strong empirical behavior inside the audited scope. It is not a proof that CQR is generally best; applying the pattern in a new setting would need its own validation plan.
