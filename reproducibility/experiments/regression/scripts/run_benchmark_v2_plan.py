@@ -195,6 +195,7 @@ def summarize_chunk(
     retry_terminal_statuses = set(retry_statuses)
     if args.retry_failed:
         retry_terminal_statuses.add("failed")
+        retry_terminal_statuses.add("skipped_failed")
     observed_terminal = sum(
         count
         for status, count in status_counts.items()

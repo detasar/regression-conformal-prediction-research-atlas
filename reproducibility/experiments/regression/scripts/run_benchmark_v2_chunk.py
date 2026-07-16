@@ -86,10 +86,22 @@ EXECUTION_TERMINAL_STATUSES = {
     "completed",
     "failed",
     "skipped_method",
+    "skipped_infeasible_grouped_regime",
     "skipped_non_variant_regime",
     "skipped_unsupported_regime",
     "skipped_existing_terminal",
 }
+
+UNSUPPORTED_REGIME_ERROR_SNIPPETS = (
+    "requires at least 3 groups",
+    "left fewer than 2 rest groups",
+    "ordered grouped split produced an empty row split",
+)
+
+
+def is_unsupported_split_regime_exception(exc: Exception) -> bool:
+    message = str(exc)
+    return any(snippet in message for snippet in UNSUPPORTED_REGIME_ERROR_SNIPPETS)
 
 
 def parse_args() -> argparse.Namespace:
@@ -239,22 +251,44 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def latest_status_by_method_row(ledger_path: Path) -> dict[str, str]:
+    latest: dict[str, str] = {}
+    for row in read_jsonl(ledger_path):
+        key = str(row.get("method_row_key", ""))
+        if key:
+            latest[key] = str(row.get("status", ""))
+    return latest
+
+
+def should_retry_status(
+    status: str,
+    *,
+    retry_failed: bool,
+    retry_skipped_status: list[str] | None = None,
+) -> bool:
+    retry_statuses = {str(item) for item in retry_skipped_status or []}
+    return status in retry_statuses or (
+        retry_failed and status in {"failed", "skipped_failed"}
+    )
+
+
 def previously_terminal_rows(
     ledger_path: Path,
     *,
     retry_failed: bool,
     retry_skipped_status: list[str] | None = None,
 ) -> set[str]:
-    retry_statuses = {str(status) for status in retry_skipped_status or []}
     terminal: set[str] = set()
     for row in read_jsonl(ledger_path):
         key = str(row.get("method_row_key", ""))
         status = str(row.get("status", ""))
         if not key:
             continue
-        if status == "failed" and retry_failed:
-            continue
-        if status in retry_statuses:
+        if should_retry_status(
+            status,
+            retry_failed=retry_failed,
+            retry_skipped_status=retry_skipped_status,
+        ):
             continue
         if status in EXECUTION_TERMINAL_STATUSES or status.startswith("skipped_"):
             terminal.add(key)
@@ -472,6 +506,7 @@ def execute_chunk(
         retry_failed=args.retry_failed,
         retry_skipped_status=args.retry_skipped_status,
     )
+    latest_statuses = latest_status_by_method_row(ledger_path)
 
     dataset_cache: dict[str, Any] = {}
     audited_datasets: set[str] = set()
@@ -489,6 +524,11 @@ def execute_chunk(
         if method_row_key in terminal and not args.force:
             skipped_existing += 1
             continue
+        force_retry = should_retry_status(
+            latest_statuses.get(method_row_key, ""),
+            retry_failed=args.retry_failed,
+            retry_skipped_status=args.retry_skipped_status,
+        )
 
         split_config, skip_reason = split_config_for_row(row, task_registry)
         base_payload = {
@@ -547,7 +587,7 @@ def execute_chunk(
                 checkpoint_root=checkpoint_root,
                 prediction_cache_root=prediction_cache_root,
                 audit_root=audit_root,
-                force=args.force,
+                force=args.force or force_retry,
                 dataset_cache=dataset_cache,
                 audited_datasets=audited_datasets,
             )
@@ -558,6 +598,15 @@ def execute_chunk(
                 exc,
                 config=config,
             )
+            if is_unsupported_split_regime_exception(exc):
+                runner_result = {
+                    **runner_result,
+                    "status": "skipped_infeasible_grouped_regime",
+                    "skip_reason": (
+                        "unsupported Benchmark v2 split regime: "
+                        f"{runner_result.get('error_message', str(exc))}"
+                    ),
+                }
 
         status = str(runner_result.get("status", "unknown"))
         result = {
