@@ -72,6 +72,7 @@ FORBIDDEN_PUBLIC_PHRASES = tuple(
         ("navigation", "and", "traceability", "artifact"),
         ("navigation", "and", "traceability", "artifacts"),
         ("navigation", "artifacts"),
+        ("evidence", "evidence", "map"),
         ("does", "not", "recommend", "a", "conformal", "method"),
         ("supplementary/web", "artifact"),
         ("KG", "browser", "accepted"),

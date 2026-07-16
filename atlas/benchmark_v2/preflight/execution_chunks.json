@@ -1052,7 +1052,7 @@
       "task_variant_id_last": "uci_wine_quality:uci_wine_quality_dedup:covariate_shift"
     }
   ],
-  "generated_at_utc": "2026-07-16T04:29:12.510753+00:00",
+  "generated_at_utc": "2026-07-16T04:50:09.534289+00:00",
   "method_row_count": 42000,
   "method_rows_per_paired_cell": 5,
   "paired_cell_chunk_size": 200,
