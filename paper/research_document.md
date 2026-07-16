@@ -11,14 +11,14 @@ This Research Document reports a neutral empirical study of regression conformal
 
 Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan. CQR has the largest current descriptive coverage-gated selected-cell count (56 cells), while CV+ contributes 13 selected cells. The evaluated backend-confound check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells; it documents backend sensitivity while leaving study-wide method choice unresolved. The evaluated Venn-Abers regression bridge did not behave as the expected strong regression solution: it produced 14 undercoverage runs and a low quantile-coverage mean in the current diagnostic bridge. These statements are descriptive and tied to the audited experiment.
 
-Read this document in four layers. First, identify the empirical object that was audited. Second, separate observed practical-candidate patterns from deployment rules. Third, keep negative Venn-Abers bridge evidence separate from the broader Venn-Abers literature. Fourth, use the package, KG, and site as traceability surfaces for inspecting how claims connect to evidence.
+Read this document in four layers. First, identify the empirical object that was audited. Second, separate observed practical-candidate patterns from deployment rules. Third, keep negative Venn-Abers bridge evidence separate from the broader Venn-Abers literature. Fourth, use the package, KG, and site as evidence maps for inspecting how claims connect to evidence.
 
 | Reading layer | Reader question | Main reading | How to read it |
 |---|---|---|---|
 | Empirical object | What was actually measured? | An audited regression conformal prediction study over completed dataset-alpha-method result rows. | The scope is an audited experiment surface rather than exhaustive internet coverage, a product benchmark, or evidence for future deployments. |
 | Observed pattern | Which methods looked practically useful here? | The fixed-GBM CQR pipeline had the largest selected-cell signal; Mondrian calibration and CV+ were secondary signals in this study. | Choosing a method for a new setting would require a prospective validation protocol. |
 | Negative evidence | What happened to the Venn-Abers regression bridge? | The evaluated bridge did not emerge as the expected strong regression interval solution in this experiment. | The bridge-specific result should be read separately from predictive-distribution and generalized Venn-Abers research. |
-| Traceability | How should the package, KG, and site be treated? | They are Research Atlas surfaces for tracing claims to evidence, citations, and study limits. | The KG lets readers follow claims to source artifacts and evidence tables. |
+| Traceability | How should the package, KG, and site be treated? | They help readers trace claims to evidence, citations, and study limits. | The KG lets readers follow claims to source artifacts and evidence tables. |
 
 ## Executive Synthesis
 
@@ -83,7 +83,7 @@ The table below gives the reader a compact map of the study's research questions
 | Was the observed CQR signal robust to matching the CQR backend to the model-family sweep? | The backend sensitivity check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells. Selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | CQR fixed-vs-model-matched synthesis, rerun manifest, article backend-sensitivity section, and supplement S1b. | Avoid reading the check as resolving a universal CQR selection claim. |
 | What was learned from the evaluated Venn-Abers regression bridge? | The evaluated bridge produced negative failure-mode evidence: 14 undercoverage runs, quantile-coverage mean 0.6503, and validated-regression support flag `False`. | Venn-Abers bridge diagnostics, undercoverage accounting, negative-evidence section, and Venn-Abers citation scope. | Read this bridge result separately from predictive-distribution and generalized Venn-Abers research. |
 | Which stronger scientific readings would need separate validation studies? | Bounded-support validity and population-level group inference would need a separate validation study; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. | Paper evidence map, bounded-support audit, group diagnostic scope, and publication claim/evidence matrix. | Diagnostic bounded-support, endpoint, and group rows should stay separate from validity or population-inference conclusions. |
-| How can a reader audit or navigate the evidence? | The KG and Research Atlas package provide a traceability surface with 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Knowledge-graph quality audit, Research Atlas package manifest, README guide, and KG browser. | Use the Research Atlas repository as the citation surface; source provenance is tracked separately. |
+| How can a reader audit or navigate the evidence? | The KG and Research Atlas package provide an evidence map with 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Knowledge-graph quality audit, Research Atlas package manifest, README guide, and KG browser. | Use the Research Atlas repository as the citation surface; source provenance is tracked separately. |
 
 ## Contribution And Finding Map
 
@@ -96,7 +96,7 @@ This map states the document's contribution and core empirical findings in a for
 | CQR backend sensitivity check | The completed model-matched CQR rerun tested whether the CQR signal was only caused by the fixed-GBM pipeline. It produced 4,564 model-matched CQR rows and 224 paired dataset-alpha-model-family cells. | Fixed-vs-model-matched CQR synthesis and model-matched CQR rerun manifest. | This check is evidence about backend sensitivity. Using CQR as a study-wide choice or in deployment would need a separate validation study. |
 | Venn-Abers bridge negative evidence | The evaluated Venn-Abers regression bridge produced negative failure-mode evidence, including 14 undercoverage runs and quantile-coverage mean 0.6503. | Bridge diagnostics, undercoverage accounting, and Venn-Abers citation scope rows. | The bridge result should be read separately from predictive-distribution and generalized Venn-Abers research. |
 | Unvalidated stronger claims are part of the result | Bounded-support validity and population-level group inference would need a separate validation study; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. | Paper evidence map, publication claim/evidence matrix, bounded-support audit, and group diagnostic scope. | These gaps are reported as part of the scientific result. |
-| Traceability and reproducibility surface | The knowledge graph is usable as a traceability surface with 3,643 nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Knowledge-graph quality audit and Research Atlas package manifest. | The KG is an evidence exploration layer for source inspection. |
+| Evidence Map And Reproducibility | The knowledge graph is usable as an evidence map with 3,643 nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Knowledge-graph quality audit and Research Atlas package manifest. | The KG helps readers inspect the evidence path behind each claim. |
 | Publication package architecture | The Research Atlas package separates a concise main article, broad supplement, integrated Research Document, README guide, publication site, and evidence map. | Publication exemplar review, README, Research Atlas site manifest, and public artifact manifest. | This row explains how the publication surfaces fit together. |
 
 ## Scientific Method Audit Trail
@@ -111,7 +111,7 @@ This table rewrites the study as a scientific-method chain: question, measuremen
 | CQR backend sensitivity control | Was the CQR signal only caused by the fixed-GBM CQR backend? | The model-matched CQR rerun completed 4,564 rows and formed 224 paired dataset-alpha-model-family cells. Coverage-eligible interval-score selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | The check supports a backend-sensitivity reading. Broader CQR selection, deployment, or universal method-interpretation context would need a separate validation study. |
 | Falsification and negative evidence | Which attractive readings still require validation? | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | The negative result is bridge-specific and does not reject predictive-distribution or generalized Venn-Abers research. |
 | Unsupported broader readings | Which broader conclusions need more evidence? | 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. | A zero-ready evidence state is reported as a result; it does not support bounded-support validity or population-level group inference. |
-| Reproducibility and traceability | How can a reader trace the evidence? | 3,643 KG nodes, 21,019 KG edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | The KG and Research Atlas package are evidence maps for source tracing. |
+| Reproducibility and traceability | How can a reader trace the evidence? | 3,643 KG nodes, 21,019 KG edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | The KG and Research Atlas package map claims to source evidence. |
 
 ## Interpretation Guide
 
@@ -200,9 +200,9 @@ The Research Document, supplement, README, and site follow a small source-backed
 |---|---|
 | Use a minimal main article and a broad supplementary document. | The main article keeps the claim-evidence map and headline results; the supplement carries broad method, dataset, audit, robustness, and negative-evidence material. |
 | Make the README a guide, not a dense methods dump. | The README starts with status, plain-language summary, reading path, evidence snapshot, repository map, KG entry, and citation surface. |
-| Use the site as a Research Atlas portal with explicit lanes. | The Research Atlas site should expose the handoff, Research Document, rendered article/supplement, KG browser, and governance checks. |
+| Use the site as a Research Atlas portal with explicit lanes. | The Research Atlas site should expose the handoff, Research Document, rendered article/supplement, KG browser, and evidence and scope notes. |
 | Pair every reader-facing claim with evidence and a scope limit. | The article, Research Document, and README retain neutral language: observed descriptive signals are not deployment rules, and bridge-specific failures are not literature-wide rejections. |
-| Give the Research Document a checklist-like transparency spine. | The Research Document should visibly cover claims, limitations, assumptions, reproducibility route, compute, license and source provenance, and publication-scope checks. |
+| Give the Research Document a checklist-like transparency spine. | The Research Document should visibly cover claims, limitations, assumptions, reproducibility route, compute, license and source provenance, and beyond this study publication scope notes. |
 | Expose reproduction structure while excluding raw data and secrets. | The Research Atlas package records source, configs, tests, reports, and metadata, while excluding raw data, caches, local databases, and secret-like material. |
 | Treat the knowledge graph as a browsable supplementary evidence surface. | The KG browser is an evidence map for source inspection. |
 | Make result verification commands and expected outputs explicit. | The Research Atlas README should connect headline results to exact commands, manifest paths, and expected pass/fail statuses rather than relying on prose-only reproducibility claims. |
@@ -318,7 +318,7 @@ This document is intentionally strict about which broader readings need evidence
 - The model-matched CQR rerun evaluates backend sensitivity.
 - The evaluated Venn-Abers regression bridge is described as negative/failure-mode evidence.
 - Population-level group inference, bounded-support validity, validated Venn-Abers regression, production, and best-method readings would need separate validation studies.
-- The KG is an evidence map for source inspection.
+- The KG helps readers inspect the evidence path behind each claim.
 - No new experiments are introduced by this document.
 - Publication-package design examples are used only to improve navigation and source traceability.
 
