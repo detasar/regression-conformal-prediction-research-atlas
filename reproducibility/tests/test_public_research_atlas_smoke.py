@@ -63,6 +63,14 @@ FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
         r"\bnot\s+a\s+method-selection\s+(?:claim|result)\b",
         re.IGNORECASE,
     ),
+    "method_selection_claim_boilerplate": re.compile(
+        r"\bmethod-selection\s+claim\b",
+        re.IGNORECASE,
+    ),
+    "method_choice_claim_boilerplate": re.compile(
+        r"\bmethod-choice\s+claim\b",
+        re.IGNORECASE,
+    ),
     "final_method_boilerplate": _reader_language_pattern(
         "not", "a", "final", "selected", "method"
     ),
@@ -145,6 +153,13 @@ FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
         "public", "release", "remains", "closed"
     ),
     "release_gate_boilerplate": _reader_language_pattern("release", "gate"),
+    "release_boundary_boilerplate": _reader_language_pattern("release", "boundary"),
+    "public_release_authorized_boilerplate": _reader_language_pattern(
+        "public", "release", "authorized"
+    ),
+    "method_authorized_boilerplate": _reader_language_pattern(
+        "method", "recommendation", "authorized"
+    ),
     "evidence_boundary_boilerplate": _reader_language_pattern(
         "outside", "current", "evidence"
     ),
@@ -405,6 +420,12 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         phrase("document", "status:"),
         phrase("release", "render"),
         "release" + "_" + "boundary",
+        phrase("release", "boundary"),
+        phrase("public", "release", "authorized"),
+        phrase("method", "recommendation", "authorized"),
+        phrase("positive", "claim", "promotion", "authorized"),
+        phrase("method-selection", "claim"),
+        phrase("method-choice", "claim"),
         phrase("not", "a", "method", "recommendation"),
         phrase("method", "recommendation"),
         phrase("part", "of", "the", "public", "Research", "Atlas"),
