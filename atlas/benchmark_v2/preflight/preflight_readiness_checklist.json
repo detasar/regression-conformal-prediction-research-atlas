@@ -51,7 +51,7 @@
       "status": "pass"
     }
   ],
-  "generated_at_utc": "2026-07-16T08:08:48.200917+00:00",
+  "generated_at_utc": "2026-07-16T08:22:21.929343+00:00",
   "overall_status": "execution_in_progress",
   "result_generation_status": "in_progress",
   "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
