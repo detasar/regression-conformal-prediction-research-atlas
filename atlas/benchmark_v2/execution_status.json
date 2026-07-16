@@ -2,7 +2,7 @@
   "completed_method_row_count": 3241,
   "completed_progress_fraction": 0.07716667,
   "failed_method_row_count": 0,
-  "generated_at_utc": "2026-07-16T05:18:18.764867+00:00",
+  "generated_at_utc": "2026-07-16T05:28:28.443906+00:00",
   "observed_method_row_count": 4049,
   "pending_method_row_count": 37951,
   "public_scope_note": "Aggregate Benchmark v2 execution status snapshot. Raw execution ledgers, local caches, and prediction bundles are not included in the public package.",

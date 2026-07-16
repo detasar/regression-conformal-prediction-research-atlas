@@ -740,6 +740,7 @@ def test_public_repository_maintenance_files_are_present() -> None:
     assert "sha256sum -c CHECKSUMS.sha256" in workflow
     for expected_path in [
         "README.md",
+        "LICENSE",
         "CONTRIBUTING.md",
         "SECURITY.md",
         "ACCESSIBILITY.md",

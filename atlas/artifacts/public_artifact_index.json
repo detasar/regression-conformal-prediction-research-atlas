@@ -1,5 +1,5 @@
 {
-  "artifact_count": 320,
+  "artifact_count": 321,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -1097,6 +1097,11 @@
       "reader_use": "Individual experiment report Markdown."
     },
     {
+      "artifact_kind": "license",
+      "artifact_path": "LICENSE",
+      "reader_use": "Repository license for the Research Atlas package."
+    },
+    {
       "artifact_kind": "maintenance",
       "artifact_path": ".editorconfig",
       "reader_use": "Editor configuration."
@@ -1602,6 +1607,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-16T05:18:18.764867+00:00",
+  "generated_at_utc": "2026-07-16T05:28:28.443906+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
