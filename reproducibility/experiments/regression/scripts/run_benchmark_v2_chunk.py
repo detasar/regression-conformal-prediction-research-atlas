@@ -111,6 +111,24 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional cap on attempted method rows for smoke execution.",
     )
+    parser.add_argument(
+        "--cv-plus-max-train-rows",
+        type=int,
+        default=None,
+        help=(
+            "Optional computational cap for CV+ family methods. Defaults to no "
+            "cap so Benchmark v2 can test the common method surface."
+        ),
+    )
+    parser.add_argument(
+        "--jackknife-plus-max-train-rows",
+        type=int,
+        default=None,
+        help=(
+            "Optional computational cap for jackknife+ family methods. Defaults "
+            "to no cap so Benchmark v2 can test the common method surface."
+        ),
+    )
     parser.add_argument("--dataset-id", action="append", default=None)
     parser.add_argument("--task-variant-id", action="append", default=None)
     parser.add_argument("--split-regime", action="append", default=None)
@@ -309,6 +327,9 @@ def row_config(
     target_transform: str,
     execution_root: Path,
     chunk_id: str,
+    *,
+    cv_plus_max_train_rows: int | None = None,
+    jackknife_plus_max_train_rows: int | None = None,
 ) -> dict[str, Any]:
     cp_label = str(row["conformal_method_config_id"])
     cp_method_id = cp_method_from_config_id(cp_label)
@@ -321,8 +342,8 @@ def row_config(
         "splits": split_config,
         "conformal": {
             "cv_plus_folds": 5,
-            "cv_plus_max_train_rows": 500,
-            "jackknife_plus_max_train_rows": 500,
+            "cv_plus_max_train_rows": cv_plus_max_train_rows,
+            "jackknife_plus_max_train_rows": jackknife_plus_max_train_rows,
             "jackknife_after_bootstrap_n_resamples": 40,
             "jackknife_after_bootstrap_sample_fraction": 1.0,
             "jackknife_after_bootstrap_min_oob": 5,
@@ -454,6 +475,8 @@ def execute_chunk(
             target_transform,
             chunk_execution_root,
             str(chunk["chunk_id"]),
+            cv_plus_max_train_rows=args.cv_plus_max_train_rows,
+            jackknife_plus_max_train_rows=args.jackknife_plus_max_train_rows,
         )
         dataset_id = dataset_id_from_task_variant(str(row["task_variant_id"]))
         model_params = json.loads(row["learner_params_json"])
