@@ -2107,7 +2107,7 @@ def test_public_seo_and_citation_discovery_files() -> None:
     assert release_metadata["author"]["affiliation_note"] == "Not provided"
     assert release_metadata["archival"]["doi_note"] == "Not assigned for this release"
     assert release_metadata["archival"]["zenodo_note"] == "Not assigned for this release"
-    assert release_metadata["source_generation"]["source_repository_scope"] == "private_working_source_repository"
+    assert release_metadata["source_generation"]["source_repository_scope"] == "source_generation_repository"
     assert release_metadata["source_generation"]["source_repository_commit_sha"]
     assert "source_repository_url" not in release_metadata["source_generation"]
     assert "Release Metadata" in release_metadata_md
