@@ -1,12 +1,12 @@
 {
-  "generated_at_utc": "2026-07-16T09:15:18.787801+00:00",
+  "generated_at_utc": "2026-07-16T09:41:19.108739+00:00",
   "policy": {
     "benchmark_v2_rule": "Benchmark v2 result artifacts must either use these schemas or publish v2 schemas with explicit fixtures before execution results are merged.",
     "breaking_change_rule": "Any removal or rename of a required field must add a migration fixture and a public smoke assertion before regenerated results are published.",
     "compatibility_rule": "Public readers may rely on these schema identifiers and required fields inside the Atlas v0 release line."
   },
   "schema": "regression_cp_public_schema_registry_v1",
-  "schema_count": 9,
+  "schema_count": 10,
   "schemas": [
     {
       "artifact_path": "site/kg_browser_data.json",
@@ -103,6 +103,21 @@
         "rows"
       ],
       "schema": "regression_cp_final_audit_response_matrix_v1"
+    },
+    {
+      "artifact_path": "atlas/benchmark_v2/live_integrity_audit.json",
+      "format": "json",
+      "migration_fixture_id": "benchmark_v2_live_integrity_audit_public_v1",
+      "required_fields": [
+        "schema",
+        "status",
+        "critical_violation_count",
+        "planned_method_row_count",
+        "observed_method_row_count",
+        "completed_method_row_count",
+        "raw_ledger_included"
+      ],
+      "schema": "regression_cp_benchmark_v2_live_integrity_audit_public_v1"
     },
     {
       "artifact_path": "atlas/maintenance/maintenance_quality_matrix.json",

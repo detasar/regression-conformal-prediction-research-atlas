@@ -15,7 +15,7 @@
       "id": "paper_method_scope_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row permits a careful description of what looked useful in the experiment; deployment rules for new regression problems would need separate validation studies.",
-      "scope_limit": "Method behavior is reported as experiment-scoped evidence rather than deployment guidance.",
+      "scope_limit": "Method behavior is reported as experiment-scoped evidence rather than deployment use.",
       "statement": "Within this retrospective and imbalanced experiment surface, the fixed-GBM CQR pipeline was selected most often under the coverage-gated interval-score rule; Mondrian calibration and CV+ were secondary practical candidates.",
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },

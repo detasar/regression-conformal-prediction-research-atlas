@@ -7,7 +7,7 @@
       "node_label": "Final Method Model Selection check",
       "node_type": "evidence_reference",
       "preset_id": "final_selected_method_check",
-      "reader_job": "Start here to inspect why no final deployment guidance is open.",
+      "reader_job": "Start here to inspect why no final deployment use is open.",
       "route_edge_count": 26,
       "route_node_ids": [
         "evidence_check:final-method-model-selection-check",
@@ -38325,7 +38325,7 @@
       "degree": 12,
       "display_id": "methodology_record:final-publication-output-scope-deployment-claim-not-authori",
       "id": "methodology_record:final-publication-output-scope-deployment-claim-not-authori",
-      "label": "Final Publication Output How to read it:deployment guidance Outside Study Scope",
+      "label": "Final Publication Output How to read it:deployment use Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.038,
@@ -41301,7 +41301,7 @@
       "degree": 2,
       "display_id": "methodology_record:publication-phase-progress-publication-scope-item-deployment-claim-not-auth",
       "id": "methodology_record:publication-phase-progress-publication-scope-item-deployment-claim-not-auth",
-      "label": "Publication Evidence How to read it:deployment guidance Outside Study Scope",
+      "label": "Publication Evidence How to read it:deployment use Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.832,
@@ -41797,7 +41797,7 @@
       "degree": 10,
       "display_id": "methodology_record:publication-publication-scope-item-deployment-claim-outside-scope",
       "id": "methodology_record:publication-publication-scope-item-deployment-claim-outside-scope",
-      "label": "Research Atlas Evidence How to read it:deployment guidance Outside Study Scope",
+      "label": "Research Atlas Evidence How to read it:deployment use Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 5.86,
@@ -43979,7 +43979,7 @@
       "size": 4.832,
       "source_key_fingerprint": "3576fe54abac4ba7",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `bounded_support_scope` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `bounded_support_scope` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -359.52,
       "y": 186.467
@@ -43995,7 +43995,7 @@
       "size": 4.832,
       "source_key_fingerprint": "dc6ed727483247d7",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `experiment_scope` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `experiment_scope` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -369.215,
       "y": 187.286
@@ -44011,7 +44011,7 @@
       "size": 4.832,
       "source_key_fingerprint": "3fcbc72aa05d6ccc",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `group_inference_population_scope` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `group_inference_population_scope` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -378.954,
       "y": 187.944
@@ -44027,7 +44027,7 @@
       "size": 5.315,
       "source_key_fingerprint": "b9fe33aef79e8243",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `kg_site_visuals` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `kg_site_visuals` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -388.734,
       "y": 188.441
@@ -44043,7 +44043,7 @@
       "size": 5.315,
       "source_key_fingerprint": "b02a01387878abe0",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `main_results_stronger_claim` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `main_results_stronger_claim` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -398.553,
       "y": 188.777
@@ -44059,7 +44059,7 @@
       "size": 5.176,
       "source_key_fingerprint": "5cc60e747df641f4",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `method_signal_cqr_cvplus` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `method_signal_cqr_cvplus` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -351.232,
       "y": 162.497
@@ -44075,7 +44075,7 @@
       "size": 5.019,
       "source_key_fingerprint": "b56edc1b818d60ea",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `publication_repository_and_research_document_outputs` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `publication_repository_and_research_document_outputs` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -360.886,
       "y": 163.025
@@ -44091,7 +44091,7 @@
       "size": 5.176,
       "source_key_fingerprint": "c62bce85140ed98e",
       "source_path": null,
-      "summary": "Scientific neutrality interpretation row `venn_abers_negative_result` permits scoped reporting but marks as requiring separate validation deployment guidance, stronger claims, and report prose.",
+      "summary": "Scientific neutrality interpretation row `venn_abers_negative_result` permits scoped reporting but marks as requiring separate validation deployment use, stronger claims, and report prose.",
       "type": "methodology_record",
       "x": -370.578,
       "y": 163.391
@@ -50609,7 +50609,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Neutral article/supplement/KG blueprint-alignment audit; candidate surfaces are linked to reviewer advice, retention deployment rules, neutral result scope limits, and activation checks with report-writing context, deployment guidance, or stronger claim.",
+      "summary": "Neutral article/supplement/KG blueprint-alignment audit; candidate surfaces are linked to reviewer advice, retention deployment rules, neutral result scope limits, and activation checks with report-writing context, deployment use, or stronger claim.",
       "type": "report",
       "x": -293.439,
       "y": 86.773
@@ -50901,7 +50901,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Claim-safe pre-publication result extraction matrix; maps paper-facing result surfaces to source artifacts, neutral result scope limits, beyond this study main-result status, and negative Venn-Abers reporting scope with report-writing context, deployment guidance, stronger claim, or release.",
+      "summary": "Claim-safe pre-publication result extraction matrix; maps paper-facing result surfaces to source artifacts, neutral result scope limits, beyond this study main-result status, and negative Venn-Abers reporting scope with report-writing context, deployment use, stronger claim, or release.",
       "type": "report",
       "x": -282.677,
       "y": 55.115
@@ -58199,7 +58199,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Final publication output scope protocol mapping active final-output scope items to required evidence while keeping report prose, retained visuals/tables, KG/site release, Research Atlas repository packaging, deployment guidance, and stronger claims beyond this study.",
+      "summary": "Final publication output scope protocol mapping active final-output scope items to required evidence while keeping report prose, retained visuals/tables, KG/site release, Research Atlas repository packaging, deployment use, and stronger claims beyond this study.",
       "type": "report",
       "x": 286.33,
       "y": -131.302
@@ -58225,7 +58225,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Final publication visual/table auditor feedback-loop readiness artifact; draft candidates are checked for layout, caption, provenance, reader value, and interpretation scope readiness while final retention, report prose, release, deployment guidance, and stronger claims remain beyond this study.",
+      "summary": "Final publication visual/table auditor feedback-loop readiness artifact; draft candidates are checked for layout, caption, provenance, reader value, and interpretation scope readiness while final retention, report prose, release, deployment use, and stronger claims remain beyond this study.",
       "type": "report",
       "x": 238.098,
       "y": -106.912
@@ -58615,7 +58615,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Author-stamped neutral individual experiment report blueprint; maps report sections to source artifacts and neutral result scope limits with report-writing context, evidence scope, deployment guidance, or stronger claim.",
+      "summary": "Author-stamped neutral individual experiment report blueprint; maps report sections to source artifacts and neutral result scope limits with report-writing context, evidence scope, deployment use, or stronger claim.",
       "type": "report",
       "x": 304.105,
       "y": -82.13
@@ -63541,7 +63541,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Neutral publication publication-readiness decision recording Research Atlas packaging, neutral article/supplement assembly, Research Atlas KG snapshot export, and LaTeX/HTML/static-site package preparation while keeping Research Atlas, source-repository citation caveat, deployment guidance, and stronger claims beyond this study.",
+      "summary": "Neutral publication publication-readiness decision recording Research Atlas packaging, neutral article/supplement assembly, Research Atlas KG snapshot export, and LaTeX/HTML/static-site package preparation while keeping Research Atlas, source-repository citation caveat, deployment use, and stronger claims beyond this study.",
       "type": "report",
       "x": -14.794,
       "y": 260.58
@@ -63817,7 +63817,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "LaTeX/HTML review output manifest for the current article and supplementary draft renders. It records review LaTeX, HTML, BibTeX, and static index outputs while keeping report prose, Research Atlas, deployment guidance, and stronger claims beyond this study.",
+      "summary": "LaTeX/HTML review output manifest for the current article and supplementary draft renders. It records review LaTeX, HTML, BibTeX, and static index outputs while keeping report prose, Research Atlas, deployment use, and stronger claims beyond this study.",
       "type": "report",
       "x": -42.549,
       "y": 293.936
@@ -63869,7 +63869,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Research Atlas package manifest for the local Research Atlas package. It records copied files, excluded files, checksum provenance, secret/raw/cache risk checks, and local git provenance while keeping Research Atlas, source-repository citation caveat, deployment guidance, and stronger claims beyond this study.",
+      "summary": "Research Atlas package manifest for the local Research Atlas package. It records copied files, excluded files, checksum provenance, secret/raw/cache risk checks, and local git provenance while keeping Research Atlas, source-repository citation caveat, deployment use, and stronger claims beyond this study.",
       "type": "report",
       "x": -50.056,
       "y": 310.997
@@ -63895,7 +63895,7 @@
         "represented_in_aggregate": false,
         "status": "excluded_authoring_intermediate"
       },
-      "summary": "Publication authoring decision record separating Research Document, main article, and supplementary authoring from Research Atlas, deployment guidance, and stronger claims.",
+      "summary": "Publication authoring decision record separating Research Document, main article, and supplementary authoring from Research Atlas, deployment use, and stronger claims.",
       "type": "report",
       "x": -43.513,
       "y": 257.347
@@ -64025,7 +64025,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Publication progress reconciliation audit separating completed pre-publication controls from still-active report prose, visual/table retention, KG/site, Research Atlas repository, deployment guidance, and stronger-claim scope limits.",
+      "summary": "Publication progress reconciliation audit separating completed pre-publication controls from still-active report prose, visual/table retention, KG/site, Research Atlas repository, deployment use, and stronger-claim scope limits.",
       "type": "report",
       "x": -62.91,
       "y": 299.463
@@ -64077,7 +64077,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Neutral publication scope register; maps article, supplement, KG/site, individual report, and Research Atlas repository deliverables to scope-limited scope limits with report-writing context, deployment guidance, stronger claim, or Research Atlas repository packaging.",
+      "summary": "Neutral publication scope register; maps article, supplement, KG/site, individual report, and Research Atlas repository deliverables to scope-limited scope limits with report-writing context, deployment use, stronger claim, or Research Atlas repository packaging.",
       "type": "report",
       "x": -57.694,
       "y": 254.543
@@ -64337,7 +64337,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Scientific neutrality interpretation lock mapping allowed and beyond this study publication-prep interpretations with report-writing context, deployment guidance, or stronger claims.",
+      "summary": "Scientific neutrality interpretation lock mapping allowed and beyond this study publication-prep interpretations with report-writing context, deployment use, or stronger claims.",
       "type": "report",
       "x": -85.667,
       "y": 274.964
@@ -64535,7 +64535,7 @@
         "represented_in_aggregate": false,
         "status": "excluded_authoring_intermediate"
       },
-      "summary": "Evidence-linked draft README for the Research Atlas repository, preserving release, deployment guidance, stronger claim, Venn-Abers validation, bounded-support, and group-inference interpretation scope.",
+      "summary": "Evidence-linked draft README for the Research Atlas repository, preserving release, deployment use, stronger claim, Venn-Abers validation, bounded-support, and group-inference interpretation scope.",
       "type": "report",
       "x": -106.106,
       "y": 277.4
@@ -64561,7 +64561,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "publication final-repository staging manifest that maps required publication-release contents, exclusion policies, and source provenance while keeping repository creation, release, source-repository citation caveat, deployment guidance, and stronger claims beyond this study.",
+      "summary": "publication final-repository staging manifest that maps required publication-release contents, exclusion policies, and source provenance while keeping repository creation, release, source-repository citation caveat, deployment use, and stronger claims beyond this study.",
       "type": "report",
       "x": -111.58,
       "y": 284.932

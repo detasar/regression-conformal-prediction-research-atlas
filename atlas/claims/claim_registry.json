@@ -19,7 +19,7 @@
       "kg_reference_node_count": 9,
       "plain_language": "This row permits a careful description of what looked useful in the experiment, not a general rule for every regression problem.",
       "reader_safe_statement": "Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates.",
-      "scope_limit": "Method behavior is reported as experiment-scoped evidence rather than deployment guidance.",
+      "scope_limit": "Method behavior is reported as experiment-scoped evidence rather than deployment use.",
       "support_status": "supported by audited artifacts and KG trace"
     },
     {
@@ -106,7 +106,7 @@
       "evidence_reference": "claim_evidence_matrix",
       "kg_reference_node_count": "",
       "plain_language": "Operational risk, monitoring, and deployment constraints require a separate study.",
-      "reader_safe_statement": "Production or deployment guidance",
+      "reader_safe_statement": "Production or deployment use",
       "scope_limit": "A separate deployment study with operational requirements, monitoring design, and domain-specific risk review.",
       "support_status": "would need a separate validation study"
     },

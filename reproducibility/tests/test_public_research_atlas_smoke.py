@@ -905,6 +905,10 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     assert "atlas/scope/benchmark_v2_execution_manifest.md" in indexed_paths
     assert "atlas/scope/benchmark_v2_public_evidence_contract.json" in indexed_paths
     assert "atlas/scope/benchmark_v2_public_evidence_contract.md" in indexed_paths
+    assert "atlas/benchmark_v2/execution_status.json" in indexed_paths
+    assert "atlas/benchmark_v2/execution_status.md" in indexed_paths
+    assert "atlas/benchmark_v2/live_integrity_audit.json" in indexed_paths
+    assert "atlas/benchmark_v2/live_integrity_audit.md" in indexed_paths
     assert "atlas/benchmark_v2/preflight/README.md" in indexed_paths
     assert "atlas/benchmark_v2/preflight/run_grid_cardinality.json" in indexed_paths
     assert "atlas/benchmark_v2/preflight/preflight_readiness_checklist.json" in indexed_paths
@@ -931,6 +935,8 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     execution_resume_contract_path = preflight / "execution_resume_contract.md"
     execution_status_path = root / "atlas/benchmark_v2/execution_status.json"
     execution_status_markdown_path = root / "atlas/benchmark_v2/execution_status.md"
+    live_integrity_path = root / "atlas/benchmark_v2/live_integrity_audit.json"
+    live_integrity_markdown_path = root / "atlas/benchmark_v2/live_integrity_audit.md"
     for path in [
         preflight / "README.md",
         cardinality_path,
@@ -949,6 +955,8 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         execution_resume_contract_path,
         execution_status_path,
         execution_status_markdown_path,
+        live_integrity_path,
+        live_integrity_markdown_path,
     ]:
         assert path.exists()
 
@@ -1005,6 +1013,24 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert execution_status["pending_method_row_count"] >= 0
     assert "raw execution ledgers" in execution_status["public_scope_note"].lower()
     assert "# Benchmark v2 Execution Status" in execution_status_markdown_path.read_text(
+        encoding="utf-8"
+    )
+    live_integrity = json.loads(live_integrity_path.read_text(encoding="utf-8"))
+    assert (
+        live_integrity["schema"]
+        == "regression_cp_benchmark_v2_live_integrity_audit_public_v1"
+    )
+    assert live_integrity["status"] in {"pass", "fail", "not_available"}
+    assert (
+        live_integrity["planned_method_row_count"]
+        == cardinality["candidate_primary_planned_run_grid_row_count"]
+    )
+    assert live_integrity["raw_ledger_included"] is False
+    assert live_integrity["critical_violation_count"] >= 0
+    if live_integrity["status"] == "pass":
+        assert live_integrity["critical_violation_count"] == 0
+    assert "raw execution ledgers" in live_integrity["public_scope_note"].lower()
+    assert "# Benchmark v2 Live Integrity Audit" in live_integrity_markdown_path.read_text(
         encoding="utf-8"
     )
 
@@ -1291,6 +1317,11 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
         matrix["summary"]["maintenance_status"]
         == "source_backed_public_builder_modularization_started"
     )
+    assert matrix["summary"]["benchmark_v2_integrity_status"] in {
+        "completed_current_integrity_snapshot",
+        "integrity_snapshot_failed",
+        "integrity_snapshot_not_available",
+    }
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
     assert any(
@@ -1306,6 +1337,16 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     assert ("P1", "completed_current_public_atlas_layer") in statuses
     assert ("P1", "completed_current_public_kg_layer") in statuses
     assert ("P1", "completed_current_execution_contract") in statuses
+    assert any(
+        priority == "P1"
+        and status
+        in {
+            "completed_current_integrity_snapshot",
+            "integrity_snapshot_failed",
+            "integrity_snapshot_not_available",
+        }
+        for priority, status in statuses
+    )
     assert ("P2", "source_backed_public_builder_modularization_started") in statuses
     assert any(
         row["priority"] == "P2"
@@ -1334,6 +1375,12 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
         for row in matrix["rows"]
     )
     assert any(
+        "Benchmark v2 live integrity audit" in row["item"]
+        and "atlas/benchmark_v2/live_integrity_audit.json" in row["evidence_paths"]
+        and "atlas/benchmark_v2/live_integrity_audit.md" in row["evidence_paths"]
+        for row in matrix["rows"]
+    )
+    assert any(
         "separate source fingerprints and public content hashes" in row["item"]
         and row["status"] == "completed"
         and "site/kg_browser_index.json" in row["evidence_paths"]
@@ -1349,6 +1396,10 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}
     assert "atlas/scope/audit_response_matrix.json" in indexed_paths
     assert "atlas/scope/audit_response_matrix.md" in indexed_paths
+    assert "atlas/benchmark_v2/execution_status.json" in indexed_paths
+    assert "atlas/benchmark_v2/execution_status.md" in indexed_paths
+    assert "atlas/benchmark_v2/live_integrity_audit.json" in indexed_paths
+    assert "atlas/benchmark_v2/live_integrity_audit.md" in indexed_paths
     assert "atlas/maintenance/maintenance_quality_matrix.json" in indexed_paths
     assert "atlas/maintenance/maintenance_quality_matrix.md" in indexed_paths
     assert "atlas/maintenance/schema_registry.json" in indexed_paths
@@ -1435,6 +1486,7 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
         "evidence/public_artifact_manifest.json",
         "atlas/results/result_cube_public.csv",
         "atlas/artifacts/public_artifact_index.json",
+        "atlas/benchmark_v2/live_integrity_audit.json",
         "atlas/maintenance/maintenance_quality_matrix.json",
     } <= set(schema_by_path)
     assert {
@@ -1449,6 +1501,20 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
         "coverage_eligible_selected",
         "numerical_pathology_flag",
     } <= set(schema_by_path["atlas/results/result_cube_public.csv"]["required_fields"])
+    assert (
+        schema_by_path["atlas/benchmark_v2/live_integrity_audit.json"]["schema"]
+        == "regression_cp_benchmark_v2_live_integrity_audit_public_v1"
+    )
+    assert {
+        "status",
+        "critical_violation_count",
+        "planned_method_row_count",
+        "raw_ledger_included",
+    } <= set(
+        schema_by_path["atlas/benchmark_v2/live_integrity_audit.json"][
+            "required_fields"
+        ]
+    )
 
     result_fixture = fixture_by_id["result_cube_selection_labels_v0_to_v1"]
     assert result_fixture["field_role_migrations"] == {
@@ -1473,6 +1539,16 @@ def test_public_schema_registry_and_migration_fixtures_are_enforced() -> None:
     )
     assert "included" not in manifest_fixture["expected_output_example"]["artifacts"][0]
     assert "file_included" in manifest_fixture["expected_output_example"]["artifacts"][0]
+    integrity_fixture = fixture_by_id["benchmark_v2_live_integrity_audit_public_v1"]
+    assert (
+        integrity_fixture["target_schema"]
+        == "regression_cp_benchmark_v2_live_integrity_audit_public_v1"
+    )
+    assert integrity_fixture["field_role_migrations"]["overall_status"] == "status"
+    assert (
+        integrity_fixture["field_role_migrations"]["examples"]
+        == "excluded_from_public_snapshot"
+    )
 
     artifact_index = json.loads(artifact_index_path.read_text(encoding="utf-8"))
     indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}

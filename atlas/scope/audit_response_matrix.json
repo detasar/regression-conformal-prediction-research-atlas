@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-16T09:15:18.787801+00:00",
+  "generated_at_utc": "2026-07-16T09:41:19.108739+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -102,6 +102,17 @@
     },
     {
       "evidence_paths": [
+        "atlas/benchmark_v2/live_integrity_audit.md",
+        "atlas/benchmark_v2/live_integrity_audit.json",
+        "atlas/benchmark_v2/execution_status.md",
+        "atlas/benchmark_v2/execution_status.json"
+      ],
+      "item": "Publish aggregate Benchmark v2 live integrity audit snapshot.",
+      "priority": "P1",
+      "status": "completed_current_integrity_snapshot"
+    },
+    {
+      "evidence_paths": [
         "atlas/scope/benchmark_v2_execution_manifest.md",
         "atlas/scope/benchmark_v2_execution_manifest.json",
         "atlas/scope/benchmark_v2_protocol.md",
@@ -157,6 +168,7 @@
   "schema": "regression_cp_final_audit_response_matrix_v1",
   "summary": {
     "atlas_product_status": "completed_current_public_atlas_layer",
+    "benchmark_v2_integrity_status": "completed_current_integrity_snapshot",
     "benchmark_v2_status": "execution_in_progress",
     "kg_product_status": "completed_current_public_kg_layer",
     "maintenance_status": "source_backed_public_builder_modularization_started",
