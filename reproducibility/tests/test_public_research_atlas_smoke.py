@@ -565,26 +565,69 @@ def test_public_dataset_source_metadata_matrix_is_published_and_scoped() -> None
 
     assert matrix["schema"] == "regression_cp_dataset_source_metadata_matrix_v1"
     assert matrix["summary"]["dataset_count"] == len(catalog["datasets"])
+    assert matrix["summary"]["source_dataset_count"] > 0
+    assert matrix["summary"]["source_dataset_count"] <= matrix["summary"]["dataset_count"]
+    assert matrix["summary"]["source_dataset_with_multiple_task_variants_count"] > 0
+    assert matrix["summary"]["max_task_variants_per_source_dataset"] >= 1
     assert matrix["summary"]["profile_metadata_available_count"] > 0
     assert matrix["summary"]["benchmark_v2_candidate_dataset_count"] > 0
+    assert matrix["summary"]["version_recorded_count"] > 0
+    assert matrix["summary"]["version_recorded_count"] + matrix["summary"][
+        "version_pending_or_missing_count"
+    ] == matrix["summary"]["dataset_count"]
+    assert matrix["summary"]["license_recorded_count"] > 0
+    assert matrix["summary"]["license_recorded_count"] + matrix["summary"][
+        "license_pending_or_missing_count"
+    ] == matrix["summary"]["dataset_count"]
+    assert matrix["summary"]["retrieval_recorded_count"] > 0
+    assert matrix["summary"]["retrieval_recorded_count"] + matrix["summary"][
+        "retrieval_pending_or_missing_count"
+    ] == matrix["summary"]["dataset_count"]
+    assert matrix["summary"]["source_profile_hash_recorded_count"] == matrix["summary"][
+        "profile_metadata_available_count"
+    ]
+    assert matrix["summary"]["raw_data_included_count"] == 0
+    assert matrix["summary"]["raw_content_hash_verifiable_count"] == 0
     assert len(matrix["rows"]) == len(catalog["datasets"]) == len(csv_rows)
     assert "# Dataset Source Metadata Matrix" in markdown
+    assert "Raw content hashes publicly verifiable" in markdown
 
     required = {
         "dataset_id",
         "source_dataset_id",
         "dataset_family",
         "version",
+        "version_status",
         "license_or_terms",
+        "license_status",
         "retrieval_command_or_url",
+        "retrieval_status",
         "content_hash_scope",
         "raw_content_hash_status",
+        "raw_content_hash_verifiable",
+        "raw_data_included_in_public_package",
+        "source_profile_hash_status",
+        "source_dataset_task_variant_count",
+        "source_metadata_quality_flags",
         "metadata_status",
     }
     for row in matrix["rows"]:
         assert required <= set(row)
         assert row["dataset_id"]
         assert row["dataset_family"]
+        assert row["version_status"] in {"recorded", "pending_public_verification", "missing"}
+        assert row["license_status"] in {"recorded", "pending_public_verification", "missing"}
+        assert row["retrieval_status"] in {
+            "source_url_recorded",
+            "retrieval_reference_recorded",
+            "pending_public_verification",
+            "missing",
+        }
+        assert int(row["source_dataset_task_variant_count"]) >= 1
+        assert row["source_profile_hash_status"] in {
+            "profile_metadata_hash_recorded",
+            "no_public_profile_metadata_hash",
+        }
         assert row["metadata_status"] in {
             "profile_metadata_available",
             "profile_missing_public_aggregate_only",
@@ -596,7 +639,26 @@ def test_public_dataset_source_metadata_matrix_is_published_and_scoped() -> None
         assert row["raw_content_hash_status"] == (
             "raw_data_not_redistributed_or_not_publicly_hashed"
         )
+        assert row["raw_content_hash_verifiable"] is False
+        assert row["raw_data_included_in_public_package"] is False
+        assert "raw_hash_not_publicly_verifiable" in row["source_metadata_quality_flags"]
+        assert "raw_data_not_redistributed" in row["source_metadata_quality_flags"]
     assert any(row["source_profile_sha256"] for row in matrix["rows"])
+    assert any(row["version_status"] == "recorded" for row in matrix["rows"])
+    assert any(row["version_status"] == "pending_public_verification" for row in matrix["rows"])
+    assert any(row["license_status"] == "recorded" for row in matrix["rows"])
+    assert any(
+        row["license_status"] == "pending_public_verification"
+        for row in matrix["rows"]
+    )
+    assert any(row["retrieval_status"] == "source_url_recorded" for row in matrix["rows"])
+    assert any(
+        row["retrieval_status"] == "pending_public_verification"
+        for row in matrix["rows"]
+    )
+    assert any(
+        int(row["source_dataset_task_variant_count"]) > 1 for row in matrix["rows"]
+    )
     assert not any(
         row["content_hash_scope"] == "raw_dataset_content_hash"
         for row in matrix["rows"]
