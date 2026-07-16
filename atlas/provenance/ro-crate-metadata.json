@@ -18,6 +18,9 @@
         },
         {
           "@id": "claims/claim_registry.json"
+        },
+        {
+          "@id": "provenance/release_metadata.json"
         }
       ],
       "name": "Regression Conformal Prediction Research Atlas"

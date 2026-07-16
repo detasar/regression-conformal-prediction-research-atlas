@@ -4,9 +4,12 @@ TI  - Regression Conformal Prediction Study: Research Atlas
 PY  - 2026
 DA  - 2026/07/10
 UR  - https://github.com/detasar/regression-conformal-prediction-research-atlas
+UR  - https://detasar.github.io/regression-conformal-prediction-research-atlas/
 KW  - conformal prediction
 KW  - regression
 KW  - prediction intervals
 KW  - research atlas
+LA  - English
+PB  - GitHub repository and GitHub Pages Research Atlas
 N2  - Research Atlas with article, supplement, result cube, evidence map, provenance receipts, and reproducibility materials.
 ER  -

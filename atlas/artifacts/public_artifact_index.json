@@ -1,5 +1,5 @@
 {
-  "artifact_count": 324,
+  "artifact_count": 326,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -1543,6 +1543,16 @@
     },
     {
       "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/release_metadata.json",
+      "reader_use": "Machine-readable release, citation, archive, and author metadata."
+    },
+    {
+      "artifact_kind": "provenance",
+      "artifact_path": "atlas/provenance/release_metadata.md",
+      "reader_use": "Readable release, citation, archive, and author metadata."
+    },
+    {
+      "artifact_kind": "provenance",
       "artifact_path": "atlas/provenance/reproducibility_tiers.md",
       "reader_use": "Readable reproducibility tier definitions."
     },
@@ -1622,6 +1632,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-16T10:45:05.251774+00:00",
+  "generated_at_utc": "2026-07-16T11:17:54.499093+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }

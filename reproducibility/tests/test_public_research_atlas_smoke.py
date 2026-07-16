@@ -846,6 +846,8 @@ def test_public_repository_maintenance_files_are_present() -> None:
         "CHECKSUMS.sha256",
         "site/index.html",
         "atlas/provenance/index.html",
+        "atlas/provenance/release_metadata.json",
+        "atlas/provenance/release_metadata.md",
         "paper/article.pdf",
         "reproducibility/tests/test_public_research_atlas_smoke.py",
     ]:
@@ -2057,6 +2059,12 @@ def test_public_seo_and_citation_discovery_files() -> None:
     citation_cff = (root / "CITATION.cff").read_text(encoding="utf-8")
     citation_bib = (root / "paper/citation.bib").read_text(encoding="utf-8")
     citation_ris = (root / "paper/citation.ris").read_text(encoding="utf-8")
+    release_metadata = json.loads(
+        (root / "atlas/provenance/release_metadata.json").read_text(encoding="utf-8")
+    )
+    release_metadata_md = (
+        root / "atlas/provenance/release_metadata.md"
+    ).read_text(encoding="utf-8")
     assert "Sitemap: https://detasar.github.io/regression-conformal-prediction-research-atlas/sitemap.xml" in robots
     assert seo_manifest["schema"] == "regression_cp_public_seo_manifest_v1"
     assert seo_manifest["canonical_base_url"] == "https://detasar.github.io/regression-conformal-prediction-research-atlas/"
@@ -2080,8 +2088,26 @@ def test_public_seo_and_citation_discovery_files() -> None:
     assert "<svg" in favicon and "#151922" in favicon
     assert "preferred-citation:" in citation_cff
     assert "repository-code:" in citation_cff
+    assert 'version: "public-research-atlas-2026-07-10"' in citation_cff
+    assert 'license: "MIT"' in citation_cff
     assert "@misc{tasar2026regression_cp_research_atlas" in citation_bib
+    assert "GitHub repository and GitHub Pages Research Atlas" in citation_bib
     assert "TY  - GEN" in citation_ris
+    assert "https://detasar.github.io/regression-conformal-prediction-research-atlas/" in citation_ris
+    assert release_metadata["schema"] == "regression_cp_public_release_metadata_v1"
+    assert release_metadata["release_version"] == "public-research-atlas-2026-07-10"
+    assert release_metadata["repository"]["url"] == "https://github.com/detasar/regression-conformal-prediction-research-atlas"
+    assert release_metadata["repository"]["pages_url"] == "https://detasar.github.io/regression-conformal-prediction-research-atlas/"
+    assert release_metadata["author"]["email"] == "detasar@gmail.com"
+    assert release_metadata["author"]["orcid_note"] == "Not provided"
+    assert release_metadata["author"]["affiliation_note"] == "Not provided"
+    assert release_metadata["archival"]["doi_note"] == "Not assigned for this release"
+    assert release_metadata["archival"]["zenodo_note"] == "Not assigned for this release"
+    assert release_metadata["source_generation"]["source_repository_scope"] == "private_working_source_repository"
+    assert release_metadata["source_generation"]["source_repository_commit_sha"]
+    assert "source_repository_url" not in release_metadata["source_generation"]
+    assert "Release Metadata" in release_metadata_md
+    assert "Raw" not in release_metadata_md
     for page, pdf in [
         ("paper/article.html", "paper/article.pdf"),
         ("paper/supplement.html", "paper/supplement.pdf"),
