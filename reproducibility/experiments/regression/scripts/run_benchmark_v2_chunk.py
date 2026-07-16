@@ -57,6 +57,29 @@ BENCHMARK_V2_SPATIAL_GROUP_COLUMNS = {
     "openml_california_housing_spatial_cell": "spatial_cell",
 }
 
+BENCHMARK_V2_COVARIATE_SHIFT_POLICIES = {
+    "openml_kin8nm:openml_kin8nm_y:covariate_shift": {
+        "strategy": "ordered",
+        "order_col": "theta3",
+        "covariate_shift_policy_id": "theta3_ordered_upper_tail_v1",
+        "policy_note": (
+            "Rows are ordered by theta3; the upper tail is held out as the "
+            "target-domain test split."
+        ),
+    },
+    "uci_wine_quality:uci_wine_quality_dedup:covariate_shift": {
+        "strategy": "source_target",
+        "source_target_col": "wine_color",
+        "source_values": ["white"],
+        "target_values": ["red"],
+        "covariate_shift_policy_id": "wine_color_white_source_red_target_v1",
+        "policy_note": (
+            "White-wine rows form the train/calibration source domain and "
+            "red-wine rows form the target-domain test split."
+        ),
+    },
+}
+
 EXECUTION_TERMINAL_STATUSES = {
     "completed",
     "failed",
@@ -142,6 +165,15 @@ def parse_args() -> argparse.Namespace:
         help="Retry previously failed Benchmark v2 method rows.",
     )
     parser.add_argument(
+        "--retry-skipped-status",
+        action="append",
+        default=None,
+        help=(
+            "Retry rows whose latest status matches this skipped status. "
+            "Useful after adding support for a previously unsupported regime."
+        ),
+    )
+    parser.add_argument(
         "--force",
         action="store_true",
         help="Force the underlying regression runner to overwrite checkpoints.",
@@ -205,7 +237,13 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
-def previously_terminal_rows(ledger_path: Path, *, retry_failed: bool) -> set[str]:
+def previously_terminal_rows(
+    ledger_path: Path,
+    *,
+    retry_failed: bool,
+    retry_skipped_status: list[str] | None = None,
+) -> set[str]:
+    retry_statuses = {str(status) for status in retry_skipped_status or []}
     terminal: set[str] = set()
     for row in read_jsonl(ledger_path):
         key = str(row.get("method_row_key", ""))
@@ -213,6 +251,8 @@ def previously_terminal_rows(ledger_path: Path, *, retry_failed: bool) -> set[st
         if not key:
             continue
         if status == "failed" and retry_failed:
+            continue
+        if status in retry_statuses:
             continue
         if status in EXECUTION_TERMINAL_STATUSES or status.startswith("skipped_"):
             terminal.add(key)
@@ -302,10 +342,14 @@ def split_config_for_row(
         config["group_col"] = group_col
         return config, None
     if split_regime == "covariate_shift":
-        return None, (
-            "covariate_shift split policy is not implemented in run_regression_pilot; "
-            "requires a dedicated source/target split policy before execution"
-        )
+        policy = BENCHMARK_V2_COVARIATE_SHIFT_POLICIES.get(task_variant_id)
+        if policy is None:
+            return None, (
+                "covariate_shift split policy is not implemented for "
+                f"{task_variant_id}"
+            )
+        config.update(policy)
+        return config, None
     return None, f"unsupported Benchmark v2 split_regime={split_regime}"
 
 
@@ -421,7 +465,11 @@ def execute_chunk(
         task_registry_path = package_root / task_registry_path
     task_registry = load_task_registry(task_registry_path)
     rows = [row for row in chunk_rows(run_grid_path, chunk) if row_allowed(row, args)]
-    terminal = previously_terminal_rows(ledger_path, retry_failed=args.retry_failed)
+    terminal = previously_terminal_rows(
+        ledger_path,
+        retry_failed=args.retry_failed,
+        retry_skipped_status=args.retry_skipped_status,
+    )
 
     dataset_cache: dict[str, Any] = {}
     audited_datasets: set[str] = set()

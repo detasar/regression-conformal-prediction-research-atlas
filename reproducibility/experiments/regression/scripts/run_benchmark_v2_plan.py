@@ -88,6 +88,15 @@ def parse_args() -> argparse.Namespace:
         help="Retry rows whose latest chunk-ledger status is failed.",
     )
     parser.add_argument(
+        "--retry-skipped-status",
+        action="append",
+        default=None,
+        help=(
+            "Retry rows whose latest chunk-ledger status matches this skipped "
+            "status. Use this after adding support for a previously skipped regime."
+        ),
+    )
+    parser.add_argument(
         "--force",
         action="store_true",
         help="Force the underlying regression runner to overwrite checkpoints.",
@@ -182,11 +191,13 @@ def summarize_chunk(
     latest = latest_status_by_method_row(ledger_path)
     selected_latest = {key: latest[key] for key in selected_keys if key in latest}
     status_counts = Counter(str(row.get("status", "unknown")) for row in selected_latest.values())
+    retry_statuses = {str(status) for status in args.retry_skipped_status or []}
     observed_terminal = sum(
         count
         for status, count in status_counts.items()
         if status in chunk_runner.EXECUTION_TERMINAL_STATUSES
         or status.startswith("skipped_")
+        if status not in retry_statuses
     )
     pending = max(0, len(selected_keys) - observed_terminal)
     return {
@@ -202,6 +213,7 @@ def summarize_chunk(
             count
             for status, count in status_counts.items()
             if status.startswith("skipped_") or status == "skipped_method"
+            if status not in retry_statuses
         ),
         "status_counts": dict(sorted(status_counts.items())),
         "ledger_path": str(ledger_path),
@@ -229,6 +241,7 @@ def chunk_args(args: argparse.Namespace, chunk_id: str) -> argparse.Namespace:
         alpha=args.alpha,
         seed=args.seed,
         retry_failed=args.retry_failed,
+        retry_skipped_status=args.retry_skipped_status,
         force=args.force,
     )
 

@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-16T04:04:41.227918+00:00",
+  "generated_at_utc": "2026-07-16T04:22:04.371469+00:00",
   "policy": {
     "benchmark_v2_rule": "Benchmark v2 result artifacts must either use these schemas or publish v2 schemas with explicit fixtures before execution results are merged.",
     "breaking_change_rule": "Any removal or rename of a required field must add a migration fixture and a public smoke assertion before regenerated results are published.",

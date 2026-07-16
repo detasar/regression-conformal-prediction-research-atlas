@@ -14,6 +14,28 @@
   },
   "benchmark_version": "benchmark_v2_prospectively_frozen_protocol",
   "computational_execution_policy": {
+    "covariate_shift_split_policies": [
+      {
+        "covariate_shift_policy_id": "theta3_ordered_upper_tail_v1",
+        "order_col": "theta3",
+        "policy_note": "Rows are ordered by theta3; the upper tail is held out as the target-domain test split.",
+        "strategy": "ordered",
+        "task_variant_id": "openml_kin8nm:openml_kin8nm_y:covariate_shift"
+      },
+      {
+        "covariate_shift_policy_id": "wine_color_white_source_red_target_v1",
+        "policy_note": "White-wine rows form the train/calibration source domain and red-wine rows form the target-domain test split.",
+        "source_target_col": "wine_color",
+        "source_values": [
+          "white"
+        ],
+        "strategy": "source_target",
+        "target_values": [
+          "red"
+        ],
+        "task_variant_id": "uci_wine_quality:uci_wine_quality_dedup:covariate_shift"
+      }
+    ],
     "cv_plus_max_train_rows": null,
     "initial_uncapped_smoke_rows": "The first three completed rows in chunk 0001 were produced before the cap was applied; no completed exact jackknife+ row was produced before the capped restart.",
     "jackknife_plus_max_train_rows": 500,
@@ -46,9 +68,12 @@
       ]
     },
     "policy_reason": "Exact jackknife+ refits one model per training row. Rows above the cap are recorded as skipped_method with the threshold in the run notes rather than silently approximated.",
-    "restart_command_suffix": "--jackknife-plus-max-train-rows 500"
+    "restart_command_suffix": "--jackknife-plus-max-train-rows 500 --retry-skipped-status skipped_unsupported_regime",
+    "retry_skipped_status_after_policy_upgrade": [
+      "skipped_unsupported_regime"
+    ]
   },
-  "generated_at_utc": "2026-07-16T04:04:41.227918+00:00",
+  "generated_at_utc": "2026-07-16T04:22:04.371469+00:00",
   "learner_configs": {
     "elastic_net": {
       "learner_config_id": "elastic_net_benchmark_v2_primary_v1",

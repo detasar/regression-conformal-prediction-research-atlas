@@ -1842,6 +1842,10 @@ def run_payload(
         split_group_col = split_config.get("group_col")
         split_strategy = split_config.get("strategy")
         split_order_col = split_config.get("order_col")
+        source_target_col = split_config.get("source_target_col")
+        source_values = split_config.get("source_values")
+        target_values = split_config.get("target_values")
+        covariate_shift_policy_id = split_config.get("covariate_shift_policy_id")
         duplicate_cluster_scope = split_config.get("duplicate_cluster_scope")
         target_transform = target_transform_for_dataset(config, dataset_id)
         run_context = {
@@ -1861,6 +1865,16 @@ def run_payload(
             run_context["splits"]["strategy"] = str(split_strategy)
         if split_order_col is not None:
             run_context["splits"]["order_col"] = str(split_order_col)
+        if source_target_col is not None:
+            run_context["splits"]["source_target_col"] = str(source_target_col)
+        if source_values is not None:
+            run_context["splits"]["source_values"] = [str(item) for item in source_values]
+        if target_values is not None:
+            run_context["splits"]["target_values"] = [str(item) for item in target_values]
+        if covariate_shift_policy_id is not None:
+            run_context["splits"]["covariate_shift_policy_id"] = str(
+                covariate_shift_policy_id
+            )
         if duplicate_cluster_scope is not None:
             run_context["splits"]["duplicate_cluster_scope"] = str(
                 duplicate_cluster_scope
@@ -3489,6 +3503,12 @@ def prediction_artifact_payload(
     split_group_col = config.get("splits", {}).get("group_col")
     split_strategy = config.get("splits", {}).get("strategy")
     split_order_col = config.get("splits", {}).get("order_col")
+    source_target_col = config.get("splits", {}).get("source_target_col")
+    source_values = config.get("splits", {}).get("source_values")
+    target_values = config.get("splits", {}).get("target_values")
+    covariate_shift_policy_id = config.get("splits", {}).get(
+        "covariate_shift_policy_id"
+    )
     duplicate_cluster_scope = config.get("splits", {}).get("duplicate_cluster_scope")
     feature_drop_columns = [
         str(col)
@@ -3527,6 +3547,16 @@ def prediction_artifact_payload(
         payload["splits"]["strategy"] = str(split_strategy)
     if split_order_col is not None:
         payload["splits"]["order_col"] = str(split_order_col)
+    if source_target_col is not None:
+        payload["splits"]["source_target_col"] = str(source_target_col)
+    if source_values is not None:
+        payload["splits"]["source_values"] = [str(item) for item in source_values]
+    if target_values is not None:
+        payload["splits"]["target_values"] = [str(item) for item in target_values]
+    if covariate_shift_policy_id is not None:
+        payload["splits"]["covariate_shift_policy_id"] = str(
+            covariate_shift_policy_id
+        )
     if duplicate_cluster_scope is not None:
         payload["splits"]["duplicate_cluster_scope"] = str(duplicate_cluster_scope)
         payload["feature_drop_policy"]["duplicate_cluster_split_col"] = (
@@ -3561,6 +3591,9 @@ def fit_or_load_prediction_bundle(
     split_group_col = config.get("splits", {}).get("group_col")
     split_strategy = config.get("splits", {}).get("strategy")
     split_order_col = config.get("splits", {}).get("order_col")
+    source_target_col = config.get("splits", {}).get("source_target_col")
+    source_values = config.get("splits", {}).get("source_values")
+    target_values = config.get("splits", {}).get("target_values")
     duplicate_cluster_scope = config.get("splits", {}).get("duplicate_cluster_scope")
     data_provenance = {
         "schema": "cpfi_regression_data_provenance_v1",
@@ -3605,6 +3638,11 @@ def fit_or_load_prediction_bundle(
         split_group_col=effective_split_group_col,
         split_strategy=None if split_strategy is None else str(split_strategy),
         split_order_col=None if split_order_col is None else str(split_order_col),
+        source_target_col=(
+            None if source_target_col is None else str(source_target_col)
+        ),
+        source_values=None if source_values is None else list(source_values),
+        target_values=None if target_values is None else list(target_values),
     )
     train_df, cal_df, test_df = splits["train"], splits["cal"], splits["test"]
     groups_cal = cal_df[group_col].astype(str).to_numpy()
@@ -4232,6 +4270,9 @@ def split_frame(
     split_group_col: str | None = None,
     split_strategy: str | None = None,
     split_order_col: str | None = None,
+    source_target_col: str | None = None,
+    source_values: list[Any] | tuple[Any, ...] | None = None,
+    target_values: list[Any] | tuple[Any, ...] | None = None,
 ) -> Dict[str, pd.DataFrame]:
     df = df.dropna(subset=[target]).reset_index(drop=True)
     if not 0 < train_size < 1:
@@ -4246,10 +4287,61 @@ def split_frame(
 
     relative_cal_size = calibration_size / (1.0 - train_size)
     strategy = "random" if split_strategy is None else str(split_strategy)
-    if strategy not in {"random", "ordered"}:
+    if strategy not in {"random", "ordered", "source_target"}:
         raise ValueError(f"unsupported split strategy {strategy!r}")
 
-    if strategy == "ordered":
+    if strategy == "source_target":
+        if source_target_col is None:
+            raise ValueError("source_target split strategy requires source_target_col")
+        if target_values is None:
+            raise ValueError("source_target split strategy requires target_values")
+        source_target_col = str(source_target_col)
+        if source_target_col not in df.columns:
+            raise ValueError(f"source_target_col {source_target_col!r} not found")
+
+        domain = (
+            df[source_target_col]
+            .astype("object")
+            .where(df[source_target_col].notna(), "__missing__")
+            .astype(str)
+        )
+        target_value_set = {str(value) for value in target_values}
+        if not target_value_set:
+            raise ValueError("source_target split strategy received empty target_values")
+        if source_values is None:
+            source_value_set = set(domain.unique()) - target_value_set
+        else:
+            source_value_set = {str(value) for value in source_values}
+        if not source_value_set:
+            raise ValueError("source_target split strategy received empty source_values")
+        if source_value_set & target_value_set:
+            overlap = sorted(source_value_set & target_value_set)
+            raise ValueError(
+                "source_target split strategy requires disjoint source/target "
+                f"values, overlap={overlap}"
+            )
+
+        source_df = df.loc[domain.isin(source_value_set)].copy()
+        target_df = df.loc[domain.isin(target_value_set)].copy()
+        if min(len(source_df), len(target_df)) == 0:
+            raise ValueError(
+                "source_target split produced an empty domain: "
+                f"source={len(source_df)}, target={len(target_df)}"
+            )
+        source_train_fraction = train_size / (train_size + calibration_size)
+        train_df, cal_df = train_test_split(
+            source_df,
+            train_size=source_train_fraction,
+            random_state=seed,
+        )
+        test_df = target_df
+        if min(len(train_df), len(cal_df), len(test_df)) == 0:
+            raise ValueError(
+                "source_target split produced an empty split: "
+                f"train={len(train_df)}, calibration={len(cal_df)}, "
+                f"test={len(test_df)}"
+            )
+    elif strategy == "ordered":
         if split_order_col is None:
             raise ValueError("ordered split strategy requires split_order_col")
         split_order_col = str(split_order_col)
@@ -4379,6 +4471,13 @@ def split_frame(
         "split_group_col": split_group_col,
         "split_strategy": strategy,
         "split_order_col": split_order_col,
+        "source_target_col": source_target_col,
+        "source_values": None
+        if source_values is None
+        else [str(value) for value in source_values],
+        "target_values": None
+        if target_values is None
+        else [str(value) for value in target_values],
     }
 
 

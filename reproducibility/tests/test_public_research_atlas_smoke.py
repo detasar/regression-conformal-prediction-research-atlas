@@ -784,8 +784,28 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     assert execution["computational_execution_policy"]["jackknife_plus_max_train_rows"] == 500
     assert (
         execution["computational_execution_policy"]["restart_command_suffix"]
-        == "--jackknife-plus-max-train-rows 500"
+        == "--jackknife-plus-max-train-rows 500 "
+        "--retry-skipped-status skipped_unsupported_regime"
     )
+    assert execution["computational_execution_policy"][
+        "retry_skipped_status_after_policy_upgrade"
+    ] == ["skipped_unsupported_regime"]
+    shift_policies = {
+        row["task_variant_id"]: row
+        for row in execution["computational_execution_policy"][
+            "covariate_shift_split_policies"
+        ]
+    }
+    assert shift_policies[
+        "openml_kin8nm:openml_kin8nm_y:covariate_shift"
+    ]["covariate_shift_policy_id"] == "theta3_ordered_upper_tail_v1"
+    wine_shift = shift_policies[
+        "uci_wine_quality:uci_wine_quality_dedup:covariate_shift"
+    ]
+    assert wine_shift["strategy"] == "source_target"
+    assert wine_shift["source_target_col"] == "wine_color"
+    assert wine_shift["source_values"] == ["white"]
+    assert wine_shift["target_values"] == ["red"]
     parallel_policy = execution["computational_execution_policy"]["parallel_worker_policy"]
     assert parallel_policy["enabled"] is True
     assert parallel_policy["max_concurrent_workers"] == 4
