@@ -22,7 +22,7 @@ Read this document in four layers. First, identify the empirical object that was
 
 ## Executive Synthesis
 
-This synthesis states the document's position before the detailed tables. It is written for a reviewer who needs to understand the scientific result, the negative evidence, and the study scope without first reading every audit artifact.
+This synthesis states the document's position before the detailed tables. It is written for a reader who needs to understand the scientific result, the negative evidence, and the study scope without first reading every audit artifact.
 
 ### What this document is
 
@@ -54,11 +54,11 @@ Several broader readings require evidence that was not produced in this study. T
 
 Scope: Endpoint-validity, group-inference, and deployment readings require separate validation.
 
-### How a reviewer should inspect it
+### How to inspect the evidence
 
-The review path is intentionally traceable. The Research Atlas package and KG connect the Research Document to source artifacts, scripts, claim scope limits, and citation scope limits. The current KG has 3,643 nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000.
+The reading path is intentionally traceable. The Research Atlas package and KG connect the Research Document to source artifacts, scripts, claim scope, and citation scope. The current KG has 3,643 nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000.
 
-Scope: The KG supports evidence exploration; scientific claims remain anchored in the underlying evidence.
+Scope: Use the KG as a map from statements to the evidence that supports them.
 
 ## Plain-Language Summary
 
@@ -70,26 +70,26 @@ This section gives the shortest reader-facing interpretation before the technica
 | What does the practical-candidate pattern mean? | The fixed-GBM CQR pipeline was the largest selected-cell signal; Mondrian calibration and CV+ were secondary signals under the current coverage criterion. | CQR has 56 coverage-gated selected cells, Mondrian has 15, and CV+ has 13; the model-matched CQR rerun completed 4,564 rows and 224 paired cells. | Method choice, universal best-method statements, and deployment use require separate validation. |
 | What does `1 - alpha` mean here? | `1 - alpha` is the target coverage level; observed coverage still has to be measured in the audited cells. | The document reports coverage means, coverage-tolerance pass rates, coverage-gated selected cells, and undercoverage runs after the target is fixed. | Every-dataset, endpoint, and subgroup coverage require observed evidence beyond the nominal target. |
 | How should the Venn-Abers bridge result be read? | The evaluated regression bridge produced negative failure-mode evidence in this experiment. | 14 undercoverage runs, quantile-coverage mean 0.6503, and validated-regression support flag `False`. | The bridge-specific result should be read separately from predictive-distribution and generalized Venn-Abers research. |
-| Why keep the KG and Research Atlas package in the review path? | They let a reviewer trace claims to reports, scripts, citations, quality checks, and interpretation scope. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Use the KG and site to inspect how claims connect to evidence. |
+| Why keep the KG and Research Atlas package in the reading path? | They let a reader trace claims to reports, scripts, citations, quality checks, and interpretation scope. | 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Use the KG and site to inspect how claims connect to evidence. |
 
 ## Research Questions And Answers
 
-The table below gives the reader a compact map of the study's research questions, the answer currently supported by the evidence, the evidence family that supports the answer, and the stronger interpretation that requires separate validation. It is a writing and review map, not a new experiment.
+The table below gives the reader a compact map of the study's research questions, the answer currently supported by the evidence, the evidence family that supports the answer, and the stronger interpretation that requires separate validation. It is an evidence map, not a new experiment.
 
-| Research question | Evidence-supported answer | Evidence anchor | Scope limit |
+| Research question | Evidence-supported answer | Evidence anchor | Interpretation |
 |---|---|---|---|
 | What empirical object does this Research Document evaluate? | It evaluates an audited regression conformal prediction audit over 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Experimental scope table, individual experiment report facts, completed-row accounting, and dataset/source audit lineage. | Avoid reading the scope as exhaustive internet coverage or as deployment generality. |
 | Which conformal approaches looked practically useful in the audited experiments? | The fixed-GBM CQR pipeline was the largest selected-cell signal; Mondrian calibration and CV+ were secondary signals under the current coverage criterion. | Observed method behavior table, result reading guide, row-weighted coverage summaries, and robustness diagnostics. | Present CQR, CV+, and other methods as experiment-scoped patterns rather than method choices or general deployment rules. |
 | Was the observed CQR signal robust to matching the CQR backend to the model-family sweep? | The backend sensitivity check completed 4,564 model-matched CQR rows and compared 224 paired dataset-alpha-model-family cells. Selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | CQR fixed-vs-model-matched synthesis, rerun manifest, article backend-sensitivity section, and supplement S1b. | Avoid reading the check as resolving a universal CQR selection claim. |
 | What was learned from the evaluated Venn-Abers regression bridge? | The evaluated bridge produced negative failure-mode evidence: 14 undercoverage runs, quantile-coverage mean 0.6503, and validated-regression support flag `False`. | Venn-Abers bridge diagnostics, undercoverage accounting, negative-evidence section, and Venn-Abers citation scope. | Read this bridge result separately from predictive-distribution and generalized Venn-Abers research. |
 | Which stronger scientific readings require separate validation? | Bounded-support validity and population-level group inference would require separate validation; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. | Paper evidence map, bounded-support audit, group diagnostic scope, and publication claim/evidence matrix. | Diagnostic bounded-support, endpoint, and group rows should stay separate from validity or population-inference conclusions. |
-| How can a reviewer audit or navigate the evidence? | The KG and Research Atlas package provide a traceability surface with 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Knowledge-graph quality audit, Research Atlas package manifest, README review router, and KG browser. | Use the Research Atlas repository as the citation surface; source provenance is tracked separately. |
+| How can a reader audit or navigate the evidence? | The KG and Research Atlas package provide a traceability surface with 3,643 KG nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Knowledge-graph quality audit, Research Atlas package manifest, README guide, and KG browser. | Use the Research Atlas repository as the citation surface; source provenance is tracked separately. |
 
 ## Contribution And Finding Map
 
 This map states the document's contribution and core empirical findings in a form that can be read before the technical sections. Each row includes the evidence anchor and the stronger reading that requires separate validation.
 
-| Contribution or finding | Reader-facing statement | Evidence anchor | Scope limit |
+| Contribution or finding | Reader-facing statement | Evidence anchor | Interpretation |
 |---|---|---|---|
 | Audited regression-CP experiment scope | The study reports an audited regression conformal prediction audit over 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Individual experiment report facts, main article scope summary, and completed-row accounting. | The dataset scope is audited rather than exhaustive or deployment-general. |
 | Practical candidate pattern | The fixed-GBM CQR pipeline carried the largest selected-cell count (56); Mondrian calibration and CV+ were secondary signals with 15 and 13 coverage-gated selected cells. | Main article claim-evidence map, result reading guide, and supplementary robustness diagnostics. | Broader selection, superiority, and deployment readings require separate validation. |
@@ -97,29 +97,29 @@ This map states the document's contribution and core empirical findings in a for
 | Venn-Abers bridge negative evidence | The evaluated Venn-Abers regression bridge produced negative failure-mode evidence, including 14 undercoverage runs and quantile-coverage mean 0.6503. | Bridge diagnostics, undercoverage accounting, and Venn-Abers citation scope rows. | The bridge result should be read separately from predictive-distribution and generalized Venn-Abers research. |
 | Unvalidated stronger claims are part of the result | Bounded-support validity and population-level group inference would require separate validation; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. | Paper evidence map, publication claim/evidence matrix, bounded-support audit, and group diagnostic scope. | These gaps are reported as part of the scientific result. |
 | Traceability and reproducibility surface | The knowledge graph is usable as a traceability surface with 3,643 nodes, 21,019 edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | Knowledge-graph quality audit and Research Atlas package manifest. | The KG is an evidence exploration layer for source inspection. |
-| Publication package architecture | The Research Atlas package separates a concise main article, broad supplement, integrated Research Document, README review router, publication site, and evidence-scope checks. | Publication exemplar review, README, Research Atlas site manifest, and final-output scope protocol. | This row explains how the publication surfaces fit together. |
+| Publication package architecture | The Research Atlas package separates a concise main article, broad supplement, integrated Research Document, README guide, publication site, and evidence map. | Publication exemplar review, README, Research Atlas site manifest, and public artifact manifest. | This row explains how the publication surfaces fit together. |
 
 ## Scientific Method Audit Trail
 
-This table rewrites the study as a scientific-method chain: question, measurement, comparison, falsification, unsupported stronger claims, and reproducibility. It is included so a reader can see why the document reports both experiment-scoped practical signal patterns and negative or unsupported stronger conclusions.
+This table rewrites the study as a scientific-method chain: question, measurement, comparison, falsification, unsupported stronger claims, and reproducibility. It is included so a reader can see why the document reports both experiment-scoped practical signal patterns and negative or unsupported conclusions.
 
-| Stage | Reader question | Evidence anchor | Scientific scope |
+| Stage | Reader question | Evidence anchor | Scientific interpretation |
 |---|---|---|---|
 | Question and empirical object | What exactly is being measured before any method interpretation? | 145,839 audited result rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. | Scope size is audit evidence, not proof of exhaustive internet coverage or performance in a future deployment setting. |
 | Measurement protocol | Which quantities turn model outputs into comparable evidence? | Coverage, width, coverage-gated selected cells, coverage-tolerance pass rates, and undercoverage runs are read within dataset-alpha-method cells. | Empirical metrics are not theorem-level guarantees and do not imply conditional, endpoint, or subgroup claims. |
 | Candidate-method comparison | Which practical patterns survived the audited comparison? | CQR has 56 coverage-gated selected cells and CV+ has 13; CQR row-weighted coverage mean is 0.9059. | This supports an experiment-scoped practical-signal reading under the current coverage criterion. |
-| CQR backend sensitivity control | Was the CQR signal only caused by the fixed-GBM CQR backend? | The model-matched CQR rerun completed 4,564 rows and formed 224 paired dataset-alpha-model-family cells. Coverage-eligible interval-score selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | The check supports a backend-sensitivity reading. Broader CQR selection, deployment, or universal method-scope metadata would need a separate validation protocol. |
+| CQR backend sensitivity control | Was the CQR signal only caused by the fixed-GBM CQR backend? | The model-matched CQR rerun completed 4,564 rows and formed 224 paired dataset-alpha-model-family cells. Coverage-eligible interval-score selected cells were fixed-GBM CQR=116, model-matched CQR=71, and neither=37. | The check supports a backend-sensitivity reading. Broader CQR selection, deployment, or universal method-interpretation context would need a separate validation protocol. |
 | Falsification and negative evidence | Which attractive readings still require validation? | The evaluated Venn-Abers bridge has 14 undercoverage runs and validated-regression support flag `False`. | The negative result is bridge-specific and does not reject predictive-distribution or generalized Venn-Abers research. |
-| Stronger-claim limits | Which stronger conclusions must remain absent from the prose? | 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. | A zero-ready evidence state is reported as a result; prose cannot convert it into bounded-support validity or population-level group inference. |
-| Reproducibility and traceability | How can a reviewer trace the evidence? | 3,643 KG nodes, 21,019 KG edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | The KG and Research Atlas package are evidence-navigation surfaces for source tracing. |
+| Unsupported broader readings | Which broader conclusions need more evidence? | 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. | A zero-ready evidence state is reported as a result; it does not support bounded-support validity or population-level group inference. |
+| Reproducibility and traceability | How can a reader trace the evidence? | 3,643 KG nodes, 21,019 KG edges, 0 isolated nodes, and manifest reference resolution rate 1.0000. | The KG and Research Atlas package are evidence-navigation surfaces for source tracing. |
 
-## Review Decision Protocol
+## Interpretation Guide
 
-This protocol states what a reviewer can evaluate from the current evidence and which interpretations require separate validation. It is deliberately stricter than a normal report checklist because a polished artifact set can otherwise make scope-limited findings look broader than they are.
+This guide states how to read the current evidence and which interpretations require separate validation. It is included because a polished artifact set can otherwise make scope-limited findings look broader than they are.
 
-| Decision point | Accept review if | Evidence to check | Scope limit |
+| Question | Current reading | Evidence to check | Interpretation |
 |---|---|---|---|
-| Reader-facing readability | The Research Document, main article, supplement, README, and Research Atlas site keep the empirical wording scoped and readable. | 6 of 6 reader-facing surfaces pass the required language and scope checks. | Reader-facing readability does not establish stronger scientific claims or deployment use. |
+| Reader interpretation | The Research Document, main article, supplement, README, and Research Atlas site describe the empirical findings consistently. | The article, supplement, README, site, and Research Document use the same experiment-scoped wording. | Broader scientific claims and deployment use require separate validation. |
 | Empirical result wording | The fixed-GBM CQR, Mondrian, and CV+ pattern is written as experiment-scoped evidence. | CQR coverage-gated selected cells 56; CV+ coverage-gated selected cells 13; claim/evidence matrix status pass. | Method-choice, best-method, deployment, and universal-superiority readings require separate validation. |
 | CQR backend sensitivity wording | The model-matched CQR rerun is reported as backend-sensitivity evidence for the CQR pipeline signal. | Completed fixed-GBM rows 4,564; completed model-matched rows 4,564; paired cells 224; coverage-eligible interval-score selections fixed-GBM=116, model-matched=71, neither=37. | Method selection and deployment use require separate validation. |
 | Venn-Abers negative evidence | The evaluated bridge is reported as bridge-specific negative or failure-mode evidence. | 14 undercoverage runs and validated-regression support flag `False`. | No validated Venn-Abers regression interval claim and no literature-wide rejection of Venn-Abers research. |
@@ -145,7 +145,7 @@ The concept map below links the plain-language idea, its literature basis, the e
 | CV+ and jackknife-style resampling | Why do CV+ rows use out-of-fold predictions? | Jackknife+ and related cross-validation conformal methods use resampling predictions to account for model-fitting variability. [Barber et al. (2020); Kim et al. (2020)] | CV+ has 13 descriptive coverage-gated selected cells and is written as an experiment-scoped practical signal observed in these experiments. | Avoid treating CV+ evidence as a study-wide method choice or a claim that resampling always improves interval quality. |
 | Group and Mondrian diagnostics | Why are group-calibrated rows not group-inference claims? | Group or stratified calibration changes how calibration evidence is pooled; it is separate from a population-group-inference estimand. [Lei et al. (2017)] | Mondrian absolute-residual calibration has 15 coverage-gated selected cells and 187 pairwise group comparisons are retained as diagnostics. | Avoid stating that group inference is solved while the population-group-inference ready bundle count is zero. |
 | Venn-Abers predictive distributions | Why is the Venn-Abers result described narrowly? | Venn-Abers predictive distributions and generalized Venn-Abers calibration are broader than the interval bridge evaluated here. [Nouretdinov et al. (2018); Nouretdinov and Gammerman (2024); Van Der Laan and Alaa (2025); Petej and Vovk (2026)] | The evaluated bridge has 14 undercoverage runs and validated regression support flag `False`. | Avoid rejecting predictive-distribution or generalized Venn-Abers research from this bridge-specific negative evidence. |
-| Evidence limits and scope | Why does the document report unsupported stronger readings? | The literature citations support method definitions; the evidence-scope checks are project controls, not new theory. [Lei et al. (2017); Romano et al. (2019)] | Study-wide method choice, bounded-support validity, and population-level group inference are outside the evidence in this study; the KG and Research Atlas support evidence inspection. | Avoid opening an unsupported stronger claim by wording it more optimistically in prose. |
+| Evidence limits and scope | Why does the document report unsupported stronger readings? | The literature citations support method definitions; the evidence map records how this study links results to sources. [Lei et al. (2017); Romano et al. (2019)] | Study-wide method choice, bounded-support validity, and population-level group inference are outside the evidence in this study; the KG and Research Atlas support evidence inspection. | Avoid opening an unsupported stronger claim by wording it more optimistically in prose. |
 
 ### Terminology Compass
 
@@ -199,8 +199,8 @@ The Research Document, supplement, README, and site follow a small source-backed
 | Design decision | Project application |
 |---|---|
 | Use a minimal main article and a broad supplementary document. | The main article keeps the claim-evidence map and headline results; the supplement carries broad method, dataset, audit, robustness, and negative-evidence material. |
-| Make the README a review router, not a dense methods dump. | The README starts with status, plain-language summary, review path, evidence snapshot, repository map, KG entry, and citation surface. |
-| Use the site as a Research Atlas review portal with explicit lanes. | The Research Atlas site should expose the handoff, Research Document, rendered article/supplement, KG browser, and governance checks. |
+| Make the README a guide, not a dense methods dump. | The README starts with status, plain-language summary, reading path, evidence snapshot, repository map, KG entry, and citation surface. |
+| Use the site as a Research Atlas Research Atlas portal with explicit lanes. | The Research Atlas site should expose the handoff, Research Document, rendered article/supplement, KG browser, and governance checks. |
 | Pair every reader-facing claim with evidence and a scope limit. | The article, Research Document, and README retain neutral language: observed descriptive signals are not deployment rules, and bridge-specific failures are not literature-wide rejections. |
 | Give the Research Document a checklist-like transparency spine. | The Research Document should visibly cover claims, limitations, assumptions, reproducibility route, compute, license and source provenance, and publication-scope checks. |
 | Expose reproduction structure while excluding raw data and secrets. | The Research Atlas package records source, configs, tests, reports, and metadata, while excluding raw data, caches, local databases, and secret-like material. |
@@ -225,7 +225,7 @@ The design emphasizes resumability, source traceability, duplicate and leakage c
 
 ### Audit Controls
 
-The study accounting separates empirical observations from broader interpretations. The current source artifacts record 6 of 6 reader-facing surfaces passing the required language and scope checks. Cross-run leakage status is `hard_leakage_not_detected_in_scanned_artifacts`, with 0 unsupported-claim hits in the scanned cross-run artifacts. These controls support the Research Atlas document and keep future-setting use as a separate validation question.
+The study accounting separates empirical observations from broader interpretations. The article, supplement, README, site, and Research Document use consistent experiment-scoped wording. Cross-run leakage status is `hard_leakage_not_detected_in_scanned_artifacts`, with 0 unsupported-claim hits in the scanned cross-run artifacts. These controls support the Research Atlas document and keep future-setting use as a separate validation question.
 
 Duplicate handling is also reported as evidence rather than hidden. The supplement records 29 duplicate actions, 46 quarantined actions, and 0 unquarantined actions. The Research Document therefore keeps the interpretation conditional on the audited data-integrity state.
 

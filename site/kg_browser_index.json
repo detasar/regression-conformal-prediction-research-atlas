@@ -36939,7 +36939,7 @@
       "size": 5.019,
       "source_key_fingerprint": "a71086154d7fd2bf",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `bounded_support_endpoint_policy_table` has role `bounded_support_endpoint_scope_item_no_validity_claim` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `bounded_support_endpoint_policy_table` has role `bounded_support_endpoint_scope_item_no_validity_claim` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 107.151,
       "y": -399.893
@@ -36955,7 +36955,7 @@
       "size": 5.019,
       "source_key_fingerprint": "d8bf3a17053a9618",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `duplicate_split_caveat_inventory` has role `integrity_caveat_inventory_no_claim_strengthening` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `duplicate_split_caveat_inventory` has role `integrity_caveat_inventory_no_claim_strengthening` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 113.164,
       "y": -407.582
@@ -36971,7 +36971,7 @@
       "size": 5.019,
       "source_key_fingerprint": "dcf816b293aaf9f1",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `experiment_scope_and_accounting_table` has role `empirical_scope_accounting_only` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `experiment_scope_and_accounting_table` has role `empirical_scope_accounting_only` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 119.325,
       "y": -415.193
@@ -36987,7 +36987,7 @@
       "size": 5.019,
       "source_key_fingerprint": "4527ccfe86997d72",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `group_inference_group_diagnostic_tables` has role `group_inference_group_diagnostic_no_population_claim` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `group_inference_group_diagnostic_tables` has role `group_inference_group_diagnostic_no_population_claim` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 125.632,
       "y": -422.726
@@ -37003,7 +37003,7 @@
       "size": 5.019,
       "source_key_fingerprint": "3cb88ca277141e06",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `knowledge_graph_navigation_quality` has role `kg_navigation_candidate_scope_limited` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `knowledge_graph_navigation_quality` has role `kg_navigation_candidate_scope_limited` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 113.593,
       "y": -369.953
@@ -37019,7 +37019,7 @@
       "size": 5.019,
       "source_key_fingerprint": "a4f4d785f121a74a",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `method_performance_descriptive_summary` has role `descriptive_method_behavior_no_final_selection` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `method_performance_descriptive_summary` has role `descriptive_method_behavior_no_final_selection` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 119.648,
       "y": -377.492
@@ -37035,7 +37035,7 @@
       "size": 5.019,
       "source_key_fingerprint": "c9ff7a3c83f1b3c3",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `method_selection_robustness_diagnostics` has role `selection_robustness_diagnostic_no_final_selection` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `method_selection_robustness_diagnostics` has role `selection_robustness_diagnostic_no_final_selection` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 125.847,
       "y": -384.951
@@ -37051,7 +37051,7 @@
       "size": 5.019,
       "source_key_fingerprint": "8e1c30152c6d8582",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `neutral_closure_and_interpretation_scope_table` has role `interpretation_scope_register_no_stronger_claim_conversion` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `neutral_closure_and_interpretation_scope_table` has role `interpretation_scope_register_no_stronger_claim_conversion` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 132.191,
       "y": -392.328
@@ -37067,7 +37067,7 @@
       "size": 5.019,
       "source_key_fingerprint": "2c2dccc70a6398c8",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `post_selection_validation_diagnostics` has role `post_selection_diagnostic_no_final_selection` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `post_selection_validation_diagnostics` has role `post_selection_diagnostic_no_final_selection` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 138.678,
       "y": -399.622
@@ -37083,7 +37083,7 @@
       "size": 5.019,
       "source_key_fingerprint": "31044890f2cbc946",
       "source_path": null,
-      "summary": "Article/supplement blueprint alignment row `venn_abers_failure_mode_evidence` has role `negative_failure_mode_no_validated_regression_claim` and records report-scope, deployment, and stronger-claim caveats.",
+      "summary": "Article/supplement blueprint alignment row `venn_abers_failure_mode_evidence` has role `negative_failure_mode_no_validated_regression_claim` and records report-writing, deployment, and stronger-claim caveats.",
       "type": "methodology_record",
       "x": 145.307,
       "y": -406.829
@@ -37203,7 +37203,7 @@
     {
       "color": "#273449",
       "degree": 14,
-      "display_id": "methodology_record:article-supplement-kg-navigation-index-paper-method-scope-evidence",
+      "display_id": "methodology_record:article-supplement-kg-navigation-index-paper-method-interpretation-evidence",
       "id": "methodology_record:article-supplement-kg-navigation-index-paper-method-scope-evidence",
       "label": "Article Supplement KG Navigation Index:paper Method Scope Evidence",
       "observation_count": 2,
@@ -38267,7 +38267,7 @@
       "size": 6.121,
       "source_key_fingerprint": "523463d6b1d2a412",
       "source_path": null,
-      "summary": "Final publication output scope row `final_research_document_prose_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `final_research_document_prose_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 343.201,
       "y": -215.031
@@ -38283,7 +38283,7 @@
       "size": 6.121,
       "source_key_fingerprint": "e9808abfce7b90c4",
       "source_path": null,
-      "summary": "Final publication output scope row `final_visual_table_retention_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `final_visual_table_retention_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 352.798,
       "y": -216.633
@@ -38299,7 +38299,7 @@
       "size": 6.121,
       "source_key_fingerprint": "2bc3598a665da663",
       "source_path": null,
-      "summary": "Final publication output scope row `kg_citable_component_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `kg_citable_component_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 362.451,
       "y": -218.079
@@ -38315,7 +38315,7 @@
       "size": 6.121,
       "source_key_fingerprint": "1b361547704bc594",
       "source_path": null,
-      "summary": "Final publication output scope row `latex_html_authoring_pending` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `latex_html_authoring_pending` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 372.158,
       "y": -219.369
@@ -38331,7 +38331,7 @@
       "size": 6.038,
       "source_key_fingerprint": "5d4f4633a1a223fa",
       "source_path": null,
-      "summary": "Final publication output scope row `method_deployment rule_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `method_deployment rule_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 381.917,
       "y": -220.5
@@ -38347,7 +38347,7 @@
       "size": 6.038,
       "source_key_fingerprint": "5a3888a1807e1d97",
       "source_path": null,
-      "summary": "Final publication output scope row `stronger_claim_validation_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `stronger_claim_validation_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 336.885,
       "y": -190.467
@@ -38363,7 +38363,7 @@
       "size": 6.121,
       "source_key_fingerprint": "83b49f3000758ad8",
       "source_path": null,
-      "summary": "Final publication output scope row `publication_site_deployment_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `publication_site_deployment_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 346.465,
       "y": -191.776
@@ -38379,7 +38379,7 @@
       "size": 6.038,
       "source_key_fingerprint": "5e01b396c65f798b",
       "source_path": null,
-      "summary": "Final publication output scope row `six_stronger_claim_checks_beyond_current_study` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `six_stronger_claim_checks_beyond_current_study` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 356.095,
       "y": -192.928
@@ -38395,7 +38395,7 @@
       "size": 6.121,
       "source_key_fingerprint": "78543b516af18d52",
       "source_path": null,
-      "summary": "Final publication output scope row `publication_release_packaging_pending` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `publication_release_packaging_pending` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 365.774,
       "y": -193.921
@@ -38411,7 +38411,7 @@
       "size": 6.121,
       "source_key_fingerprint": "4036afd084f7c939",
       "source_path": null,
-      "summary": "Final publication output scope row `publication_repository_creation_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-scope caveats.",
+      "summary": "Final publication output scope row `publication_repository_creation_outside_scope` is tracked as a scope-limited item; the current Research Document route records evidence scope and method-interpretation caveats.",
       "type": "methodology_record",
       "x": 375.499,
       "y": -194.755
@@ -38923,7 +38923,7 @@
       "size": 4.832,
       "source_key_fingerprint": "43c89dbceed8fba4",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `author_and_report_identity` has role `author_header_and_scope_identity` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `author_and_report_identity` has role `author_header_and_scope_identity` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 388.905,
       "y": -74.624
@@ -38939,7 +38939,7 @@
       "size": 5.019,
       "source_key_fingerprint": "4bab26376f8f7230",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `bounded_support_and_group_inference_boundaries` has role `beyond_current_study_bounded_support_and_group_inference_claims` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `bounded_support_and_group_inference_boundaries` has role `beyond_current_study_bounded_support_and_group_inference_claims` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 398.417,
       "y": -72.727
@@ -38955,7 +38955,7 @@
       "size": 4.832,
       "source_key_fingerprint": "b5996c447a61d830",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `dataset_and_source_audit_summary` has role `source_audit_summary_no_new_dataset_claim` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `dataset_and_source_audit_summary` has role `source_audit_summary_no_new_dataset_claim` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 407.925,
       "y": -70.663
@@ -38971,7 +38971,7 @@
       "size": 4.832,
       "source_key_fingerprint": "f941d43af7f85769",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `experiment_scope_and_accounting` has role `empirical_scope_accounting_only` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `experiment_scope_and_accounting` has role `empirical_scope_accounting_only` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 417.428,
       "y": -68.434
@@ -38987,7 +38987,7 @@
       "size": 4.832,
       "source_key_fingerprint": "b77350dd3952c296",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `knowledge_graph_and_artifact_traceability` has role `kg_navigation_candidate_scope_limited` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `knowledge_graph_and_artifact_traceability` has role `kg_navigation_candidate_scope_limited` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 426.923,
       "y": -66.038
@@ -38995,7 +38995,7 @@
     {
       "color": "#273449",
       "degree": 2,
-      "display_id": "methodology_record:individual-experiment-report-blueprint-model-and-conformal-method-scope",
+      "display_id": "methodology_record:individual-experiment-report-blueprint-model-and-conformal-method-interpretation",
       "id": "methodology_record:individual-experiment-report-blueprint-model-and-conformal-method-scope",
       "label": "Individual Experiment Report Blueprint:model And Conformal Method Scope",
       "observation_count": 2,
@@ -39003,7 +39003,7 @@
       "size": 4.832,
       "source_key_fingerprint": "585763dd8e47e9b8",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `model_and_conformal_method_scope` has role `method_scope_no_final_selection` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `model_and_conformal_method_scope` has role `method_scope_no_final_selection` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 436.408,
       "y": -63.477
@@ -39019,7 +39019,7 @@
       "size": 4.832,
       "source_key_fingerprint": "a59e8754e7608380",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `preprocessing_policy_and_integrity_controls` has role `methodology_integrity_controls_no_claim_strengthening` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `preprocessing_policy_and_integrity_controls` has role `methodology_integrity_controls_no_claim_strengthening` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 383.457,
       "y": -52.245
@@ -39035,7 +39035,7 @@
       "size": 4.832,
       "source_key_fingerprint": "0c93e12f9f803086",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `release_boundaries_and_next_checks` has role `publication_scope_summary_no_final_release` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `release_boundaries_and_next_checks` has role `publication_scope_summary_no_final_release` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 392.841,
       "y": -49.916
@@ -39051,7 +39051,7 @@
       "size": 4.832,
       "source_key_fingerprint": "bcc9da0507fe7a4b",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `selection_and_post_selection_diagnostics` has role `diagnostic_selection_evidence_no_final_selection` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `selection_and_post_selection_diagnostics` has role `diagnostic_selection_evidence_no_final_selection` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 402.214,
       "y": -47.421
@@ -39067,7 +39067,7 @@
       "size": 4.832,
       "source_key_fingerprint": "5d9c803ec717ea26",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `venn_abers_negative_evidence` has role `negative_failure_mode_no_validated_regression_claim` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `venn_abers_negative_evidence` has role `negative_failure_mode_no_validated_regression_claim` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 411.573,
       "y": -44.761
@@ -39467,7 +39467,7 @@
       "size": 5.765,
       "source_key_fingerprint": "fb035c273bf0c1ad",
       "source_path": null,
-      "summary": "Research Document section evidence packet `individual_report_blueprint_evidence` targets `individual_experiment_report` with status `pre_prose_blueprint_ready` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `individual_report_blueprint_evidence` targets `individual_experiment_report` with status `pre_prose_blueprint_ready` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 384.338,
       "y": 45.313
@@ -39483,7 +39483,7 @@
       "size": 5.765,
       "source_key_fingerprint": "77c75ec77ac0c66b",
       "source_path": null,
-      "summary": "Research Document section evidence packet `paper_dataset_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `paper_dataset_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 392.841,
       "y": 49.916
@@ -39499,7 +39499,7 @@
       "size": 5.664,
       "source_key_fingerprint": "51a26b27d319dce5",
       "source_path": null,
-      "summary": "Research Document section evidence packet `paper_main_results_beyond_current_study_evidence` targets `main_article` with status `stronger_claim_requiring_validation_packet` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `paper_main_results_beyond_current_study_evidence` targets `main_article` with status `stronger_claim_requiring_validation_packet` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 401.292,
       "y": 54.675
@@ -39507,7 +39507,7 @@
     {
       "color": "#273449",
       "degree": 11,
-      "display_id": "methodology_record:research-document-section-evidence-packet-paper-method-scope-evidence",
+      "display_id": "methodology_record:research-document-section-evidence-packet-paper-method-interpretation-evidence",
       "id": "methodology_record:research-document-section-evidence-packet-paper-method-scope-evidence",
       "label": "Research Document Section Evidence Packet:paper Method Scope Evidence",
       "observation_count": 2,
@@ -39515,7 +39515,7 @@
       "size": 5.951,
       "source_key_fingerprint": "926424bfb1c2d6e8",
       "source_path": null,
-      "summary": "Research Document section evidence packet `paper_method_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `paper_method_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 409.689,
       "y": 59.591
@@ -39531,7 +39531,7 @@
       "size": 5.86,
       "source_key_fingerprint": "907931cd66cb97e2",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_methodology_records_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_methodology_records_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 418.028,
       "y": 64.663
@@ -39547,7 +39547,7 @@
       "size": 5.664,
       "source_key_fingerprint": "6a274adcab819ee3",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_reproducibility_traceability_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_reproducibility_traceability_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 426.309,
       "y": 69.89
@@ -39563,7 +39563,7 @@
       "size": 5.86,
       "source_key_fingerprint": "ee5f2d4bbb0b880d",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_robustness_diagnostic_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_robustness_diagnostic_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 434.529,
       "y": 75.272
@@ -39579,7 +39579,7 @@
       "size": 5.765,
       "source_key_fingerprint": "6dcd6f04828bfd4d",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_venn_abers_negative_evidence` targets `supplementary_document` with status `pre_prose_negative_evidence_ready` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_venn_abers_negative_evidence` targets `supplementary_document` with status `pre_prose_negative_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": 380.709,
       "y": 69.494
@@ -41115,7 +41115,7 @@
       "size": 6.038,
       "source_key_fingerprint": "b11eaa098780b862",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `individual_report_blueprint_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `individual_report_blueprint_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 216.0,
       "y": 374.123
@@ -41131,7 +41131,7 @@
       "size": 6.201,
       "source_key_fingerprint": "d87730154bbd0a2e",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `paper_dataset_scope_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `paper_dataset_scope_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 217.043,
       "y": 383.892
@@ -41147,7 +41147,7 @@
       "size": 6.201,
       "source_key_fingerprint": "b4054a6798aba5e8",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `paper_main_results_beyond_current_study_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `paper_main_results_beyond_current_study_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 187.418,
       "y": 338.591
@@ -41155,7 +41155,7 @@
     {
       "color": "#273449",
       "degree": 13,
-      "display_id": "methodology_record:claim-evidence-verification-paper-method-scope-evidence",
+      "display_id": "methodology_record:claim-evidence-verification-paper-method-interpretation-evidence",
       "id": "methodology_record:claim-evidence-verification-paper-method-scope-evidence",
       "label": "Claim Evidence Verification:paper Method Scope Evidence",
       "observation_count": 2,
@@ -41163,7 +41163,7 @@
       "size": 6.121,
       "source_key_fingerprint": "a9e357a78b98b85f",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `paper_method_scope_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `paper_method_scope_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 188.641,
       "y": 348.182
@@ -41179,7 +41179,7 @@
       "size": 6.201,
       "source_key_fingerprint": "413b08606bf1d6f4",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `supplement_methodology_records_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `supplement_methodology_records_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 189.705,
       "y": 357.822
@@ -41195,7 +41195,7 @@
       "size": 6.121,
       "source_key_fingerprint": "c3772d3b7de75214",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `supplement_reproducibility_traceability_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `supplement_reproducibility_traceability_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 190.611,
       "y": 367.51
@@ -41211,7 +41211,7 @@
       "size": 6.278,
       "source_key_fingerprint": "077f0722f5c81005",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `supplement_robustness_diagnostic_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `supplement_robustness_diagnostic_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 191.357,
       "y": 377.242
@@ -41227,7 +41227,7 @@
       "size": 6.278,
       "source_key_fingerprint": "68ff6104df099289",
       "source_path": null,
-      "summary": "Publication claim/evidence verification row `supplement_venn_abers_negative_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-scope caveats.",
+      "summary": "Publication claim/evidence verification row `supplement_venn_abers_negative_evidence` is `pass` for a pre-publication evidence packet; it preserves neutral reporting and records method-interpretation caveats.",
       "type": "methodology_record",
       "x": 191.943,
       "y": 387.017
@@ -44107,7 +44107,7 @@
       "size": 5.441,
       "source_key_fingerprint": "19f6b9e618d6e570",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `individual_report_blueprint_evidence` has status `pre_prose_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `individual_report_blueprint_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -380.306,
       "y": 163.596
@@ -44123,7 +44123,7 @@
       "size": 5.441,
       "source_key_fingerprint": "e9b5e7be1d86b244",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `paper_dataset_scope_evidence` has status `pre_prose_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `paper_dataset_scope_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -390.066,
       "y": 163.637
@@ -44139,7 +44139,7 @@
       "size": 5.441,
       "source_key_fingerprint": "741608a5873f28c2",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `paper_main_results_beyond_current_study_evidence` has status `beyond_current_study_positive_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `paper_main_results_beyond_current_study_evidence` has status `beyond_current_study_positive_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -399.858,
       "y": 163.516
@@ -44147,7 +44147,7 @@
     {
       "color": "#273449",
       "degree": 6,
-      "display_id": "methodology_record:section-interpretation-scope-audit-paper-method-scope-evidence",
+      "display_id": "methodology_record:section-interpretation-scope-audit-paper-method-interpretation-evidence",
       "id": "methodology_record:section-interpretation-scope-audit-paper-method-scope-evidence",
       "label": "Section Claim Scope Audit:paper Method Scope Evidence",
       "observation_count": 2,
@@ -44155,7 +44155,7 @@
       "size": 5.441,
       "source_key_fingerprint": "0e14d912902d3e4a",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `paper_method_scope_evidence` has status `pre_prose_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `paper_method_scope_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -409.679,
       "y": 163.231
@@ -44171,7 +44171,7 @@
       "size": 5.441,
       "source_key_fingerprint": "06cbc1387fb96ff5",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_methodology_records_evidence` has status `pre_prose_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_methodology_records_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -360.792,
       "y": 139.992
@@ -44187,7 +44187,7 @@
       "size": 5.441,
       "source_key_fingerprint": "9a7b7aa0e7219fec",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_reproducibility_traceability_evidence` has status `pre_prose_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_reproducibility_traceability_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -370.461,
       "y": 139.909
@@ -44203,7 +44203,7 @@
       "size": 5.441,
       "source_key_fingerprint": "667caf476653ce8f",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_robustness_diagnostic_evidence` has status `pre_prose_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_robustness_diagnostic_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -380.157,
       "y": 139.663
@@ -44219,7 +44219,7 @@
       "size": 5.441,
       "source_key_fingerprint": "2dce07f7e04881ee",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_venn_abers_negative_evidence` has status `negative_failure_mode_scope_preserved` and records report-scope constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_venn_abers_negative_evidence` has status `negative_failure_mode_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
       "type": "methodology_record",
       "x": -389.878,
       "y": 139.252
@@ -44917,7 +44917,7 @@
       "degree": 4,
       "display_id": "methodology_record:research-atlas-repository-readme-draft-review-path",
       "id": "methodology_record:research-atlas-repository-readme-draft-review-path",
-      "label": "Research Atlas README:review Path",
+      "label": "Research Atlas README:reading path",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 5.176,
@@ -50609,7 +50609,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Neutral article/supplement/KG blueprint-alignment audit; candidate surfaces are linked to reviewer advice, retention deployment rules, neutral result scope limits, and activation checks with report-scope metadata, deployment guidance, or stronger claim.",
+      "summary": "Neutral article/supplement/KG blueprint-alignment audit; candidate surfaces are linked to reviewer advice, retention deployment rules, neutral result scope limits, and activation checks with report-writing context, deployment guidance, or stronger claim.",
       "type": "report",
       "x": -293.439,
       "y": 86.773
@@ -50635,7 +50635,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Release article/supplement/KG navigation index tying reader-facing candidate surfaces to section scope limits, visual/table candidates, scope checks, and KG references with report-scope, citation, deployment, and method-scope caveats.",
+      "summary": "Release article/supplement/KG navigation index tying reader-facing candidate surfaces to section scope limits, visual/table candidates, scope checks, and KG references with report-writing, citation, deployment, and method-interpretation caveats.",
       "type": "report",
       "x": -302.767,
       "y": 86.932
@@ -50901,7 +50901,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Claim-safe pre-publication result extraction matrix; maps paper-facing result surfaces to source artifacts, neutral result scope limits, beyond this study main-result status, and negative Venn-Abers reporting scope with report-scope metadata, deployment guidance, stronger claim, or release.",
+      "summary": "Claim-safe pre-publication result extraction matrix; maps paper-facing result surfaces to source artifacts, neutral result scope limits, beyond this study main-result status, and negative Venn-Abers reporting scope with report-writing context, deployment guidance, stronger claim, or release.",
       "type": "report",
       "x": -282.677,
       "y": 55.115
@@ -58615,7 +58615,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Author-stamped neutral individual experiment report blueprint; maps report sections to source artifacts and neutral result scope limits with report-scope metadata, evidence scope, deployment guidance, or stronger claim.",
+      "summary": "Author-stamped neutral individual experiment report blueprint; maps report sections to source artifacts and neutral result scope limits with report-writing context, evidence scope, deployment guidance, or stronger claim.",
       "type": "report",
       "x": 304.105,
       "y": -82.13
@@ -59797,7 +59797,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Neutral pre-publication Research Document section evidence packet; maps paper, supplement, and individual-report section packets to claim-safe surfaces, neutral result rows, source artifacts, and beyond this study final-output permissions with method-scope caveats.",
+      "summary": "Neutral pre-publication Research Document section evidence packet; maps paper, supplement, and individual-report section packets to claim-safe surfaces, neutral result rows, source artifacts, and beyond this study final-output permissions with method-interpretation caveats.",
       "type": "report",
       "x": 309.946,
       "y": 56.199
@@ -63567,7 +63567,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Audit of neutral scientific-reporting language that keeps method-scope caveat, final-selection, group inference, bounded-support, production, and Venn-Abers claims guarded by explicit interpretation scope.",
+      "summary": "Audit of neutral scientific-reporting language that keeps method-interpretation caveat, final-selection, group inference, bounded-support, production, and Venn-Abers claims guarded by explicit interpretation scope.",
       "type": "report",
       "x": -17.437,
       "y": 269.436
@@ -63921,7 +63921,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Publication citation registry mapping audited reader-primer and method-literature source URLs to stable citation keys and BibTeX entries while report-scope metadata is recorded.",
+      "summary": "Publication citation registry mapping audited reader-primer and method-literature source URLs to stable citation keys and BibTeX entries while report-writing context is recorded.",
       "type": "report",
       "x": -47.119,
       "y": 265.857
@@ -64077,7 +64077,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Neutral publication scope register; maps article, supplement, KG/site, individual report, and Research Atlas repository deliverables to scope-limited scope limits with report-scope metadata, deployment guidance, stronger claim, or Research Atlas repository packaging.",
+      "summary": "Neutral publication scope register; maps article, supplement, KG/site, individual report, and Research Atlas repository deliverables to scope-limited scope limits with report-writing context, deployment guidance, stronger claim, or Research Atlas repository packaging.",
       "type": "report",
       "x": -57.694,
       "y": 254.543
@@ -64207,7 +64207,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Reader method-primer citation map linking non-specialist conformal prediction concept explanations to primary sources and beyond this study-language scope limits while report-scope metadata is recorded.",
+      "summary": "Reader method-primer citation map linking non-specialist conformal prediction concept explanations to primary sources and beyond this study-language scope limits while report-writing context is recorded.",
       "type": "report",
       "x": -79.394,
       "y": 295.521
@@ -64337,7 +64337,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Scientific neutrality interpretation lock mapping allowed and beyond this study publication-prep interpretations with report-scope metadata, deployment guidance, or stronger claims.",
+      "summary": "Scientific neutrality interpretation lock mapping allowed and beyond this study publication-prep interpretations with report-writing context, deployment guidance, or stronger claims.",
       "type": "report",
       "x": -85.667,
       "y": 274.964
@@ -64389,7 +64389,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Section-level interpretation scope audit linking Research Document section packets to allowed/beyond this study-use text, claim-safe surfaces, neutral-result rows, and scope-limited release targets with report-scope and method-scope caveats.",
+      "summary": "Section-level interpretation scope audit linking Research Document section packets to allowed/beyond this study-use text, claim-safe surfaces, neutral-result rows, and scope-limited release targets with report-writing and method-interpretation caveats.",
       "type": "report",
       "x": -95.633,
       "y": 290.672
