@@ -6,9 +6,9 @@ This contract makes the planned Benchmark v2 grid chunkable before result genera
 
 - Chunk manifest status: `chunk_manifest_ready_results_not_started`
 - Result generation status: `not_started`
-- Chunk count: `210`
-- Paired cells: `42000`
-- Method rows: `210000`
+- Chunk count: `42`
+- Paired cells: `8400`
+- Method rows: `42000`
 - Paired-cell chunk size: `200`
 - Method rows per paired cell: `5`
 

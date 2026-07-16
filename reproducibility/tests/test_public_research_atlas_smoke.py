@@ -852,15 +852,20 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert cardinality["schema"] == "regression_cp_benchmark_v2_run_grid_cardinality_v1"
     assert cardinality["status"] == "preflight_template_not_executed"
     assert cardinality["estimated_task_variant_count"] == 24
-    assert cardinality["primary_rows_per_task_variant"] == 8750
-    assert cardinality["diagnostic_rows_per_task_variant"] == 3500
-    assert cardinality["estimated_primary_planned_rows"] == 210000
-    assert cardinality["estimated_diagnostic_planned_rows"] == 84000
-    assert cardinality["estimated_total_planned_rows"] == 294000
+    assert cardinality["split_regime_assignment_policy"] == (
+        "task_variant_registry_single_regime"
+    )
+    assert cardinality["available_split_regime_count"] == 5
+    assert cardinality["task_assigned_split_regime_multiplier"] == 1
+    assert cardinality["primary_rows_per_task_variant"] == 1750
+    assert cardinality["diagnostic_rows_per_task_variant"] == 700
+    assert cardinality["estimated_primary_planned_rows"] == 42000
+    assert cardinality["estimated_diagnostic_planned_rows"] == 16800
+    assert cardinality["estimated_total_planned_rows"] == 58800
     assert cardinality["candidate_task_variant_count"] == 24
-    assert cardinality["candidate_primary_planned_run_grid_row_count"] == 210000
-    assert cardinality["candidate_paired_cell_count"] == 42000
-    assert cardinality["execution_chunk_count"] == 210
+    assert cardinality["candidate_primary_planned_run_grid_row_count"] == 42000
+    assert cardinality["candidate_paired_cell_count"] == 8400
+    assert cardinality["execution_chunk_count"] == 42
     assert cardinality["execution_chunk_paired_cell_size"] == 200
 
     checklist = json.loads(checklist_path.read_text(encoding="utf-8"))
@@ -941,6 +946,13 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
         task_registry_rows = list(csv.DictReader(handle))
     assert len(source_registry_rows) == 12
     assert len(task_registry_rows) == 24
+    task_split_regime = {
+        row["task_variant_id"]: row["split_regime"] for row in task_registry_rows
+    }
+    assert all(
+        row["split_regime"] == task_split_regime[row["task_variant_id"]]
+        for row in candidate_rows
+    )
     assert {row["source_dataset_id"] for row in source_registry_rows} == {
         row["source_dataset_id"] for row in candidate_rows
     }
@@ -980,14 +992,14 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     )
     assert execution_chunk_payload["status"] == "chunk_manifest_ready_results_not_started"
     assert execution_chunk_payload["result_generation_status"] == "not_started"
-    assert execution_chunk_payload["chunk_count"] == 210
-    assert execution_chunk_payload["paired_cell_count"] == 42000
-    assert execution_chunk_payload["method_row_count"] == 210000
+    assert execution_chunk_payload["chunk_count"] == 42
+    assert execution_chunk_payload["paired_cell_count"] == 8400
+    assert execution_chunk_payload["method_row_count"] == 42000
     assert execution_chunk_payload["paired_cell_chunk_size"] == 200
     assert execution_chunk_payload["method_rows_per_paired_cell"] == 5
     assert len(execution_chunk_rows) == len(execution_chunk_payload["chunks"])
-    assert sum(int(row["paired_cell_count"]) for row in execution_chunk_rows) == 42000
-    assert sum(int(row["method_row_count"]) for row in execution_chunk_rows) == 210000
+    assert sum(int(row["paired_cell_count"]) for row in execution_chunk_rows) == 8400
+    assert sum(int(row["method_row_count"]) for row in execution_chunk_rows) == 42000
     assert {row["planned_status"] for row in execution_chunk_rows} == {
         "planned_not_attempted"
     }

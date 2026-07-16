@@ -1,17 +1,18 @@
 {
   "alpha_count": 5,
-  "candidate_paired_cell_count": 42000,
-  "candidate_primary_planned_run_grid_row_count": 210000,
+  "available_split_regime_count": 5,
+  "candidate_paired_cell_count": 8400,
+  "candidate_primary_planned_run_grid_row_count": 42000,
   "candidate_task_variant_count": 24,
   "diagnostic_method_count": 2,
-  "diagnostic_rows_per_task_variant": 3500,
-  "estimated_diagnostic_planned_rows": 84000,
-  "estimated_primary_planned_rows": 210000,
+  "diagnostic_rows_per_task_variant": 700,
+  "estimated_diagnostic_planned_rows": 16800,
+  "estimated_primary_planned_rows": 42000,
   "estimated_task_variant_count": 24,
-  "estimated_total_planned_rows": 294000,
-  "execution_chunk_count": 210,
+  "estimated_total_planned_rows": 58800,
+  "execution_chunk_count": 42,
   "execution_chunk_paired_cell_size": 200,
-  "generated_at_utc": "2026-07-16T00:52:26.259447+00:00",
+  "generated_at_utc": "2026-07-16T01:17:18.743572+00:00",
   "learner_family_count": 7,
   "maximum_task_variants_per_source_dataset": 2,
   "paired_cell_key": [
@@ -26,10 +27,12 @@
     "preprocessing_policy_id"
   ],
   "primary_conformal_method_count": 5,
-  "primary_rows_per_task_variant": 8750,
+  "primary_rows_per_task_variant": 1750,
   "schema": "regression_cp_benchmark_v2_run_grid_cardinality_v1",
   "seed_count": 10,
+  "split_regime_assignment_policy": "task_variant_registry_single_regime",
   "split_regime_count": 5,
   "status": "preflight_template_not_executed",
-  "target_source_dataset_count": 12
+  "target_source_dataset_count": 12,
+  "task_assigned_split_regime_multiplier": 1
 }

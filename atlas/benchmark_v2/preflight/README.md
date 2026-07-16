@@ -6,13 +6,14 @@ This directory contains public preflight artifacts for the forward Benchmark v2 
 
 - Overall status: `pre_execution_ledger_ready_results_not_started`
 - Result generation status: `not_started`
-- Estimated primary planned rows: `210000`
-- Estimated diagnostic planned rows: `84000`
-- Estimated total planned rows: `294000`
+- Estimated primary planned rows: `42000`
+- Estimated diagnostic planned rows: `16800`
+- Estimated total planned rows: `58800`
 - Candidate task variants represented in full primary grid: `24`
-- Candidate primary planned run-grid rows: `210000`
-- Candidate paired cells: `42000`
-- Execution chunks: `210`
+- Candidate primary planned run-grid rows: `42000`
+- Candidate paired cells: `8400`
+- Execution chunks: `42`
+- Split-regime assignment: `task_variant_registry_single_regime`
 
 ## Files
 
