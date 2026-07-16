@@ -8,10 +8,10 @@ This page reports aggregate integrity checks over the live Benchmark v2 ledgers.
 - Critical violations: `0`
 - Warnings: `0`
 - Planned method rows: `42000`
-- Observed method rows: `19811`
-- Completed method rows: `11651`
-- Pending method rows: `22189`
-- Fully terminal paired cells: `3961`
+- Observed method rows: `20085`
+- Completed method rows: `11870`
+- Pending method rows: `21915`
+- Fully terminal paired cells: `4016`
 - Partially observed paired cells: `3`
 
 ## Contract Checks
@@ -30,9 +30,9 @@ This page reports aggregate integrity checks over the live Benchmark v2 ledgers.
 
 | Status | Rows |
 |---|---:|
-| `completed` | 11651 |
+| `completed` | 11870 |
 | `skipped_infeasible_grouped_regime` | 5250 |
-| `skipped_method` | 2910 |
+| `skipped_method` | 2965 |
 
 ## Public Scope
 

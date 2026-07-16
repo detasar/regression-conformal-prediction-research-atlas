@@ -1940,6 +1940,7 @@ def test_public_html_links_and_artifact_index_are_complete() -> None:
 def test_public_html_metadata_and_accessibility_basics() -> None:
     root = repo_root()
     pages = [
+        root / "index.html",
         root / "site/index.html",
         root / "paper/research_document.html",
         root / "paper/article.html",
