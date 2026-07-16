@@ -179,8 +179,8 @@ tr:last-child td { border-bottom:0; }
           <div id="coverage-deviation-bars"></div>
         </section>
         <section class="diagnostic-card">
-          <h3>Relative Interval-Score Efficiency</h3>
-          <p class="muted">Median interval-score ratio versus the best visible method in the same dataset-alpha cell. A value near 1 means closer to the best score within that cell.</p>
+          <h3>Normalized Efficiency</h3>
+          <p class="muted">Median normalized interval-score ratio versus the best visible method in the same dataset-alpha cell. A value near 1 means closer to the most efficient visible interval score within that cell.</p>
           <div id="efficiency-bars"></div>
         </section>
       </div>
@@ -421,7 +421,7 @@ tr:last-child td { border-bottom:0; }
           const maxValue = Math.max(...ranked.map(([, value]) => value), 1);
           byId('efficiency-bars').innerHTML = ranked.map(([family, value, count]) => {
             const pct = Math.max(2, Math.min(100, (value / maxValue) * 100));
-            return `<div class="bar-row"><span>${html(family)}</span><div class="bar-track" title="median interval-score ratio ${fmt(value)} across ${count} rows"><div class="bar-fill" style="width:${pct.toFixed(1)}%; background:var(--blue)"></div></div><span>${fmt(value)}×</span></div>`;
+            return `<div class="bar-row"><span>${html(family)}</span><div class="bar-track" title="median normalized efficiency ratio ${fmt(value)} across ${count} rows"><div class="bar-fill" style="width:${pct.toFixed(1)}%; background:var(--blue)"></div></div><span>${fmt(value)}×</span></div>`;
           }).join('') || '<p class="muted">No positive interval-score values in this view.</p>';
         };
         const renderParetoSummary = filtered => {
