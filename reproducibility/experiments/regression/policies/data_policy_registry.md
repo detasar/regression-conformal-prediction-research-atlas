@@ -39,7 +39,7 @@ Every dataset must pass these gates before headline model sweeps:
   inverted back to the original unit before reporting width and coverage.
 - Postsecondary institution outcome datasets require cohort-alignment,
   privacy-suppression, post-entry outcome leakage, and ecological/proxy
-  interpretation policies before runner use or publication-grade fairness
+  interpretation policies before runner use or publication-grade group inference
   interpretation.
 - Household-finance survey datasets require multiple-imputation pooling,
   main/replicate-weight handling, family-level grouped split, target-component
@@ -68,14 +68,14 @@ Every dataset must pass these gates before headline model sweeps:
   variant has only 15/357 nominal-or-above rows versus 175/357 for no-prior.
   Fast `venn_abers_quantile` is nominal in 0/51 rows for both variants. Treat
   as a small education benchmark and prior-grade availability sensitivity
-  study only, not causal, intervention, student-policy, sex/gender fairness,
+  study only, not causal, intervention, student-policy, sex/gender group inference,
   leakage-proof, final model-selection, bounded-grade-clipping, or validated
   Venn-Abers regression evidence. Broad use still requires bounded/discrete
   target interval sensitivity, prior-grade inclusion/drop sensitivity across
   additional split policies, subject/course sensitivity, and exact/reference
   Venn-Abers diagnostics.
 - `uci_auto_mpg`: small vehicle fuel-economy benchmark smoke and model-family
-  sweep complete; protected-class fairness, emissions-regulatory, and
+  sweep complete; protected-group population inference, emissions-regulatory, and
   vehicle-engineering claims are out of scope. The official UCI source has 398
   rows, target `mpg`, 7 feature columns, missing `horsepower`, and `car_name`
   as an ID column. The runner loads UCI id 9 through `ucimlrepo`, uses
@@ -119,7 +119,7 @@ Every dataset must pass these gates before headline model sweeps:
   `mondrian_abs`: coverage 0.9131, gap 0.0191, mean width 0.7320, and score
   0.9008. Fast `venn_abers_quantile` is nominal in 0/51 seed-aggregated rows.
   Treat as synthetic benchmark diagnostics and post-hoc model-family triage
-  only, not protected-class fairness evidence, robotics control guidance,
+  only, not protected-group population inference evidence, robotics control guidance,
   physical-system validation, final model selection, or validated Venn-Abers
   regression evidence.
 - `openml_delta_elevators_se`: tabular control benchmark model-family sweep
@@ -143,7 +143,7 @@ Every dataset must pass these gates before headline model sweeps:
   gap/width/overcoverage tradeoff rather than the score-selected row. Fast
   `venn_abers_quantile` is nominal in 0/51 seed-aggregated rows with mean
   coverage 0.6073. Treat as tabular control benchmark diagnostics and
-  post-hoc model-family triage only, not protected-class fairness evidence,
+  post-hoc model-family triage only, not protected-group population inference evidence,
   aircraft-control guidance, safety validation, physical-system validation,
   final model selection, or validated Venn-Abers regression evidence.
 - `openml_arsenic_event_rate_panel`: aggregate epidemiology event-rate
@@ -177,7 +177,7 @@ Every dataset must pass these gates before headline model sweeps:
   0.0034, mean width 391.8521, and score 1629.4065. Fast
   `venn_abers_quantile` is nominal in 0/51 seed-aggregated sweep rows with
   mean coverage 0.7796. Treat as aggregate epidemiology rate benchmark
-  diagnostics only, not individual fairness evidence, clinical or
+  diagnostics only, not individual group inference evidence, clinical or
   epidemiological inference, source-family generalization,
   exposure-adjusted count-model validation, cancer-risk evidence, or validated
   Venn-Abers regression evidence. Broad use still requires exposure/offset
@@ -214,7 +214,7 @@ Every dataset must pass these gates before headline model sweeps:
   mean width 34.7114, and score 35.5457. Fast `venn_abers_quantile` is
   nominal in 0/51 seed-aggregated rows for both variants. Treat as radiation
   biology benchmark duplicate-sensitivity diagnostics only, not
-  protected-class fairness, radiation-risk inference, clinical inference,
+  protected-group population inference, radiation-risk inference, clinical inference,
   count/exposure model validation, independent raw-split generalization, or
   validated Venn-Abers regression evidence. Broad use still requires
   raw-count versus rate sensitivity, dose inclusion/drop sensitivity,
@@ -243,13 +243,13 @@ Every dataset must pass these gates before headline model sweeps:
   Venn-Abers diagnostics.
 - `openml_us_crime`: source-mirror gated. This is the OpenML mirror of
   `uci_communities_crime`; retain audit/profile metadata for discovery
-  traceability, but do not queue separate runner sweeps or count it as
-  independent evidence unless doing explicit loader parity testing.
+  traceability; separate runner sweeps or independent-evidence counting are
+  reserved for explicit loader parity testing.
 - `openml_houses_california_variant`: source-variant gated. This is a
   StatLib/Pace-Barry California Housing variant of `openml_california_housing`;
-  retain audit/profile metadata for traceability, but do not queue separate
-  runner sweeps or count it independently unless doing explicit loader parity
-  or missingness-policy sensitivity.
+  retain audit/profile metadata for traceability; separate runner sweeps or
+  independent-evidence counting are reserved for explicit loader parity or
+  missingness-policy sensitivity.
 - `openml_california_housing`: iid geographic-proxy smoke and spatial-cell
   diagnostic sweep complete, headline claims still gated. The OpenML frame has
   20,640 rows, target `median_house_value`, 207 missing `total_bedrooms`
@@ -263,7 +263,7 @@ Every dataset must pass these gates before headline model sweeps:
   468 controlled jackknife-family skips; all 572 aggregate completed-method
   rows are below nominal coverage. Treat both runs as heteroscedastic interval
   benchmarks with geographic/coastal proxy diagnostics only. They are not
-  protected-class fairness evidence; the iid split is not spatial
+  protected-group population inference evidence; the iid split is not spatial
   generalization evidence, and the spatial-cell split is not a
   location-blind/geography-free or arbitrary-shift exchangeability proof
   because raw latitude and longitude remain model-visible. Broad use still
@@ -295,7 +295,7 @@ Every dataset must pass these gates before headline model sweeps:
   claim.
 - `fairlearn_acs_income_wy`: transform-gated. `PINCP` is heavily right-skewed.
   The committed log1p sweep is approved only as an unweighted diagnostic method
-  sweep on the WY sample. Headline ACS fairness claims still require raw/log
+  sweep on the WY sample. Headline ACS group-inference claims still require raw/log
   sensitivity and a documented survey-weight treatment.
 - `folktables_acs_poverty_ratio_wy`: unweighted ACS engineering smoke
   complete, headline claims still gated. The audit intentionally disables
@@ -325,7 +325,7 @@ Every dataset must pass these gates before headline model sweeps:
 - `openml_cps_85_wages`: transform-gated but smoke-approved. Use `SEX` as the
   primary runner group and keep `RACE`/`AGE` in the audit profile for secondary
   diagnostics. `WAGE` is right-skewed, so log1p smoke runs are approved before
-  raw/log sensitivity and any headline wage fairness claim. A two-seed
+  raw/log sensitivity and any headline wage group-inference claim. A two-seed
   model-family sweep now exists for the `log1p` first pass. Runtime metadata
   confirms `WAGE` and `SEX` are dropped while `AGE` and `RACE` remain features,
   so this is not a proxy-free or protected-attribute-free design. CQR rows are
@@ -333,7 +333,7 @@ Every dataset must pass these gates before headline model sweeps:
   split rows are tail-allocation diagnostics only, and the endpoint audit shows
   `split_tail_0.25` can produce negative original-scale wage lower endpoints.
   Continue to forbid labor-market causal, population survey, sex/gender
-  fairness, wage-gap, raw/log robustness, final model-selection, tail fairness,
+  group inference, wage-gap, raw/log robustness, final model-selection, tail group inference,
   and validated Venn-Abers regression claims.
 - `openml_analcatdata_chlamydia`: aggregate-count and transform-gated. Rows are
   Age/Gender/Race strata, not individuals. Use `Gender` only for runner
@@ -342,7 +342,7 @@ Every dataset must pass these gates before headline model sweeps:
   model-family sweep now exists with 3570/3570 completed atomic rows and
   3570/3570 resume skips across 51 model configurations and 14 conformal
   variants. Runtime metadata confirms `Count` and `Gender` are dropped while
-  `Age` and `Race` remain features, so this is not a proxy-free or fairness
+  `Age` and `Race` remain features, so this is not a proxy-free or group inference
   design. Strict nominal-or-above rows are 474/714. The lowest strict-nominal
   score is XGBoost with `jackknife_plus_after_bootstrap` at coverage 0.9200,
   `Gender` gap 0.1140, width 8947.0502, and score 14710.2849; treat this as
@@ -352,7 +352,7 @@ Every dataset must pass these gates before headline model sweeps:
   saturation and upper endpoints around 1.014e304; do not present it as a
   strong candidate. Fast `venn_abers_quantile` is nominal in 0/51 rows with
   mean coverage 0.6935. Continue to forbid public-health rate, prevalence,
-  incidence, population disease-burden, causal, sex/race/age fairness,
+  incidence, population disease-burden, causal, sex/race/age group inference,
   raw/log robustness, final model-selection, and validated Venn-Abers
   regression claims.
 - `openml_analcatdata_gsssexsurvey`: sensitive-survey ordinal/count-like smoke
@@ -377,7 +377,7 @@ Every dataset must pass these gates before headline model sweeps:
   average `age_bin` gap, with coverage 0.8857, absolute coverage error 0.0152,
   gap 0.0832, and interval score 112983.57. CV+ has the lowest interval score
   105181.99 with coverage 0.8827. Fast `venn_abers_quantile` undercovers at
-  0.6421. This is not fairness evidence, income-survey inference,
+  0.6421. This is not group inference evidence, income-survey inference,
   privacy-risk inference, or validated Venn-Abers regression evidence. Broad
   use still requires raw-vs-log1p sensitivity, `Age` inclusion/drop
   sensitivity, variant-family comparison across Z/X_NOISE/X_BIAS/X_TAMPERED,
@@ -393,8 +393,8 @@ Every dataset must pass these gates before headline model sweeps:
   age-bin gap 0.1826. CV+ has the lowest interval score 106517.68 with
   coverage 0.8857, and `normalized_abs` has the smallest average `age_bin` gap
   0.0790 with coverage 0.8932. Fast `venn_abers_quantile` undercovers at
-  0.6541. Do not count X_BIAS as independent evidence from the disclosure
-  family.
+  0.6541. X_BIAS is retained as disclosure-family sensitivity evidence rather
+  than independent evidence from the disclosure family.
 - `openml_disclosure_x_noise`: signed-target disclosure-variant sensitivity
   smoke only. The approved first smoke uses `age_bin` diagnostics derived from
   raw `Age`, drops raw `Age`, models only `Civil` and `Can/US`, and uses
@@ -407,8 +407,8 @@ Every dataset must pass these gates before headline model sweeps:
   score 142872.69. CV+ has the lowest non-VA interval score 140719.07 with
   coverage 0.8797. Fast `venn_abers_quantile` undercovers at 0.7895 and has
   extreme original-scale mean width 7.5575e11 after signed-log inverse
-  transformation. Do not count X_NOISE as independent evidence from the
-  disclosure family.
+  transformation. X_NOISE is retained as disclosure-family sensitivity evidence
+  rather than independent evidence from the disclosure family.
 - `openml_disclosure_x_tampered`: signed-target bias-plus-noise
   disclosure-variant sensitivity smoke only. The approved first smoke uses
   `age_bin` diagnostics derived from raw `Age`, drops raw `Age`, models only
@@ -422,7 +422,8 @@ Every dataset must pass these gates before headline model sweeps:
   Mondrian is the only above-nominal row at coverage 0.9248 but is much wider,
   with score 196956.69. Fast `venn_abers_quantile` covers 0.8090 and produces
   very wide original-scale intervals after signed-log inverse transformation.
-  Do not count X_TAMPERED as independent evidence from the disclosure family.
+  X_TAMPERED is retained as disclosure-family sensitivity evidence rather than
+  independent evidence from the disclosure family.
 - `openml_cholesterol_chol`: policy-gated clinical benchmark smoke and first
   controlled model-family sweep complete, headline claims still gated. The
   OpenML frame has 303 rows, target `chol`, no missing targets, no duplicate
@@ -444,7 +445,7 @@ Every dataset must pass these gates before headline model sweeps:
   backend is `cqr_gb_deep_n200_d4_lr003` with coverage 0.9071, sex gap
   0.0225, mean width 161.87, and score 225.21. Treat as clinical benchmark
   diagnostics only, not clinical inference, medical decision support evidence,
-  population health evidence, sex/gender fairness evidence, final method
+  population health evidence, sex/gender group inference evidence, final method
   ranking, final CQR backend selection, or validated Venn-Abers regression
   evidence. Broad use still requires raw-vs-log1p target sensitivity, age
   inclusion/drop sensitivity, diagnosis-field sensitivity, original
@@ -462,8 +463,8 @@ Every dataset must pass these gates before headline model sweeps:
   score 1.9602; CV+ and normalized_abs cover 0.9050; fast
   `venn_abers_quantile` undercovers at 0.8350. Treat as clinical interval
   machinery diagnostics only, not clinical decision support, mortality
-  modeling, ICU triage guidance, length-of-stay evidence, sex/gender fairness
-  evidence, race fairness evidence, or validated Venn-Abers regression
+  modeling, ICU triage guidance, length-of-stay evidence, sex/gender group inference
+  evidence, race group inference evidence, or validated Venn-Abers regression
   evidence. Broad use still requires ordinal target sensitivity,
   source-codebook review for numeric `SEX`/`RAC` codes, raw AGE/RAC
   inclusion/drop sensitivity, clinical leakage review, model-family sweeps,
@@ -479,9 +480,9 @@ Every dataset must pass these gates before headline model sweeps:
   framing. Use `race` as the primary smoke group and keep `gender`/`age` in
   the audit profile for secondary review. Unknown/invalid demographic levels
   remain explicit levels;
-  do not pool or suppress them before a sparse-group policy is written.
+  pooling or suppression waits for a written sparse-group policy.
   `max_glu_serum` and `A1Cresult` have high clinically meaningful missingness.
-  No broad sweep or paper-ready clinical fairness claim is approved until
+  No broad sweep or paper-ready clinical group-inference claim is approved until
   target-scale/count modeling, clinical leakage, high-missingness semantics,
   sparse-group policy, and clinical interpretation gates are upgraded.
 - `openml_analcatdata_runshoes`: tiny consumer count-like smoke only. The
@@ -511,7 +512,7 @@ Every dataset must pass these gates before headline model sweeps:
   Mondrian residual intervals have the smallest `Gender` gap at 0.0547 but
   under-cover at 0.8286. `normalized_abs` covers 0.9286 with wider intervals
   and gap 0.1329. CQR covers 0.8429. Fast `venn_abers_quantile` undercovers at
-  0.4857. This is not paper-level social-science, psychometric, fairness, or
+  0.4857. This is not paper-level social-science, psychometric, group inference, or
   validated Venn-Abers regression evidence. Broad use still requires
   primary-source variable semantics, bounded/quality-score interval policy,
   tiny-sample uncertainty treatment, and broader model-family sweeps.
@@ -543,7 +544,7 @@ Every dataset must pass these gates before headline model sweeps:
   `cv_plus` has the smallest nominal-or-above SEX gap at 0.0049. CQR is
   nominal for all 32 model configurations, while fast `venn_abers_quantile`
   remains below nominal for all 32. This is not clinical inference, population
-  health evidence, cancer-risk evidence, sex/gender fairness evidence, final
+  health evidence, cancer-risk evidence, sex/gender group inference evidence, final
   CQR backend selection, final model selection, or validated Venn-Abers
   regression evidence. Broad use still requires raw-vs-log1p sensitivity,
   `AGE` inclusion/drop sensitivity, `BETAPLASMA` co-analyte sensitivity,
@@ -551,13 +552,13 @@ Every dataset must pass these gates before headline model sweeps:
   stratified/grouped split sensitivity, and exact/reference Venn-Abers
   diagnostics.
 - `openml_iq_brain_size_fiq`, `openml_brainsize_mri_count`: sensitive IQ/
-  neuroanatomy source-review only. Do not queue until ethical target framing,
-  paired-split or missingness policies, and target-derived leakage policies are
-  explicit.
+  neuroanatomy source-review only. Runner queueing waits for explicit ethical
+  target framing, paired-split or missingness policies, and target-derived
+  leakage policies.
 - `openml_uscrime_x`, `openml_boston_medv`: aggregate or legacy
   social/geographic benchmarks. Keep source-review only until aggregate proxy,
   leakage, and ethics policies are explicit; Boston Housing must not be
-  fairness evidence without a written ethics note.
+  group inference evidence without a written ethics note.
 - `openml_smsa_nox`: aggregate metropolitan air-pollution proxy smoke only.
   The approved smoke derives `nonwhite_bin` from `%NonWhite` for primary
   diagnostics and derives `income_bin` from `income` for secondary audit
@@ -566,7 +567,7 @@ Every dataset must pass these gates before headline model sweeps:
   model features. `NOxPot` is target leakage in the source profile with
   Pearson correlation 1.0000 to `NOx`. The current five-seed ridge `log1p`
   smoke is engineering evidence only: it is not individual protected-class
-  fairness evidence and not environmental-health inference evidence. Broad use
+  group inference evidence and not environmental-health inference evidence. Broad use
   still requires spatial/grouped split sensitivity, raw-vs-log1p target
   sensitivity, broader model families, aggregate proxy interpretation, and
   tiny-sample uncertainty treatment.
@@ -575,7 +576,7 @@ Every dataset must pass these gates before headline model sweeps:
   `Age` and `Total` before modeling, applies `log1p` to the `Positive` count
   target, and leaves `Disease` as the only model feature. `Total` is treated as
   a denominator/exposure variable and not as an ordinary predictor. This is not
-  individual fairness, clinical, or population seroprevalence evidence. Broad
+  individual group inference, clinical, or population seroprevalence evidence. Broad
   use still requires exposure/offset policy, raw-vs-log1p target sensitivity,
   Total-denominator sensitivity, disease/age policy, source-codebook review,
   and broader model-family sweeps.
@@ -584,7 +585,7 @@ Every dataset must pass these gates before headline model sweeps:
   drops raw `Age`, applies `log1p` to `Count`, and models only
   `Alcohol-related` plus `Type`. Per-seed test splits have only 10 rows, so
   coverage and gap values are smoke diagnostics only. This is not individual
-  fairness, traffic-safety, or exposure-adjusted count evidence. Broad use
+  group inference, traffic-safety, or exposure-adjusted count evidence. Broad use
   still requires source-variable semantics, denominator/exposure policy,
   raw-vs-log1p sensitivity, Age-stratum sensitivity, tiny-sample uncertainty
   treatment, and broader model-family sweeps.
@@ -600,7 +601,7 @@ Every dataset must pass these gates before headline model sweeps:
   fast `venn_abers_quantile` remains diagnostic-only at 0/51 strict rows.
   Endpoint audit found lower endpoints below zero and upper endpoints above
   the observed 47.5 maximum, though no reconstructed upper endpoint exceeds
-  100. This is not population-health, clinical, sex/gender fairness,
+  100. This is not population-health, clinical, sex/gender group inference,
   demographic parity, individualized health advice, external-validity,
   production, bounded-interval validity, final model-selection, or validated
   Venn-Abers regression evidence. Broad use still requires bounded-percentage
@@ -617,7 +618,7 @@ Every dataset must pass these gates before headline model sweeps:
   normalized cover 0.9385 with `sex` gap 0.0764, raw CQR covers 0.9077, dedup
   CQR covers 0.9667 with the smallest `sex` gap 0.0422, and
   `venn_abers_quantile` undercovers at 0.7077 raw and 0.6667 dedup. This is
-  not publication-grade education fairness, not an individual sex fairness
+  not publication-grade education group inference, not an individual sex group inference
   conclusion, and not validated Venn-Abers regression coverage evidence. Broad
   use still requires source-variable semantics for `sex` coding, bounded GPA
   interval clipping/saturation policy, tiny-sample uncertainty treatment,
@@ -630,7 +631,7 @@ Every dataset must pass these gates before headline model sweeps:
   excludes target `Observed.species` and diagnostic group `area_bin`, leaving
   five ecological/geographic numeric features. Per-seed test splits have only
   six rows, so coverage and group-gap values are smoke diagnostics only. This
-  is not human fairness, biodiversity-inference, conservation-policy, or
+  is not human group inference, biodiversity-inference, conservation-policy, or
   validated Venn-Abers regression evidence. Broad use still requires
   repeated-split uncertainty, raw-vs-log1p sensitivity, `Native.species`
   leakage sensitivity, area-as-feature policy, alternative ecological groupings,
@@ -641,7 +642,7 @@ Every dataset must pass these gates before headline model sweeps:
   co-summary leakage, drops `No.samples` as sampling-design metadata, applies
   `log1p` to target `3_yr_Standard_Mercury`, and models only water-chemistry
   fields: `Alkalinity`, `pH`, `Calcium`, and `Chlorophyll`. This is not human
-  fairness, environmental-health inference, regulatory evidence, or validated
+  group inference, environmental-health inference, regulatory evidence, or validated
   Venn-Abers regression evidence. The `age_data=0` group has only 10 full-frame
   rows, so group-gap values are sparse smoke diagnostics only. Broad use still
   requires raw-vs-log1p sensitivity, mercury co-summary inclusion/drop
@@ -654,7 +655,7 @@ Every dataset must pass these gates before headline model sweeps:
   `Judges`, leaving nine categorical design-factor features: `Occasion`,
   `Interval`, `Sittings`, `Position`, `Squares`, `Rows`, `Columns`,
   `Halfplot`, and `Trellis`. All rows are factor-level experimental
-  observations, not people-level fairness records. The held-out-judge grouped
+  observations, not people-level group inference records. The held-out-judge grouped
   sweep completed 3570/3570 runs and resume returned 3570/3570
   `skipped_completed`; the summary has 714 rows with `coverage_count=5` and
   444 strict nominal-or-above rows. The lowest strict-nominal exploratory
@@ -670,7 +671,7 @@ Every dataset must pass these gates before headline model sweeps:
   strict in 50/51 rows through the ordinary split-envelope fallback, not
   validated Venn-Abers regression. Endpoint reconstruction found bounded
   score-scale overshoot and a pathological `normalized_abs` ExtraTrees
-  scale-model failure. This is not protected-class fairness, demographic
+  scale-model failure. This is not protected-group population inference, demographic
   parity, sensory-science inference, wine-quality inference, product-ranking
   evidence, causal evidence, external-validity evidence, production evidence,
   bounded-interval validity, final model selection, or validated Venn-Abers
@@ -689,7 +690,7 @@ Every dataset must pass these gates before headline model sweeps:
   resume returned 6/6 `skipped_completed`. Split, Mondrian, and normalized
   residual intervals cover 0.8750 with `income_bin` gap 0.3333 and interval
   score 103.9077; CQR also covers 0.8750 but is wider; CV+ covers 0.2500; and
-  `venn_abers_quantile` covers 0.6250. This is not protected-class fairness,
+  `venn_abers_quantile` covers 0.6250. This is not protected-group population inference,
   energy-demand inference, gasoline-policy forecasting, or validated
   Venn-Abers regression evidence. Broad use still requires alternative ordered
   cut points, rolling-origin evaluation, raw-income inclusion/drop sensitivity,
@@ -705,7 +706,7 @@ Every dataset must pass these gates before headline model sweeps:
   and is used only to derive `age_bin`; raw `age` is excluded before modeling.
   The smoke keeps target `points_per_minute` on the identity scale and models
   `assists_per_minute`, `height`, and `time_played`. Treat all rows as smoke
-  diagnostics only, not protected-class fairness, player-ranking,
+  diagnostics only, not protected-group population inference, player-ranking,
   player-aging, or validated Venn-Abers regression evidence. Broad use still
   requires repeated-split uncertainty, raw-age sensitivity, age-bin policy,
   box-score-derived feature policy, and broader model-family sweeps.
@@ -749,7 +750,7 @@ Every dataset must pass these gates before headline model sweeps:
   and exact/reference Venn-Abers or IVAPD diagnostics.
 - `college_scorecard_2026_median_earnings`: postsecondary institution earnings
   source with an approved policy-gated institution-level proxy model-family
-  sweep, not an individual earnings fairness conclusion. Target
+  sweep, not an individual earnings group-inference conclusion. Target
   `MD_EARN_WNE_P10` is an institution-level median earnings outcome for
   students working and not enrolled 10 years after entry. The runner reuses the
   audit model-frame builder, keeps observed positive targets only, uses
@@ -804,8 +805,9 @@ Every dataset must pass these gates before headline model sweeps:
   diagnostic groups using `RIDAGEYR`, `RIAGENDR`, `INDFMPIR`, `DMDEDUC2`, and
   `DMDMARTL` as features. It must not be described as a population-weighted
   NHANES prevalence, obesity screening/diagnosis, clinical, health-disparity,
-  protected-class fairness, or national health estimate. Endpoint audits are
-  raw and unclipped and do not establish bounded BMI interval validity.
+  protected-group population inference, or national health estimate. Endpoint audits are
+  raw and unclipped; bounded BMI interval validity would require a separate
+  endpoint-support policy.
   Paper-ready use still requires MEC sample-weight/strata/PSU integration,
   age-domain handling, target/item nonresponse adjustment, raw/log target
   sensitivity, endpoint-support policy, and missingness treatment for
@@ -874,7 +876,7 @@ Every dataset must pass these gates before headline model sweeps:
   current Wyoming repeated smokes.
 - `meps_2023_total_expenditure`: survey health-expenditure source with an
   approved unweighted policy-gated engineering smoke, not a population-weighted
-  MEPS expenditure estimate or clinical fairness conclusion. The audit uses
+  MEPS expenditure estimate or clinical group-inference conclusion. The audit uses
   official AHRQ MEPS HC-251 2023 Full Year Consolidated public-use data with
   target `TOTEXP23`. Zero annual expenditures are kept as substantive outcomes,
   while missing or negative target codes would be dropped. The smoke reuses the
@@ -904,7 +906,7 @@ Every dataset must pass these gates before headline model sweeps:
     fixed-backend CQR, diagnostic-only Venn-Abers variants, and endpoint-shape
     caveats including original-scale negative lower endpoints and large upper
     endpoint overshoot. It remains a morphometric interval benchmark, not
-    protected-class fairness evidence, sex-fairness evidence, biological
+    protected-group population inference evidence, sex-group inference evidence, biological
     inference, species-generalization evidence, fishery/lake population
     inference, fisheries management guidance, final model selection, or
     validated Venn-Abers regression evidence.
@@ -928,7 +930,7 @@ Every dataset must pass these gates before headline model sweeps:
     `P14p9`, `log1p` target modeling, and a raw `P14p9` feature drop. The
     remaining 15 Census-coded numeric features are benchmark features only
     until the source dictionary is resolved. This smoke is not protected-class
-    fairness evidence, housing-policy inference, appraisal guidance, or
+    group inference evidence, housing-policy inference, appraisal guidance, or
     census-demographic effect evidence. `openml_house_8l_price` remains a
     source variant of `house_16H`. `openml_analcatdata_hiroshima_cells` remains
     raw-count source-review evidence, while the promoted
@@ -936,7 +938,7 @@ Every dataset must pass these gates before headline model sweeps:
     rate plus raw-vs-dedup sensitivity.
   - Tiny or repeated-measure datasets such as `openml_sleuth_case1102_tumor`,
     `openml_sleuth_ex1605_age13iq`, and `openml_siddiqi_oz1143` remain
-    source-review only until repeated-split, blocked-split, p>>n, and
+    source-review only until repeated-split, beyond this study-split, p>>n, and
     sensitive-target policies are written.
     `openml_sensory_score`, `openml_gascons_consumption`,
     `openml_sleuth_case1201_rank`, `openml_sleuth_case1202_experience`, and
@@ -957,7 +959,7 @@ Every dataset must pass these gates before headline model sweeps:
     evidence.
   - Salary/price families `openml_faculty_salaries_asst_prof`,
     `openml_auto_price`, `openml_autoprice_class`, `openml_baseball_*`, and
-    BNG auto price are not protected-attribute fairness evidence without a
+    BNG auto price are not protected-attribute group inference evidence without a
     separate benchmark protocol and leakage review.
     `openml_faculty_salaries_asst_prof` now has a leakage-control smoke using
     `CIC.institutions` diagnostics, identity-scale `asst.prof.salary`, salary
@@ -971,8 +973,8 @@ Every dataset must pass these gates before headline model sweeps:
     features, and 14 numeric vehicle/loss/performance features. The model-family
     sweep reports 714 seed-aggregated rows, 621/714 strict nominal-or-above
     rows, fixed-backend repeated CQR overcoverage, `venn_abers_quantile`
-    undercoverage, and raw-scale endpoint overshoot caveats. This promotion does
-    not change the non-fairness, non-insurance-pricing, non-vehicle-valuation,
+    undercoverage, and raw-scale endpoint overshoot caveats. This overstatement does
+    not change the non-group inference, non-insurance-pricing, non-vehicle-valuation,
     and non-independent-variant policy boundary for the price family.
     `openml_baseball_hitter_salary` now has a policy-gated sports salary
     interval smoke with `players_league_at_the_end_of_1986` diagnostics,
@@ -980,8 +982,8 @@ Every dataset must pass these gates before headline model sweeps:
     player identity, 1986 team identity, and 1987 beginning roster fields
     excluded from model features. Prediction metadata confirms 18 final model
     features and 157/53/53 train/calibration/test rows per seed. This
-    promotion does not make the baseball salary family protected-class
-    fairness evidence, labor-market inference, player valuation, or
+    overstatement does not make the baseball salary family protected-class
+    group inference evidence, labor-market inference, player valuation, or
     player/team ranking evidence.
     `openml_baseball_pitcher_salary` now has the same family-level policy
     boundary with a separate pitcher-specific smoke: `players_league_at_the_end_of_1986`
@@ -994,7 +996,7 @@ Every dataset must pass these gates before headline model sweeps:
     modeling, `team` identity dropped when present, target/group exclusion,
     and six aggregate model features in prediction metadata. Because it has
     only 26 team rows, it remains high-variance benchmark diagnostics only and
-    does not change the non-fairness, non-labor-market, non-valuation, and
+    does not change the non-group inference, non-labor-market, non-valuation, and
     non-ranking boundary for the baseball salary family.
   - OpenML `mtp2` drug-design descriptor benchmark:
     `openml_mtp2_oz1143` is approved and completed only as a
@@ -1039,11 +1041,11 @@ Every dataset must pass these gates before headline model sweeps:
     feature-selection evidence. Treat all selected rows as post-hoc triage
     signals from small test/group cells, and treat this as high-dimensional
     QSAR interval-machinery and descriptor-representation sensitivity evidence
-    only, not protected-class fairness evidence, molecular-design guidance,
+    only, not protected-group population inference evidence, molecular-design guidance,
     pharmacological inference, drug-safety evidence, final QSAR model
     selection, or validated Venn-Abers regression evidence.
 - `uci_bike_sharing`: operational temporal-demand benchmark model-family
-  sweep complete, protected-class fairness out of scope. Target `cnt` is a
+  sweep complete, protected-group population inference out of scope. Target `cnt` is a
   right-skewed hourly rental count, so the runner models `log1p(cnt)` and
   reports intervals on the original count scale. Drop `casual` and
   `registered` whenever present because they sum to `cnt`; drop `instant`
@@ -1083,7 +1085,7 @@ Every dataset must pass these gates before headline model sweeps:
   mean coverage 0.6007. Endpoint audit records unclipped out-of-range bounds
   against the observed 3-9 quality scale, including fast-VA min lower 0.7043
   raw and max upper 10.5739 dedup. Treat this as an ordinal benchmark with
-  source-file color diagnostics only, not protected-attribute fairness
+  source-file color diagnostics only, not protected-attribute group inference
   evidence. Broad use still requires bounded/ordinal interval policy,
   clipping/saturation sensitivity, ordinal-regression-aware baselines, and
   duplicate-aware split sensitivity.

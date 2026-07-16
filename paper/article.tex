@@ -39,13 +39,13 @@ Contact: detasar@gmail.com
 
 \section{Abstract}
 
-This report summarizes a regression conformal prediction study assembled from 145,839 audited completed rows, 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. The largest coverage-gated selected-cell pattern is CQR, with 56 coverage-gated selected cells, followed by Mondrian absolute-residual calibration with 15 and CV+ with 13. These results are interpreted as diagnostic evidence. Study-wide method choice, bounded-support validity, population-level group inference, and validated Venn-Abers regression intervals would need a separate validation study.
+This report summarizes a regression conformal prediction study assembled from 145,839 audited completed rows, 67 datasets, 95 dataset-alpha cells, and 28 conformal-method labels. Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected, with 56 coverage-gated selected cells; Mondrian absolute-residual calibration and CV+ were secondary signals with 15 and 13 selected cells. These results are interpreted as diagnostic evidence. Study-wide method choice, bounded-support validity, population-level group inference, and validated Venn-Abers regression intervals would need a separate validation study.
 
 \section{Introduction}
 
 Regression conformal prediction provides a way to wrap predictive models with prediction intervals calibrated for marginal coverage under exchangeability \cite{lei2017distribution_free_regression}. This study asks how a broad set of regression conformal methods behaves across audited tabular datasets while preserving source traceability, resumability, leakage checks, duplicate-split caveats, and explicit interpretation limits.
 
-The article deliberately separates empirical diagnostics from final claims. A method can appear frequently among coverage-gated selected cells without becoming a universal deployment rule. A group coverage table can be useful without becoming a population-level group inference claim. A Venn-Abers bridge can be scientifically important even when the observed evidence is negative.
+The article deliberately separates empirical diagnostics from final claims. A method can be selected frequently by the coverage-gated interval-score rule without becoming a universal deployment rule. A group coverage table can be useful without becoming a population-level group inference claim. A Venn-Abers bridge can be scientifically important even when the observed evidence is negative.
 
 \subsection{Reader Orientation}
 
@@ -117,7 +117,7 @@ The article is organized around five research questions. The answers below are i
 Research question & Article answer & Evidence anchor & Stronger reading requiring validation \\
 \midrule
 What empirical object is being audited? & A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. & Completed-row accounting and individual experiment report facts. & The scope is an audited experiment surface rather than exhaustive internet coverage or deployment generality. \\
-Which practical method pattern is supported descriptively? & Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan. CQR carried the largest coverage-gated selected-cell count (56) and CV+ contributed 13 coverage-gated selected cells. & Coverage-gated selected-cell counts, coverage-width diagnostics, and claim/evidence matrix. & Keep the pattern within experiment-scoped interpretation. \\
+Which practical method pattern is supported descriptively? & Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan. CQR carried the largest coverage-gated selected-cell count (56) and CV+ contributed 13 coverage-gated selected cells. & Coverage-gated selected-cell counts, coverage-width diagnostics, and claim/evidence matrix. & Keep the pattern experiment-scoped; use in a new setting needs validation for that setting. \\
 Was the CQR signal only a fixed-GBM backend artifact? & A completed model-matched CQR rerun produced 4,564 model-matched rows and 224 paired comparison cells. Fixed-GBM CQR was selected in 116 coverage-eligible interval-score cells, model-matched CQR in 71, and neither variant in 37. & Fixed-GBM CQR vs model-matched CQR synthesis. & Read the sensitivity check as backend-confound evidence. \\
 What did the evaluated Venn-Abers regression bridge show? & The evaluated bridge is negative/failure-mode evidence in this study, including 14 undercoverage runs. & Bridge diagnostics and Venn-Abers interpretation-limit rows. & Read this bridge result separately from the broader Venn-Abers predictive-distribution and generalized-calibration literature. \\
 Which stronger scientific readings would need separate validation studies? & Bounded-support validity and population-level group inference would need a separate validation study; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. & Paper gate map, bounded-support audit, group-diagnostic audit, and claim matrix. & Keep diagnostic endpoint and group evidence separate from validity or group-inference conclusions. \\
@@ -242,8 +242,8 @@ Venn-Abers bridge & The experiment evaluates a bridge from Venn-Abers-style cali
 Reader question & Short answer & Scope \\
 \midrule
 What is \texttt{1 - alpha}? & The nominal target coverage level used to design or calibrate the interval. & It is not the realized empirical coverage of every subgroup or future dataset. \\
-What is CQR? & Conformalized Quantile Regression: quantile models plus conformal calibration. & It is an observed experiment-scoped practical signal here, experiment-scoped. \\
-What is CV+? & A cross-validation-plus interval family using out-of-fold prediction evidence. & Its coverage-gated selected-cell signal remains diagnostic and experiment-scoped. \\
+What is CQR? & Conformalized Quantile Regression: quantile models plus conformal calibration. & The fixed-GBM CQR pipeline was most frequently selected here; that is experiment-scoped. \\
+What is CV+? & A cross-validation-plus interval family using out-of-fold prediction evidence. & Its selected-cell signal remains diagnostic and experiment-scoped. \\
 What is the Venn-Abers bridge result? & The evaluated bridge did not behave as the expected strong regression solution. & This is bridge-specific negative evidence, not a literature-wide rejection. \\
 \bottomrule
 \end{tabular}

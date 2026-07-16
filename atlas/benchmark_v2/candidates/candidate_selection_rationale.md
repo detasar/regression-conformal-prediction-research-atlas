@@ -28,4 +28,4 @@
 
 ## Scope
 
-These are candidate registries for Benchmark v2 planning. They do not contain completed Benchmark v2 result rows.
+These are candidate registries for Benchmark v2 planning; completed Benchmark v2 result rows are recorded separately.

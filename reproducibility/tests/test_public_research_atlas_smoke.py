@@ -1333,7 +1333,7 @@ def test_public_benchmark_v2_candidate_registries_are_scoped_and_balanced() -> N
     assert rationale["status"] == "candidate_registries_published"
     assert rationale["source_candidate_count"] == 12
     assert rationale["task_variant_candidate_count"] == 24
-    assert "do not contain completed Benchmark v2 result rows" in rationale_md_path.read_text(
+    assert "completed Benchmark v2 result rows are recorded separately" in rationale_md_path.read_text(
         encoding="utf-8"
     )
     family_counts = Counter(row["source_family"] for row in source_rows)

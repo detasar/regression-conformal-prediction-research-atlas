@@ -5,7 +5,7 @@
     "Represent task variants under their source dataset instead of counting them as independent datasets.",
     "Use the same alpha grid, seed count, split policy, learner/config surface, and conformal wrappers within each paired task.",
     "Compare conformal wrappers within exact learner/config/split cells rather than averaging across mismatched model grids.",
-    "Do not recount a fixed CQR backend across unrelated outer model-grid rows.",
+    "A fixed CQR backend is counted only within its matched learner/config cells.",
     "Fit imputation, scaling, capping, feature selection, and dimensionality reduction inside each CV+/jackknife fold.",
     "Separate IID, grouped, temporal, spatial, and shift regimes before aggregation.",
     "Freeze the primary utility rule, exclusion rules, and pathology-display policy before compute starts.",
@@ -14,7 +14,7 @@
     "Publish planned, attempted, completed, failed, skipped, and publication-scoped accounting matrices.",
     "Publish enough run-level ledger, split hash, environment lock, and aggregate cube material to audit the synthesis."
   ],
-  "generated_at_utc": "2026-07-16T12:05:11.357200+00:00",
+  "generated_at_utc": "2026-07-16T12:19:21.387200+00:00",
   "interpretation_scope": "Benchmark v2 is a forward protocol with a separate resumable execution ledger. It does not revise the Atlas v0 retrospective results until new, separately versioned runs are completed and synthesized.",
   "primary_estimand": {
     "primary_comparison_unit": "source_dataset_task_alpha_learner_config_split_hash",

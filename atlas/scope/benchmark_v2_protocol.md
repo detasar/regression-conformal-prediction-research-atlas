@@ -22,7 +22,7 @@ Benchmark v2 is the forward protocol for a smaller, balanced, paired, leakage-sa
 2. Represent task variants under their source dataset instead of counting them as independent datasets.
 3. Use the same alpha grid, seed count, split policy, learner/config surface, and conformal wrappers within each paired task.
 4. Compare conformal wrappers within exact learner/config/split cells rather than averaging across mismatched model grids.
-5. Do not recount a fixed CQR backend across unrelated outer model-grid rows.
+5. A fixed CQR backend is counted only within its matched learner/config cells.
 6. Fit imputation, scaling, capping, feature selection, and dimensionality reduction inside each CV+/jackknife fold.
 7. Separate IID, grouped, temporal, spatial, and shift regimes before aggregation.
 8. Freeze the primary utility rule, exclusion rules, and pathology-display policy before compute starts.
