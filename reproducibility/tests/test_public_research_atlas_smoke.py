@@ -775,11 +775,17 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
     execution = json.loads(execution_path.read_text(encoding="utf-8"))
     evidence = json.loads(evidence_path.read_text(encoding="utf-8"))
     assert protocol["schema"] == "regression_cp_benchmark_v2_protocol_v1"
-    assert protocol["status"] == "protocol_defined_not_executed"
+    assert protocol["status"] == "protocol_defined_execution_started"
     assert execution["schema"] == "regression_cp_benchmark_v2_execution_manifest_v1"
-    assert execution["status"] == "execution_contract_defined_not_executed"
+    assert execution["status"] == "execution_started_resumable"
     assert evidence["schema"] == "regression_cp_benchmark_v2_public_evidence_contract_v1"
     assert evidence["status"] == "contract_defined_not_populated"
+    assert execution["computational_execution_policy"]["cv_plus_max_train_rows"] is None
+    assert execution["computational_execution_policy"]["jackknife_plus_max_train_rows"] == 500
+    assert (
+        execution["computational_execution_policy"]["restart_command_suffix"]
+        == "--jackknife-plus-max-train-rows 500"
+    )
     assert execution["learner_configs"]["ridge"]["model_id"] == "ridge"
     assert execution["learner_configs"]["elastic_net"]["model_id"] == "elasticnet"
     assert execution["learner_configs"]["nystroem_svr"]["model_id"] == "svr"
@@ -817,8 +823,11 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
 
     markdown = markdown_path.read_text(encoding="utf-8")
     assert "# Benchmark v2 Protocol" in markdown
-    assert "Status: protocol defined, not executed." in markdown
+    assert "Status: protocol defined; resumable execution started separately." in markdown
     assert "retrospective cleanup" in markdown
+    execution_markdown = execution_markdown_path.read_text(encoding="utf-8")
+    assert "Computational Execution Policy" in execution_markdown
+    assert "Jackknife+ max train rows: `500`" in execution_markdown
 
     artifact_index = json.loads(artifact_index_path.read_text(encoding="utf-8"))
     indexed_paths = {row["artifact_path"] for row in artifact_index["artifacts"]}

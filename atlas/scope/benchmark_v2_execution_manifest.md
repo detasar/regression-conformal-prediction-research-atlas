@@ -1,8 +1,8 @@
 # Benchmark v2 Execution Manifest
 
-Status: execution contract defined not executed.
+Status: execution started resumable.
 
-Turn the Benchmark v2 design requirements into a runnable contract before any new result rows are generated.
+Turn the Benchmark v2 design requirements into a runnable contract and record the execution controls used by the resumable runner.
 
 ## Paired Cell Key
 
@@ -15,6 +15,13 @@ Turn the Benchmark v2 design requirements into a runnable contract before any ne
 - Learner families: ridge, elastic_net, hist_gradient_boosting, random_forest, extra_trees, knn, nystroem_svr
 - Primary conformal methods: split_abs, cqr_model_matched, cv_plus, jackknife_plus, mondrian_abs
 - Regimes: iid, grouped, temporal, spatial, covariate_shift
+
+## Computational Execution Policy
+
+- CV+ max train rows: `None`
+- Jackknife+ max train rows: `500`
+- Reason: Exact jackknife+ refits one model per training row. Rows above the cap are recorded as skipped_method with the threshold in the run notes rather than silently approximated.
+- Restart command suffix: `--jackknife-plus-max-train-rows 500`
 
 ## Frozen Learner Configurations
 

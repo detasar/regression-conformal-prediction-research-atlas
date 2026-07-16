@@ -1,6 +1,6 @@
 # Benchmark v2 Protocol
 
-Status: protocol defined, not executed.
+Status: protocol defined; resumable execution started separately.
 
 Benchmark v2 is the forward protocol for a smaller, balanced, paired, leakage-safe regression conformal prediction benchmark. It is included here so the next result-generation phase starts from a frozen scientific design rather than retrospective cleanup.
 
@@ -33,4 +33,4 @@ Benchmark v2 is the forward protocol for a smaller, balanced, paired, leakage-sa
 
 ## Interpretation
 
-Benchmark v2 is a forward protocol. It does not revise the Atlas v0 retrospective results until new, separately versioned runs are completed.
+Benchmark v2 is a forward protocol with a separate resumable execution ledger. It does not revise the Atlas v0 retrospective results until new, separately versioned runs are completed and synthesized.

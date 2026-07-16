@@ -14,8 +14,8 @@
     "Publish planned, attempted, completed, failed, skipped, and publication-scoped accounting matrices.",
     "Publish enough run-level ledger, split hash, environment lock, and aggregate cube material to audit the synthesis."
   ],
-  "generated_at_utc": "2026-07-16T03:41:15.805602+00:00",
-  "interpretation_scope": "Benchmark v2 is a forward protocol. It does not revise the Atlas v0 retrospective results until new, separately versioned runs are completed.",
+  "generated_at_utc": "2026-07-16T03:47:39.224458+00:00",
+  "interpretation_scope": "Benchmark v2 is a forward protocol with a separate resumable execution ledger. It does not revise the Atlas v0 retrospective results until new, separately versioned runs are completed and synthesized.",
   "primary_estimand": {
     "primary_comparison_unit": "source_dataset_task_alpha_learner_config_split_hash",
     "primary_utility_rule": "pre-specified coverage tolerance gate followed by interval score, reported with sensitivity to absolute coverage error and width",
@@ -28,7 +28,7 @@
       "conformal_method_config"
     ]
   },
-  "purpose": "Define the next balanced, paired, leakage-safe regression conformal prediction benchmark before opening new result generation.",
+  "purpose": "Define the next balanced, paired, leakage-safe regression conformal prediction benchmark and record the execution controls used after result generation started.",
   "schema": "regression_cp_benchmark_v2_protocol_v1",
-  "status": "protocol_defined_not_executed"
+  "status": "protocol_defined_execution_started"
 }

@@ -13,7 +13,14 @@
     "selection_rule": "coverage tolerance pass, then interval score, with sensitivity to absolute coverage error plus width"
   },
   "benchmark_version": "benchmark_v2_prospectively_frozen_protocol",
-  "generated_at_utc": "2026-07-16T03:41:15.805602+00:00",
+  "computational_execution_policy": {
+    "cv_plus_max_train_rows": null,
+    "initial_uncapped_smoke_rows": "The first three completed rows in chunk 0001 were produced before the cap was applied; no completed exact jackknife+ row was produced before the capped restart.",
+    "jackknife_plus_max_train_rows": 500,
+    "policy_reason": "Exact jackknife+ refits one model per training row. Rows above the cap are recorded as skipped_method with the threshold in the run notes rather than silently approximated.",
+    "restart_command_suffix": "--jackknife-plus-max-train-rows 500"
+  },
+  "generated_at_utc": "2026-07-16T03:47:39.224458+00:00",
   "learner_configs": {
     "elastic_net": {
       "learner_config_id": "elastic_net_benchmark_v2_primary_v1",
@@ -118,7 +125,7 @@
       "runner_support": "run_regression_pilot refits preprocessing inside CV+/jackknife fit folds when this flag is enabled."
     }
   },
-  "purpose": "Turn the Benchmark v2 design requirements into a runnable contract before any new result rows are generated.",
+  "purpose": "Turn the Benchmark v2 design requirements into a runnable contract and record the execution controls used by the resumable runner.",
   "run_grid": {
     "alpha_grid": [
       0.01,
@@ -192,5 +199,5 @@
     ],
     "target_source_dataset_count": 12
   },
-  "status": "execution_contract_defined_not_executed"
+  "status": "execution_started_resumable"
 }
