@@ -1343,7 +1343,12 @@ def add_quantile_group(
     df = df.copy()
     source = pd.to_numeric(df[source_col], errors="coerce")
     binned = pd.qcut(source, q=q, duplicates="drop")
-    df[group_col] = binned.astype("object").where(binned.notna(), "missing").astype(str)
+    labels = binned.astype("object").where(binned.notna(), "missing")
+    df[group_col] = pd.Series(
+        [str(value) for value in labels],
+        index=df.index,
+        dtype=object,
+    )
     return df
 
 
