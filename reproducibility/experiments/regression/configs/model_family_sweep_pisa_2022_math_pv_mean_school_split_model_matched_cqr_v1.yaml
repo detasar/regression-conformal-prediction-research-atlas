@@ -3,7 +3,7 @@ purpose: Model-matched CQR backend rerun cloned from experiments/regression/conf
   Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun
   tests whether the CQR backend confounded the original model-family sweep surface.
   The output records backend-sensitivity evidence for this experiment; method
-  selection and deployment use require separate validation.
+  selection and deployment use would need separate validation studies.
 random_seeds:
 - 11
 - 23

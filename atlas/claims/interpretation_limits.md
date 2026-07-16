@@ -1,6 +1,6 @@
 # Interpretation Limits
 
-The following stronger readings require separate validation:
+The following stronger readings would need separate validation studies:
 
 - **Universal best method**: The synthesis describes this experiment rather than a universal ranking.
 - **Production or deployment guidance**: Operational risk, monitoring, and deployment constraints require a separate study.

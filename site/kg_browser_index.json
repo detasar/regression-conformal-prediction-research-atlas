@@ -7765,7 +7765,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_aif360_lawschool_gpa_duplicate_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_aif360_lawschool_gpa_duplicate_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -400.224,
       "y": 270.387
@@ -7817,7 +7817,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_college_scorecard_2026_earnings_log1p_state_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_college_scorecard_2026_earnings_log1p_state_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -378.503,
       "y": 220.407
@@ -7869,7 +7869,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_hmda_2025_wy_interest_rate_identity_lei_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -408.505,
       "y": 202.632
@@ -7921,7 +7921,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_meps_2023_total_expenditure_log1p_varstr_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_meps_2023_total_expenditure_log1p_varstr_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -437.75,
       "y": 181.798
@@ -7973,7 +7973,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_nhanes_2017_2018_bmi_identity_ridreth3.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_nhanes_2017_2018_bmi_identity_ridreth3.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -406.297,
       "y": 137.709
@@ -8025,7 +8025,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_nhanes_2017_2018_glycohemoglobin_identity_ridreth3.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_nhanes_2017_2018_glycohemoglobin_identity_ridreth3.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -431.983,
       "y": 114.89
@@ -8077,7 +8077,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_nhanes_2017_2018_systolic_bp_identity_ridreth3.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_nhanes_2017_2018_systolic_bp_identity_ridreth3.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -456.358,
       "y": 89.235
@@ -8129,7 +8129,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_analcatdata_chlamydia_count_log1p_gender.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_analcatdata_chlamydia_count_log1p_gender.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -479.155,
       "y": 60.821
@@ -8181,7 +8181,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_arsenic_event_rate_panel_sex_log1p_exposure_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -437.227,
       "y": 26.009
@@ -8233,7 +8233,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_auto_price_symboling_log1p.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_auto_price_symboling_log1p.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -455.987,
       "y": -3.387
@@ -8285,7 +8285,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_bodyfat_age_density_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_bodyfat_age_density_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -472.693,
       "y": -35.171
@@ -8337,7 +8337,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_california_housing_identity_spatial_cell_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_california_housing_identity_spatial_cell_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -424.736,
       "y": -60.336
@@ -8389,7 +8389,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_cholesterol_sex_log1p_age_diagnosis_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_cholesterol_sex_log1p_age_diagnosis_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -437.37,
       "y": -92.287
@@ -8441,7 +8441,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_cps_85_wages_log1p_sex.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_cps_85_wages_log1p_sex.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -447.553,
       "y": -126.178
@@ -8493,7 +8493,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_delta_elevators_se_climbrate_identity_proxy_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_delta_elevators_se_climbrate_identity_proxy_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -455.086,
       "y": -161.82
@@ -8545,7 +8545,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_fishcatch_weight_species_log1p_sex_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_fishcatch_weight_species_log1p_sex_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -401.964,
       "y": -173.981
@@ -8597,7 +8597,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_hiroshima_rate_dose_duplicate_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_hiroshima_rate_dose_duplicate_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -405.45,
       "y": -208.678
@@ -8649,7 +8649,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_kin8nm_y_theta3_identity_proxy_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_kin8nm_y_theta3_identity_proxy_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -406.025,
       "y": -244.581
@@ -8701,7 +8701,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_mtp2_oz1143_oz2bin_identity_descriptor_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -351.872,
       "y": -245.411
@@ -8753,7 +8753,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_plasma_retinol_sex_log1p_age_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_plasma_retinol_sex_log1p_age_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -348.738,
       "y": -279.626
@@ -8805,7 +8805,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_sensory_score_method_judges_grouped.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_openml_sensory_score_method_judges_grouped.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -342.542,
       "y": -314.468
@@ -8857,7 +8857,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_pisa_2022_math_pv_mean_school_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_pisa_2022_math_pv_mean_school_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -333.19,
       "y": -349.676
@@ -8909,7 +8909,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_scf_2022_networth_signed_log1p_family_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_scf_2022_networth_signed_log1p_family_split.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -280.293,
       "y": -336.571
@@ -8961,7 +8961,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_stackoverflow_2025_compensation_log1p_age.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_stackoverflow_2025_compensation_log1p_age.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -267.756,
       "y": -369.111
@@ -9013,7 +9013,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_auto_mpg_origin_identity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_auto_mpg_origin_identity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -252.077,
       "y": -401.414
@@ -9065,7 +9065,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_bike_sharing_day_ordered.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_bike_sharing_day_ordered.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -203.37,
       "y": -377.732
@@ -9117,7 +9117,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_communities_crime_racepctblack_identity_proxy_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_communities_crime_racepctblack_identity_proxy_drop.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -185.141,
       "y": -406.856
@@ -9169,7 +9169,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_student_performance_prior_grade_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_student_performance_prior_grade_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -163.897,
       "y": -435.158
@@ -9221,7 +9221,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_wine_quality_duplicate_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use require separate validation.",
+      "summary": "Model-matched CQR backend rerun cloned from experiments/regression/configs/model_family_sweep_uci_wine_quality_duplicate_sensitivity.yaml. Historical fixed-GBM CQR rows remain unchanged as comparator evidence; this rerun tests whether the CQR backend confounded the original model-family sweep surface. The output records backend-sensitivity evidence for this experiment; method selection and deployment use would need separate validation studies.",
       "type": "config",
       "x": -139.671,
       "y": -462.365
@@ -34827,7 +34827,7 @@
       "size": 8.323,
       "source_key_fingerprint": "3434d5267ddedd15",
       "source_path": null,
-      "summary": "Research Document claim `main_result_candidate_bundles_beyond_current_study_diagnostic_evidence` with diagnostic evidence note: 6 fresh-seed main_result_candidate bundles have completed ledgers, feature-leakage audits, endpoint audits, publication manifests, and bundle-index coverage; they are diagnostic conservative interpretation evidence and cannot support a final main-result claim while paper checks remain beyond this study.",
+      "summary": "Research Document claim `main_result_candidate_bundles_beyond_current_study_diagnostic_evidence` with diagnostic How to read it: 6 fresh-seed main_result_candidate bundles have completed ledgers, feature-leakage audits, endpoint audits, publication manifests, and bundle-index coverage; they are diagnostic conservative interpretation evidence and cannot support a final main-result claim while paper checks remain beyond this study.",
       "type": "research_document_claim",
       "x": 49.531,
       "y": -144.761
@@ -37147,7 +37147,7 @@
       "size": 6.038,
       "source_key_fingerprint": "390e58bf8b1e6f17",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `individual_report_blueprint_evidence` maps target `individual_experiment_report` to scope `pre_prose_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `individual_report_blueprint_evidence` maps target `individual_experiment_report` to scope `pre_prose_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 149.906,
       "y": -376.236
@@ -37163,7 +37163,7 @@
       "size": 6.038,
       "source_key_fingerprint": "0e150ee0f7ee22cc",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `kg_site_navigation_candidate` maps target `knowledge_graph_or_publication_site` to scope `kg_site_navigation_scope_limited` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `kg_site_navigation_candidate` maps target `knowledge_graph_or_publication_site` to scope `kg_site_navigation_scope_limited` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 156.703,
       "y": -383.197
@@ -37179,7 +37179,7 @@
       "size": 6.201,
       "source_key_fingerprint": "226ab619ce7f938a",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `paper_dataset_scope_evidence` maps target `main_article` to scope `pre_prose_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `paper_dataset_scope_evidence` maps target `main_article` to scope `pre_prose_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 163.637,
       "y": -390.066
@@ -37195,7 +37195,7 @@
       "size": 6.278,
       "source_key_fingerprint": "13418879e9827b96",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `paper_main_results_beyond_current_study_evidence` maps target `main_article` to scope `beyond_current_study_positive_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `paper_main_results_beyond_current_study_evidence` maps target `main_article` to scope `beyond_current_study_positive_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 170.708,
       "y": -396.841
@@ -37211,7 +37211,7 @@
       "size": 6.201,
       "source_key_fingerprint": "c51c43a5f4337713",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `paper_method_scope_evidence` maps target `main_article` to scope `pre_prose_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `paper_method_scope_evidence` maps target `main_article` to scope `pre_prose_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 177.915,
       "y": -403.519
@@ -37227,7 +37227,7 @@
       "size": 6.353,
       "source_key_fingerprint": "210f44c54910697a",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `supplement_methodology_records_evidence` maps target `supplementary_document` to scope `pre_prose_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `supplement_methodology_records_evidence` maps target `supplementary_document` to scope `pre_prose_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 159.32,
       "y": -352.684
@@ -37243,7 +37243,7 @@
       "size": 6.278,
       "source_key_fingerprint": "6448b731799bbf0c",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `supplement_reproducibility_traceability_evidence` maps target `supplementary_document` to scope `pre_prose_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `supplement_reproducibility_traceability_evidence` maps target `supplementary_document` to scope `pre_prose_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 166.276,
       "y": -359.4
@@ -37259,7 +37259,7 @@
       "size": 6.353,
       "source_key_fingerprint": "cbd5d15e8dd8c534",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `supplement_robustness_diagnostic_evidence` maps target `supplementary_document` to scope `pre_prose_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `supplement_robustness_diagnostic_evidence` maps target `supplementary_document` to scope `pre_prose_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 173.366,
       "y": -366.018
@@ -37275,7 +37275,7 @@
       "size": 6.278,
       "source_key_fingerprint": "80ca8501dd6e550e",
       "source_path": null,
-      "summary": "Article/supplement/KG navigation row `supplement_venn_abers_negative_evidence` maps target `supplementary_document` to scope `negative_failure_mode_scope_preserved` with broader readings require separate validation.",
+      "summary": "Article/supplement/KG navigation row `supplement_venn_abers_negative_evidence` maps target `supplementary_document` to scope `negative_failure_mode_scope_preserved` with broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 180.589,
       "y": -372.537
@@ -37355,7 +37355,7 @@
       "size": 5.556,
       "source_key_fingerprint": "7c06b4399342bd99",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `dataset_table` has status `candidate_source_audit_only` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `dataset_table` has status `candidate_source_audit_only` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 188.641,
       "y": -348.182
@@ -37371,7 +37371,7 @@
       "size": 5.441,
       "source_key_fingerprint": "b894be4bf24470a4",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `individual_experiment_report` has status `blueprint_only_no_final_report` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `individual_experiment_report` has status `blueprint_only_no_final_report` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 196.135,
       "y": -354.339
@@ -37387,7 +37387,7 @@
       "size": 5.556,
       "source_key_fingerprint": "fc7cb165889ec708",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `main_results_table` has status `stronger_claim_requiring_validation_surface` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `main_results_table` has status `stronger_claim_requiring_validation_surface` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 203.755,
       "y": -360.389
@@ -37403,7 +37403,7 @@
       "size": 5.556,
       "source_key_fingerprint": "79bc723c289584df",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `method_table` has status `candidate_method_scope_only` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `method_table` has status `candidate_method_scope_only` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 211.5,
       "y": -366.329
@@ -37419,7 +37419,7 @@
       "size": 5.556,
       "source_key_fingerprint": "10c29b39765c6ecf",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `methodology_appendix` has status `candidate_control_appendix` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `methodology_appendix` has status `candidate_control_appendix` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 219.369,
       "y": -372.158
@@ -37435,7 +37435,7 @@
       "size": 5.556,
       "source_key_fingerprint": "9a933ffa3520c271",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `negative_results_table` has status `candidate_negative_result_surface` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `negative_results_table` has status `candidate_negative_result_surface` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 227.359,
       "y": -377.874
@@ -37451,7 +37451,7 @@
       "size": 5.556,
       "source_key_fingerprint": "9f5c277d0d61e80e",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `reproducibility_appendix` has status `candidate_reproducibility_appendix` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `reproducibility_appendix` has status `candidate_reproducibility_appendix` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 202.505,
       "y": -329.789
@@ -37467,7 +37467,7 @@
       "size": 5.556,
       "source_key_fingerprint": "fd33291b2ff6280c",
       "source_path": null,
-      "summary": "Claim-safe result extraction surface `robustness_results_table` has status `candidate_caveated_diagnostic_surface` and keeps report prose, final visual/table retention, broader readings require separate validation.",
+      "summary": "Claim-safe result extraction surface `robustness_results_table` has status `candidate_caveated_diagnostic_surface` and keeps report prose, final visual/table retention, broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 210.252,
       "y": -335.574
@@ -37781,7 +37781,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity NHANES 2017 2018 Bmi Ridreth3 Model Visible",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity NHANES 2017 2018 Bmi Ridreth3 Model Visible",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37797,7 +37797,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2109",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2109",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity NHANES 2017 2018 Glycohemoglobin Ridreth3 Model V",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity NHANES 2017 2018 Glycohemoglobin Ridreth3 Model V",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37813,7 +37813,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2110",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2110",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity NHANES 2017 2018 Glycohemoglobin Ridreth3 Row Sig",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity NHANES 2017 2018 Glycohemoglobin Ridreth3 Row Sig",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37829,7 +37829,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2111",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2111",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity NHANES 2017 2018 Systolic Bp Ridreth3 Model Visib",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity NHANES 2017 2018 Systolic Bp Ridreth3 Model Visib",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37845,7 +37845,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2112",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-n-2112",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity NHANES 2017 2018 Systolic Bp Ridreth3 Row Signatu",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity NHANES 2017 2018 Systolic Bp Ridreth3 Row Signatu",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37861,7 +37861,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-s",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-s",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity Stackoverflow 2025 Compensation Log1p Age Model V",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity Stackoverflow 2025 Compensation Log1p Age Model V",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37877,7 +37877,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-s-2114",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-s-2114",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity Stackoverflow 2025 Compensation Log1p Age Row Sig",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity Stackoverflow 2025 Compensation Log1p Age Row Sig",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37893,7 +37893,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-u",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-u",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity UCI Wine Quality Duplicate Sensitivity Model Visi",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity UCI Wine Quality Duplicate Sensitivity Model Visi",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37909,7 +37909,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-u-2116",
       "id": "methodology_record:group-inference-group-multiplicity-scope-duplicate-cluster-sensitivity-u-2116",
-      "label": "Group Inference Group Multiplicity Evidence note:duplicate Cluster Sensitivity UCI Wine Quality Duplicate Sensitivity Row Signat",
+      "label": "Group Inference Group Multiplicity How to read it:duplicate Cluster Sensitivity UCI Wine Quality Duplicate Sensitivity Row Signat",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37925,7 +37925,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-nh",
       "id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-nh",
-      "label": "Group Inference Group Multiplicity Evidence note:main Result Candidate Bundle NHANES 2017 2018 Bmi",
+      "label": "Group Inference Group Multiplicity How to read it:main Result Candidate Bundle NHANES 2017 2018 Bmi",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37941,7 +37941,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-nh-2118",
       "id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-nh-2118",
-      "label": "Group Inference Group Multiplicity Evidence note:main Result Candidate Bundle NHANES 2017 2018 Glycohemoglobin",
+      "label": "Group Inference Group Multiplicity How to read it:main Result Candidate Bundle NHANES 2017 2018 Glycohemoglobin",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37957,7 +37957,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-nh-2119",
       "id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-nh-2119",
-      "label": "Group Inference Group Multiplicity Evidence note:main Result Candidate Bundle NHANES 2017 2018 Systolic Bp",
+      "label": "Group Inference Group Multiplicity How to read it:main Result Candidate Bundle NHANES 2017 2018 Systolic Bp",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37973,7 +37973,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-op",
       "id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-op",
-      "label": "Group Inference Group Multiplicity Evidence note:main Result Candidate Bundle OpenML Analcatdata Chlamydia",
+      "label": "Group Inference Group Multiplicity How to read it:main Result Candidate Bundle OpenML Analcatdata Chlamydia",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -37989,7 +37989,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-st",
       "id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-st",
-      "label": "Group Inference Group Multiplicity Evidence note:main Result Candidate Bundle Stackoverflow 2025 Compensation",
+      "label": "Group Inference Group Multiplicity How to read it:main Result Candidate Bundle Stackoverflow 2025 Compensation",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -38005,7 +38005,7 @@
       "degree": 1,
       "display_id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-uc",
       "id": "methodology_record:group-inference-group-multiplicity-scope-main-result-candidate-bundle-uc",
-      "label": "Group Inference Group Multiplicity Evidence note:main Result Candidate Bundle UCI Wine Quality",
+      "label": "Group Inference Group Multiplicity How to read it:main Result Candidate Bundle UCI Wine Quality",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 4.588,
@@ -38261,7 +38261,7 @@
       "degree": 13,
       "display_id": "methodology_record:final-publication-output-scope-final-research-document-prose-not",
       "id": "methodology_record:final-publication-output-scope-final-research-document-prose-not",
-      "label": "Final Publication Output Evidence note:final Research Document Prose Outside Study Scope",
+      "label": "Final Publication Output How to read it:final Research Document Prose Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.121,
@@ -38277,7 +38277,7 @@
       "degree": 13,
       "display_id": "methodology_record:final-publication-output-scope-final-visual-table-retention-not",
       "id": "methodology_record:final-publication-output-scope-final-visual-table-retention-not",
-      "label": "Final Publication Output Evidence note:final Visual Table Retention Outside Study Scope",
+      "label": "Final Publication Output How to read it:final Visual Table Retention Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.121,
@@ -38293,7 +38293,7 @@
       "degree": 13,
       "display_id": "methodology_record:final-publication-output-scope-kg-citable-component-scope-limited",
       "id": "methodology_record:final-publication-output-scope-kg-citable-component-scope-limited",
-      "label": "Final Publication Output Evidence note:kg Evidence Map Scope",
+      "label": "Final Publication Output How to read it:kg Evidence Map Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.121,
@@ -38309,7 +38309,7 @@
       "degree": 13,
       "display_id": "methodology_record:final-publication-output-scope-latex-html-authoring-pending",
       "id": "methodology_record:final-publication-output-scope-latex-html-authoring-pending",
-      "label": "Final Publication Output Evidence note:latex Html Authoring Pending",
+      "label": "Final Publication Output How to read it:latex Html Authoring Pending",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.121,
@@ -38325,7 +38325,7 @@
       "degree": 12,
       "display_id": "methodology_record:final-publication-output-scope-deployment-claim-not-authori",
       "id": "methodology_record:final-publication-output-scope-deployment-claim-not-authori",
-      "label": "Final Publication Output Evidence note:deployment guidance Outside Study Scope",
+      "label": "Final Publication Output How to read it:deployment guidance Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.038,
@@ -38341,7 +38341,7 @@
       "degree": 12,
       "display_id": "methodology_record:final-publication-output-scope-stronger-claims-not-auth",
       "id": "methodology_record:final-publication-output-scope-stronger-claims-not-auth",
-      "label": "Final Publication Output Evidence note:stronger claims Outside Study Scope",
+      "label": "Final Publication Output How to read it:stronger claims Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.038,
@@ -38357,7 +38357,7 @@
       "degree": 13,
       "display_id": "methodology_record:final-publication-output-scope-publication-site-deployment-not-a",
       "id": "methodology_record:final-publication-output-scope-publication-site-deployment-not-a",
-      "label": "Final Publication Output Evidence note:publication Site Deployment Outside Study Scope",
+      "label": "Final Publication Output How to read it:publication Site Deployment Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.121,
@@ -38373,7 +38373,7 @@
       "degree": 12,
       "display_id": "methodology_record:final-publication-output-scope-six-stronger-claim-checks-beyond_current_study",
       "id": "methodology_record:final-publication-output-scope-six-stronger-claim-checks-beyond_current_study",
-      "label": "Final Publication Output Evidence note:six stronger claim checks Beyond this study",
+      "label": "Final Publication Output How to read it:six stronger claim checks Beyond this study",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.038,
@@ -38389,7 +38389,7 @@
       "degree": 13,
       "display_id": "methodology_record:final-publication-output-scope-publication-release-packaging-pending",
       "id": "methodology_record:final-publication-output-scope-publication-release-packaging-pending",
-      "label": "Final Publication Output Evidence note:publication publication packaging Pending",
+      "label": "Final Publication Output How to read it:publication publication packaging Pending",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.121,
@@ -38405,7 +38405,7 @@
       "degree": 13,
       "display_id": "methodology_record:final-publication-output-scope-research-atlas-repository-creation-not-a",
       "id": "methodology_record:final-publication-output-scope-research-atlas-repository-creation-not-a",
-      "label": "Final Publication Output Evidence note:Research Atlas Repository Creation Outside Study Scope",
+      "label": "Final Publication Output How to read it:Research Atlas Repository Creation Outside Study Scope",
       "observation_count": 2,
       "semantic_zone": "governance",
       "size": 6.121,
@@ -38923,7 +38923,7 @@
       "size": 4.832,
       "source_key_fingerprint": "43c89dbceed8fba4",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `author_and_report_identity` has role `author_header_and_scope_identity` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `author_and_report_identity` has role `author_header_and_scope_identity` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 388.905,
       "y": -74.624
@@ -38939,7 +38939,7 @@
       "size": 5.019,
       "source_key_fingerprint": "4bab26376f8f7230",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `bounded_support_and_group_inference_boundaries` has role `beyond_current_study_bounded_support_and_group_inference_claims` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `bounded_support_and_group_inference_boundaries` has role `beyond_current_study_bounded_support_and_group_inference_claims` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 398.417,
       "y": -72.727
@@ -38955,7 +38955,7 @@
       "size": 4.832,
       "source_key_fingerprint": "b5996c447a61d830",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `dataset_and_source_audit_summary` has role `source_audit_summary_no_new_dataset_claim` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `dataset_and_source_audit_summary` has role `source_audit_summary_no_new_dataset_claim` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 407.925,
       "y": -70.663
@@ -38971,7 +38971,7 @@
       "size": 4.832,
       "source_key_fingerprint": "f941d43af7f85769",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `experiment_scope_and_accounting` has role `empirical_scope_accounting_only` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `experiment_scope_and_accounting` has role `empirical_scope_accounting_only` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 417.428,
       "y": -68.434
@@ -38987,7 +38987,7 @@
       "size": 4.832,
       "source_key_fingerprint": "b77350dd3952c296",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `knowledge_graph_and_artifact_traceability` has role `kg_navigation_candidate_scope_limited` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `knowledge_graph_and_artifact_traceability` has role `kg_navigation_candidate_scope_limited` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 426.923,
       "y": -66.038
@@ -39003,7 +39003,7 @@
       "size": 4.832,
       "source_key_fingerprint": "585763dd8e47e9b8",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `model_and_conformal_method_scope` has role `method_scope_no_final_selection` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `model_and_conformal_method_scope` has role `method_scope_no_final_selection` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 436.408,
       "y": -63.477
@@ -39019,7 +39019,7 @@
       "size": 4.832,
       "source_key_fingerprint": "a59e8754e7608380",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `preprocessing_policy_and_integrity_controls` has role `methodology_integrity_controls_no_claim_strengthening` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `preprocessing_policy_and_integrity_controls` has role `methodology_integrity_controls_no_claim_strengthening` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 383.457,
       "y": -52.245
@@ -39035,7 +39035,7 @@
       "size": 4.832,
       "source_key_fingerprint": "0c93e12f9f803086",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `release_boundaries_and_next_checks` has role `publication_scope_summary_no_final_release` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `release_boundaries_and_next_checks` has role `publication_scope_summary_no_final_release` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 392.841,
       "y": -49.916
@@ -39051,7 +39051,7 @@
       "size": 4.832,
       "source_key_fingerprint": "bcc9da0507fe7a4b",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `selection_and_post_selection_diagnostics` has role `diagnostic_selection_evidence_no_final_selection` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `selection_and_post_selection_diagnostics` has role `diagnostic_selection_evidence_no_final_selection` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 402.214,
       "y": -47.421
@@ -39067,7 +39067,7 @@
       "size": 4.832,
       "source_key_fingerprint": "5d9c803ec717ea26",
       "source_path": null,
-      "summary": "Individual experiment report blueprint section `venn_abers_negative_evidence` has role `negative_failure_mode_no_validated_regression_claim` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Individual experiment report blueprint section `venn_abers_negative_evidence` has role `negative_failure_mode_no_validated_regression_claim` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 411.573,
       "y": -44.761
@@ -39083,7 +39083,7 @@
       "size": 4.588,
       "source_key_fingerprint": "1aeeff525af95b81",
       "source_path": null,
-      "summary": "Individual experiment report section `cqr_backend_sensitivity_check` maps prose content to audited evidence sources while release and final method conclusions require separate validation.",
+      "summary": "Individual experiment report section `cqr_backend_sensitivity_check` maps prose content to audited evidence sources while release and final method conclusions would need separate validation studies.",
       "type": "methodology_record",
       "x": 420.916,
       "y": -41.936
@@ -39099,7 +39099,7 @@
       "size": 5.019,
       "source_key_fingerprint": "d50863fc3bc7676f",
       "source_path": null,
-      "summary": "Individual experiment report section `empirical_scope` maps prose content to audited evidence sources while release and final method conclusions require separate validation.",
+      "summary": "Individual experiment report section `empirical_scope` maps prose content to audited evidence sources while release and final method conclusions would need separate validation studies.",
       "type": "methodology_record",
       "x": 430.241,
       "y": -38.946
@@ -39115,7 +39115,7 @@
       "size": 5.441,
       "source_key_fingerprint": "3133ca5001a19f11",
       "source_path": null,
-      "summary": "Individual experiment report section `executive_summary` maps prose content to audited evidence sources while release and final method conclusions require separate validation.",
+      "summary": "Individual experiment report section `executive_summary` maps prose content to audited evidence sources while release and final method conclusions would need separate validation studies.",
       "type": "methodology_record",
       "x": 439.545,
       "y": -35.791
@@ -39131,7 +39131,7 @@
       "size": 5.019,
       "source_key_fingerprint": "a8c3b578506344b8",
       "source_path": null,
-      "summary": "Individual experiment report section `method_findings` maps prose content to audited evidence sources while release and final method conclusions require separate validation.",
+      "summary": "Individual experiment report section `method_findings` maps prose content to audited evidence sources while release and final method conclusions would need separate validation studies.",
       "type": "methodology_record",
       "x": 385.991,
       "y": -27.925
@@ -39147,7 +39147,7 @@
       "size": 5.315,
       "source_key_fingerprint": "b4cb449e04b80e7f",
       "source_path": null,
-      "summary": "Individual experiment report section `negative_and_beyond_current_study_claims` maps prose content to audited evidence sources while release and final method conclusions require separate validation.",
+      "summary": "Individual experiment report section `negative_and_beyond_current_study_claims` maps prose content to audited evidence sources while release and final method conclusions would need separate validation studies.",
       "type": "methodology_record",
       "x": 395.21,
       "y": -25.008
@@ -39163,7 +39163,7 @@
       "size": 5.019,
       "source_key_fingerprint": "04774f21b12e9f90",
       "source_path": null,
-      "summary": "Individual experiment report section `reader_primer` maps prose content to audited evidence sources while release and final method conclusions require separate validation.",
+      "summary": "Individual experiment report section `reader_primer` maps prose content to audited evidence sources while release and final method conclusions would need separate validation studies.",
       "type": "methodology_record",
       "x": 404.406,
       "y": -21.926
@@ -39179,7 +39179,7 @@
       "size": 5.176,
       "source_key_fingerprint": "8c4d65d655e66a2e",
       "source_path": null,
-      "summary": "Individual experiment report section `traceability_and_traceability` maps prose content to audited evidence sources while release and final method conclusions require separate validation.",
+      "summary": "Individual experiment report section `traceability_and_traceability` maps prose content to audited evidence sources while release and final method conclusions would need separate validation studies.",
       "type": "methodology_record",
       "x": 413.578,
       "y": -18.681
@@ -39467,7 +39467,7 @@
       "size": 5.765,
       "source_key_fingerprint": "fb035c273bf0c1ad",
       "source_path": null,
-      "summary": "Research Document section evidence packet `individual_report_blueprint_evidence` targets `individual_experiment_report` with status `pre_prose_blueprint_ready` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `individual_report_blueprint_evidence` targets `individual_experiment_report` with status `pre_prose_blueprint_ready` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 384.338,
       "y": 45.313
@@ -39483,7 +39483,7 @@
       "size": 5.765,
       "source_key_fingerprint": "77c75ec77ac0c66b",
       "source_path": null,
-      "summary": "Research Document section evidence packet `paper_dataset_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `paper_dataset_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 392.841,
       "y": 49.916
@@ -39499,7 +39499,7 @@
       "size": 5.664,
       "source_key_fingerprint": "51a26b27d319dce5",
       "source_path": null,
-      "summary": "Research Document section evidence packet `paper_main_results_beyond_current_study_evidence` targets `main_article` with status `stronger_claim_requiring_validation_packet` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `paper_main_results_beyond_current_study_evidence` targets `main_article` with status `stronger_claim_requiring_validation_packet` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 401.292,
       "y": 54.675
@@ -39515,7 +39515,7 @@
       "size": 5.951,
       "source_key_fingerprint": "926424bfb1c2d6e8",
       "source_path": null,
-      "summary": "Research Document section evidence packet `paper_method_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `paper_method_scope_evidence` targets `main_article` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 409.689,
       "y": 59.591
@@ -39531,7 +39531,7 @@
       "size": 5.86,
       "source_key_fingerprint": "907931cd66cb97e2",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_methodology_records_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_methodology_records_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 418.028,
       "y": 64.663
@@ -39547,7 +39547,7 @@
       "size": 5.664,
       "source_key_fingerprint": "6a274adcab819ee3",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_reproducibility_traceability_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_reproducibility_traceability_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 426.309,
       "y": 69.89
@@ -39563,7 +39563,7 @@
       "size": 5.86,
       "source_key_fingerprint": "ee5f2d4bbb0b880d",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_robustness_diagnostic_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_robustness_diagnostic_evidence` targets `supplementary_document` with status `pre_prose_evidence_ready` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 434.529,
       "y": 75.272
@@ -39579,7 +39579,7 @@
       "size": 5.765,
       "source_key_fingerprint": "6dcd6f04828bfd4d",
       "source_path": null,
-      "summary": "Research Document section evidence packet `supplement_venn_abers_negative_evidence` targets `supplementary_document` with status `pre_prose_negative_evidence_ready` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Research Document section evidence packet `supplement_venn_abers_negative_evidence` targets `supplementary_document` with status `pre_prose_negative_evidence_ready` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 380.709,
       "y": 69.494
@@ -39691,7 +39691,7 @@
       "size": 5.176,
       "source_key_fingerprint": "e87161c3db3bdfac",
       "source_path": null,
-      "summary": "Neutral publication publication-readiness action `assemble_neutral_article_and_supplement_outputs` is established only for publication packaging; the Research Atlas records evidence links while broader claims require separate validation.",
+      "summary": "Neutral publication publication-readiness action `assemble_neutral_article_and_supplement_outputs` is established only for publication packaging; the Research Atlas records evidence links while broader claims would need separate validation studies.",
       "type": "methodology_record",
       "x": 375.561,
       "y": 93.398
@@ -39707,7 +39707,7 @@
       "size": 5.019,
       "source_key_fingerprint": "01840501c4d39fec",
       "source_path": null,
-      "summary": "Neutral publication publication-readiness action `export_citable_knowledge_graph_snapshot` is established only for publication packaging; the Research Atlas records evidence links while broader claims require separate validation.",
+      "summary": "Neutral publication publication-readiness action `export_citable_knowledge_graph_snapshot` is established only for publication packaging; the Research Atlas records evidence links while broader claims would need separate validation studies.",
       "type": "methodology_record",
       "x": 383.416,
       "y": 99.035
@@ -39723,7 +39723,7 @@
       "size": 5.176,
       "source_key_fingerprint": "815491abcf606a21",
       "source_path": null,
-      "summary": "Neutral publication publication-readiness action `prepare_latex_html_and_static_site_package` is established only for publication packaging; the Research Atlas records evidence links while broader claims require separate validation.",
+      "summary": "Neutral publication publication-readiness action `prepare_latex_html_and_static_site_package` is established only for publication packaging; the Research Atlas records evidence links while broader claims would need separate validation studies.",
       "type": "methodology_record",
       "x": 391.2,
       "y": 104.822
@@ -39739,7 +39739,7 @@
       "size": 5.019,
       "source_key_fingerprint": "59945c7a93ce7c65",
       "source_path": null,
-      "summary": "Neutral publication publication-readiness action `prepare_working_publication_repository` is established only for publication packaging; the Research Atlas records evidence links while broader claims require separate validation.",
+      "summary": "Neutral publication publication-readiness action `prepare_working_publication_repository` is established only for publication packaging; the Research Atlas records evidence links while broader claims would need separate validation studies.",
       "type": "methodology_record",
       "x": 398.91,
       "y": 110.757
@@ -41403,7 +41403,7 @@
       "size": 5.315,
       "source_key_fingerprint": "b1f863f5b2e85172",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `claim_safe_sections_and_navigation_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `claim_safe_sections_and_navigation_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 143.089,
       "y": 378.881
@@ -41419,7 +41419,7 @@
       "size": 4.832,
       "source_key_fingerprint": "09fd41c3022c951f",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `final_publication_visual_auditor_feedback_loop_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `final_publication_visual_auditor_feedback_loop_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 142.766,
       "y": 388.605
@@ -41435,7 +41435,7 @@
       "size": 5.176,
       "source_key_fingerprint": "9facb3d3d9a4b06c",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `neutral_reporting_and_kg_quality_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `neutral_reporting_and_kg_quality_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 142.28,
       "y": 398.353
@@ -41451,7 +41451,7 @@
       "size": 4.588,
       "source_key_fingerprint": "08fc21236456e98f",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `publication_activation_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `publication_activation_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 141.628,
       "y": 408.124
@@ -41467,7 +41467,7 @@
       "size": 4.832,
       "source_key_fingerprint": "c089c6fca5793524",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `publication_preparation_packets_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `publication_preparation_packets_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 140.812,
       "y": 417.915
@@ -41483,7 +41483,7 @@
       "size": 4.832,
       "source_key_fingerprint": "68631c3dd0d5eb37",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `publication_scope_and_publication_repo_deferment_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `publication_scope_and_publication_repo_deferment_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 120.254,
       "y": 367.842
@@ -41499,7 +41499,7 @@
       "size": 5.019,
       "source_key_fingerprint": "6f317383dd3dda55",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `reviewer_design_and_reconciliation_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `reviewer_design_and_reconciliation_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 119.648,
       "y": 377.492
@@ -41515,7 +41515,7 @@
       "size": 5.441,
       "source_key_fingerprint": "f51f372022e43a9a",
       "source_path": null,
-      "summary": "Publication progress pre-publication control `visual_table_pre_retention_and_render_audits_ready` is `complete` while broader readings require separate validation.",
+      "summary": "Publication progress pre-publication control `visual_table_pre_retention_and_render_audits_ready` is `complete` while broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": 118.877,
       "y": 387.161
@@ -44107,7 +44107,7 @@
       "size": 5.441,
       "source_key_fingerprint": "19f6b9e618d6e570",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `individual_report_blueprint_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `individual_report_blueprint_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -380.306,
       "y": 163.596
@@ -44123,7 +44123,7 @@
       "size": 5.441,
       "source_key_fingerprint": "e9b5e7be1d86b244",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `paper_dataset_scope_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `paper_dataset_scope_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -390.066,
       "y": 163.637
@@ -44139,7 +44139,7 @@
       "size": 5.441,
       "source_key_fingerprint": "741608a5873f28c2",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `paper_main_results_beyond_current_study_evidence` has status `beyond_current_study_positive_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `paper_main_results_beyond_current_study_evidence` has status `beyond_current_study_positive_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -399.858,
       "y": 163.516
@@ -44155,7 +44155,7 @@
       "size": 5.441,
       "source_key_fingerprint": "0e14d912902d3e4a",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `paper_method_scope_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `paper_method_scope_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -409.679,
       "y": 163.231
@@ -44171,7 +44171,7 @@
       "size": 5.441,
       "source_key_fingerprint": "06cbc1387fb96ff5",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_methodology_records_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_methodology_records_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -360.792,
       "y": 139.992
@@ -44187,7 +44187,7 @@
       "size": 5.441,
       "source_key_fingerprint": "9a7b7aa0e7219fec",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_reproducibility_traceability_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_reproducibility_traceability_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -370.461,
       "y": 139.909
@@ -44203,7 +44203,7 @@
       "size": 5.441,
       "source_key_fingerprint": "667caf476653ce8f",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_robustness_diagnostic_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_robustness_diagnostic_evidence` has status `pre_prose_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -380.157,
       "y": 139.663
@@ -44219,7 +44219,7 @@
       "size": 5.441,
       "source_key_fingerprint": "2dce07f7e04881ee",
       "source_path": null,
-      "summary": "Section interpretation scope audit row `supplement_venn_abers_negative_evidence` has status `negative_failure_mode_scope_preserved` and records report-writing constraints; broader readings require separate validation.",
+      "summary": "Section interpretation scope audit row `supplement_venn_abers_negative_evidence` has status `negative_failure_mode_scope_preserved` and records report-writing constraints; broader readings would need separate validation studies.",
       "type": "methodology_record",
       "x": -389.878,
       "y": 139.252
@@ -64051,7 +64051,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Neutral pre-publication publication preparation packets for reviewer design and visual/table inventory planning; visual selection and stronger readings require separate validation.",
+      "summary": "Neutral pre-publication publication preparation packets for reviewer design and visual/table inventory planning; visual selection and stronger readings would need separate validation studies.",
       "type": "report",
       "x": -67.198,
       "y": 307.749
@@ -64103,7 +64103,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Pre-Research Document article/supplement/KG retention-readiness deployment rule audit; candidate placement deployment rules are ready while final retained artifacts, report prose, KG citation, site deployment, and stronger readings require separate validation.",
+      "summary": "Pre-Research Document article/supplement/KG retention-readiness deployment rule audit; candidate placement deployment rules are ready while final retained artifacts, report prose, KG citation, site deployment, and stronger readings would need separate validation studies.",
       "type": "report",
       "x": -61.766,
       "y": 262.84
@@ -64155,7 +64155,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Pre-retention visual/table audit report; candidate artifacts receive source-traceability, interpretation scope, placement, and iteration feedback while final retention, KG citation, site deployment, report prose, and stronger readings require separate validation.",
+      "summary": "Pre-retention visual/table audit report; candidate artifacts receive source-traceability, interpretation scope, placement, and iteration feedback while final retention, KG citation, site deployment, report prose, and stronger readings would need separate validation studies.",
       "type": "report",
       "x": -70.312,
       "y": 279.285
@@ -64181,7 +64181,7 @@
         "represented_in_aggregate": true,
         "status": "included_public_aggregate"
       },
-      "summary": "Draft visual/table render candidate audit; concrete Markdown/SVG artifacts are created for layout measurement while final retention, report prose, KG citation, site deployment, and stronger readings require separate validation.",
+      "summary": "Draft visual/table render candidate audit; concrete Markdown/SVG artifacts are created for layout measurement while final retention, report prose, KG citation, site deployment, and stronger readings would need separate validation studies.",
       "type": "report",
       "x": -74.786,
       "y": 287.43

@@ -13,7 +13,7 @@
     "selection_rule": "coverage tolerance pass, then interval score, with sensitivity to absolute coverage error plus width"
   },
   "benchmark_version": "benchmark_v2_prospectively_frozen_protocol",
-  "generated_at_utc": "2026-07-16T00:35:30.737586+00:00",
+  "generated_at_utc": "2026-07-16T00:52:26.259447+00:00",
   "learner_configs": {
     "elastic_net": {
       "learner_config_id": "elastic_net_benchmark_v2_primary_v1",

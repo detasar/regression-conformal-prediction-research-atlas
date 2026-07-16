@@ -14,7 +14,7 @@ This repository is the Research Atlas for the regression conformal prediction st
 - Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.
 - The completed model-matched CQR rerun is reported as backend-sensitivity evidence.
 - The Venn-Abers statement is a bridge-specific negative result for the evaluated regression construction.
-- Practical use in a new application, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would require separate validation.
+- Practical use in a new application, universal method selection, population-level group inference, bounded-support validity, and validated Venn-Abers regression interval claims would need a separate validation study.
 - Raw data, local caches, credentials, and nonredistributable source files are not included.
 
 ## Scientific Reading
