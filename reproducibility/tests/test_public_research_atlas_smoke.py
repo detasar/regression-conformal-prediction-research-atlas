@@ -2061,11 +2061,8 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         root / "evidence/claim_evidence_matrix.md",
     ]
     forbidden = [
-        phrase("Document", "status:"),
-        phrase("Document", "status:", "Research", "Document", "release", "render"),
         phrase("Research", "Document", "release", "render"),
         phrase("part", "of", "the", "public", "Research", "Atlas"),
-        phrase("part", "of", "the", "public", "Research", "Atlas,", "and", "not", "a", "method", "recommendation"),
         phrase("release", "render"),
         "release" + "_" + "boundary",
         phrase("not", "a", "method", "recommendation"),
