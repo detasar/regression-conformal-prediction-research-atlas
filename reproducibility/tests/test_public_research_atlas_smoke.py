@@ -948,6 +948,7 @@ def test_public_repository_maintenance_files_are_present() -> None:
         "DATA_LICENSES.md",
         "reproducibility/experiments/regression/policies/data_policy_registry.md",
         ".editorconfig",
+        ".nojekyll",
         "CHECKSUMS.sha256",
         "site/index.html",
         "atlas/provenance/index.html",
