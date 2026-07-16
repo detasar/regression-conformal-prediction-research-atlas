@@ -361,7 +361,7 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
     manifest_text = json.dumps(manifest)
     legacy_private_builders = [
         "build_private_" + "ster" + "ile" + "_publication_package",
-        "build_public_release_authorization",
+        "build_public_release_" + "author" + "ization",
     ]
     assert all(name not in manifest_text for name in legacy_private_builders)
     assert all(
