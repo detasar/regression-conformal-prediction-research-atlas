@@ -1339,7 +1339,9 @@ def test_public_maintenance_quality_matrix_tracks_ci_and_debt() -> None:
     assert check_by_id["package_content"]["status"] == "implemented"
     assert check_by_id["public_forbidden_language"]["status"] == "implemented"
     assert check_by_id["environment_lock"]["status"] == "implemented"
-    assert check_by_id["accessibility_metadata"]["status"] == "partial"
+    assert check_by_id["accessibility_metadata"]["status"] == "implemented"
+    assert check_by_id["accessibility_metadata"]["ci_enforced"] is True
+    assert "table captions/scopes" in check_by_id["accessibility_metadata"]["command_or_evidence"]
     assert check_by_id["builder_modularization"]["status"] == "partial"
     assert check_by_id["builder_modularization"]["ci_enforced"] is True
     assert "public_builder_utils.py" in check_by_id["builder_modularization"]["command_or_evidence"]
@@ -1349,7 +1351,7 @@ def test_public_maintenance_quality_matrix_tracks_ci_and_debt() -> None:
     assert check_by_id["lint_type_security"]["status"] == "partial"
     assert check_by_id["lint_type_security"]["ci_enforced"] is True
     assert "secret patterns" in check_by_id["lint_type_security"]["command_or_evidence"]
-    assert matrix["summary"]["ci_enforced_check_count"] >= 8
+    assert matrix["summary"]["ci_enforced_check_count"] >= 9
 
     markdown = markdown_path.read_text(encoding="utf-8")
     assert "# Maintenance Quality Matrix" in markdown

@@ -1,6 +1,6 @@
 {
   "execution_boundary": "These are candidate registries for Benchmark v2 planning. They do not contain completed Benchmark v2 result rows.",
-  "generated_at_utc": "2026-07-16T06:04:54.409998+00:00",
+  "generated_at_utc": "2026-07-16T06:14:24.842760+00:00",
   "schema": "regression_cp_benchmark_v2_candidate_selection_rationale_v1",
   "selection_rules": [
     "Use at most two source datasets from any source family.",

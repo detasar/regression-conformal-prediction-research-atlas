@@ -48,11 +48,11 @@
     {
       "check_id": "accessibility_metadata",
       "check_label": "Accessibility and academic metadata check",
-      "ci_enforced": false,
-      "command_or_evidence": "skip links, focus-visible styles, captions, canonical URLs, citation metadata, JSON-LD, sitemap, robots files, and ACCESSIBILITY.md",
+      "ci_enforced": true,
+      "command_or_evidence": "public smoke tests enforce skip links, focus-visible styles, table captions/scopes, canonical URLs, citation metadata, JSON-LD, sitemap, robots files, and ACCESSIBILITY.md",
       "remaining_work": "Add automated axe/lighthouse-style checks and tagged-PDF validation.",
       "scope": "main public pages and atlas pages",
-      "status": "partial"
+      "status": "implemented"
     },
     {
       "check_id": "lint_type_security",
@@ -82,14 +82,14 @@
       "status": "implemented"
     }
   ],
-  "generated_at_utc": "2026-07-16T06:04:54.409998+00:00",
+  "generated_at_utc": "2026-07-16T06:14:24.842760+00:00",
   "schema": "regression_cp_public_maintenance_quality_matrix_v1",
   "summary": {
     "check_count": 9,
-    "ci_enforced_check_count": 8,
-    "implemented_check_count": 6,
+    "ci_enforced_check_count": 9,
+    "implemented_check_count": 7,
     "overall_status": "source_backed_public_builder_modularization_started",
-    "partial_check_count": 3,
+    "partial_check_count": 2,
     "planned_check_count": 0
   }
 }
