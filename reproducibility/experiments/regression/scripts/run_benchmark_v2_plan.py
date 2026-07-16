@@ -178,6 +178,66 @@ def latest_status_by_method_row(ledger_path: Path) -> dict[str, dict[str, Any]]:
     return latest
 
 
+def failed_attempt_reason(row: dict[str, Any]) -> str:
+    diagnostic_text = "\n".join(
+        str(row.get(key, ""))
+        for key in ("error_message", "traceback_tail", "skip_reason")
+    )
+    if chunk_runner.is_unsupported_split_regime_text(diagnostic_text):
+        return "infeasible_grouped_split"
+    if "split_order_col" in diagnostic_text and "not found" in diagnostic_text:
+        return "missing_split_order_column"
+    error_type = str(row.get("error_type") or "").strip()
+    return error_type or "failed_attempt"
+
+
+def historical_attempt_diagnostics(
+    ledger_path: Path,
+    selected_keys: list[str],
+    selected_latest: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    selected_key_set = set(selected_keys)
+    attempt_records = 0
+    attempts_by_key: Counter[str] = Counter()
+    failed_attempt_count = 0
+    failed_attempt_keys: set[str] = set()
+    failed_reason_counts: Counter[str] = Counter()
+
+    for row in chunk_runner.read_jsonl(ledger_path):
+        method_row_key = str(row.get("method_row_key", ""))
+        if method_row_key not in selected_key_set:
+            continue
+        attempt_records += 1
+        attempts_by_key[method_row_key] += 1
+        if str(row.get("status", "")) != "failed":
+            continue
+        failed_attempt_count += 1
+        failed_attempt_keys.add(method_row_key)
+        failed_reason_counts[failed_attempt_reason(row)] += 1
+
+    latest_failed_keys = {
+        key
+        for key, row in selected_latest.items()
+        if chunk_runner.normalized_execution_status(row) == "failed"
+    }
+    recovered_failed_keys = failed_attempt_keys - latest_failed_keys
+    return {
+        "historical_attempt_record_count": attempt_records,
+        "historical_failed_attempt_count": failed_attempt_count,
+        "method_rows_with_historical_failed_attempt_count": len(failed_attempt_keys),
+        "method_rows_with_recovered_failed_attempt_count": len(recovered_failed_keys),
+        "method_rows_with_latest_failed_after_historical_attempt_count": len(
+            latest_failed_keys & failed_attempt_keys
+        ),
+        "method_rows_with_multiple_attempt_records_count": sum(
+            1 for count in attempts_by_key.values() if count > 1
+        ),
+        "historical_failed_attempt_reason_counts": dict(
+            sorted(failed_reason_counts.items())
+        ),
+    }
+
+
 def summarize_chunk(
     package_root: Path,
     chunk: dict[str, Any],
@@ -193,6 +253,9 @@ def summarize_chunk(
     status_counts = Counter(
         chunk_runner.normalized_execution_status(row)
         for row in selected_latest.values()
+    )
+    attempt_diagnostics = historical_attempt_diagnostics(
+        ledger_path, selected_keys, selected_latest
     )
     retry_statuses = {str(status) for status in args.retry_skipped_status or []}
     retry_terminal_statuses = set(retry_statuses)
@@ -225,6 +288,7 @@ def summarize_chunk(
             if status not in retry_terminal_statuses
         ),
         "status_counts": dict(sorted(status_counts.items())),
+        **attempt_diagnostics,
         "ledger_path": str(ledger_path),
         "summary_path": str(chunk_execution_root / "chunk_execution_summary.json"),
     }
@@ -266,8 +330,12 @@ def aggregate_summary(
     executed: bool,
 ) -> dict[str, Any]:
     status_counts: Counter[str] = Counter()
+    failed_reason_counts: Counter[str] = Counter()
     for summary in chunk_summaries:
         status_counts.update(summary.get("status_counts", {}))
+        failed_reason_counts.update(
+            summary.get("historical_failed_attempt_reason_counts", {})
+        )
     return {
         "schema": "regression_cp_benchmark_v2_execution_plan_summary_v1",
         "package_root": str(package_root),
@@ -298,6 +366,33 @@ def aggregate_summary(
             int(row["skipped_method_row_count"]) for row in chunk_summaries
         ),
         "status_counts": dict(sorted(status_counts.items())),
+        "historical_attempt_record_count": sum(
+            int(row.get("historical_attempt_record_count", 0))
+            for row in chunk_summaries
+        ),
+        "historical_failed_attempt_count": sum(
+            int(row.get("historical_failed_attempt_count", 0))
+            for row in chunk_summaries
+        ),
+        "method_rows_with_historical_failed_attempt_count": sum(
+            int(row.get("method_rows_with_historical_failed_attempt_count", 0))
+            for row in chunk_summaries
+        ),
+        "method_rows_with_recovered_failed_attempt_count": sum(
+            int(row.get("method_rows_with_recovered_failed_attempt_count", 0))
+            for row in chunk_summaries
+        ),
+        "method_rows_with_latest_failed_after_historical_attempt_count": sum(
+            int(row.get("method_rows_with_latest_failed_after_historical_attempt_count", 0))
+            for row in chunk_summaries
+        ),
+        "method_rows_with_multiple_attempt_records_count": sum(
+            int(row.get("method_rows_with_multiple_attempt_records_count", 0))
+            for row in chunk_summaries
+        ),
+        "historical_failed_attempt_reason_counts": dict(
+            sorted(failed_reason_counts.items())
+        ),
         "chunks": chunk_summaries,
         "executed_chunks": executed_chunk_summaries,
     }

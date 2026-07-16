@@ -7,21 +7,44 @@ This page reports the aggregate execution state for the balanced Benchmark v2 ru
 - Status: `execution_in_progress`
 - Result generation status: `in_progress`
 - Selected method rows: `42000`
-- Observed method rows: `15171`
-- Terminal method rows: `15171`
-- Completed method rows: `7939`
-- Skipped method rows: `7232`
+- Observed method rows: `15791`
+- Terminal method rows: `15791`
+- Completed method rows: `8435`
+- Skipped method rows: `7356`
 - Failed method rows: `0`
-- Pending method rows: `26829`
-- Terminal progress fraction: `0.36121429`
+- Pending method rows: `26209`
+- Terminal progress fraction: `0.37597619`
+- Historical attempt records: `23115`
+- Historical failed attempts: `4322`
+- Method rows with recovered failed attempts: `4322`
 
 ## Status Counts
 
 | Status | Rows |
 |---|---:|
-| `completed` | 7939 |
+| `completed` | 8435 |
 | `skipped_infeasible_grouped_regime` | 5250 |
-| `skipped_method` | 1982 |
+| `skipped_method` | 2106 |
+
+## Historical Attempt Diagnostics
+
+These counts describe raw execution attempts before latest-status resume accounting. A row can have an earlier failed attempt and a later completed or skipped latest status.
+
+| Diagnostic | Rows |
+|---|---:|
+| Historical attempt records | 23115 |
+| Historical failed attempts | 4322 |
+| Method rows with historical failed attempts | 4322 |
+| Method rows with recovered failed attempts | 4322 |
+| Method rows still latest-failed after a historical failed attempt | 0 |
+| Method rows with multiple attempt records | 3502 |
+
+### Historical Failed Attempt Reasons
+
+| Reason | Attempts |
+|---|---:|
+| `infeasible_grouped_split` | 3500 |
+| `missing_split_order_column` | 822 |
 
 ## Public Scope
 
