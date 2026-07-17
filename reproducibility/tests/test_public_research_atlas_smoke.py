@@ -2569,7 +2569,18 @@ def test_public_reader_surfaces_label_intervals_as_diagnostic_bands() -> None:
 
 def test_public_repository_text_has_clean_reader_language() -> None:
     root = repo_root()
-    checked_suffixes = {".md", ".html", ".tex", ".py", ".toml", ".yml", ".yaml", ".cff"}
+    checked_suffixes = {
+        ".cff",
+        ".html",
+        ".json",
+        ".md",
+        ".py",
+        ".tex",
+        ".toml",
+        ".txt",
+        ".yaml",
+        ".yml",
+    }
     skipped = {
         root / "site" / "kg_browser_data.json",
     }
