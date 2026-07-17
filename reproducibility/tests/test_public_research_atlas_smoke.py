@@ -2303,6 +2303,8 @@ def test_public_html_metadata_and_accessibility_basics() -> None:
         table_parser.feed(text)
         assert table_parser.captions == table_parser.tables
         assert table_parser.scoped_header_cells == table_parser.header_cells
+        if page.name in {"article.html", "supplement.html"}:
+            assert text.count('class="table-wrap"') >= table_parser.tables
     kg_text = (root / "site/kg_browser.html").read_text(encoding="utf-8")
     assert "aria-live" in kg_text
     assert "fallback" in kg_text.lower()
