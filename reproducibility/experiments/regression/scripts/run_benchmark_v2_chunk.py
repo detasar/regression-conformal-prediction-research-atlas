@@ -12,6 +12,7 @@ import argparse
 import csv
 import gzip
 import json
+import shutil
 from pathlib import Path
 from typing import Any
 
@@ -164,6 +165,16 @@ def parse_args() -> argparse.Namespace:
         help="Optional cap on attempted method rows for smoke execution.",
     )
     parser.add_argument(
+        "--min-free-disk-mb",
+        type=float,
+        default=None,
+        help=(
+            "Optional execution guard. When set, stop before starting the next "
+            "method row if the output filesystem has less than this many MiB "
+            "available. Already-terminal rows can still be skipped."
+        ),
+    )
+    parser.add_argument(
         "--cv-plus-max-train-rows",
         type=int,
         default=None,
@@ -264,6 +275,37 @@ def read_jsonl(path: Path) -> list[dict[str, Any]]:
                 continue
             rows.append(json.loads(line))
     return rows
+
+
+def existing_disk_probe_path(path: Path) -> Path:
+    probe = path.resolve()
+    while not probe.exists() and probe != probe.parent:
+        probe = probe.parent
+    return probe if probe.exists() else Path.cwd()
+
+
+def free_disk_mb(path: Path) -> float:
+    usage = shutil.disk_usage(existing_disk_probe_path(path))
+    return usage.free / (1024 * 1024)
+
+
+def disk_guard(
+    *,
+    output_path: Path,
+    min_free_disk_mb: float | None,
+) -> dict[str, Any] | None:
+    if min_free_disk_mb is None:
+        return None
+    available = free_disk_mb(output_path)
+    if available >= min_free_disk_mb:
+        return None
+    return {
+        "resource_guard_status": "stopped_before_next_method_row",
+        "resource_guard_reason": "free disk below requested minimum",
+        "disk_check_path": str(existing_disk_probe_path(output_path)),
+        "available_free_disk_mb": round(available, 3),
+        "min_free_disk_mb": float(min_free_disk_mb),
+    }
 
 
 def latest_status_by_method_row(ledger_path: Path) -> dict[str, str]:
@@ -531,6 +573,7 @@ def execute_chunk(
     skipped = 0
     skipped_existing = 0
     status_counts: dict[str, int] = {}
+    resource_guard: dict[str, Any] | None = None
 
     for row in rows:
         if args.max_method_rows is not None and attempted >= args.max_method_rows:
@@ -544,6 +587,12 @@ def execute_chunk(
             retry_failed=args.retry_failed,
             retry_skipped_status=args.retry_skipped_status,
         )
+        resource_guard = disk_guard(
+            output_path=chunk_execution_root,
+            min_free_disk_mb=args.min_free_disk_mb,
+        )
+        if resource_guard is not None:
+            break
 
         split_config, skip_reason = split_config_for_row(row, task_registry)
         base_payload = {
@@ -657,6 +706,7 @@ def execute_chunk(
         "ledger_path": str(ledger_path),
         "checkpoint_root": str(checkpoint_root),
         "prediction_cache_root": str(prediction_cache_root),
+        "resource_guard": resource_guard,
     }
     summary_path = chunk_execution_root / "chunk_execution_summary.json"
     summary_path.parent.mkdir(parents=True, exist_ok=True)
