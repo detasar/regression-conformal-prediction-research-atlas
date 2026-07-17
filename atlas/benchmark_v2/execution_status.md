@@ -48,9 +48,9 @@ These counts describe raw execution attempts before latest-status resume account
 
 ## Execution Resource Preflight
 
-- Resource state: `paused_until_disk_capacity_restored`
-- Pause reason: `free disk below Benchmark v2 guarded-execution minimum`
-- Available free disk MiB: `465.703`
+- Resource state: `ready_for_guarded_execution`
+- Pause reason: `none`
+- Available free disk MiB: `19316.609`
 - Guard minimum free disk MiB: `1024.0`
 
 ## Public Scope

@@ -11,7 +11,7 @@
       "support_status": "supported_with_internal_artifacts_boundaries_and_kg_trace"
     },
     {
-      "evidence_reference": "Method descriptions need literature citations; empirical language must stay limited to these experiments.",
+      "evidence_reference": "Method descriptions need literature citations; empirical language must stay limited to these experiments. Legacy CV+/jackknife rows carry a fold-local preprocessing caveat because some retrospective plus-family runs fit preprocessing or supervised feature-reduction steps before the internal folds.",
       "id": "paper_method_scope_evidence",
       "knowledge_graph_reference_count": 9,
       "plain_language": "This row permits a careful description of what looked useful in the experiment; deployment rules for new regression problems would need separate validation studies.",

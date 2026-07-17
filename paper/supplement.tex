@@ -42,7 +42,7 @@ Contact: detasar@gmail.com
 This crosswalk explains how the supplement should be read with the main article. Each row identifies the main article surface, the supplement section that supplies the detailed audit evidence, the primary source artifact, and the stronger claim that remains beyond this study. The table is a navigation aid; it does not add experiments or promote a method.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.190\linewidth}@{}}
@@ -64,7 +64,7 @@ Knowledge-graph traceability & S6 traceability & \texttt{knowledge\_\allowbreak{
 The supplement is intentionally broader than the main article. Each section adds audit detail, but the extra detail must be read through a specific boundary. The protocol below states what a reviewer should check, which evidence metric anchors the check, the allowed use of that evidence, and the overclaim that remains beyond this study.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.140\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.140\linewidth}@{}}
@@ -84,10 +84,10 @@ S6 & Check whether the evidence map helps readers trace source support. & 3,643 
 
 \section{S1. Method Selection Robustness Diagnostics}
 
-This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, \texttt{1 - alpha} is the target coverage level and \texttt{alpha} is the target miscoverage rate \cite{lei2017distribution_free_regression}. CQR builds an interval from lower and upper quantile models before calibration \cite{romano2019conformalized_quantile_regression}, while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions \cite{barber2020jackknife_plus,kim2020jackknife_after_bootstrap}.
+This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, \texttt{1 - alpha} is the target coverage level and \texttt{alpha} is the target miscoverage rate \cite{lei2017distribution_free_regression}. CQR builds an interval from lower and upper quantile models before calibration \cite{romano2019conformalized_quantile_regression}, while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions \cite{barber2020jackknife_plus,kim2020jackknife_after_bootstrap}. Legacy plus-family rows are interpreted with a fold-local preprocessing caveat: some retrospective CV+/jackknife runs fit preprocessing or supervised feature-reduction steps before the internal folds, and Benchmark v2 requires those steps to be refit inside each fold.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -121,7 +121,7 @@ Reader note: this section reports the fixed-GBM CQR pipeline, Mondrian calibrati
 The completed model-matched CQR rerun checks whether the historical fixed-GBM CQR backend explains the CQR signal. It preserves the experiment-scoped interpretation and does not turn the retrospective comparison into a study-wide method choice.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -144,7 +144,7 @@ Study-wide method choice supported & \texttt{False} & Backend sensitivity eviden
 Post-selection validation asks whether the descriptive pattern persists in a held-out validation-style slice after the candidate methods have already been identified. The supplement treats this as a diagnostic stress test. It does not convert the observed counts into a study-wide method choice.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -174,7 +174,7 @@ Reader note: post-selection diagnostics are stress tests of a descriptive patter
 Bounded-support checks ask whether prediction interval endpoints respect the natural domain of the target. This is different from ordinary marginal coverage. Weighted conformal ideas can address some covariate-shift settings \cite{tibshirani2020covariate_shift}, but the present endpoint policy is an empirical domain-validity diagnostic. The current evidence does not support bounded-support validity claims.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -200,7 +200,7 @@ Reader note: bounded-support evidence is stricter than ordinary coverage evidenc
 Group coverage diagnostics compare interval behavior across observed groups. They are useful for auditing heterogeneity, but they are not population-level group inference claims unless the population estimand, protected-attribute scope, sampling design, and multiplicity treatment support that claim.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -231,7 +231,7 @@ Reader note: group rows can show where interval behavior differs, but group infe
 Duplicate and split-integrity checks protect the interpretation of model comparisons. If repeated rows, row signatures, or model-visible duplicates can affect train/calibration/test separation, the result must retain the caveat rather than become stronger prose.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -246,7 +246,7 @@ Unquarantined actions & 0 & No untracked duplicate action \\
 Cross-run leakage status & \texttt{hard\_\allowbreak{}leakage\_\allowbreak{}not\_\allowbreak{}detected\_\allowbreak{}in\_\allowbreak{}scanned\_\allowbreak{}artifacts} & Hard leakage not detected in scanned artifacts \\
 Unsupported claim hits & 0 & Claim scan clean for this audit \\
 Cross-run risk counts & medium=39; pass=109 & Risk inventory retained \\
-Cross-run caveat counts & duplicate\_\allowbreak{}cluster\_\allowbreak{}plus\_\allowbreak{}family\_\allowbreak{}internal\_\allowbreak{}fold\_\allowbreak{}caveat=17; duplicate\_\allowbreak{}signature\_\allowbreak{}cross\_\allowbreak{}split\_\allowbreak{}caveat=14; model\_\allowbreak{}visible\_\allowbreak{}signature\_\allowbreak{}cross\_\allowbreak{}split\_\allowbreak{}caveat=15 & Caveats constrain interpretation \\
+Cross-run caveat counts & duplicate\_\allowbreak{}cluster\_\allowbreak{}plus\_\allowbreak{}family\_\allowbreak{}internal\_\allowbreak{}fold\_\allowbreak{}caveat=17; duplicate\_\allowbreak{}signature\_\allowbreak{}cross\_\allowbreak{}split\_\allowbreak{}caveat=14; model\_\allowbreak{}visible\_\allowbreak{}signature\_\allowbreak{}cross\_\allowbreak{}split\_\allowbreak{}caveat=15 & Plus-family rows are read with the fold-local preprocessing caveat; other caveats constrain duplicate and cross-split interpretation. \\
 \bottomrule
 \end{tabular}
 \endgroup
@@ -271,42 +271,20 @@ Venn-Abers evidence is retained as part of the negative and boundary evidence fo
 
 \section{References}
 
-\begin{itemize}
-\item Barber et al. (2020). \emph{Predictive inference with the jackknife+}. \url{https://arxiv.org/abs/1905.02928}.
-\item Kim et al. (2020). \emph{Predictive Inference Is Free with the Jackknife+-after-Bootstrap}. \url{https://arxiv.org/abs/2002.09025}.
-\item Lei et al. (2017). \emph{Distribution-Free Predictive Inference for Regression}. \url{https://arxiv.org/abs/1604.04173}.
-\item Nouretdinov et al. (2018). \emph{Inductive Venn-Abers predictive distribution}. \url{https://proceedings.mlr.press/v91/nouretdinov18a.html}.
-\item Nouretdinov and Gammerman (2024). \emph{Inductive Venn-Abers Predictive Distributions: New Applications and Evaluation}. \url{https://proceedings.mlr.press/v230/nouretdinov24a.html}.
-\item Petej and Vovk (2026). \emph{Inductive Venn-Abers and related regressors}. \url{https://arxiv.org/html/2605.06646v1}.
-\item Romano et al. (2019). \emph{Conformalized Quantile Regression}. \url{https://arxiv.org/abs/1905.03222}.
-\item \texttt{@tibshirani2020covariate\_\allowbreak{}shift}: https://arxiv.org/abs/1904.06019
-\item Van Der Laan and Alaa (2025). \emph{Generalized Venn and Venn-Abers Calibration with Applications in Conformal Prediction}. \url{https://proceedings.mlr.press/v267/van-der-laan25a.html}.
-\end{itemize}
+\begin{thebibliography}{9}
+\bibitem{barber2020jackknife_plus} Barber et al. (2020). \emph{Predictive inference with the jackknife+}. \url{https://arxiv.org/abs/1905.02928}.
+\bibitem{kim2020jackknife_after_bootstrap} Kim et al. (2020). \emph{Predictive Inference Is Free with the Jackknife+-after-Bootstrap}. \url{https://arxiv.org/abs/2002.09025}.
+\bibitem{lei2017distribution_free_regression} Lei et al. (2017). \emph{Distribution-Free Predictive Inference for Regression}. \url{https://arxiv.org/abs/1604.04173}.
+\bibitem{nouretdinov2018ivapd} Nouretdinov et al. (2018). \emph{Inductive Venn-Abers predictive distribution}. \url{https://proceedings.mlr.press/v91/nouretdinov18a.html}.
+\bibitem{nouretdinov2024ivapd_applications} Nouretdinov and Gammerman (2024). \emph{Inductive Venn-Abers Predictive Distributions: New Applications and Evaluation}. \url{https://proceedings.mlr.press/v230/nouretdinov24a.html}.
+\bibitem{petej2026inductive_venn_abers_regressors} Petej and Vovk (2026). \emph{Inductive Venn-Abers and related regressors}. \url{https://arxiv.org/html/2605.06646v1}.
+\bibitem{romano2019conformalized_quantile_regression} Romano et al. (2019). \emph{Conformalized Quantile Regression}. \url{https://arxiv.org/abs/1905.03222}.
+\bibitem{tibshirani2020covariate_shift} Tibshirani et al. (2020). \emph{Conformal prediction under covariate shift}. \url{https://arxiv.org/abs/1904.06019}.
+\bibitem{vanderlaan2025generalized_venn_abers} Van Der Laan and Alaa (2025). \emph{Generalized Venn and Venn-Abers Calibration with Applications in Conformal Prediction}. \url{https://proceedings.mlr.press/v267/van-der-laan25a.html}.
+\end{thebibliography}
 
 \section{Source Artifacts}
 
-\begin{itemize}
-\item \texttt{main\_\allowbreak{}article\_\allowbreak{}source}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}main\_\allowbreak{}article\_\allowbreak{}source.\allowbreak{}json}
-\item \texttt{individual\_\allowbreak{}experiment\_\allowbreak{}report\_\allowbreak{}source}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}individual\_\allowbreak{}experiment\_\allowbreak{}report\_\allowbreak{}source.\allowbreak{}json}
-\item \texttt{article\_\allowbreak{}supplement\_\allowbreak{}blueprint\_\allowbreak{}alignment}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}article\_\allowbreak{}supplement\_\allowbreak{}blueprint\_\allowbreak{}alignment.\allowbreak{}json}
-\item \texttt{method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}method\_\allowbreak{}selection\_\allowbreak{}robustness\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{method\_\allowbreak{}selection\_\allowbreak{}inferential\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}method\_\allowbreak{}selection\_\allowbreak{}inferential\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{method\_\allowbreak{}selection\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}results}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}method\_\allowbreak{}selection\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}results.\allowbreak{}json}
-\item \texttt{dataset\_\allowbreak{}final\_\allowbreak{}gate\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}bridge\_\allowbreak{}results}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}dataset\_\allowbreak{}final\_\allowbreak{}gate\_\allowbreak{}post\_\allowbreak{}selection\_\allowbreak{}validation\_\allowbreak{}bridge\_\allowbreak{}results.\allowbreak{}json}
-\item \texttt{bounded\_\allowbreak{}support\_\allowbreak{}endpoint\_\allowbreak{}closure\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}bounded\_\allowbreak{}support\_\allowbreak{}endpoint\_\allowbreak{}closure\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{bounded\_\allowbreak{}support\_\allowbreak{}positive\_\allowbreak{}validation\_\allowbreak{}protocol}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}bounded\_\allowbreak{}support\_\allowbreak{}positive\_\allowbreak{}validation\_\allowbreak{}protocol.\allowbreak{}json}
-\item \texttt{group inference\_\allowbreak{}group\_\allowbreak{}diagnostic\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}group inference\_\allowbreak{}group\_\allowbreak{}diagnostic\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{group inference\_\allowbreak{}population\_\allowbreak{}readiness\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}group inference\_\allowbreak{}population\_\allowbreak{}readiness\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{group inference\_\allowbreak{}group\_\allowbreak{}multiplicity\_\allowbreak{}scope}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}group inference\_\allowbreak{}group\_\allowbreak{}multiplicity\_\allowbreak{}scope.\allowbreak{}json}
-\item \texttt{duplicate\_\allowbreak{}sensitivity\_\allowbreak{}closure\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}duplicate\_\allowbreak{}sensitivity\_\allowbreak{}closure\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{duplicate\_\allowbreak{}content\_\allowbreak{}quarantine\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}duplicate\_\allowbreak{}content\_\allowbreak{}quarantine\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{cross\_\allowbreak{}run\_\allowbreak{}integrity\_\allowbreak{}audit}: \texttt{study/\allowbreak{}reports/\allowbreak{}methodology\_\allowbreak{}sanity\_\allowbreak{}audit\_\allowbreak{}20260627/\allowbreak{}cross\_\allowbreak{}run\_\allowbreak{}integrity\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{publication\_\allowbreak{}citation\_\allowbreak{}registry}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}publication\_\allowbreak{}citation\_\allowbreak{}registry.\allowbreak{}json}
-\item \texttt{knowledge\_\allowbreak{}graph\_\allowbreak{}quality\_\allowbreak{}summary}: \texttt{study/\allowbreak{}reports/\allowbreak{}knowledge\_\allowbreak{}graph\_\allowbreak{}quality/\allowbreak{}quality\_\allowbreak{}summary.\allowbreak{}json}
-\item \texttt{cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis}: \texttt{study/\allowbreak{}reports/\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}cqr\_\allowbreak{}rerun\_\allowbreak{}plan/\allowbreak{}cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis.\allowbreak{}json}
-\end{itemize}
-
-\bibliographystyle{plain}
-\bibliography{references}
+Detailed source paths, hashes, and public summaries are indexed in \texttt{evidence/\allowbreak{}public\_\allowbreak{}artifact\_\allowbreak{}manifest.\allowbreak{}json} and the Research Atlas evidence pages.
 
 \end{document}

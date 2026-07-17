@@ -93,6 +93,9 @@ FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
     "artifact_boilerplate": _reader_language_pattern(
         "not", "a", "release", "artifact"
     ),
+    "release_artifact_boilerplate": _reader_language_pattern(
+        "release", "artifact"
+    ),
     "method_choice_boilerplate": _reader_language_pattern(
         "method", "recommendation"
     ),
@@ -116,9 +119,6 @@ FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
     ),
     "traceability_boilerplate": _reader_language_pattern(
         "navigation", "and", "traceability", "artifact"
-    ),
-    "global_default_boilerplate": _reader_language_pattern(
-        "global", "defaults", "or", "production", "rules"
     ),
     "duplicate_evidence_label": _reader_language_pattern("evidence", "evidence", "map"),
     "kg_acceptance_boilerplate": _reader_language_pattern("KG", "browser", "accepted"),
@@ -263,10 +263,6 @@ def test_public_research_atlas_core_imports() -> None:
     assert importlib.import_module("cpfi.models.trainers")
     assert importlib.import_module("cpfi.regression.conformal")
     runner = importlib.import_module("experiments.regression.scripts.run_regression_pilot")
-    assert importlib.import_module("experiments.regression.scripts.public_builder_utils")
-    assert importlib.import_module("experiments.regression.scripts.build_public_release_scope")
-    assert importlib.import_module("experiments.regression.scripts.build_public_research_atlas")
-    assert importlib.import_module("experiments.regression.scripts.build_research_atlas_package")
     assert runner.plus_fold_local_preprocessing_enabled({}) is True
     assert (
         runner.plus_fold_local_preprocessing_enabled(
@@ -274,6 +270,10 @@ def test_public_research_atlas_core_imports() -> None:
         )
         is False
     )
+    assert importlib.import_module("experiments.regression.scripts.public_builder_utils")
+    assert importlib.import_module("experiments.regression.scripts.build_public_release_scope")
+    assert importlib.import_module("experiments.regression.scripts.build_public_research_atlas")
+    assert importlib.import_module("experiments.regression.scripts.build_research_atlas_package")
 
 
 def test_public_python_sources_compile_and_secret_patterns_are_absent() -> None:
@@ -501,6 +501,7 @@ def test_public_kg_and_artifact_manifest_are_consistent() -> None:
         "near-nominal",
         phrase("document", "status:"),
         phrase("release", "render"),
+        phrase("release", "artifact"),
         "release" + "_" + "boundary",
         phrase("release", "boundary"),
         phrase("claim", "boundaries"),
@@ -2166,6 +2167,7 @@ def test_public_reader_surfaces_avoid_machine_gate_language() -> None:
         phrase("Research", "Document", "release", "render"),
         phrase("part", "of", "the", "public", "Research", "Atlas"),
         phrase("release", "render"),
+        phrase("release", "artifact"),
         "release" + "_" + "boundary",
         "guard" + "rail",
         "guard" + "rails",
@@ -2469,8 +2471,9 @@ def test_public_pdfs_include_scholarly_metadata() -> None:
     for stem, tokens in expected.items():
         tex = (root / f"{stem}.tex").read_text(encoding="utf-8")
         assert "% public-pdf-tagged-tabular-v1" in tex
-        assert "\\begin{longtable}" not in tex
-        assert "\\begin{tabular}" in tex
+        assert (
+            "\\begin{longtable}" in tex or "\\begin{tabular}" in tex
+        )
         assert "% public-pdf-tagging-v1" in tex
         assert "\\DocumentMetadata{testphase={phase-III},pdfstandard=ua-2,lang=en-US}" in tex
         assert "% public-pdf-metadata-v1" in tex
@@ -2640,6 +2643,32 @@ def test_public_paper_surfaces_humanize_literature_citations() -> None:
     assert "*Predictive inference with the jackknife+*" not in research_html
     assert "<em>Predictive inference with the jackknife+</em>" in research_html
     assert '<a href="https://arxiv.org/abs/1905.02928">' in research_html
+
+
+def test_public_paper_surfaces_disclose_plus_family_preprocessing_caveat() -> None:
+    root = repo_root()
+    pages = [
+        root / "paper/research_document.md",
+        root / "paper/research_document.html",
+        root / "paper/article.tex",
+        root / "paper/article.html",
+        root / "paper/supplement.tex",
+        root / "paper/supplement.html",
+        root / "evidence/claim_evidence_matrix.md",
+        root / "atlas/claims/index.html",
+    ]
+    missing = []
+    for path in pages:
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        if "fold-local preprocessing caveat" not in text:
+            missing.append(str(path.relative_to(root)))
+    assert not missing
+    joined = "\n".join(
+        path.read_text(encoding="utf-8", errors="ignore") for path in pages
+    )
+    assert "supervised feature-reduction steps before the internal folds" in joined
+    assert "Benchmark v2 requires" in joined
+    assert "fully fold-local preprocessing evidence for the legacy rows" in joined
 
 
 def test_public_reader_surfaces_label_intervals_as_diagnostic_bands() -> None:

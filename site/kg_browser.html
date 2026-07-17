@@ -108,6 +108,39 @@
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
+    const titleCase = value => String(value || '').replace(/[_-]+/g,' ').replace(/\s+/g,' ').trim().replace(/\b\w/g, c=>c.toUpperCase());
+    function readableNodeLabel(nodeOrValue){
+      const raw = typeof nodeOrValue === 'object' && nodeOrValue ? String(nodeOrValue.label || nodeOrValue.id || '') : String(nodeOrValue || '');
+      const id = typeof nodeOrValue === 'object' && nodeOrValue ? String(nodeOrValue.id || '') : raw;
+      const combined = `${raw} ${id}`.toLowerCase();
+      if(combined.includes('cqr_model_matched') || combined.includes('model matched cqr')) return 'Model-matched CQR';
+      if(combined.includes('cqr') && combined.includes('backend')) return 'CQR backend sensitivity';
+      if(combined.includes('method_performance') || combined.includes('method performance')) return 'Method performance synthesis';
+      if(combined.includes('claim_evidence') || combined.includes('publication claim') || combined.includes('claim evidence')) return 'Claim matrix';
+      if(combined.includes('final_publication_output') || combined.includes('final publication') || combined.includes('publication output scope')) return 'Publication outputs';
+      if(combined.includes('working_latex_html') || combined.includes('latex html')) return 'Article and supplement HTML review';
+      if(combined.includes('research_document')) return 'Research Document';
+      if(combined.includes('main_article')) return 'Main article';
+      if(combined.includes('supplement')) return 'Supplement';
+      if(combined.includes('neutral_result_ledger')) return 'Neutral result ledger';
+      if(combined.includes('section_'+'claim_'+'boundary') || combined.includes(['claim','boundary'].join(' '))) return 'Claim scope audit';
+      let label = raw.replace(/^Control[:\s]+/i,'').replace(/^Dataset[:\s]+/i,'').replace(/^Method[:\s]+/i,'');
+      label = label.replace(/Artifact:.*/i,'').replace(/Draft:.*/i,'').replace(/\s+/g,' ').trim();
+      if(!label || /[_:]/.test(label)) label = titleCase(id.split(':').pop() || raw);
+      return label || 'Evidence node';
+    }
+    function readableType(value){
+      const raw=String(value || '').replace(/_/g,' ').trim();
+      const map={
+        'methodology record':'evidence record',
+        'publication artifact':'publication artifact',
+        'dataset':'dataset',
+        'method':'method',
+        'claim':'claim',
+        'result':'result'
+      };
+      return map[raw] || raw || 'record';
+    }
     const fetchJson = path => fetch(path).then(r=>{ if(!r.ok) throw new Error(`${path} HTTP ${r.status}`); return r.json(); });
     const artifactHref = path => path ? `../${String(path).replace(/^\/+/, '')}` : '';
     const graphNotice = message => { document.getElementById('graphNotice').textContent = message || ''; };
@@ -348,7 +381,7 @@
 	        ['source_artifacts', 'source artifacts'],
 	        ['navigation_rows', 'navigation rows'],
 	        ['gate_rows', 'study-check rows'],
-	        ['blocked_gates', 'study-scope checks']
+	        ['beyond_current_study_gates', 'study-scope notes']
 	      ];
 	      for(const [needle,label] of replacements){
 	        text = text.split(needle).join(label);
@@ -418,7 +451,7 @@
       const nodes=allNodes.slice(0,80);
       document.getElementById('resultCount').textContent=allNodes.length ? `Showing ${nodes.length.toLocaleString()} of ${allNodes.length.toLocaleString()} matching nodes${allNodes.length>nodes.length ? '; refine search or filter type to narrow the hidden matches.' : '.'}` : (hasCriteria ? 'No matching nodes for the current search or filter.' : '');
       document.getElementById('results').innerHTML=nodes.length
-        ? `<ul class="kg-list result-list" aria-label="Search results">${nodes.map(n=>`<li><button type="button" class="result ${n.id===state.selected?'active':''}" aria-current="${n.id===state.selected?'true':'false'}" aria-label="Open graph node ${esc(n.label)}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></button></li>`).join('')}</ul>`
+        ? `<ul class="kg-list result-list" aria-label="Search results">${nodes.map(n=>`<li><button type="button" class="result ${n.id===state.selected?'active':''}" aria-current="${n.id===state.selected?'true':'false'}" aria-label="Open graph node ${esc(readableNodeLabel(n))}" data-id="${esc(n.id)}"><b>${esc(readableNodeLabel(n))}</b><span>${esc(readableType(n.type))} · degree ${esc(n.degree)}</span></button></li>`).join('')}</ul>`
         : (hasCriteria ? '<p class="muted">No matching nodes. Clear the search text or choose a broader node type.</p>' : '<p class="muted">Search or choose a node type to inspect the full audit graph. The default canvas stays at reader overview level.</p>');
       document.querySelectorAll('.result').forEach(el=>el.onclick=()=>select(el.dataset.id));
     }
@@ -434,7 +467,7 @@
         const route=selectedRoute();
         const routes=route?[route]:(state.data.research_map||[]);
         const routeRows=routes.map(r=>`<tr><td><button type="button" class="table-action" data-route-action="${esc(r.route_id)}" aria-label="Open evidence route ${esc(r.title)}">${esc(r.title)}</button></td><td>${esc(short(r.summary,140))}</td><td>${esc((r.node_ids||[]).length)} anchors</td></tr>`).join('');
-        const anchorRows=route ? routeNodes(route).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
+        const anchorRows=route ? routeNodes(route).map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(readableNodeLabel(row))}</button></td><td>${esc(readableType(row.type))}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('') : '';
         document.getElementById('detail').innerHTML=state.missingRequest
           ? `<span class="pill">deep link status</span><h2>Requested graph item was not found</h2><p class="muted">The requested ${esc(state.missingRequest.kind)} <code>${esc(state.missingRequest.value)}</code> is not present in this public graph snapshot. Use search or one of the guided routes below.</p>`
           : (route
@@ -450,22 +483,22 @@
       }
 	      const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Availability:</strong> ${esc(artifactStatusLabel(n.source_resolution.status))}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
 	      const technicalRecord = `<details class="edge"><summary><b>Technical record</b><span class="muted">Atlas id and source reference</span></summary><div class="receipt"><p class="muted"><strong>Atlas record:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source reference:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}</div></details>`;
-	      document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p>${sourceResolution}${technicalRecord}`;
+	      document.getElementById('detail').innerHTML=`<span class="pill">${esc(readableType(n.type))}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(readableNodeLabel(n))}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p>${sourceResolution}${technicalRecord}`;
       const neighborhood=neighbors(n.id);
       const incidentEdges=filterEdges(neighborhood.incidentEdges || []);
       const es=incidentEdges.slice(0,14);
       const rawIncidentEdgeTotal=neighborhood.incidentEdgeTotal ?? ((neighborhood.incidentEdges || []).length);
       const visibleFilterNote=state.edgesLoaded ? `<p class="muted">Visible edge filters: relation ${currentRelationFilter() || 'all'}, minimum confidence ${currentConfidenceMin().toFixed(2)}. Showing ${incidentEdges.length.toLocaleString()} matching incident edges from ${rawIncidentEdgeTotal.toLocaleString()} loaded incident edges.</p>` : '';
       const hiddenEdgeNote=state.edgesLoaded && incidentEdges.length>es.length ? `<p class="muted">Showing ${es.length.toLocaleString()} of ${incidentEdges.length.toLocaleString()} matching incident edges; use the filters or source artifacts for the remaining edge provenance.</p>` : '';
-	      document.getElementById('edges').innerHTML=state.edgesLoaded ? (neighborhood.loading ? '<p class="muted">Worker is preparing edge provenance for this node...</p>' : visibleFilterNote + (es.length ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<details class="edge"><summary><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><span class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · open evidence details</span></summary><div class="receipt"><p class="muted"><strong>Evidence selector:</strong> ${esc(prettySelector(e.evidence_path))}</p><p class="muted"><strong>Connected record:</strong> <code>${esc(other)}</code></p>${artifactResolution(er)}<details><summary>Technical selector</summary><p class="muted"><code>${esc(e.evidence_path||'source selector recorded')}</code></p></details></div></details>`; }).join('') + hiddenEdgeNote : '<p class="muted">No incident edges match the active relation or confidence filters.</p>')) : '<p class="muted">Loading edge provenance on demand for this node...</p>';
+	      document.getElementById('edges').innerHTML=state.edgesLoaded ? (neighborhood.loading ? '<p class="muted">Worker is preparing edge provenance for this node...</p>' : visibleFilterNote + (es.length ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<details class="edge"><summary><span class="pill">${esc(e.relation)}</span><b>${esc(o?readableNodeLabel(o):other)}</b><span class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · open evidence details</span></summary><div class="receipt"><p class="muted"><strong>Evidence selector:</strong> ${esc(prettySelector(e.evidence_path))}</p><p class="muted"><strong>Connected record:</strong> <code>${esc(other)}</code></p>${artifactResolution(er)}<details><summary>Technical selector</summary><p class="muted"><code>${esc(e.evidence_path||'source selector recorded')}</code></p></details></div></details>`; }).join('') + hiddenEdgeNote : '<p class="muted">No incident edges match the active relation or confidence filters.</p>')) : '<p class="muted">Loading edge provenance on demand for this node...</p>';
       const shownNeighborhoodNodes=neighborhood.nodes.slice(0,18);
       const hiddenNodeNote=neighborhood.nodes.length>shownNeighborhoodNodes.length || neighborhood.truncated ? `<p class="muted">Showing ${shownNeighborhoodNodes.length.toLocaleString()} of ${neighborhood.nodes.length.toLocaleString()} loaded neighborhood nodes${neighborhood.truncated ? '; additional reachable nodes are omitted from this compact table.' : '.'}</p>` : '';
-	      document.getElementById('table').innerHTML=`<table><caption>Selected node neighborhood</caption><thead><tr><th scope="col">Node</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${shownNeighborhoodNodes.map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>${hiddenNodeNote}`;
+	      document.getElementById('table').innerHTML=`<table><caption>Selected node neighborhood</caption><thead><tr><th scope="col">Node</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${shownNeighborhoodNodes.map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(readableNodeLabel(row))}</button></td><td>${esc(readableType(row.type))}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>${hiddenNodeNote}`;
       activateNodeButtons();
     }
     function announceCanvasFocus(){
       const point=state.points[state.focusIndex], node=point ? state.nodeById.get(point.id) : null;
-      if(node) document.getElementById('canvasStatus').textContent=`Canvas focus ${state.focusIndex+1} of ${state.points.length}: ${node.label}. Press Enter to open this node.`;
+      if(node) document.getElementById('canvasStatus').textContent=`Canvas focus ${state.focusIndex+1} of ${state.points.length}: ${readableNodeLabel(node)}. Press Enter to open this node.`;
     }
     function moveCanvasFocus(delta){
       if(!state.points.length) return;
@@ -479,7 +512,7 @@
       const ctx=canvas.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,r.width,r.height);
       const selected=state.nodeById.get(state.selected);
       let nodes=[], edges=[];
-      if(selected){ const sub=neighbors(selected.id); nodes=sub.nodes; edges=filterEdges(sub.edges); document.getElementById('mapTitle').textContent=selected.label; }
+      if(selected){ const sub=neighbors(selected.id); nodes=sub.nodes; edges=filterEdges(sub.edges); document.getElementById('mapTitle').textContent=readableNodeLabel(selected); }
       else {
         const route=selectedRoute();
         nodes=uniqueNodes((route?[route]:(state.data.research_map||[])).flatMap(routeNodes));
@@ -497,7 +530,7 @@
       nodes.forEach((n,i)=>{ const angle=-Math.PI/2 + i*(Math.PI*2/Math.max(1,nodes.length)); const rr=n.id===state.selected?0:radius*(0.72+((i%5)*0.07)); pos.set(n.id,{x:cx+Math.cos(angle)*rr,y:cy+Math.sin(angle)*rr}); });
       edges.forEach(e=>{ const a=pos.get(e.source), b=pos.get(e.target); if(!a||!b) return; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=e.relation==='REQUIRES_VALIDATION_FROM'?'rgba(160,68,47,.38)':(e.relation==='ROUTE_STEP'?'rgba(153,101,21,.30)':'rgba(42,72,86,.22)'); ctx.lineWidth=e.relation==='ROUTE_STEP'?1.6:1; ctx.stroke(); });
       state.points=[];
-      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const focused=i===state.focusIndex; const overview=!state.selected; const route=selectedRoute(); const mobileCanvas=r.width<560; const sparseLabel=(!mobileCanvas && !route && i%10===0); const shouldLabel=is || focused || (!mobileCanvas && (nodes.length<=12 || sparseLabel)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); if(focused){ ctx.beginPath(); ctx.strokeStyle='rgba(15,118,110,.65)'; ctx.lineWidth=4; ctx.arc(p.x,p.y,size+7,0,Math.PI*2); ctx.stroke(); } ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(shouldLabel){ ctx.fillStyle='#151922'; ctx.font=(is||focused?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(mobileCanvas?24:38):(overview?(mobileCanvas?20:30):22); const label=short(n.label,maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
+      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const focused=i===state.focusIndex; const overview=!state.selected; const route=selectedRoute(); const mobileCanvas=r.width<560; const sparseLabel=(!mobileCanvas && !route && i%10===0); const shouldLabel=is || focused || (!mobileCanvas && (nodes.length<=12 || sparseLabel)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); if(focused){ ctx.beginPath(); ctx.strokeStyle='rgba(15,118,110,.65)'; ctx.lineWidth=4; ctx.arc(p.x,p.y,size+7,0,Math.PI*2); ctx.stroke(); } ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(shouldLabel){ ctx.fillStyle='#151922'; ctx.font=(is||focused?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(mobileCanvas?24:38):(overview?(mobileCanvas?20:30):22); const label=short(readableNodeLabel(n),maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
       document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes`;
     }
     function renderAll(){ renderRoutes(); renderResults(); renderDetail(); updateDepthButtons(); draw(); }

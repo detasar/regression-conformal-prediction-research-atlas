@@ -57,7 +57,7 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <main id="main-content" tabindex="-1">
-  <div class="boundary"><strong>Study scope.</strong> Source-traceable summary of the audited regression conformal prediction study.</div>
+  <div class="boundary"><strong>Study scope.</strong> Experiment-scoped Research Atlas render with source-traceable results and layout checks.</div>
 <h1>Supplementary Document</h1>
 <p><strong>Key empirical signal:</strong> Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.</p>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
@@ -90,7 +90,7 @@
 </tbody>
 </table></div>
 <h2>S1. Method Selection Robustness Diagnostics</h2>
-<p>This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">Lei et al. (2017)</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">Romano et al. (2019)</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">Barber et al. (2020)</a>; <a href="https://arxiv.org/abs/2002.09025">Kim et al. (2020)</a>].</p>
+<p>This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">Lei et al. (2017)</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">Romano et al. (2019)</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">Barber et al. (2020)</a>; <a href="https://arxiv.org/abs/2002.09025">Kim et al. (2020)</a>]. Legacy plus-family rows are interpreted with a fold-local preprocessing caveat: some retrospective CV+/jackknife runs fit preprocessing or supervised feature-reduction steps before the internal folds, and Benchmark v2 requires those steps to be refit inside each fold.</p>
 <div class="table-wrap"><table><caption>Method-selection robustness diagnostics</caption>
 <thead><tr><th scope="col">Diagnostic item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
 <tbody>
@@ -197,7 +197,7 @@
 <tr><td>Cross-run leakage status</td><td><code>hard_leakage_not_detected_in_scanned_artifacts</code></td><td>Hard leakage not detected in scanned artifacts</td></tr>
 <tr><td>Unsupported claim hits</td><td>0</td><td>Claim scan clean for this audit</td></tr>
 <tr><td>Cross-run risk counts</td><td>medium=39; pass=109</td><td>Risk inventory retained</td></tr>
-<tr><td>Cross-run caveat counts</td><td>duplicate_cluster_plus_family_internal_fold_caveat=17; duplicate_signature_cross_split_caveat=14; model_visible_signature_cross_split_caveat=15</td><td>Caveats constrain interpretation</td></tr>
+<tr><td>Cross-run caveat counts</td><td>duplicate_cluster_plus_family_internal_fold_caveat=17; duplicate_signature_cross_split_caveat=14; model_visible_signature_cross_split_caveat=15</td><td>Plus-family rows are read with the fold-local preprocessing caveat; other caveats constrain duplicate and cross-split interpretation.</td></tr>
 </tbody>
 </table></div>
 <p>Reader note: the clean unsupported-claim scan does not erase duplicate or split caveats. It means the scanned artifacts did not contain unsupported claim language; the caveats still travel with the empirical interpretation.</p>

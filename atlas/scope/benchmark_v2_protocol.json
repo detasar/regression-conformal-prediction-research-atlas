@@ -14,7 +14,7 @@
     "Publish planned, attempted, completed, failed, skipped, and publication-scoped accounting matrices.",
     "Publish enough run-level ledger, split hash, environment lock, and aggregate cube material to audit the synthesis."
   ],
-  "generated_at_utc": "2026-07-17T07:17:10.378894+00:00",
+  "generated_at_utc": "2026-07-17T12:32:44.132350+00:00",
   "interpretation_scope": "Benchmark v2 is a forward protocol with a separate resumable execution ledger. It does not revise the Atlas v0 retrospective results until new, separately versioned runs are completed and synthesized.",
   "primary_estimand": {
     "primary_comparison_unit": "source_dataset_task_alpha_learner_config_split_hash",

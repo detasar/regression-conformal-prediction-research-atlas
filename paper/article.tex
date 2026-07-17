@@ -58,7 +58,7 @@ This article therefore treats the empirical output as a controlled measurement e
 The snapshot below is the main article version of the Research Document's interpretation guide. It separates conformal prediction's theorem-level language from the empirical audit language used in this study, and it marks broader readings that would need a separate validation study.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -88,7 +88,7 @@ Venn-Abers bridge & The negative evidence concerns the evaluated interval bridge
 The paper is organized as a small article, a broad supplement, and a browsable evidence map. This structure follows the source-backed publication exemplar review: the article carries the central claim-evidence narrative, while the supplement and KG carry the detailed audit trail. The contract below tells a reader where to look and how each surface should be interpreted.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.190\linewidth}@{}}
@@ -106,32 +106,23 @@ Claim-evidence contract & Use the claim matrix to keep each reader-facing senten
 
 \section{Research Questions}
 
-The article is organized around five research questions. The answers below are intentionally scoped: each answer states what the audited evidence supports and the stronger reading that remains beyond this study.
+The article is organized around five research questions. The answers below state what the audited evidence supports and which stronger readings would need separate validation studies.
 
-\begingroup
-\small
-\setlength{\tabcolsep}{2pt}
-\renewcommand{\arraystretch}{1.18}
-\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.190\linewidth}@{}}
-\toprule
-Research question & Article answer & Evidence anchor & Stronger reading requiring validation \\
-\midrule
-What empirical object is being audited? & A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. & Completed-row accounting and individual experiment report facts. & The scope is an audited experiment surface rather than exhaustive internet coverage or deployment generality. \\
-Which practical method pattern is supported descriptively? & Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan. CQR carried the largest coverage-gated selected-cell count (56) and CV+ contributed 13 coverage-gated selected cells. & Coverage-gated selected-cell counts, coverage-width diagnostics, and claim/evidence matrix. & Keep the pattern experiment-scoped; use in a new setting needs validation for that setting. \\
-Was the CQR signal only a fixed-GBM backend artifact? & A completed model-matched CQR rerun produced 4,564 model-matched rows and 224 paired comparison cells. Fixed-GBM CQR was selected in 116 coverage-eligible interval-score cells, model-matched CQR in 71, and neither variant in 37. & Fixed-GBM CQR vs model-matched CQR synthesis. & Read the sensitivity check as backend-confound evidence. \\
-What did the evaluated Venn-Abers regression bridge show? & The evaluated bridge is negative/failure-mode evidence in this study, including 14 undercoverage runs. & Bridge diagnostics and Venn-Abers interpretation-limit rows. & Read this bridge result separately from the broader Venn-Abers predictive-distribution and generalized-calibration literature. \\
-Which stronger scientific readings would need separate validation studies? & Bounded-support validity and population-level group inference would need a separate validation study; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. & Paper gate map, bounded-support audit, group-diagnostic audit, and claim matrix. & Keep diagnostic endpoint and group evidence separate from validity or group-inference conclusions. \\
-How can the evidence be audited? & The KG and Research Atlas package provide traceability infrastructure with 3,643 KG nodes and 21,019 KG edges. & Knowledge-graph quality audit and Research Atlas package metadata. & Use the Research Atlas repository as the citation surface; source provenance is tracked separately. \\
-\bottomrule
-\end{tabular}
-\endgroup
+\begin{description}
+\item[What empirical object is being audited?] A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. The scope is an audited experiment surface rather than exhaustive internet coverage or deployment generality.
+\item[Which practical method pattern is supported descriptively?] Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.
+\item[Was the CQR signal only a fixed-GBM backend artifact?] A completed model-matched CQR rerun produced 4,564 model-matched rows and 224 paired comparison cells. Fixed-GBM CQR was selected in 116 coverage-eligible interval-score cells, model-matched CQR in 71, and neither variant in 37. Read this as backend-sensitivity evidence.
+\item[What did the evaluated Venn-Abers regression bridge show?] The evaluated bridge is negative/failure-mode evidence in this study, including 14 undercoverage runs. This bridge result is separate from the broader Venn-Abers predictive-distribution and generalized-calibration literature.
+\item[Which stronger scientific readings would need separate validation studies?] Bounded-support validity and population-level group inference would need a separate validation study; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles.
+\item[How can the evidence be audited?] The KG and Research Atlas package provide traceability infrastructure with 3,643 KG nodes and 21,019 KG edges. Source provenance is tracked separately through the Research Atlas evidence files.
+\end{description}
 
 \section{Concept Bridge For Non-Specialist Readers}
 
 This bridge links the main technical concepts to the sources and interpretation limits used in the article. It is intentionally compact: the supplement carries the longer method discussion, while this article keeps only the definitions needed to avoid over-reading the results.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.140\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.140\linewidth}@{}}
@@ -140,9 +131,9 @@ Concept & Source or evidence anchor & Article use & Evidence-supported sentence 
 \midrule
 Conformal prediction target & Distribution-free regression conformal prediction \cite{lei2017distribution_free_regression} & \texttt{1 - alpha} is the nominal marginal coverage target under the stated calibration assumptions. & The article may report target and observed coverage separately. & Subgroup, endpoint, and future-deployment coverage would need separate validation studies. \\
 Conformalized Quantile Regression & CQR lower/upper quantile calibration \cite{romano2019conformalized_quantile_regression} & CQR starts with lower and upper quantile models, then applies conformal calibration to the interval. & CQR is reported as the largest fixed-GBM pipeline signal in the audited experiment. & CQR is reported within the audited experiment rather than as a universal method choice. \\
-CV+ and jackknife-style intervals & Jackknife+/CV+ resampling evidence \cite{barber2020jackknife_plus,kim2020jackknife_after_bootstrap} & CV+ uses out-of-fold prediction evidence so interval construction reflects fitted-model variability. & CV+ is reported as a secondary experiment-scoped signal under the current coverage criterion. & Model, split, and dataset caveats remain part of the CV+ interpretation. \\
+CV+ and jackknife-style intervals & Jackknife+/CV+ resampling evidence \cite{barber2020jackknife_plus,kim2020jackknife_after_bootstrap} & CV+ uses out-of-fold prediction evidence so interval construction reflects fitted-model variability. Legacy plus-family rows carry a fold-local preprocessing caveat because some retrospective runs fit preprocessing or supervised feature-reduction steps before the internal folds. & CV+ is reported as a secondary experiment-scoped signal under the current coverage criterion. & Benchmark v2 requires preprocessing, scaling, capping, feature selection, and reducers to be refit inside each CV+/jackknife fold. \\
 Venn-Abers regression bridge & Venn-Abers predictive-distribution and generalized-calibration literature \cite{nouretdinov2018ivapd,nouretdinov2024ivapd_applications,vanderlaan2025generalized_venn_abers,petej2026inductive_venn_abers_regressors} & The study evaluates a bridge from Venn-Abers-style calibration evidence into regression interval diagnostics. & The evaluated bridge produced bridge-specific negative evidence in these experiments. & The result concerns the evaluated bridge and leaves the broader Venn-Abers literature separate. \\
-Evidence-scoped empirical wording & Publication claim-evidence matrix and section-level interpretation audit & Every empirical sentence is paired with evidence, an allowed reading, and a stronger reading that would require validation. & Evidence limits are part of the scientific result and should remain visible. & Keep diagnostic patterns separate from deployment, group inference, endpoint-validity, and publication-scope claims. \\
+Evidence-scoped empirical wording & Publication claim-evidence matrix and section-level interpretation audit & Every empirical sentence is paired with evidence, an allowed reading, and a stronger reading that would require validation. & Evidence limits are part of the scientific result and should remain visible. & Keep diagnostic patterns separate from deployment, group inference, endpoint-validity, and release-scope claims. \\
 \bottomrule
 \end{tabular}
 \endgroup
@@ -152,7 +143,7 @@ Evidence-scoped empirical wording & Publication claim-evidence matrix and sectio
 The table below pairs each reader-facing claim with source-backed evidence and interpretation scope. This keeps useful empirical signals separate from unsupported deployment rules, group-inference claims, endpoint-validity claims, and scope-expansion claims.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.190\linewidth}@{}}
@@ -181,7 +172,7 @@ This separation is deliberate. Model training, interval construction, diagnostic
 The table below shows how a raw experimental object becomes a reader-facing statement in this article. Each step has an allowed claim and a stronger reading to avoid. The purpose is to make the scientific method visible: evidence can support a scoped statement only after the relevant accounting, diagnostic, interpretation, and provenance checks are kept attached.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.140\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.200\linewidth}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.140\linewidth}@{}}
@@ -217,7 +208,7 @@ The evaluated Venn-Abers regression bridge has a different status. Venn-Abers re
 The checklist below is intentionally conservative. It translates the method primer into interpretation limits so a reader can tell which parts are conformal-method background, which parts are empirical findings from this study, and which stronger readings would need separate validation studies.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -234,7 +225,7 @@ Venn-Abers bridge & The experiment evaluates a bridge from Venn-Abers-style cali
 \endgroup
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -256,7 +247,7 @@ For an observation with features \texttt{X\_\allowbreak{}i} and outcome \texttt{
 The article uses these quantities descriptively. A coverage-gated selected cell marks an observed coverage/width trade-off within a dataset-alpha comparison. Row-weighted coverage summarizes completed result rows. Undercoverage runs identify places where the empirical coverage fell below the target enough to be treated as failure-mode evidence. None of these summaries alone supports a study-wide method choice, group-inference claim, or bounded-support claim.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -277,7 +268,7 @@ Undercoverage run & Completed run below its target boundary & Failure-mode evide
 For a non-specialist reader, the methods differ mainly in how they choose or adjust interval endpoints. Split conformal uses a held-out residual quantile. CQR starts with lower and upper quantile models before conformal calibration. CV+ and jackknife+ use out-of-fold or leave-one-out predictions. Mondrian variants calibrate within groups or strata. The evaluated Venn-Abers regression bridge maps a distinct calibration object into interval-style diagnostics.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -300,7 +291,7 @@ Venn-Abers bridge & Bridge from Venn-Abers-style calibration evidence to interva
 The results table mixes scope counts, descriptive method signals, and interpretation limits. Coverage-gated selected cells summarize observed coverage/width trade-offs; row-weighted coverage summarizes empirical coverage across completed result blocks; undercoverage runs flag failure modes; and zero-ready checks record claims the article must not make. These quantities support interpretation, not a study-wide method choice.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
@@ -329,7 +320,7 @@ The descriptive method result is internally consistent with the individual exper
 A completed model-matched CQR rerun tests whether the historical fixed-GBM CQR pipeline alone explains the CQR signal. The rerun completed 4,564 model-matched CQR rows and pairs them with 4,564 fixed-GBM CQR rows across 224 dataset-alpha-model-family cells.
 
 \begingroup
-\small
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.290\linewidth}>{\RaggedRight\arraybackslash}p{0.610\linewidth}@{}}
@@ -373,32 +364,20 @@ The scientific contribution is therefore the audited measurement and scope recor
 
 \section{References}
 
-\begin{itemize}
-\item Barber et al. (2020). \emph{Predictive inference with the jackknife+}. \url{https://arxiv.org/abs/1905.02928}.
-\item Kim et al. (2020). \emph{Predictive Inference Is Free with the Jackknife+-after-Bootstrap}. \url{https://arxiv.org/abs/2002.09025}.
-\item Lei et al. (2017). \emph{Distribution-Free Predictive Inference for Regression}. \url{https://arxiv.org/abs/1604.04173}.
-\item Nouretdinov et al. (2018). \emph{Inductive Venn-Abers predictive distribution}. \url{https://proceedings.mlr.press/v91/nouretdinov18a.html}.
-\item Nouretdinov and Gammerman (2024). \emph{Inductive Venn-Abers Predictive Distributions: New Applications and Evaluation}. \url{https://proceedings.mlr.press/v230/nouretdinov24a.html}.
-\item Petej and Vovk (2026). \emph{Inductive Venn-Abers and related regressors}. \url{https://arxiv.org/html/2605.06646v1}.
-\item Romano et al. (2019). \emph{Conformalized Quantile Regression}. \url{https://arxiv.org/abs/1905.03222}.
-\item Van Der Laan and Alaa (2025). \emph{Generalized Venn and Venn-Abers Calibration with Applications in Conformal Prediction}. \url{https://proceedings.mlr.press/v267/van-der-laan25a.html}.
-\end{itemize}
+\begin{thebibliography}{9}
+\bibitem{barber2020jackknife_plus} Barber et al. (2020). \emph{Predictive inference with the jackknife+}. \url{https://arxiv.org/abs/1905.02928}.
+\bibitem{kim2020jackknife_after_bootstrap} Kim et al. (2020). \emph{Predictive Inference Is Free with the Jackknife+-after-Bootstrap}. \url{https://arxiv.org/abs/2002.09025}.
+\bibitem{lei2017distribution_free_regression} Lei et al. (2017). \emph{Distribution-Free Predictive Inference for Regression}. \url{https://arxiv.org/abs/1604.04173}.
+\bibitem{nouretdinov2018ivapd} Nouretdinov et al. (2018). \emph{Inductive Venn-Abers predictive distribution}. \url{https://proceedings.mlr.press/v91/nouretdinov18a.html}.
+\bibitem{nouretdinov2024ivapd_applications} Nouretdinov and Gammerman (2024). \emph{Inductive Venn-Abers Predictive Distributions: New Applications and Evaluation}. \url{https://proceedings.mlr.press/v230/nouretdinov24a.html}.
+\bibitem{petej2026inductive_venn_abers_regressors} Petej and Vovk (2026). \emph{Inductive Venn-Abers and related regressors}. \url{https://arxiv.org/html/2605.06646v1}.
+\bibitem{romano2019conformalized_quantile_regression} Romano et al. (2019). \emph{Conformalized Quantile Regression}. \url{https://arxiv.org/abs/1905.03222}.
+\bibitem{tibshirani2020covariate_shift} Tibshirani et al. (2020). \emph{Conformal prediction under covariate shift}. \url{https://arxiv.org/abs/1904.06019}.
+\bibitem{vanderlaan2025generalized_venn_abers} Van Der Laan and Alaa (2025). \emph{Generalized Venn and Venn-Abers Calibration with Applications in Conformal Prediction}. \url{https://proceedings.mlr.press/v267/van-der-laan25a.html}.
+\end{thebibliography}
 
 \section{Source Artifacts}
 
-\begin{itemize}
-\item \texttt{individual\_\allowbreak{}experiment\_\allowbreak{}report\_\allowbreak{}source}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}individual\_\allowbreak{}experiment\_\allowbreak{}report\_\allowbreak{}source.\allowbreak{}json}
-\item \texttt{article\_\allowbreak{}supplement\_\allowbreak{}blueprint\_\allowbreak{}alignment}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}article\_\allowbreak{}supplement\_\allowbreak{}blueprint\_\allowbreak{}alignment.\allowbreak{}json}
-\item \texttt{Research Document\_\allowbreak{}section\_\allowbreak{}evidence\_\allowbreak{}packet}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}Research Document\_\allowbreak{}section\_\allowbreak{}evidence\_\allowbreak{}packet.\allowbreak{}json}
-\item \texttt{section\_\allowbreak{}interpretation\_\allowbreak{}audit}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}section\_\allowbreak{}interpretation\_\allowbreak{}audit.\allowbreak{}json}
-\item \texttt{publication\_\allowbreak{}claim\_\allowbreak{}evidence\_\allowbreak{}verification\_\allowbreak{}matrix}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}publication\_\allowbreak{}claim\_\allowbreak{}evidence\_\allowbreak{}verification\_\allowbreak{}matrix.\allowbreak{}json}
-\item \texttt{publication\_\allowbreak{}citation\_\allowbreak{}registry}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}publication\_\allowbreak{}citation\_\allowbreak{}registry.\allowbreak{}json}
-\item \texttt{publication\_\allowbreak{}exemplar\_\allowbreak{}review}: \texttt{study/\allowbreak{}research\_\allowbreak{}document/\allowbreak{}publication\_\allowbreak{}exemplar\_\allowbreak{}review.\allowbreak{}json}
-\item \texttt{knowledge\_\allowbreak{}graph\_\allowbreak{}quality\_\allowbreak{}summary}: \texttt{study/\allowbreak{}reports/\allowbreak{}knowledge\_\allowbreak{}graph\_\allowbreak{}quality/\allowbreak{}quality\_\allowbreak{}summary.\allowbreak{}json}
-\item \texttt{cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis}: \texttt{study/\allowbreak{}reports/\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}cqr\_\allowbreak{}rerun\_\allowbreak{}plan/\allowbreak{}cqr\_\allowbreak{}fixed\_\allowbreak{}vs\_\allowbreak{}model\_\allowbreak{}matched\_\allowbreak{}synthesis.\allowbreak{}json}
-\end{itemize}
-
-\bibliographystyle{plain}
-\bibliography{references}
+Detailed source paths, hashes, and public summaries are indexed in \texttt{evidence/\allowbreak{}public\_\allowbreak{}artifact\_\allowbreak{}manifest.\allowbreak{}json} and the Research Atlas evidence pages.
 
 \end{document}

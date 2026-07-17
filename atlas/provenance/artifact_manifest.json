@@ -9,7 +9,7 @@
       "public_summary": "Audited source artifact summarized into the public atlas.",
       "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
       "represented_in_aggregate": true,
-      "source_build_sha256_receipt": "6336d8948394d36d6f776b619bbc2282628c27d412cd4423e64b83679c9844ca",
+      "source_build_sha256_receipt": "3d92fcbdbb5cfe9f1105691fd2288f97d644b22aef2a1181b644f08c4011001b",
       "source_reference_fingerprint": "195fdba80b21eb4d"
     },
     {
@@ -57,7 +57,7 @@
       "public_summary": "Audited source artifact summarized into the public atlas.",
       "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
       "represented_in_aggregate": true,
-      "source_build_sha256_receipt": "fc2b8239837de4c1a3f209b702c5616f7a84728592c684ae32d7c27832bef972",
+      "source_build_sha256_receipt": "8e49d062e467a87865fd4661011fa65ed0cfda7e6553f8e285800d1055610b46",
       "source_reference_fingerprint": "00b6cf220d5ccbeb"
     },
     {
@@ -93,7 +93,7 @@
       "public_summary": "Audited source artifact summarized into the public atlas.",
       "rebuild_command": "python -m experiments.regression.scripts.build_public_research_atlas",
       "represented_in_aggregate": true,
-      "source_build_sha256_receipt": "d74b05225b84a2578edca2a8a5e0fc536030ba2bcf80a06f9a4f75c87b40b173",
+      "source_build_sha256_receipt": "dae40b65aa02b6831a31a89901a451a35bb2803c5b285b6eff2e69df7c2bd8cb",
       "source_reference_fingerprint": "8012e1f25d57759b"
     }
   ],
