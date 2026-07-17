@@ -7,10 +7,10 @@ This manifest resolves every knowledge-graph source/evidence path used by the Re
 - Source files included directly: 0
 - Public resolution artifacts: 1111
 - Aggregate-represented artifacts: 1111
-- Content-hash-verifiable artifacts: 1111
+- Public-resolution content-hash-verifiable artifacts: 1111
 - Manifest/summary artifacts: 1126
 
-| Artifact kind | Public reference | Public status | Public path | Source included | Aggregate represented | Hash verifiable | Reference count |
+| Artifact kind | Public reference | Public status | Public path | Source file included | Aggregate represented | Public artifact hash verifiable | Reference count |
 |---|---|---|---|---:|---:|---:|---:|
 | kg_edge_evidence | `cpfi/regression/venn_abers.py` | rebuildable_from_public_code | `reproducibility/cpfi/regression/venn_abers.py` | false | true | true | 2 |
 | kg_edge_evidence | `experiments/regression/CHANGELOG.md` | included_public_aggregate | `atlas/artifacts/public_artifact_index.json` | false | true | true | 2 |

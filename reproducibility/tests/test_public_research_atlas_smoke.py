@@ -670,7 +670,7 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "expand provenance receipt" in browser
     assert "<strong>Evidence path:</strong>" in browser
     assert "<strong>Manifest:</strong>" in browser
-    assert "<strong>Hash verifiable:</strong>" in browser
+    assert "<strong>Public artifact hash verifiable:</strong>" in browser
     assert "<strong>represented in aggregate:</strong>" in browser
     assert "Open public artifact" in browser
     assert "fetch('kg_browser_data.json').then" not in browser
