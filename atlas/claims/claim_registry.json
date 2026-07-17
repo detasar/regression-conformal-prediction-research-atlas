@@ -61,7 +61,7 @@
       "claim_type": "methodology control claim",
       "evidence_reference": "Control descriptions support reproducibility claims; scientific validity rests on the empirical evidence.",
       "kg_reference_node_count": 9,
-      "plain_language": "This row explains the guardrails around the study rather than claiming the guardrails make every result final.",
+      "plain_language": "This row records traceability and reproducibility controls; scientific validity still rests on the empirical evidence.",
       "reader_safe_statement": "The study includes audit controls for traceability, neutrality, and reproducibility.",
       "scope_limit": "Treat controls as traceability evidence, not validity proof.",
       "support_status": "supported by audited artifacts and KG trace"
