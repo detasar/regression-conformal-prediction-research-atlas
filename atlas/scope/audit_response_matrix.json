@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-17T05:57:49.511930+00:00",
+  "generated_at_utc": "2026-07-17T06:09:18.133067+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -36,10 +36,46 @@
         "reproducibility/experiments/regression/scripts/build_public_research_atlas.py",
         "reproducibility/experiments/regression/scripts/build_research_atlas_package.py",
         "reproducibility/experiments/regression/scripts/build_public_release_scope.py",
-        "pyproject.toml",
-        ".github/workflows/public-ci.yml"
+        "atlas/provenance/public_rebuild_manifest.json",
+        "README.md"
       ],
-      "item": "Publish public rebuild modules, default CLI config resolution, package-data configs, and wheel checks.",
+      "item": "Publish public rebuild modules and clean-checkout rebuild commands.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "reproducibility/experiments/regression/scripts/run_regression_pilot.py",
+        "reproducibility/experiments/regression/configs/pilot.yaml",
+        "pyproject.toml",
+        "README.md"
+      ],
+      "item": "Fix default CLI config resolution and package YAML configs in the public wheel.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        ".github/workflows/public-ci.yml",
+        "pytest.ini",
+        "reproducibility/tests/test_public_research_atlas_smoke.py",
+        "atlas/maintenance/maintenance_quality_matrix.json"
+      ],
+      "item": "Split public/private test surfaces and run unit, artifact, package, link, and schema CI.",
+      "priority": "P0",
+      "status": "completed"
+    },
+    {
+      "evidence_paths": [
+        "README.md",
+        "paper/article.html",
+        "paper/supplement.html",
+        "paper/research_document.html",
+        "site/index.html",
+        "site/kg_browser.html",
+        "reproducibility/tests/test_public_research_atlas_smoke.py"
+      ],
+      "item": "Remove stale pre-release and public-review wording from reader-facing surfaces.",
       "priority": "P0",
       "status": "completed"
     },
@@ -172,6 +208,7 @@
     "benchmark_v2_status": "execution_in_progress",
     "kg_product_status": "completed_current_public_kg_layer",
     "maintenance_status": "source_backed_public_builder_modularization_started",
+    "p0_item_count": 10,
     "p0_status": "completed"
   }
 }

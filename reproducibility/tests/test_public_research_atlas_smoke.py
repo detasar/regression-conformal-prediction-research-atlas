@@ -1496,6 +1496,22 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
         "integrity_snapshot_failed",
         "integrity_snapshot_not_available",
     }
+    expected_p0_items = {
+        "Rename the one-sided coverage criterion and selected-cell semantics.",
+        "Use pipeline-level empirical wording for the CQR signal.",
+        "Keep row-level bands out of headline inferential language.",
+        "Publish public rebuild modules and clean-checkout rebuild commands.",
+        "Fix default CLI config resolution and package YAML configs in the public wheel.",
+        "Split public/private test surfaces and run unit, artifact, package, link, and schema CI.",
+        "Remove stale pre-release and public-review wording from reader-facing surfaces.",
+        "Expose provenance as manifest resolution with separate source fingerprints and public content hashes.",
+        "Add numerical pathology flags and display policy fields.",
+        "Link substantive public artifacts from the HTML artifact index.",
+    }
+    p0_rows = [row for row in matrix["rows"] if row["priority"] == "P0"]
+    assert matrix["summary"]["p0_item_count"] == len(expected_p0_items)
+    assert {row["item"] for row in p0_rows} == expected_p0_items
+    assert {row["status"] for row in p0_rows} == {"completed"}
     statuses = {(row["priority"], row["status"]) for row in matrix["rows"]}
     assert ("P0", "completed") in statuses
     assert any(
