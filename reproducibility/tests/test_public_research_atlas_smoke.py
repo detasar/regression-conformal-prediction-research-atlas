@@ -585,9 +585,13 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
         "interpretation_limits",
     }
     browser = (root / "site/kg_browser.html").read_text(encoding="utf-8")
-    assert 'role="list" aria-label="Guided research routes"' in browser
+    assert 'id="routes" class="kg-list" aria-label="Guided research routes"' in browser
+    assert 'id="results" aria-describedby="resultCount"' in browser
+    assert 'class="kg-list result-list" aria-label="Search results"' in browser
     assert '<button type="button" class="route"' in browser
     assert '<button type="button" class="result' in browser
+    assert 'aria-label="Open evidence route' in browser
+    assert 'aria-label="Open graph node' in browser
     assert 'aria-current="' in browser
     assert 'aria-pressed="true"' in browser
     assert 'id="resultCount" role="status" aria-live="polite"' in browser

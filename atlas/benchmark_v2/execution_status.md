@@ -50,7 +50,7 @@ These counts describe raw execution attempts before latest-status resume account
 
 - Resource state: `paused_until_disk_capacity_restored`
 - Pause reason: `free disk below Benchmark v2 guarded-execution minimum`
-- Available free disk MiB: `401.633`
+- Available free disk MiB: `395.734`
 - Guard minimum free disk MiB: `1024.0`
 
 ## Public Scope

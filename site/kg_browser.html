@@ -41,6 +41,8 @@
     .route b, .result b { display:block; line-height:1.25; }
     .route span, .result span, .muted { color:var(--muted); font-size:12px; line-height:1.45; }
     .route span, .result span { display:block; }
+    .kg-list { list-style:none; padding:0; margin:0; }
+    .kg-list li { margin:0; padding:0; }
     .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     .table-action { border:0; background:transparent; color:#145ea8; padding:0; font:inherit; font-weight:720; text-align:left; text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
     .table-action:hover { color:var(--teal); }
@@ -80,11 +82,11 @@
   <main id="main-content" class="layout" tabindex="-1">
     <aside>
       <h2>Research Routes</h2>
-      <div id="routes" role="list" aria-label="Guided research routes"></div>
+      <ul id="routes" class="kg-list" aria-label="Guided research routes"></ul>
       <label for="search">Search</label><input id="search" placeholder="CQR, Venn-Abers, NHANES, coverage...">
       <label for="typeFilter">Node type</label><select id="typeFilter"><option value="">All types</option></select>
       <p class="muted" id="resultCount" role="status" aria-live="polite"></p>
-      <div id="results" role="list" aria-label="Search results"></div>
+      <div id="results" aria-describedby="resultCount"></div>
     </aside>
     <section class="stage" aria-labelledby="mapTitle">
       <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" type="button" aria-pressed="true">One hop</button> <button id="twoHop" type="button" aria-pressed="false">Two hops</button></div></div>
@@ -325,7 +327,7 @@
       return true;
     }
     function renderRoutes(){
-      document.getElementById('routes').innerHTML=(state.data.research_map||[]).map(r=>`<button type="button" class="route" role="listitem" data-route="${esc(r.route_id)}" aria-current="${r.route_id===state.routeId?'true':'false'}" style="border-left:4px solid ${esc(r.accent)}"><b>${esc(r.title)}</b><span>${esc(r.summary)}</span><span>${(r.node_ids||[]).length} anchor nodes</span></button>`).join('');
+      document.getElementById('routes').innerHTML=(state.data.research_map||[]).map(r=>`<li><button type="button" class="route" data-route="${esc(r.route_id)}" aria-current="${r.route_id===state.routeId?'true':'false'}" aria-pressed="${r.route_id===state.routeId?'true':'false'}" aria-label="Open evidence route ${esc(r.title)}" style="border-left:4px solid ${esc(r.accent)}"><b>${esc(r.title)}</b><span>${esc(r.summary)}</span><span>${(r.node_ids||[]).length} anchor nodes</span></button></li>`).join('');
       document.querySelectorAll('.route').forEach(el=>el.onclick=()=>selectRoute(el.dataset.route));
     }
     function renderFilters(){
@@ -346,7 +348,7 @@
       const nodes=allNodes.slice(0,80);
       document.getElementById('resultCount').textContent=allNodes.length ? `Showing ${nodes.length.toLocaleString()} of ${allNodes.length.toLocaleString()} matching nodes${allNodes.length>nodes.length ? '; refine search or filter type to narrow the hidden matches.' : '.'}` : (hasCriteria ? 'No matching nodes for the current search or filter.' : '');
       document.getElementById('results').innerHTML=nodes.length
-        ? nodes.map(n=>`<button type="button" class="result ${n.id===state.selected?'active':''}" role="listitem" aria-current="${n.id===state.selected?'true':'false'}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></button>`).join('')
+        ? `<ul class="kg-list result-list" aria-label="Search results">${nodes.map(n=>`<li><button type="button" class="result ${n.id===state.selected?'active':''}" aria-current="${n.id===state.selected?'true':'false'}" aria-label="Open graph node ${esc(n.label)}" data-id="${esc(n.id)}"><b>${esc(n.label)}</b><span>${esc(n.type)} · degree ${esc(n.degree)}</span></button></li>`).join('')}</ul>`
         : (hasCriteria ? '<p class="muted">No matching nodes. Clear the search text or choose a broader node type.</p>' : '<p class="muted">Search or choose a node type to inspect the full audit graph. The default canvas stays at reader overview level.</p>');
       document.querySelectorAll('.result').forEach(el=>el.onclick=()=>select(el.dataset.id));
     }
