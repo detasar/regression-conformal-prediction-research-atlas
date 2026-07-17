@@ -2,7 +2,7 @@
   "completed_method_row_count": 22809,
   "completed_progress_fraction": 0.54307143,
   "failed_method_row_count": 0,
-  "generated_at_utc": "2026-07-17T06:57:07.216111+00:00",
+  "generated_at_utc": "2026-07-17T07:17:10.378894+00:00",
   "historical_attempt_record_count": 26875,
   "historical_failed_attempt_count": 4322,
   "historical_failed_attempt_reason_counts": {
@@ -20,7 +20,7 @@
   "public_scope_note": "Aggregate Benchmark v2 execution status snapshot. Raw execution ledgers, local caches, and prediction bundles are not included in the public package.",
   "raw_ledger_included": false,
   "resource_preflight": {
-    "available_free_disk_mb": 367.266,
+    "available_free_disk_mb": 465.703,
     "disk_check_path": "/home/emre/thesis/conformal_fairness/github_repo",
     "execution_resource_state": "paused_until_disk_capacity_restored",
     "min_free_disk_mb": 1024.0,
