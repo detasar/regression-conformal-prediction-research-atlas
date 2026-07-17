@@ -1185,10 +1185,23 @@ def test_public_benchmark_v2_preflight_templates_are_published() -> None:
     assert execution_status["raw_ledger_included"] is False
     assert execution_status["failed_method_row_count"] >= 0
     assert execution_status["pending_method_row_count"] >= 0
+    resource_preflight = execution_status["resource_preflight"]
+    assert resource_preflight["execution_resource_state"] in {
+        "ready_for_guarded_execution",
+        "paused_until_disk_capacity_restored",
+    }
+    assert resource_preflight["available_free_disk_mb"] is None or resource_preflight[
+        "available_free_disk_mb"
+    ] >= 0
+    assert resource_preflight["min_free_disk_mb"] is None or resource_preflight[
+        "min_free_disk_mb"
+    ] > 0
     assert "raw execution ledgers" in execution_status["public_scope_note"].lower()
-    assert "# Benchmark v2 Execution Status" in execution_status_markdown_path.read_text(
+    execution_status_markdown = execution_status_markdown_path.read_text(
         encoding="utf-8"
     )
+    assert "# Benchmark v2 Execution Status" in execution_status_markdown
+    assert "## Execution Resource Preflight" in execution_status_markdown
     live_integrity = json.loads(live_integrity_path.read_text(encoding="utf-8"))
     assert (
         live_integrity["schema"]

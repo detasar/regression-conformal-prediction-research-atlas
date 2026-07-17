@@ -46,6 +46,13 @@ These counts describe raw execution attempts before latest-status resume account
 | `infeasible_grouped_split` | 3500 |
 | `missing_split_order_column` | 822 |
 
+## Execution Resource Preflight
+
+- Resource state: `paused_until_disk_capacity_restored`
+- Pause reason: `free disk below Benchmark v2 guarded-execution minimum`
+- Available free disk MiB: `401.633`
+- Guard minimum free disk MiB: `1024.0`
+
 ## Public Scope
 
 Aggregate Benchmark v2 execution status snapshot. Raw execution ledgers, local caches, and prediction bundles are not included in the public package.
