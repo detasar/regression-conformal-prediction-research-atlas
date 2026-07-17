@@ -2234,7 +2234,7 @@ def test_public_html_links_and_artifact_index_are_complete() -> None:
     }
     assert substantive_files <= indexed
     for artifact_path in substantive_files:
-        assert artifact_path in linked or artifact_path.endswith(".html")
+        assert artifact_path in linked
         assert artifact_path in artifact_page
 
 
