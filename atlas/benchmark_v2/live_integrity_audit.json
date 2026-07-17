@@ -1,21 +1,21 @@
 {
   "benchmark_v2_config_violation_count": 0,
   "completed_core_field_violation_count": 0,
-  "completed_method_row_count": 17509,
-  "cqr_model_matched_completed_method_row_count": 4472,
+  "completed_method_row_count": 17669,
+  "cqr_model_matched_completed_method_row_count": 4512,
   "cqr_model_matched_metadata_violation_count": 0,
   "critical_violation_count": 0,
   "duplicate_planned_method_row_key_count": 0,
-  "fully_terminal_paired_cell_count": 5521,
-  "generated_at_utc": "2026-07-16T23:56:59.956754+00:00",
+  "fully_terminal_paired_cell_count": 5561,
+  "generated_at_utc": "2026-07-17T00:07:02.747617+00:00",
   "latest_failed_method_row_count": 0,
-  "observed_method_row_count": 27607,
+  "observed_method_row_count": 27807,
   "out_of_plan_latest_method_row_count": 0,
   "partially_observed_paired_cell_count": 1,
-  "pending_method_row_count": 14393,
+  "pending_method_row_count": 14193,
   "planned_method_row_count": 42000,
   "planned_paired_cell_count": 8400,
-  "plus_family_completed_method_row_count": 4094,
+  "plus_family_completed_method_row_count": 4134,
   "plus_family_metadata_violation_count": 0,
   "public_scope_note": "Aggregate Benchmark v2 live integrity audit snapshot. It reports contract-check counts only; raw execution ledgers, prediction bundles, and row-level examples remain outside the public package.",
   "raw_ledger_included": false,
@@ -24,9 +24,9 @@
   "source_reference": "source live integrity audit retained outside the public package",
   "status": "pass",
   "status_counts": {
-    "completed": 17509,
+    "completed": 17669,
     "skipped_infeasible_grouped_regime": 5250,
-    "skipped_method": 4848
+    "skipped_method": 4888
   },
   "warning_count": 0
 }
