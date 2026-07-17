@@ -18,7 +18,7 @@ This matrix answers the audit request for a dataset source/version/license/retri
 | Retrieval reference pending or missing | 10 |
 | Source profile hashes recorded | 68 |
 | Raw data files included in this package | 0 |
-| Raw content hashes publicly verifiable | 0 |
+| Raw data content hash checks | 0 |
 
 | Dataset | Source dataset | Family | Version status | License status | Retrieval status | Source variants | Metadata status | Hash scope | Raw hash status |
 |---|---|---|---|---|---|---:|---|---|---|

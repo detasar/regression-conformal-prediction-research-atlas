@@ -677,11 +677,19 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert "incident edges" in browser
     assert "loaded neighborhood nodes" in browser
     assert '<details class="edge">' in browser
-    assert "expand provenance receipt" in browser
-    assert "<strong>Evidence path:</strong>" in browser
-    assert "<strong>Manifest:</strong>" in browser
-    assert "<strong>Public artifact hash verifiable:</strong>" in browser
-    assert "<strong>represented in aggregate:</strong>" in browser
+    assert "open evidence details" in browser
+    assert "function prettySelector" in browser
+    assert "<strong>Evidence selector:</strong>" in browser
+    assert "<strong>Package record:</strong>" in browser
+    assert "<strong>Content hash checked:</strong>" in browser
+    assert "<strong>represented in public summary:</strong>" in browser
+    assert "Technical record" in browser
+    assert "<strong>Node key:</strong>" not in browser
+    assert "<strong>Source fingerprint:</strong>" not in browser
+    assert "<strong>Evidence path:</strong>" not in browser
+    assert "<strong>Public artifact hash verifiable:</strong>" not in browser
+    assert "<strong>hash scope:</strong>" not in browser
+    assert "<strong>represented in aggregate:</strong>" not in browser
     assert "Open public artifact" in browser
     assert "fetch('kg_browser_data.json').then" not in browser
 
@@ -728,7 +736,7 @@ def test_public_dataset_source_metadata_matrix_is_published_and_scoped() -> None
     assert matrix["summary"]["raw_content_hash_verifiable_count"] == 0
     assert len(matrix["rows"]) == len(catalog["datasets"]) == len(csv_rows)
     assert "# Dataset Source Metadata Matrix" in markdown
-    assert "Raw content hashes publicly verifiable" in markdown
+    assert "Raw data content hash checks" in markdown
 
     required = {
         "dataset_id",

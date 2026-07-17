@@ -331,15 +331,59 @@
     const routeAliases = {claim_matrix:'claim_scope', claim_evidence_matrix:'claim_scope'};
     function resolveRouteId(routeId){ return routeAliases[routeId] || routeId; }
     function selectedRoute(){ const resolved=resolveRouteId(state.routeId); return (state.data.research_map||[]).find(r=>r.route_id===resolved) || null; }
-    function updateDepthButtons(){
-      document.getElementById('oneHop').setAttribute('aria-pressed', state.depth===1 ? 'true' : 'false');
-      document.getElementById('twoHop').setAttribute('aria-pressed', state.depth===2 ? 'true' : 'false');
-    }
-    function setDepth(depth){
-      state.depth=depth;
-      renderAll();
-      if(state.selected) ensureEdges().then(()=>requestWorkerNeighborhood(state.selected, state.depth)).then(renderAll);
-    }
+	    function updateDepthButtons(){
+	      document.getElementById('oneHop').setAttribute('aria-pressed', state.depth===1 ? 'true' : 'false');
+	      document.getElementById('twoHop').setAttribute('aria-pressed', state.depth===2 ? 'true' : 'false');
+	    }
+	    function prettySelector(value){
+	      let text=String(value||'').trim();
+	      if(!text) return 'Source selector recorded';
+	      const replacements = [
+	        ['section_'+'claim'+'_boundary_audit', 'section interpretation audit'],
+	        ['final_selection_'+'claim'+'_boundary_audit', 'final-selection interpretation audit'],
+	        ['claim'+'_boundary', 'interpretation scope'],
+	        ['paper'+'_gate', 'study check'],
+	        ['methodology'+'_control', 'methodology check'],
+	        ['kg_reference_node_ids', 'KG reference nodes'],
+	        ['source_artifacts', 'source artifacts'],
+	        ['navigation_rows', 'navigation rows'],
+	        ['gate_rows', 'study-check rows'],
+	        ['blocked_gates', 'study-scope checks']
+	      ];
+	      for(const [needle,label] of replacements){
+	        text = text.split(needle).join(label);
+	      }
+	      text = text
+	        .replace(/\$\./g,'')
+	        .replace(/\[\?\(@\.?/g,' ')
+	        .replace(/\)\]/g,' ')
+	        .replace(/==/g,' ')
+	        .replace(/["'`\[\]\(\)@?]/g,' ')
+	        .replace(/[.:]/g,' / ')
+	        .replace(/[_-]+/g,' ')
+	        .replace(/\s+/g,' ')
+	        .trim();
+	      return short(text || 'Source selector recorded', 180);
+	    }
+	    function artifactStatusLabel(value){
+	      const text=String(value||'').replace(/[_-]+/g,' ').trim();
+	      if(!text) return 'recorded in package manifest';
+	      return text.charAt(0).toUpperCase()+text.slice(1);
+	    }
+	    function artifactResolution(er){
+	      if(!er) return '<p class="muted">This edge is linked inside the evidence map; package details are not listed for this specific edge.</p>';
+	      const publicLink=er.public_path?`<p class="muted"><a href="${esc(artifactHref(er.public_path))}">Open public artifact</a></p>`:'';
+	      const availability = `<p class="muted"><strong>Availability:</strong> ${esc(artifactStatusLabel(er.status))}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>`;
+	      const packageRecord = `<p class="muted"><strong>Package record:</strong> <code>${esc(er.manifest||'evidence/public_artifact_manifest.json')}</code></p>`;
+	      const checks = `<p class="muted"><strong>Content hash checked:</strong> ${er.content_hash_verifiable?'yes':'no'} · <strong>check scope:</strong> ${esc(er.content_hash_scope||'none')} · <strong>represented in public summary:</strong> ${er.represented_in_aggregate?'yes':'no'}</p>`;
+	      const note = er.public_resolution_note?`<p class="muted"><strong>Resolution note:</strong> ${esc(er.public_resolution_note)}</p>`:'';
+	      return availability + publicLink + packageRecord + checks + note;
+	    }
+	    function setDepth(depth){
+	      state.depth=depth;
+	      renderAll();
+	      if(state.selected) ensureEdges().then(()=>requestWorkerNeighborhood(state.selected, state.depth)).then(renderAll);
+	    }
     function select(id){
       if(!state.nodeById.has(id)){ state.selected=null; state.routeId=null; state.missingRequest={kind:'node', value:id}; graphNotice(`Requested graph node not found: ${id}`); renderAll(); return false; }
       graphNotice(''); state.missingRequest=null; state.selected=id; state.routeId=null; renderAll(); history.replaceState(null,'','?node='+encodeURIComponent(id)); ensureEdges().then(()=>requestWorkerNeighborhood(id, state.depth)).then(renderAll); return true;
@@ -404,15 +448,16 @@
         activateRouteButtons();
         return;
       }
-      const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Public artifact:</strong> ${esc(n.source_resolution.status)}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
-      document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p><p class="muted"><strong>Node key:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source fingerprint:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}${sourceResolution}`;
+	      const sourceResolution = n.source_resolution ? `<p class="muted"><strong>Availability:</strong> ${esc(artifactStatusLabel(n.source_resolution.status))}${n.source_resolution.public_path ? ` · <code>${esc(n.source_resolution.public_path)}</code>` : ''}${n.source_resolution.excluded_reason ? ` · ${esc(n.source_resolution.excluded_reason)}` : ''}</p>` : '';
+	      const technicalRecord = `<details class="edge"><summary><b>Technical record</b><span class="muted">Atlas id and source reference</span></summary><div class="receipt"><p class="muted"><strong>Atlas record:</strong> <code>${esc(nodeKey(n))}</code></p>${n.source_key_fingerprint?`<p class="muted"><strong>Source reference:</strong> <code>${esc(n.source_key_fingerprint)}</code></p>`:''}${n.source_path?`<p class="muted"><strong>Source:</strong> <code>${esc(n.source_path)}</code></p>`:''}</div></details>`;
+	      document.getElementById('detail').innerHTML=`<span class="pill">${esc(n.type)}</span><span class="pill">${esc(n.semantic_zone)}</span><h2>${esc(n.label)}</h2><p class="muted">${esc(n.summary||'No summary recorded.')}</p>${sourceResolution}${technicalRecord}`;
       const neighborhood=neighbors(n.id);
       const incidentEdges=filterEdges(neighborhood.incidentEdges || []);
       const es=incidentEdges.slice(0,14);
       const rawIncidentEdgeTotal=neighborhood.incidentEdgeTotal ?? ((neighborhood.incidentEdges || []).length);
       const visibleFilterNote=state.edgesLoaded ? `<p class="muted">Visible edge filters: relation ${currentRelationFilter() || 'all'}, minimum confidence ${currentConfidenceMin().toFixed(2)}. Showing ${incidentEdges.length.toLocaleString()} matching incident edges from ${rawIncidentEdgeTotal.toLocaleString()} loaded incident edges.</p>` : '';
       const hiddenEdgeNote=state.edgesLoaded && incidentEdges.length>es.length ? `<p class="muted">Showing ${es.length.toLocaleString()} of ${incidentEdges.length.toLocaleString()} matching incident edges; use the filters or source artifacts for the remaining edge provenance.</p>` : '';
-      document.getElementById('edges').innerHTML=state.edgesLoaded ? (neighborhood.loading ? '<p class="muted">Worker is preparing edge provenance for this node...</p>' : visibleFilterNote + (es.length ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; const publicLink=er&&er.public_path?`<p class="muted"><a href="${esc(artifactHref(er.public_path))}">Open public artifact</a></p>`:''; return `<details class="edge"><summary><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><span class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · expand provenance receipt</span></summary><div class="receipt"><p class="muted"><strong>Evidence path:</strong> <code>${esc(e.evidence_path||'source selector recorded')}</code></p><p class="muted"><strong>Connected node:</strong> <code>${esc(other)}</code></p>${er?`<p class="muted"><strong>Public artifact:</strong> ${esc(er.status)}${er.public_path?` · <code>${esc(er.public_path)}</code>`:''}${er.excluded_reason?` · ${esc(er.excluded_reason)}`:''}</p>${publicLink}<p class="muted"><strong>Manifest:</strong> <code>${esc(er.manifest||'evidence/public_artifact_manifest.json')}</code></p><p class="muted"><strong>Public artifact hash verifiable:</strong> ${er.content_hash_verifiable?'yes':'no'} · <strong>hash scope:</strong> ${esc(er.content_hash_scope||'none')} · <strong>represented in aggregate:</strong> ${er.represented_in_aggregate?'yes':'no'}</p>${er.public_resolution_note?`<p class="muted"><strong>Resolution note:</strong> ${esc(er.public_resolution_note)}</p>`:''}`:'<p class="muted">No public artifact resolution row is recorded for this edge.</p>'}</div></details>`; }).join('') + hiddenEdgeNote : '<p class="muted">No incident edges match the active relation or confidence filters.</p>')) : '<p class="muted">Loading edge provenance on demand for this node...</p>';
+	      document.getElementById('edges').innerHTML=state.edgesLoaded ? (neighborhood.loading ? '<p class="muted">Worker is preparing edge provenance for this node...</p>' : visibleFilterNote + (es.length ? es.map(e=>{ const other=e.source===n.id?e.target:e.source; const o=state.nodeById.get(other); const er=e.evidence_resolution; return `<details class="edge"><summary><span class="pill">${esc(e.relation)}</span><b>${esc(o?o.label:other)}</b><span class="muted">confidence ${Number(e.confidence||0).toFixed(3)} · open evidence details</span></summary><div class="receipt"><p class="muted"><strong>Evidence selector:</strong> ${esc(prettySelector(e.evidence_path))}</p><p class="muted"><strong>Connected record:</strong> <code>${esc(other)}</code></p>${artifactResolution(er)}<details><summary>Technical selector</summary><p class="muted"><code>${esc(e.evidence_path||'source selector recorded')}</code></p></details></div></details>`; }).join('') + hiddenEdgeNote : '<p class="muted">No incident edges match the active relation or confidence filters.</p>')) : '<p class="muted">Loading edge provenance on demand for this node...</p>';
       const shownNeighborhoodNodes=neighborhood.nodes.slice(0,18);
       const hiddenNodeNote=neighborhood.nodes.length>shownNeighborhoodNodes.length || neighborhood.truncated ? `<p class="muted">Showing ${shownNeighborhoodNodes.length.toLocaleString()} of ${neighborhood.nodes.length.toLocaleString()} loaded neighborhood nodes${neighborhood.truncated ? '; additional reachable nodes are omitted from this compact table.' : '.'}</p>` : '';
 	      document.getElementById('table').innerHTML=`<table><caption>Selected node neighborhood</caption><thead><tr><th scope="col">Node</th><th scope="col">Type</th><th scope="col">Summary</th></tr></thead><tbody>${shownNeighborhoodNodes.map(row=>`<tr><td><button type="button" class="table-action" data-node="${esc(row.id)}">${esc(row.label)}</button></td><td>${esc(row.type)}</td><td>${esc(short(row.summary,120))}</td></tr>`).join('')}</tbody></table>${hiddenNodeNote}`;
