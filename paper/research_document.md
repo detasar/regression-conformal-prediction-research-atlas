@@ -299,15 +299,15 @@ The current knowledge graph has 3,643 nodes, 21,019 edges, and 0 isolated nodes.
 
 ## 6. How To Read The Artifact Set
 
-The review order is deliberately simple. Read this Research Document first, then inspect the rendered main article and broad supplement, then use the individual experiment report for the author-stamped experiment summary. The KG browser should be used when a reader wants to trace a claim to reports, source artifacts, scripts, or quality checks. Governance files record which broader readings need a separate validation study.
+The review order is deliberately simple. Read this Research Document first, then inspect the article and supplement, then use the individual experiment report for the author-stamped experiment summary. The KG browser should be used when a reader wants to trace a claim to reports, source artifacts, scripts, or quality checks. The interpretation and claim-evidence pages record which broader readings need a separate validation study.
 
 | Artifact | Role | Study scope |
 |---|---|---|
-| `Research Document/research_document.md` | Integrated Research Atlas narrative | Descriptive, experiment-scoped interpretation |
-| `rendered_outputs/main_article_review.html` | Main article surface | Conservative scientific wording |
-| `rendered_outputs/supplementary_document_review.html` | Broad supplementary surface | Methods, diagnostics, and estimator conventions |
+| `paper/research_document.html`; `paper/research_document.md` | Integrated Research Atlas narrative | Descriptive, experiment-scoped interpretation |
+| `paper/article.html`; `paper/article.pdf` | Main article surface | Conservative scientific wording |
+| `paper/supplement.html`; `paper/supplement.pdf` | Broad supplementary surface | Methods, diagnostics, and estimator conventions |
 | `site/kg_browser.html` | Knowledge graph browser | Evidence map for inspecting source paths and result summaries |
-| `governance/publication_authoring_decision_record.md` | Study interpretation notes | Scientific scope limits and publication context |
+| `atlas/claims/index.html`; `evidence/claim_evidence_matrix.md` | Study interpretation notes | Scientific scope limits and publication context |
 
 ## 7. How To Read The Evidence
 
