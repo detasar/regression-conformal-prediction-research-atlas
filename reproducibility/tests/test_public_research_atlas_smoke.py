@@ -917,6 +917,14 @@ def test_public_environment_lock_documents_install_surface() -> None:
     assert "pytest==8.4.2" in req_text
     assert "pyyaml==6.0.3" in req_text
 
+    public_req_text = (root / "requirements.txt").read_text(encoding="utf-8")
+    assert public_req_text.startswith("# Regression CP Research Atlas public requirements")
+    assert "Conformal Prediction Fairness Investigation" not in public_req_text
+    assert "Convenience constraints for local public smoke checks" in public_req_text
+    assert "reproducibility/environment/requirements-public-lock.txt" in public_req_text
+    assert "xgboost>=2.0" in public_req_text
+    assert "openml>=0.14" in public_req_text
+
     md_text = md_path.read_text(encoding="utf-8")
     assert "# Public Environment Lock" in md_text
     assert "Locked Public Smoke Dependencies" in md_text
@@ -929,6 +937,7 @@ def test_public_environment_lock_documents_install_surface() -> None:
     assert "reproducibility/environment/public_environment_lock.md" in readme
     assert "reproducibility/environment/requirements-public-lock.txt" in readme
     assert ".[external-data]" in readme
+    assert ".[optional-models]" in readme
 
 
 def test_public_repository_maintenance_files_are_present() -> None:

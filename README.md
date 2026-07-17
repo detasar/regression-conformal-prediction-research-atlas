@@ -82,6 +82,12 @@ external-data environment:
 python -m pip install -e ".[external-data]"
 ```
 
+Model backends used by the historical sweep are optional in the public package:
+
+```bash
+python -m pip install -e ".[optional-models]"
+```
+
 ## Citation
 
 Use this repository and its `CITATION.cff` as the citation surface. The repository includes the Research Document, article, supplement, knowledge graph browser, and reproducibility files.

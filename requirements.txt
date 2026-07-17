@@ -1,41 +1,24 @@
-# CPFI - Conformal Prediction Fairness Investigation
-# Requirements for experiments
+# Regression CP Research Atlas public requirements
+# Convenience constraints for local public smoke checks and dry-run execution.
+# Exact public smoke pins are in reproducibility/environment/requirements-public-lock.txt.
 
-# Core Scientific Computing
-numpy>=1.24.0
-pandas>=2.0.0
-scipy>=1.10.0
-scikit-learn>=1.3.0
-
-# ML Models
-xgboost>=2.0.0
-lightgbm>=4.0.0
-catboost>=1.2.0
-
-# Conformal Prediction
-mapie>=0.8.0
-
-# Probability Calibration
-netcal>=1.3.0
-
-# Fairness
-fairlearn>=0.9.0
-
-# Visualization
-matplotlib>=3.7.0
-seaborn>=0.12.0
-
-# Utilities
+# Core public smoke dependencies
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
 pyyaml>=6.0
-loguru>=0.7.0
-tqdm>=4.65.0
-joblib>=1.3.0
+matplotlib>=3.7
+loguru>=0.7
+pytest>=7.4
 
-# Statistics
-statsmodels>=0.14.0
+# Optional learner backends used by historical sweep configs
+xgboost>=2.0
+lightgbm>=4.0
+catboost>=1.2
 
-# Dataset sources
-openml>=0.14.0
-ucimlrepo>=0.0.7
+# External data execution dependencies
+openml>=0.14
+fairlearn>=0.10
 folktables>=0.0.12
-aif360>=0.6.1
+aif360>=0.6
