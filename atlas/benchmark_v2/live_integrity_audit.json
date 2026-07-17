@@ -1,18 +1,18 @@
 {
   "benchmark_v2_config_violation_count": 0,
   "completed_core_field_violation_count": 0,
-  "completed_method_row_count": 22749,
-  "cqr_model_matched_completed_method_row_count": 5612,
+  "completed_method_row_count": 22779,
+  "cqr_model_matched_completed_method_row_count": 5622,
   "cqr_model_matched_metadata_violation_count": 0,
   "critical_violation_count": 0,
   "duplicate_planned_method_row_key_count": 0,
-  "fully_terminal_paired_cell_count": 6661,
-  "generated_at_utc": "2026-07-17T05:09:37.523938+00:00",
+  "fully_terminal_paired_cell_count": 6671,
+  "generated_at_utc": "2026-07-17T05:20:49.645535+00:00",
   "latest_failed_method_row_count": 0,
-  "observed_method_row_count": 33307,
+  "observed_method_row_count": 33357,
   "out_of_plan_latest_method_row_count": 0,
   "partially_observed_paired_cell_count": 1,
-  "pending_method_row_count": 8693,
+  "pending_method_row_count": 8643,
   "planned_method_row_count": 42000,
   "planned_paired_cell_count": 8400,
   "plus_family_completed_method_row_count": 5914,
@@ -24,9 +24,9 @@
   "source_reference": "source live integrity audit retained outside the public package",
   "status": "pass",
   "status_counts": {
-    "completed": 22749,
+    "completed": 22779,
     "skipped_infeasible_grouped_regime": 5250,
-    "skipped_method": 5308
+    "skipped_method": 5328
   },
   "warning_count": 0
 }
