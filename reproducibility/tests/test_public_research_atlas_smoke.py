@@ -2315,6 +2315,7 @@ def test_public_seo_and_citation_discovery_files() -> None:
     )
     favicon = (root / "favicon.svg").read_text(encoding="utf-8")
     citation_cff = (root / "CITATION.cff").read_text(encoding="utf-8")
+    zenodo = json.loads((root / ".zenodo.json").read_text(encoding="utf-8"))
     citation_bib = (root / "paper/citation.bib").read_text(encoding="utf-8")
     citation_ris = (root / "paper/citation.ris").read_text(encoding="utf-8")
     release_metadata = json.loads(
@@ -2348,6 +2349,18 @@ def test_public_seo_and_citation_discovery_files() -> None:
     assert "repository-code:" in citation_cff
     assert 'version: "public-research-atlas-2026-07-10"' in citation_cff
     assert 'license: "MIT"' in citation_cff
+    assert zenodo["title"] == "Regression Conformal Prediction Study: Research Atlas"
+    assert zenodo["upload_type"] == "software"
+    assert zenodo["creators"][0]["name"] == "Tasar, Emre"
+    assert zenodo["creators"][0]["email"] == "detasar@gmail.com"
+    assert zenodo["license"] == "mit-license"
+    assert zenodo["version"] == "public-research-atlas-2026-07-10"
+    assert "No DOI has been assigned" in zenodo["notes"]
+    assert any(
+        row["identifier"]
+        == "https://github.com/detasar/regression-conformal-prediction-research-atlas"
+        for row in zenodo["related_identifiers"]
+    )
     assert "@misc{tasar2026regression_cp_research_atlas" in citation_bib
     assert "GitHub repository and GitHub Pages Research Atlas" in citation_bib
     assert "TY  - GEN" in citation_ris

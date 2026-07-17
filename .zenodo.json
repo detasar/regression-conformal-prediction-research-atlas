@@ -1,0 +1,38 @@
+{
+  "title": "Regression Conformal Prediction Study: Research Atlas",
+  "upload_type": "software",
+  "description": "Public Research Atlas repository for a neutral empirical study of regression conformal prediction. The release includes the Research Document, compact report, supplementary evidence, public result cube, browsable evidence map, provenance receipts, and reproducibility materials.",
+  "creators": [
+    {
+      "name": "Tasar, Emre",
+      "type": "Personal",
+      "email": "detasar@gmail.com"
+    }
+  ],
+  "license": "mit-license",
+  "keywords": [
+    "conformal prediction",
+    "regression",
+    "prediction intervals",
+    "research atlas",
+    "reproducibility"
+  ],
+  "version": "public-research-atlas-2026-07-10",
+  "publication_date": "2026-07-10",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/detasar/regression-conformal-prediction-research-atlas",
+      "relation": "isSupplementTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://detasar.github.io/regression-conformal-prediction-research-atlas/",
+      "relation": "isSupplementTo",
+      "resource_type": "publication",
+      "scheme": "url"
+    }
+  ],
+  "communities": [],
+  "notes": "No DOI has been assigned in this repository snapshot. If archived on Zenodo, cite the assigned Zenodo DOI together with CITATION.cff."
+}
