@@ -619,8 +619,14 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert 'aria-describedby="canvasHelp canvasStatus"' in browser
     assert 'id="canvasStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"' in browser
     assert "document.getElementById('canvasStatus').textContent" in browser
-    assert '<button id="oneHop" type="button" aria-pressed="true">' in browser
-    assert '<button id="twoHop" type="button" aria-pressed="false">' in browser
+    assert (
+        '<button id="oneHop" type="button" aria-pressed="true" '
+        'aria-controls="mapCanvas table edges canvasStatus">'
+    ) in browser
+    assert (
+        '<button id="twoHop" type="button" aria-pressed="false" '
+        'aria-controls="mapCanvas table edges canvasStatus">'
+    ) in browser
     assert "Canvas focus" in browser
     assert "canvas.onkeydown" in browser
     assert "fetchJson('kg_browser_index.json')" in browser

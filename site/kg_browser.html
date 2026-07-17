@@ -89,7 +89,7 @@
       <div id="results" aria-describedby="resultCount"></div>
     </aside>
     <section class="stage" aria-labelledby="mapTitle">
-      <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" type="button" aria-pressed="true">One hop</button> <button id="twoHop" type="button" aria-pressed="false">Two hops</button></div></div>
+      <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" type="button" aria-pressed="true" aria-controls="mapCanvas table edges canvasStatus">One hop</button> <button id="twoHop" type="button" aria-pressed="false" aria-controls="mapCanvas table edges canvasStatus">Two hops</button></div></div>
       <div class="canvas-wrap"><canvas id="mapCanvas" tabindex="0" role="img" aria-label="Knowledge graph canvas visual overview" aria-describedby="canvasHelp canvasStatus"></canvas><p id="canvasHelp" class="sr-only">Use the left and right arrow keys to move across visible graph nodes, then press Enter to open the highlighted node. The same nodes are available in the accessible table.</p><p id="canvasStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p></div>
       <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><button id="edgeRetry" class="edge-retry" type="button" hidden>Retry edge bundle</button><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>evidence-limit edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
     </section>

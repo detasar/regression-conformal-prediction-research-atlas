@@ -7,14 +7,14 @@ This file records citation, repository, author, archive, and public-artifact met
 | Title | Regression Conformal Prediction Study: Research Atlas |
 | Release version | `public-research-atlas-2026-07-10` |
 | Release date | 2026-07-10 |
-| Generated at UTC | 2026-07-17T06:47:34.074800+00:00 |
+| Generated at UTC | 2026-07-17T06:57:07.216111+00:00 |
 | Author | Emre Tasar, Data Scientist |
 | Email | detasar@gmail.com |
 | ORCID | Not provided |
 | Affiliation | Not provided |
 | Repository | https://github.com/detasar/regression-conformal-prediction-research-atlas |
 | GitHub Pages | https://detasar.github.io/regression-conformal-prediction-research-atlas/ |
-| Source generation commit | `0e351e31a0f2fb8b02da9b16180bcd44a1b092ab` |
+| Source generation commit | `17f9d1f5d9d19925e0e5caf6701513a3741f6ee5` |
 | DOI | Not assigned for this release |
 | Zenodo record | Not assigned for this release |
 

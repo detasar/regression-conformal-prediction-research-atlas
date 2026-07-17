@@ -1053,7 +1053,7 @@
     }
   ],
   "execution_status_path": "atlas/benchmark_v2/execution_status.json",
-  "generated_at_utc": "2026-07-17T06:47:34.074800+00:00",
+  "generated_at_utc": "2026-07-17T06:57:07.216111+00:00",
   "method_row_count": 42000,
   "method_rows_per_paired_cell": 5,
   "paired_cell_chunk_size": 200,
