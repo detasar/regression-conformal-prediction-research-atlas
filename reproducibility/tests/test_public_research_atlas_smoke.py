@@ -610,6 +610,16 @@ def test_public_atlas_scope_catalogs_and_claims_are_consistent() -> None:
     assert 'aria-pressed="true"' in browser
     assert 'id="resultCount" role="status" aria-live="polite"' in browser
     assert 'id="graphNotice" class="graph-notice" role="status" aria-live="polite"' in browser
+    assert '<label for="relationFilter">Relation</label>' in browser
+    assert 'id="relationFilter" disabled' in browser
+    assert '<label for="confidenceMin">Minimum confidence' in browser
+    assert 'id="confidenceMin" type="range" min="0" max="1" step="0.05"' in browser
+    assert "function updateRelationOptions(edges)" in browser
+    assert "function edgePassesFilters(edge)" in browser
+    assert "Visible edge filters: relation" in browser
+    assert "No incident edges match the active relation or confidence filters." in browser
+    assert "document.getElementById('relationFilter').onchange=renderAll" in browser
+    assert "document.getElementById('confidenceMin').oninput" in browser
     assert "if(!r.ok) throw new Error" in browser
     assert ".catch(error=>" in browser
     assert "Requested graph node not found:" in browser
