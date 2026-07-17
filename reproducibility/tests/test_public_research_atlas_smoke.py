@@ -259,11 +259,18 @@ def test_public_research_atlas_core_imports() -> None:
     assert importlib.import_module("cpfi.models")
     assert importlib.import_module("cpfi.models.trainers")
     assert importlib.import_module("cpfi.regression.conformal")
-    assert importlib.import_module("experiments.regression.scripts.run_regression_pilot")
+    runner = importlib.import_module("experiments.regression.scripts.run_regression_pilot")
     assert importlib.import_module("experiments.regression.scripts.public_builder_utils")
     assert importlib.import_module("experiments.regression.scripts.build_public_release_scope")
     assert importlib.import_module("experiments.regression.scripts.build_public_research_atlas")
     assert importlib.import_module("experiments.regression.scripts.build_research_atlas_package")
+    assert runner.plus_fold_local_preprocessing_enabled({}) is True
+    assert (
+        runner.plus_fold_local_preprocessing_enabled(
+            {"conformal": {"plus_fold_local_preprocessing": False}}
+        )
+        is False
+    )
 
 
 def test_public_python_sources_compile_and_secret_patterns_are_absent() -> None:

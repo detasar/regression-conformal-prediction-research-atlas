@@ -2844,10 +2844,12 @@ def plus_fold_local_preprocessing_enabled(config: Dict | None) -> bool:
 
     if not isinstance(config, dict):
         return False
-    conformal = config.get("conformal", {})
+    conformal = config.get("conformal")
+    if conformal is None:
+        return True
     if not isinstance(conformal, dict):
         return False
-    return bool(conformal.get("plus_fold_local_preprocessing", False))
+    return bool(conformal.get("plus_fold_local_preprocessing", True))
 
 
 def fold_local_preprocessing_available(
