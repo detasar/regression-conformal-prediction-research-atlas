@@ -1540,7 +1540,7 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
         "Publish public rebuild modules and clean-checkout rebuild commands.",
         "Fix default CLI config resolution and package YAML configs in the public wheel.",
         "Split public/private test surfaces and run unit, artifact, package, link, and schema CI.",
-        "Remove stale pre-release and public-review wording from reader-facing surfaces.",
+        "Remove obsolete status and review wording from reader-facing surfaces.",
         "Expose provenance as manifest resolution with separate source fingerprints and public content hashes.",
         "Add numerical pathology flags and display policy fields.",
         "Link substantive public artifacts from the HTML artifact index.",
@@ -1564,6 +1564,10 @@ def test_public_final_audit_response_matrix_tracks_remaining_work() -> None:
     assert ("P1", "completed_current_public_atlas_layer") in statuses
     assert ("P1", "completed_current_public_kg_layer") in statuses
     assert ("P1", "completed_current_execution_contract") in statuses
+    assert ("P2", "completed_current_release_metadata") in statuses
+    assert matrix["summary"]["release_metadata_status"] == (
+        "completed_current_release_metadata"
+    )
     assert any(
         priority == "P1"
         and status

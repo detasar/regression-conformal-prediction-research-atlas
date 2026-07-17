@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-17T07:17:10.378894+00:00",
+  "generated_at_utc": "2026-07-17T09:08:32Z",
   "rows": [
     {
       "evidence_paths": [
@@ -73,9 +73,13 @@
         "paper/research_document.html",
         "site/index.html",
         "site/kg_browser.html",
+        "site/kg_browser_data.json",
+        "site/kg_browser_index.json",
+        "site/kg_browser_edges.json",
+        "evidence/public_artifact_manifest.json",
         "reproducibility/tests/test_public_research_atlas_smoke.py"
       ],
-      "item": "Remove stale pre-release and public-review wording from reader-facing surfaces.",
+      "item": "Remove obsolete status and review wording from reader-facing surfaces.",
       "priority": "P0",
       "status": "completed"
     },
@@ -199,6 +203,22 @@
       "item": "Modularize monolithic builders and add broader maintenance checks.",
       "priority": "P2",
       "status": "source_backed_public_builder_modularization_started"
+    },
+    {
+      "evidence_paths": [
+        "CITATION.cff",
+        ".zenodo.json",
+        "paper/citation.bib",
+        "paper/citation.ris",
+        "atlas/provenance/release_metadata.json",
+        "atlas/provenance/release_metadata.md",
+        "atlas/provenance/ro-crate-metadata.json",
+        "DATA_LICENSES.md",
+        "atlas/datasets/source_metadata_matrix.md"
+      ],
+      "item": "Publish citation, archival, release, and data-license metadata.",
+      "priority": "P2",
+      "status": "completed_current_release_metadata"
     }
   ],
   "schema": "regression_cp_final_audit_response_matrix_v1",
@@ -209,6 +229,7 @@
     "kg_product_status": "completed_current_public_kg_layer",
     "maintenance_status": "source_backed_public_builder_modularization_started",
     "p0_item_count": 10,
-    "p0_status": "completed"
+    "p0_status": "completed",
+    "release_metadata_status": "completed_current_release_metadata"
   }
 }
