@@ -84,4 +84,4 @@ python -m pip install -e ".[external-data]"
 
 ## Citation
 
-Use this repository and its `CITATION.cff` as the citation surface. The integrated Research Document and supplementary knowledge graph are part of the Research Atlas.
+Use this repository and its `CITATION.cff` as the citation surface. The repository includes the Research Document, article, supplement, knowledge graph browser, and reproducibility files.

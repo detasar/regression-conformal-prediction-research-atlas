@@ -306,8 +306,8 @@ The review order is deliberately simple. Read this Research Document first, then
 | `Research Document/research_document.md` | Integrated Research Atlas narrative | Descriptive, experiment-scoped interpretation |
 | `rendered_outputs/main_article_review.html` | Main article surface | Conservative scientific wording |
 | `rendered_outputs/supplementary_document_review.html` | Broad supplementary surface | Methods, diagnostics, and estimator conventions |
-| `site/kg_browser.html` | Browsable KG surface | Evidence navigation and source traceability |
-| `governance/publication_authoring_decision_record.md` | Study scope record | Scientific scope limits and publication context |
+| `site/kg_browser.html` | Knowledge graph browser | Evidence map for inspecting source paths and result summaries |
+| `governance/publication_authoring_decision_record.md` | Study interpretation notes | Scientific scope limits and publication context |
 
 ## 7. How To Read The Evidence
 
