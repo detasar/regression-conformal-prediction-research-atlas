@@ -1053,14 +1053,14 @@
     }
   ],
   "execution_status_path": "atlas/benchmark_v2/execution_status.json",
-  "generated_at_utc": "2026-07-17T12:32:44.132350+00:00",
+  "generated_at_utc": "2026-07-17T21:33:21.387903+00:00",
   "method_row_count": 42000,
   "method_rows_per_paired_cell": 5,
   "paired_cell_chunk_size": 200,
   "paired_cell_count": 8400,
-  "result_generation_status": "in_progress",
+  "result_generation_status": "complete_pending_public_synthesis",
   "run_grid_path": "atlas/benchmark_v2/preflight/run_grid_manifest_candidate.csv.gz",
   "schema": "regression_cp_benchmark_v2_execution_chunks_v1",
-  "status": "chunk_manifest_ready_execution_in_progress",
+  "status": "chunk_manifest_ready_execution_complete_pending_public_synthesis",
   "status_ledger_path": "atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz"
 }

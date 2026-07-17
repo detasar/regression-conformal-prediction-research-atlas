@@ -27,6 +27,7 @@ This atlas makes the experiment universe visible: scope, datasets, methods, resu
 - `scope/benchmark_v2_public_evidence_contract.*` records the minimum public evidence required before Benchmark v2 result interpretation.
 - `benchmark_v2/preflight/` records public preflight templates, run-grid cardinality, and readiness gates before Benchmark v2 execution.
 - `benchmark_v2/candidates/` records draft source and task-variant registries for Benchmark v2 planning.
+- `benchmark_v2/results/` records aggregate Benchmark v2 result synthesis after execution ledgers are summarized.
 - `scope/audit_response_matrix.*` records the response to the final external audit.
 - `scope/planned_attempted_completed_matrix.*` records which accounting phases are public aggregates and which require restricted source ledgers.
 

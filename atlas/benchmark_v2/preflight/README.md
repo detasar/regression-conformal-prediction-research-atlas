@@ -4,8 +4,8 @@ This directory contains public preflight artifacts for the Benchmark v2 protocol
 
 ## Status
 
-- Overall status: `execution_in_progress`
-- Result generation status: `in_progress`
+- Overall status: `execution_complete_pending_public_synthesis`
+- Result generation status: `complete_pending_public_synthesis`
 - Estimated primary planned rows: `42000`
 - Estimated diagnostic planned rows: `16800`
 - Estimated total planned rows: `58800`

@@ -14,6 +14,7 @@ This registry records the public schema identifiers and required fields that rea
 | `atlas/results/numerical_pathology_report.json` | `regression_cp_numerical_pathology_report_v1` | `json` | `schema`, `summary`, `rows` | `result_cube_selection_labels_v0_to_v1` |
 | `atlas/scope/audit_response_matrix.json` | `regression_cp_final_audit_response_matrix_v1` | `json` | `schema`, `summary`, `rows` | `audit_response_matrix_public_v1` |
 | `atlas/benchmark_v2/live_integrity_audit.json` | `regression_cp_benchmark_v2_live_integrity_audit_public_v1` | `json` | `schema`, `status`, `critical_violation_count`, `planned_method_row_count`, `observed_method_row_count`, `completed_method_row_count`, `raw_ledger_included` | `benchmark_v2_live_integrity_audit_public_v1` |
+| `atlas/benchmark_v2/results/result_synthesis.json` | `regression_cp_benchmark_v2_result_synthesis_public_v1` | `json` | `schema`, `status`, `planned_method_row_count`, `completed_method_row_count`, `selected_paired_cell_count`, `selected_cp_method_counts`, `raw_ledger_included`, `artifact_paths` | `benchmark_v2_result_synthesis_public_v1` |
 | `atlas/maintenance/maintenance_quality_matrix.json` | `regression_cp_public_maintenance_quality_matrix_v1` | `json` | `schema`, `summary`, `checks` | `maintenance_quality_matrix_public_v1` |
 
 ## Policy

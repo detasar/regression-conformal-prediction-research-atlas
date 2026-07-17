@@ -57,7 +57,7 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <main id="main-content" tabindex="-1">
-  <div class="boundary"><strong>Study scope.</strong> Experiment-scoped Research Atlas render with source-traceable results and layout checks.</div>
+  <div class="boundary"><strong>Study scope.</strong> Source-traceable summary of the audited regression conformal prediction study.</div>
 <h1>Supplementary Document</h1>
 <p><strong>Key empirical signal:</strong> Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.</p>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
@@ -82,6 +82,7 @@
 <tbody>
 <tr><td>S1</td><td>Check whether the observed method pattern is stable enough to describe.</td><td>CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000.</td><td>Report the fixed-GBM CQR, Mondrian, and CV+ pattern as experiment-scoped evidence.</td><td>Study-wide method choice or universal deployment use would require a separate validation study.</td></tr>
 <tr><td>S1b</td><td>Check whether CQR&#x27;s signal survives a backend-confound diagnostic.</td><td>Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed_gbm_cqr=116, model_matched_cqr=71, neither=37.</td><td>Use as a backend sensitivity check for the experiment-scoped CQR signal.</td><td>Use the check as backend sensitivity evidence rather than a universal CQR deployment rule.</td></tr>
+<tr><td>S1c</td><td>Check the completed balanced Benchmark v2 result surface.</td><td>Benchmark v2 terminal rows=42,000; completed rows=29,683; selected cells are cqr_model_matched=4,415, cv_plus=1,216, mondrian_abs=1,265, split_abs=281, jackknife_plus=173.</td><td>Use as balanced follow-up evidence under the frozen Benchmark v2 utility rule.</td><td>Do not turn Benchmark v2 selections into a universal method-choice or deployment rule.</td></tr>
 <tr><td>S2</td><td>Check whether post-selection and bridge diagnostics preserve the same boundary.</td><td>Post-selection diagnostic counts are cqr=18 and mondrian_abs=7; the bridge slice has 45 completed atomic runs.</td><td>Use the slice as diagnostic stress-test evidence.</td><td>A study-wide method choice or validated Venn-Abers regression interval would require a separate validation study.</td></tr>
 <tr><td>S3</td><td>Check whether bounded-support endpoint behavior supports a validity claim.</td><td>0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles.</td><td>Report endpoint policy closure and retained domain caveats.</td><td>Bounded-support or endpoint validity would require a separate validation study.</td></tr>
 <tr><td>S4</td><td>Check whether group diagnostics define a population-inference estimand.</td><td>187 pairwise group comparisons, 0 population-inference-ready bundles, and 0 population-estimand-declared bundles.</td><td>Use group rows as heterogeneity diagnostics.</td><td>Population-level group inference or deployment group inference would require a separate validation study.</td></tr>
@@ -90,7 +91,7 @@
 </tbody>
 </table></div>
 <h2>S1. Method Selection Robustness Diagnostics</h2>
-<p>This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">Lei et al. (2017)</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">Romano et al. (2019)</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">Barber et al. (2020)</a>; <a href="https://arxiv.org/abs/2002.09025">Kim et al. (2020)</a>]. Legacy plus-family rows are interpreted with a fold-local preprocessing caveat: some retrospective CV+/jackknife runs fit preprocessing or supervised feature-reduction steps before the internal folds, and Benchmark v2 requires those steps to be refit inside each fold.</p>
+<p>This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, <code>1 - alpha</code> is the target coverage level and <code>alpha</code> is the target miscoverage rate [<a href="https://arxiv.org/abs/1604.04173">Lei et al. (2017)</a>]. CQR builds an interval from lower and upper quantile models before calibration [<a href="https://arxiv.org/abs/1905.03222">Romano et al. (2019)</a>], while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions [<a href="https://arxiv.org/abs/1905.02928">Barber et al. (2020)</a>; <a href="https://arxiv.org/abs/2002.09025">Kim et al. (2020)</a>].</p>
 <div class="table-wrap"><table><caption>Method-selection robustness diagnostics</caption>
 <thead><tr><th scope="col">Diagnostic item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
 <tbody>
@@ -127,9 +128,29 @@
 <tr><td>Study-wide method choice supported</td><td><code>False</code></td><td>Backend sensitivity evidence only</td></tr>
 </tbody>
 </table></div>
+<h3>S1c. Benchmark v2 Completion Check</h3>
+<p>Benchmark v2 is the balanced follow-up benchmark used to separate the retrospective result surface from a frozen, paired execution surface. It uses the frozen coverage-tolerance gate followed by interval score. The table below is descriptive follow-up evidence, not a method-choice or deployment rule.</p>
+<div class="table-wrap"><table><caption>Post-selection validation diagnostics</caption>
+<thead><tr><th scope="col">Benchmark v2 item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
+<tbody>
+<tr><td>Planned method rows</td><td>42,000</td><td>Frozen execution surface</td></tr>
+<tr><td>Terminal method rows</td><td>42,000</td><td>Complete accounting; no pending rows</td></tr>
+<tr><td>Completed method rows</td><td>29,683</td><td>Rows with fitted interval results</td></tr>
+<tr><td>Failed method rows</td><td>0</td><td>Execution failure count</td></tr>
+<tr><td>Paired cells</td><td>8,400</td><td>Dataset-task-seed-learner comparison cells</td></tr>
+<tr><td>Selected paired cells</td><td>7,350</td><td>Coverage-eligible selected cells under the frozen rule</td></tr>
+<tr><td>CQR model-matched selections</td><td>4,415</td><td>Largest Benchmark v2 selected-cell signal</td></tr>
+<tr><td>CV+ selections</td><td>1,216</td><td>Secondary selected-cell signal</td></tr>
+<tr><td>Mondrian selections</td><td>1,265</td><td>Secondary selected-cell signal</td></tr>
+<tr><td>Split conformal selections</td><td>281</td><td>Baseline selected-cell signal</td></tr>
+<tr><td>Jackknife+ selections</td><td>173</td><td>Plus-family selected-cell signal under caps/skips</td></tr>
+<tr><td>Live integrity status</td><td><code>pass</code></td><td>Critical violations=0</td></tr>
+</tbody>
+</table></div>
+<p>Reader note: Benchmark v2 supports a clearer descriptive comparison than the earlier retrospective surface. It remains a benchmark-level comparison rather than a rule for every future application. The supported wording is that model-matched CQR was selected most often under the frozen Benchmark v2 rule, with CV+ and Mondrian as important comparators.</p>
 <h2>S2. Post-Selection Validation Diagnostics</h2>
 <p>Post-selection validation asks whether the descriptive pattern persists in a held-out validation-style slice after the candidate methods have already been identified. The supplement treats this as a diagnostic stress test. It does not convert the observed counts into a study-wide method choice.</p>
-<div class="table-wrap"><table><caption>Post-selection validation diagnostics</caption>
+<div class="table-wrap"><table><caption>Bounded-support endpoint diagnostics</caption>
 <thead><tr><th scope="col">Diagnostic item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
 <tbody>
 <tr><td>Validation datasets</td><td>5</td><td>Narrow validation scope</td></tr>
@@ -149,7 +170,7 @@
 <p>Reader note: post-selection diagnostics are stress tests of a descriptive pattern. They do not justify language such as study-wide method choice, globally best conformal method, or validated Venn-Abers regression interval. The Venn-Abers rows are especially narrow: they concern the evaluated bridge, while predictive-distribution and generalized Venn-Abers work remain separate literature objects [<a href="https://proceedings.mlr.press/v91/nouretdinov18a.html">Nouretdinov et al. (2018)</a>; <a href="https://proceedings.mlr.press/v230/nouretdinov24a.html">Nouretdinov and Gammerman (2024)</a>; <a href="https://proceedings.mlr.press/v267/van-der-laan25a.html">Van Der Laan and Alaa (2025)</a>; <a href="https://arxiv.org/html/2605.06646v1">Petej and Vovk (2026)</a>].</p>
 <h2>S3. Bounded-Support Endpoint Policy</h2>
 <p>Bounded-support checks ask whether prediction interval endpoints respect the natural domain of the target. This is different from ordinary marginal coverage. Weighted conformal ideas can address some covariate-shift settings [<a href="https://arxiv.org/abs/1904.06019">@tibshirani2020covariate_shift</a>], but the present endpoint policy is an empirical domain-validity diagnostic. The current evidence does not support bounded-support validity claims.</p>
-<div class="table-wrap"><table><caption>Bounded-support endpoint diagnostics</caption>
+<div class="table-wrap"><table><caption>Group diagnostic scope</caption>
 <thead><tr><th scope="col">Diagnostic item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
 <tbody>
 <tr><td>Bounded-support bundles</td><td>15</td><td>Research Document-candidate bundles</td></tr>
@@ -165,7 +186,7 @@
 <p>Reader note: bounded-support evidence is stricter than ordinary coverage evidence. A method can have acceptable empirical coverage and still fail a natural-domain endpoint gate. The supplement therefore reports endpoint closure as a limitation, not as a post-processing success story.</p>
 <h2>S4. Group Diagnostics</h2>
 <p>Group coverage diagnostics compare interval behavior across observed groups. They are useful for auditing heterogeneity, but they are not population-level group inference claims unless the population estimand, protected-attribute scope, sampling design, and multiplicity treatment support that claim.</p>
-<div class="table-wrap"><table><caption>Group diagnostic scope</caption>
+<div class="table-wrap"><table><caption>Duplicate and leakage integrity diagnostics</caption>
 <thead><tr><th scope="col">Diagnostic item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
 <tbody>
 <tr><td>Group diagnostic bundles</td><td>15</td><td>Diagnostic group scope</td></tr>
@@ -186,7 +207,7 @@
 <p>Reader note: group rows can show where interval behavior differs, but group inference is an estimand-level claim. Because the current population estimand and protected-attribute scope are not declared at the bundle level, the correct supplement reading is diagnostic heterogeneity, not population-level group inference.</p>
 <h2>S5. Duplicate And Integrity Caveats</h2>
 <p>Duplicate and split-integrity checks protect the interpretation of model comparisons. If repeated rows, row signatures, or model-visible duplicates can affect train/calibration/test separation, the result must retain the caveat rather than become stronger prose.</p>
-<div class="table-wrap"><table><caption>Duplicate and leakage integrity diagnostics</caption>
+<div class="table-wrap"><table><caption>Supplementary Document for the Regression CP Research Atlas table 9</caption>
 <thead><tr><th scope="col">Diagnostic item</th><th scope="col">Value</th><th scope="col">Scope</th></tr></thead>
 <tbody>
 <tr><td>Duplicate actions</td><td>29</td><td>Caveat inventory scope</td></tr>
@@ -208,6 +229,7 @@
 <ul>
 <li>This supplement records method details, robustness diagnostics, and traceability for the Research Document.</li>
 <li>Method evidence is experiment-scoped; use in a new setting would need its own validation.</li>
+<li>Benchmark v2 is a completed balanced follow-up benchmark; its selections remain descriptive.</li>
 <li>Bounded-support endpoint results block validity claims.</li>
 <li>Group diagnostics do not establish population-level group inference.</li>
 <li>Duplicate and integrity caveats are retained rather than hidden.</li>
@@ -244,6 +266,8 @@
 <li><code>publication_citation_registry</code>: <code>study/research_document/publication_citation_registry.json</code></li>
 <li><code>knowledge_graph_quality_summary</code>: <code>study/reports/knowledge_graph_quality/quality_summary.json</code></li>
 <li><code>cqr_fixed_vs_model_matched_synthesis</code>: <code>study/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json</code></li>
+<li><code>benchmark_v2_result_synthesis</code>: <code>experiments/regression/results/benchmark_v2/synthesis/benchmark_v2_result_synthesis.json</code></li>
+<li><code>benchmark_v2_live_integrity_audit</code>: <code>experiments/regression/results/benchmark_v2/benchmark_v2_live_integrity_audit.json</code></li>
 </ul>
 </main>
 </body>

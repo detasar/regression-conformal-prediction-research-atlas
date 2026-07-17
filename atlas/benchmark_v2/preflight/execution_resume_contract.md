@@ -4,8 +4,8 @@ This contract makes the Benchmark v2 grid chunkable and restartable. Aggregate p
 
 ## Status
 
-- Chunk manifest status: `chunk_manifest_ready_execution_in_progress`
-- Result generation status: `in_progress`
+- Chunk manifest status: `chunk_manifest_ready_execution_complete_pending_public_synthesis`
+- Result generation status: `complete_pending_public_synthesis`
 - Chunk count: `42`
 - Paired cells: `8400`
 - Method rows: `42000`

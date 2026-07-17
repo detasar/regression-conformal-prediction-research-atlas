@@ -38,7 +38,7 @@
     {
       "check_id": "benchmark_v2_results_generated",
       "evidence_path": "atlas/benchmark_v2/execution_status.json",
-      "status": "in_progress"
+      "status": "complete_pending_public_synthesis"
     },
     {
       "check_id": "candidate_run_grid_manifest_published",
@@ -51,8 +51,8 @@
       "status": "pass"
     }
   ],
-  "generated_at_utc": "2026-07-17T12:32:44.132350+00:00",
-  "overall_status": "execution_in_progress",
-  "result_generation_status": "in_progress",
+  "generated_at_utc": "2026-07-17T21:33:21.387903+00:00",
+  "overall_status": "execution_complete_pending_public_synthesis",
+  "result_generation_status": "complete_pending_public_synthesis",
   "schema": "regression_cp_benchmark_v2_preflight_readiness_checklist_v1"
 }

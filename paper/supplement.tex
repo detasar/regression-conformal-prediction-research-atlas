@@ -73,6 +73,7 @@ Section & Reviewer check & Evidence metric & Allowed use & Beyond this study use
 \midrule
 S1 & Check whether the observed method pattern is stable enough to describe. & CQR common-cell wins 58 of 94 cells; bootstrap selection count is cqr=1,000. & Report the fixed-GBM CQR, Mondrian, and CV+ pattern as experiment-scoped evidence. & Study-wide method choice or universal deployment use would require a separate validation study. \\
 S1b & Check whether CQR's signal survives a backend-confound diagnostic. & Model-matched CQR completed 4,564 rows; paired cells=224; selected cells are fixed\_\allowbreak{}gbm\_\allowbreak{}cqr=116, model\_\allowbreak{}matched\_\allowbreak{}cqr=71, neither=37. & Use as a backend sensitivity check for the experiment-scoped CQR signal. & Use the check as backend sensitivity evidence rather than a universal CQR deployment rule. \\
+S1c & Check the completed balanced Benchmark v2 result surface. & Benchmark v2 terminal rows=42,000; completed rows=29,683; selected cells are cqr\_\allowbreak{}model\_\allowbreak{}matched=4,415, cv\_\allowbreak{}plus=1,216, mondrian\_\allowbreak{}abs=1,265, split\_\allowbreak{}abs=281, jackknife\_\allowbreak{}plus=173. & Use as balanced follow-up evidence under the frozen Benchmark v2 utility rule. & Do not turn Benchmark v2 selections into a universal method-choice or deployment rule. \\
 S2 & Check whether post-selection and bridge diagnostics preserve the same boundary. & Post-selection diagnostic counts are cqr=18 and mondrian\_\allowbreak{}abs=7; the bridge slice has 45 completed atomic runs. & Use the slice as diagnostic stress-test evidence. & A study-wide method choice or validated Venn-Abers regression interval would require a separate validation study. \\
 S3 & Check whether bounded-support endpoint behavior supports a validity claim. & 0 bounded-support-validity-ready bundles and 11 raw endpoint-excursion bundles. & Report endpoint policy closure and retained domain caveats. & Bounded-support or endpoint validity would require a separate validation study. \\
 S4 & Check whether group diagnostics define a population-inference estimand. & 187 pairwise group comparisons, 0 population-inference-ready bundles, and 0 population-estimand-declared bundles. & Use group rows as heterogeneity diagnostics. & Population-level group inference or deployment group inference would require a separate validation study. \\
@@ -84,7 +85,7 @@ S6 & Check whether the evidence map helps readers trace source support. & 3,643 
 
 \section{S1. Method Selection Robustness Diagnostics}
 
-This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, \texttt{1 - alpha} is the target coverage level and \texttt{alpha} is the target miscoverage rate \cite{lei2017distribution_free_regression}. CQR builds an interval from lower and upper quantile models before calibration \cite{romano2019conformalized_quantile_regression}, while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions \cite{barber2020jackknife_plus,kim2020jackknife_after_bootstrap}. Legacy plus-family rows are interpreted with a fold-local preprocessing caveat: some retrospective CV+/jackknife runs fit preprocessing or supervised feature-reduction steps before the internal folds, and Benchmark v2 requires those steps to be refit inside each fold.
+This section supports the main article by separating descriptive method behavior from study-wide method choice. In conformal prediction, \texttt{1 - alpha} is the target coverage level and \texttt{alpha} is the target miscoverage rate \cite{lei2017distribution_free_regression}. CQR builds an interval from lower and upper quantile models before calibration \cite{romano2019conformalized_quantile_regression}, while CV+ and jackknife-style methods use out-of-fold or leave-one-out predictions \cite{barber2020jackknife_plus,kim2020jackknife_after_bootstrap}.
 
 \begingroup
 \footnotesize
@@ -138,6 +139,36 @@ Study-wide method choice supported & \texttt{False} & Backend sensitivity eviden
 \bottomrule
 \end{tabular}
 \endgroup
+
+\subsection{S1c. Benchmark v2 Completion Check}
+
+Benchmark v2 is the balanced follow-up benchmark used to separate the retrospective result surface from a frozen, paired execution surface. It uses the frozen coverage-tolerance gate followed by interval score. The table below is descriptive follow-up evidence, not a method-choice or deployment rule.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
+\toprule
+Benchmark v2 item & Value & Scope \\
+\midrule
+Planned method rows & 42,000 & Frozen execution surface \\
+Terminal method rows & 42,000 & Complete accounting; no pending rows \\
+Completed method rows & 29,683 & Rows with fitted interval results \\
+Failed method rows & 0 & Execution failure count \\
+Paired cells & 8,400 & Dataset-task-seed-learner comparison cells \\
+Selected paired cells & 7,350 & Coverage-eligible selected cells under the frozen rule \\
+CQR model-matched selections & 4,415 & Largest Benchmark v2 selected-cell signal \\
+CV+ selections & 1,216 & Secondary selected-cell signal \\
+Mondrian selections & 1,265 & Secondary selected-cell signal \\
+Split conformal selections & 281 & Baseline selected-cell signal \\
+Jackknife+ selections & 173 & Plus-family selected-cell signal under caps/skips \\
+Live integrity status & \texttt{pass} & Critical violations=0 \\
+\bottomrule
+\end{tabular}
+\endgroup
+
+Reader note: Benchmark v2 supports a clearer descriptive comparison than the earlier retrospective surface. It remains a benchmark-level comparison rather than a rule for every future application. The supported wording is that model-matched CQR was selected most often under the frozen Benchmark v2 rule, with CV+ and Mondrian as important comparators.
 
 \section{S2. Post-Selection Validation Diagnostics}
 
@@ -264,6 +295,7 @@ Venn-Abers evidence is retained as part of the negative and boundary evidence fo
 \begin{itemize}
 \item This supplement records method details, robustness diagnostics, and traceability for the Research Document.
 \item Method evidence is experiment-scoped; use in a new setting would need its own validation.
+\item Benchmark v2 is a completed balanced follow-up benchmark; its selections remain descriptive.
 \item Bounded-support endpoint results block validity claims.
 \item Group diagnostics do not establish population-level group inference.
 \item Duplicate and integrity caveats are retained rather than hidden.

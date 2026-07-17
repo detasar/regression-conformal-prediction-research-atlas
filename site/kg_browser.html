@@ -14,6 +14,8 @@
   <meta property="og:description" content="Traversable knowledge graph browser for the Regression CP Research Atlas, with guided evidence routes, search, filters, source details, and fallback tables.">
   <meta property="og:url" content="https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html">
   <meta name="twitter:card" content="summary">
+  <script src="https://cdn.jsdelivr.net/npm/graphology@0.25.4/dist/graphology.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sigma@2.4.0/build/sigma.min.js"></script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Regression CP Evidence Map", "description": "Traversable knowledge graph browser for the Regression CP Research Atlas, with guided evidence routes, search, filters, source details, and fallback tables.", "url": "https://detasar.github.io/regression-conformal-prediction-research-atlas/site/kg_browser.html", "applicationCategory": "ResearchApplication", "creator": {"@type": "Person", "name": "Emre Tasar", "email": "detasar@gmail.com"}}</script>
   <style>
     :root { --paper:#f8f5ee; --ink:#151922; --muted:#596273; --line:#d9d1c2; --panel:#fffdf8; --teal:#0f766e; --amber:#996515; --red:#a0442f; --blue:#245f9f; }
@@ -56,7 +58,9 @@
     button { border:1px solid var(--line); border-radius:7px; background:#fffdf8; padding:8px 10px; font-weight:760; cursor:pointer; }
     button:hover { border-color:var(--teal); color:var(--teal); }
     .canvas-wrap { position:relative; min-height:0; overflow:hidden; background:radial-gradient(circle at 50% 42%, #fffdf8, #ece3d3); }
+    .sigma-stage { position:absolute; inset:0; z-index:0; }
     canvas { position:absolute; inset:0; width:100%; height:100%; }
+    canvas.sigma-active { opacity:0; }
     .footer { display:flex; flex-wrap:wrap; gap:14px; padding:12px 16px; color:var(--muted); font-size:13px; background:rgba(255,253,248,.9); border-top:1px solid var(--line); }
     .map-legend { display:flex; flex-wrap:wrap; gap:8px; color:var(--muted); font-size:12px; }
     .legend-mark { width:12px; height:12px; display:inline-block; border:1px solid var(--line); vertical-align:-2px; margin-right:4px; }
@@ -83,7 +87,7 @@
     <aside>
       <h2>Research Routes</h2>
       <ul id="routes" class="kg-list" aria-label="Guided research routes"></ul>
-      <label for="search">Search</label><input id="search" placeholder="CQR, Venn-Abers, NHANES, coverage...">
+      <label for="search">Search nodes</label><input id="search" placeholder="CQR, Venn-Abers, NHANES, coverage...">
       <label for="typeFilter">Node type</label><select id="typeFilter"><option value="">All types</option></select>
       <label for="relationFilter">Relation</label><select id="relationFilter" disabled><option value="">All relations; load a node to enable</option></select>
       <label for="confidenceMin">Minimum confidence <span id="confidenceValue">0.00</span></label><input id="confidenceMin" type="range" min="0" max="1" step="0.05" value="0" aria-describedby="confidenceHelp"><p id="confidenceHelp" class="muted">Filters visible graph edges and provenance receipts after the edge bundle loads.</p>
@@ -91,8 +95,8 @@
       <div id="results" aria-describedby="resultCount"></div>
     </aside>
     <section class="stage" aria-labelledby="mapTitle">
-      <div class="toolbar"><b id="mapTitle">Curated evidence map</b><div><button id="oneHop" type="button" aria-pressed="true" aria-controls="mapCanvas table edges canvasStatus">One hop</button> <button id="twoHop" type="button" aria-pressed="false" aria-controls="mapCanvas table edges canvasStatus">Two hops</button></div></div>
-      <div class="canvas-wrap"><canvas id="mapCanvas" tabindex="0" role="img" aria-label="Knowledge graph canvas visual overview" aria-describedby="canvasHelp canvasStatus"></canvas><p id="canvasHelp" class="sr-only">Use the left and right arrow keys to move across visible graph nodes, then press Enter to open the highlighted node. The same nodes are available in the accessible table.</p><p id="canvasStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p></div>
+      <div class="toolbar"><b id="mapTitle">Research Atlas Graph Canvas</b><div><button id="oneHop" type="button" aria-pressed="true" aria-controls="mapCanvas table edges canvasStatus">One hop</button> <button id="twoHop" type="button" aria-pressed="false" aria-controls="mapCanvas table edges canvasStatus">Two hops</button></div></div>
+      <div class="canvas-wrap"><div id="sigmaMount" class="sigma-stage" aria-hidden="true"></div><canvas id="mapCanvas" tabindex="0" role="img" aria-label="Knowledge graph canvas visual overview" aria-describedby="canvasHelp canvasStatus"></canvas><p id="canvasHelp" class="sr-only">Use the left and right arrow keys to move across visible graph nodes, then press Enter to open the highlighted node. The same nodes are available in the accessible table.</p><p id="canvasStatus" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p></div>
       <div class="footer"><span id="status" role="status" aria-live="polite">Loading graph...</span><span id="graphNotice" class="graph-notice" role="status" aria-live="polite"></span><button id="edgeRetry" class="edge-retry" type="button" hidden>Retry edge bundle</button><span class="map-legend" aria-label="Map legend"><span><i class="legend-mark" style="background:#596273"></i>node</span><span><i class="legend-mark" style="background:#a0442f"></i>evidence-limit edge</span><span><i class="legend-mark" style="background:#996515"></i>route step</span></span></div>
     </section>
     <aside class="right">
@@ -104,7 +108,7 @@
     </aside>
   </main>
   <script>
-    const state = { data:null, selected:null, routeId:null, missingRequest:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], focusIndex:-1, edgesLoaded:false, edgeLoadPromise:null, mainEdgeIndexBuilt:false, worker:null, workerSeq:0, workerCalls:new Map(), workerEdgesReady:false, workerNeighborhood:new Map(), workerNeighborhoodPending:new Set() };
+    const state = { data:null, selected:null, routeId:null, missingRequest:null, depth:1, nodeById:new Map(), edgeByNode:new Map(), points:[], focusIndex:-1, edgesLoaded:false, edgeLoadPromise:null, mainEdgeIndexBuilt:false, worker:null, workerSeq:0, workerCalls:new Map(), workerEdgesReady:false, workerNeighborhood:new Map(), workerNeighborhoodPending:new Set(), sigmaRenderer:null, sigmaGraph:null, sigmaUnavailableNotice:false };
     const esc = v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const short = (v,n=150) => { const s=String(v ?? ''); return s.length>n ? s.slice(0,n-1)+'…' : s; };
     const nodeKey = n => n ? (n.display_id || n.id) : '';
@@ -377,6 +381,11 @@
 	        ['claim'+'_boundary', 'interpretation scope'],
 	        ['paper'+'_gate', 'study check'],
 	        ['methodology'+'_control', 'methodology check'],
+	        ['method_performance_descriptive_'+'front'+'ier', 'method performance coverage-gated selection'],
+	        ['method_performance_coverage_gated_selection', 'method performance coverage-gated selection'],
+	        ['front'+'ier_by_dataset_alpha', 'coverage-gated selected cells by dataset and alpha'],
+	        ['top_'+'front'+'ier_methods', 'top coverage-gated selected methods'],
+	        ['front'+'ier_cell_count', 'coverage-gated selected-cell count'],
 	        ['kg_reference_node_ids', 'KG reference nodes'],
 	        ['source_artifacts', 'source artifacts'],
 	        ['navigation_rows', 'navigation rows'],
@@ -506,6 +515,76 @@
       draw();
       announceCanvasFocus();
     }
+    function graphologyConstructor(){
+      if(window.graphology && window.graphology.Graph) return window.graphology.Graph;
+      if(window.graphology && typeof window.graphology === 'function') return window.graphology;
+      if(window.Graph && typeof window.Graph === 'function') return window.Graph;
+      return null;
+    }
+    function killSigmaRenderer(){
+      if(state.sigmaRenderer && typeof state.sigmaRenderer.kill === 'function') state.sigmaRenderer.kill();
+      state.sigmaRenderer=null;
+      state.sigmaGraph=null;
+      document.getElementById('mapCanvas').classList.remove('sigma-active');
+    }
+    function renderSigmaGraph(nodes, edges, pos){
+      const mount=document.getElementById('sigmaMount');
+      const SigmaCtor=window.Sigma;
+      const GraphCtor=graphologyConstructor();
+      if(!mount || !SigmaCtor || !GraphCtor){
+        if(!state.sigmaUnavailableNotice){
+          graphNotice('WebGL graph renderer unavailable; using accessible canvas fallback.');
+          state.sigmaUnavailableNotice=true;
+        }
+        killSigmaRenderer();
+        return false;
+      }
+      try{
+        const graph=new GraphCtor();
+        nodes.forEach(n=>{
+          const p=pos.get(n.id);
+          if(!p || graph.hasNode(n.id)) return;
+          graph.addNode(n.id, {
+            x:p.x,
+            y:-p.y,
+            size:Math.max(3, Math.min(16, Number(n.size || 8))),
+            label:readableNodeLabel(n),
+            color:n.color || '#596273'
+          });
+        });
+        edges.forEach((e,i)=>{
+          if(!graph.hasNode(e.source) || !graph.hasNode(e.target)) return;
+          const key=`${e.source}->${e.target}:${e.relation || 'edge'}:${i}`;
+          if(!graph.hasEdge(key)){
+            graph.addEdgeWithKey(key, e.source, e.target, {
+              color:e.relation==='REQUIRES_VALIDATION_FROM'?'rgba(160,68,47,.55)':(e.relation==='ROUTE_STEP'?'rgba(153,101,21,.50)':'rgba(42,72,86,.35)'),
+              size:e.relation==='ROUTE_STEP'?2:1
+            });
+          }
+        });
+        if(state.sigmaRenderer && typeof state.sigmaRenderer.kill === 'function') state.sigmaRenderer.kill();
+        state.sigmaGraph=graph;
+        state.sigmaRenderer=new SigmaCtor(graph, mount, {
+          allowInvalidContainer:true,
+          renderEdgeLabels:false,
+          defaultNodeType:'circle',
+          defaultEdgeType:'line',
+          labelDensity:0.12,
+          labelRenderedSizeThreshold:9,
+          zIndex:true
+        });
+        document.getElementById('mapCanvas').classList.add('sigma-active');
+        graphNotice('');
+        return true;
+      } catch(error){
+        if(!state.sigmaUnavailableNotice){
+          graphNotice(`WebGL graph renderer failed; using accessible canvas fallback (${error.message || 'unknown error'}).`);
+          state.sigmaUnavailableNotice=true;
+        }
+        killSigmaRenderer();
+        return false;
+      }
+    }
     function draw(){
       const canvas=document.getElementById('mapCanvas'), wrap=canvas.parentElement, r=wrap.getBoundingClientRect(), dpr=window.devicePixelRatio||1;
       canvas.width=Math.floor(r.width*dpr); canvas.height=Math.floor(r.height*dpr); canvas.style.width=r.width+'px'; canvas.style.height=r.height+'px';
@@ -528,9 +607,15 @@
       const cx=r.width/2, cy=r.height/2, radius=Math.min(r.width,r.height)*0.34;
       const pos=new Map();
       nodes.forEach((n,i)=>{ const angle=-Math.PI/2 + i*(Math.PI*2/Math.max(1,nodes.length)); const rr=n.id===state.selected?0:radius*(0.72+((i%5)*0.07)); pos.set(n.id,{x:cx+Math.cos(angle)*rr,y:cy+Math.sin(angle)*rr}); });
-      edges.forEach(e=>{ const a=pos.get(e.source), b=pos.get(e.target); if(!a||!b) return; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=e.relation==='REQUIRES_VALIDATION_FROM'?'rgba(160,68,47,.38)':(e.relation==='ROUTE_STEP'?'rgba(153,101,21,.30)':'rgba(42,72,86,.22)'); ctx.lineWidth=e.relation==='ROUTE_STEP'?1.6:1; ctx.stroke(); });
       state.points=[];
-      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const focused=i===state.focusIndex; const overview=!state.selected; const route=selectedRoute(); const mobileCanvas=r.width<560; const sparseLabel=(!mobileCanvas && !route && i%10===0); const shouldLabel=is || focused || (!mobileCanvas && (nodes.length<=12 || sparseLabel)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); if(focused){ ctx.beginPath(); ctx.strokeStyle='rgba(15,118,110,.65)'; ctx.lineWidth=4; ctx.arc(p.x,p.y,size+7,0,Math.PI*2); ctx.stroke(); } ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(shouldLabel){ ctx.fillStyle='#151922'; ctx.font=(is||focused?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(mobileCanvas?24:38):(overview?(mobileCanvas?20:30):22); const label=short(readableNodeLabel(n),maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } state.points.push({id:n.id,x:p.x,y:p.y,r:size+18}); });
+      nodes.forEach(n=>{ const p=pos.get(n.id); if(p) state.points.push({id:n.id,x:p.x,y:p.y,r:Math.max(24, Math.min(34, Number(n.size||8)+18))}); });
+      const sigmaRendered=renderSigmaGraph(nodes, edges, pos);
+      if(sigmaRendered){
+        document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes with Sigma.js / Graphology WebGL rendering`;
+        return;
+      }
+      edges.forEach(e=>{ const a=pos.get(e.source), b=pos.get(e.target); if(!a||!b) return; ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.strokeStyle=e.relation==='REQUIRES_VALIDATION_FROM'?'rgba(160,68,47,.38)':(e.relation==='ROUTE_STEP'?'rgba(153,101,21,.30)':'rgba(42,72,86,.22)'); ctx.lineWidth=e.relation==='ROUTE_STEP'?1.6:1; ctx.stroke(); });
+      nodes.forEach((n,i)=>{ const p=pos.get(n.id); if(!p) return; const is=n.id===state.selected; const focused=i===state.focusIndex; const overview=!state.selected; const route=selectedRoute(); const mobileCanvas=r.width<560; const sparseLabel=(!mobileCanvas && !route && i%10===0); const shouldLabel=is || focused || (!mobileCanvas && (nodes.length<=12 || sparseLabel)); const size=is?18:Math.max(7,Math.min(13,Number(n.size||8))); if(focused){ ctx.beginPath(); ctx.strokeStyle='rgba(15,118,110,.65)'; ctx.lineWidth=4; ctx.arc(p.x,p.y,size+7,0,Math.PI*2); ctx.stroke(); } ctx.beginPath(); ctx.fillStyle=n.color||'#596273'; ctx.strokeStyle='#fffdf8'; ctx.lineWidth=2; ctx.arc(p.x,p.y,size,0,Math.PI*2); ctx.fill(); ctx.stroke(); if(shouldLabel){ ctx.fillStyle='#151922'; ctx.font=(is||focused?'700 15px ':'700 12px ')+'Aptos, sans-serif'; ctx.textAlign='center'; const maxLabel=is?(mobileCanvas?24:38):(overview?(mobileCanvas?20:30):22); const label=short(readableNodeLabel(n),maxLabel); const half=Math.min(ctx.measureText(label).width/2, Math.max(20,r.width/2-14)); const labelX=Math.max(half+8, Math.min(r.width-half-8, p.x)); ctx.fillText(label,labelX, p.y+size+16); } });
       document.getElementById('status').textContent=`Showing ${nodes.length.toLocaleString()} readable nodes from ${state.data.summary.node_count.toLocaleString()} total KG nodes`;
     }
     function renderAll(){ renderRoutes(); renderResults(); renderDetail(); updateDepthButtons(); draw(); }

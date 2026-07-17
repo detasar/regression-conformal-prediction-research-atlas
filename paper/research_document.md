@@ -219,6 +219,10 @@ The Research Document, supplement, README, and site follow a small source-backed
 | Conformal-method labels | 28 | Broad conformal method surface |
 | Model-matched CQR completed rows | 4,564 | Backend-confound sensitivity check |
 | CQR fixed-vs-model-matched paired cells | 224 | Dataset-alpha-model-family comparison cells |
+| Benchmark v2 planned method rows | 42,000 | Frozen balanced follow-up benchmark surface |
+| Benchmark v2 terminal method rows | 42,000 | Complete Benchmark v2 accounting; no pending rows |
+| Benchmark v2 completed method rows | 29,683 | Fitted interval result rows in Benchmark v2 |
+| Benchmark v2 paired cells | 8,400 | Dataset-task-seed-learner comparison cells |
 | Supplement sections | 6 | Broad supplementary evidence plan |
 
 The design emphasizes resumability, source traceability, duplicate and leakage controls, and conservative interpretation limits. The study therefore treats unsupported stronger readings as part of the result rather than as missing decoration. If endpoint, group inference, or validation evidence is not satisfied, the Research Document reports the stronger reading as beyond this study.
@@ -265,7 +269,7 @@ The rows below are writing guide rows derived from the claim/evidence verificati
 | Target | Claim type | Supported wording | Evidence link | Stronger reading | Plain-language note |
 |---|---|---|---|---|---|
 | `main_article` | `scope_claim` | The dataset/source audit defines the studied scope under the recorded review policy. | Dataset/source descriptions need source citations before report prose; the matrix does not certify exhaustive internet coverage. | Avoid implying exhaustive internet coverage or final dataset-level result overstatement. | This row tells a reader what data sources were inspected; the dataset list defines study scope rather than a final dataset-level result. |
-| `main_article` | `descriptive_empirical_claim` | Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. | Method descriptions need literature citations; empirical language must stay limited to these experiments. | Keep CQR, CV+, and other methods within experiment-scoped interpretation. | This row permits a careful description of what looked useful in the experiment, not a general rule for every regression problem. |
+| `main_article` | `descriptive_empirical_claim` | Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. | Method descriptions need literature citations; empirical language must stay limited to these experiments. Legacy CV+/jackknife rows carry a fold-local preprocessing caveat because some retrospective plus-family runs fit preprocessing or supervised feature-reduction steps before the internal folds. | Keep CQR, CV+, and other methods within experiment-scoped interpretation. | This row permits a careful description of what looked useful in the experiment, not a general rule for every regression problem. |
 | `main_article` | `stronger_claim_requires_validation` | The current evidence does not establish a study-wide method choice, final main result, or deployment rule. | A stronger reading would need a later pre-specified selection protocol if the scientific state changes. | Avoid presenting a final main-results table, method choice, or positive method conclusion. | This row prevents a reader from mistaking promising diagnostic patterns for a final answer. |
 | `supplementary_document` | `caveated_diagnostic_claim` | Robustness rows are post-selection diagnostics and should be read with their multiplicity caveats. | Statistical or robustness interpretations need the documented audit context; they are not confirmatory superiority claims. | Avoid converting robustness diagnostics into confirmatory superiority. | This row says the extra checks are useful diagnostics, not proof that one method is definitively preferred. |
 | `supplementary_document` | `negative_failure_mode_claim` | In these experiments, the evaluated fast Venn-Abers regression bridge did not validate as the expected strong regression interval solution. | The claim is bridge-specific negative evidence and leaves the broader Venn-Abers literature separate. | The study does not report a validated Venn-Abers regression interval claim. | This row records that one tested bridge behaved poorly while the broader Venn-Abers literature remains separate. |
@@ -286,6 +290,25 @@ The CQR row-weighted coverage mean is 0.9059, with a diagnostic row-weighted ban
 Robustness diagnostics are aligned with that descriptive reading. The common-cell method choice is `cqr`; common-cell counts are CQR=58, CV+=15, and Mondrian=21. Bootstrap selection counts are cqr=1,000. Leave-one-dataset and leave-one-alpha retention rates are 1.0000 and 1.0000. These numbers support a pipeline-level descriptive reading; they do not turn the result into a universal method choice.
 
 Coverage summaries provide additional context. CQR has nominal and coverage-tolerance pass rates of 0.6118 and 0.8076; CV+ has coverage-tolerance pass rate 0.8136; Mondrian absolute-residual calibration has coverage-tolerance pass rate 0.8586. The document reports these values as diagnostics at the audited scope.
+
+### Benchmark v2 Completion Check
+
+Benchmark v2 is the balanced follow-up benchmark added after the retrospective result surface was audited. It keeps the frozen coverage-tolerance gate followed by interval score, and it is read as descriptive follow-up evidence rather than a universal method-choice rule.
+
+| Benchmark v2 item | Value | How to read it |
+|---|---:|---|
+| Planned method rows | 42,000 | Frozen execution surface |
+| Terminal method rows | 42,000 | Complete accounting; no pending rows |
+| Completed method rows | 29,683 | Rows with fitted interval results |
+| Failed method rows | 0 | Execution failure count |
+| Selected paired cells | 7,350 | Coverage-eligible selected cells under the frozen rule |
+| CQR model-matched selections | 4,415 | Largest Benchmark v2 selected-cell signal |
+| CV+ selections | 1,216 | Secondary selected-cell signal |
+| Mondrian selections | 1,265 | Secondary selected-cell signal |
+| Split conformal selections | 281 | Baseline selected-cell signal |
+| Jackknife+ selections | 173 | Plus-family selected-cell signal under caps/skips |
+
+Benchmark v2 strengthens the project by testing a frozen, balanced surface after the earlier retrospective analysis. It still supports experiment-scoped reporting rather than a universal claim: model-matched CQR was selected most often under this benchmark rule, while CV+ and Mondrian remained important comparators.
 
 ## 4. Negative Evidence And Unsupported Stronger Claims
 
@@ -316,6 +339,7 @@ This document is intentionally strict about which broader readings need evidence
 - This Research Document is a Research Atlas narrative for experiment-scoped interpretation.
 - The fixed-GBM CQR pipeline, Mondrian calibration, and CV+ are described only as experiment-scoped empirical patterns from this study.
 - The model-matched CQR rerun evaluates backend sensitivity.
+- Benchmark v2 is a completed balanced follow-up benchmark; its selections are descriptive and do not establish a universal method choice.
 - The evaluated Venn-Abers regression bridge is described as negative/failure-mode evidence.
 - Population-level group inference, bounded-support validity, validated Venn-Abers regression, production, and best-method readings would need separate validation studies.
 - The KG helps readers inspect the evidence path behind each claim.
@@ -345,3 +369,5 @@ This document is intentionally strict about which broader readings need evidence
 - `research_atlas_package_manifest`: `study/research_document/research_atlas_package_manifest.json`
 - `publication_exemplar_review`: `study/research_document/publication_exemplar_review.json`
 - `cqr_fixed_vs_model_matched_synthesis`: `study/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json`
+- `benchmark_v2_result_synthesis`: `experiments/regression/results/benchmark_v2/synthesis/benchmark_v2_result_synthesis.json`
+- `benchmark_v2_live_integrity_audit`: `experiments/regression/results/benchmark_v2/benchmark_v2_live_integrity_audit.json`

@@ -110,6 +110,10 @@ def is_unsupported_split_regime_exception(exc: Exception) -> bool:
 
 def normalized_execution_status(row: dict[str, Any]) -> str:
     status = str(row.get("status", ""))
+    if status == "skipped_completed":
+        return "completed"
+    if status == "skipped_skipped_method":
+        return "skipped_method"
     if status == "failed":
         diagnostic_text = "\n".join(
             str(row.get(key, ""))
@@ -118,6 +122,64 @@ def normalized_execution_status(row: dict[str, Any]) -> str:
         if is_unsupported_split_regime_text(diagnostic_text):
             return "skipped_infeasible_grouped_regime"
     return status
+
+
+LEGACY_RESUME_SKIP_STATUSES = {"skipped_completed", "skipped_skipped_method"}
+
+COMPLETED_PAYLOAD_FIELDS = (
+    "alpha",
+    "seed",
+    "coverage",
+    "mean_width",
+    "median_width",
+    "interval_score",
+    "lower_miss_rate",
+    "upper_miss_rate",
+    "cp_metadata",
+    "benchmark_v2_config",
+)
+
+SKIPPED_PAYLOAD_FIELDS = (
+    "alpha",
+    "seed",
+    "skip_reason",
+    "split_regime",
+    "source_dataset_id",
+    "task_variant_id",
+)
+
+
+def execution_row_payload_score(row: dict[str, Any]) -> int:
+    """Score how useful a ledger row is when duplicate terminal rows exist."""
+    normalized_status = normalized_execution_status(row)
+    fields = (
+        COMPLETED_PAYLOAD_FIELDS
+        if normalized_status == "completed"
+        else SKIPPED_PAYLOAD_FIELDS
+    )
+    score = sum(1 for field in fields if row.get(field) not in (None, ""))
+    if str(row.get("status", "")) in LEGACY_RESUME_SKIP_STATUSES:
+        score -= 100
+    return score
+
+
+def preferred_execution_row(
+    existing: dict[str, Any] | None,
+    incoming: dict[str, Any],
+) -> dict[str, Any]:
+    """Keep the most informative row for a method key.
+
+    Concurrent resume workers can append legacy skip rows after a full completed
+    row. Those rows are terminal for resumability but intentionally sparse; they
+    must not overwrite the metric-bearing row used by audit and synthesis.
+    """
+    if existing is None:
+        return incoming
+    if normalized_execution_status(existing) != normalized_execution_status(incoming):
+        return incoming
+    if execution_row_payload_score(existing) > execution_row_payload_score(incoming):
+        return existing
+    return incoming
 
 
 def parse_args() -> argparse.Namespace:

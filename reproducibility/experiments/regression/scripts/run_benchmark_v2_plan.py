@@ -59,6 +59,16 @@ def parse_args() -> argparse.Namespace:
         help="Optional cap passed to each chunk execution.",
     )
     parser.add_argument(
+        "--min-free-disk-mb",
+        type=float,
+        default=None,
+        help=(
+            "Optional execution guard passed to each chunk. When set, stop before "
+            "starting the next method row if the output filesystem has less than "
+            "this many MiB available."
+        ),
+    )
+    parser.add_argument(
         "--cv-plus-max-train-rows",
         type=int,
         default=None,
@@ -174,7 +184,9 @@ def latest_status_by_method_row(ledger_path: Path) -> dict[str, dict[str, Any]]:
     for row in chunk_runner.read_jsonl(ledger_path):
         method_row_key = str(row.get("method_row_key", ""))
         if method_row_key:
-            latest[method_row_key] = row
+            latest[method_row_key] = chunk_runner.preferred_execution_row(
+                latest.get(method_row_key), row
+            )
     return latest
 
 
@@ -304,6 +316,7 @@ def chunk_args(args: argparse.Namespace, chunk_id: str) -> argparse.Namespace:
         task_registry=args.task_registry,
         execution_root=args.execution_root,
         max_method_rows=args.max_method_rows_per_chunk,
+        min_free_disk_mb=args.min_free_disk_mb,
         cv_plus_max_train_rows=args.cv_plus_max_train_rows,
         jackknife_plus_max_train_rows=args.jackknife_plus_max_train_rows,
         dataset_id=args.dataset_id,

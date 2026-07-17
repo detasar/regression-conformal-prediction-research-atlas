@@ -12,4 +12,5 @@ These fixtures pin the field-renaming and split-schema conventions that were int
 | `artifact_index_public_v1` | `artifact_index` | `regression_cp_public_artifact_index_v1` | `regression_cp_public_artifact_index_v1` | `covered_by_public_smoke` |
 | `audit_response_matrix_public_v1` | `audit_response_matrix` | `regression_cp_final_audit_response_matrix_v1` | `regression_cp_final_audit_response_matrix_v1` | `covered_by_public_smoke` |
 | `benchmark_v2_live_integrity_audit_public_v1` | `benchmark_v2_live_integrity_audit` | `regression_cp_benchmark_v2_live_integrity_audit_v1` | `regression_cp_benchmark_v2_live_integrity_audit_public_v1` | `covered_by_public_smoke` |
+| `benchmark_v2_result_synthesis_public_v1` | `benchmark_v2_result_synthesis` | `regression_cp_benchmark_v2_result_synthesis_v1` | `regression_cp_benchmark_v2_result_synthesis_public_v1` | `covered_by_public_smoke` |
 | `maintenance_quality_matrix_public_v1` | `maintenance_quality_matrix` | `regression_cp_public_maintenance_quality_matrix_v1` | `regression_cp_public_maintenance_quality_matrix_v1` | `covered_by_public_smoke` |

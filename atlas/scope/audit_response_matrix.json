@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-07-17T12:32:44.132350+00:00",
+  "generated_at_utc": "2026-07-17T21:33:21.387903+00:00",
   "rows": [
     {
       "evidence_paths": [
@@ -138,7 +138,7 @@
       ],
       "item": "Define the balanced, paired, leakage-aware Benchmark v2 and track execution.",
       "priority": "P1",
-      "status": "execution_in_progress"
+      "status": "execution_complete_pending_public_synthesis"
     },
     {
       "evidence_paths": [
@@ -150,6 +150,18 @@
       "item": "Publish aggregate Benchmark v2 live integrity audit snapshot.",
       "priority": "P1",
       "status": "completed_current_integrity_snapshot"
+    },
+    {
+      "evidence_paths": [
+        "atlas/benchmark_v2/results/result_synthesis.md",
+        "atlas/benchmark_v2/results/result_synthesis.json",
+        "atlas/benchmark_v2/results/accounting_matrix.csv",
+        "atlas/benchmark_v2/results/method_result_cube.csv",
+        "atlas/benchmark_v2/results/selected_paired_cells.csv"
+      ],
+      "item": "Publish aggregate Benchmark v2 result synthesis outputs.",
+      "priority": "P1",
+      "status": "completed_public_aggregate_synthesis"
     },
     {
       "evidence_paths": [
@@ -225,7 +237,7 @@
   "summary": {
     "atlas_product_status": "completed_current_public_atlas_layer",
     "benchmark_v2_integrity_status": "completed_current_integrity_snapshot",
-    "benchmark_v2_status": "execution_in_progress",
+    "benchmark_v2_status": "execution_complete_pending_public_synthesis",
     "kg_product_status": "completed_current_public_kg_layer",
     "maintenance_status": "source_backed_public_builder_modularization_started",
     "p0_item_count": 10,

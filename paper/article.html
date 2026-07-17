@@ -57,7 +57,7 @@
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <main id="main-content" tabindex="-1">
-  <div class="boundary"><strong>Study scope.</strong> Experiment-scoped Research Atlas render with source-traceable results and layout checks.</div>
+  <div class="boundary"><strong>Study scope.</strong> Source-traceable summary of the audited regression conformal prediction study.</div>
 <h1>Regression Conformal Prediction: Empirical Study</h1>
 <p><strong>Author:</strong> Emre Tasar, Data Scientist</p>
 <p>Contact: detasar@gmail.com</p>
@@ -239,11 +239,30 @@
 </tbody>
 </table></div>
 <p>This check keeps the interpretation conservative. It supports a pipeline-level backend sensitivity statement and keeps from converting CQR into a universal method-choice, best-method claim, or production deployment rule.</p>
+<h3>Benchmark v2 Completion Check</h3>
+<p>Benchmark v2 was added as a smaller, balanced follow-up benchmark after the retrospective result surface was audited. It uses the same frozen coverage-tolerance gate followed by interval score, but should be read as descriptive follow-up evidence rather than as a universal method-choice rule.</p>
+<div class="table-wrap"><table><caption>Regression Conformal Prediction: Empirical Study table 13</caption>
+<thead><tr><th scope="col">Benchmark v2 item</th><th scope="col">Value</th><th scope="col">Interpretation</th></tr></thead>
+<tbody>
+<tr><td>Planned method rows</td><td>42,000</td><td>Frozen execution surface</td></tr>
+<tr><td>Terminal method rows</td><td>42,000</td><td>Complete accounting; no pending rows</td></tr>
+<tr><td>Completed method rows</td><td>29,683</td><td>Rows with fitted interval results</td></tr>
+<tr><td>Failed method rows</td><td>0</td><td>Execution failure count</td></tr>
+<tr><td>Paired cells</td><td>8,400</td><td>Dataset-task-seed-learner comparison cells</td></tr>
+<tr><td>Selected paired cells</td><td>7,350</td><td>Cells with a coverage-eligible selected method</td></tr>
+<tr><td>CQR model-matched selections</td><td>4,415</td><td>Largest Benchmark v2 selected-cell signal</td></tr>
+<tr><td>CV+ selections</td><td>1,216</td><td>Secondary selected-cell signal</td></tr>
+<tr><td>Mondrian selections</td><td>1,265</td><td>Secondary selected-cell signal</td></tr>
+<tr><td>Split conformal selections</td><td>281</td><td>Baseline selected-cell signal</td></tr>
+<tr><td>Jackknife+ selections</td><td>173</td><td>Plus-family selected-cell signal under caps/skips</td></tr>
+</tbody>
+</table></div>
+<p>The Benchmark v2 pattern is stronger evidence than the earlier backend-confound diagnostic because it is balanced at the planned grid level, but it still remains experiment-scoped. The correct reading is that model-matched CQR was most often selected under this frozen Benchmark v2 utility rule, while CV+ and Mondrian remained important comparators. A new application would still need its own validation plan.</p>
 <h2>Discussion</h2>
 <p>The study&#x27;s main scientific value is the combination of broad empirical accounting and explicit negative evidence. Venn-Abers is not forced into a positive result: the current bridge shows 14 undercoverage runs and is therefore reported as a failure mode. This is compatible with the broader Venn-Abers literature because the bridge design is part of the empirical object being tested.</p>
 <p>Unvalidated stronger readings are also results. Zero bounded-support validity-ready bundles and zero population-inference-ready bundles mean the article reports endpoint and group diagnostics without turning them into validity or population-inference conclusions.</p>
 <h2>Reproducibility And Traceability</h2>
-<p>The knowledge graph snapshot has 3,643 nodes and 21,019 edges. The graph links report sections, source artifacts, citation keys, interpretation scope, and quality checks. It is part of the Research Atlas evidence infrastructure for the article.</p>
+<p>The knowledge graph snapshot has 3,643 nodes and 21,019 edges. The graph links report sections, source artifacts, citation keys, interpretation scope, and quality checks for the article.</p>
 <h2>Limitations</h2>
 <ul>
 <li>This article is a Research Atlas report for the completed experiment.</li>
@@ -277,6 +296,8 @@
 <li><code>publication_exemplar_review</code>: <code>study/research_document/publication_exemplar_review.json</code></li>
 <li><code>knowledge_graph_quality_summary</code>: <code>study/reports/knowledge_graph_quality/quality_summary.json</code></li>
 <li><code>cqr_fixed_vs_model_matched_synthesis</code>: <code>study/reports/model_matched_cqr_rerun_plan/cqr_fixed_vs_model_matched_synthesis.json</code></li>
+<li><code>benchmark_v2_result_synthesis</code>: <code>experiments/regression/results/benchmark_v2/synthesis/benchmark_v2_result_synthesis.json</code></li>
+<li><code>benchmark_v2_live_integrity_audit</code>: <code>experiments/regression/results/benchmark_v2/benchmark_v2_live_integrity_audit.json</code></li>
 </ul>
 </main>
 </body>

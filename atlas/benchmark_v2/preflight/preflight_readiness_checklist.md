@@ -1,7 +1,7 @@
 # Benchmark v2 Preflight Readiness Checklist
 
-- Overall status: `execution_in_progress`
-- Result generation status: `in_progress`
+- Overall status: `execution_complete_pending_public_synthesis`
+- Result generation status: `complete_pending_public_synthesis`
 
 | Check | Status | Evidence |
 |---|---|---|
@@ -12,6 +12,6 @@
 | `source_dataset_registry_populated` | `pass` | `atlas/benchmark_v2/preflight/source_dataset_registry.csv` |
 | `task_variant_registry_populated` | `pass` | `atlas/benchmark_v2/preflight/task_variant_registry.csv` |
 | `run_status_ledger_populated` | `pass` | `atlas/benchmark_v2/preflight/run_status_ledger_initial.csv.gz` |
-| `benchmark_v2_results_generated` | `in_progress` | `atlas/benchmark_v2/execution_status.json` |
+| `benchmark_v2_results_generated` | `complete_pending_public_synthesis` | `atlas/benchmark_v2/execution_status.json` |
 | `candidate_run_grid_manifest_published` | `pass` | `atlas/benchmark_v2/preflight/run_grid_manifest_candidate.csv.gz` |
 | `execution_chunks_published` | `pass` | `atlas/benchmark_v2/preflight/execution_chunks.json` |

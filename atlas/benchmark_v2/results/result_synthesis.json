@@ -1,0 +1,40 @@
+{
+  "accounting_matrix_row_count": 4200,
+  "artifact_paths": {
+    "accounting_matrix_csv": "atlas/benchmark_v2/results/accounting_matrix.csv",
+    "method_result_cube_csv": "atlas/benchmark_v2/results/method_result_cube.csv",
+    "selected_paired_cells_csv": "atlas/benchmark_v2/results/selected_paired_cells.csv",
+    "summary_json": "atlas/benchmark_v2/results/result_synthesis.json",
+    "summary_markdown": "atlas/benchmark_v2/results/result_synthesis.md"
+  },
+  "completed_method_row_count": 29683,
+  "coverage_tolerance": 0.01,
+  "failed_method_row_count": 0,
+  "fully_terminal_paired_cell_count": 8400,
+  "generated_at_utc": "2026-07-17T21:33:21.387903+00:00",
+  "interpretation": "Benchmark v2 synthesis uses the frozen coverage-tolerance gate followed by interval score. Partial outputs are execution snapshots until all planned rows are terminal.",
+  "method_result_cube_row_count": 2990,
+  "observed_method_row_count": 42000,
+  "paired_cell_count": 8400,
+  "pending_method_row_count": 0,
+  "planned_method_row_count": 42000,
+  "public_scope_note": "This aggregate Benchmark v2 result synthesis is derived from source-side execution ledgers. Raw ledgers, local caches, and row-level prediction bundles are not included in the public package.",
+  "raw_ledger_included": false,
+  "result_synthesis_status": "complete",
+  "row_level_predictions_included": false,
+  "schema": "regression_cp_benchmark_v2_result_synthesis_public_v1",
+  "selected_cp_method_counts": {
+    "cqr_model_matched": 4415,
+    "cv_plus": 1216,
+    "jackknife_plus": 173,
+    "mondrian_abs": 1265,
+    "split_abs": 281
+  },
+  "selected_paired_cell_count": 7350,
+  "selected_paired_cell_row_count": 7350,
+  "skipped_method_row_count": 12317,
+  "snapshot_source": "source_result_synthesis",
+  "source_reference": "source result synthesis retained outside the public package",
+  "status": "complete",
+  "terminal_method_row_count": 42000
+}

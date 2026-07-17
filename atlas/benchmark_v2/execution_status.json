@@ -1,8 +1,8 @@
 {
-  "completed_method_row_count": 22809,
-  "completed_progress_fraction": 0.54307143,
+  "completed_method_row_count": 29683,
+  "completed_progress_fraction": 0.7067381,
   "failed_method_row_count": 0,
-  "generated_at_utc": "2026-07-17T12:32:44.132350+00:00",
+  "generated_at_utc": "2026-07-17T21:33:21.387903+00:00",
   "historical_attempt_record_count": 26875,
   "historical_failed_attempt_count": 4322,
   "historical_failed_attempt_reason_counts": {
@@ -13,33 +13,33 @@
   "method_rows_with_latest_failed_after_historical_attempt_count": 0,
   "method_rows_with_multiple_attempt_records_count": 3502,
   "method_rows_with_recovered_failed_attempt_count": 4322,
-  "observed_method_row_count": 33407,
-  "pending_method_row_count": 8593,
+  "observed_method_row_count": 42000,
+  "pending_method_row_count": 0,
   "progress_reconciled_with_live_integrity_audit": true,
   "progress_snapshot_source": "benchmark_v2_live_integrity_audit_latest_rows",
   "public_scope_note": "Aggregate Benchmark v2 execution status snapshot. Raw execution ledgers, local caches, and prediction bundles are not included in the public package.",
   "raw_ledger_included": false,
   "resource_preflight": {
-    "available_free_disk_mb": 19316.609,
+    "available_free_disk_mb": 14969.219,
     "disk_check_path": "/home/emre/thesis/conformal_fairness/github_repo",
     "execution_resource_state": "ready_for_guarded_execution",
     "min_free_disk_mb": 1024.0,
     "resource_pause_reason": ""
   },
-  "result_generation_status": "in_progress",
+  "result_generation_status": "complete_pending_public_synthesis",
   "schema": "regression_cp_benchmark_v2_execution_status_snapshot_v1",
   "selected_chunk_count": 42,
   "selected_method_row_count": 42000,
-  "skipped_method_row_count": 10598,
+  "skipped_method_row_count": 12317,
   "snapshot_source": "source_execution_summary",
   "source_chunk_count": 42,
   "source_reference": "source execution summary retained outside the public package",
-  "status": "execution_in_progress",
+  "status": "execution_complete_pending_public_synthesis",
   "status_counts": {
-    "completed": 22809,
+    "completed": 29683,
     "skipped_infeasible_grouped_regime": 5250,
-    "skipped_method": 5348
+    "skipped_method": 7067
   },
-  "terminal_method_row_count": 33407,
-  "terminal_progress_fraction": 0.79540476
+  "terminal_method_row_count": 42000,
+  "terminal_progress_fraction": 1.0
 }

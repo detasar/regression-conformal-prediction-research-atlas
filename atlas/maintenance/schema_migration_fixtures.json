@@ -1,5 +1,5 @@
 {
-  "fixture_count": 9,
+  "fixture_count": 10,
   "fixtures": [
     {
       "artifact_family": "result_cube",
@@ -251,6 +251,39 @@
       "target_schema": "regression_cp_benchmark_v2_live_integrity_audit_public_v1"
     },
     {
+      "artifact_family": "benchmark_v2_result_synthesis",
+      "expected_output_example": {
+        "completed_method_row_count": 100,
+        "planned_method_row_count": 42000,
+        "raw_ledger_included": false,
+        "schema": "regression_cp_benchmark_v2_result_synthesis_public_v1",
+        "selected_cp_method_counts": {
+          "cqr_model_matched": 8
+        },
+        "selected_paired_cell_count": 20,
+        "status": "partial"
+      },
+      "field_role_migrations": {
+        "raw_execution_ledgers": "excluded_from_public_snapshot",
+        "schema": "schema",
+        "selected_cp_method_counts": "selected_cp_method_counts"
+      },
+      "fixture_id": "benchmark_v2_result_synthesis_public_v1",
+      "input_example": {
+        "completed_method_row_count": 100,
+        "planned_method_row_count": 42000,
+        "schema": "regression_cp_benchmark_v2_result_synthesis_v1",
+        "selected_cp_method_counts": {
+          "cqr_model_matched": 8
+        },
+        "selected_paired_cell_count": 20,
+        "status": "partial"
+      },
+      "source_schema": "regression_cp_benchmark_v2_result_synthesis_v1",
+      "status": "covered_by_public_smoke",
+      "target_schema": "regression_cp_benchmark_v2_result_synthesis_public_v1"
+    },
+    {
       "artifact_family": "maintenance_quality_matrix",
       "expected_output_example": {
         "checks": [
@@ -281,7 +314,7 @@
       "target_schema": "regression_cp_public_maintenance_quality_matrix_v1"
     }
   ],
-  "generated_at_utc": "2026-07-17T12:32:44.132350+00:00",
+  "generated_at_utc": "2026-07-17T21:33:21.387903+00:00",
   "schema": "regression_cp_public_schema_migration_fixtures_v1",
   "status": "schema_migration_fixtures_seeded"
 }

@@ -106,16 +106,25 @@ Claim-evidence contract & Use the claim matrix to keep each reader-facing senten
 
 \section{Research Questions}
 
-The article is organized around five research questions. The answers below state what the audited evidence supports and which stronger readings would need separate validation studies.
+The article is organized around five research questions. The answers below are intentionally scoped: each answer states what the audited evidence supports and the stronger reading that remains beyond this study.
 
-\begin{description}
-\item[What empirical object is being audited?] A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. The scope is an audited experiment surface rather than exhaustive internet coverage or deployment generality.
-\item[Which practical method pattern is supported descriptively?] Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.
-\item[Was the CQR signal only a fixed-GBM backend artifact?] A completed model-matched CQR rerun produced 4,564 model-matched rows and 224 paired comparison cells. Fixed-GBM CQR was selected in 116 coverage-eligible interval-score cells, model-matched CQR in 71, and neither variant in 37. Read this as backend-sensitivity evidence.
-\item[What did the evaluated Venn-Abers regression bridge show?] The evaluated bridge is negative/failure-mode evidence in this study, including 14 undercoverage runs. This bridge result is separate from the broader Venn-Abers predictive-distribution and generalized-calibration literature.
-\item[Which stronger scientific readings would need separate validation studies?] Bounded-support validity and population-level group inference would need a separate validation study; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles.
-\item[How can the evidence be audited?] The KG and Research Atlas package provide traceability infrastructure with 3,643 KG nodes and 21,019 KG edges. Source provenance is tracked separately through the Research Atlas evidence files.
-\end{description}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.180\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.250\linewidth}>{\RaggedRight\arraybackslash}p{0.190\linewidth}@{}}
+\toprule
+Research question & Article answer & Evidence anchor & Stronger reading requiring validation \\
+\midrule
+What empirical object is being audited? & A publication-scoped regression conformal prediction evidence base with 145,839 completed rows, 67 datasets, 95 dataset-alpha cells, and 28 method labels. & Completed-row accounting and individual experiment report facts. & The scope is an audited experiment surface rather than exhaustive internet coverage or deployment generality. \\
+Which practical method pattern is supported descriptively? & Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan. CQR carried the largest coverage-gated selected-cell count (56) and CV+ contributed 13 coverage-gated selected cells. & Coverage-gated selected-cell counts, coverage-width diagnostics, and claim/evidence matrix. & Keep the pattern experiment-scoped; use in a new setting needs validation for that setting. \\
+Was the CQR signal only a fixed-GBM backend artifact? & A completed model-matched CQR rerun produced 4,564 model-matched rows and 224 paired comparison cells. Fixed-GBM CQR was selected in 116 coverage-eligible interval-score cells, model-matched CQR in 71, and neither variant in 37. & Fixed-GBM CQR vs model-matched CQR synthesis. & Read the sensitivity check as backend-confound evidence. \\
+What did the evaluated Venn-Abers regression bridge show? & The evaluated bridge is negative/failure-mode evidence in this study, including 14 undercoverage runs. & Bridge diagnostics and Venn-Abers interpretation-limit rows. & Read this bridge result separately from the broader Venn-Abers predictive-distribution and generalized-calibration literature. \\
+Which stronger scientific readings would need separate validation studies? & Bounded-support validity and population-level group inference would need a separate validation study; the current record contains 0 bounded-support-validity-ready bundles and 0 population-inference-ready bundles. & Paper gate map, bounded-support audit, group-diagnostic audit, and claim matrix. & Keep diagnostic endpoint and group evidence separate from validity or group-inference conclusions. \\
+How can the evidence be audited? & The KG and Research Atlas package provide traceability infrastructure with 3,643 KG nodes and 21,019 KG edges. & Knowledge-graph quality audit and Research Atlas package metadata. & Use the Research Atlas repository as the citation surface; source provenance is tracked separately. \\
+\bottomrule
+\end{tabular}
+\endgroup
 
 \section{Concept Bridge For Non-Specialist Readers}
 
@@ -336,6 +345,35 @@ Neither coverage-eligible variant & 37 \\
 
 This check keeps the interpretation conservative. It supports a pipeline-level backend sensitivity statement and keeps from converting CQR into a universal method-choice, best-method claim, or production deployment rule.
 
+\subsection{Benchmark v2 Completion Check}
+
+Benchmark v2 was added as a smaller, balanced follow-up benchmark after the retrospective result surface was audited. It uses the same frozen coverage-tolerance gate followed by interval score, but should be read as descriptive follow-up evidence rather than as a universal method-choice rule.
+
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}>{\RaggedRight\arraybackslash}p{0.240\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}>{\RaggedRight\arraybackslash}p{0.320\linewidth}@{}}
+\toprule
+Benchmark v2 item & Value & Interpretation \\
+\midrule
+Planned method rows & 42,000 & Frozen execution surface \\
+Terminal method rows & 42,000 & Complete accounting; no pending rows \\
+Completed method rows & 29,683 & Rows with fitted interval results \\
+Failed method rows & 0 & Execution failure count \\
+Paired cells & 8,400 & Dataset-task-seed-learner comparison cells \\
+Selected paired cells & 7,350 & Cells with a coverage-eligible selected method \\
+CQR model-matched selections & 4,415 & Largest Benchmark v2 selected-cell signal \\
+CV+ selections & 1,216 & Secondary selected-cell signal \\
+Mondrian selections & 1,265 & Secondary selected-cell signal \\
+Split conformal selections & 281 & Baseline selected-cell signal \\
+Jackknife+ selections & 173 & Plus-family selected-cell signal under caps/skips \\
+\bottomrule
+\end{tabular}
+\endgroup
+
+The Benchmark v2 pattern is stronger evidence than the earlier backend-confound diagnostic because it is balanced at the planned grid level, but it still remains experiment-scoped. The correct reading is that model-matched CQR was most often selected under this frozen Benchmark v2 utility rule, while CV+ and Mondrian remained important comparators. A new application would still need its own validation plan.
+
 \section{Discussion}
 
 The study's main scientific value is the combination of broad empirical accounting and explicit negative evidence. Venn-Abers is not forced into a positive result: the current bridge shows 14 undercoverage runs and is therefore reported as a failure mode. This is compatible with the broader Venn-Abers literature because the bridge design is part of the empirical object being tested.
@@ -344,7 +382,7 @@ Unvalidated stronger readings are also results. Zero bounded-support validity-re
 
 \section{Reproducibility And Traceability}
 
-The knowledge graph snapshot has 3,643 nodes and 21,019 edges. The graph links report sections, source artifacts, citation keys, interpretation scope, and quality checks. It is part of the Research Atlas evidence infrastructure for the article.
+The knowledge graph snapshot has 3,643 nodes and 21,019 edges. The graph links report sections, source artifacts, citation keys, interpretation scope, and quality checks for the article.
 
 \section{Limitations}
 

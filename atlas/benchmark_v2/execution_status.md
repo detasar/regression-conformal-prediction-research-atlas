@@ -4,16 +4,16 @@ This page reports the aggregate execution state for the balanced Benchmark v2 ru
 
 ## Snapshot
 
-- Status: `execution_in_progress`
-- Result generation status: `in_progress`
+- Status: `execution_complete_pending_public_synthesis`
+- Result generation status: `complete_pending_public_synthesis`
 - Selected method rows: `42000`
-- Observed method rows: `33407`
-- Terminal method rows: `33407`
-- Completed method rows: `22809`
-- Skipped method rows: `10598`
+- Observed method rows: `42000`
+- Terminal method rows: `42000`
+- Completed method rows: `29683`
+- Skipped method rows: `12317`
 - Failed method rows: `0`
-- Pending method rows: `8593`
-- Terminal progress fraction: `0.79540476`
+- Pending method rows: `0`
+- Terminal progress fraction: `1.0`
 - Historical attempt records: `26875`
 - Historical failed attempts: `4322`
 - Method rows with recovered failed attempts: `4322`
@@ -22,9 +22,9 @@ This page reports the aggregate execution state for the balanced Benchmark v2 ru
 
 | Status | Rows |
 |---|---:|
-| `completed` | 22809 |
+| `completed` | 29683 |
 | `skipped_infeasible_grouped_regime` | 5250 |
-| `skipped_method` | 5348 |
+| `skipped_method` | 7067 |
 
 ## Historical Attempt Diagnostics
 
@@ -50,7 +50,7 @@ These counts describe raw execution attempts before latest-status resume account
 
 - Resource state: `ready_for_guarded_execution`
 - Pause reason: `none`
-- Available free disk MiB: `19316.609`
+- Available free disk MiB: `14969.219`
 - Guard minimum free disk MiB: `1024.0`
 
 ## Public Scope

@@ -1,5 +1,5 @@
 {
-  "artifact_count": 330,
+  "artifact_count": 335,
   "artifacts": [
     {
       "artifact_kind": "article",
@@ -350,6 +350,31 @@
       "artifact_kind": "benchmark v2",
       "artifact_path": "atlas/benchmark_v2/preflight/task_variant_registry_template.csv",
       "reader_use": "Task variant registry template for Benchmark v2."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/results/accounting_matrix.csv",
+      "reader_use": "Benchmark v2 planned/completed/skipped/failed/pending matrix by paired design factors."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/results/method_result_cube.csv",
+      "reader_use": "Benchmark v2 aggregate method-result cube for completed rows."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/results/result_synthesis.json",
+      "reader_use": "Aggregate Benchmark v2 result synthesis snapshot."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/results/result_synthesis.md",
+      "reader_use": "Readable Benchmark v2 result synthesis snapshot."
+    },
+    {
+      "artifact_kind": "benchmark v2",
+      "artifact_path": "atlas/benchmark_v2/results/selected_paired_cells.csv",
+      "reader_use": "Benchmark v2 coverage-gated interval-score selected paired cells."
     },
     {
       "artifact_kind": "bibliography",
@@ -1652,6 +1677,6 @@
       "reader_use": "Research Atlas manifest for UI readers."
     }
   ],
-  "generated_at_utc": "2026-07-17T12:32:44.132350+00:00",
+  "generated_at_utc": "2026-07-17T21:33:21.387903+00:00",
   "schema": "regression_cp_public_artifact_index_v1"
 }
