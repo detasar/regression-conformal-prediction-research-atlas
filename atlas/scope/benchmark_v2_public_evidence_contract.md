@@ -14,7 +14,7 @@ State the minimum public evidence required before Benchmark v2 results can be in
 | `run_status_ledger` | `benchmark_v2/run_status_ledger.parquet` | `method_row_key`, `paired_cell_key`, `conformal_method_config_id`, `attempted`, `completed`, `failed`, `skipped`, `failure_reason`, `checkpoint_path_hash` |
 | `aggregate_result_cube` | `benchmark_v2/aggregate_result_cube.parquet` | `source_dataset_id`, `task_variant_id`, `alpha`, `learner_config_id`, `conformal_method_config_id`, `coverage`, `width`, `interval_score`, `numerical_pathology_flag` |
 | `clustered_uncertainty_summary` | `benchmark_v2/clustered_uncertainty_summary.json` | `summary_unit`, `bootstrap_policy`, `method_comparison`, `estimate`, `diagnostic_band` |
-| `environment_lock` | `benchmark_v2/environment_lock.json` | `python_version`, `platform`, `package_locks`, `runner_commit`, `config_hash` |
+| `environment_lock` | `reproducibility/environment/public_environment_lock.json` | `schema`, `python_requires`, `recommended_python`, `platform`, `locked_dependencies`, `external_data_dependencies`, `benchmark_v2_execution_environment` |
 
 ## Publishability Gates
 

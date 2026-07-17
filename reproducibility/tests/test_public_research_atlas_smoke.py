@@ -1088,6 +1088,21 @@ def test_public_benchmark_v2_protocol_is_frozen_and_linked() -> None:
         "aggregate_result_cube",
         "environment_lock",
     } <= required_artifacts
+    environment_artifact = artifact_by_id["environment_lock"]
+    assert (
+        environment_artifact["path"]
+        == "reproducibility/environment/public_environment_lock.json"
+    )
+    assert (root / environment_artifact["path"]).exists()
+    assert {
+        "schema",
+        "python_requires",
+        "recommended_python",
+        "platform",
+        "locked_dependencies",
+        "external_data_dependencies",
+        "benchmark_v2_execution_environment",
+    } <= set(environment_artifact["minimum_columns"])
     for field in ("model_id", "learner_params_json", "learner_params_hash"):
         assert field in artifact_by_id["run_grid_manifest"]["minimum_columns"]
     requirements = "\n".join(protocol["design_requirements"]).lower()

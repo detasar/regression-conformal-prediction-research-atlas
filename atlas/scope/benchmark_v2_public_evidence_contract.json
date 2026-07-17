@@ -96,13 +96,15 @@
     {
       "artifact_id": "environment_lock",
       "minimum_columns": [
-        "python_version",
+        "schema",
+        "python_requires",
+        "recommended_python",
         "platform",
-        "package_locks",
-        "runner_commit",
-        "config_hash"
+        "locked_dependencies",
+        "external_data_dependencies",
+        "benchmark_v2_execution_environment"
       ],
-      "path": "benchmark_v2/environment_lock.json"
+      "path": "reproducibility/environment/public_environment_lock.json"
     }
   ],
   "schema": "regression_cp_benchmark_v2_public_evidence_contract_v1",
