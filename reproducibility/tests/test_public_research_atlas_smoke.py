@@ -2497,6 +2497,24 @@ def test_public_surfaces_use_pipeline_level_empirical_headline() -> None:
     assert not missing
 
 
+def test_public_how_to_read_guide_does_not_repeat_headline() -> None:
+    root = repo_root()
+    guide = (root / "HOW_TO_READ_THE_EVIDENCE.md").read_text(encoding="utf-8")
+    headline = (
+        "Under the current coverage criterion, the fixed-GBM CQR pipeline was most "
+        "frequently selected; Mondrian calibration and CV+ were secondary candidates. "
+        "The comparison is experiment-scoped; using the pattern in a new setting would "
+        "need its own validation plan."
+    )
+
+    assert guide.count(headline) == 1
+    assert (
+        "Read the result statement above as an empirical description of this audited "
+        "experiment"
+    ) in guide
+    assert "The model-matched CQR backend check documents backend sensitivity" in guide
+
+
 def test_public_reader_surfaces_enforce_selection_language() -> None:
     root = repo_root()
     pages = [

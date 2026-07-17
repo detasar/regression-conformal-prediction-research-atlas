@@ -19,6 +19,6 @@ This repository is the Research Atlas for the regression conformal prediction st
 
 ## Scientific Reading
 
-- Under the current coverage criterion, the fixed-GBM CQR pipeline was most frequently selected; Mondrian calibration and CV+ were secondary candidates. The comparison is experiment-scoped; using the pattern in a new setting would need its own validation plan.
-- The model-matched CQR backend check is descriptive and experiment-scoped.
-- The expected strong regression solution did not emerge in these experiments.
+- Read the result statement above as an empirical description of this audited experiment; the atlas pages, PDFs, and evidence map provide the supporting details.
+- The model-matched CQR backend check documents backend sensitivity rather than a rule for new settings.
+- The Venn-Abers conclusion is bridge-specific: The expected strong regression solution did not emerge in these experiments.
