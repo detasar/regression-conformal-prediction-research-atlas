@@ -117,6 +117,9 @@ FORBIDDEN_PUBLIC_LANGUAGE_PATTERNS = {
     "traceability_boilerplate": _reader_language_pattern(
         "navigation", "and", "traceability", "artifact"
     ),
+    "global_default_boilerplate": _reader_language_pattern(
+        "global", "defaults", "or", "production", "rules"
+    ),
     "duplicate_evidence_label": _reader_language_pattern("evidence", "evidence", "map"),
     "kg_acceptance_boilerplate": _reader_language_pattern("KG", "browser", "accepted"),
     "release_status_boilerplate": _reader_language_pattern("Current", "release", "status"),
